@@ -50,11 +50,9 @@
 						    <span>PR Schedule</span>
 					    </a>
 					   <ul class="sub-menu">
-						    <li class="<?php if($sub_menu==1){ echo 'active'; }?>"><a href="<?=base_url()?>design-new-mr-order" >View PR Schedule</a></li>
+						    <li class="<?php if($sub_menu==1){ echo 'active'; }?>"><a href="<?=base_url()?>design-pr-schedule" >View PR Schedule</a></li>
 						</ul> 
-						<ul class="sub-menu">
-						    <li class="<?php if($sub_menu==1){ echo 'active'; }?>"><a href="<?=base_url()?>design-new-mr-order" >View PR Schedule Complete</a></li>
-						</ul>    
+						  
 
 					</li>
 					

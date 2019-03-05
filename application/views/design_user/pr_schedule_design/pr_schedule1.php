@@ -25,7 +25,7 @@ if(empty($email_id)){
 			</ol>
 			<!-- end breadcrumb -->
 			<!-- begin page-header -->
-			<h1 class="page-header">Project PR Schedule
+			<h1 class="page-header"> PR Schedule
 			 <!-- <small>header small text goes here...</small> -->
 			</h1>
 			<!-- end page-header -->
@@ -48,7 +48,9 @@ if(empty($email_id)){
 			}
 			 // print_r($this->session->userdata());
 			 ?>
-<div class="panel panel-inverse">
+
+			<!-- begin panel -->
+			<div class="panel panel-inverse">
 				<div class="panel-heading">
 					<div class="panel-heading-btn">
 					<!-- 	<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a> -->
@@ -57,13 +59,13 @@ if(empty($email_id)){
 						<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
 					</div>
 					<h4 class="panel-title"> PR Schedule</h4>
-				</div>	
+				</div>				
 				<div class="panel-body">
 					<form  method="POST" enctype="multipart/form-data"	>
 						<div class="alert alert-secondary">
 	                       	<span style="color: red"> *</span>All mandatory fields shall be duly filled up 
-	                    </div>	   
-	                    <div class="card-body">						        	
+	                    </div>	              		
+						<div class="card-body">						        	
 							<hr>
 						    <div class="row">
 								<div class="col-md-6 col-lg-6">
@@ -71,10 +73,53 @@ if(empty($email_id)){
 										<label class="col-form-label col-md-3" for="Date_creation"> Project <span style="color: red">*</span></label>
 										<div class="col-md-9">
 											<select class="form-control" onchange="load_data()" name="job_code" id="job_code" required="">
+
 												<option value="">--Select Project---</option>
 												<?php
-													foreach ($query_design->result() as $key_job_code) {
+													foreach ($query_bu->result() as $key_job_code) {
 														echo "<option value='".$key_job_code->Project_Slno."'>".$key_job_code->job_Code." [ ".$key_job_code->Project_Name." ]</option>";
 													}
 												?>
 											</select>
+											<!-- <input class="form-control m-b-5 datepickers" placeholder="Enter Project PR schedule" name="Date_creation" id="Date_creation" type="text" value="" required=""> -->
+											<small class="f-s-12 text-grey-darker">Please Select Project For Upload PR Schedule</small>
+										</div>							
+									</div>
+								</div>
+								<div class="col-md-6 col-lg-6"><!-- part g start -->
+									<div class="form-group row m-b-15">
+										<label class="col-form-label col-md-3" for="job_files">Get Info <span style="color: red">*</span></label>
+										<div class="col-md-9">
+											<input class=" m-b-5" name="job_files" id="job_files" type="file" required="" required accept=".xls, .xlsx" >	
+											<!-- <span class="btn btn-sm btn-info" > -->
+											
+											<!-- </span> -->
+												<br>
+											
+										</div>
+									</div>											
+								</div>			
+							</div>
+							<div class="form-group row pull-right">
+			                    <div class="form-group row pull-right">
+			                        <div class="col-md-12">
+			                            <button type="button" class="btn btn-sm btn-primary m-r-5" name="send_button" id="sub" value="save">Save</button>
+			                            <button type="button" class="btn btn-info btn-sm m-r-5" id="upload" style="display: none">Uploading ...</button>
+			                           	 
+			                            <a  href="<?=base_url()?>user-designuser-home" class="btn btn-sm btn-danger">Cancel</a> 
+			                        </div>
+			                    </div>			
+							</div>
+						</div>
+					</form>
+					<br />
+					<div class="table-responsive" id="customer_data">
+
+					</div>
+
+				</div>
+			
+			<!-- end panel -->
+		</div>
+		<!-- end #content -->
+

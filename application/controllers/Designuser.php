@@ -318,6 +318,24 @@ class Designuser extends CI_Controller {
             $this->load->view('template/template_footer',$data);
         # code...create_mr_order_third.php
     }
+    public function design_pr_schedule($value=''){ // CREATING mR
+          $scripts='</script> <script src="'.base_url().'file_css_admin/own_js_date_picker.js"></script>';
+            $data=array('title' =>"BU Pr Schedule",'script_js'=>$scripts,'menu_status'=>'2','sub_menu'=>'4','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'');
+            $this->load->view('template/template_header',$data);
+            $this->load->view('design_user/template/template_top_head');
+            $this->load->view('design_user/template/template_side_bar',$data);
+            $this->load->view('design_user/pr_schedule_design/pr_schedule',$data);
+
+            $this->load->view('template/template_footer',$data);
+       # code...
+   }
+    
+    
+
+
+
+
+
     public function design_vehicle_required_session(){
         $email_id=$this->session->userdata('design_email_id');
         if(empty($email_id)){

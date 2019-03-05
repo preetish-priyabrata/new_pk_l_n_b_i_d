@@ -164,6 +164,18 @@
 						    
 						</ul>
 					</li>
+					<li class="has-sub <?php if($menu_status==12){echo 'active';}?>">
+						<a href="javascript:;">
+					        <b class="caret"></b>
+						    <i class="fas fa-puzzle-piece"></i>
+						    <span>Category & Material Setting  </span>
+					    </a>
+						<ul class="sub-menu">
+							  <li class="<?php if($sub_menu==111){ echo 'active'; }?>"><a href="<?=base_url()?>admin-view-new-category-list" >View Category List</a></li>
+						    <li class="<?php if($sub_menu==111){ echo 'active'; }?>"><a href="<?=base_url()?>admin-view-new-material-list" >Create & View Material List</a></li>
+						    
+						</ul>
+					</li>
 
 					
 					

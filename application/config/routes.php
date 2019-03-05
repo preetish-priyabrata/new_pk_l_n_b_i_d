@@ -305,6 +305,7 @@ $route['design-resubmission-mr-order']='designuser/design_resubmission_mr_order'
 $route['design-resubmit-mr-order-edit/(:any)/(:any)/(:any)']='designuser/design_resubmit_mr_order_edit/$1/$2/$3';
 $route['design-resubmit-new-mr-save-formII']='designuser/design_resubmit_new_mr_save_formII';
 
+$route['design-pr-schedule']='designuser/design_pr_schedule';
 
 
 #####################################################################################################################################
