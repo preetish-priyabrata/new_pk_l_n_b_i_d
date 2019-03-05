@@ -42,7 +42,23 @@
 						     <li class="<?php if($sub_menu==4){ echo 'active'; }?>"><a href="<?=base_url()?>design-submitted-mr-order" >Submission Material Requisition List </a></li>
 						    <!-- <li><a href="index_v2.html">Dashboard v2</a></li> -->
 						</ul>
+						<ul class="nav">
+					<li class="has-sub <?php if($menu_status==1){echo 'active';}?>">
+						<a href="javascript:;">
+					        <b class="caret"></b>
+						    <i class="fas fa-atlas"></i>
+						    <span>PR Schedule</span>
+					    </a>
+					   <ul class="sub-menu">
+						    <li class="<?php if($sub_menu==1){ echo 'active'; }?>"><a href="<?=base_url()?>design-new-mr-order" >View PR Schedule</a></li>
+						</ul> 
+						<ul class="sub-menu">
+						    <li class="<?php if($sub_menu==1){ echo 'active'; }?>"><a href="<?=base_url()?>design-new-mr-order" >View PR Schedule Complete</a></li>
+						</ul>    
+
 					</li>
+					
+				</ul>
 					<!-- <li class="has-sub <?php if($menu_status==2){echo 'active';}?>">
 						<a href="javascript:;">
 					        <b class="caret"></b>

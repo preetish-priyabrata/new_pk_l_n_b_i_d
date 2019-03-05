@@ -4,7 +4,11 @@ if(empty($email_id)){
 	
 	redirect('bu-logout-by-pass');
 }
-
+$this->db->select('*');
+	$this->db->from('master_project');
+	$this->db->join('assign_project_user', ' (assign_project_user.project_slno = master_project.Project_Slno  AND master_project.status=1 ) ', 'right outer' );					
+	$this->db->where('assign_project_user.email_id', $email_id); 	
+	$query_bu = $this->db->get();
 
 ?>
 
@@ -57,51 +61,67 @@ if(empty($email_id)){
 					<h4 class="panel-title">View PR Schedule</h4>
 				</div>
 				
-					<div class="panel-body">
-					<div class="alert alert-secondary">
-                       	<span style="color: red"> *</span>All mandatory fields shall be duly filled up 
-                    </div>	
-                    <form action="<?=base_url()?>bu_view_pr_schedule_new" method="POST">
-                    <input type="hidden" name="Slno_tracking" value="">					
-						
-						      <div id="collapseOne" class="collapse show" data-parent="#accordion">
-						        <div class="card-body">
-						        	
-						        	<hr>
-						         	<div class="row">
-										<div class="col-md-6 col-lg-6">
-										 	<div class="form-group row m-b-15">
-												<label class="col-form-label col-md-3" for="project"> Project  <span style="color: red">*</span></label>
-												<div class="col-md-9">
-													<input class="form-control m-b-5 datepickers" placeholder="Enter Project " name="Date_creation" id="Date_creation" type="text" value="" required="">
-													<small class="f-s-12 text-grey-darker">Here enter Project</small>
-												</div>
-												
+					<div class="panel-body">						
+						<div class="card-body">					    	
+					        <div class="row">
+								<div class="col-md-6 col-lg-6">
+								 	<div class="form-group row m-b-15">
+										<label class="col-form-label col-md-3" for="project"> Project  <span style="color: red">*</span></label>
+										<div class="col-md-9">
+											<select class="form-control" onchange="load_data()" name="job_code" id="job_code" required="">
+											<option value="">--Select Project---</option>
+											<?php
+												foreach ($query_bu->result() as $key_job_code) {
+													echo "<option value='".$key_job_code->Project_Slno."'>".$key_job_code->job_Code." [ ".$key_job_code->Project_Name." ]</option>";
+												}
+											?>
+											</select>
+											<!-- <input class="form-control m-b-5 datepickers" placeholder="Enter Project PR schedule" name="Date_creation" id="Date_creation" type="text" value="" required=""> -->
+											<small class="f-s-12 text-grey-darker">Please Select Project For Upload PR Schedule</small>
+										</div>											
+									</div>
+								</div>							
+							</div>
+							<div class="row">
+								<br />
+								<div class="table-responsive" id="customer_data">
 
-												<!-- part g start -->
-												
-												< --end -->
-											</div>
-											</div>
-											
-
-
-
-							
-							  
-				</form>
-				
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
-			<div class="form-group row pull-right">
-                    <div class="form-group row pull-right">
-                        <div class="col-md-12">
-                            <button type="submit" class="btn btn-sm btn-primary m-r-5" name="send_button" value="save">View</button>
-                             <div class="col-md-12">
-                            <button type="submit" class="btn btn-sm btn-primary m-r-5" name="send_button" value="save">Save</button>
-                           <user-buuser-home" class="btn btn-sm btn-danger">Cancel</a> 
-                        </div>
-                    </div>			
-			</div>
-			<!-- end panel -->
-		</div>
-		<!-- end #content -->
+		
+
+                
+		
+<script type="text/javascript">
+
+function load_data(){
+	var actions_file='bu_Views_total';
+    var Mr_no = $('#job_code').val();
+    queryString_id = 'actions_file='+actions_file+'&job_code='+ Mr_no;
+	    if(Mr_no!=""){
+	    	$('#sub').show();
+			// jQuery.ajax({
+			// 	url: "<?php echo base_url(); ?>file-upload-data",
+			// 	data:queryString_id,
+			// 	type: "POST",
+			// 	success:function(data){
+			// 		$("#cart-item-files").html(data);
+			// 	}
+			// });
+			$.ajax({
+				url:"<?php echo base_url(); ?>excel-upload/entry",
+				data:queryString_id,
+				method:"POST",
+				success:function(data){
+					$('#customer_data').html(data);
+				}
+			});
+		}else{
+			alert('Please Select Project');	
+		}
+	}
+</script>

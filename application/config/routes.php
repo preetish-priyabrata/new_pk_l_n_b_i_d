@@ -364,7 +364,7 @@ $route['bu-view-pr-schedule']='buuser/bu_view_pr_schedule_new';
 // ajax transfer file for loading
 $route['excel-upload/entry']='buuser/bu_excel_uploads_save';
 $route['excel-upload/view']='buuser/bu_excel_uploads_view';
-$route['bu-view-project']='buyeruser/bu_project_view';
+$route['bu-view-project']='buuser/bu_project_view';
 ###########################################################################################################################################
 #
 #                                          Buyer Section
@@ -392,7 +392,7 @@ $route['bid-tech-entry']='buyeruser/buyer_bid_tech_entry';
 
 
 
-// commerical Bid In buoer
+// commerical Bid In buyer
 $route['bid-commerical-entry']='buyeruser/bid_commerical_entry';
 $route['buyer-drafted-bid-commerical']='buyeruser/user_buyer_bid_drafted_commerical';
 $route['buyer-bid-commerical-sent/(:any)/(:any)']='buyeruser/buyer_bid_sent_commerical/$1/$2';

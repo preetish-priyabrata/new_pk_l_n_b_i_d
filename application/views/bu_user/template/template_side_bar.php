@@ -39,8 +39,19 @@
 						    <li class="<?php if($sub_menu==1){ echo 'active'; }?>"><a href="<?=base_url()?>bu-create-tracking" >Create  Tracking Tool</a></li>
 						    <li class="<?php if($sub_menu==2){ echo 'active'; }?>"><a href="<?=base_url()?>bu-drafted-tracking" >Drafted  Tracking Tool</a></li>
 						    <li class="<?php if($sub_menu==3){ echo 'active'; }?>"><a href="<?=base_url()?>bu-new-submited-tracking" >Submitted  Tracking Tool</a></li>
-						    <li class="<?php if($sub_menu==1){ echo 'active'; }?>"><a href="<?=base_url()?>bu-pr-schedule" >Entry PR Schedule</a></li>
-						    <li class="<?php if($sub_menu==1){ echo 'active'; }?>"><a href="<?=base_url()?>bu-view-schedule" >View PR Schedule</a></li>
+						  
+						</ul>
+					</li>
+					<li class="has-sub <?php if($menu_status==2){echo 'active';}?>">
+						<a href="javascript:;">
+					        <b class="caret"></b>
+						    <i class="fas fa-atlas"></i>
+						    <span>Project Pr Schedule</span>
+					    </a>
+						<ul class="sub-menu">
+						    
+						    <li class="<?php if($sub_menu==4){ echo 'active'; }?>"><a href="<?=base_url()?>bu-pr-schedule" >Entry PR Schedule</a></li>
+						    <li class="<?php if($sub_menu==5){ echo 'active'; }?>"><a href="<?=base_url()?>bu-view-project" >View PR Schedule</a></li>
 						    <!-- <li><a href="index_v2.html">Dashboard v2</a></li> -->
 						</ul>
 					</li>

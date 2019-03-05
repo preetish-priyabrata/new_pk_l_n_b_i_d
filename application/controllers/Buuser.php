@@ -102,7 +102,7 @@ class Buuser extends CI_Controller {
             $this->load->view('template/template_footer',$data);
        
     }else{
-       $this->session->set_flashdata('error_message', 'Some thing went worng ');
+       $this->session->set_flashdata('error_message', 'Some thing went wro0000000000ng ');
                 redirect('user-bu-home');  
     }
    }
@@ -117,7 +117,7 @@ class Buuser extends CI_Controller {
             $this->load->view('template/template_footer',$data);
        
     }else{
-       $this->session->set_flashdata('error_message', 'Some thing went worng ');
+       $this->session->set_flashdata('error_message', 'Something went wrong ');
                 redirect('user-bu-home');  
     }
    }
@@ -188,7 +188,7 @@ class Buuser extends CI_Controller {
                 $this->load->view('template/template_footer',$data);
            
         }else{
-           $this->session->set_flashdata('error_message', 'Some thing went worng ');
+           $this->session->set_flashdata('error_message', 'Some thing went wrong ');
                     redirect('user-bu-home');  
         }
    }
@@ -205,7 +205,7 @@ class Buuser extends CI_Controller {
 
    public function bu_create_pr_schedule_new($value=''){ // CREATING mR
           $scripts='</script> <script src="'.base_url().'file_css_admin/own_js_date_picker.js"></script>';
-            $data=array('title' =>"BU Pr Schedule",'script_js'=>$scripts,'menu_status'=>'1','sub_menu'=>'1','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'');
+            $data=array('title' =>"BU Pr Schedule",'script_js'=>$scripts,'menu_status'=>'2','sub_menu'=>'4','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'');
             $this->load->view('template/template_header',$data);
             $this->load->view('bu_user/template/template_top_head');
             $this->load->view('bu_user/template/template_side_bar',$data);
@@ -216,11 +216,11 @@ class Buuser extends CI_Controller {
    }
    public function bu_view_pr_schedule_new($value=''){ // CREATING mR
           $scripts='</script> <script src="'.base_url().'file_css_admin/own_js_date_picker.js"></script>';
-            $data=array('title' =>"BU Pr Schedule",'script_js'=>$scripts,'menu_status'=>'1','sub_menu'=>'1','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'');
+            $data=array('title' =>"BU Pr Schedule",'script_js'=>$scripts,'menu_status'=>'2','sub_menu'=>'4','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'');
             $this->load->view('template/template_header',$data);
             $this->load->view('bu_user/template/template_top_head');
             $this->load->view('bu_user/template/template_side_bar',$data);
-            $this->load->view('bu_user/view_pr_schedule/view_schedule',$data);
+            $this->load->view('bu_user/bu_view_pr_schedule_new/view_schedule',$data);
 
             $this->load->view('template/template_footer',$data);
        # code...
@@ -349,14 +349,56 @@ class Buuser extends CI_Controller {
                 $output .= '</table>';
                 echo $output;
                 exit();         
-            break;      
+            break;  
+            case 'bu_Views_total':
+                  $data_check = array('job_code' => $job_code);
+                $query=$this->db->get_where($table,$data_check);
+                    // echo  $this->db->last_query();
+                $output = '
+                  <h3 align="center">Total Data - '.$query->num_rows().'</h3>
+                  <table id="example" class="table table-striped table-bordered display">
+                    <tr>
+                      <th>Discipline</th>
+                      <th>PR No</th>
+                      <th>Area</th>
+                      <th>Item</th>
+                      <th>UOM</th>
+                      <th>Quantity</th>
+                      <th>Original Schedule</th>
+                      <th>Revised Schedule</th>
+                    </tr>
+                ';
+                foreach($query->result() as $row){
+                    $output .= '
+                    <tr>
+                      <td>'.$row->discipline.'</td>
+                      <td>'.$row->pr_no.'</td>
+                      <td>'.$row->area.'</td>
+                      <td>'.$row->item.'</td>
+                      <td>'.$row->UOM.'</td>
+                      <td>'.$row->quantity.'</td>
+                      <td>'.$row->original_schedule.'</td>
+                      <td>'.$row->revised_schedule.'</td>
+                    </tr>
+                    ';
+                }
+                $output .= '</table>';
+                echo $output;
+            break;    
             default:
        
             break;
         }
     }
     public function bu_project_view(){
-        # code...
+       $scripts='<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script><script src=" https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script> <script src="'.base_url().'file_css_admin/own_js.js"></script>';
+            $data=array('title' =>"BU Pr Schedule",'script_js'=>$scripts,'menu_status'=>'2','sub_menu'=>'5','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'');
+            $this->load->view('template/template_header',$data);
+            $this->load->view('bu_user/template/template_top_head');
+            $this->load->view('bu_user/template/template_side_bar',$data);
+            $this->load->view('bu_user/view_pr_schedule/view_schedule',$data);
+
+            $this->load->view('template/template_footer',$data);
     }
    
 
