@@ -247,7 +247,7 @@ class Buuser extends CI_Controller {
                         exit();
                     } else {
                         if(move_uploaded_file($_FILES["file"]["tmp_name"], 'upload_files/pr_sch/' . $file_stored_name)){
-                            $data_array = array('job_code_id'=>$job_code, 'file_name'=>$file_stored_name, 'upload_by'=>$job_code);
+                            $data_array = array('job_code_id'=>$job_code, 'file_name'=>$file_stored_name, 'upload_by'=>$email_id);
                             $query_files=$this->db->insert('master_pr_schedule_file',$data_array);
                             $path_excel="upload_files/pr_sch/".$file_stored_name;
                             $arr_file = explode('.', $_FILES['file']['name']);

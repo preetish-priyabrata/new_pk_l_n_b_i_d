@@ -236,6 +236,16 @@ $route['admin-add-Location-save']='adminuser/admin_add_Location_save';
 $route['change-Location-status/(:any)/(:any)/(:any)']='adminuser/admin_change_Location_status/$1/$2/$3';
 ######################################################################################################################################
 #
+#   Admin New Category and material name with technical description
+#
+######################################################################################################################################
+$route['admin-excel-upload/entry']='adminuser/admin_add_new_category_material'; // here upload new material category list
+$route['admin-view-new-material-list']='adminuser/admin_view_new_material_list'; //here only material list will be shown 
+$route['admin-new-material-catergory/(:any)']='adminuser/admin_new_category_material/$1'; // here it create new category and material list
+$route['admin-view-new-category-list']='adminuser/admin_view_new_category_list'; //here only category list will be shown
+$route['admin-view-material-more/(:any)']='adminuser/admin_view_material_details_list/$1'; // single category material list
+######################################################################################################################################
+#
 #                                                         BU Section starts here
 #
 ######################################################################################################################################

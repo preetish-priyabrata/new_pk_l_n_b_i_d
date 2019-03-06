@@ -1,6 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
+require 'vendor/autoload.php';
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 class Adminuser extends CI_Controller {
     public function __construct(){
                 parent::__construct();
@@ -10,12 +12,12 @@ class Adminuser extends CI_Controller {
                 $this->load->database();    
                 
                 //Load session library 
-             $this->load->library('session');
-             $this->load->library('user_agent');
-             $this->load->library('encryption');
-             $this->load->library('form_validation');
-             $this->load->library('cronfile');
-             $this->cronfile->index_event();
+                $this->load->library('session');
+                $this->load->library('user_agent');
+                $this->load->library('encryption');
+                $this->load->library('form_validation');
+                $this->load->library('cronfile');
+                $this->cronfile->index_event();
 
 
         }
@@ -29,7 +31,7 @@ class Adminuser extends CI_Controller {
             $this->load->view('template/template_footer',$data);
         }
         public function user_admin_home(){
-             $scripts='';
+            $scripts='';
             $data=array('title' =>"Admin Dashboard",'script_js'=>$scripts,'menu_status'=>'','sub_menu'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'');
             
             $this->load->view('template/template_header',$data);
@@ -46,7 +48,7 @@ class Adminuser extends CI_Controller {
         public function viewusers(){
             $scripts='<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script><script src=" https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script> <script src="'.base_url().'file_css_admin/own_js.js"></script>';
 
-           $data=array('title' =>"View System User",'script_js'=>$scripts ,'menu_status'=>'1','sub_menu'=>'1','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'');  
+            $data=array('title' =>"View System User",'script_js'=>$scripts ,'menu_status'=>'1','sub_menu'=>'1','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'');  
 
             $this->load->view('template/template_header',$data);
             $this->load->view('admin/template/template_top_head');
@@ -56,14 +58,14 @@ class Adminuser extends CI_Controller {
         }
         
         public function admin_add_users(){
-               $scripts='<script src="https://cdnjs.cloudflare.com/ajax/libs/hideshowpassword/2.0.8/hideShowPassword.min.js"></script>';
+            $scripts='<script src="https://cdnjs.cloudflare.com/ajax/libs/hideshowpassword/2.0.8/hideShowPassword.min.js"></script>';
             $data=array('title' =>"Admin Add New Users",'script_js'=>$scripts,'menu_status'=>'','sub_menu'=>'','sub_menu'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'');
             $this->load->view('template/template_header',$data);
             $this->load->view('admin/template/template_top_head');
             $this->load->view('admin/template/template_side_bar',$data);
             $this->load->view('admin/user_creation/create_admin_user');
             $this->load->view('template/template_footer',$data);
-          
+        
         }
         public function admin_add_users_save(){
             // print_r($this->input->post());
@@ -92,7 +94,7 @@ class Adminuser extends CI_Controller {
                     $result_mobile= $this->user->check_present($table,$data_moblie);
                     if($result_mobile==0){
                         $data_insert = array('email_id'=>$user_email, 'Username'=>$user_name, 'Password'=>$password, 'password_hash'=>md5($password), 'Status'=>1, 'role_id'=>$user_role, 'user_mobile'=>$user_mobile, 'user_degination'=>$user_degination );
-                       
+                    
                         $result_insert = $this->user->common_insert($table,$data_insert);
                         $date_insert_json=json_encode($data_insert);
                         $table_log='pms_log_entries';
@@ -102,7 +104,7 @@ class Adminuser extends CI_Controller {
                         // After that you need to used r
                         redirect('user-admin-home');
                     }else{
-                         $this->session->set_flashdata('error_message', 'Moblie no already exists');
+                        $this->session->set_flashdata('error_message', 'Moblie no already exists');
                         // After that you need to used r
                         redirect('user-admin-home');
                     }
@@ -127,7 +129,7 @@ class Adminuser extends CI_Controller {
             $keys_id="preetishweb";
             $value1_convered = strtr($value1,array('.' => '+', '-' => '=', '~' => '/'));
             
-           $value1_convered_id=$this->encrypt->decode($value1_convered,$keys_id);
+            $value1_convered_id=$this->encrypt->decode($value1_convered,$keys_id);
             if($value1_convered_id==$value2){
                 $scripts='<script src="https://cdnjs.cloudflare.com/ajax/libs/hideshowpassword/2.0.8/hideShowPassword.min.js"></script>';
             
@@ -138,7 +140,7 @@ class Adminuser extends CI_Controller {
                 $this->load->view('admin/user_creation/change_user_password',$data);
                 $this->load->view('template/template_footer',$data);
             }else{
-                 $this->session->set_flashdata('error_message', 'Some thing went Wrong');
+                $this->session->set_flashdata('error_message', 'Some thing went Wrong');
                 // After that you need to used redirect function instead of load view such as                 
                 redirect('user-admin-home');
             }
@@ -197,29 +199,29 @@ class Adminuser extends CI_Controller {
         public function viewproject(){
             $scripts='<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script><script src=" https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script> <script src="'.base_url().'file_css_admin/own_js.js"></script>';
 
-           $data=array('title' =>"View System User",'script_js'=>$scripts ,'menu_status'=>'2','sub_menu'=>'2','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'');  
+            $data=array('title' =>"View System User",'script_js'=>$scripts ,'menu_status'=>'2','sub_menu'=>'2','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'');  
 
             $this->load->view('template/template_header',$data);
             $this->load->view('admin/template/template_top_head');
             $this->load->view('admin/template/template_side_bar',$data);
             $this->load->view('admin/project/view_project_list');
             $this->load->view('template/template_footer',$data);
-          
+        
         }
         public function viewproject_closed(){
             $scripts='<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script><script src=" https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script> <script src="'.base_url().'file_css_admin/own_js.js"></script>';
 
-           $data=array('title' =>"View System User",'script_js'=>$scripts ,'menu_status'=>'2','sub_menu'=>'2','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'');  
+            $data=array('title' =>"View System User",'script_js'=>$scripts ,'menu_status'=>'2','sub_menu'=>'2','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'');  
 
             $this->load->view('template/template_header',$data);
             $this->load->view('admin/template/template_top_head');
             $this->load->view('admin/template/template_side_bar',$data);
             $this->load->view('admin/project/view_project_list_closed');
             $this->load->view('template/template_footer',$data);
-          
+            
         }
         public function admin_add_projects(){
-             $scripts='<script src="'.base_url().'file_css_admin/own_js.js"></script>';
+            $scripts='<script src="'.base_url().'file_css_admin/own_js.js"></script>';
             $data=array('title' =>"Admin Add New Users",'script_js'=>$scripts,'menu_status'=>'2','sub_menu'=>'','sub_menu'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'');
             $this->load->view('template/template_header',$data);
             $this->load->view('admin/template/template_top_head');
@@ -240,11 +242,11 @@ class Adminuser extends CI_Controller {
                     $query=$this->db->get_where($table,$data_check);
                     if ($query->num_rows() == 0) {
                         $data_respose = array('status' =>1 ,'msg'=>'job code not presernt' );
-                       
+                    
                     }else{
-                         $data_respose = array('status' =>2 ,'msg'=>'job code is presernt' );
+                        $data_respose = array('status' =>2 ,'msg'=>'job code is presernt' );
                     }
-                     echo json_encode($data_respose);
+                    echo json_encode($data_respose);
                     # code...
                     break;
                 
@@ -254,9 +256,6 @@ class Adminuser extends CI_Controller {
             }             
         }
         public function admin_add_project_save(){
-           // print_r($this->input->post());
-           // Array ( [Project_name] => ttt [job_code] => 55 [datepicker] => 2018-09-25 [Customer_name] => ffff [Customer_Mobile_No] => 1234565767 [Project_Description] => 5555 [bu_user] => Array ( [0] => 7 [1] => 8 ) [design_user] => Array ( [0] => 6 [1] => 9 [2] => 10 ) [project_user] => Array ( [0] => 11 [1] => 12 ) [procurement_user] => Array ( [0] => 13 [1] => 14 ) [buyers_user] => Array ( [0] => 13 [1] => 14 ) ) 
-          
             $data_brower['browser'] = $this->agent->browser();
             $data_brower['browserVersion'] = $this->agent->version();
             $data_brower['platform'] = $this->agent->platform();
@@ -2393,7 +2392,7 @@ class Adminuser extends CI_Controller {
         }
 
         public function admin_edit_vehicle_type_save(){
-            print_r($this->input->post());
+            // print_r($this->input->post());
             $type_slno=$this->input->post('type_slno');
             $type_of_name=$this->input->post('type_of_name');
             $table="master_vehicle_type";
@@ -2429,7 +2428,7 @@ class Adminuser extends CI_Controller {
             }else{
                 $this->session->set_flashdata('error_message', '  Something Went Wrong ');
                 // After that you need to used redirect home
-               redirect('user-admin-home'); 
+                redirect('user-admin-home'); 
             }
             
         }
@@ -2629,7 +2628,7 @@ class Adminuser extends CI_Controller {
             }else{
                 $this->session->set_flashdata('error_message', '  Something Went Wrong ');
                 // After that you need to used redirect home
-               redirect('user-admin-home'); 
+                redirect('user-admin-home'); 
             }
             
         }
@@ -2642,7 +2641,7 @@ class Adminuser extends CI_Controller {
         public function admin_view_location_details(){
             $scripts='<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script><script src=" https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script> <script src="'.base_url().'file_css_admin/own_js.js"></script>';
 
-           $data=array('title' =>"View Location List",'script_js'=>$scripts ,'menu_status'=>'11','sub_menu'=>'111','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'');  
+            $data=array('title' =>"View Location List",'script_js'=>$scripts ,'menu_status'=>'11','sub_menu'=>'111','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'');  
             $this->load->view('template/template_header',$data);
             $this->load->view('admin/template/template_top_head');
             $this->load->view('admin/template/template_side_bar',$data);
@@ -2650,9 +2649,9 @@ class Adminuser extends CI_Controller {
             $this->load->view('template/template_footer',$data);
         }
         public function admin_add_location(){
-             $scripts='';
+            $scripts='';
 
-           $data=array('title' =>"Entry Location Information",'script_js'=>$scripts ,'menu_status'=>'11','sub_menu'=>'111','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'');  
+            $data=array('title' =>"Entry Location Information",'script_js'=>$scripts ,'menu_status'=>'11','sub_menu'=>'111','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'');  
             $this->load->view('template/template_header',$data);
             $this->load->view('admin/template/template_top_head');
             $this->load->view('admin/template/template_side_bar',$data);
@@ -2663,8 +2662,8 @@ class Adminuser extends CI_Controller {
         public function admin_add_Location_save(){    
             // print_r($this->input->post());
             // exit;
-           $Location_name_form=$this->input->post('Location_name_form');
-           if($Location_name_form=="Create_new_location"){       
+            $Location_name_form=$this->input->post('Location_name_form');
+            if($Location_name_form=="Create_new_location"){       
                 $Location_name=$this->input->post('Location_name');
                 $table="master_loaction_details";
                 $data = array('location_name' =>$Location_name);
@@ -2674,20 +2673,20 @@ class Adminuser extends CI_Controller {
                     if($query){
                         $this->session->set_flashdata('success_message', '  Suucessfully Location is stored');
                         // After that you need to used redirect home
-                       redirect('user-admin-home'); 
+                        redirect('user-admin-home'); 
                     }else{
                         $this->session->set_flashdata('error_message', '  Something Went Wrong ');
                         // After that you need to used redirect home
-                       redirect('user-admin-home'); 
+                        redirect('user-admin-home'); 
                     }
                 }else{
                     $this->session->set_flashdata('error_message', '  Location Name Already present on our record   ');
                     // After that you need to used redirect home
-                   redirect('user-admin-home');   
+                    redirect('user-admin-home');   
                 }
             }else  if($Location_name_form=="Edit_loaction"){  // here edit information is kept
-                 $Location_name=$this->input->post('Location_name');
-                 $location_slno=$this->input->post('location_slno');
+                $Location_name=$this->input->post('Location_name');
+                $location_slno=$this->input->post('location_slno');
                 
                 $table="master_loaction_details";
                 $data = array('location_name' =>$Location_name);
@@ -2705,9 +2704,9 @@ class Adminuser extends CI_Controller {
                         redirect('user-admin-home'); 
                     }
                 }else{
-                   $data_id_check = array('slno_loc' =>$location_slno,'location_name' =>$Location_name);
-                     $result_id=$this->user->admin_get_vechile_type_capacity($table,$data_id_check);
-                     if($result_id==1){
+                    $data_id_check = array('slno_loc' =>$location_slno,'location_name' =>$Location_name);
+                    $result_id=$this->user->admin_get_vechile_type_capacity($table,$data_id_check);
+                    if($result_id==1){
                         $this->session->set_flashdata('error_message', '  Location Name Already present on our record   ');
                         // After that you need to used redirect home
                         redirect('user-admin-home');   
@@ -2742,7 +2741,7 @@ class Adminuser extends CI_Controller {
                     $result_history = $this->user->common_update($table,$date_change,$data_id);
                     $this->session->set_flashdata('success_message', $row->location_name.' successfully Inactivated ');
                     // After that you need to used redirect home
-                      redirect('admin-view-location-details');
+                    redirect('admin-view-location-details');
                     
 
                 }else if($value==2){
@@ -2752,16 +2751,16 @@ class Adminuser extends CI_Controller {
                     $result_history = $this->user->common_update($table,$date_change,$data_id);
                     $this->session->set_flashdata('success_message', $row->location_name.' successfully Activated ');
                     // After that you need to used redirect home
-                      redirect('admin-view-location-details');
-                 }else if($value==3){
+                    redirect('admin-view-location-details');
+                }else if($value==3){
                     $data_id = array('slno_loc' =>$value1_convered_id);
                     $date_change= array('status' =>'3' );
                     $table="master_loaction_details";
                     $result_history = $this->user->common_update($table,$date_change,$data_id);
                     $this->session->set_flashdata('success_message', $row->location_name.' successfully Deleted ');
                     // After that you need to used redirect home
-                      redirect('admin-view-location-details');
-                      
+                    redirect('admin-view-location-details');
+                    
 
                 }else{
                     $this->session->set_flashdata('error_message', 'Some thing went Wrong');
@@ -2775,6 +2774,193 @@ class Adminuser extends CI_Controller {
                 redirect('user-admin-home'); 
             }
         }
+// New Category and material list insert update and view
+#########################################################################################################
+        public function admin_view_new_material_list(){ // here it view material
+            $scripts='<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script><script src=" https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script> <script src="'.base_url().'file_css_admin/own_js.js"></script>';
+
+            $data=array('title' =>"View Material List",'script_js'=>$scripts ,'menu_status'=>'12','sub_menu'=>'122','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'');  
+            $this->load->view('template/template_header',$data);
+            $this->load->view('admin/template/template_top_head');
+            $this->load->view('admin/template/template_side_bar',$data);
+            $this->load->view('admin/new_material_with_category/view_material_catergory_list');
+            $this->load->view('template/template_footer',$data);
+        }
+
+        public function admin_view_new_category_list(){ // here it is catefory
+            $scripts='<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script><script src=" https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script> <script src="'.base_url().'file_css_admin/own_js.js"></script>';
+
+            $data=array('title' =>"View Category List",'script_js'=>$scripts ,'menu_status'=>'12','sub_menu'=>'121','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'');  
+            $this->load->view('template/template_header',$data);
+            $this->load->view('admin/template/template_top_head');
+            $this->load->view('admin/template/template_side_bar',$data);
+            $this->load->view('admin/new_material_with_category/view_list_category');
+            $this->load->view('template/template_footer',$data);
+        }
+        public function admin_new_category_material($value=""){
+             $scripts='';
+            $data=array('title' =>"Create Material",'script_js'=>$scripts,'menu_status'=>'12','sub_menu'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','value'=>$value);
+            $this->load->view('template/template_header',$data);
+            $this->load->view('admin/template/template_top_head');
+             $this->load->view('admin/template/template_side_bar',$data);
+            $this->load->view('admin/new_material_with_category/create_new_material_category',$data);
+            // $this->load->view('admin/entry_pr_schedule/pr_schedule',$data);
+
+            $this->load->view('template/template_footer',$data);
+        }
+
+        public function admin_add_new_category_material(){
+            // print_r($this->input->post());
+            $email_id=$this->session->userdata('email_id');
+        if(empty($email_id)){
+          
+          redirect('bu-logout-by-pass');
+        }
+        $date =date('Y-m-d');
+        $table="master_category_item";    
+        $actions_file=$this->input->post('actions_file');        
+        switch ($actions_file) {
+            case 'admin_files_uploaded_details':
+                if(isset($_FILES["file"]["name"])){
+                    $file_name=$_FILES["file"]["name"];
+                    $file_stored_name=date('Y-m-d')."-".date('His')."-".$_FILES["file"]["name"];
+                    $path = $_FILES["file"]["tmp_name"];
+          // 
+                    if ($_FILES["file"]["error"] > 0) {
+                        echo "3";
+                        exit();
+                    } else {
+                        if(move_uploaded_file($_FILES["file"]["tmp_name"], 'upload_files/material_admin/' . $file_stored_name)){
+                            $data_array = array('file_name'=>$file_stored_name, 'upload_by'=>$email_id);
+                            $query_files=$this->db->insert('master_material_category_file',$data_array);
+                            $path_excel="upload_files/material_admin/".$file_stored_name;
+                            $arr_file = explode('.', $_FILES['file']['name']);
+                            $extension =strtolower(end($arr_file));
+                            switch ($extension) {
+                                case 'xls':
+                                 $inputFileType = 'Xls';
+                                break;
+                                case 'xlsx':
+                                 $inputFileType = 'Xlsx';
+                                break;                  
+                                case 'xml':
+                                 $inputFileType = 'Xml';
+                                break;
+                                case 'ods':
+                                 $inputFileType = 'Ods';
+                                break;
+                                case 'slk':
+                                 $inputFileType = 'Slk';
+                                break;                  
+                                case 'gnumeric':
+                                 $inputFileType = 'Gnumeric';
+                                break;
+                                case 'csv':
+                                 $inputFileType = 'Csv';
+                                break;
+
+                                default:
+                                # code...
+                                break;
+                            }
+
+                            $objReader = \PhpOffice\PhpSpreadsheet\IOFactory::createReader($inputFileType);
+                            $objReader->setReadDataOnly(true);
+                            //FileName and Sheet Name
+                            $objPHPExcel = $objReader->load($path_excel);
+               
+                            foreach($objPHPExcel->getWorksheetIterator() as $worksheet){
+                                $highestRow = $worksheet->getHighestRow();
+                                $highestColumn = $worksheet->getHighestColumn();
+                                for($row=2; $row<=$highestRow; $row++){                    
+                                    $category_name = $worksheet->getCellByColumnAndRow(1, $row)->getValue();
+                                    $material_item_name = $worksheet->getCellByColumnAndRow(2, $row)->getValue();
+                                    $material_item_id = $worksheet->getCellByColumnAndRow(3, $row)->getValue();
+                                    $uom = $worksheet->getCellByColumnAndRow(4, $row)->getValue();
+                                    $technical_details = $worksheet->getCellByColumnAndRow(5, $row)->getValue();
+                                    $qty = $worksheet->getCellByColumnAndRow(6, $row)->getValue();
+                                    $orginal_schedule = $worksheet->getCellByColumnAndRow(7, $row)->getValue();
+                                    // Checking of data duplicate 
+                                    if(!empty($category_name)){
+                                        $data_check = array('material_item_id' => $material_item_id);
+                                        $query=$this->db->get_where($table,$data_check);
+                                        $num=$query->num_rows();
+                                        if($num==0){
+                                            // `category_name`, `material_item_name`, `technical_details`, `uom`, `status`, `entry_id`, `date`,material_item_id
+                                            $data = array('category_name'=>$category_name,'material_item_name'=>$material_item_name,'material_item_id'=>  $material_item_id,'uom'=>$uom,'technical_details'=> $technical_details,'entry_id'=>$email_id,'date'=>$date,'status'=>1);
+                            
+                                            $query_ENTRY=$this->db->insert($table, $data);
+                                        }
+                                    }
+                                }
+                            }           
+                        }
+                        echo "1"; 
+                        exit(); 
+                    }
+                }        
+            break;
+            case 'admin_Views':
+                $data_check = array('date' => $date);
+                $query=$this->db->get_where($table,$data_check);
+                    // echo  $this->db->last_query();
+                $output = '
+                  <h3 align="center">Total Data - '.$query->num_rows().'</h3>
+                  <table class="table table-striped table-bordered">
+                    <tr>
+                      <th>Category</th>
+                      <th>Material Name</th>
+                      <th>Material Id</th>
+                      <th>UOM</th>
+                      <th>Technical Parameters</th>                     
+                    </tr>
+                ';
+                foreach($query->result() as $row){
+                    $output .= '
+                    <tr>
+                      <td>'.$row->category_name.'</td>
+                      <td>'.$row->material_item_name.'</td>
+                      <td>'.$row->material_item_id.'</td>
+                      <td>'.$row->uom.'</td>
+                      <td>'.$row->technical_details.'</td>
+                     
+                    </tr>
+                    ';
+                }
+                $output .= '</table>';
+                echo $output;
+                exit();         
+            break;  
+            
+            default:
+       
+            break;
+        }
+            # code...
+        }
+        public function admin_view_material_details_list($value=''){
+            if(!empty($value)){
+                 $scripts='<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script><script src=" https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script> <script src="'.base_url().'file_css_admin/own_js.js"></script>';
+                  $data=array('title' =>"View Material List",'script_js'=>$scripts ,'menu_status'=>'12','sub_menu'=>'122','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','value'=>$value);  
+                $this->load->view('template/template_header',$data);
+                $this->load->view('admin/template/template_top_head');
+                $this->load->view('admin/template/template_side_bar',$data);
+                $this->load->view('admin/new_material_with_category/view_material_catergory_list_details',$data);
+                $this->load->view('template/template_footer',$data);
+            }else{
+                redirect('admin-view-new-material-list');
+            }
+        }
+
+
+
+
+
+
+#######################################################################################################
+
+
+
 
 // create_vehicle_capcity_infromation
 #####################################################################################################################################
@@ -2783,7 +2969,7 @@ class Adminuser extends CI_Controller {
  * @return [type] [description]
  */
         public function adminlogout(){
-                 $session_id=session_id();
+                $session_id=session_id();
                 // print_r($this->session->userdata());
                 $created_session_id=$this->session->userdata('session_id');
                 $date=date('Y-m-d');
@@ -2820,7 +3006,7 @@ class Adminuser extends CI_Controller {
         public function admin_change_password($value=''){
             $scripts='';
 
-           $data=array('title' =>"Change Password",'script_js'=>$scripts ,'menu_status'=>'','sub_menu'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'');  
+            $data=array('title' =>"Change Password",'script_js'=>$scripts ,'menu_status'=>'','sub_menu'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'');  
             $this->load->view('template/template_header',$data);
             $this->load->view('admin/template/template_top_head');
             $this->load->view('admin/template/template_side_bar',$data);

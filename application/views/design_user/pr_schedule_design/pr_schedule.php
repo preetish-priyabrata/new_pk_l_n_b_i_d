@@ -78,3 +78,141 @@ if(empty($email_id)){
 													}
 												?>
 											</select>
+											<small class="f-s-12 text-grey-darker">Please Select Project For Upload PR Schedule</small>
+										</div>
+
+																		
+								</div>	
+
+									</div>
+									 <div class="col-md-6 col-lg-6"><!-- part g start -->
+									<div class="form-group row m-b-15">
+										<label class="col-form-label col-md-3" for="job_files">Get Info <span style="color: red">*</span></label>
+										<div class="col-md-9">
+											<input class=" m-b-5" name="job_files" id="job_files" type="file" required="" required accept=".xls, .xlsx" >	
+											<!-- <span class="btn btn-sm btn-info" > -->
+											
+											<!-- </span> -->
+												<br>
+											
+										</div>
+
+							</div>
+							<div class="form-group row pull-right">
+			                    <div class="form-group row pull-right">
+			                        <div class="col-md-12">
+			                            <button type="button" class="btn btn-sm btn-primary m-r-5" name="send_button" id="sub" value="save">Save</button>
+			                            <button type="button" class="btn btn-info btn-sm m-r-5" id="upload" style="display: none">Uploading ...</button>
+			                           	 
+			                            <a  href="<?=base_url()?>user-designuser-home" class="btn btn-sm btn-danger">Cancel</a> 
+			                        </div>
+			                    </div>
+									</div>											
+								</div>
+								   <script>
+$(document).ready(function(){
+
+	load_data();
+		$('#upload').hide();
+	
+	$('#sub').on('click', function () {
+		if (document.getElementById('job_files').value !== '') {
+			
+        	var actions_file='bu_files_uploaded_details';
+        	var Mr_no = $('#job_code').val();
+			// var slno_Mr_no = $('#job_files').val();
+            var file_data = $('#job_files').prop('files')[0];
+            if(Mr_no!=""){
+            	$('#sub').hide();
+				$('#upload').show();
+	            if(file_data!=""){
+	                var form_data = new FormData();
+	                form_data.append('file', file_data);
+	                form_data.append('job_code', Mr_no);
+	          		// form_data.append('slno_Mr_no', slno_Mr_no);
+	          		form_data.append('actions_file', actions_file);
+
+	                $.ajax({
+	                    url: '<?php echo base_url(); ?>excel-upload/entry', // point to server-side controller method
+	                    dataType: 'text', // what to expect back from the server
+	                    cache: false,
+	                    contentType: false,
+	                    processData: false,
+	                    data: form_data,
+	                    type: 'post',
+	                    success: function (response) {
+	                    	if(response==1){
+	                    		$('#sub').show();
+								$('#upload').hide();
+	                    		load_data();
+	                    		alert('File Is successfully attached ');
+	                    		 
+	                    	}else if(response==2){
+	                    		alert('Same File name is found ');
+	                    	}else{
+	                    		alert('Some thing went worng Please check internet connection ');
+	                    	}
+	                        // $('#msg').html(response); // display success response from the server
+	                    }
+	                    // error: function (response) {
+	                    //     $('#msg').html(response); // display error response from the server
+	                    // }
+	                });
+	            }else{
+	            	alert('Please Attachment Some file click on upload');
+	            }
+	        }else{
+	        	alert('Please Select Project ');	
+	        }
+	    }else{
+	    	 alert('No File Attached');
+	    }
+
+    });
+
+	// $('#import_form').on('submit', function(event){
+	// 	event.preventDefault();
+	// 	$.ajax({
+	// 		url:"<?php echo base_url(); ?>excel-upload/entry",
+	// 		method:"POST",
+	// 		data:new FormData(this),
+	// 		contentType:false,
+	// 		cache:false,
+	// 		processData:false,
+	// 		success:function(data){
+	// 			$('#job_files').val('');
+	// 			load_data();
+	// 			alert(data);
+	// 		}
+	// 	})
+	// });
+
+});
+function load_data(){
+	var actions_file='design_Views';
+    var Mr_no = $('#job_code').val();
+    queryString_id = 'actions_file='+actions_file+'&job_code='+ Mr_no;
+	    if(Mr_no!=""){
+	    	$('#sub').show();
+			// jQuery.ajax({
+			// 	url: "<?php echo base_url(); ?>file-upload-data",
+			// 	data:queryString_id,
+			// 	type: "POST",
+			// 	success:function(data){
+			// 		$("#cart-item-files").html(data);
+			// 	}
+			// });
+			$.ajax({
+				url:"<?php echo base_url(); ?>excel-upload/entry",
+				data:queryString_id,
+				method:"POST",
+				success:function(data){
+					$('#customer_data').html(data);
+				}
+			});
+		}else{
+			alert('Please Select Project');	
+		}
+	}
+</script>
+

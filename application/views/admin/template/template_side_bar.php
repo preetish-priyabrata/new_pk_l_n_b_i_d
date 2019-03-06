@@ -147,8 +147,8 @@
 						    <span>Vehicle  </span>
 					    </a>
 						<ul class="sub-menu">
-							 <li class="<?php if($sub_menu==11){ echo 'active'; }?>"><a href="<?=base_url()?>admin-view-Vehicle-type-details" >Create & View Vehicle Type</a></li>
-							  <li class="<?php if($sub_menu==12){ echo 'active'; }?>"><a href="<?=base_url()?>admin-view-Vehicle-capacity-details" >Create & View Vehicle Capacity</a></li>
+							<li class="<?php if($sub_menu==11){ echo 'active'; }?>"><a href="<?=base_url()?>admin-view-Vehicle-type-details" >Create & View Vehicle Type</a></li>
+							<li class="<?php if($sub_menu==12){ echo 'active'; }?>"><a href="<?=base_url()?>admin-view-Vehicle-capacity-details" >Create & View Vehicle Capacity</a></li>
 						    <li class="<?php if($sub_menu==10){ echo 'active'; }?>"><a href="<?=base_url()?>admin-view-Vehicle-details" >Create & View Vehicle</a></li>
 						    
 						</ul>
@@ -171,8 +171,8 @@
 						    <span>Category & Material Setting  </span>
 					    </a>
 						<ul class="sub-menu">
-							  <li class="<?php if($sub_menu==111){ echo 'active'; }?>"><a href="<?=base_url()?>admin-view-new-category-list" >View Category List</a></li>
-						    <li class="<?php if($sub_menu==111){ echo 'active'; }?>"><a href="<?=base_url()?>admin-view-new-material-list" >Create & View Material List</a></li>
+							<li class="<?php if($sub_menu==121){ echo 'active'; }?>"><a href="<?=base_url()?>admin-view-new-category-list" >View Category List</a></li>
+						    <li class="<?php if($sub_menu==122){ echo 'active'; }?>"><a href="<?=base_url()?>admin-view-new-material-list" >Create & View Material List</a></li>
 						    
 						</ul>
 					</li>
