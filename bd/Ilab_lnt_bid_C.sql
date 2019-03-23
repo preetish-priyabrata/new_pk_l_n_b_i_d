@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Feb 01, 2019 at 06:40 PM
+-- Generation Time: Mar 23, 2019 at 07:25 PM
 -- Server version: 5.7.25-0ubuntu0.18.04.2
--- PHP Version: 7.2.10-0ubuntu0.18.04.1
+-- PHP Version: 7.2.15-0ubuntu0.18.04.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `Ilab_lnt_bid`
+-- Database: `Ilab_lnt_bid_C`
 --
 
 -- --------------------------------------------------------
@@ -127,7 +127,27 @@ INSERT INTO `Ilab_assign_project_user` (`slno_assign_project`, `user_slno`, `ema
 (56, 15, 'buy1@ilab.com', 7, '7877', 1, 7, '2019-01-17', '17:57:06'),
 (57, 16, 'buy2@ilab.com', 7, '7877', 1, 7, '2019-01-17', '17:57:06'),
 (58, 17, 'abc2@gmail.com', 7, '7877', 1, 7, '2019-01-17', '17:57:06'),
-(59, 29, 'gcg2@gmail.com', 7, '7877', 1, 7, '2019-01-17', '17:57:06');
+(59, 29, 'gcg2@gmail.com', 7, '7877', 1, 7, '2019-01-17', '17:57:06'),
+(60, 7, 'bu1@ilab.com', 8, '600', 1, 6, '2019-02-20', '15:55:08'),
+(61, 8, 'bu2@ilab.com', 8, '600', 1, 6, '2019-02-20', '15:55:08'),
+(62, 28, 'ups2@yahoo.com', 8, '600', 1, 6, '2019-02-20', '15:55:08'),
+(63, 11, 'project1@ilab.com', 8, '600', 1, 3, '2019-02-20', '15:55:08'),
+(64, 12, 'project2@ilab.com', 8, '600', 1, 3, '2019-02-20', '15:55:08'),
+(65, 22, 'gyt2@gmail.com', 8, '600', 1, 3, '2019-02-20', '15:55:08'),
+(66, 27, 'gtps09@gmail.com', 8, '600', 1, 3, '2019-02-20', '15:55:08'),
+(67, 13, 'pro@ilab.com', 8, '600', 1, 4, '2019-02-20', '15:55:08'),
+(68, 14, 'pro2@ilab.com', 8, '600', 1, 4, '2019-02-20', '15:55:08'),
+(69, 32, 'yy013@gmaill.com', 8, '600', 1, 4, '2019-02-20', '15:55:08'),
+(70, 6, 'sam@ilab.com', 8, '600', 1, 2, '2019-02-20', '15:55:08'),
+(71, 9, 'design!@ilab.com', 8, '600', 1, 2, '2019-02-20', '15:55:08'),
+(72, 10, 'design2@ilab.com', 8, '600', 1, 2, '2019-02-20', '15:55:08'),
+(73, 26, 'tvs31@gmail.com', 8, '600', 1, 2, '2019-02-20', '15:55:08'),
+(74, 35, 'abc1@gmail.com', 8, '600', 1, 2, '2019-02-20', '15:55:08'),
+(75, 36, 'sha12@gmail.com', 8, '600', 1, 2, '2019-02-20', '15:55:08'),
+(76, 15, 'buy1@ilab.com', 8, '600', 1, 7, '2019-02-20', '15:55:08'),
+(77, 16, 'buy2@ilab.com', 8, '600', 1, 7, '2019-02-20', '15:55:08'),
+(78, 17, 'abc2@gmail.com', 8, '600', 1, 7, '2019-02-20', '15:55:08'),
+(79, 29, 'gcg2@gmail.com', 8, '600', 1, 7, '2019-02-20', '15:55:08');
 
 -- --------------------------------------------------------
 
@@ -182,7 +202,8 @@ INSERT INTO `Ilab_master_admin` (`slno`, `email_id`, `Username`, `Password`, `pa
 (32, 'yy013@gmaill.com', 'user003', 'tT7GHGJT', '34f996214cd9683befeedc8ecc2f3110', 1, 4, '7884587201', 'designation051'),
 (33, 'tts5@gmaill.com', 'user780', 'sT6YHUY8 6788', '2a224b5f97af51d369af7f1ed44f8707', 1, 8, '8764676987', 'Approver'),
 (34, 'uvt99@gmail.com', 'user797', 'vT976786vvn', '4e1aa3921ac7f7d3595e6f843a876f22', 1, 5, '7897459893', 'designation09'),
-(35, 'abc1@gmail.com', 'user 101', '1234JAzz', '6e32b54b3c884e3527465eae355c673e', 1, 2, '9878765676', 'designation111');
+(35, 'abc1@gmail.com', 'user 101', '1234JAzz', '6e32b54b3c884e3527465eae355c673e', 1, 2, '9878765676', 'designation111'),
+(36, 'sha12@gmail.com', 'user5', 'shA10000', '59ad47f426392d811349ec6bc4cdef82', 1, 2, '5675678800', 'design50');
 
 -- --------------------------------------------------------
 
@@ -212,6 +233,51 @@ CREATE TABLE `Ilab_master_bid` (
   `date_publish` varchar(255) NOT NULL,
   `date_closing` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `Ilab_master_bid`
+--
+
+INSERT INTO `Ilab_master_bid` (`Slno_bid`, `buyer_slno`, `bid_date_entry`, `bid_ref`, `bid_id`, `category`, `mode_bid`, `technical_bid_type`, `status_bid`, `mr_slno`, `mr_no`, `job_code`, `edit_id`, `material_category_name`, `bid_title`, `bid_description`, `data_entry`, `bid_creator_id`, `date_publish`, `date_closing`) VALUES
+(1, 30, '2019-02-20', '5500', '7790', '1', 'Simple Bid', '1', 1, 30, '2019-02-01-kJV97', '0770', 1, 'standard catalogued item [ SCI ]', 'tthh', 'kkllg', '2019-02-20 12:22:26', 'buy1@ilab.com', '2019-03-27', '2019-05-30'),
+(2, 32, '2019-02-20', '002130', '9091', '1', 'Closed Bid', '1', 1, 35, '2019-02-20-Rcyqr', '0770', 1, 'standard catalogued item [ SCI ]', 'ttyz', 'gfgh', '2019-02-20 12:50:43', 'buy1@ilab.com', '2019-05-29', '2019-03-27');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Ilab_master_bid_c`
+--
+
+CREATE TABLE `Ilab_master_bid_c` (
+  `Slno_bid` int(11) NOT NULL,
+  `buyer_slno` int(11) NOT NULL,
+  `bid_date_entry` date NOT NULL,
+  `bid_ref` varchar(255) NOT NULL,
+  `bid_id` varchar(255) NOT NULL,
+  `category` varchar(255) NOT NULL,
+  `mode_bid` varchar(255) NOT NULL,
+  `technical_bid_type` varchar(255) NOT NULL,
+  `status_bid` int(11) NOT NULL DEFAULT '1' COMMENT '4- no active  1-> active bid 0->closed 2->internal process',
+  `mr_slno` int(11) NOT NULL,
+  `mr_no` varchar(255) NOT NULL,
+  `job_code` varchar(255) NOT NULL,
+  `edit_id` int(11) NOT NULL,
+  `material_category_name` varchar(255) NOT NULL,
+  `bid_title` varchar(255) NOT NULL,
+  `bid_description` text NOT NULL,
+  `data_entry` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `bid_creator_id` varchar(255) NOT NULL,
+  `date_publish` varchar(255) NOT NULL,
+  `date_closing` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `Ilab_master_bid_c`
+--
+
+INSERT INTO `Ilab_master_bid_c` (`Slno_bid`, `buyer_slno`, `bid_date_entry`, `bid_ref`, `bid_id`, `category`, `mode_bid`, `technical_bid_type`, `status_bid`, `mr_slno`, `mr_no`, `job_code`, `edit_id`, `material_category_name`, `bid_title`, `bid_description`, `data_entry`, `bid_creator_id`, `date_publish`, `date_closing`) VALUES
+(1, 30, '2019-02-20', '5500', '7790', '1', 'Simple Bid', '1', 1, 30, '2019-02-01-kJV97', '0770', 1, 'standard catalogued item [ SCI ]', 'tthh', 'kkllg', '2019-02-20 12:22:26', 'buy1@ilab.com', '2019-03-27', '2019-05-30'),
+(2, 32, '2019-02-20', '002130', '9091', '1', 'Closed Bid', '1', 1, 35, '2019-02-20-Rcyqr', '0770', 1, 'standard catalogued item [ SCI ]', 'ttyz', 'gfgh', '2019-02-20 12:50:43', 'buy1@ilab.com', '2019-05-29', '2019-03-27');
 
 -- --------------------------------------------------------
 
@@ -251,7 +317,7 @@ CREATE TABLE `Ilab_master_bid_commerical` (
 
 INSERT INTO `Ilab_master_bid_commerical` (`Slno_bid`, `buyer_slno`, `bid_date_entry`, `bid_ref`, `bid_id`, `category`, `mode_bid`, `technical_bid_type`, `status_bid`, `mr_slno`, `mr_no`, `job_code`, `edit_id`, `material_category_name`, `bid_title`, `bid_description`, `data_entry`, `bid_creator_id`, `date_publish`, `date_closing`, `count_id`, `ACE_Value`, `saving_value`) VALUES
 (1, 1, '2019-01-28', '1233', '7890', '1', 'Simple Bid', '2', 6, 1, '2019-01-28-AVfzI', '0770', 1, 'standard catalogued item [ sci tech ]', 'xtxx', 'ttt', '2019-01-28 07:34:33', 'buy1@ilab.com', '2019-01-31', '2019-01-10', 0, NULL, NULL),
-(2, 2, '2019-01-28', '570', '9988', '1', 'Simple Bid', '2', 1, 2, '2019-01-28-gLFf8', '0770', 1, 'standard catalogued item [ sci tech ]', 'ttgh', 'xxxtt', '2019-01-28 07:41:38', 'buy1@ilab.com', '2019-01-31', '2019-04-18', 0, NULL, NULL),
+(2, 2, '2019-01-28', '570', '9988', '1', 'Simple Bid', '2', 6, 2, '2019-01-28-gLFf8', '0770', 1, 'standard catalogued item [ sci tech ]', 'ttgh', 'xxxtt', '2019-01-28 07:41:38', 'buy1@ilab.com', '2019-01-31', '2019-04-18', 0, NULL, NULL),
 (3, 3, '2019-01-28', '1112', '22330', '2', 'Simple Bid', '2', 6, 4, '2019-01-28-Svtup', '0770', 1, 'make to order items [ moi ]', 'xxx', 'xcfd', '2019-01-28 14:37:57', 'buy1@ilab.com', '2019-01-31', '2019-01-31', 0, NULL, NULL),
 (4, 4, '2019-01-28', '141', '3322', '2', 'Simple Bid', '2', 1, 5, '2019-01-28-7aRzP', '0770', 1, 'make to order items [ moi ]', 'fgc', 'gvnht', '2019-01-28 14:42:17', 'buy1@ilab.com', '2019-01-31', '2019-01-31', 0, NULL, NULL),
 (5, 5, '2019-01-28', '234', '421', '3', 'Simple Bid', '2', 6, 6, '2019-01-28-lXMjU', '0770', 1, 'logistics [ logistics ]', 'Real-time trade and investing ideas on Alphabet Inc. ', 'Settings Your data in Search Help Send feedback. AllImages · Account · Assistant · Search · Maps · YouTube · Play · News · Gmail · Contacts · Drive · Calendar.\r\n', '2019-01-28 14:44:01', 'buy1@ilab.com', '2019-01-27', '2019-01-01', 0, NULL, NULL),
@@ -267,9 +333,10 @@ INSERT INTO `Ilab_master_bid_commerical` (`Slno_bid`, `buyer_slno`, `bid_date_en
 (15, 20, '2019-01-31', '600', '750', '3', 'Rank Order Bid', '2', 1, 19, '2019-01-31-f6Mac', '0770', 1, 'logistics [ logistics ]', 'hgityy', 'jhuhjghg', '2019-01-31 11:43:07', 'buy1@ilab.com', '2019-01-31', '2019-02-28', 1, NULL, NULL),
 (16, 27, '2019-01-31', '670', '770', '1', 'Rank Order Bid', '2', 1, 25, '2019-01-31-SpwWK', '0770', 1, 'standard catalogued item [ sci tech ]', 'gftk', 'juyg', '2019-01-31 12:42:12', 'buy1@ilab.com', '2019-02-05', '2019-02-28', 1, NULL, NULL),
 (17, 28, '2019-01-31', '99', '09', '1', 'Rank Order Bid', '2', 1, 28, '2019-01-31-JFCTV', '0770', 1, 'standard catalogued item [ sci tech ]', 'huju', 'jhub', '2019-01-31 13:00:26', 'buy1@ilab.com', '2019-02-13', '2019-02-28', 1, NULL, NULL),
-(18, 26, '2019-01-31', '8700', '9990', '1', 'Rank Order Bid', '2', 1, 26, '2019-01-31-dpHBA', '0770', 1, 'standard catalogued item [ sci tech ]', 'hujk', 'dffffffffc', '2019-01-31 13:58:05', 'buy1@ilab.com', '2019-02-06', '2019-02-28', 0, NULL, NULL),
+(18, 26, '2019-01-31', '8700', '9990', '1', 'Rank Order Bid', '2', 1, 26, '2019-01-31-dpHBA', '0770', 1, 'standard catalogued item [ sci tech ]', 'hujk', 'dffffffffc', '2019-01-31 13:58:05', 'buy1@ilab.com', '2019-02-06', '2019-02-28', 1, NULL, NULL),
 (19, 29, '2019-01-31', '2340', '46709', '1', 'Rank Order Bid', '2', 1, 29, '2019-01-31-sv7C4', '0770', 1, 'standard catalogued item [ sci tech ]', 'frtg', 'gbyjh', '2019-01-31 14:06:29', 'buy1@ilab.com', '2019-01-31', '2019-02-15', 0, NULL, NULL),
-(20, 0, '2019-01-31', '7001', '6701', '1', 'Closed Bid', '2', 4, 3, '2019-01-28-rIxGm', '0770', 1, 'standard catalogued item [ sci tech ]', 'tvyh', 'fgbrt', '2019-01-31 14:19:31', 'buy1@ilab.com', '2019-01-31', '2019-02-07', 0, NULL, NULL);
+(20, 0, '2019-01-31', '7001', '6701', '1', 'Closed Bid', '2', 4, 3, '2019-01-28-rIxGm', '0770', 1, 'standard catalogued item [ sci tech ]', 'tvyh', 'fgbrt', '2019-01-31 14:19:31', 'buy1@ilab.com', '2019-01-31', '2019-02-07', 0, NULL, NULL),
+(21, 31, '2019-02-20', '150', '7700', '1', 'Closed Bid', '2', 4, 33, '2019-02-20-zJmFa', '0770', 1, 'standard catalogued item [ SCI ]', 'tty', 'stx', '2019-02-20 09:18:44', 'buy1@ilab.com', '2019-02-27', '2019-06-18', 0, '12340', NULL);
 
 -- --------------------------------------------------------
 
@@ -293,7 +360,7 @@ CREATE TABLE `Ilab_master_bid_commericalevaluation` (
 
 INSERT INTO `Ilab_master_bid_commericalevaluation` (`slno_bid_tech_id`, `bid_slno`, `buyer_slno`, `Technical_id_person`, `master_bid_id`, `status_bid`, `view_status`) VALUES
 (1, 1, 1, '21', 1, 6, 0),
-(2, 2, 2, '21', 2, 0, 0),
+(2, 2, 2, '21', 2, 6, 0),
 (3, 4, 3, '21', 3, 6, 0),
 (4, 5, 4, '21', 4, 0, 0),
 (5, 6, 5, '21', 5, 6, 0),
@@ -311,7 +378,8 @@ INSERT INTO `Ilab_master_bid_commericalevaluation` (`slno_bid_tech_id`, `bid_sln
 (17, 28, 28, '21', 17, 0, 0),
 (18, 26, 26, '21', 18, 0, 0),
 (19, 29, 29, '21', 19, 0, 0),
-(20, 3, 0, '21', 20, 0, 0);
+(20, 3, 0, '21', 20, 0, 0),
+(21, 33, 31, '21', 21, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -330,6 +398,14 @@ CREATE TABLE `Ilab_master_bid_date_details` (
   `master_bid_id` int(11) NOT NULL,
   `bid_detail_description` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `Ilab_master_bid_date_details`
+--
+
+INSERT INTO `Ilab_master_bid_date_details` (`Slno_bid_date`, `bid_slno`, `buyer_slno`, `bid_start_date`, `bid_closed_date`, `bid_query_closed_date`, `status`, `master_bid_id`, `bid_detail_description`) VALUES
+(1, 30, 30, '2019-05-07', '2019-06-20', '2019-05-10', 1, 1, 'uuji'),
+(2, 35, 32, '2019-06-07', '2019-08-09', '2019-04-03', 4, 2, 'oopsg');
 
 -- --------------------------------------------------------
 
@@ -373,7 +449,34 @@ INSERT INTO `Ilab_master_bid_date_details_commerical` (`Slno_bid_date`, `bid_sln
 (17, 28, 28, '2019-03-07', '2019-03-25', '2019-03-21', 1, 17, 'hyup'),
 (18, 26, 26, '2019-03-13', '2019-03-27', '2019-03-26', 1, 18, 'uhyj'),
 (19, 29, 29, '2019-02-15', '2019-02-23', '2019-02-20', 1, 19, 'tcrdfh'),
-(20, 3, 0, '2019-02-18', '2019-03-16', '2019-02-28', 4, 20, 'tyh');
+(20, 3, 0, '2019-02-18', '2019-03-16', '2019-02-28', 4, 20, 'tyh'),
+(21, 33, 31, '2019-03-21', '2019-03-28', '2019-03-21', 4, 21, 'hhcc');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Ilab_master_bid_date_details_m`
+--
+
+CREATE TABLE `Ilab_master_bid_date_details_m` (
+  `Slno_bid_date` int(11) NOT NULL,
+  `bid_slno` int(11) NOT NULL,
+  `buyer_slno` int(11) NOT NULL,
+  `bid_start_date` varchar(255) DEFAULT NULL,
+  `bid_closed_date` varchar(255) DEFAULT NULL,
+  `bid_query_closed_date` varchar(255) DEFAULT NULL,
+  `status` int(11) NOT NULL DEFAULT '0' COMMENT '4- no active  1-> active bid 0->closed 2->internal process',
+  `master_bid_id` int(11) NOT NULL,
+  `bid_detail_description` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `Ilab_master_bid_date_details_m`
+--
+
+INSERT INTO `Ilab_master_bid_date_details_m` (`Slno_bid_date`, `bid_slno`, `buyer_slno`, `bid_start_date`, `bid_closed_date`, `bid_query_closed_date`, `status`, `master_bid_id`, `bid_detail_description`) VALUES
+(1, 30, 30, '2019-05-07', '2019-06-20', '2019-05-10', 1, 1, 'uuji'),
+(2, 35, 32, '2019-06-07', '2019-08-09', '2019-04-03', 4, 2, 'oopsg');
 
 -- --------------------------------------------------------
 
@@ -391,6 +494,14 @@ CREATE TABLE `Ilab_master_bid_details` (
   `location_detail` varchar(255) NOT NULL,
   `master_bid_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `Ilab_master_bid_details`
+--
+
+INSERT INTO `Ilab_master_bid_details` (`slno_bid_detail`, `bid_slno`, `buyer_slno`, `Title_bid`, `work_detail_bid`, `period_work_detail`, `location_detail`, `master_bid_id`) VALUES
+(1, 30, 30, 'tthh', 'kkllg', '6770', '4567', 1),
+(2, 35, 32, 'ttyz', 'gfgh', '7800', 'kklm', 2);
 
 -- --------------------------------------------------------
 
@@ -433,7 +544,33 @@ INSERT INTO `Ilab_master_bid_details_commerical` (`slno_bid_detail`, `bid_slno`,
 (17, 28, 28, 'huju', 'jhub', '78978', 'jijh', 17),
 (18, 26, 26, 'hujk', 'dffffffffc', '8778', 'nku', 18),
 (19, 29, 29, 'frtg', 'gbyjh', '2340', 'vfgfy', 19),
-(20, 3, 0, 'tvyh', 'fgbrt', '12123', '1230', 20);
+(20, 3, 0, 'tvyh', 'fgbrt', '12123', '1230', 20),
+(21, 33, 31, 'tty', 'stx', '44500', 'tcc', 21);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Ilab_master_bid_details_m`
+--
+
+CREATE TABLE `Ilab_master_bid_details_m` (
+  `slno_bid_detail` int(11) NOT NULL,
+  `bid_slno` int(11) NOT NULL,
+  `buyer_slno` int(11) NOT NULL,
+  `Title_bid` varchar(255) NOT NULL,
+  `work_detail_bid` text NOT NULL,
+  `period_work_detail` varchar(255) NOT NULL,
+  `location_detail` varchar(255) NOT NULL,
+  `master_bid_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `Ilab_master_bid_details_m`
+--
+
+INSERT INTO `Ilab_master_bid_details_m` (`slno_bid_detail`, `bid_slno`, `buyer_slno`, `Title_bid`, `work_detail_bid`, `period_work_detail`, `location_detail`, `master_bid_id`) VALUES
+(1, 30, 30, 'tthh', 'kkllg', '6770', '4567', 1),
+(2, 35, 32, 'ttyz', 'gfgh', '7800', 'kklm', 2);
 
 -- --------------------------------------------------------
 
@@ -510,6 +647,14 @@ CREATE TABLE `Ilab_master_bid_file_technical` (
   `who_loaded_file` varchar(255) NOT NULL COMMENT 'Information of author'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='This table will hold information of file to be loaded';
 
+--
+-- Dumping data for table `Ilab_master_bid_file_technical`
+--
+
+INSERT INTO `Ilab_master_bid_file_technical` (`Slno_bid_file`, `bid_slno`, `bid_buyer_slno`, `file_name`, `file_code_name`, `date`, `status`, `who_loaded_file`) VALUES
+(1, 30, 30, 'undraw_statistics_ctoq.svg', '2019-02-20-undraw_statistics_ctoq.svg', '2019-02-20 12:22:01', 1, 'buy1@ilab.com'),
+(2, 35, 32, 'undraw_resume_1hqp.svg', '2019-02-20-undraw_resume_1hqp.svg', '2019-02-20 12:50:16', 1, 'buy1@ilab.com');
+
 -- --------------------------------------------------------
 
 --
@@ -538,7 +683,8 @@ CREATE TABLE `Ilab_master_bid_invitation_rank` (
 INSERT INTO `Ilab_master_bid_invitation_rank` (`slno_invi`, `master_bid_id`, `master_bid_start`, `master_bid_end`, `ref_no`, `ref_id`, `no_time_entry`, `commerical_user_id`, `date_entry`, `date_update`, `status_process`, `category`) VALUES
 (1, '15', '01/31/2019 6:44 PM', '02/08/2019 6:46 PM', '600', '750', '4', '21', '2019-01-31 13:16:24', '2019-01-31 13:16:24', 1, 3),
 (2, '16', '01/31/2019 6:51 PM', '02/08/2019 6:52 PM', '670', '770', '2', '21', '2019-01-31 13:22:33', '2019-01-31 13:22:33', 1, 1),
-(3, '17', '01/31/2019 6:52 PM', '02/09/2019 6:53 PM', '99', '09', '4', '21', '2019-01-31 13:23:17', '2019-01-31 13:23:17', 1, 1);
+(3, '17', '01/31/2019 6:52 PM', '02/09/2019 6:53 PM', '99', '09', '4', '21', '2019-01-31 13:23:17', '2019-01-31 13:23:17', 1, 1),
+(4, '18', '02/20/2019 5:53 PM', '02/28/2019 5:53 PM', '8700', '9990', '3', '21', '2019-02-20 12:24:47', '2019-02-20 12:24:47', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -586,7 +732,8 @@ CREATE TABLE `Ilab_master_bid_invi_rank_approvals` (
 INSERT INTO `Ilab_master_bid_invi_rank_approvals` (`slno_approve`, `master_bid_id`, `invi_slno_id`, `vendor_id_bid`, `vendor_id`, `status`, `date_entry`, `date_update`, `bid_ref`, `bid_id`, `start_date`, `end_date`, `no_of_times`, `category`) VALUES
 (1, '15', '1', '161', 'ven121@gmail.com', 1, '2019-01-31 13:16:24', '2019-01-31 13:16:24', '600', '750', '01/31/2019 6:44 PM', '02/08/2019 6:46 PM', 4, 3),
 (2, '16', '2', '175', 'ven121@gmail.com', 1, '2019-01-31 13:22:33', '2019-01-31 13:22:33', '670', '770', '01/31/2019 6:51 PM', '02/08/2019 6:52 PM', 2, 1),
-(3, '17', '3', '189', 'ven121@gmail.com', 1, '2019-01-31 13:23:17', '2019-01-31 13:23:17', '99', '09', '01/31/2019 6:52 PM', '02/09/2019 6:53 PM', 4, 1);
+(3, '17', '3', '189', 'ven121@gmail.com', 1, '2019-01-31 13:23:17', '2019-01-31 13:23:17', '99', '09', '01/31/2019 6:52 PM', '02/09/2019 6:53 PM', 4, 1),
+(4, '18', '4', '203', 'ven121@gmail.com', 1, '2019-02-20 12:24:47', '2019-02-20 12:24:47', '8700', '9990', '02/20/2019 5:53 PM', '02/28/2019 5:53 PM', 3, 1);
 
 -- --------------------------------------------------------
 
@@ -646,7 +793,20 @@ INSERT INTO `Ilab_master_bid_invi_rank_not_app` (`slno_not`, `master_bid_id`, `i
 (35, '17', '3', '197', 'ven66@gmail.com', '2019-01-31 13:23:17', '2019-01-31 13:23:17'),
 (36, '17', '3', '198', 'ven371@yahoo.com', '2019-01-31 13:23:17', '2019-01-31 13:23:17'),
 (37, '17', '3', '199', 'ven170@yahoo.com', '2019-01-31 13:23:17', '2019-01-31 13:23:17'),
-(38, '17', '3', '200', 'ven454@yahoo.com', '2019-01-31 13:23:17', '2019-01-31 13:23:17');
+(38, '17', '3', '200', 'ven454@yahoo.com', '2019-01-31 13:23:17', '2019-01-31 13:23:17'),
+(39, '18', '4', '201', 'vender@ilab.com', '2019-02-20 12:24:47', '2019-02-20 12:24:47'),
+(40, '18', '4', '202', 'ven111@gmail.com', '2019-02-20 12:24:47', '2019-02-20 12:24:47'),
+(41, '18', '4', '204', 'ven221@gmail.com', '2019-02-20 12:24:47', '2019-02-20 12:24:47'),
+(42, '18', '4', '205', 'ven310@yahoo.com', '2019-02-20 12:24:47', '2019-02-20 12:24:47'),
+(43, '18', '4', '206', 'ven1011@yahoo.com', '2019-02-20 12:24:47', '2019-02-20 12:24:47'),
+(44, '18', '4', '207', 'ven331@gmail.com', '2019-02-20 12:24:47', '2019-02-20 12:24:47'),
+(45, '18', '4', '208', 'ven97@gmail.com', '2019-02-20 12:24:47', '2019-02-20 12:24:47'),
+(46, '18', '4', '209', 'ven979@yahoo.com', '2019-02-20 12:24:47', '2019-02-20 12:24:47'),
+(47, '18', '4', '210', 'ven90@gmail.com', '2019-02-20 12:24:47', '2019-02-20 12:24:47'),
+(48, '18', '4', '211', 'ven66@gmail.com', '2019-02-20 12:24:47', '2019-02-20 12:24:47'),
+(49, '18', '4', '212', 'ven371@yahoo.com', '2019-02-20 12:24:47', '2019-02-20 12:24:47'),
+(50, '18', '4', '213', 'ven170@yahoo.com', '2019-02-20 12:24:47', '2019-02-20 12:24:47'),
+(51, '18', '4', '214', 'ven454@yahoo.com', '2019-02-20 12:24:47', '2019-02-20 12:24:47');
 
 -- --------------------------------------------------------
 
@@ -729,7 +889,10 @@ INSERT INTO `Ilab_master_bid_otp_commerical` (`slno_comm`, `master_bid_id`, `bid
 (52, '9', '8', '2', '3', '2019-01-31-4JrMa', 'Closed Bid', 'commerical@ilab.com', 1, 2, '2019-01-31 10:59:35', '2019-01-31 10:59:35', NULL),
 (53, '9', '8', '2', '3', '2019-01-31-VFpQo', 'Closed Bid', 'commerical@ilab.com', 1, 2, '2019-01-31 11:45:07', '2019-01-31 11:45:07', NULL),
 (54, '9', '8', '2', '3', '2019-01-31-XP3Wr', 'Closed Bid', 'commerical@ilab.com', 1, 2, '2019-01-31 13:07:09', '2019-01-31 13:07:09', NULL),
-(55, '9', '8', '2', '3', '2019-01-31-dPMry', 'Closed Bid', 'commerical@ilab.com', 1, 1, '2019-01-31 14:28:19', '2019-01-31 14:30:41', 'commerical@ilab.com');
+(55, '9', '8', '2', '3', '2019-01-31-dPMry', 'Closed Bid', 'commerical@ilab.com', 1, 1, '2019-01-31 14:28:19', '2019-01-31 14:30:41', 'commerical@ilab.com'),
+(56, '2', '2', '1', '1', '2019-02-20-8kEut', 'Simple Bid', 'commerical@ilab.com', 1, 1, '2019-02-20 09:59:14', '2019-02-20 10:00:53', 'commerical@ilab.com'),
+(57, '8', '10', '2', '3', '2019-02-20-oKXvV', 'Closed Bid', 'commerical@ilab.com', 1, 2, '2019-02-20 10:07:42', '2019-02-20 10:07:42', NULL),
+(58, '8', '10', '2', '3', '2019-02-20-1PdvO', 'Closed Bid', 'commerical@ilab.com', 1, 1, '2019-02-20 10:08:03', '2019-02-20 10:09:02', 'commerical@ilab.com');
 
 -- --------------------------------------------------------
 
@@ -790,6 +953,38 @@ CREATE TABLE `Ilab_master_bid_technicalevaluation` (
   `view_status` int(11) NOT NULL DEFAULT '0' COMMENT '0->not viewed 1->viewied'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `Ilab_master_bid_technicalevaluation`
+--
+
+INSERT INTO `Ilab_master_bid_technicalevaluation` (`slno_bid_tech_id`, `bid_slno`, `buyer_slno`, `Technical_id_person`, `master_bid_id`, `status_bid`, `view_status`) VALUES
+(1, 30, 30, '19', 1, 0, 0),
+(2, 35, 32, '19', 2, 0, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Ilab_master_bid_technicalevaluation_m`
+--
+
+CREATE TABLE `Ilab_master_bid_technicalevaluation_m` (
+  `slno_bid_tech_id` int(11) NOT NULL,
+  `bid_slno` int(11) NOT NULL,
+  `buyer_slno` int(11) NOT NULL,
+  `Technical_id_person` varchar(255) NOT NULL,
+  `master_bid_id` int(11) NOT NULL,
+  `status_bid` int(11) NOT NULL DEFAULT '0' COMMENT '0->not started  1->started  8->complete bid',
+  `view_status` int(11) NOT NULL DEFAULT '0' COMMENT '0->not viewed 1->viewied'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `Ilab_master_bid_technicalevaluation_m`
+--
+
+INSERT INTO `Ilab_master_bid_technicalevaluation_m` (`slno_bid_tech_id`, `bid_slno`, `buyer_slno`, `Technical_id_person`, `master_bid_id`, `status_bid`, `view_status`) VALUES
+(1, 30, 30, '19', 1, 0, 0),
+(2, 35, 32, '19', 2, 0, 0);
+
 -- --------------------------------------------------------
 
 --
@@ -828,6 +1023,24 @@ CREATE TABLE `Ilab_master_bid_vendor` (
   `status_view` int(11) NOT NULL DEFAULT '5' COMMENT '5-not viewed 6-viewed 7-submitted 8-> resubmission',
   `comment` text
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `Ilab_master_bid_vendor`
+--
+
+INSERT INTO `Ilab_master_bid_vendor` (`slno_vendor`, `bid_slno`, `buyer_slno`, `vendor_id`, `status`, `approval_status`, `submission_status`, `submission_count`, `title`, `description`, `date_start`, `date_end`, `query_end_date`, `master_bid_id`, `view_status_approve`, `bid_ref`, `bid_id`, `category`, `mode_bid`, `technical_bid_type`, `mr_slno`, `mr_no`, `job_code`, `edit_id`, `material_category_name`, `date_entry`, `date_update`, `status_active`, `status_view`, `comment`) VALUES
+(1, 30, 30, 'vender@ilab.com', 1, NULL, '0', '0', 'tthh', 'kkllg', '2019-05-07', '2019-06-20', '2019-05-10', 1, 0, '5500', '7790', '1', 'Simple Bid', '1', 30, '2019-02-01-kJV97', '0770', 1, 'standard catalogued item [ SCI ]', '2019-02-20 12:22:26', '2019-02-20 12:52:07', 1, 5, NULL),
+(2, 30, 30, 'ven111@gmail.com', 1, NULL, '0', '0', 'tthh', 'kkllg', '2019-05-07', '2019-06-20', '2019-05-10', 1, 0, '5500', '7790', '1', 'Simple Bid', '1', 30, '2019-02-01-kJV97', '0770', 1, 'standard catalogued item [ SCI ]', '2019-02-20 12:22:26', '2019-02-20 12:52:07', 1, 5, NULL),
+(3, 30, 30, 'ven121@gmail.com', 1, NULL, '0', '0', 'tthh', 'kkllg', '2019-05-07', '2019-06-20', '2019-05-10', 1, 0, '5500', '7790', '1', 'Simple Bid', '1', 30, '2019-02-01-kJV97', '0770', 1, 'standard catalogued item [ SCI ]', '2019-02-20 12:22:26', '2019-02-20 12:52:07', 1, 5, NULL),
+(4, 30, 30, 'ven221@gmail.com', 1, NULL, '0', '0', 'tthh', 'kkllg', '2019-05-07', '2019-06-20', '2019-05-10', 1, 0, '5500', '7790', '1', 'Simple Bid', '1', 30, '2019-02-01-kJV97', '0770', 1, 'standard catalogued item [ SCI ]', '2019-02-20 12:22:26', '2019-02-20 12:52:07', 1, 5, NULL),
+(5, 30, 30, 'ven310@yahoo.com', 1, NULL, '0', '0', 'tthh', 'kkllg', '2019-05-07', '2019-06-20', '2019-05-10', 1, 0, '5500', '7790', '1', 'Simple Bid', '1', 30, '2019-02-01-kJV97', '0770', 1, 'standard catalogued item [ SCI ]', '2019-02-20 12:22:26', '2019-02-20 12:52:07', 1, 5, NULL),
+(6, 30, 30, 'ven1011@yahoo.com', 1, NULL, '0', '0', 'tthh', 'kkllg', '2019-05-07', '2019-06-20', '2019-05-10', 1, 0, '5500', '7790', '1', 'Simple Bid', '1', 30, '2019-02-01-kJV97', '0770', 1, 'standard catalogued item [ SCI ]', '2019-02-20 12:22:26', '2019-02-20 12:52:07', 1, 5, NULL),
+(7, 35, 32, 'vender@ilab.com', 4, NULL, '0', '0', 'ttyz', 'gfgh', '2019-06-07', '2019-08-09', '2019-04-03', 2, 0, '002130', '9091', '1', 'Closed Bid', '1', 35, '2019-02-20-Rcyqr', '0770', 1, 'standard catalogued item [ SCI ]', '2019-02-20 12:50:43', '2019-02-20 12:50:43', 0, 5, NULL),
+(8, 35, 32, 'ven111@gmail.com', 4, NULL, '0', '0', 'ttyz', 'gfgh', '2019-06-07', '2019-08-09', '2019-04-03', 2, 0, '002130', '9091', '1', 'Closed Bid', '1', 35, '2019-02-20-Rcyqr', '0770', 1, 'standard catalogued item [ SCI ]', '2019-02-20 12:50:44', '2019-02-20 12:50:44', 0, 5, NULL),
+(9, 35, 32, 'ven121@gmail.com', 4, NULL, '0', '0', 'ttyz', 'gfgh', '2019-06-07', '2019-08-09', '2019-04-03', 2, 0, '002130', '9091', '1', 'Closed Bid', '1', 35, '2019-02-20-Rcyqr', '0770', 1, 'standard catalogued item [ SCI ]', '2019-02-20 12:50:44', '2019-02-20 12:50:44', 0, 5, NULL),
+(10, 35, 32, 'ven221@gmail.com', 4, NULL, '0', '0', 'ttyz', 'gfgh', '2019-06-07', '2019-08-09', '2019-04-03', 2, 0, '002130', '9091', '1', 'Closed Bid', '1', 35, '2019-02-20-Rcyqr', '0770', 1, 'standard catalogued item [ SCI ]', '2019-02-20 12:50:44', '2019-02-20 12:50:44', 0, 5, NULL),
+(11, 35, 32, 'ven310@yahoo.com', 4, NULL, '0', '0', 'ttyz', 'gfgh', '2019-06-07', '2019-08-09', '2019-04-03', 2, 0, '002130', '9091', '1', 'Closed Bid', '1', 35, '2019-02-20-Rcyqr', '0770', 1, 'standard catalogued item [ SCI ]', '2019-02-20 12:50:44', '2019-02-20 12:50:44', 0, 5, NULL),
+(12, 35, 32, 'ven1011@yahoo.com', 4, NULL, '0', '0', 'ttyz', 'gfgh', '2019-06-07', '2019-08-09', '2019-04-03', 2, 0, '002130', '9091', '1', 'Closed Bid', '1', 35, '2019-02-20-Rcyqr', '0770', 1, 'standard catalogued item [ SCI ]', '2019-02-20 12:50:44', '2019-02-20 12:50:44', 0, 5, NULL);
 
 -- --------------------------------------------------------
 
@@ -873,40 +1086,40 @@ CREATE TABLE `Ilab_master_bid_vendor_commerical` (
 --
 
 INSERT INTO `Ilab_master_bid_vendor_commerical` (`slno_vendor`, `bid_slno`, `buyer_slno`, `vendor_id`, `status`, `approval_status`, `submission_status`, `submission_count`, `title`, `description`, `date_start`, `date_end`, `query_end_date`, `master_bid_id`, `view_status`, `bid_ref`, `bid_id`, `category`, `mode_bid`, `technical_bid_type`, `mr_slno`, `mr_no`, `job_code`, `edit_id`, `material_category_name`, `date_entry`, `date_update`, `status_active`, `status_view`, `negotiable_date`) VALUES
-(1, 1, 1, 'vender@ilab.com', 1, NULL, NULL, '0', 'xtxx', 'ttt', '2019-02-01', '2019-04-10', '2019-03-13', 1, 0, '1233', '7890', '1', 'Simple Bid', '2', 1, '2019-01-28-AVfzI', '0770', 1, 'standard catalogued item [ sci tech ]', '2019-01-28 07:34:34', '2019-01-28 07:34:50', 1, 5, ''),
-(2, 1, 1, 'ven111@gmail.com', 1, NULL, NULL, '0', 'xtxx', 'ttt', '2019-02-01', '2019-04-10', '2019-03-13', 1, 0, '1233', '7890', '1', 'Simple Bid', '2', 1, '2019-01-28-AVfzI', '0770', 1, 'standard catalogued item [ sci tech ]', '2019-01-28 07:34:34', '2019-01-28 07:34:50', 1, 5, ''),
-(3, 1, 1, 'ven121@gmail.com', 1, NULL, '1', '1', 'xtxx', 'ttt', '2019-02-01', '2019-04-10', '2019-03-13', 1, 0, '1233', '7890', '1', 'Simple Bid', '2', 1, '2019-01-28-AVfzI', '0770', 1, 'standard catalogued item [ sci tech ]', '2019-01-28 07:34:34', '2019-01-28 13:57:23', 1, 7, '01/30/2019 4:53 PM'),
-(4, 1, 1, 'ven221@gmail.com', 1, NULL, NULL, '0', 'xtxx', 'ttt', '2019-02-01', '2019-04-10', '2019-03-13', 1, 0, '1233', '7890', '1', 'Simple Bid', '2', 1, '2019-01-28-AVfzI', '0770', 1, 'standard catalogued item [ sci tech ]', '2019-01-28 07:34:34', '2019-01-28 07:34:50', 1, 5, ''),
-(5, 1, 1, 'ven310@yahoo.com', 1, NULL, '1', '1', 'xtxx', 'ttt', '2019-02-01', '2019-04-10', '2019-03-13', 1, 0, '1233', '7890', '1', 'Simple Bid', '2', 1, '2019-01-28-AVfzI', '0770', 1, 'standard catalogued item [ sci tech ]', '2019-01-28 07:34:34', '2019-01-29 12:42:48', 1, 7, '01/30/2019 4:53 PM'),
-(6, 1, 1, 'ven90@gmail.com', 1, NULL, NULL, '0', 'xtxx', 'ttt', '2019-02-01', '2019-04-10', '2019-03-13', 1, 0, '1233', '7890', '1', 'Simple Bid', '2', 1, '2019-01-28-AVfzI', '0770', 1, 'standard catalogued item [ sci tech ]', '2019-01-28 07:34:34', '2019-01-28 07:34:50', 1, 5, ''),
-(7, 1, 1, 'ven66@gmail.com', 1, NULL, '1', '1', 'xtxx', 'ttt', '2019-02-01', '2019-04-10', '2019-03-13', 1, 0, '1233', '7890', '1', 'Simple Bid', '2', 1, '2019-01-28-AVfzI', '0770', 1, 'standard catalogued item [ sci tech ]', '2019-01-28 07:34:34', '2019-01-29 11:44:42', 1, 7, '01/30/2019 4:53 PM'),
-(8, 1, 1, 'ven371@yahoo.com', 1, NULL, '1', '1', 'xtxx', 'ttt', '2019-02-01', '2019-04-10', '2019-03-13', 1, 0, '1233', '7890', '1', 'Simple Bid', '2', 1, '2019-01-28-AVfzI', '0770', 1, 'standard catalogued item [ sci tech ]', '2019-01-28 07:34:34', '2019-01-28 11:36:48', 1, 8, '01/30/2019 4:53 PM'),
-(9, 1, 1, 'ven170@yahoo.com', 1, NULL, NULL, '0', 'xtxx', 'ttt', '2019-02-01', '2019-04-10', '2019-03-13', 1, 0, '1233', '7890', '1', 'Simple Bid', '2', 1, '2019-01-28-AVfzI', '0770', 1, 'standard catalogued item [ sci tech ]', '2019-01-28 07:34:34', '2019-01-28 07:34:50', 1, 5, ''),
-(10, 1, 1, 'ven454@yahoo.com', 1, NULL, NULL, '0', 'xtxx', 'ttt', '2019-02-01', '2019-04-10', '2019-03-13', 1, 0, '1233', '7890', '1', 'Simple Bid', '2', 1, '2019-01-28-AVfzI', '0770', 1, 'standard catalogued item [ sci tech ]', '2019-01-28 07:34:34', '2019-01-28 07:34:50', 1, 5, ''),
-(11, 2, 2, 'vender@ilab.com', 1, NULL, NULL, '0', 'ttgh', 'xxxtt', '2019-05-07', '2019-07-23', '2019-07-23', 2, 0, '570', '9988', '1', 'Simple Bid', '2', 2, '2019-01-28-gLFf8', '0770', 1, 'standard catalogued item [ sci tech ]', '2019-01-28 07:41:38', '2019-01-28 07:41:55', 1, 5, ''),
-(12, 2, 2, 'ven121@gmail.com', 1, NULL, '1', '1', 'ttgh', 'xxxtt', '2019-05-07', '2019-07-23', '2019-07-23', 2, 0, '570', '9988', '1', 'Simple Bid', '2', 2, '2019-01-28-gLFf8', '0770', 1, 'standard catalogued item [ sci tech ]', '2019-01-28 07:41:38', '2019-01-28 13:59:39', 1, 7, '01/30/2019 5:37 PM'),
-(13, 2, 2, 'ven221@gmail.com', 1, NULL, NULL, '0', 'ttgh', 'xxxtt', '2019-05-07', '2019-07-23', '2019-07-23', 2, 0, '570', '9988', '1', 'Simple Bid', '2', 2, '2019-01-28-gLFf8', '0770', 1, 'standard catalogued item [ sci tech ]', '2019-01-28 07:41:39', '2019-01-28 07:41:55', 1, 5, ''),
-(14, 2, 2, 'ven310@yahoo.com', 1, NULL, '1', '1', 'ttgh', 'xxxtt', '2019-05-07', '2019-07-23', '2019-07-23', 2, 0, '570', '9988', '1', 'Simple Bid', '2', 2, '2019-01-28-gLFf8', '0770', 1, 'standard catalogued item [ sci tech ]', '2019-01-28 07:41:39', '2019-01-29 12:44:47', 1, 7, ''),
-(15, 2, 2, 'ven1011@yahoo.com', 1, NULL, NULL, '0', 'ttgh', 'xxxtt', '2019-05-07', '2019-07-23', '2019-07-23', 2, 0, '570', '9988', '1', 'Simple Bid', '2', 2, '2019-01-28-gLFf8', '0770', 1, 'standard catalogued item [ sci tech ]', '2019-01-28 07:41:39', '2019-01-28 07:41:55', 1, 5, ''),
-(16, 2, 2, 'ven331@gmail.com', 1, NULL, NULL, '0', 'ttgh', 'xxxtt', '2019-05-07', '2019-07-23', '2019-07-23', 2, 0, '570', '9988', '1', 'Simple Bid', '2', 2, '2019-01-28-gLFf8', '0770', 1, 'standard catalogued item [ sci tech ]', '2019-01-28 07:41:39', '2019-01-28 07:41:55', 1, 5, ''),
-(17, 2, 2, 'ven97@gmail.com', 1, NULL, '1', '1', 'ttgh', 'xxxtt', '2019-05-07', '2019-07-23', '2019-07-23', 2, 0, '570', '9988', '1', 'Simple Bid', '2', 2, '2019-01-28-gLFf8', '0770', 1, 'standard catalogued item [ sci tech ]', '2019-01-28 07:41:39', '2019-01-29 11:33:27', 1, 7, '01/30/2019 5:37 PM'),
-(18, 2, 2, 'ven979@yahoo.com', 1, NULL, '1', '1', 'ttgh', 'xxxtt', '2019-05-07', '2019-07-23', '2019-07-23', 2, 0, '570', '9988', '1', 'Simple Bid', '2', 2, '2019-01-28-gLFf8', '0770', 1, 'standard catalogued item [ sci tech ]', '2019-01-28 07:41:39', '2019-01-29 13:05:12', 1, 7, '01/30/2019 5:37 PM'),
-(19, 2, 2, 'ven90@gmail.com', 1, NULL, NULL, '0', 'ttgh', 'xxxtt', '2019-05-07', '2019-07-23', '2019-07-23', 2, 0, '570', '9988', '1', 'Simple Bid', '2', 2, '2019-01-28-gLFf8', '0770', 1, 'standard catalogued item [ sci tech ]', '2019-01-28 07:41:39', '2019-01-28 07:41:55', 1, 5, ''),
-(20, 2, 2, 'ven66@gmail.com', 1, NULL, '1', '1', 'ttgh', 'xxxtt', '2019-05-07', '2019-07-23', '2019-07-23', 2, 0, '570', '9988', '1', 'Simple Bid', '2', 2, '2019-01-28-gLFf8', '0770', 1, 'standard catalogued item [ sci tech ]', '2019-01-28 07:41:39', '2019-01-29 11:41:46', 1, 7, ''),
-(21, 2, 2, 'ven371@yahoo.com', 1, NULL, '1', '1', 'ttgh', 'xxxtt', '2019-05-07', '2019-07-23', '2019-07-23', 2, 0, '570', '9988', '1', 'Simple Bid', '2', 2, '2019-01-28-gLFf8', '0770', 1, 'standard catalogued item [ sci tech ]', '2019-01-28 07:41:39', '2019-01-28 12:13:06', 1, 8, '01/30/2019 5:37 PM'),
-(22, 2, 2, 'ven454@yahoo.com', 1, NULL, NULL, '0', 'ttgh', 'xxxtt', '2019-05-07', '2019-07-23', '2019-07-23', 2, 0, '570', '9988', '1', 'Simple Bid', '2', 2, '2019-01-28-gLFf8', '0770', 1, 'standard catalogued item [ sci tech ]', '2019-01-28 07:41:39', '2019-01-28 07:41:55', 1, 5, ''),
-(23, 4, 3, 'vender@ilab.com', 1, NULL, NULL, '0', 'xxx', 'xcfd', '2019-02-06', '2019-06-12', '2019-03-07', 3, 0, '1112', '22330', '2', 'Simple Bid', '2', 4, '2019-01-28-Svtup', '0770', 1, 'make to order items [ moi ]', '2019-01-28 14:37:57', '2019-01-28 14:38:16', 1, 5, ''),
-(24, 4, 3, 'ven111@gmail.com', 1, NULL, NULL, '0', 'xxx', 'xcfd', '2019-02-06', '2019-06-12', '2019-03-07', 3, 0, '1112', '22330', '2', 'Simple Bid', '2', 4, '2019-01-28-Svtup', '0770', 1, 'make to order items [ moi ]', '2019-01-28 14:37:57', '2019-01-28 14:38:16', 1, 5, ''),
-(25, 4, 3, 'ven121@gmail.com', 1, NULL, '1', '1', 'xxx', 'xcfd', '2019-02-06', '2019-06-12', '2019-03-07', 3, 0, '1112', '22330', '2', 'Simple Bid', '2', 4, '2019-01-28-Svtup', '0770', 1, 'make to order items [ moi ]', '2019-01-28 14:37:58', '2019-01-28 14:50:27', 1, 7, '01/28/2019 8:18 PM'),
-(26, 4, 3, 'ven221@gmail.com', 1, NULL, NULL, '0', 'xxx', 'xcfd', '2019-02-06', '2019-06-12', '2019-03-07', 3, 0, '1112', '22330', '2', 'Simple Bid', '2', 4, '2019-01-28-Svtup', '0770', 1, 'make to order items [ moi ]', '2019-01-28 14:37:58', '2019-01-28 14:38:16', 1, 5, ''),
-(27, 4, 3, 'ven001@gmail.com', 1, NULL, NULL, '0', 'xxx', 'xcfd', '2019-02-06', '2019-06-12', '2019-03-07', 3, 0, '1112', '22330', '2', 'Simple Bid', '2', 4, '2019-01-28-Svtup', '0770', 1, 'make to order items [ moi ]', '2019-01-28 14:37:58', '2019-01-28 14:38:16', 1, 5, ''),
-(28, 4, 3, 'ven1011@yahoo.com', 1, NULL, NULL, '0', 'xxx', 'xcfd', '2019-02-06', '2019-06-12', '2019-03-07', 3, 0, '1112', '22330', '2', 'Simple Bid', '2', 4, '2019-01-28-Svtup', '0770', 1, 'make to order items [ moi ]', '2019-01-28 14:37:58', '2019-01-28 14:38:16', 1, 5, ''),
-(29, 4, 3, 'ven331@gmail.com', 1, NULL, NULL, '0', 'xxx', 'xcfd', '2019-02-06', '2019-06-12', '2019-03-07', 3, 0, '1112', '22330', '2', 'Simple Bid', '2', 4, '2019-01-28-Svtup', '0770', 1, 'make to order items [ moi ]', '2019-01-28 14:37:58', '2019-01-28 14:38:16', 1, 5, ''),
-(30, 4, 3, 'ven97@gmail.com', 1, NULL, '1', '1', 'xxx', 'xcfd', '2019-02-06', '2019-06-12', '2019-03-07', 3, 0, '1112', '22330', '2', 'Simple Bid', '2', 4, '2019-01-28-Svtup', '0770', 1, 'make to order items [ moi ]', '2019-01-28 14:37:58', '2019-01-29 11:35:02', 1, 7, ''),
-(31, 4, 3, 'ven979@yahoo.com', 1, NULL, '1', '1', 'xxx', 'xcfd', '2019-02-06', '2019-06-12', '2019-03-07', 3, 0, '1112', '22330', '2', 'Simple Bid', '2', 4, '2019-01-28-Svtup', '0770', 1, 'make to order items [ moi ]', '2019-01-28 14:37:58', '2019-01-29 13:01:05', 1, 7, ''),
-(32, 4, 3, 'ven66@gmail.com', 1, NULL, '1', '1', 'xxx', 'xcfd', '2019-02-06', '2019-06-12', '2019-03-07', 3, 0, '1112', '22330', '2', 'Simple Bid', '2', 4, '2019-01-28-Svtup', '0770', 1, 'make to order items [ moi ]', '2019-01-28 14:37:58', '2019-01-29 11:43:14', 1, 7, ''),
-(33, 4, 3, 'ven371@yahoo.com', 1, NULL, '1', '1', 'xxx', 'xcfd', '2019-02-06', '2019-06-12', '2019-03-07', 3, 0, '1112', '22330', '2', 'Simple Bid', '2', 4, '2019-01-28-Svtup', '0770', 1, 'make to order items [ moi ]', '2019-01-28 14:37:58', '2019-01-29 12:53:28', 1, 7, ''),
-(34, 4, 3, 'ven454@yahoo.com', 1, NULL, NULL, '0', 'xxx', 'xcfd', '2019-02-06', '2019-06-12', '2019-03-07', 3, 0, '1112', '22330', '2', 'Simple Bid', '2', 4, '2019-01-28-Svtup', '0770', 1, 'make to order items [ moi ]', '2019-01-28 14:37:58', '2019-01-28 14:38:16', 1, 5, ''),
+(1, 1, 1, 'vender@ilab.com', 1, NULL, NULL, '0', 'xtxx', 'ttt', '2019-02-01', '2019-04-10', '2019-03-13', 1, 0, '1233', '7890', '1', 'Simple Bid', '2', 1, '2019-01-28-AVfzI', '0770', 1, 'standard catalogued item [ sci tech ]', '2019-01-28 07:34:34', '2019-02-20 11:39:30', 6, 5, ''),
+(2, 1, 1, 'ven111@gmail.com', 1, NULL, NULL, '0', 'xtxx', 'ttt', '2019-02-01', '2019-04-10', '2019-03-13', 1, 0, '1233', '7890', '1', 'Simple Bid', '2', 1, '2019-01-28-AVfzI', '0770', 1, 'standard catalogued item [ sci tech ]', '2019-01-28 07:34:34', '2019-02-20 11:39:30', 6, 5, ''),
+(3, 1, 1, 'ven121@gmail.com', 1, NULL, '1', '1', 'xtxx', 'ttt', '2019-02-01', '2019-04-10', '2019-03-13', 1, 0, '1233', '7890', '1', 'Simple Bid', '2', 1, '2019-01-28-AVfzI', '0770', 1, 'standard catalogued item [ sci tech ]', '2019-01-28 07:34:34', '2019-02-20 11:39:30', 6, 7, '01/30/2019 4:53 PM'),
+(4, 1, 1, 'ven221@gmail.com', 1, NULL, NULL, '0', 'xtxx', 'ttt', '2019-02-01', '2019-04-10', '2019-03-13', 1, 0, '1233', '7890', '1', 'Simple Bid', '2', 1, '2019-01-28-AVfzI', '0770', 1, 'standard catalogued item [ sci tech ]', '2019-01-28 07:34:34', '2019-02-20 11:39:30', 6, 5, ''),
+(5, 1, 1, 'ven310@yahoo.com', 1, NULL, '1', '1', 'xtxx', 'ttt', '2019-02-01', '2019-04-10', '2019-03-13', 1, 0, '1233', '7890', '1', 'Simple Bid', '2', 1, '2019-01-28-AVfzI', '0770', 1, 'standard catalogued item [ sci tech ]', '2019-01-28 07:34:34', '2019-02-20 11:39:30', 6, 7, '01/30/2019 4:53 PM'),
+(6, 1, 1, 'ven90@gmail.com', 1, NULL, NULL, '0', 'xtxx', 'ttt', '2019-02-01', '2019-04-10', '2019-03-13', 1, 0, '1233', '7890', '1', 'Simple Bid', '2', 1, '2019-01-28-AVfzI', '0770', 1, 'standard catalogued item [ sci tech ]', '2019-01-28 07:34:34', '2019-02-20 11:39:30', 6, 5, ''),
+(7, 1, 1, 'ven66@gmail.com', 1, NULL, '1', '1', 'xtxx', 'ttt', '2019-02-01', '2019-04-10', '2019-03-13', 1, 0, '1233', '7890', '1', 'Simple Bid', '2', 1, '2019-01-28-AVfzI', '0770', 1, 'standard catalogued item [ sci tech ]', '2019-01-28 07:34:34', '2019-02-20 11:39:30', 6, 7, '01/30/2019 4:53 PM'),
+(8, 1, 1, 'ven371@yahoo.com', 1, NULL, '1', '1', 'xtxx', 'ttt', '2019-02-01', '2019-04-10', '2019-03-13', 1, 0, '1233', '7890', '1', 'Simple Bid', '2', 1, '2019-01-28-AVfzI', '0770', 1, 'standard catalogued item [ sci tech ]', '2019-01-28 07:34:34', '2019-02-20 11:39:30', 6, 8, '01/30/2019 4:53 PM'),
+(9, 1, 1, 'ven170@yahoo.com', 1, NULL, NULL, '0', 'xtxx', 'ttt', '2019-02-01', '2019-04-10', '2019-03-13', 1, 0, '1233', '7890', '1', 'Simple Bid', '2', 1, '2019-01-28-AVfzI', '0770', 1, 'standard catalogued item [ sci tech ]', '2019-01-28 07:34:34', '2019-02-20 11:39:30', 6, 5, ''),
+(10, 1, 1, 'ven454@yahoo.com', 1, NULL, NULL, '0', 'xtxx', 'ttt', '2019-02-01', '2019-04-10', '2019-03-13', 1, 0, '1233', '7890', '1', 'Simple Bid', '2', 1, '2019-01-28-AVfzI', '0770', 1, 'standard catalogued item [ sci tech ]', '2019-01-28 07:34:34', '2019-02-20 11:39:30', 6, 5, ''),
+(11, 2, 2, 'vender@ilab.com', 1, NULL, NULL, '0', 'ttgh', 'xxxtt', '2019-05-07', '2019-07-23', '2019-07-23', 2, 0, '570', '9988', '1', 'Simple Bid', '2', 2, '2019-01-28-gLFf8', '0770', 1, 'standard catalogued item [ sci tech ]', '2019-01-28 07:41:38', '2019-02-20 11:39:30', 6, 5, ''),
+(12, 2, 2, 'ven121@gmail.com', 1, NULL, '1', '1', 'ttgh', 'xxxtt', '2019-05-07', '2019-07-23', '2019-07-23', 2, 0, '570', '9988', '1', 'Simple Bid', '2', 2, '2019-01-28-gLFf8', '0770', 1, 'standard catalogued item [ sci tech ]', '2019-01-28 07:41:38', '2019-02-20 11:39:30', 6, 7, '01/30/2019 5:37 PM'),
+(13, 2, 2, 'ven221@gmail.com', 1, NULL, NULL, '0', 'ttgh', 'xxxtt', '2019-05-07', '2019-07-23', '2019-07-23', 2, 0, '570', '9988', '1', 'Simple Bid', '2', 2, '2019-01-28-gLFf8', '0770', 1, 'standard catalogued item [ sci tech ]', '2019-01-28 07:41:39', '2019-02-20 11:39:30', 6, 5, ''),
+(14, 2, 2, 'ven310@yahoo.com', 1, NULL, '1', '1', 'ttgh', 'xxxtt', '2019-05-07', '2019-07-23', '2019-07-23', 2, 0, '570', '9988', '1', 'Simple Bid', '2', 2, '2019-01-28-gLFf8', '0770', 1, 'standard catalogued item [ sci tech ]', '2019-01-28 07:41:39', '2019-02-20 11:39:30', 6, 7, ''),
+(15, 2, 2, 'ven1011@yahoo.com', 1, NULL, NULL, '0', 'ttgh', 'xxxtt', '2019-05-07', '2019-07-23', '2019-07-23', 2, 0, '570', '9988', '1', 'Simple Bid', '2', 2, '2019-01-28-gLFf8', '0770', 1, 'standard catalogued item [ sci tech ]', '2019-01-28 07:41:39', '2019-02-20 11:39:30', 6, 5, ''),
+(16, 2, 2, 'ven331@gmail.com', 1, NULL, NULL, '0', 'ttgh', 'xxxtt', '2019-05-07', '2019-07-23', '2019-07-23', 2, 0, '570', '9988', '1', 'Simple Bid', '2', 2, '2019-01-28-gLFf8', '0770', 1, 'standard catalogued item [ sci tech ]', '2019-01-28 07:41:39', '2019-02-20 11:39:30', 6, 5, ''),
+(17, 2, 2, 'ven97@gmail.com', 1, NULL, '1', '1', 'ttgh', 'xxxtt', '2019-05-07', '2019-07-23', '2019-07-23', 2, 0, '570', '9988', '1', 'Simple Bid', '2', 2, '2019-01-28-gLFf8', '0770', 1, 'standard catalogued item [ sci tech ]', '2019-01-28 07:41:39', '2019-02-20 11:39:30', 6, 7, '01/30/2019 5:37 PM'),
+(18, 2, 2, 'ven979@yahoo.com', 1, NULL, '1', '1', 'ttgh', 'xxxtt', '2019-05-07', '2019-07-23', '2019-07-23', 2, 0, '570', '9988', '1', 'Simple Bid', '2', 2, '2019-01-28-gLFf8', '0770', 1, 'standard catalogued item [ sci tech ]', '2019-01-28 07:41:39', '2019-02-20 11:39:30', 6, 7, '01/30/2019 5:37 PM'),
+(19, 2, 2, 'ven90@gmail.com', 1, NULL, NULL, '0', 'ttgh', 'xxxtt', '2019-05-07', '2019-07-23', '2019-07-23', 2, 0, '570', '9988', '1', 'Simple Bid', '2', 2, '2019-01-28-gLFf8', '0770', 1, 'standard catalogued item [ sci tech ]', '2019-01-28 07:41:39', '2019-02-20 11:39:30', 6, 5, ''),
+(20, 2, 2, 'ven66@gmail.com', 1, NULL, '1', '1', 'ttgh', 'xxxtt', '2019-05-07', '2019-07-23', '2019-07-23', 2, 0, '570', '9988', '1', 'Simple Bid', '2', 2, '2019-01-28-gLFf8', '0770', 1, 'standard catalogued item [ sci tech ]', '2019-01-28 07:41:39', '2019-02-20 11:39:30', 6, 7, ''),
+(21, 2, 2, 'ven371@yahoo.com', 1, NULL, '1', '1', 'ttgh', 'xxxtt', '2019-05-07', '2019-07-23', '2019-07-23', 2, 0, '570', '9988', '1', 'Simple Bid', '2', 2, '2019-01-28-gLFf8', '0770', 1, 'standard catalogued item [ sci tech ]', '2019-01-28 07:41:39', '2019-02-20 11:39:30', 6, 8, '01/30/2019 5:37 PM'),
+(22, 2, 2, 'ven454@yahoo.com', 1, NULL, NULL, '0', 'ttgh', 'xxxtt', '2019-05-07', '2019-07-23', '2019-07-23', 2, 0, '570', '9988', '1', 'Simple Bid', '2', 2, '2019-01-28-gLFf8', '0770', 1, 'standard catalogued item [ sci tech ]', '2019-01-28 07:41:39', '2019-02-20 11:39:30', 6, 5, ''),
+(23, 4, 3, 'vender@ilab.com', 1, NULL, NULL, '0', 'xxx', 'xcfd', '2019-02-06', '2019-06-12', '2019-03-07', 3, 0, '1112', '22330', '2', 'Simple Bid', '2', 4, '2019-01-28-Svtup', '0770', 1, 'make to order items [ moi ]', '2019-01-28 14:37:57', '2019-02-20 11:39:30', 6, 5, ''),
+(24, 4, 3, 'ven111@gmail.com', 1, NULL, NULL, '0', 'xxx', 'xcfd', '2019-02-06', '2019-06-12', '2019-03-07', 3, 0, '1112', '22330', '2', 'Simple Bid', '2', 4, '2019-01-28-Svtup', '0770', 1, 'make to order items [ moi ]', '2019-01-28 14:37:57', '2019-02-20 11:39:30', 6, 5, ''),
+(25, 4, 3, 'ven121@gmail.com', 1, NULL, '1', '1', 'xxx', 'xcfd', '2019-02-06', '2019-06-12', '2019-03-07', 3, 0, '1112', '22330', '2', 'Simple Bid', '2', 4, '2019-01-28-Svtup', '0770', 1, 'make to order items [ moi ]', '2019-01-28 14:37:58', '2019-02-20 11:39:30', 6, 7, '01/28/2019 8:18 PM'),
+(26, 4, 3, 'ven221@gmail.com', 1, NULL, NULL, '0', 'xxx', 'xcfd', '2019-02-06', '2019-06-12', '2019-03-07', 3, 0, '1112', '22330', '2', 'Simple Bid', '2', 4, '2019-01-28-Svtup', '0770', 1, 'make to order items [ moi ]', '2019-01-28 14:37:58', '2019-02-20 11:39:30', 6, 5, ''),
+(27, 4, 3, 'ven001@gmail.com', 1, NULL, NULL, '0', 'xxx', 'xcfd', '2019-02-06', '2019-06-12', '2019-03-07', 3, 0, '1112', '22330', '2', 'Simple Bid', '2', 4, '2019-01-28-Svtup', '0770', 1, 'make to order items [ moi ]', '2019-01-28 14:37:58', '2019-02-20 11:39:30', 6, 5, ''),
+(28, 4, 3, 'ven1011@yahoo.com', 1, NULL, NULL, '0', 'xxx', 'xcfd', '2019-02-06', '2019-06-12', '2019-03-07', 3, 0, '1112', '22330', '2', 'Simple Bid', '2', 4, '2019-01-28-Svtup', '0770', 1, 'make to order items [ moi ]', '2019-01-28 14:37:58', '2019-02-20 11:39:30', 6, 5, ''),
+(29, 4, 3, 'ven331@gmail.com', 1, NULL, NULL, '0', 'xxx', 'xcfd', '2019-02-06', '2019-06-12', '2019-03-07', 3, 0, '1112', '22330', '2', 'Simple Bid', '2', 4, '2019-01-28-Svtup', '0770', 1, 'make to order items [ moi ]', '2019-01-28 14:37:58', '2019-02-20 11:39:30', 6, 5, ''),
+(30, 4, 3, 'ven97@gmail.com', 1, NULL, '1', '1', 'xxx', 'xcfd', '2019-02-06', '2019-06-12', '2019-03-07', 3, 0, '1112', '22330', '2', 'Simple Bid', '2', 4, '2019-01-28-Svtup', '0770', 1, 'make to order items [ moi ]', '2019-01-28 14:37:58', '2019-02-20 11:39:30', 6, 7, ''),
+(31, 4, 3, 'ven979@yahoo.com', 1, NULL, '1', '1', 'xxx', 'xcfd', '2019-02-06', '2019-06-12', '2019-03-07', 3, 0, '1112', '22330', '2', 'Simple Bid', '2', 4, '2019-01-28-Svtup', '0770', 1, 'make to order items [ moi ]', '2019-01-28 14:37:58', '2019-02-20 11:39:30', 6, 7, ''),
+(32, 4, 3, 'ven66@gmail.com', 1, NULL, '1', '1', 'xxx', 'xcfd', '2019-02-06', '2019-06-12', '2019-03-07', 3, 0, '1112', '22330', '2', 'Simple Bid', '2', 4, '2019-01-28-Svtup', '0770', 1, 'make to order items [ moi ]', '2019-01-28 14:37:58', '2019-02-20 11:39:30', 6, 7, ''),
+(33, 4, 3, 'ven371@yahoo.com', 1, NULL, '1', '1', 'xxx', 'xcfd', '2019-02-06', '2019-06-12', '2019-03-07', 3, 0, '1112', '22330', '2', 'Simple Bid', '2', 4, '2019-01-28-Svtup', '0770', 1, 'make to order items [ moi ]', '2019-01-28 14:37:58', '2019-02-20 11:39:30', 6, 7, ''),
+(34, 4, 3, 'ven454@yahoo.com', 1, NULL, NULL, '0', 'xxx', 'xcfd', '2019-02-06', '2019-06-12', '2019-03-07', 3, 0, '1112', '22330', '2', 'Simple Bid', '2', 4, '2019-01-28-Svtup', '0770', 1, 'make to order items [ moi ]', '2019-01-28 14:37:58', '2019-02-20 11:39:30', 6, 5, ''),
 (35, 5, 4, 'vender@ilab.com', 1, NULL, NULL, '0', 'fgc', 'gvnht', '2019-02-06', '2019-04-09', '2019-02-13', 4, 0, '141', '3322', '2', 'Simple Bid', '2', 5, '2019-01-28-7aRzP', '0770', 1, 'make to order items [ moi ]', '2019-01-28 14:42:17', '2019-01-29 12:05:42', 1, 5, ''),
 (36, 5, 4, 'ven111@gmail.com', 1, NULL, NULL, '0', 'fgc', 'gvnht', '2019-02-06', '2019-04-09', '2019-02-13', 4, 0, '141', '3322', '2', 'Simple Bid', '2', 5, '2019-01-28-7aRzP', '0770', 1, 'make to order items [ moi ]', '2019-01-28 14:42:17', '2019-01-29 12:05:42', 1, 5, ''),
 (37, 5, 4, 'ven121@gmail.com', 1, NULL, '1', '1', 'fgc', 'gvnht', '2019-02-06', '2019-04-09', '2019-02-13', 4, 0, '141', '3322', '2', 'Simple Bid', '2', 5, '2019-01-28-7aRzP', '0770', 1, 'make to order items [ moi ]', '2019-01-28 14:42:17', '2019-01-29 13:24:38', 1, 7, '01/29/2019 6:49 PM'),
@@ -919,23 +1132,23 @@ INSERT INTO `Ilab_master_bid_vendor_commerical` (`slno_vendor`, `bid_slno`, `buy
 (44, 5, 4, 'ven66@gmail.com', 1, NULL, '1', '1', 'fgc', 'gvnht', '2019-02-06', '2019-04-09', '2019-02-13', 4, 0, '141', '3322', '2', 'Simple Bid', '2', 5, '2019-01-28-7aRzP', '0770', 1, 'make to order items [ moi ]', '2019-01-28 14:42:17', '2019-01-29 13:22:00', 1, 8, '01/29/2019 6:49 PM'),
 (45, 5, 4, 'ven371@yahoo.com', 1, NULL, '1', '1', 'fgc', 'gvnht', '2019-02-06', '2019-04-09', '2019-02-13', 4, 0, '141', '3322', '2', 'Simple Bid', '2', 5, '2019-01-28-7aRzP', '0770', 1, 'make to order items [ moi ]', '2019-01-28 14:42:17', '2019-01-29 13:22:00', 1, 8, '01/29/2019 6:49 PM'),
 (46, 5, 4, 'ven454@yahoo.com', 1, NULL, NULL, '0', 'fgc', 'gvnht', '2019-02-06', '2019-04-09', '2019-02-13', 4, 0, '141', '3322', '2', 'Simple Bid', '2', 5, '2019-01-28-7aRzP', '0770', 1, 'make to order items [ moi ]', '2019-01-28 14:42:17', '2019-01-29 12:05:42', 1, 5, ''),
-(47, 6, 5, 'ven111@gmail.com', 1, NULL, NULL, '0', 'Real-time trade and investing ideas on Alphabet Inc. ', 'Settings Your data in Search Help Send feedback. AllImages · Account · Assistant · Search · Maps · YouTube · Play · News · Gmail · Contacts · Drive · Calendar.\r\n', '2019-01-27', '2019-01-31', '2019-01-29', 5, 0, '234', '421', '3', 'Simple Bid', '2', 6, '2019-01-28-lXMjU', '0770', 1, 'logistics [ logistics ]', '2019-01-28 14:44:01', '2019-01-28 14:44:23', 1, 5, ''),
-(48, 6, 5, 'ven121@gmail.com', 1, NULL, '1', '1', 'Real-time trade and investing ideas on Alphabet Inc. ', 'Settings Your data in Search Help Send feedback. AllImages · Account · Assistant · Search · Maps · YouTube · Play · News · Gmail · Contacts · Drive · Calendar.\r\n', '2019-01-27', '2019-01-31', '2019-01-29', 5, 0, '234', '421', '3', 'Simple Bid', '2', 6, '2019-01-28-lXMjU', '0770', 1, 'logistics [ logistics ]', '2019-01-28 14:44:01', '2019-01-28 14:49:16', 1, 7, ''),
-(49, 6, 5, 'ven221@gmail.com', 1, NULL, NULL, '0', 'Real-time trade and investing ideas on Alphabet Inc. ', 'Settings Your data in Search Help Send feedback. AllImages · Account · Assistant · Search · Maps · YouTube · Play · News · Gmail · Contacts · Drive · Calendar.\r\n', '2019-01-27', '2019-01-31', '2019-01-29', 5, 0, '234', '421', '3', 'Simple Bid', '2', 6, '2019-01-28-lXMjU', '0770', 1, 'logistics [ logistics ]', '2019-01-28 14:44:01', '2019-01-28 14:44:23', 1, 5, ''),
-(50, 6, 5, 'ven331@gmail.com', 1, NULL, NULL, '0', 'Real-time trade and investing ideas on Alphabet Inc. ', 'Settings Your data in Search Help Send feedback. AllImages · Account · Assistant · Search · Maps · YouTube · Play · News · Gmail · Contacts · Drive · Calendar.\r\n', '2019-01-27', '2019-01-31', '2019-01-29', 5, 0, '234', '421', '3', 'Simple Bid', '2', 6, '2019-01-28-lXMjU', '0770', 1, 'logistics [ logistics ]', '2019-01-28 14:44:01', '2019-01-28 14:44:23', 1, 5, ''),
-(51, 6, 5, 'ven97@gmail.com', 1, NULL, '1', '1', 'Real-time trade and investing ideas on Alphabet Inc. ', 'Settings Your data in Search Help Send feedback. AllImages · Account · Assistant · Search · Maps · YouTube · Play · News · Gmail · Contacts · Drive · Calendar.\r\n', '2019-01-27', '2019-01-31', '2019-01-29', 5, 0, '234', '421', '3', 'Simple Bid', '2', 6, '2019-01-28-lXMjU', '0770', 1, 'logistics [ logistics ]', '2019-01-28 14:44:01', '2019-01-29 11:32:02', 1, 7, ''),
-(52, 7, 7, 'vender@ilab.com', 1, NULL, NULL, '0', 'xxtxcv', 'suvc', '2019-05-07', '2019-08-14', '2019-06-12', 6, 0, '2300', '2120', '2', 'Simple Bid', '2', 7, '2019-01-29-SifCO', '0770', 1, 'make to order items [ moi ]', '2019-01-29 12:04:52', '2019-01-29 12:05:19', 1, 5, ''),
-(53, 7, 7, 'ven111@gmail.com', 1, NULL, NULL, '0', 'xxtxcv', 'suvc', '2019-05-07', '2019-08-14', '2019-06-12', 6, 0, '2300', '2120', '2', 'Simple Bid', '2', 7, '2019-01-29-SifCO', '0770', 1, 'make to order items [ moi ]', '2019-01-29 12:04:52', '2019-01-29 12:05:19', 1, 5, ''),
-(54, 7, 7, 'ven121@gmail.com', 1, NULL, '1', '1', 'xxtxcv', 'suvc', '2019-05-07', '2019-08-14', '2019-06-12', 6, 0, '2300', '2120', '2', 'Simple Bid', '2', 7, '2019-01-29-SifCO', '0770', 1, 'make to order items [ moi ]', '2019-01-29 12:04:52', '2019-01-29 12:39:57', 1, 7, ''),
-(55, 7, 7, 'ven221@gmail.com', 1, NULL, NULL, '0', 'xxtxcv', 'suvc', '2019-05-07', '2019-08-14', '2019-06-12', 6, 0, '2300', '2120', '2', 'Simple Bid', '2', 7, '2019-01-29-SifCO', '0770', 1, 'make to order items [ moi ]', '2019-01-29 12:04:52', '2019-01-29 12:05:19', 1, 5, ''),
-(56, 7, 7, 'ven001@gmail.com', 1, NULL, NULL, '0', 'xxtxcv', 'suvc', '2019-05-07', '2019-08-14', '2019-06-12', 6, 0, '2300', '2120', '2', 'Simple Bid', '2', 7, '2019-01-29-SifCO', '0770', 1, 'make to order items [ moi ]', '2019-01-29 12:04:52', '2019-01-29 12:05:19', 1, 5, ''),
-(57, 7, 7, 'ven1011@yahoo.com', 1, NULL, NULL, '0', 'xxtxcv', 'suvc', '2019-05-07', '2019-08-14', '2019-06-12', 6, 0, '2300', '2120', '2', 'Simple Bid', '2', 7, '2019-01-29-SifCO', '0770', 1, 'make to order items [ moi ]', '2019-01-29 12:04:52', '2019-01-29 12:05:19', 1, 5, ''),
-(58, 7, 7, 'ven331@gmail.com', 1, NULL, NULL, '0', 'xxtxcv', 'suvc', '2019-05-07', '2019-08-14', '2019-06-12', 6, 0, '2300', '2120', '2', 'Simple Bid', '2', 7, '2019-01-29-SifCO', '0770', 1, 'make to order items [ moi ]', '2019-01-29 12:04:52', '2019-01-29 12:05:19', 1, 5, ''),
-(59, 7, 7, 'ven97@gmail.com', 1, NULL, '1', '1', 'xxtxcv', 'suvc', '2019-05-07', '2019-08-14', '2019-06-12', 6, 0, '2300', '2120', '2', 'Simple Bid', '2', 7, '2019-01-29-SifCO', '0770', 1, 'make to order items [ moi ]', '2019-01-29 12:04:52', '2019-01-29 12:34:27', 1, 7, ''),
-(60, 7, 7, 'ven979@yahoo.com', 1, NULL, '1', '1', 'xxtxcv', 'suvc', '2019-05-07', '2019-08-14', '2019-06-12', 6, 0, '2300', '2120', '2', 'Simple Bid', '2', 7, '2019-01-29-SifCO', '0770', 1, 'make to order items [ moi ]', '2019-01-29 12:04:52', '2019-01-29 13:03:26', 1, 7, ''),
-(61, 7, 7, 'ven66@gmail.com', 1, NULL, '1', '1', 'xxtxcv', 'suvc', '2019-05-07', '2019-08-14', '2019-06-12', 6, 0, '2300', '2120', '2', 'Simple Bid', '2', 7, '2019-01-29-SifCO', '0770', 1, 'make to order items [ moi ]', '2019-01-29 12:04:52', '2019-01-29 12:50:29', 1, 7, ''),
-(62, 7, 7, 'ven371@yahoo.com', 1, NULL, '1', '1', 'xxtxcv', 'suvc', '2019-05-07', '2019-08-14', '2019-06-12', 6, 0, '2300', '2120', '2', 'Simple Bid', '2', 7, '2019-01-29-SifCO', '0770', 1, 'make to order items [ moi ]', '2019-01-29 12:04:52', '2019-01-29 12:57:41', 1, 7, ''),
-(63, 7, 7, 'ven454@yahoo.com', 1, NULL, NULL, '0', 'xxtxcv', 'suvc', '2019-05-07', '2019-08-14', '2019-06-12', 6, 0, '2300', '2120', '2', 'Simple Bid', '2', 7, '2019-01-29-SifCO', '0770', 1, 'make to order items [ moi ]', '2019-01-29 12:04:52', '2019-01-29 12:05:19', 1, 5, ''),
+(47, 6, 5, 'ven111@gmail.com', 1, NULL, NULL, '0', 'Real-time trade and investing ideas on Alphabet Inc. ', 'Settings Your data in Search Help Send feedback. AllImages · Account · Assistant · Search · Maps · YouTube · Play · News · Gmail · Contacts · Drive · Calendar.\r\n', '2019-01-27', '2019-01-31', '2019-01-29', 5, 0, '234', '421', '3', 'Simple Bid', '2', 6, '2019-01-28-lXMjU', '0770', 1, 'logistics [ logistics ]', '2019-01-28 14:44:01', '2019-02-20 11:39:30', 6, 5, ''),
+(48, 6, 5, 'ven121@gmail.com', 1, NULL, '1', '1', 'Real-time trade and investing ideas on Alphabet Inc. ', 'Settings Your data in Search Help Send feedback. AllImages · Account · Assistant · Search · Maps · YouTube · Play · News · Gmail · Contacts · Drive · Calendar.\r\n', '2019-01-27', '2019-01-31', '2019-01-29', 5, 0, '234', '421', '3', 'Simple Bid', '2', 6, '2019-01-28-lXMjU', '0770', 1, 'logistics [ logistics ]', '2019-01-28 14:44:01', '2019-02-20 11:39:30', 6, 7, ''),
+(49, 6, 5, 'ven221@gmail.com', 1, NULL, NULL, '0', 'Real-time trade and investing ideas on Alphabet Inc. ', 'Settings Your data in Search Help Send feedback. AllImages · Account · Assistant · Search · Maps · YouTube · Play · News · Gmail · Contacts · Drive · Calendar.\r\n', '2019-01-27', '2019-01-31', '2019-01-29', 5, 0, '234', '421', '3', 'Simple Bid', '2', 6, '2019-01-28-lXMjU', '0770', 1, 'logistics [ logistics ]', '2019-01-28 14:44:01', '2019-02-20 11:39:30', 6, 5, ''),
+(50, 6, 5, 'ven331@gmail.com', 1, NULL, NULL, '0', 'Real-time trade and investing ideas on Alphabet Inc. ', 'Settings Your data in Search Help Send feedback. AllImages · Account · Assistant · Search · Maps · YouTube · Play · News · Gmail · Contacts · Drive · Calendar.\r\n', '2019-01-27', '2019-01-31', '2019-01-29', 5, 0, '234', '421', '3', 'Simple Bid', '2', 6, '2019-01-28-lXMjU', '0770', 1, 'logistics [ logistics ]', '2019-01-28 14:44:01', '2019-02-20 11:39:30', 6, 5, ''),
+(51, 6, 5, 'ven97@gmail.com', 1, NULL, '1', '1', 'Real-time trade and investing ideas on Alphabet Inc. ', 'Settings Your data in Search Help Send feedback. AllImages · Account · Assistant · Search · Maps · YouTube · Play · News · Gmail · Contacts · Drive · Calendar.\r\n', '2019-01-27', '2019-01-31', '2019-01-29', 5, 0, '234', '421', '3', 'Simple Bid', '2', 6, '2019-01-28-lXMjU', '0770', 1, 'logistics [ logistics ]', '2019-01-28 14:44:01', '2019-02-20 11:39:30', 6, 7, ''),
+(52, 7, 7, 'vender@ilab.com', 1, NULL, NULL, '0', 'xxtxcv', 'suvc', '2019-05-07', '2019-08-14', '2019-06-12', 6, 0, '2300', '2120', '2', 'Simple Bid', '2', 7, '2019-01-29-SifCO', '0770', 1, 'make to order items [ moi ]', '2019-01-29 12:04:52', '2019-02-20 11:39:30', 6, 5, ''),
+(53, 7, 7, 'ven111@gmail.com', 1, NULL, NULL, '0', 'xxtxcv', 'suvc', '2019-05-07', '2019-08-14', '2019-06-12', 6, 0, '2300', '2120', '2', 'Simple Bid', '2', 7, '2019-01-29-SifCO', '0770', 1, 'make to order items [ moi ]', '2019-01-29 12:04:52', '2019-02-20 11:39:30', 6, 5, ''),
+(54, 7, 7, 'ven121@gmail.com', 1, NULL, '1', '1', 'xxtxcv', 'suvc', '2019-05-07', '2019-08-14', '2019-06-12', 6, 0, '2300', '2120', '2', 'Simple Bid', '2', 7, '2019-01-29-SifCO', '0770', 1, 'make to order items [ moi ]', '2019-01-29 12:04:52', '2019-02-20 11:39:30', 6, 7, ''),
+(55, 7, 7, 'ven221@gmail.com', 1, NULL, NULL, '0', 'xxtxcv', 'suvc', '2019-05-07', '2019-08-14', '2019-06-12', 6, 0, '2300', '2120', '2', 'Simple Bid', '2', 7, '2019-01-29-SifCO', '0770', 1, 'make to order items [ moi ]', '2019-01-29 12:04:52', '2019-02-20 11:39:30', 6, 5, ''),
+(56, 7, 7, 'ven001@gmail.com', 1, NULL, NULL, '0', 'xxtxcv', 'suvc', '2019-05-07', '2019-08-14', '2019-06-12', 6, 0, '2300', '2120', '2', 'Simple Bid', '2', 7, '2019-01-29-SifCO', '0770', 1, 'make to order items [ moi ]', '2019-01-29 12:04:52', '2019-02-20 11:39:30', 6, 5, ''),
+(57, 7, 7, 'ven1011@yahoo.com', 1, NULL, NULL, '0', 'xxtxcv', 'suvc', '2019-05-07', '2019-08-14', '2019-06-12', 6, 0, '2300', '2120', '2', 'Simple Bid', '2', 7, '2019-01-29-SifCO', '0770', 1, 'make to order items [ moi ]', '2019-01-29 12:04:52', '2019-02-20 11:39:30', 6, 5, ''),
+(58, 7, 7, 'ven331@gmail.com', 1, NULL, NULL, '0', 'xxtxcv', 'suvc', '2019-05-07', '2019-08-14', '2019-06-12', 6, 0, '2300', '2120', '2', 'Simple Bid', '2', 7, '2019-01-29-SifCO', '0770', 1, 'make to order items [ moi ]', '2019-01-29 12:04:52', '2019-02-20 11:39:30', 6, 5, ''),
+(59, 7, 7, 'ven97@gmail.com', 1, NULL, '1', '1', 'xxtxcv', 'suvc', '2019-05-07', '2019-08-14', '2019-06-12', 6, 0, '2300', '2120', '2', 'Simple Bid', '2', 7, '2019-01-29-SifCO', '0770', 1, 'make to order items [ moi ]', '2019-01-29 12:04:52', '2019-02-20 11:39:30', 6, 7, ''),
+(60, 7, 7, 'ven979@yahoo.com', 1, NULL, '1', '1', 'xxtxcv', 'suvc', '2019-05-07', '2019-08-14', '2019-06-12', 6, 0, '2300', '2120', '2', 'Simple Bid', '2', 7, '2019-01-29-SifCO', '0770', 1, 'make to order items [ moi ]', '2019-01-29 12:04:52', '2019-02-20 11:39:30', 6, 7, ''),
+(61, 7, 7, 'ven66@gmail.com', 1, NULL, '1', '1', 'xxtxcv', 'suvc', '2019-05-07', '2019-08-14', '2019-06-12', 6, 0, '2300', '2120', '2', 'Simple Bid', '2', 7, '2019-01-29-SifCO', '0770', 1, 'make to order items [ moi ]', '2019-01-29 12:04:52', '2019-02-20 11:39:30', 6, 7, ''),
+(62, 7, 7, 'ven371@yahoo.com', 1, NULL, '1', '1', 'xxtxcv', 'suvc', '2019-05-07', '2019-08-14', '2019-06-12', 6, 0, '2300', '2120', '2', 'Simple Bid', '2', 7, '2019-01-29-SifCO', '0770', 1, 'make to order items [ moi ]', '2019-01-29 12:04:52', '2019-02-20 11:39:30', 6, 7, ''),
+(63, 7, 7, 'ven454@yahoo.com', 1, NULL, NULL, '0', 'xxtxcv', 'suvc', '2019-05-07', '2019-08-14', '2019-06-12', 6, 0, '2300', '2120', '2', 'Simple Bid', '2', 7, '2019-01-29-SifCO', '0770', 1, 'make to order items [ moi ]', '2019-01-29 12:04:52', '2019-02-20 11:39:30', 6, 5, ''),
 (64, 8, 6, 'ven111@gmail.com', 1, NULL, NULL, '0', 'ttccyy', 'ttjj', '2019-03-07', '2019-03-07', '2019-03-08', 7, 0, '12330', '55220', '3', 'Closed Bid', '2', 8, '2019-01-29-N6T0Z', '0770', 1, 'logistics [ logistics ]', '2019-01-30 06:34:16', '2019-01-30 06:35:09', 1, 5, ''),
 (65, 8, 6, 'ven121@gmail.com', 1, NULL, '1', '1', 'ttccyy', 'ttjj', '2019-03-07', '2019-03-07', '2019-03-08', 7, 0, '12330', '55220', '3', 'Closed Bid', '2', 8, '2019-01-29-N6T0Z', '0770', 1, 'logistics [ logistics ]', '2019-01-30 06:34:16', '2019-01-30 06:54:09', 1, 7, '01/30/2019 12:13 PM'),
 (66, 8, 6, 'ven221@gmail.com', 1, NULL, NULL, '0', 'ttccyy', 'ttjj', '2019-03-07', '2019-03-07', '2019-03-08', 7, 0, '12330', '55220', '3', 'Closed Bid', '2', 8, '2019-01-29-N6T0Z', '0770', 1, 'logistics [ logistics ]', '2019-01-30 06:34:16', '2019-01-30 06:35:09', 1, 5, ''),
@@ -946,7 +1159,7 @@ INSERT INTO `Ilab_master_bid_vendor_commerical` (`slno_vendor`, `bid_slno`, `buy
 (71, 8, 6, 'ven66@gmail.com', 1, NULL, '1', '1', 'ttccyy', 'ttjj', '2019-03-07', '2019-03-07', '2019-03-08', 7, 0, '12330', '55220', '3', 'Closed Bid', '2', 8, '2019-01-29-N6T0Z', '0770', 1, 'logistics [ logistics ]', '2019-01-30 06:34:17', '2019-01-31 12:04:18', 1, 7, ''),
 (72, 8, 6, 'ven170@yahoo.com', 1, NULL, NULL, '0', 'ttccyy', 'ttjj', '2019-03-07', '2019-03-07', '2019-03-08', 7, 0, '12330', '55220', '3', 'Closed Bid', '2', 8, '2019-01-29-N6T0Z', '0770', 1, 'logistics [ logistics ]', '2019-01-30 06:34:17', '2019-01-30 06:35:09', 1, 5, ''),
 (73, 14, 10, 'ven111@gmail.com', 1, NULL, NULL, '0', 'ttyy', 'xccttc', '2019-03-06', '2019-06-12', '2019-04-02', 8, 0, '2121', '1221', '3', 'Closed Bid', '2', 14, '2019-01-30-SbxgW', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:19:36', '2019-01-30 07:27:58', 1, 5, ''),
-(74, 14, 10, 'ven121@gmail.com', 1, NULL, '1', '1', 'ttyy', 'xccttc', '2019-03-06', '2019-06-12', '2019-04-02', 8, 0, '2121', '1221', '3', 'Closed Bid', '2', 14, '2019-01-30-SbxgW', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:19:36', '2019-01-30 07:30:10', 1, 7, ''),
+(74, 14, 10, 'ven121@gmail.com', 1, NULL, '1', '1', 'ttyy', 'xccttc', '2019-03-06', '2019-06-12', '2019-04-02', 8, 0, '2121', '1221', '3', 'Closed Bid', '2', 14, '2019-01-30-SbxgW', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:19:36', '2019-02-20 10:09:31', 1, 8, '03/09/2019 3:39 PM'),
 (75, 14, 10, 'ven221@gmail.com', 1, NULL, NULL, '0', 'ttyy', 'xccttc', '2019-03-06', '2019-06-12', '2019-04-02', 8, 0, '2121', '1221', '3', 'Closed Bid', '2', 14, '2019-01-30-SbxgW', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:19:36', '2019-01-30 07:27:58', 1, 5, ''),
 (76, 14, 10, 'ven001@gmail.com', 1, NULL, NULL, '0', 'ttyy', 'xccttc', '2019-03-06', '2019-06-12', '2019-04-02', 8, 0, '2121', '1221', '3', 'Closed Bid', '2', 14, '2019-01-30-SbxgW', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:19:36', '2019-01-30 07:27:58', 1, 5, ''),
 (77, 14, 10, 'ven310@yahoo.com', 1, NULL, NULL, '0', 'ttyy', 'xccttc', '2019-03-06', '2019-06-12', '2019-04-02', 8, 0, '2121', '1221', '3', 'Closed Bid', '2', 14, '2019-01-30-SbxgW', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:19:36', '2019-01-30 07:27:58', 1, 5, ''),
@@ -956,82 +1169,82 @@ INSERT INTO `Ilab_master_bid_vendor_commerical` (`slno_vendor`, `bid_slno`, `buy
 (81, 14, 10, 'ven371@yahoo.com', 1, NULL, NULL, '0', 'ttyy', 'xccttc', '2019-03-06', '2019-06-12', '2019-04-02', 8, 0, '2121', '1221', '3', 'Closed Bid', '2', 14, '2019-01-30-SbxgW', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:19:36', '2019-01-30 07:27:58', 1, 5, ''),
 (82, 14, 10, 'ven170@yahoo.com', 1, NULL, NULL, '0', 'ttyy', 'xccttc', '2019-03-06', '2019-06-12', '2019-04-02', 8, 0, '2121', '1221', '3', 'Closed Bid', '2', 14, '2019-01-30-SbxgW', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:19:36', '2019-01-30 07:27:58', 1, 5, ''),
 (83, 14, 10, 'ven454@yahoo.com', 1, NULL, NULL, '0', 'ttyy', 'xccttc', '2019-03-06', '2019-06-12', '2019-04-02', 8, 0, '2121', '1221', '3', 'Closed Bid', '2', 14, '2019-01-30-SbxgW', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:19:36', '2019-01-30 07:27:58', 1, 5, ''),
-(84, 12, 8, 'ven111@gmail.com', 1, NULL, NULL, '0', 'thfv', 'fvgb', '2019-02-07', '2019-03-18', '2019-03-26', 9, 0, '7709', '7760', '3', 'Closed Bid', '2', 12, '2019-01-30-bxvqL', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:23:35', '2019-01-30 07:28:07', 1, 5, ''),
-(85, 12, 8, 'ven121@gmail.com', 1, NULL, '1', '1', 'thfv', 'fvgb', '2019-02-07', '2019-03-18', '2019-03-26', 9, 0, '7709', '7760', '3', 'Closed Bid', '2', 12, '2019-01-30-bxvqL', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:23:35', '2019-01-30 07:31:01', 1, 7, ''),
-(86, 12, 8, 'ven221@gmail.com', 1, NULL, NULL, '0', 'thfv', 'fvgb', '2019-02-07', '2019-03-18', '2019-03-26', 9, 0, '7709', '7760', '3', 'Closed Bid', '2', 12, '2019-01-30-bxvqL', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:23:35', '2019-01-30 07:28:07', 1, 5, ''),
-(87, 12, 8, 'ven001@gmail.com', 1, NULL, NULL, '0', 'thfv', 'fvgb', '2019-02-07', '2019-03-18', '2019-03-26', 9, 0, '7709', '7760', '3', 'Closed Bid', '2', 12, '2019-01-30-bxvqL', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:23:35', '2019-01-30 07:28:07', 1, 5, ''),
-(88, 12, 8, 'ven310@yahoo.com', 1, NULL, NULL, '0', 'thfv', 'fvgb', '2019-02-07', '2019-03-18', '2019-03-26', 9, 0, '7709', '7760', '3', 'Closed Bid', '2', 12, '2019-01-30-bxvqL', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:23:35', '2019-01-30 07:28:07', 1, 5, ''),
-(89, 12, 8, 'ven331@gmail.com', 1, NULL, NULL, '0', 'thfv', 'fvgb', '2019-02-07', '2019-03-18', '2019-03-26', 9, 0, '7709', '7760', '3', 'Closed Bid', '2', 12, '2019-01-30-bxvqL', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:23:35', '2019-01-30 07:28:07', 1, 5, ''),
-(90, 12, 8, 'ven90@gmail.com', 1, NULL, NULL, '0', 'thfv', 'fvgb', '2019-02-07', '2019-03-18', '2019-03-26', 9, 0, '7709', '7760', '3', 'Closed Bid', '2', 12, '2019-01-30-bxvqL', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:23:35', '2019-01-30 07:28:07', 1, 5, ''),
-(91, 12, 8, 'ven66@gmail.com', 1, NULL, '1', '1', 'thfv', 'fvgb', '2019-02-07', '2019-03-18', '2019-03-26', 9, 0, '7709', '7760', '3', 'Closed Bid', '2', 12, '2019-01-30-bxvqL', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:23:35', '2019-01-31 12:05:06', 1, 7, ''),
-(92, 12, 8, 'ven371@yahoo.com', 1, NULL, NULL, '0', 'thfv', 'fvgb', '2019-02-07', '2019-03-18', '2019-03-26', 9, 0, '7709', '7760', '3', 'Closed Bid', '2', 12, '2019-01-30-bxvqL', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:23:35', '2019-01-30 07:28:07', 1, 5, ''),
-(93, 12, 8, 'ven170@yahoo.com', 1, NULL, NULL, '0', 'thfv', 'fvgb', '2019-02-07', '2019-03-18', '2019-03-26', 9, 0, '7709', '7760', '3', 'Closed Bid', '2', 12, '2019-01-30-bxvqL', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:23:35', '2019-01-30 07:28:07', 1, 5, ''),
-(94, 12, 8, 'ven454@yahoo.com', 1, NULL, NULL, '0', 'thfv', 'fvgb', '2019-02-07', '2019-03-18', '2019-03-26', 9, 0, '7709', '7760', '3', 'Closed Bid', '2', 12, '2019-01-30-bxvqL', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:23:35', '2019-01-30 07:28:07', 1, 5, ''),
-(95, 13, 9, 'ven111@gmail.com', 1, NULL, NULL, '0', 'ttyy', 'fgvgb', '2019-02-12', '2019-02-15', '2019-02-14', 10, 0, '3320', '2230', '3', 'Closed Bid', '2', 13, '2019-01-30-OBqz3', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:27:45', '2019-01-30 07:28:16', 1, 5, ''),
-(96, 13, 9, 'ven121@gmail.com', 1, NULL, '1', '1', 'ttyy', 'fgvgb', '2019-02-12', '2019-02-15', '2019-02-14', 10, 0, '3320', '2230', '3', 'Closed Bid', '2', 13, '2019-01-30-OBqz3', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:27:45', '2019-01-30 07:33:41', 1, 7, ''),
-(97, 13, 9, 'ven221@gmail.com', 1, NULL, NULL, '0', 'ttyy', 'fgvgb', '2019-02-12', '2019-02-15', '2019-02-14', 10, 0, '3320', '2230', '3', 'Closed Bid', '2', 13, '2019-01-30-OBqz3', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:27:45', '2019-01-30 07:28:16', 1, 5, ''),
-(98, 13, 9, 'ven001@gmail.com', 1, NULL, NULL, '0', 'ttyy', 'fgvgb', '2019-02-12', '2019-02-15', '2019-02-14', 10, 0, '3320', '2230', '3', 'Closed Bid', '2', 13, '2019-01-30-OBqz3', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:27:45', '2019-01-30 07:28:16', 1, 5, ''),
-(99, 13, 9, 'ven310@yahoo.com', 1, NULL, NULL, '0', 'ttyy', 'fgvgb', '2019-02-12', '2019-02-15', '2019-02-14', 10, 0, '3320', '2230', '3', 'Closed Bid', '2', 13, '2019-01-30-OBqz3', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:27:45', '2019-01-30 07:28:16', 1, 5, ''),
-(100, 13, 9, 'ven331@gmail.com', 1, NULL, NULL, '0', 'ttyy', 'fgvgb', '2019-02-12', '2019-02-15', '2019-02-14', 10, 0, '3320', '2230', '3', 'Closed Bid', '2', 13, '2019-01-30-OBqz3', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:27:45', '2019-01-30 07:28:16', 1, 5, ''),
-(101, 13, 9, 'ven97@gmail.com', 1, NULL, NULL, '0', 'ttyy', 'fgvgb', '2019-02-12', '2019-02-15', '2019-02-14', 10, 0, '3320', '2230', '3', 'Closed Bid', '2', 13, '2019-01-30-OBqz3', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:27:45', '2019-01-30 07:28:16', 1, 5, ''),
-(102, 13, 9, 'ven979@yahoo.com', 1, NULL, NULL, '0', 'ttyy', 'fgvgb', '2019-02-12', '2019-02-15', '2019-02-14', 10, 0, '3320', '2230', '3', 'Closed Bid', '2', 13, '2019-01-30-OBqz3', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:27:45', '2019-01-30 07:28:16', 1, 5, ''),
-(103, 13, 9, 'ven90@gmail.com', 1, NULL, NULL, '0', 'ttyy', 'fgvgb', '2019-02-12', '2019-02-15', '2019-02-14', 10, 0, '3320', '2230', '3', 'Closed Bid', '2', 13, '2019-01-30-OBqz3', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:27:45', '2019-01-30 07:28:16', 1, 5, ''),
-(104, 13, 9, 'ven66@gmail.com', 1, NULL, '1', '1', 'ttyy', 'fgvgb', '2019-02-12', '2019-02-15', '2019-02-14', 10, 0, '3320', '2230', '3', 'Closed Bid', '2', 13, '2019-01-30-OBqz3', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:27:45', '2019-01-31 12:06:56', 1, 7, ''),
-(105, 13, 9, 'ven371@yahoo.com', 1, NULL, NULL, '0', 'ttyy', 'fgvgb', '2019-02-12', '2019-02-15', '2019-02-14', 10, 0, '3320', '2230', '3', 'Closed Bid', '2', 13, '2019-01-30-OBqz3', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:27:45', '2019-01-30 07:28:16', 1, 5, ''),
-(106, 13, 9, 'ven170@yahoo.com', 1, NULL, NULL, '0', 'ttyy', 'fgvgb', '2019-02-12', '2019-02-15', '2019-02-14', 10, 0, '3320', '2230', '3', 'Closed Bid', '2', 13, '2019-01-30-OBqz3', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:27:45', '2019-01-30 07:28:16', 1, 5, ''),
-(107, 13, 9, 'ven454@yahoo.com', 1, NULL, NULL, '0', 'ttyy', 'fgvgb', '2019-02-12', '2019-02-15', '2019-02-14', 10, 0, '3320', '2230', '3', 'Closed Bid', '2', 13, '2019-01-30-OBqz3', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:27:45', '2019-01-30 07:28:16', 1, 5, ''),
-(108, 11, 11, 'ven111@gmail.com', 1, NULL, NULL, '0', 'gfvb', 'gjyvbg', '2019-02-20', '2019-02-28', '2019-03-18', 11, 0, '212100', '770060', '3', 'Simple Bid', '2', 11, '2019-01-30-7d9hK', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:55:32', '2019-01-30 07:59:53', 1, 5, ''),
-(109, 11, 11, 'ven121@gmail.com', 1, NULL, '1', '1', 'gfvb', 'gjyvbg', '2019-02-20', '2019-02-28', '2019-03-18', 11, 0, '212100', '770060', '3', 'Simple Bid', '2', 11, '2019-01-30-7d9hK', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:55:32', '2019-01-31 10:44:43', 1, 7, '01/31/2019 4:09 PM'),
-(110, 11, 11, 'ven221@gmail.com', 1, NULL, NULL, '0', 'gfvb', 'gjyvbg', '2019-02-20', '2019-02-28', '2019-03-18', 11, 0, '212100', '770060', '3', 'Simple Bid', '2', 11, '2019-01-30-7d9hK', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:55:32', '2019-01-30 07:59:53', 1, 5, ''),
-(111, 11, 11, 'ven001@gmail.com', 1, NULL, NULL, '0', 'gfvb', 'gjyvbg', '2019-02-20', '2019-02-28', '2019-03-18', 11, 0, '212100', '770060', '3', 'Simple Bid', '2', 11, '2019-01-30-7d9hK', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:55:32', '2019-01-30 07:59:53', 1, 5, ''),
-(112, 11, 11, 'ven310@yahoo.com', 1, NULL, NULL, '0', 'gfvb', 'gjyvbg', '2019-02-20', '2019-02-28', '2019-03-18', 11, 0, '212100', '770060', '3', 'Simple Bid', '2', 11, '2019-01-30-7d9hK', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:55:32', '2019-01-30 07:59:53', 1, 5, ''),
-(113, 11, 11, 'ven331@gmail.com', 1, NULL, NULL, '0', 'gfvb', 'gjyvbg', '2019-02-20', '2019-02-28', '2019-03-18', 11, 0, '212100', '770060', '3', 'Simple Bid', '2', 11, '2019-01-30-7d9hK', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:55:32', '2019-01-30 07:59:53', 1, 5, ''),
-(114, 11, 11, 'ven97@gmail.com', 1, NULL, NULL, '0', 'gfvb', 'gjyvbg', '2019-02-20', '2019-02-28', '2019-03-18', 11, 0, '212100', '770060', '3', 'Simple Bid', '2', 11, '2019-01-30-7d9hK', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:55:33', '2019-01-30 07:59:53', 1, 5, ''),
-(115, 11, 11, 'ven979@yahoo.com', 1, NULL, NULL, '0', 'gfvb', 'gjyvbg', '2019-02-20', '2019-02-28', '2019-03-18', 11, 0, '212100', '770060', '3', 'Simple Bid', '2', 11, '2019-01-30-7d9hK', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:55:33', '2019-01-30 07:59:53', 1, 5, ''),
-(116, 11, 11, 'ven90@gmail.com', 1, NULL, NULL, '0', 'gfvb', 'gjyvbg', '2019-02-20', '2019-02-28', '2019-03-18', 11, 0, '212100', '770060', '3', 'Simple Bid', '2', 11, '2019-01-30-7d9hK', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:55:33', '2019-01-30 07:59:53', 1, 5, ''),
-(117, 11, 11, 'ven66@gmail.com', 1, NULL, '1', '1', 'gfvb', 'gjyvbg', '2019-02-20', '2019-02-28', '2019-03-18', 11, 0, '212100', '770060', '3', 'Simple Bid', '2', 11, '2019-01-30-7d9hK', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:55:33', '2019-01-31 12:08:09', 1, 7, ''),
-(118, 11, 11, 'ven371@yahoo.com', 1, NULL, NULL, '0', 'gfvb', 'gjyvbg', '2019-02-20', '2019-02-28', '2019-03-18', 11, 0, '212100', '770060', '3', 'Simple Bid', '2', 11, '2019-01-30-7d9hK', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:55:33', '2019-01-30 07:59:53', 1, 5, ''),
-(119, 11, 11, 'ven170@yahoo.com', 1, NULL, NULL, '0', 'gfvb', 'gjyvbg', '2019-02-20', '2019-02-28', '2019-03-18', 11, 0, '212100', '770060', '3', 'Simple Bid', '2', 11, '2019-01-30-7d9hK', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:55:33', '2019-01-30 07:59:53', 1, 5, ''),
-(120, 11, 11, 'ven454@yahoo.com', 1, NULL, NULL, '0', 'gfvb', 'gjyvbg', '2019-02-20', '2019-02-28', '2019-03-18', 11, 0, '212100', '770060', '3', 'Simple Bid', '2', 11, '2019-01-30-7d9hK', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:55:33', '2019-01-30 07:59:53', 1, 5, ''),
-(121, 10, 12, 'ven111@gmail.com', 1, NULL, NULL, '0', 'gfb', 'vhg', '2019-02-15', '2019-05-22', '2019-04-24', 12, 0, '5670', '877776', '3', 'Simple Bid', '2', 10, '2019-01-30-vdRzf', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:59:34', '2019-01-30 08:00:03', 1, 5, ''),
-(122, 10, 12, 'ven121@gmail.com', 1, NULL, '1', '1', 'gfb', 'vhg', '2019-02-15', '2019-05-22', '2019-04-24', 12, 0, '5670', '877776', '3', 'Simple Bid', '2', 10, '2019-01-30-vdRzf', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:59:34', '2019-01-30 08:11:40', 1, 7, '01/30/2019 1:39 PM'),
-(123, 10, 12, 'ven221@gmail.com', 1, NULL, NULL, '0', 'gfb', 'vhg', '2019-02-15', '2019-05-22', '2019-04-24', 12, 0, '5670', '877776', '3', 'Simple Bid', '2', 10, '2019-01-30-vdRzf', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:59:34', '2019-01-30 08:00:03', 1, 5, ''),
-(124, 10, 12, 'ven001@gmail.com', 1, NULL, NULL, '0', 'gfb', 'vhg', '2019-02-15', '2019-05-22', '2019-04-24', 12, 0, '5670', '877776', '3', 'Simple Bid', '2', 10, '2019-01-30-vdRzf', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:59:34', '2019-01-30 08:00:03', 1, 5, ''),
-(125, 10, 12, 'ven310@yahoo.com', 1, NULL, NULL, '0', 'gfb', 'vhg', '2019-02-15', '2019-05-22', '2019-04-24', 12, 0, '5670', '877776', '3', 'Simple Bid', '2', 10, '2019-01-30-vdRzf', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:59:34', '2019-01-30 08:00:03', 1, 5, ''),
-(126, 10, 12, 'ven331@gmail.com', 1, NULL, NULL, '0', 'gfb', 'vhg', '2019-02-15', '2019-05-22', '2019-04-24', 12, 0, '5670', '877776', '3', 'Simple Bid', '2', 10, '2019-01-30-vdRzf', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:59:34', '2019-01-30 08:00:03', 1, 5, ''),
-(127, 10, 12, 'ven97@gmail.com', 1, NULL, NULL, '0', 'gfb', 'vhg', '2019-02-15', '2019-05-22', '2019-04-24', 12, 0, '5670', '877776', '3', 'Simple Bid', '2', 10, '2019-01-30-vdRzf', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:59:34', '2019-01-30 08:00:03', 1, 5, ''),
-(128, 10, 12, 'ven979@yahoo.com', 1, NULL, NULL, '0', 'gfb', 'vhg', '2019-02-15', '2019-05-22', '2019-04-24', 12, 0, '5670', '877776', '3', 'Simple Bid', '2', 10, '2019-01-30-vdRzf', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:59:34', '2019-01-30 08:00:03', 1, 5, ''),
-(129, 10, 12, 'ven90@gmail.com', 1, NULL, NULL, '0', 'gfb', 'vhg', '2019-02-15', '2019-05-22', '2019-04-24', 12, 0, '5670', '877776', '3', 'Simple Bid', '2', 10, '2019-01-30-vdRzf', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:59:34', '2019-01-30 08:00:03', 1, 5, ''),
-(130, 10, 12, 'ven66@gmail.com', 1, NULL, '1', '1', 'gfb', 'vhg', '2019-02-15', '2019-05-22', '2019-04-24', 12, 0, '5670', '877776', '3', 'Simple Bid', '2', 10, '2019-01-30-vdRzf', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:59:34', '2019-01-31 12:14:45', 1, 7, ''),
-(131, 10, 12, 'ven371@yahoo.com', 1, NULL, NULL, '0', 'gfb', 'vhg', '2019-02-15', '2019-05-22', '2019-04-24', 12, 0, '5670', '877776', '3', 'Simple Bid', '2', 10, '2019-01-30-vdRzf', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:59:34', '2019-01-30 08:00:03', 1, 5, ''),
-(132, 10, 12, 'ven170@yahoo.com', 1, NULL, NULL, '0', 'gfb', 'vhg', '2019-02-15', '2019-05-22', '2019-04-24', 12, 0, '5670', '877776', '3', 'Simple Bid', '2', 10, '2019-01-30-vdRzf', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:59:34', '2019-01-30 08:00:03', 1, 5, ''),
-(133, 10, 12, 'ven454@yahoo.com', 1, NULL, NULL, '0', 'gfb', 'vhg', '2019-02-15', '2019-05-22', '2019-04-24', 12, 0, '5670', '877776', '3', 'Simple Bid', '2', 10, '2019-01-30-vdRzf', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:59:34', '2019-01-30 08:00:03', 1, 5, ''),
-(134, 16, 15, 'ven111@gmail.com', 1, NULL, NULL, '0', 'yhu', 'jubh', '2019-05-08', '2019-07-31', '2019-05-16', 13, 0, '8790', '7781', '3', 'Simple Bid', '2', 16, '2019-01-31-iMcvQ', '0770', 1, 'logistics [ logistics ]', '2019-01-31 06:03:39', '2019-01-31 06:03:51', 1, 5, ''),
-(135, 16, 15, 'ven121@gmail.com', 1, NULL, '1', '1', 'yhu', 'jubh', '2019-05-08', '2019-07-31', '2019-05-16', 13, 0, '8790', '7781', '3', 'Simple Bid', '2', 16, '2019-01-31-iMcvQ', '0770', 1, 'logistics [ logistics ]', '2019-01-31 06:03:39', '2019-01-31 06:37:43', 1, 7, '01/31/2019 12:00 PM'),
-(136, 16, 15, 'ven221@gmail.com', 1, NULL, NULL, '0', 'yhu', 'jubh', '2019-05-08', '2019-07-31', '2019-05-16', 13, 0, '8790', '7781', '3', 'Simple Bid', '2', 16, '2019-01-31-iMcvQ', '0770', 1, 'logistics [ logistics ]', '2019-01-31 06:03:39', '2019-01-31 06:03:51', 1, 5, ''),
-(137, 16, 15, 'ven001@gmail.com', 1, NULL, NULL, '0', 'yhu', 'jubh', '2019-05-08', '2019-07-31', '2019-05-16', 13, 0, '8790', '7781', '3', 'Simple Bid', '2', 16, '2019-01-31-iMcvQ', '0770', 1, 'logistics [ logistics ]', '2019-01-31 06:03:39', '2019-01-31 06:03:51', 1, 5, ''),
-(138, 16, 15, 'ven310@yahoo.com', 1, NULL, NULL, '0', 'yhu', 'jubh', '2019-05-08', '2019-07-31', '2019-05-16', 13, 0, '8790', '7781', '3', 'Simple Bid', '2', 16, '2019-01-31-iMcvQ', '0770', 1, 'logistics [ logistics ]', '2019-01-31 06:03:40', '2019-01-31 06:03:51', 1, 5, ''),
-(139, 16, 15, 'ven331@gmail.com', 1, NULL, NULL, '0', 'yhu', 'jubh', '2019-05-08', '2019-07-31', '2019-05-16', 13, 0, '8790', '7781', '3', 'Simple Bid', '2', 16, '2019-01-31-iMcvQ', '0770', 1, 'logistics [ logistics ]', '2019-01-31 06:03:40', '2019-01-31 06:03:51', 1, 5, ''),
-(140, 16, 15, 'ven97@gmail.com', 1, NULL, NULL, '0', 'yhu', 'jubh', '2019-05-08', '2019-07-31', '2019-05-16', 13, 0, '8790', '7781', '3', 'Simple Bid', '2', 16, '2019-01-31-iMcvQ', '0770', 1, 'logistics [ logistics ]', '2019-01-31 06:03:40', '2019-01-31 06:03:51', 1, 5, ''),
-(141, 16, 15, 'ven979@yahoo.com', 1, NULL, NULL, '0', 'yhu', 'jubh', '2019-05-08', '2019-07-31', '2019-05-16', 13, 0, '8790', '7781', '3', 'Simple Bid', '2', 16, '2019-01-31-iMcvQ', '0770', 1, 'logistics [ logistics ]', '2019-01-31 06:03:40', '2019-01-31 06:03:51', 1, 5, ''),
-(142, 16, 15, 'ven90@gmail.com', 1, NULL, NULL, '0', 'yhu', 'jubh', '2019-05-08', '2019-07-31', '2019-05-16', 13, 0, '8790', '7781', '3', 'Simple Bid', '2', 16, '2019-01-31-iMcvQ', '0770', 1, 'logistics [ logistics ]', '2019-01-31 06:03:40', '2019-01-31 06:03:51', 1, 5, ''),
-(143, 16, 15, 'ven66@gmail.com', 1, NULL, '1', '1', 'yhu', 'jubh', '2019-05-08', '2019-07-31', '2019-05-16', 13, 0, '8790', '7781', '3', 'Simple Bid', '2', 16, '2019-01-31-iMcvQ', '0770', 1, 'logistics [ logistics ]', '2019-01-31 06:03:40', '2019-01-31 12:18:27', 1, 7, ''),
-(144, 16, 15, 'ven371@yahoo.com', 1, NULL, NULL, '0', 'yhu', 'jubh', '2019-05-08', '2019-07-31', '2019-05-16', 13, 0, '8790', '7781', '3', 'Simple Bid', '2', 16, '2019-01-31-iMcvQ', '0770', 1, 'logistics [ logistics ]', '2019-01-31 06:03:40', '2019-01-31 06:03:51', 1, 5, ''),
-(145, 16, 15, 'ven170@yahoo.com', 1, NULL, NULL, '0', 'yhu', 'jubh', '2019-05-08', '2019-07-31', '2019-05-16', 13, 0, '8790', '7781', '3', 'Simple Bid', '2', 16, '2019-01-31-iMcvQ', '0770', 1, 'logistics [ logistics ]', '2019-01-31 06:03:40', '2019-01-31 06:03:51', 1, 5, ''),
-(146, 16, 15, 'ven454@yahoo.com', 1, NULL, NULL, '0', 'yhu', 'jubh', '2019-05-08', '2019-07-31', '2019-05-16', 13, 0, '8790', '7781', '3', 'Simple Bid', '2', 16, '2019-01-31-iMcvQ', '0770', 1, 'logistics [ logistics ]', '2019-01-31 06:03:40', '2019-01-31 06:03:51', 1, 5, ''),
-(147, 18, 17, 'ven111@gmail.com', 1, NULL, NULL, '0', 'kjiou', 'fvgb', '2019-02-15', '2019-02-28', '2019-03-27', 14, 0, '0078', '9908', '3', 'Simple Bid', '2', 18, '2019-01-31-1YbXh', '0770', 1, 'logistics [ logistics ]', '2019-01-31 07:01:04', '2019-01-31 07:02:25', 1, 5, ''),
-(148, 18, 17, 'ven121@gmail.com', 1, NULL, '1', '1', 'kjiou', 'fvgb', '2019-02-15', '2019-02-28', '2019-03-27', 14, 0, '0078', '9908', '3', 'Simple Bid', '2', 18, '2019-01-31-1YbXh', '0770', 1, 'logistics [ logistics ]', '2019-01-31 07:01:04', '2019-01-31 07:22:24', 1, 7, '01/31/2019 12:46 PM'),
-(149, 18, 17, 'ven221@gmail.com', 1, NULL, NULL, '0', 'kjiou', 'fvgb', '2019-02-15', '2019-02-28', '2019-03-27', 14, 0, '0078', '9908', '3', 'Simple Bid', '2', 18, '2019-01-31-1YbXh', '0770', 1, 'logistics [ logistics ]', '2019-01-31 07:01:04', '2019-01-31 07:02:25', 1, 5, ''),
-(150, 18, 17, 'ven001@gmail.com', 1, NULL, NULL, '0', 'kjiou', 'fvgb', '2019-02-15', '2019-02-28', '2019-03-27', 14, 0, '0078', '9908', '3', 'Simple Bid', '2', 18, '2019-01-31-1YbXh', '0770', 1, 'logistics [ logistics ]', '2019-01-31 07:01:04', '2019-01-31 07:02:25', 1, 5, ''),
-(151, 18, 17, 'ven310@yahoo.com', 1, NULL, NULL, '0', 'kjiou', 'fvgb', '2019-02-15', '2019-02-28', '2019-03-27', 14, 0, '0078', '9908', '3', 'Simple Bid', '2', 18, '2019-01-31-1YbXh', '0770', 1, 'logistics [ logistics ]', '2019-01-31 07:01:05', '2019-01-31 07:02:25', 1, 5, ''),
-(152, 18, 17, 'ven331@gmail.com', 1, NULL, NULL, '0', 'kjiou', 'fvgb', '2019-02-15', '2019-02-28', '2019-03-27', 14, 0, '0078', '9908', '3', 'Simple Bid', '2', 18, '2019-01-31-1YbXh', '0770', 1, 'logistics [ logistics ]', '2019-01-31 07:01:05', '2019-01-31 07:02:25', 1, 5, ''),
-(153, 18, 17, 'ven97@gmail.com', 1, NULL, NULL, '0', 'kjiou', 'fvgb', '2019-02-15', '2019-02-28', '2019-03-27', 14, 0, '0078', '9908', '3', 'Simple Bid', '2', 18, '2019-01-31-1YbXh', '0770', 1, 'logistics [ logistics ]', '2019-01-31 07:01:05', '2019-01-31 07:02:25', 1, 5, ''),
-(154, 18, 17, 'ven979@yahoo.com', 1, NULL, NULL, '0', 'kjiou', 'fvgb', '2019-02-15', '2019-02-28', '2019-03-27', 14, 0, '0078', '9908', '3', 'Simple Bid', '2', 18, '2019-01-31-1YbXh', '0770', 1, 'logistics [ logistics ]', '2019-01-31 07:01:05', '2019-01-31 07:02:25', 1, 5, ''),
-(155, 18, 17, 'ven90@gmail.com', 1, NULL, NULL, '0', 'kjiou', 'fvgb', '2019-02-15', '2019-02-28', '2019-03-27', 14, 0, '0078', '9908', '3', 'Simple Bid', '2', 18, '2019-01-31-1YbXh', '0770', 1, 'logistics [ logistics ]', '2019-01-31 07:01:05', '2019-01-31 07:02:25', 1, 5, ''),
-(156, 18, 17, 'ven66@gmail.com', 1, NULL, '1', '1', 'kjiou', 'fvgb', '2019-02-15', '2019-02-28', '2019-03-27', 14, 0, '0078', '9908', '3', 'Simple Bid', '2', 18, '2019-01-31-1YbXh', '0770', 1, 'logistics [ logistics ]', '2019-01-31 07:01:05', '2019-01-31 12:19:46', 1, 7, ''),
-(157, 18, 17, 'ven371@yahoo.com', 1, NULL, NULL, '0', 'kjiou', 'fvgb', '2019-02-15', '2019-02-28', '2019-03-27', 14, 0, '0078', '9908', '3', 'Simple Bid', '2', 18, '2019-01-31-1YbXh', '0770', 1, 'logistics [ logistics ]', '2019-01-31 07:01:05', '2019-01-31 07:02:25', 1, 5, ''),
-(158, 18, 17, 'ven170@yahoo.com', 1, NULL, NULL, '0', 'kjiou', 'fvgb', '2019-02-15', '2019-02-28', '2019-03-27', 14, 0, '0078', '9908', '3', 'Simple Bid', '2', 18, '2019-01-31-1YbXh', '0770', 1, 'logistics [ logistics ]', '2019-01-31 07:01:05', '2019-01-31 07:02:25', 1, 5, ''),
-(159, 18, 17, 'ven454@yahoo.com', 1, NULL, NULL, '0', 'kjiou', 'fvgb', '2019-02-15', '2019-02-28', '2019-03-27', 14, 0, '0078', '9908', '3', 'Simple Bid', '2', 18, '2019-01-31-1YbXh', '0770', 1, 'logistics [ logistics ]', '2019-01-31 07:01:05', '2019-01-31 07:02:25', 1, 5, ''),
+(84, 12, 8, 'ven111@gmail.com', 1, NULL, NULL, '0', 'thfv', 'fvgb', '2019-02-07', '2019-03-18', '2019-03-26', 9, 0, '7709', '7760', '3', 'Closed Bid', '2', 12, '2019-01-30-bxvqL', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:23:35', '2019-02-20 11:39:30', 6, 5, ''),
+(85, 12, 8, 'ven121@gmail.com', 1, NULL, '1', '1', 'thfv', 'fvgb', '2019-02-07', '2019-03-18', '2019-03-26', 9, 0, '7709', '7760', '3', 'Closed Bid', '2', 12, '2019-01-30-bxvqL', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:23:35', '2019-02-20 11:39:30', 6, 7, ''),
+(86, 12, 8, 'ven221@gmail.com', 1, NULL, NULL, '0', 'thfv', 'fvgb', '2019-02-07', '2019-03-18', '2019-03-26', 9, 0, '7709', '7760', '3', 'Closed Bid', '2', 12, '2019-01-30-bxvqL', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:23:35', '2019-02-20 11:39:30', 6, 5, ''),
+(87, 12, 8, 'ven001@gmail.com', 1, NULL, NULL, '0', 'thfv', 'fvgb', '2019-02-07', '2019-03-18', '2019-03-26', 9, 0, '7709', '7760', '3', 'Closed Bid', '2', 12, '2019-01-30-bxvqL', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:23:35', '2019-02-20 11:39:30', 6, 5, ''),
+(88, 12, 8, 'ven310@yahoo.com', 1, NULL, NULL, '0', 'thfv', 'fvgb', '2019-02-07', '2019-03-18', '2019-03-26', 9, 0, '7709', '7760', '3', 'Closed Bid', '2', 12, '2019-01-30-bxvqL', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:23:35', '2019-02-20 11:39:30', 6, 5, ''),
+(89, 12, 8, 'ven331@gmail.com', 1, NULL, NULL, '0', 'thfv', 'fvgb', '2019-02-07', '2019-03-18', '2019-03-26', 9, 0, '7709', '7760', '3', 'Closed Bid', '2', 12, '2019-01-30-bxvqL', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:23:35', '2019-02-20 11:39:30', 6, 5, ''),
+(90, 12, 8, 'ven90@gmail.com', 1, NULL, NULL, '0', 'thfv', 'fvgb', '2019-02-07', '2019-03-18', '2019-03-26', 9, 0, '7709', '7760', '3', 'Closed Bid', '2', 12, '2019-01-30-bxvqL', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:23:35', '2019-02-20 11:39:30', 6, 5, ''),
+(91, 12, 8, 'ven66@gmail.com', 1, NULL, '1', '1', 'thfv', 'fvgb', '2019-02-07', '2019-03-18', '2019-03-26', 9, 0, '7709', '7760', '3', 'Closed Bid', '2', 12, '2019-01-30-bxvqL', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:23:35', '2019-02-20 11:39:30', 6, 7, ''),
+(92, 12, 8, 'ven371@yahoo.com', 1, NULL, NULL, '0', 'thfv', 'fvgb', '2019-02-07', '2019-03-18', '2019-03-26', 9, 0, '7709', '7760', '3', 'Closed Bid', '2', 12, '2019-01-30-bxvqL', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:23:35', '2019-02-20 11:39:30', 6, 5, ''),
+(93, 12, 8, 'ven170@yahoo.com', 1, NULL, NULL, '0', 'thfv', 'fvgb', '2019-02-07', '2019-03-18', '2019-03-26', 9, 0, '7709', '7760', '3', 'Closed Bid', '2', 12, '2019-01-30-bxvqL', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:23:35', '2019-02-20 11:39:30', 6, 5, ''),
+(94, 12, 8, 'ven454@yahoo.com', 1, NULL, NULL, '0', 'thfv', 'fvgb', '2019-02-07', '2019-03-18', '2019-03-26', 9, 0, '7709', '7760', '3', 'Closed Bid', '2', 12, '2019-01-30-bxvqL', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:23:35', '2019-02-20 11:39:30', 6, 5, ''),
+(95, 13, 9, 'ven111@gmail.com', 1, NULL, NULL, '0', 'ttyy', 'fgvgb', '2019-02-12', '2019-02-15', '2019-02-14', 10, 0, '3320', '2230', '3', 'Closed Bid', '2', 13, '2019-01-30-OBqz3', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:27:45', '2019-02-20 11:39:30', 6, 5, ''),
+(96, 13, 9, 'ven121@gmail.com', 1, NULL, '1', '1', 'ttyy', 'fgvgb', '2019-02-12', '2019-02-15', '2019-02-14', 10, 0, '3320', '2230', '3', 'Closed Bid', '2', 13, '2019-01-30-OBqz3', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:27:45', '2019-02-20 11:39:30', 6, 7, ''),
+(97, 13, 9, 'ven221@gmail.com', 1, NULL, NULL, '0', 'ttyy', 'fgvgb', '2019-02-12', '2019-02-15', '2019-02-14', 10, 0, '3320', '2230', '3', 'Closed Bid', '2', 13, '2019-01-30-OBqz3', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:27:45', '2019-02-20 11:39:30', 6, 5, ''),
+(98, 13, 9, 'ven001@gmail.com', 1, NULL, NULL, '0', 'ttyy', 'fgvgb', '2019-02-12', '2019-02-15', '2019-02-14', 10, 0, '3320', '2230', '3', 'Closed Bid', '2', 13, '2019-01-30-OBqz3', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:27:45', '2019-02-20 11:39:30', 6, 5, ''),
+(99, 13, 9, 'ven310@yahoo.com', 1, NULL, NULL, '0', 'ttyy', 'fgvgb', '2019-02-12', '2019-02-15', '2019-02-14', 10, 0, '3320', '2230', '3', 'Closed Bid', '2', 13, '2019-01-30-OBqz3', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:27:45', '2019-02-20 11:39:30', 6, 5, ''),
+(100, 13, 9, 'ven331@gmail.com', 1, NULL, NULL, '0', 'ttyy', 'fgvgb', '2019-02-12', '2019-02-15', '2019-02-14', 10, 0, '3320', '2230', '3', 'Closed Bid', '2', 13, '2019-01-30-OBqz3', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:27:45', '2019-02-20 11:39:30', 6, 5, ''),
+(101, 13, 9, 'ven97@gmail.com', 1, NULL, NULL, '0', 'ttyy', 'fgvgb', '2019-02-12', '2019-02-15', '2019-02-14', 10, 0, '3320', '2230', '3', 'Closed Bid', '2', 13, '2019-01-30-OBqz3', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:27:45', '2019-02-20 11:39:30', 6, 5, ''),
+(102, 13, 9, 'ven979@yahoo.com', 1, NULL, NULL, '0', 'ttyy', 'fgvgb', '2019-02-12', '2019-02-15', '2019-02-14', 10, 0, '3320', '2230', '3', 'Closed Bid', '2', 13, '2019-01-30-OBqz3', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:27:45', '2019-02-20 11:39:30', 6, 5, ''),
+(103, 13, 9, 'ven90@gmail.com', 1, NULL, NULL, '0', 'ttyy', 'fgvgb', '2019-02-12', '2019-02-15', '2019-02-14', 10, 0, '3320', '2230', '3', 'Closed Bid', '2', 13, '2019-01-30-OBqz3', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:27:45', '2019-02-20 11:39:30', 6, 5, ''),
+(104, 13, 9, 'ven66@gmail.com', 1, NULL, '1', '1', 'ttyy', 'fgvgb', '2019-02-12', '2019-02-15', '2019-02-14', 10, 0, '3320', '2230', '3', 'Closed Bid', '2', 13, '2019-01-30-OBqz3', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:27:45', '2019-02-20 11:39:30', 6, 7, ''),
+(105, 13, 9, 'ven371@yahoo.com', 1, NULL, NULL, '0', 'ttyy', 'fgvgb', '2019-02-12', '2019-02-15', '2019-02-14', 10, 0, '3320', '2230', '3', 'Closed Bid', '2', 13, '2019-01-30-OBqz3', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:27:45', '2019-02-20 11:39:30', 6, 5, ''),
+(106, 13, 9, 'ven170@yahoo.com', 1, NULL, NULL, '0', 'ttyy', 'fgvgb', '2019-02-12', '2019-02-15', '2019-02-14', 10, 0, '3320', '2230', '3', 'Closed Bid', '2', 13, '2019-01-30-OBqz3', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:27:45', '2019-02-20 11:39:30', 6, 5, ''),
+(107, 13, 9, 'ven454@yahoo.com', 1, NULL, NULL, '0', 'ttyy', 'fgvgb', '2019-02-12', '2019-02-15', '2019-02-14', 10, 0, '3320', '2230', '3', 'Closed Bid', '2', 13, '2019-01-30-OBqz3', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:27:45', '2019-02-20 11:39:30', 6, 5, ''),
+(108, 11, 11, 'ven111@gmail.com', 1, NULL, NULL, '0', 'gfvb', 'gjyvbg', '2019-02-20', '2019-02-28', '2019-03-18', 11, 0, '212100', '770060', '3', 'Simple Bid', '2', 11, '2019-01-30-7d9hK', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:55:32', '2019-02-20 11:39:30', 6, 5, ''),
+(109, 11, 11, 'ven121@gmail.com', 1, NULL, '1', '1', 'gfvb', 'gjyvbg', '2019-02-20', '2019-02-28', '2019-03-18', 11, 0, '212100', '770060', '3', 'Simple Bid', '2', 11, '2019-01-30-7d9hK', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:55:32', '2019-02-20 11:39:30', 6, 7, '01/31/2019 4:09 PM'),
+(110, 11, 11, 'ven221@gmail.com', 1, NULL, NULL, '0', 'gfvb', 'gjyvbg', '2019-02-20', '2019-02-28', '2019-03-18', 11, 0, '212100', '770060', '3', 'Simple Bid', '2', 11, '2019-01-30-7d9hK', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:55:32', '2019-02-20 11:39:30', 6, 5, ''),
+(111, 11, 11, 'ven001@gmail.com', 1, NULL, NULL, '0', 'gfvb', 'gjyvbg', '2019-02-20', '2019-02-28', '2019-03-18', 11, 0, '212100', '770060', '3', 'Simple Bid', '2', 11, '2019-01-30-7d9hK', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:55:32', '2019-02-20 11:39:30', 6, 5, ''),
+(112, 11, 11, 'ven310@yahoo.com', 1, NULL, NULL, '0', 'gfvb', 'gjyvbg', '2019-02-20', '2019-02-28', '2019-03-18', 11, 0, '212100', '770060', '3', 'Simple Bid', '2', 11, '2019-01-30-7d9hK', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:55:32', '2019-02-20 11:39:30', 6, 5, ''),
+(113, 11, 11, 'ven331@gmail.com', 1, NULL, NULL, '0', 'gfvb', 'gjyvbg', '2019-02-20', '2019-02-28', '2019-03-18', 11, 0, '212100', '770060', '3', 'Simple Bid', '2', 11, '2019-01-30-7d9hK', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:55:32', '2019-02-20 11:39:30', 6, 5, ''),
+(114, 11, 11, 'ven97@gmail.com', 1, NULL, NULL, '0', 'gfvb', 'gjyvbg', '2019-02-20', '2019-02-28', '2019-03-18', 11, 0, '212100', '770060', '3', 'Simple Bid', '2', 11, '2019-01-30-7d9hK', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:55:33', '2019-02-20 11:39:30', 6, 5, ''),
+(115, 11, 11, 'ven979@yahoo.com', 1, NULL, NULL, '0', 'gfvb', 'gjyvbg', '2019-02-20', '2019-02-28', '2019-03-18', 11, 0, '212100', '770060', '3', 'Simple Bid', '2', 11, '2019-01-30-7d9hK', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:55:33', '2019-02-20 11:39:30', 6, 5, ''),
+(116, 11, 11, 'ven90@gmail.com', 1, NULL, NULL, '0', 'gfvb', 'gjyvbg', '2019-02-20', '2019-02-28', '2019-03-18', 11, 0, '212100', '770060', '3', 'Simple Bid', '2', 11, '2019-01-30-7d9hK', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:55:33', '2019-02-20 11:39:30', 6, 5, ''),
+(117, 11, 11, 'ven66@gmail.com', 1, NULL, '1', '1', 'gfvb', 'gjyvbg', '2019-02-20', '2019-02-28', '2019-03-18', 11, 0, '212100', '770060', '3', 'Simple Bid', '2', 11, '2019-01-30-7d9hK', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:55:33', '2019-02-20 11:39:30', 6, 7, ''),
+(118, 11, 11, 'ven371@yahoo.com', 1, NULL, NULL, '0', 'gfvb', 'gjyvbg', '2019-02-20', '2019-02-28', '2019-03-18', 11, 0, '212100', '770060', '3', 'Simple Bid', '2', 11, '2019-01-30-7d9hK', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:55:33', '2019-02-20 11:39:30', 6, 5, ''),
+(119, 11, 11, 'ven170@yahoo.com', 1, NULL, NULL, '0', 'gfvb', 'gjyvbg', '2019-02-20', '2019-02-28', '2019-03-18', 11, 0, '212100', '770060', '3', 'Simple Bid', '2', 11, '2019-01-30-7d9hK', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:55:33', '2019-02-20 11:39:30', 6, 5, ''),
+(120, 11, 11, 'ven454@yahoo.com', 1, NULL, NULL, '0', 'gfvb', 'gjyvbg', '2019-02-20', '2019-02-28', '2019-03-18', 11, 0, '212100', '770060', '3', 'Simple Bid', '2', 11, '2019-01-30-7d9hK', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:55:33', '2019-02-20 11:39:30', 6, 5, ''),
+(121, 10, 12, 'ven111@gmail.com', 1, NULL, NULL, '0', 'gfb', 'vhg', '2019-02-15', '2019-05-22', '2019-04-24', 12, 0, '5670', '877776', '3', 'Simple Bid', '2', 10, '2019-01-30-vdRzf', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:59:34', '2019-02-20 11:39:30', 6, 5, ''),
+(122, 10, 12, 'ven121@gmail.com', 1, NULL, '1', '1', 'gfb', 'vhg', '2019-02-15', '2019-05-22', '2019-04-24', 12, 0, '5670', '877776', '3', 'Simple Bid', '2', 10, '2019-01-30-vdRzf', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:59:34', '2019-02-20 11:39:30', 6, 7, '01/30/2019 1:39 PM'),
+(123, 10, 12, 'ven221@gmail.com', 1, NULL, NULL, '0', 'gfb', 'vhg', '2019-02-15', '2019-05-22', '2019-04-24', 12, 0, '5670', '877776', '3', 'Simple Bid', '2', 10, '2019-01-30-vdRzf', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:59:34', '2019-02-20 11:39:30', 6, 5, ''),
+(124, 10, 12, 'ven001@gmail.com', 1, NULL, NULL, '0', 'gfb', 'vhg', '2019-02-15', '2019-05-22', '2019-04-24', 12, 0, '5670', '877776', '3', 'Simple Bid', '2', 10, '2019-01-30-vdRzf', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:59:34', '2019-02-20 11:39:30', 6, 5, ''),
+(125, 10, 12, 'ven310@yahoo.com', 1, NULL, NULL, '0', 'gfb', 'vhg', '2019-02-15', '2019-05-22', '2019-04-24', 12, 0, '5670', '877776', '3', 'Simple Bid', '2', 10, '2019-01-30-vdRzf', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:59:34', '2019-02-20 11:39:30', 6, 5, ''),
+(126, 10, 12, 'ven331@gmail.com', 1, NULL, NULL, '0', 'gfb', 'vhg', '2019-02-15', '2019-05-22', '2019-04-24', 12, 0, '5670', '877776', '3', 'Simple Bid', '2', 10, '2019-01-30-vdRzf', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:59:34', '2019-02-20 11:39:30', 6, 5, ''),
+(127, 10, 12, 'ven97@gmail.com', 1, NULL, NULL, '0', 'gfb', 'vhg', '2019-02-15', '2019-05-22', '2019-04-24', 12, 0, '5670', '877776', '3', 'Simple Bid', '2', 10, '2019-01-30-vdRzf', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:59:34', '2019-02-20 11:39:30', 6, 5, ''),
+(128, 10, 12, 'ven979@yahoo.com', 1, NULL, NULL, '0', 'gfb', 'vhg', '2019-02-15', '2019-05-22', '2019-04-24', 12, 0, '5670', '877776', '3', 'Simple Bid', '2', 10, '2019-01-30-vdRzf', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:59:34', '2019-02-20 11:39:30', 6, 5, ''),
+(129, 10, 12, 'ven90@gmail.com', 1, NULL, NULL, '0', 'gfb', 'vhg', '2019-02-15', '2019-05-22', '2019-04-24', 12, 0, '5670', '877776', '3', 'Simple Bid', '2', 10, '2019-01-30-vdRzf', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:59:34', '2019-02-20 11:39:30', 6, 5, ''),
+(130, 10, 12, 'ven66@gmail.com', 1, NULL, '1', '1', 'gfb', 'vhg', '2019-02-15', '2019-05-22', '2019-04-24', 12, 0, '5670', '877776', '3', 'Simple Bid', '2', 10, '2019-01-30-vdRzf', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:59:34', '2019-02-20 11:39:30', 6, 7, ''),
+(131, 10, 12, 'ven371@yahoo.com', 1, NULL, NULL, '0', 'gfb', 'vhg', '2019-02-15', '2019-05-22', '2019-04-24', 12, 0, '5670', '877776', '3', 'Simple Bid', '2', 10, '2019-01-30-vdRzf', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:59:34', '2019-02-20 11:39:30', 6, 5, ''),
+(132, 10, 12, 'ven170@yahoo.com', 1, NULL, NULL, '0', 'gfb', 'vhg', '2019-02-15', '2019-05-22', '2019-04-24', 12, 0, '5670', '877776', '3', 'Simple Bid', '2', 10, '2019-01-30-vdRzf', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:59:34', '2019-02-20 11:39:30', 6, 5, ''),
+(133, 10, 12, 'ven454@yahoo.com', 1, NULL, NULL, '0', 'gfb', 'vhg', '2019-02-15', '2019-05-22', '2019-04-24', 12, 0, '5670', '877776', '3', 'Simple Bid', '2', 10, '2019-01-30-vdRzf', '0770', 1, 'logistics [ logistics ]', '2019-01-30 07:59:34', '2019-02-20 11:39:30', 6, 5, ''),
+(134, 16, 15, 'ven111@gmail.com', 1, NULL, NULL, '0', 'yhu', 'jubh', '2019-05-08', '2019-07-31', '2019-05-16', 13, 0, '8790', '7781', '3', 'Simple Bid', '2', 16, '2019-01-31-iMcvQ', '0770', 1, 'logistics [ logistics ]', '2019-01-31 06:03:39', '2019-02-20 11:39:30', 6, 5, ''),
+(135, 16, 15, 'ven121@gmail.com', 1, NULL, '1', '1', 'yhu', 'jubh', '2019-05-08', '2019-07-31', '2019-05-16', 13, 0, '8790', '7781', '3', 'Simple Bid', '2', 16, '2019-01-31-iMcvQ', '0770', 1, 'logistics [ logistics ]', '2019-01-31 06:03:39', '2019-02-20 11:39:30', 6, 7, '01/31/2019 12:00 PM'),
+(136, 16, 15, 'ven221@gmail.com', 1, NULL, NULL, '0', 'yhu', 'jubh', '2019-05-08', '2019-07-31', '2019-05-16', 13, 0, '8790', '7781', '3', 'Simple Bid', '2', 16, '2019-01-31-iMcvQ', '0770', 1, 'logistics [ logistics ]', '2019-01-31 06:03:39', '2019-02-20 11:39:30', 6, 5, ''),
+(137, 16, 15, 'ven001@gmail.com', 1, NULL, NULL, '0', 'yhu', 'jubh', '2019-05-08', '2019-07-31', '2019-05-16', 13, 0, '8790', '7781', '3', 'Simple Bid', '2', 16, '2019-01-31-iMcvQ', '0770', 1, 'logistics [ logistics ]', '2019-01-31 06:03:39', '2019-02-20 11:39:30', 6, 5, ''),
+(138, 16, 15, 'ven310@yahoo.com', 1, NULL, NULL, '0', 'yhu', 'jubh', '2019-05-08', '2019-07-31', '2019-05-16', 13, 0, '8790', '7781', '3', 'Simple Bid', '2', 16, '2019-01-31-iMcvQ', '0770', 1, 'logistics [ logistics ]', '2019-01-31 06:03:40', '2019-02-20 11:39:30', 6, 5, ''),
+(139, 16, 15, 'ven331@gmail.com', 1, NULL, NULL, '0', 'yhu', 'jubh', '2019-05-08', '2019-07-31', '2019-05-16', 13, 0, '8790', '7781', '3', 'Simple Bid', '2', 16, '2019-01-31-iMcvQ', '0770', 1, 'logistics [ logistics ]', '2019-01-31 06:03:40', '2019-02-20 11:39:30', 6, 5, ''),
+(140, 16, 15, 'ven97@gmail.com', 1, NULL, NULL, '0', 'yhu', 'jubh', '2019-05-08', '2019-07-31', '2019-05-16', 13, 0, '8790', '7781', '3', 'Simple Bid', '2', 16, '2019-01-31-iMcvQ', '0770', 1, 'logistics [ logistics ]', '2019-01-31 06:03:40', '2019-02-20 11:39:30', 6, 5, ''),
+(141, 16, 15, 'ven979@yahoo.com', 1, NULL, NULL, '0', 'yhu', 'jubh', '2019-05-08', '2019-07-31', '2019-05-16', 13, 0, '8790', '7781', '3', 'Simple Bid', '2', 16, '2019-01-31-iMcvQ', '0770', 1, 'logistics [ logistics ]', '2019-01-31 06:03:40', '2019-02-20 11:39:30', 6, 5, ''),
+(142, 16, 15, 'ven90@gmail.com', 1, NULL, NULL, '0', 'yhu', 'jubh', '2019-05-08', '2019-07-31', '2019-05-16', 13, 0, '8790', '7781', '3', 'Simple Bid', '2', 16, '2019-01-31-iMcvQ', '0770', 1, 'logistics [ logistics ]', '2019-01-31 06:03:40', '2019-02-20 11:39:30', 6, 5, ''),
+(143, 16, 15, 'ven66@gmail.com', 1, NULL, '1', '1', 'yhu', 'jubh', '2019-05-08', '2019-07-31', '2019-05-16', 13, 0, '8790', '7781', '3', 'Simple Bid', '2', 16, '2019-01-31-iMcvQ', '0770', 1, 'logistics [ logistics ]', '2019-01-31 06:03:40', '2019-02-20 11:39:30', 6, 7, ''),
+(144, 16, 15, 'ven371@yahoo.com', 1, NULL, NULL, '0', 'yhu', 'jubh', '2019-05-08', '2019-07-31', '2019-05-16', 13, 0, '8790', '7781', '3', 'Simple Bid', '2', 16, '2019-01-31-iMcvQ', '0770', 1, 'logistics [ logistics ]', '2019-01-31 06:03:40', '2019-02-20 11:39:30', 6, 5, ''),
+(145, 16, 15, 'ven170@yahoo.com', 1, NULL, NULL, '0', 'yhu', 'jubh', '2019-05-08', '2019-07-31', '2019-05-16', 13, 0, '8790', '7781', '3', 'Simple Bid', '2', 16, '2019-01-31-iMcvQ', '0770', 1, 'logistics [ logistics ]', '2019-01-31 06:03:40', '2019-02-20 11:39:30', 6, 5, ''),
+(146, 16, 15, 'ven454@yahoo.com', 1, NULL, NULL, '0', 'yhu', 'jubh', '2019-05-08', '2019-07-31', '2019-05-16', 13, 0, '8790', '7781', '3', 'Simple Bid', '2', 16, '2019-01-31-iMcvQ', '0770', 1, 'logistics [ logistics ]', '2019-01-31 06:03:40', '2019-02-20 11:39:30', 6, 5, ''),
+(147, 18, 17, 'ven111@gmail.com', 1, NULL, NULL, '0', 'kjiou', 'fvgb', '2019-02-15', '2019-02-28', '2019-03-27', 14, 0, '0078', '9908', '3', 'Simple Bid', '2', 18, '2019-01-31-1YbXh', '0770', 1, 'logistics [ logistics ]', '2019-01-31 07:01:04', '2019-02-20 11:39:30', 6, 5, ''),
+(148, 18, 17, 'ven121@gmail.com', 1, NULL, '1', '1', 'kjiou', 'fvgb', '2019-02-15', '2019-02-28', '2019-03-27', 14, 0, '0078', '9908', '3', 'Simple Bid', '2', 18, '2019-01-31-1YbXh', '0770', 1, 'logistics [ logistics ]', '2019-01-31 07:01:04', '2019-02-20 11:39:30', 6, 7, '01/31/2019 12:46 PM'),
+(149, 18, 17, 'ven221@gmail.com', 1, NULL, NULL, '0', 'kjiou', 'fvgb', '2019-02-15', '2019-02-28', '2019-03-27', 14, 0, '0078', '9908', '3', 'Simple Bid', '2', 18, '2019-01-31-1YbXh', '0770', 1, 'logistics [ logistics ]', '2019-01-31 07:01:04', '2019-02-20 11:39:30', 6, 5, ''),
+(150, 18, 17, 'ven001@gmail.com', 1, NULL, NULL, '0', 'kjiou', 'fvgb', '2019-02-15', '2019-02-28', '2019-03-27', 14, 0, '0078', '9908', '3', 'Simple Bid', '2', 18, '2019-01-31-1YbXh', '0770', 1, 'logistics [ logistics ]', '2019-01-31 07:01:04', '2019-02-20 11:39:30', 6, 5, ''),
+(151, 18, 17, 'ven310@yahoo.com', 1, NULL, NULL, '0', 'kjiou', 'fvgb', '2019-02-15', '2019-02-28', '2019-03-27', 14, 0, '0078', '9908', '3', 'Simple Bid', '2', 18, '2019-01-31-1YbXh', '0770', 1, 'logistics [ logistics ]', '2019-01-31 07:01:05', '2019-02-20 11:39:30', 6, 5, ''),
+(152, 18, 17, 'ven331@gmail.com', 1, NULL, NULL, '0', 'kjiou', 'fvgb', '2019-02-15', '2019-02-28', '2019-03-27', 14, 0, '0078', '9908', '3', 'Simple Bid', '2', 18, '2019-01-31-1YbXh', '0770', 1, 'logistics [ logistics ]', '2019-01-31 07:01:05', '2019-02-20 11:39:30', 6, 5, ''),
+(153, 18, 17, 'ven97@gmail.com', 1, NULL, NULL, '0', 'kjiou', 'fvgb', '2019-02-15', '2019-02-28', '2019-03-27', 14, 0, '0078', '9908', '3', 'Simple Bid', '2', 18, '2019-01-31-1YbXh', '0770', 1, 'logistics [ logistics ]', '2019-01-31 07:01:05', '2019-02-20 11:39:30', 6, 5, ''),
+(154, 18, 17, 'ven979@yahoo.com', 1, NULL, NULL, '0', 'kjiou', 'fvgb', '2019-02-15', '2019-02-28', '2019-03-27', 14, 0, '0078', '9908', '3', 'Simple Bid', '2', 18, '2019-01-31-1YbXh', '0770', 1, 'logistics [ logistics ]', '2019-01-31 07:01:05', '2019-02-20 11:39:30', 6, 5, ''),
+(155, 18, 17, 'ven90@gmail.com', 1, NULL, NULL, '0', 'kjiou', 'fvgb', '2019-02-15', '2019-02-28', '2019-03-27', 14, 0, '0078', '9908', '3', 'Simple Bid', '2', 18, '2019-01-31-1YbXh', '0770', 1, 'logistics [ logistics ]', '2019-01-31 07:01:05', '2019-02-20 11:39:30', 6, 5, ''),
+(156, 18, 17, 'ven66@gmail.com', 1, NULL, '1', '1', 'kjiou', 'fvgb', '2019-02-15', '2019-02-28', '2019-03-27', 14, 0, '0078', '9908', '3', 'Simple Bid', '2', 18, '2019-01-31-1YbXh', '0770', 1, 'logistics [ logistics ]', '2019-01-31 07:01:05', '2019-02-20 11:39:30', 6, 7, ''),
+(157, 18, 17, 'ven371@yahoo.com', 1, NULL, NULL, '0', 'kjiou', 'fvgb', '2019-02-15', '2019-02-28', '2019-03-27', 14, 0, '0078', '9908', '3', 'Simple Bid', '2', 18, '2019-01-31-1YbXh', '0770', 1, 'logistics [ logistics ]', '2019-01-31 07:01:05', '2019-02-20 11:39:30', 6, 5, ''),
+(158, 18, 17, 'ven170@yahoo.com', 1, NULL, NULL, '0', 'kjiou', 'fvgb', '2019-02-15', '2019-02-28', '2019-03-27', 14, 0, '0078', '9908', '3', 'Simple Bid', '2', 18, '2019-01-31-1YbXh', '0770', 1, 'logistics [ logistics ]', '2019-01-31 07:01:05', '2019-02-20 11:39:30', 6, 5, ''),
+(159, 18, 17, 'ven454@yahoo.com', 1, NULL, NULL, '0', 'kjiou', 'fvgb', '2019-02-15', '2019-02-28', '2019-03-27', 14, 0, '0078', '9908', '3', 'Simple Bid', '2', 18, '2019-01-31-1YbXh', '0770', 1, 'logistics [ logistics ]', '2019-01-31 07:01:05', '2019-02-20 11:39:30', 6, 5, ''),
 (160, 19, 20, 'ven111@gmail.com', 1, NULL, NULL, '0', 'hgityy', 'jhuhjghg', '2019-03-12', '2019-03-27', '2019-03-19', 15, 0, '600', '750', '3', 'Rank Order Bid', '2', 19, '2019-01-31-f6Mac', '0770', 1, 'logistics [ logistics ]', '2019-01-31 11:43:08', '2019-01-31 11:43:22', 1, 5, ''),
 (161, 19, 20, 'ven121@gmail.com', 1, NULL, '1', '1', 'hgityy', 'jhuhjghg', '2019-03-12', '2019-03-27', '2019-03-19', 15, 0, '600', '750', '3', 'Rank Order Bid', '2', 19, '2019-01-31-f6Mac', '0770', 1, 'logistics [ logistics ]', '2019-01-31 11:43:08', '2019-01-31 13:03:38', 1, 7, ''),
 (162, 19, 20, 'ven221@gmail.com', 1, NULL, NULL, '0', 'hgityy', 'jhuhjghg', '2019-03-12', '2019-03-27', '2019-03-19', 15, 0, '600', '750', '3', 'Rank Order Bid', '2', 19, '2019-01-31-f6Mac', '0770', 1, 'logistics [ logistics ]', '2019-01-31 11:43:08', '2019-01-31 11:43:22', 1, 5, ''),
@@ -1115,7 +1328,13 @@ INSERT INTO `Ilab_master_bid_vendor_commerical` (`slno_vendor`, `bid_slno`, `buy
 (239, 3, 0, 'ven66@gmail.com', 4, NULL, NULL, '0', 'tvyh', 'fgbrt', '2019-02-18', '2019-03-16', '2019-02-28', 20, 0, '7001', '6701', '1', 'Closed Bid', '2', 3, '2019-01-28-rIxGm', '0770', 1, 'standard catalogued item [ sci tech ]', '2019-01-31 14:19:32', '2019-01-31 14:19:32', 0, 5, ''),
 (240, 3, 0, 'ven371@yahoo.com', 4, NULL, NULL, '0', 'tvyh', 'fgbrt', '2019-02-18', '2019-03-16', '2019-02-28', 20, 0, '7001', '6701', '1', 'Closed Bid', '2', 3, '2019-01-28-rIxGm', '0770', 1, 'standard catalogued item [ sci tech ]', '2019-01-31 14:19:32', '2019-01-31 14:19:32', 0, 5, ''),
 (241, 3, 0, 'ven170@yahoo.com', 4, NULL, NULL, '0', 'tvyh', 'fgbrt', '2019-02-18', '2019-03-16', '2019-02-28', 20, 0, '7001', '6701', '1', 'Closed Bid', '2', 3, '2019-01-28-rIxGm', '0770', 1, 'standard catalogued item [ sci tech ]', '2019-01-31 14:19:32', '2019-01-31 14:19:32', 0, 5, ''),
-(242, 3, 0, 'ven454@yahoo.com', 4, NULL, NULL, '0', 'tvyh', 'fgbrt', '2019-02-18', '2019-03-16', '2019-02-28', 20, 0, '7001', '6701', '1', 'Closed Bid', '2', 3, '2019-01-28-rIxGm', '0770', 1, 'standard catalogued item [ sci tech ]', '2019-01-31 14:19:32', '2019-01-31 14:19:32', 0, 5, '');
+(242, 3, 0, 'ven454@yahoo.com', 4, NULL, NULL, '0', 'tvyh', 'fgbrt', '2019-02-18', '2019-03-16', '2019-02-28', 20, 0, '7001', '6701', '1', 'Closed Bid', '2', 3, '2019-01-28-rIxGm', '0770', 1, 'standard catalogued item [ sci tech ]', '2019-01-31 14:19:32', '2019-01-31 14:19:32', 0, 5, ''),
+(243, 33, 31, 'vender@ilab.com', 4, NULL, NULL, '0', 'tty', 'stx', '2019-03-21', '2019-03-28', '2019-03-21', 21, 0, '150', '7700', '1', 'Closed Bid', '2', 33, '2019-02-20-zJmFa', '0770', 1, 'standard catalogued item [ SCI ]', '2019-02-20 09:18:44', '2019-02-20 09:18:44', 0, 5, ''),
+(244, 33, 31, 'ven111@gmail.com', 4, NULL, NULL, '0', 'tty', 'stx', '2019-03-21', '2019-03-28', '2019-03-21', 21, 0, '150', '7700', '1', 'Closed Bid', '2', 33, '2019-02-20-zJmFa', '0770', 1, 'standard catalogued item [ SCI ]', '2019-02-20 09:18:44', '2019-02-20 09:18:44', 0, 5, ''),
+(245, 33, 31, 'ven121@gmail.com', 4, NULL, NULL, '0', 'tty', 'stx', '2019-03-21', '2019-03-28', '2019-03-21', 21, 0, '150', '7700', '1', 'Closed Bid', '2', 33, '2019-02-20-zJmFa', '0770', 1, 'standard catalogued item [ SCI ]', '2019-02-20 09:18:44', '2019-02-20 09:18:44', 0, 5, ''),
+(246, 33, 31, 'ven221@gmail.com', 4, NULL, NULL, '0', 'tty', 'stx', '2019-03-21', '2019-03-28', '2019-03-21', 21, 0, '150', '7700', '1', 'Closed Bid', '2', 33, '2019-02-20-zJmFa', '0770', 1, 'standard catalogued item [ SCI ]', '2019-02-20 09:18:44', '2019-02-20 09:18:44', 0, 5, ''),
+(247, 33, 31, 'ven310@yahoo.com', 4, NULL, NULL, '0', 'tty', 'stx', '2019-03-21', '2019-03-28', '2019-03-21', 21, 0, '150', '7700', '1', 'Closed Bid', '2', 33, '2019-02-20-zJmFa', '0770', 1, 'standard catalogued item [ SCI ]', '2019-02-20 09:18:44', '2019-02-20 09:18:44', 0, 5, ''),
+(248, 33, 31, 'ven1011@yahoo.com', 4, NULL, NULL, '0', 'tty', 'stx', '2019-03-21', '2019-03-28', '2019-03-21', 21, 0, '150', '7700', '1', 'Closed Bid', '2', 33, '2019-02-20-zJmFa', '0770', 1, 'standard catalogued item [ SCI ]', '2019-02-20 09:18:44', '2019-02-20 09:18:44', 0, 5, '');
 
 -- --------------------------------------------------------
 
@@ -1135,6 +1354,63 @@ CREATE TABLE `Ilab_master_bid_vendor_file_details` (
   `vendor_slno` int(11) NOT NULL,
   `vendor_id` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Ilab_master_bid_vendor_m`
+--
+
+CREATE TABLE `Ilab_master_bid_vendor_m` (
+  `slno_vendor` int(11) NOT NULL,
+  `bid_slno` int(11) NOT NULL,
+  `buyer_slno` int(11) NOT NULL,
+  `vendor_id` varchar(255) NOT NULL,
+  `status` int(11) NOT NULL DEFAULT '0',
+  `approval_status` varchar(255) DEFAULT NULL,
+  `submission_status` varchar(255) DEFAULT '0',
+  `submission_count` varchar(255) NOT NULL DEFAULT '0',
+  `title` varchar(255) NOT NULL,
+  `description` varchar(255) NOT NULL,
+  `date_start` varchar(255) NOT NULL,
+  `date_end` varchar(255) NOT NULL,
+  `query_end_date` varchar(255) NOT NULL,
+  `master_bid_id` int(11) NOT NULL,
+  `view_status_approve` int(11) NOT NULL DEFAULT '0',
+  `bid_ref` varchar(255) NOT NULL,
+  `bid_id` varchar(255) NOT NULL,
+  `category` varchar(255) NOT NULL,
+  `mode_bid` varchar(255) NOT NULL,
+  `technical_bid_type` varchar(255) NOT NULL,
+  `mr_slno` int(11) NOT NULL,
+  `mr_no` varchar(255) NOT NULL,
+  `job_code` varchar(255) NOT NULL,
+  `edit_id` int(11) NOT NULL,
+  `material_category_name` varchar(255) NOT NULL,
+  `date_entry` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `date_update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `status_active` int(11) NOT NULL DEFAULT '0' COMMENT '0-bid is not active 1-bid is active 2-bid is close',
+  `status_view` int(11) NOT NULL DEFAULT '5' COMMENT '5-not viewed 6-viewed 7-submitted 8-> resubmission',
+  `comment` text
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `Ilab_master_bid_vendor_m`
+--
+
+INSERT INTO `Ilab_master_bid_vendor_m` (`slno_vendor`, `bid_slno`, `buyer_slno`, `vendor_id`, `status`, `approval_status`, `submission_status`, `submission_count`, `title`, `description`, `date_start`, `date_end`, `query_end_date`, `master_bid_id`, `view_status_approve`, `bid_ref`, `bid_id`, `category`, `mode_bid`, `technical_bid_type`, `mr_slno`, `mr_no`, `job_code`, `edit_id`, `material_category_name`, `date_entry`, `date_update`, `status_active`, `status_view`, `comment`) VALUES
+(1, 30, 30, 'vender@ilab.com', 1, NULL, '0', '0', 'tthh', 'kkllg', '2019-05-07', '2019-06-20', '2019-05-10', 1, 0, '5500', '7790', '1', 'Simple Bid', '1', 30, '2019-02-01-kJV97', '0770', 1, 'standard catalogued item [ SCI ]', '2019-02-20 12:22:26', '2019-02-20 12:52:07', 1, 5, NULL),
+(2, 30, 30, 'ven111@gmail.com', 1, NULL, '0', '0', 'tthh', 'kkllg', '2019-05-07', '2019-06-20', '2019-05-10', 1, 0, '5500', '7790', '1', 'Simple Bid', '1', 30, '2019-02-01-kJV97', '0770', 1, 'standard catalogued item [ SCI ]', '2019-02-20 12:22:26', '2019-02-20 12:52:07', 1, 5, NULL),
+(3, 30, 30, 'ven121@gmail.com', 1, NULL, '0', '0', 'tthh', 'kkllg', '2019-05-07', '2019-06-20', '2019-05-10', 1, 0, '5500', '7790', '1', 'Simple Bid', '1', 30, '2019-02-01-kJV97', '0770', 1, 'standard catalogued item [ SCI ]', '2019-02-20 12:22:26', '2019-02-20 12:52:07', 1, 5, NULL),
+(4, 30, 30, 'ven221@gmail.com', 1, NULL, '0', '0', 'tthh', 'kkllg', '2019-05-07', '2019-06-20', '2019-05-10', 1, 0, '5500', '7790', '1', 'Simple Bid', '1', 30, '2019-02-01-kJV97', '0770', 1, 'standard catalogued item [ SCI ]', '2019-02-20 12:22:26', '2019-02-20 12:52:07', 1, 5, NULL),
+(5, 30, 30, 'ven310@yahoo.com', 1, NULL, '0', '0', 'tthh', 'kkllg', '2019-05-07', '2019-06-20', '2019-05-10', 1, 0, '5500', '7790', '1', 'Simple Bid', '1', 30, '2019-02-01-kJV97', '0770', 1, 'standard catalogued item [ SCI ]', '2019-02-20 12:22:26', '2019-02-20 12:52:07', 1, 5, NULL),
+(6, 30, 30, 'ven1011@yahoo.com', 1, NULL, '0', '0', 'tthh', 'kkllg', '2019-05-07', '2019-06-20', '2019-05-10', 1, 0, '5500', '7790', '1', 'Simple Bid', '1', 30, '2019-02-01-kJV97', '0770', 1, 'standard catalogued item [ SCI ]', '2019-02-20 12:22:26', '2019-02-20 12:52:07', 1, 5, NULL),
+(7, 35, 32, 'vender@ilab.com', 4, NULL, '0', '0', 'ttyz', 'gfgh', '2019-06-07', '2019-08-09', '2019-04-03', 2, 0, '002130', '9091', '1', 'Closed Bid', '1', 35, '2019-02-20-Rcyqr', '0770', 1, 'standard catalogued item [ SCI ]', '2019-02-20 12:50:43', '2019-02-20 12:50:43', 0, 5, NULL),
+(8, 35, 32, 'ven111@gmail.com', 4, NULL, '0', '0', 'ttyz', 'gfgh', '2019-06-07', '2019-08-09', '2019-04-03', 2, 0, '002130', '9091', '1', 'Closed Bid', '1', 35, '2019-02-20-Rcyqr', '0770', 1, 'standard catalogued item [ SCI ]', '2019-02-20 12:50:44', '2019-02-20 12:50:44', 0, 5, NULL),
+(9, 35, 32, 'ven121@gmail.com', 4, NULL, '0', '0', 'ttyz', 'gfgh', '2019-06-07', '2019-08-09', '2019-04-03', 2, 0, '002130', '9091', '1', 'Closed Bid', '1', 35, '2019-02-20-Rcyqr', '0770', 1, 'standard catalogued item [ SCI ]', '2019-02-20 12:50:44', '2019-02-20 12:50:44', 0, 5, NULL),
+(10, 35, 32, 'ven221@gmail.com', 4, NULL, '0', '0', 'ttyz', 'gfgh', '2019-06-07', '2019-08-09', '2019-04-03', 2, 0, '002130', '9091', '1', 'Closed Bid', '1', 35, '2019-02-20-Rcyqr', '0770', 1, 'standard catalogued item [ SCI ]', '2019-02-20 12:50:44', '2019-02-20 12:50:44', 0, 5, NULL),
+(11, 35, 32, 'ven310@yahoo.com', 4, NULL, '0', '0', 'ttyz', 'gfgh', '2019-06-07', '2019-08-09', '2019-04-03', 2, 0, '002130', '9091', '1', 'Closed Bid', '1', 35, '2019-02-20-Rcyqr', '0770', 1, 'standard catalogued item [ SCI ]', '2019-02-20 12:50:44', '2019-02-20 12:50:44', 0, 5, NULL),
+(12, 35, 32, 'ven1011@yahoo.com', 4, NULL, '0', '0', 'ttyz', 'gfgh', '2019-06-07', '2019-08-09', '2019-04-03', 2, 0, '002130', '9091', '1', 'Closed Bid', '1', 35, '2019-02-20-Rcyqr', '0770', 1, 'standard catalogued item [ SCI ]', '2019-02-20 12:50:44', '2019-02-20 12:50:44', 0, 5, NULL);
 
 -- --------------------------------------------------------
 
@@ -1193,7 +1469,9 @@ INSERT INTO `Ilab_master_buyer_material_details` (`slno_mat`, `slno_mr_id`, `ite
 (32, 9, 'material item 1', 'mat001', 'nos', '[\"tech34311\"]', '1', '567', 20),
 (33, 10, 'material item 17', 'mat0087', 'nos', '[\"technical 1\",\"technical 1667\"]', '1', '876', 20),
 (34, 11, 'material item 19', 'mat0018', 'nos', '[\"ABCD 3333\"]', '1', '568', 20),
-(35, 12, 'material10', '10', '21', '[\"tec10\",\"67tyu\",\"BNTRY\",\"tech454\"]', '1', '980', 20);
+(35, 12, 'material10', '10', '21', '[\"tec10\",\"67tyu\",\"BNTRY\",\"tech454\"]', '1', '980', 20),
+(36, 48, 'material item 1', 'mat001', 'nos', '[\"tech34311\"]', '1', '567', 21),
+(37, 49, 'material item 17', 'mat0087', 'nos', '[\"technical 1\",\"technical 1667\"]', '1', '780', 21);
 
 -- --------------------------------------------------------
 
@@ -1227,7 +1505,7 @@ CREATE TABLE `Ilab_master_buyer_MR` (
 
 INSERT INTO `Ilab_master_buyer_MR` (`Slno_buyer`, `Mr_id`, `Slno_mr_id`, `Job_code`, `Slno_procurement_id`, `Buyer_id`, `Status`, `Technical_type`, `Edit_id`, `Technical_process_status`, `Commercial_process_status`, `Date_technical_status`, `Date_commercial__status`, `Mode_tender`, `date_receive`, `procurement_id`, `complete_status_bid`) VALUES
 (1, '2019-01-28-AVfzI', 1, '0770', 1, 'buy1@ilab.com', 1, '2', 1, 0, 2, NULL, '2019-01-28', 'Simple Bid', '2019-01-28 07:28:21', 'pro@ilab.com', 1),
-(2, '2019-01-28-gLFf8', 2, '0770', 2, 'buy1@ilab.com', 1, '2', 1, 0, 2, NULL, '2019-01-28', 'Simple Bid', '2019-01-28 07:28:35', 'pro@ilab.com', 0),
+(2, '2019-01-28-gLFf8', 2, '0770', 2, 'buy1@ilab.com', 1, '2', 1, 0, 2, NULL, '2019-01-28', 'Simple Bid', '2019-01-28 07:28:35', 'pro@ilab.com', 1),
 (3, '2019-01-28-Svtup', 4, '0770', 3, 'buy1@ilab.com', 1, '2', 1, 0, 2, NULL, '2019-01-28', 'Simple Bid', '2019-01-28 14:33:07', 'pro@ilab.com', 1),
 (4, '2019-01-28-7aRzP', 5, '0770', 4, 'buy1@ilab.com', 1, '2', 1, 0, 2, NULL, '2019-01-28', 'Simple Bid', '2019-01-28 14:33:19', 'pro@ilab.com', 0),
 (5, '2019-01-28-lXMjU', 6, '0770', 5, 'buy1@ilab.com', 1, '2', 1, 0, 2, NULL, '2019-01-28', 'Simple Bid', '2019-01-28 14:40:40', 'pro@ilab.com', 1),
@@ -1255,7 +1533,9 @@ INSERT INTO `Ilab_master_buyer_MR` (`Slno_buyer`, `Mr_id`, `Slno_mr_id`, `Job_co
 (27, '2019-01-31-SpwWK', 25, '0770', 27, 'buy1@ilab.com', 1, '2', 1, 0, 2, NULL, '2019-01-31', 'Rank Order Bid', '2019-01-31 12:31:46', 'pro@ilab.com', 0),
 (28, '2019-01-31-JFCTV', 28, '0770', 28, 'buy1@ilab.com', 1, '2', 1, 0, 2, NULL, '2019-01-31', 'Rank Order Bid', '2019-01-31 12:57:16', 'pro@ilab.com', 0),
 (29, '2019-01-31-sv7C4', 29, '0770', 29, 'buy1@ilab.com', 1, '2', 1, 0, 2, NULL, '2019-01-31', 'Rank Order Bid', '2019-01-31 14:02:15', 'pro@ilab.com', 0),
-(30, '2019-02-01-kJV97', 30, '0770', 30, 'buy1@ilab.com', 1, '1', 1, 0, 0, NULL, NULL, '0', '2019-02-01 10:44:50', 'pro@ilab.com', 0);
+(30, '2019-02-01-kJV97', 30, '0770', 30, 'buy1@ilab.com', 1, '1', 1, 2, 0, '2019-02-20', NULL, 'Simple Bid', '2019-02-01 10:44:50', 'pro@ilab.com', 0),
+(31, '2019-02-20-zJmFa', 33, '0770', 31, 'buy1@ilab.com', 1, '2', 1, 0, 2, NULL, '2019-02-20', 'Closed Bid', '2019-02-20 09:13:16', 'pro@ilab.com', 0),
+(32, '2019-02-20-Rcyqr', 35, '0770', 32, 'buy1@ilab.com', 1, '1', 1, 2, 0, '2019-02-20', NULL, 'Closed Bid', '2019-02-20 12:17:41', 'pro@ilab.com', 0);
 
 -- --------------------------------------------------------
 
@@ -1279,12 +1559,67 @@ CREATE TABLE `Ilab_master_category` (
 --
 
 INSERT INTO `Ilab_master_category` (`Slno_cat`, `category_name`, `category_id`, `category_desc`, `short_code`, `status`, `date_entry`, `time_entry`) VALUES
-(1, 'standard catalogued item', 'cat005', 'A cataloger is an individual responsible for the processes of description, subject analysis, classification, and authority control of library materials. Catalogers serve as the \"foundation of all library service, as they are the ones who organize information in such a way as to make it easily accessible\"', 'sci tech', 1, '2018-09-18', '13:06:40'),
-(2, 'make to order items', 'cat002', 'The make to order (MTO) strategy only manufactures the end product once the customer places the order, creating additional wait time for the consumer to receive the product, but allowing for more flexible customization compared to purchasing directly from retailers\' shelves.\r\n\r\nRead more: Make To Order (MTO) https://www.investopedia.com/terms/m/make-to-order.asp#ixzz5RS3c3b1d\r\nFollow us: Investopedia on Facebook', 'moi', 1, '2018-09-18', '16:52:56'),
-(3, 'logistics', 'cat003', 'Logistics is generally the detailed organization and implementation of a complex operation. In a general business sense, logistics is the management of the flow of things between the point of origin and the point of consumption in order to meet requirements of customers or corporations.', 'logistics', 1, '2018-09-18', '16:54:45'),
-(4, 'cat2', 'cat111', 'xxx', 'ct1', 3, '2018-09-26', '15:06:48'),
-(5, 'cat301', 'cat11174', 'xxxx', 'ct232', 2, '2019-01-18', '15:08:55'),
-(6, 'cat333', 'cat555', 'xxxx', 'ct555', 3, '2019-01-18', '15:09:26');
+(1, 'standard catalogued item', 'cat005', 'A cataloger is an individual responsible for the processes of description, subject analysis, classification, and authority control of library materials. Catalogers serve as the \"foundation of all library service, as they are the ones who organize information in such a way as to make it easily accessible\"', 'SCI', 1, '2018-09-18', '13:06:40'),
+(2, 'make to order items', 'cat002', 'The make to order (MTO) strategy only manufactures the end product once the customer places the order, creating additional wait time for the consumer to receive the product, but allowing for more flexible customization compared to purchasing directly from retailers\' shelves.\r\n\r\nRead more: Make To Order (MTO) https://www.investopedia.com/terms/m/make-to-order.asp#ixzz5RS3c3b1d\r\nFollow us: Investopedia on Facebook', 'MOI', 1, '2018-09-18', '16:52:56'),
+(3, 'logistics', 'cat003', 'Logistics is generally the detailed organization and implementation of a complex operation. In a general business sense, logistics is the management of the flow of things between the point of origin and the point of consumption in order to meet requirements of customers or corporations.', 'logistics', 1, '2018-09-18', '16:54:45');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Ilab_master_category_item`
+--
+
+CREATE TABLE `Ilab_master_category_item` (
+  `slno_master_item` int(11) NOT NULL,
+  `category_name` varchar(255) NOT NULL,
+  `material_item_name` varchar(255) NOT NULL,
+  `material_item_id` varchar(255) NOT NULL,
+  `technical_details` text,
+  `uom` varchar(255) NOT NULL,
+  `status` int(11) NOT NULL DEFAULT '0',
+  `entry_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `update_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `entry_id` varchar(255) DEFAULT NULL,
+  `date` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='this table will handle all material and category';
+
+--
+-- Dumping data for table `Ilab_master_category_item`
+--
+
+INSERT INTO `Ilab_master_category_item` (`slno_master_item`, `category_name`, `material_item_name`, `material_item_id`, `technical_details`, `uom`, `status`, `entry_date`, `update_date`, `entry_id`, `date`) VALUES
+(1, 'electrical', 'electric bulb 100watt', '4410', 'To improve the efficiency of the lamp, the filament usually consists of multiple coils of coiled fine wire, also known as a \'coiled coil\'. Light bulbs using coiled coil filaments are sometimes referred to as \'double-coil bulbs\'. For a 60-watt 120-volt lamp, the uncoiled length of the tungsten filament is usually 22.8 inches (580 mm)', 'SET', 1, '2019-03-06 10:42:29', '2019-03-11 09:25:50', 'admin@ilab.com', '2019-03-06'),
+(2, 'electrical', 'candle flame bulb 60 watt', '4411', '?35 mm (~?11/8\") candle-flame shape, ?12 mm Edison screw', 'No', 1, '2019-03-06 10:42:29', '2019-03-11 09:25:55', 'admin@ilab.com', '2019-03-06'),
+(3, 'glass', 'fused silica glass', '4412', ' silica (SiO2) in vitreous, or glass, form (i.e., its molecules are disordered and random, without crystalline structure). It has very low thermal expansion, is very hard, and resists high temperatures (1000–1500 °C). It is also the most resistant against weathering (caused in other glasses by alkali ions leaching out of the glass, while staining it). Fused quartz is used for high-temperature applications such as furnace tubes, lighting tubes, melting crucibles, etc.', 'Set', 1, '2019-03-06 10:42:29', '2019-03-11 09:26:07', 'admin@ilab.com', '2019-03-06'),
+(4, 'glass', 'fiber glass', '4413', 'Fiberglass filaments are made through a pultrusion process in which the raw materials (sand, limestone, kaolin clay, fluorspar, colemanite, dolomite and other minerals) are melted in a large furnace into a liquid which is extruded through very small orifices (5–25 micrometres in diameter if the glass is E-glass and 9 micrometers if the glass is S-glass).', 'Set', 1, '2019-03-06 10:42:29', '2019-03-11 09:26:14', 'admin@ilab.com', '2019-03-06'),
+(5, 'Glass', 'fused silica glass', '4414', ' silica (SiO2) in vitreous, or glass, form (i.e., its molecules are disordered and random, without crystalline structure). It has very low thermal expansion, is very hard, and resists high temperatures (1000–1500 °C). It is also the most resistant against weathering (caused in other glasses by alkali ions leaching out of the glass, while staining it). Fused quartz is used for high-temperature applications such as furnace tubes, lighting tubes, melting crucibles, etc.', 'Na', 1, '2019-03-06 10:42:29', '2019-03-11 09:26:20', 'admin@ilab.com', '2019-03-06'),
+(6, 'computer', 'computer', '4415', 'DDR3 ram 4GB,HDD,Core duo-processor ', 'No', 1, '2019-03-06 10:42:29', '2019-03-11 09:26:29', 'admin@ilab.com', '2019-03-06'),
+(7, 'polymers', 'chloropolymer', '4416', 'Chloropolymers are macromolecules synthesized from alkenes in which one or more hydrogens of the polymer were replaced by chlorine. A common example of a chloropolymer is Polyvinyl chloride (PVC) and Poly(dichlorophosphazene) which has a polymer formula of (PNCl2)n, the precursor of which is Hexachlorophosphazene, which itself has been called chloropolymer.', '--', 1, '2019-03-06 10:42:29', '2019-03-11 09:26:40', 'admin@ilab.com', '2019-03-06'),
+(8, 'polymers', 'biopolymer', '4417', ' long polymers composed of 13 or more nucleotide monomers; polypeptides, which are short polymers of amino acids; and polysaccharides, which are often linear bonded polymeric carbohydrate structures. Other examples of biopolymers include rubber, suberin, melanin and lignin.\n\nIUPAC definition\nSubstance composed of one type of biomacromolecules.\nNote 1: Modified from the definition given in ref. in order\nto avoid confusion between polymer and macromolecule in\nthe fields of proteins, polysaccharides, polynucleotides, and bacterial\naliphatic polyesters.\n\nNote 2: The use of the term “biomacromolecule” is recommended\nwhen molecular characteristics are considered.\nCellulose is the most common organic compound and biopolymer on Earth. About 33 percent of all plant matter is cellulose. The cellulose content of cotton is 90 percent, for wood it is 50 percent.', '--', 1, '2019-03-06 10:42:29', '2019-03-11 09:26:45', 'admin@ilab.com', '2019-03-06'),
+(9, 'polymers', 'aquamelt', '4418', 'They are unique in being able to “lock in” work applied to them through an alteration in hydrogen bonding, which enables them to be processed with approximately 1000 times less energy than standard polymers.This has been recently shown for an archetypal biopolymer, silk, however the mechanism for solidification is thought to be inherent to many other biological materials.', '1', 1, '2019-03-06 10:42:29', '2019-03-06 10:42:29', 'admin@ilab.com', '2019-03-06'),
+(10, 'nanomaterials', '1-D nano', '4419', 'The smallest possible crystalline wires with cross-section as small as a single atom can be engineered in cylindrical confinement. Carbon nanotubes, a natural semi-1D nanostructure, can be used as a template for synthesis. Confinement provides mechanical stabilization and prevents linear atomic chains from disintegration; other structures of 1D nanowires are predicted to be mechanically stable even upon isolation from the templates.\n\n', '--', 1, '2019-03-06 10:42:29', '2019-03-11 09:26:50', 'admin@ilab.com', '2019-03-06'),
+(11, 'nanomaterials', '2-D nano', '4420', '2D materials are crystalline materials consisting of a two-dimensional single layer of atoms. The most important representative graphene was discovered in 2004. Thin films with nanoscale thicknesses are considered nanostructures, but are sometimes not considered nanomaterials because they do not exist separately from the substrate.', 'set', 1, '2019-03-06 10:42:29', '2019-03-11 09:26:54', 'admin@ilab.com', '2019-03-06'),
+(12, 'nanomaterials', 'bulknanostructured material', '4421', 'Box-shaped graphene (BSG) nanostructure is an example of 3D nanomaterial.[36] BSG nanostructure has appeared after mechanical cleavage of pyrolytic graphite. This nanostructure is a multilayer system of parallel hollow nanochannels located along the surface and having quadrangular cross-section. The thickness of the channel walls is approximately equal to 1 nm. The typical width of channel facets makes about 25 nm.', 'No', 1, '2019-03-06 10:42:29', '2019-03-11 09:27:17', 'admin@ilab.com', '2019-03-06'),
+(13, 'semiconductors', 'Wind-bandgap', '4422', 'bandgap in the range of 1 - 1.5 electronvolt (eV), whereas wide-bandgap materials have bandgaps in the range of 2 - 4 eV.', 'No', 1, '2019-03-06 10:42:29', '2019-03-11 09:27:26', 'admin@ilab.com', '2019-03-06'),
+(14, 'semiconductors', 'amorphous', '4423', 'ome materials, when rapidly cooled to a glassy amorphous state, have semiconducting properties. These include B, Si, Ge, Se, Te and there are multiple theories to explain them.', '1', 1, '2019-03-06 10:42:29', '2019-03-06 10:42:29', 'admin@ilab.com', '2019-03-06'),
+(15, 'electrical', 'electric bulb 60 watt', '4424', ' For a 60-watt 120-volt lamp, the uncoiled length of the tungsten filament is usually 22.8 inches (580 mm)', '1', 1, '2019-03-06 10:42:29', '2019-03-06 10:42:29', 'admin@ilab.com', '2019-03-06'),
+(16, 'electrical ', 'led bulb 100 watt', '4425', ' For a 100-watt 120-volt lamp, the uncoiled length of the tungsten filament is usually 22.8 inches (580 mm)', 'set', 1, '2019-03-06 10:42:29', '2019-03-11 09:28:00', 'admin@ilab.com', '2019-03-06'),
+(17, 'glass', 'network glass', '4426', 'resulting glass contains about 70 to 74% silica by weight and is called a soda-lime glass.[4] Soda-lime glasses account for about 90% of manufactured glass.', 'NO', 1, '2019-03-06 10:42:29', '2019-03-11 09:27:42', 'admin@ilab.com', '2019-03-06'),
+(18, 'glass', 'fused quartz', '4427', 'glass, form (i.e., its molecules are disordered and random, without crystalline structure). It has very low thermal expansion, is very hard, and resists high temperatures (1000–1500 °C). It is also the most resistant against weathering (caused in other glasses by alkali ions leaching out of the glass, while staining it).', 'Set', 1, '2019-03-06 10:42:29', '2019-03-11 09:27:33', 'admin@ilab.com', '2019-03-06'),
+(19, 'glass', 'window glass', '4428', ' Is transparent, easily formed and most suitable for window glass (see flat glass). It has a high thermal expansion and poor resistance to heat[15] (500–600 °C).] It is used for windows, some low-temperature incandescent light bulbs, and tableware. Container glass is a soda-lime glass that is a slight variation on flat glass, which uses more alumina and calcium, and less sodium and magnesium, which are more water-soluble. This makes it less susceptible to water erosion.', 'na', 1, '2019-03-06 10:42:29', '2019-03-11 09:28:16', 'admin@ilab.com', '2019-03-06'),
+(20, 'wood', 'monocot wood', '4429', 'is fairly constant from 14 to 38 rings per inch (rings 0.7–1.8 mm thick), and decreases rapidly from 38 to 47 rings per inch (rings 0.5–0.7 mm thick). The strength at maximum load is not so great with the most rapid-growing wood; it is maximum with from 14 to 20 rings per inch (rings 1.3–1.8 mm thick), and again becomes less as the wood becomes more closely ringed. The natural deduction is that wood of first-class mechanical value shows from 5 to 20 rings per inch (rings 1.3–5 mm thick) and that slower growth yields poorer stock. ', 'set', 1, '2019-03-06 10:42:29', '2019-03-11 09:28:20', 'admin@ilab.com', '2019-03-06'),
+(21, 'wood', 'In-ring porous', '4430', 'decreases rapidly from 38 to 47 rings per inch (rings 0.5–0.7 mm thick). The strength at maximum load is not so great with the most rapid-growing wood; it is maximum with from 14 to 20 rings per inch (rings 1.3–1.8 mm thick), and again becomes less as the wood becomes more closely ringed. The natural deduction is that wood of first-class mechanical value shows from 5 to 20 rings per inch (rings 1.3–5 mm thick) and that slower growth yields poorer stock. Thus the inspector or buyer of hickory should discriminate against timber that has more than 20 rings per inch (rings less than 1.3 mm thick).', 'NO', 1, '2019-03-06 10:42:29', '2019-03-11 09:28:28', 'admin@ilab.com', '2019-03-06'),
+(22, 'wood ', 'In-diffuse porous', '4431', '20 rings per inch (rings less than 1.3 mm thick', 'No', 1, '2019-03-06 10:42:30', '2019-03-11 09:28:36', 'admin@ilab.com', '2019-03-06'),
+(23, 'cables', 'copper cable', '4432', 'temperatures even approaching 200°C Cables using 85°C-rated polyethylene (PE) dielectric materials.', 'SET', 1, '2019-03-06 10:42:30', '2019-03-11 09:28:45', 'admin@ilab.com', '2019-03-06'),
+(24, 'cables', 'coaxial cable', '4433', 'Cables using 85°C-rated polyethylene', '--', 1, '2019-03-06 10:42:30', '2019-03-11 09:28:49', 'admin@ilab.com', '2019-03-06'),
+(25, 'Electrical equipment', 'Junction Box', 'ee02', 'MOC=CRCA,Terminals=40,thickness=2mm,Application=outdoor', 'No', 1, '2019-03-14 11:47:09', '2019-03-14 11:47:09', 'design2@ilab.com', '0000-00-00'),
+(26, 'Electrical equipment', 'Junction Box', 'ee02', 'Rating=1kva,Voltage=415V/230V,Cooling=AN,IP=65', 'No', 1, '2019-03-14 11:48:10', '2019-03-14 11:48:10', 'design2@ilab.com', '0000-00-00'),
+(27, 'Electrical equipment', 'Junction Box 2', 'ee03', 'MOC=CRCA,Terminals=40,thickness=2mm,Application=Outdoor', 'No', 1, '2019-03-14 11:49:41', '2019-03-14 11:49:41', 'design2@ilab.com', '0000-00-00'),
+(28, 'Instrumentation Equipment', 'Valve', 'ie2203', 'Type=Butterfly,NB=100mm,MOC=SS316,Class=150#', 'No', 1, '2019-03-14 11:51:24', '2019-03-14 11:51:24', 'design2@ilab.com', '0000-00-00'),
+(29, 'Electrical equipment', 'Junction Box 3', 'ie220334', 'Type=Butterfly,NB=100mm,MOC=SS316,Class=150#', 'No', 1, '2019-03-14 11:57:30', '2019-03-14 11:57:30', 'design2@ilab.com', '0000-00-00'),
+(30, 'Electrical equipment', 'Junction Box 21', 'ee024', '$route[\'design-user-add-new-material\']=\'designuser/design_user_add_new_material\';', 'No', 1, '2019-03-14 12:15:33', '2019-03-14 12:15:33', 'design2@ilab.com', '0000-00-00'),
+(31, 'Electrical equipment', 'Junction Box 4', 'ee67700', 'xxx', 'No', 1, '2019-03-15 04:42:41', '2019-03-15 04:42:41', 'design2@ilab.com', '0000-00-00'),
+(32, 'Instrumentation Equipment', 'Valve 105', 'ie6701', 'xxx', 'No', 1, '2019-03-16 08:03:01', '2019-03-16 08:03:01', 'design2@ilab.com', '0000-00-00');
 
 -- --------------------------------------------------------
 
@@ -1310,7 +1645,8 @@ INSERT INTO `Ilab_master_charges_other` (`Slno_other`, `Charges_name`, `descript
 (1, 'freight Charge11', '', '', 1, '2018-09-20', '14:15:49'),
 (2, 'char11', '', '', 3, '2018-09-26', '15:08:38'),
 (3, 'char122311', '', '', 3, '2019-01-18', '15:37:27'),
-(4, 'char1234511', '', '', 1, '2019-01-18', '15:37:45');
+(4, 'char1234511', '', '', 1, '2019-01-18', '15:37:45'),
+(5, 'char44410', '', '', 1, '2019-02-20', '15:55:40');
 
 -- --------------------------------------------------------
 
@@ -1597,7 +1933,8 @@ INSERT INTO `Ilab_master_commercial_notifications` (`slno_notification`, `master
 (11, '14', 'bid close', '[\"ven121@gmail.com\"]', '2019-01-31 07:11:15', '01/31/2019 12:41 PM'),
 (12, '14', 'bid close', '[\"ven121@gmail.com\"]', '2019-01-31 07:16:55', '01/31/2019 12:46 PM'),
 (13, '11', 'bid close', '[\"ven121@gmail.com\"]', '2019-01-31 10:38:35', '01/31/2019 4:02 PM'),
-(14, '11', 'bid  final ', '[\"ven121@gmail.com\"]', '2019-01-31 10:40:16', '01/31/2019 4:09 PM');
+(14, '11', 'bid  final ', '[\"ven121@gmail.com\"]', '2019-01-31 10:40:16', '01/31/2019 4:09 PM'),
+(15, '8', 'txy', '[\"ven121@gmail.com\"]', '2019-02-20 10:09:31', '03/09/2019 3:39 PM');
 
 -- --------------------------------------------------------
 
@@ -1625,6 +1962,23 @@ CREATE TABLE `Ilab_master_createuser` (
 
 INSERT INTO `Ilab_master_createuser` (`Create_Slno`, `Email`, `user_Designation`, `Name`, `User_Role`, `Password`, `password_hash`, `Mobile`, `Status`, `Date_Entry`, `Time_Entry`) VALUES
 (1, 'design@ilab.com', 'Design User', 'Design User 1', '1', '1234', '81dc9bdb52d04dc20036dbd8313ed055', '', 1, '2018-08-16', '12:51:39');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Ilab_master_date_schedule`
+--
+
+CREATE TABLE `Ilab_master_date_schedule` (
+  `slno` int(11) NOT NULL,
+  `pr_schedule` varchar(255) DEFAULT NULL,
+  `pr_schedule_id` varchar(255) DEFAULT NULL,
+  `job_code_id` varchar(255) NOT NULL,
+  `revised_schedule` varchar(255) DEFAULT NULL,
+  `status` int(11) NOT NULL COMMENT '1-active 2-inactive 3-delete',
+  `date_entry` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `update_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -1799,7 +2153,11 @@ INSERT INTO `Ilab_master_final_simple_bid_item` (`Slno_simple_item`, `Simple_id_
 (11, 20, 6, 'material item 22', 'mat00910', '1', 'nos', '2100', '2100.00', '2019-01-29 12:34:26', '14', '', '59', 'ven97@gmail.com', 'commerical@ilab.com', 65, '2019-01-29 13:09:54'),
 (12, 30, 6, 'Progressing cavity pump.', 'Mat003', '1', 'Capacity', '4500', '4500.00', '2019-01-29 12:57:41', '15', '', '62', 'ven371@yahoo.com', 'commerical@ilab.com', 97, '2019-01-29 13:09:54'),
 (13, 27, 6, 'Pump', 'Mat001', '1', 'Horse Power', '4400', '4400.00', '2019-01-29 12:50:28', '16', '', '61', 'ven66@gmail.com', 'commerical@ilab.com', 89, '2019-01-29 13:09:54'),
-(14, 23, 6, 'Rotary lobe pump', 'Mat002', '1', 'Max Pump volume', '2800', '2800.00', '2019-01-29 12:39:57', '17', '', '54', 'ven121@gmail.com', 'commerical@ilab.com', 76, '2019-01-29 13:09:54');
+(14, 23, 6, 'Rotary lobe pump', 'Mat002', '1', 'Max Pump volume', '2800', '2800.00', '2019-01-29 12:39:57', '17', '', '54', 'ven121@gmail.com', 'commerical@ilab.com', 76, '2019-01-29 13:09:54'),
+(15, 15, 2, 'material item 1', 'mat001', '1', 'nos', '4500', '4500.00', '2019-01-29 11:33:27', '5', '', '17', 'ven97@gmail.com', 'commerical@ilab.com', 47, '2019-02-20 10:02:06'),
+(16, 15, 2, 'material item 17', 'mat0087', '1', 'nos', '3000', '3000.00', '2019-01-29 11:33:27', '6', '', '17', 'ven97@gmail.com', 'commerical@ilab.com', 48, '2019-02-20 10:02:06'),
+(17, 15, 2, 'material item 19', 'mat0018', '1', 'nos', '2200', '2200.00', '2019-01-29 11:33:27', '7', '', '17', 'ven97@gmail.com', 'commerical@ilab.com', 49, '2019-02-20 10:02:06'),
+(18, 15, 2, 'material10', '10', '1', '21', '1200', '1200.00', '2019-01-29 11:33:27', '8', '', '17', 'ven97@gmail.com', 'commerical@ilab.com', 50, '2019-02-20 10:02:06');
 
 -- --------------------------------------------------------
 
@@ -1896,7 +2254,8 @@ INSERT INTO `Ilab_master_items_material` (`Slno_item`, `Category_slno`, `item_na
 (7, '1', 'material item 17', 'mat0087', 'oops execute a block of code a specified number of times.', 'nos', 1, '2018-10-15', '17:41:19', 'cat005', 'standard catalogued item'),
 (8, '1', 'material item 19', 'mat0018', 'nitialize the loop counter value', 'nos', 1, '2018-10-15', '17:41:55', 'cat005', 'standard catalogued item'),
 (9, '2', 'material item 22', 'mat00910', 'Evaluated for each loop iteration. If it evaluates to TRUE, the loop continues. If it evaluates to FALSE, the loop ends.', 'nos', 1, '2019-01-18', '16:04:41', 'cat002', 'make to order items'),
-(10, '1', 'xxxx11', '132432131', 'xxxxxx', '5664', 3, '2019-01-18', '16:03:38', 'cat005', 'standard catalogued item');
+(10, '1', 'xxxx11', '132432131', 'xxxxxx', '5664', 3, '2019-01-18', '16:03:38', 'cat005', 'standard catalogued item'),
+(11, '1', 'ttst', '6600', 'xyz', '505', 1, '2019-02-20', '15:57:24', 'cat005', 'standard catalogued item');
 
 -- --------------------------------------------------------
 
@@ -1923,7 +2282,8 @@ INSERT INTO `Ilab_master_loaction_details` (`slno_loc`, `location_name`, `loacti
 (3, 'sailahree vihar', NULL, 2, '2018-10-22 07:40:17', '2019-01-22 14:16:08'),
 (4, 'irc', NULL, 1, '2018-10-22 07:40:29', '2018-10-22 07:40:29'),
 (5, 'nayapali', NULL, 1, '2018-10-22 07:40:54', '2018-10-22 07:40:54'),
-(6, 'location1221', NULL, 1, '2019-01-18 13:30:12', '2019-01-18 13:30:12');
+(6, 'location1221', NULL, 1, '2019-01-18 13:30:12', '2019-01-18 13:30:12'),
+(7, '6700', NULL, 1, '2019-02-20 10:35:16', '2019-02-20 10:35:16');
 
 -- --------------------------------------------------------
 
@@ -2007,6 +2367,27 @@ INSERT INTO `Ilab_master_logistic_vehicle_commerical` (`Slno_logic_comm`, `maste
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `Ilab_master_material_category_file`
+--
+
+CREATE TABLE `Ilab_master_material_category_file` (
+  `slno_id` int(11) NOT NULL,
+  `file_name` varchar(255) NOT NULL,
+  `upload_by` varchar(255) NOT NULL,
+  `date_entry` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `update_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='here project pr schude file name is stored';
+
+--
+-- Dumping data for table `Ilab_master_material_category_file`
+--
+
+INSERT INTO `Ilab_master_material_category_file` (`slno_id`, `file_name`, `upload_by`, `date_entry`, `update_date`) VALUES
+(1, '2019-03-06-161229-material_information (1).xlsx', 'admin@ilab.com', '2019-03-06 10:42:29', '2019-03-06 10:42:29');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `Ilab_master_mr_approver_order`
 --
 
@@ -2061,7 +2442,9 @@ INSERT INTO `Ilab_master_mr_approver_order` (`Slno_approver`, `Mr_id`, `Slno_mr_
 (27, '2019-01-31-SpwWK', 25, '0770', 'siprah@gmail.com', 'pro@ilab.com', '2019-01-31', 1, 1, '2019-01-31', '1', '1', 'buy1@ilab.com', 'buyer 1'),
 (28, '2019-01-31-JFCTV', 28, '0770', 'siprah@gmail.com', 'pro@ilab.com', '2019-01-31', 1, 1, '2019-01-31', '1', '1', 'buy1@ilab.com', 'buyer 1'),
 (29, '2019-01-31-sv7C4', 29, '0770', 'siprah@gmail.com', 'pro@ilab.com', '2019-01-31', 1, 1, '2019-01-31', '1', '1', 'buy1@ilab.com', 'buyer 1'),
-(30, '2019-02-01-kJV97', 30, '0770', 'siprah@gmail.com', 'pro@ilab.com', '2019-02-01', 1, 1, '2019-02-01', '1', '1', 'buy1@ilab.com', 'buyer 1');
+(30, '2019-02-01-kJV97', 30, '0770', 'siprah@gmail.com', 'pro@ilab.com', '2019-02-01', 1, 1, '2019-02-01', '1', '1', 'buy1@ilab.com', 'buyer 1'),
+(31, '2019-02-20-zJmFa', 33, '0770', 'siprah@gmail.com', 'pro@ilab.com', '2019-02-20', 1, 1, '2019-02-20', '1', '1', 'buy1@ilab.com', 'buyer 1'),
+(32, '2019-02-20-Rcyqr', 35, '0770', 'siprah@gmail.com', 'pro@ilab.com', '2019-02-20', 1, 1, '2019-02-20', '1', '1', 'buy1@ilab.com', 'buyer 1');
 
 -- --------------------------------------------------------
 
@@ -2137,7 +2520,50 @@ INSERT INTO `Ilab_master_mr_file_upload` (`slno_file`, `mr_no_id`, `slno_mr_id`,
 (52, '2019-01-31-JFCTV', 28, '2019-01-31-undraw_user_flow_vr6w.svg', 'undraw_user_flow_vr6w.svg', '2019-01-31 12:55:32'),
 (53, '2019-01-31-sv7C4', 29, '2019-01-31-undraw_teaching_f1cm (1).svg', 'undraw_teaching_f1cm (1).svg', '2019-01-31 13:59:42'),
 (54, '2019-01-31-sv7C4', 29, '2019-01-31-undraw_statistics_ctoq.svg', 'undraw_statistics_ctoq.svg', '2019-01-31 13:59:50'),
-(55, '2019-02-01-kJV97', 30, '2019-02-01-city_drbl_3.gif', 'city_drbl_3.gif', '2019-02-01 10:26:04');
+(55, '2019-02-01-kJV97', 30, '2019-02-01-city_drbl_3.gif', 'city_drbl_3.gif', '2019-02-01 10:26:04'),
+(56, '2019-02-20-mxbMC', 31, '2019-02-20-undraw_user_flow_vr6w.svg', 'undraw_user_flow_vr6w.svg', '2019-02-20 07:48:40'),
+(57, '2019-02-20-poza4', 32, '2019-02-20-undraw_windows_q9m0.svg', 'undraw_windows_q9m0.svg', '2019-02-20 07:52:18'),
+(58, '2019-02-20-zJmFa', 33, '2019-02-20-undraw_world_9iqb.svg', 'undraw_world_9iqb.svg', '2019-02-20 08:01:01'),
+(59, '2019-02-20-zJmFa', 33, '2019-02-20-undraw_world_9iqb.svg', 'undraw_world_9iqb.svg', '2019-02-20 08:01:14'),
+(60, '2019-02-20-FCepH', 34, '2019-02-20-undraw_world_9iqb.svg', 'undraw_world_9iqb.svg', '2019-02-20 08:03:26'),
+(61, '2019-02-20-Rcyqr', 35, '2019-02-20-undraw_team_ih79.svg', 'undraw_team_ih79.svg', '2019-02-20 12:14:31');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Ilab_master_mr_file_upload_m`
+--
+
+CREATE TABLE `Ilab_master_mr_file_upload_m` (
+  `slno_file` int(11) NOT NULL,
+  `pr_no` varchar(255) NOT NULL,
+  `pr_no_slno` int(11) NOT NULL,
+  `job_code_slno` int(11) NOT NULL,
+  `file_title` varchar(255) NOT NULL,
+  `edit_id` int(11) NOT NULL,
+  `attach_name` varchar(255) NOT NULL,
+  `file_name_actucal` varchar(255) NOT NULL,
+  `date_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `attach_by` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='here mr file is uploaded';
+
+--
+-- Dumping data for table `Ilab_master_mr_file_upload_m`
+--
+
+INSERT INTO `Ilab_master_mr_file_upload_m` (`slno_file`, `pr_no`, `pr_no_slno`, `job_code_slno`, `file_title`, `edit_id`, `attach_name`, `file_name_actucal`, `date_time`, `attach_by`) VALUES
+(1, 'O18191-950-E-K-30101-001', 1, 1, 'electrical', 1, '2019-03-16-undraw_team_ih79.svg', 'undraw_team_ih79.svg', '2019-03-23 13:15:29', 'design2@ilab.com'),
+(2, 'O18191-950-E-K-30102-001', 2, 1, 'nanoconductors', 1, '2019-03-16-undraw_programming_2svr.svg', 'undraw_programming_2svr.svg', '2019-03-23 13:15:29', 'design2@ilab.com'),
+(3, 'O18191-950-E-K-30101-001', 1, 1, 'polymers', 1, '2019-03-16-undraw_secure_data_0rwp.svg', 'undraw_secure_data_0rwp.svg', '2019-03-23 13:15:29', 'design2@ilab.com'),
+(4, 'O18191-950-E-K-30103-001', 3, 1, 'cables', 1, '2019-03-16-undraw_statistics_ctoq.svg', 'undraw_statistics_ctoq.svg', '2019-03-23 13:15:29', 'design2@ilab.com'),
+(5, 'O18191-950-E-K-30104-001', 4, 1, 'electrical', 1, '2019-03-16-undraw_statistics_ctoq.svg', 'undraw_statistics_ctoq.svg', '2019-03-23 13:15:29', 'design2@ilab.com'),
+(6, 'O18191-950-E-K-30105-001', 5, 1, 'wood', 1, '2019-03-18-undraw_windows_q9m0.svg', 'undraw_windows_q9m0.svg', '2019-03-23 13:15:29', 'design2@ilab.com'),
+(7, 'O18191-950-E-K-30107-001', 7, 1, 'glass', 1, '2019-03-18-undraw_statistics_ctoq.svg', 'undraw_statistics_ctoq.svg', '2019-03-23 13:15:29', 'design2@ilab.com'),
+(8, 'O18191-950-E-K-30106-001', 6, 1, 'electrical', 1, '2019-03-21-undraw_secure_data_0rwp.svg', 'undraw_secure_data_0rwp.svg', '2019-03-23 13:15:29', 'design2@ilab.com'),
+(9, 'O18191-950-E-K-30106-001', 6, 1, 'electrical', 1, '2019-03-21-undraw_resume_1hqp.svg', 'undraw_resume_1hqp.svg', '2019-03-23 13:15:29', 'design2@ilab.com'),
+(10, 'O18191-950-E-K-30108-001', 8, 1, 'electrical', 1, '2019-03-21-undraw_resume_1hqp.svg', 'undraw_resume_1hqp.svg', '2019-03-23 13:15:29', 'design2@ilab.com'),
+(11, 'O18191-950-E-K-30108-001', 8, 1, 'electrical', 1, '2019-03-21-undraw_team_ih79.svg', 'undraw_team_ih79.svg', '2019-03-23 13:15:29', 'design2@ilab.com'),
+(12, 'O18191-950-E-K-30109-001', 9, 1, '', 1, '2019-03-23-undraw_secure_data_0rwp.svg', 'undraw_secure_data_0rwp.svg', '2019-03-23 13:15:29', 'design2@ilab.com');
 
 -- --------------------------------------------------------
 
@@ -2222,7 +2648,108 @@ INSERT INTO `Ilab_master_mr_job_details` (`slno_mr`, `mr_no`, `approver_id_slno`
 (27, '2019-01-31-neULH', 18, 'siprah@gmail.com', 'Approver5', 1, '0770', 1, 'standard catalogued item', 2, 1, 0, 0, 1, '2019-01-31', '17:56:50', '2019-01-31 12:28:25', '2019-01-31', '17:57:28', '2019-01-31', 'design2@ilab.com', 1, '2019-01-31'),
 (28, '2019-01-31-JFCTV', 18, 'siprah@gmail.com', 'Approver5', 1, '0770', 1, 'standard catalogued item', 2, 1, 0, 0, 1, '2019-01-31', '18:25:26', '2019-01-31 12:56:38', '2019-01-31', '18:25:42', '2019-01-31', 'design2@ilab.com', 1, '2019-01-31'),
 (29, '2019-01-31-sv7C4', 18, 'siprah@gmail.com', 'Approver5', 1, '0770', 1, 'standard catalogued item', 2, 1, 0, 0, 1, '2019-01-31', '19:29:12', '2019-01-31 14:01:21', '2019-01-31', '19:30:16', '2019-01-31', 'design2@ilab.com', 1, '2019-01-31'),
-(30, '2019-02-01-kJV97', 18, 'siprah@gmail.com', 'Approver5', 1, '0770', 1, 'standard catalogued item', 1, 1, 0, 0, 1, '2019-02-01', '15:55:53', '2019-02-01 10:43:52', '2019-02-01', '15:56:21', '2019-02-28', 'design2@ilab.com', 1, '2019-02-01');
+(30, '2019-02-01-kJV97', 18, 'siprah@gmail.com', 'Approver5', 1, '0770', 1, 'standard catalogued item', 1, 1, 0, 0, 1, '2019-02-01', '15:55:53', '2019-02-01 10:43:52', '2019-02-01', '15:56:21', '2019-02-28', 'design2@ilab.com', 1, '2019-02-01'),
+(31, '2019-02-20-mxbMC', 25, 'vch33@yahoo.com', 'user901', 1, '0770', 1, 'standard catalogued item', 1, 1, 0, 0, 1, '2019-02-20', '13:18:12', '2019-02-20 07:48:51', '2019-02-20', '13:18:51', '2019-02-27', 'design2@ilab.com', 0, NULL),
+(32, '2019-02-20-poza4', 18, 'siprah@gmail.com', 'Approver5', 1, '0770', 1, 'standard catalogued item', 2, 6, 1, 1, 1, '2019-02-20', '13:22:12', '2019-02-20 07:53:42', '2019-02-20', '13:22:30', '2019-03-05', 'design2@ilab.com', 0, NULL),
+(33, '2019-02-20-zJmFa', 18, 'siprah@gmail.com', 'Approver5', 1, '0770', 1, 'standard catalogued item', 2, 1, 0, 0, 1, '2019-02-20', '13:30:51', '2019-02-20 08:04:22', '2019-02-20', '13:31:26', '2019-03-13', 'design2@ilab.com', 1, '2019-02-20'),
+(34, '2019-02-20-FCepH', 18, 'siprah@gmail.com', 'Approver5', 1, '0770', 1, 'standard catalogued item', 2, 1, 0, 0, 1, '2019-02-20', '13:33:14', '2019-02-20 08:03:38', '2019-02-20', '13:33:38', '2019-03-19', 'design2@ilab.com', 0, NULL),
+(35, '2019-02-20-Rcyqr', 18, 'siprah@gmail.com', 'Approver5', 1, '0770', 1, 'standard catalogued item', 1, 1, 0, 0, 1, '2019-02-20', '17:38:27', '2019-02-20 12:16:16', '2019-02-20', '17:45:03', '2019-02-27', 'design2@ilab.com', 1, '2019-02-20');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Ilab_master_mr_job_details_m`
+--
+
+CREATE TABLE `Ilab_master_mr_job_details_m` (
+  `slno_mr` int(11) NOT NULL,
+  `pr_no` varchar(255) NOT NULL,
+  `approver_id_slno` int(11) NOT NULL,
+  `approver_id` varchar(255) NOT NULL,
+  `approver_name` varchar(255) NOT NULL,
+  `job_code_id_slno` int(11) NOT NULL,
+  `job_code_id` varchar(255) NOT NULL,
+  `material_category_name` varchar(255) NOT NULL,
+  `techinal_evalution` int(11) NOT NULL DEFAULT '0',
+  `status` int(11) NOT NULL DEFAULT '0' COMMENT '1->submit 2->inactive 3->delete 4->incomplete mr 5->complete Mr  6-> Resubmit MR',
+  `status_resubmit` int(11) NOT NULL DEFAULT '0',
+  `resubmit_count` int(11) NOT NULL DEFAULT '0',
+  `edit_id` int(11) NOT NULL DEFAULT '0',
+  `date_creation` date NOT NULL,
+  `time_creation` time NOT NULL,
+  `time_date_creation` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `date_submition` date DEFAULT NULL,
+  `time_submition` time DEFAULT NULL,
+  `date_required` varchar(255) NOT NULL,
+  `creators_id` varchar(255) NOT NULL,
+  `mr_forword_status` int(11) NOT NULL DEFAULT '0' COMMENT '1->approved 0->pending',
+  `mr_forword_date` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='creation of mr from design user here who has creater user will able to resubmit and edit information ';
+
+--
+-- Dumping data for table `Ilab_master_mr_job_details_m`
+--
+
+INSERT INTO `Ilab_master_mr_job_details_m` (`slno_mr`, `pr_no`, `approver_id_slno`, `approver_id`, `approver_name`, `job_code_id_slno`, `job_code_id`, `material_category_name`, `techinal_evalution`, `status`, `status_resubmit`, `resubmit_count`, `edit_id`, `date_creation`, `time_creation`, `time_date_creation`, `date_submition`, `time_submition`, `date_required`, `creators_id`, `mr_forword_status`, `mr_forword_date`) VALUES
+(1, 'O18191-950-E-K-30102-001', 18, 'siprah@gmail.com', 'Approver5', 1, '0770', 'semiconductors', 2, 1, 1, 3, 1, '2019-03-16', '18:20:56', '2019-03-19 13:43:34', '2019-03-16', '18:20:56', '2019-03-28', 'design2@ilab.com', 1, '2019-03-16'),
+(2, 'O18191-950-E-K-30101-001', 18, 'siprah@gmail.com', 'Approver5', 1, '0770', 'Instrumentation Equipment', 2, 1, 1, 3, 3, '2019-03-19', '18:38:47', '2019-03-23 10:54:48', '2019-03-19', '18:38:47', '2019-03-27', 'design2@ilab.com', 1, '2019-03-23'),
+(3, 'O18191-950-E-K-30103-001', 18, 'siprah@gmail.com', 'Approver5', 1, '0770', 'cables', 2, 4, 1, 3, 1, '2019-03-16', '18:45:23', '2019-03-19 13:43:34', NULL, NULL, '2019-03-27', 'design2@ilab.com', 0, NULL),
+(4, 'O18191-950-E-K-30104-001', 18, 'siprah@gmail.com', 'Approver5', 1, '0770', 'electrical', 2, 4, 1, 3, 1, '2019-03-16', '18:50:58', '2019-03-19 13:43:34', NULL, NULL, '2019-03-22', 'design2@ilab.com', 0, NULL),
+(5, 'O18191-950-E-K-30105-001', 18, 'siprah@gmail.com', 'Approver5', 1, '0770', 'wood', 2, 4, 1, 3, 1, '2019-03-18', '11:27:12', '2019-03-19 13:43:34', NULL, NULL, '2019-03-27', 'design2@ilab.com', 0, NULL),
+(6, 'O18191-950-E-K-30107-001', 18, 'siprah@gmail.com', 'Approver5', 1, '0770', 'glass', 2, 4, 1, 3, 1, '2019-03-18', '11:28:49', '2019-03-19 13:43:34', NULL, NULL, '2019-03-28', 'design2@ilab.com', 0, NULL),
+(7, 'O18191-950-E-K-30106-001', 18, 'siprah@gmail.com', 'Approver5', 1, '0770', 'electrical', 1, 4, 0, 0, 1, '2019-03-21', '11:03:44', '2019-03-21 05:33:44', NULL, NULL, '2019-03-29', 'design2@ilab.com', 0, NULL),
+(8, 'O18191-950-E-K-30108-001', 18, 'siprah@gmail.com', 'Approver5', 1, '0770', 'electrical', 1, 4, 0, 0, 1, '2019-03-21', '11:10:01', '2019-03-21 05:41:36', NULL, NULL, '2019-03-27', 'design2@ilab.com', 1, '2019-03-21'),
+(9, 'O18191-950-E-K-30109-001', 18, 'siprah@gmail.com', 'Approver5', 1, '0770', 'electrical', 1, 4, 0, 0, 1, '2019-03-23', '16:23:59', '2019-03-23 10:53:59', NULL, NULL, '2018-12-31', 'design2@ilab.com', 0, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Ilab_master_mr_job_details_m_clone`
+--
+
+CREATE TABLE `Ilab_master_mr_job_details_m_clone` (
+  `slno_mr` int(11) NOT NULL,
+  `approver_id_slno` int(11) NOT NULL,
+  `approver_id` varchar(255) NOT NULL,
+  `approver_name` varchar(255) NOT NULL,
+  `job_code_id_slno` int(11) NOT NULL,
+  `job_code_id` varchar(255) NOT NULL,
+  `material_category_name` varchar(255) NOT NULL,
+  `techinal_evalution` int(11) NOT NULL DEFAULT '0',
+  `status` int(11) NOT NULL DEFAULT '0' COMMENT '1->submit 2->inactive 3->delete 4->incomplete mr 5->complete Mr  6-> Resubmit MR',
+  `status_resubmit` int(11) NOT NULL DEFAULT '0',
+  `resubmit_count` int(11) NOT NULL DEFAULT '0',
+  `edit_id` int(11) NOT NULL DEFAULT '0',
+  `date_creation` date NOT NULL,
+  `time_creation` time NOT NULL,
+  `time_date_creation` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `date_submition` date DEFAULT NULL,
+  `time_submition` time DEFAULT NULL,
+  `date_required` varchar(255) NOT NULL,
+  `creators_id` varchar(255) NOT NULL,
+  `mr_forword_status` int(11) NOT NULL DEFAULT '0' COMMENT '1->approved 0->pending',
+  `mr_forword_date` date DEFAULT NULL,
+  `last_id` int(11) NOT NULL,
+  `pr_no` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='creation of mr from design user here who has creater user will able to resubmit and edit information ';
+
+--
+-- Dumping data for table `Ilab_master_mr_job_details_m_clone`
+--
+
+INSERT INTO `Ilab_master_mr_job_details_m_clone` (`slno_mr`, `approver_id_slno`, `approver_id`, `approver_name`, `job_code_id_slno`, `job_code_id`, `material_category_name`, `techinal_evalution`, `status`, `status_resubmit`, `resubmit_count`, `edit_id`, `date_creation`, `time_creation`, `time_date_creation`, `date_submition`, `time_submition`, `date_required`, `creators_id`, `mr_forword_status`, `mr_forword_date`, `last_id`, `pr_no`) VALUES
+(1, 18, 'siprah@gmail.com', 'Approver5', 1, '0770', 'semiconductors', 2, 4, 0, 0, 0, '2019-03-16', '18:18:25', '2019-03-16 13:01:58', NULL, NULL, '2019-03-28', 'design2@ilab.com', 1, '2019-03-16', 1, 'O18191-950-E-K-30102-001'),
+(2, 18, 'siprah@gmail.com', 'Approver5', 1, '0770', 'semiconductors', 2, 4, 0, 0, 0, '2019-03-16', '18:20:56', '2019-03-16 13:01:58', NULL, NULL, '2019-03-28', 'design2@ilab.com', 1, '2019-03-16', 1, 'O18191-950-E-K-30102-001'),
+(3, 18, 'siprah@gmail.com', 'Approver5', 1, '0770', 'Instrumentation Equipment', 2, 4, 0, 0, 0, '2019-03-16', '18:43:11', '2019-03-23 10:54:48', NULL, NULL, '2019-03-27', 'design2@ilab.com', 1, '2019-03-23', 2, 'O18191-950-E-K-30101-001'),
+(4, 18, 'siprah@gmail.com', 'Approver5', 1, '0770', 'cables', 2, 4, 0, 0, 0, '2019-03-16', '18:45:23', '2019-03-16 13:15:23', NULL, NULL, '2019-03-27', 'design2@ilab.com', 0, NULL, 3, 'O18191-950-E-K-30103-001'),
+(5, 18, 'siprah@gmail.com', 'Approver5', 1, '0770', 'electrical', 2, 4, 0, 0, 0, '2019-03-16', '18:50:58', '2019-03-16 13:20:58', NULL, NULL, '2019-03-22', 'design2@ilab.com', 0, NULL, 4, 'O18191-950-E-K-30104-001'),
+(6, 18, 'siprah@gmail.com', 'Approver5', 1, '0770', 'wood', 2, 4, 0, 0, 1, '2019-03-18', '11:27:12', '2019-03-18 05:57:12', NULL, NULL, '2019-03-27', 'design2@ilab.com', 0, NULL, 5, 'O18191-950-E-K-30105-001'),
+(7, 18, 'siprah@gmail.com', 'Approver5', 1, '0770', 'glass', 2, 4, 0, 0, 1, '2019-03-18', '11:28:49', '2019-03-18 05:58:49', NULL, NULL, '2019-03-28', 'design2@ilab.com', 0, NULL, 6, 'O18191-950-E-K-30107-001'),
+(8, 18, 'siprah@gmail.com', 'Approver5', 1, '0770', 'Instrumentation Equipment', 2, 4, 0, 0, 2, '2019-03-19', '18:16:15', '2019-03-23 10:54:48', NULL, NULL, '2019-03-27', 'design2@ilab.com', 1, '2019-03-23', 2, 'O18191-950-E-K-30101-001'),
+(9, 18, 'siprah@gmail.com', 'Approver5', 1, '0770', 'Instrumentation Equipment', 2, 4, 0, 0, 3, '2019-03-19', '18:38:47', '2019-03-23 10:54:48', NULL, NULL, '2019-03-27', 'design2@ilab.com', 1, '2019-03-23', 2, 'O18191-950-E-K-30101-001'),
+(10, 18, 'siprah@gmail.com', 'Approver5', 1, '0770', 'electrical', 1, 4, 0, 0, 1, '2019-03-21', '11:03:44', '2019-03-21 05:33:44', NULL, NULL, '2019-03-29', 'design2@ilab.com', 0, NULL, 7, 'O18191-950-E-K-30106-001'),
+(11, 18, 'siprah@gmail.com', 'Approver5', 1, '0770', 'electrical', 1, 4, 0, 0, 1, '2019-03-21', '11:10:01', '2019-03-21 05:41:37', NULL, NULL, '2019-03-27', 'design2@ilab.com', 1, '2019-03-21', 8, 'O18191-950-E-K-30108-001'),
+(12, 18, 'siprah@gmail.com', 'Approver5', 1, '0770', 'electrical', 1, 4, 0, 0, 1, '2019-03-23', '16:23:59', '2019-03-23 10:53:59', NULL, NULL, '2018-12-31', 'design2@ilab.com', 0, NULL, 9, 'O18191-950-E-K-30109-001');
 
 -- --------------------------------------------------------
 
@@ -2333,7 +2860,81 @@ INSERT INTO `Ilab_master_mr_material_item` (`slno_item_mr`, `mr_no_item`, `slno_
 (41, '2019-01-31-sv7C4', 29, 8, 'material item 19', '1', 'nos', 'mat0018', 1, '2019-01-31 14:00:16', NULL, NULL, NULL),
 (42, '2019-01-31-sv7C4', 29, 6, 'material10', '1', '21', '10', 1, '2019-01-31 14:00:16', NULL, NULL, NULL),
 (43, '2019-02-01-kJV97', 30, 2, 'material item 1', '15', 'nos', 'mat001', 1, '2019-02-01 10:26:21', NULL, NULL, NULL),
-(44, '2019-02-01-kJV97', 30, 7, 'material item 17', '50', 'nos', 'mat0087', 1, '2019-02-01 10:26:21', NULL, NULL, NULL);
+(44, '2019-02-01-kJV97', 30, 7, 'material item 17', '50', 'nos', 'mat0087', 1, '2019-02-01 10:26:21', NULL, NULL, NULL),
+(45, '2019-02-20-mxbMC', 31, 2, 'material item 1', '1', 'nos', 'mat001', 1, '2019-02-20 07:48:51', NULL, NULL, NULL),
+(46, '2019-02-20-poza4', 32, 2, 'material item 1', '1', 'nos', 'mat001', 1, '2019-02-20 07:53:42', 'tt', NULL, NULL),
+(47, '2019-02-20-poza4', 32, 7, 'material item 17', '1', 'nos', 'mat0087', 1, '2019-02-20 07:53:42', 'xx', NULL, NULL),
+(48, '2019-02-20-zJmFa', 33, 2, 'material item 1', '1', 'nos', 'mat001', 1, '2019-02-20 08:01:26', NULL, NULL, NULL),
+(49, '2019-02-20-zJmFa', 33, 7, 'material item 17', '1', 'nos', 'mat0087', 1, '2019-02-20 08:01:26', NULL, NULL, NULL),
+(50, '2019-02-20-FCepH', 34, 2, 'material item 1', '1', 'nos', 'mat001', 1, '2019-02-20 08:03:38', NULL, NULL, NULL),
+(51, '2019-02-20-FCepH', 34, 7, 'material item 17', '1', 'nos', 'mat0087', 1, '2019-02-20 08:03:38', NULL, NULL, NULL),
+(52, '2019-02-20-Rcyqr', 35, 2, 'material item 1', '1', 'nos', 'mat001', 1, '2019-02-20 12:15:03', NULL, NULL, NULL),
+(53, '2019-02-20-Rcyqr', 35, 7, 'material item 17', '1', 'nos', 'mat0087', 1, '2019-02-20 12:15:03', NULL, NULL, NULL),
+(54, '2019-02-20-Rcyqr', 35, 8, 'material item 19', '1', 'nos', 'mat0018', 1, '2019-02-20 12:15:03', NULL, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Ilab_master_mr_material_item_m`
+--
+
+CREATE TABLE `Ilab_master_mr_material_item_m` (
+  `slno_item_mr` int(11) NOT NULL,
+  `mr_no_item` varchar(255) NOT NULL,
+  `slno_mr_id` int(11) NOT NULL,
+  `material_item_id` int(11) NOT NULL,
+  `material_name` varchar(255) NOT NULL,
+  `material_quantity` varchar(255) NOT NULL,
+  `material_unit` varchar(255) NOT NULL,
+  `material_id` varchar(255) NOT NULL,
+  `edit_id` int(11) NOT NULL,
+  `date_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `comment_details_item` text,
+  `Approver_creator_id` varchar(255) DEFAULT NULL,
+  `creator_id` varchar(255) DEFAULT NULL,
+  `parameter_tech` text,
+  `Category_material` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='here list of mr list of material item need to received';
+
+--
+-- Dumping data for table `Ilab_master_mr_material_item_m`
+--
+
+INSERT INTO `Ilab_master_mr_material_item_m` (`slno_item_mr`, `mr_no_item`, `slno_mr_id`, `material_item_id`, `material_name`, `material_quantity`, `material_unit`, `material_id`, `edit_id`, `date_time`, `comment_details_item`, `Approver_creator_id`, `creator_id`, `parameter_tech`, `Category_material`) VALUES
+(1, 'O18191-950-E-K-30102-001', 1, 13, 'Wind-bandgap', '1', 'No', '4422', 1, '2019-03-16 12:50:56', NULL, NULL, NULL, 'bandgap in the range of 1 - 1.5 electronvolt (eV), whereas wide-bandgap materials have bandgaps in the range of 2 - 4 eV.', 'semiconductors'),
+(2, 'O18191-950-E-K-30101-001', 2, 28, 'Valve', '1', 'No', 'ie2203', 1, '2019-03-16 13:13:12', NULL, NULL, NULL, 'Type=Butterfly,NB=100mm,MOC=SS316,Class=150#', 'Instrumentation Equipment'),
+(3, 'O18191-950-E-K-30101-001', 2, 32, 'Valve 105', '1', 'No', 'ie6701', 1, '2019-03-16 13:13:12', NULL, NULL, NULL, 'xxx', 'Instrumentation Equipment'),
+(4, 'O18191-950-E-K-30103-001', 3, 23, 'copper cable', '1', 'SET', '4432', 1, '2019-03-16 13:15:23', NULL, NULL, NULL, 'temperatures even approaching 200°C Cables using 85°C-rated polyethylene (PE) dielectric materials.', 'cables'),
+(5, 'O18191-950-E-K-30103-001', 4, 24, 'coaxial cable', '1', '--', '4433', 1, '2019-03-16 13:15:23', NULL, NULL, NULL, 'Cables using 85°C-rated polyethylene', 'cables'),
+(6, 'O18191-950-E-K-30104-001', 4, 1, 'electric bulb 100watt', '1', 'SET', '4410', 1, '2019-03-16 13:20:58', NULL, NULL, NULL, 'To improve the efficiency of the lamp, the filament usually consists of multiple coils of coiled fine wire, also known as a \'coiled coil\'. Light bulbs using coiled coil filaments are sometimes referred to as \'double-coil bulbs\'. For a 60-watt 120-volt lamp, the uncoiled length of the tungsten filament is usually 22.8 inches (580 mm)', 'electrical'),
+(7, 'O18191-950-E-K-30104-001', 6, 2, 'candle flame bulb 60 watt', '1', 'No', '4411', 1, '2019-03-16 13:20:59', NULL, NULL, NULL, '?35 mm (~?11/8\") candle-flame shape, ?12 mm Edison screw', 'electrical'),
+(8, 'O18191-950-E-K-30104-001', 7, 15, 'electric bulb 60 watt', '1', '1', '4424', 1, '2019-03-16 13:20:59', NULL, NULL, NULL, ' For a 60-watt 120-volt lamp, the uncoiled length of the tungsten filament is usually 22.8 inches (580 mm)', 'electrical'),
+(9, 'O18191-950-E-K-30104-001', 8, 16, 'led bulb 100 watt', '1', 'set', '4425', 1, '2019-03-16 13:20:59', NULL, NULL, NULL, ' For a 100-watt 120-volt lamp, the uncoiled length of the tungsten filament is usually 22.8 inches (580 mm)', 'electrical '),
+(10, 'O18191-950-E-K-30105-001', 5, 20, 'monocot wood', '1', 'set', '4429', 1, '2019-03-18 05:57:12', NULL, NULL, NULL, 'is fairly constant from 14 to 38 rings per inch (rings 0.7–1.8 mm thick), and decreases rapidly from 38 to 47 rings per inch (rings 0.5–0.7 mm thick). The strength at maximum load is not so great with the most rapid-growing wood; it is maximum with from 14 to 20 rings per inch (rings 1.3–1.8 mm thick), and again becomes less as the wood becomes more closely ringed. The natural deduction is that wood of first-class mechanical value shows from 5 to 20 rings per inch (rings 1.3–5 mm thick) and that slower growth yields poorer stock. ', 'wood'),
+(11, 'O18191-950-E-K-30105-001', 10, 21, 'In-ring porous', '15', 'NO', '4430', 1, '2019-03-18 05:57:12', NULL, NULL, NULL, 'decreases rapidly from 38 to 47 rings per inch (rings 0.5–0.7 mm thick). The strength at maximum load is not so great with the most rapid-growing wood; it is maximum with from 14 to 20 rings per inch (rings 1.3–1.8 mm thick), and again becomes less as the wood becomes more closely ringed. The natural deduction is that wood of first-class mechanical value shows from 5 to 20 rings per inch (rings 1.3–5 mm thick) and that slower growth yields poorer stock. Thus the inspector or buyer of hickory should discriminate against timber that has more than 20 rings per inch (rings less than 1.3 mm thick).', 'wood'),
+(12, 'O18191-950-E-K-30105-001', 11, 22, 'In-diffuse porous', '20', 'No', '4431', 1, '2019-03-18 05:57:12', NULL, NULL, NULL, '20 rings per inch (rings less than 1.3 mm thick', 'wood '),
+(13, 'O18191-950-E-K-30107-001', 6, 3, 'fused silica glass', '25', 'Set', '4412', 1, '2019-03-18 05:58:49', NULL, NULL, NULL, ' silica (SiO2) in vitreous, or glass, form (i.e., its molecules are disordered and random, without crystalline structure). It has very low thermal expansion, is very hard, and resists high temperatures (1000–1500 °C). It is also the most resistant against weathering (caused in other glasses by alkali ions leaching out of the glass, while staining it). Fused quartz is used for high-temperature applications such as furnace tubes, lighting tubes, melting crucibles, etc.', 'glass'),
+(14, 'O18191-950-E-K-30107-001', 13, 4, 'fiber glass', '1', 'Set', '4413', 1, '2019-03-18 05:58:49', NULL, NULL, NULL, 'Fiberglass filaments are made through a pultrusion process in which the raw materials (sand, limestone, kaolin clay, fluorspar, colemanite, dolomite and other minerals) are melted in a large furnace into a liquid which is extruded through very small orifices (5–25 micrometres in diameter if the glass is E-glass and 9 micrometers if the glass is S-glass).', 'glass'),
+(15, 'O18191-950-E-K-30107-001', 14, 5, 'fused silica glass', '200', 'Na', '4414', 1, '2019-03-18 05:58:49', NULL, NULL, NULL, ' silica (SiO2) in vitreous, or glass, form (i.e., its molecules are disordered and random, without crystalline structure). It has very low thermal expansion, is very hard, and resists high temperatures (1000–1500 °C). It is also the most resistant against weathering (caused in other glasses by alkali ions leaching out of the glass, while staining it). Fused quartz is used for high-temperature applications such as furnace tubes, lighting tubes, melting crucibles, etc.', 'Glass'),
+(16, 'O18191-950-E-K-30107-001', 15, 17, 'network glass', '250', 'NO', '4426', 1, '2019-03-18 05:58:49', NULL, NULL, NULL, 'resulting glass contains about 70 to 74% silica by weight and is called a soda-lime glass.[4] Soda-lime glasses account for about 90% of manufactured glass.', 'glass'),
+(17, 'O18191-950-E-K-30107-001', 16, 18, 'fused quartz', '100', 'Set', '4427', 1, '2019-03-18 05:58:49', NULL, NULL, NULL, 'glass, form (i.e., its molecules are disordered and random, without crystalline structure). It has very low thermal expansion, is very hard, and resists high temperatures (1000–1500 °C). It is also the most resistant against weathering (caused in other glasses by alkali ions leaching out of the glass, while staining it).', 'glass'),
+(18, 'O18191-950-E-K-30107-001', 17, 19, 'window glass', '1', 'na', '4428', 1, '2019-03-18 05:58:49', NULL, NULL, NULL, ' Is transparent, easily formed and most suitable for window glass (see flat glass). It has a high thermal expansion and poor resistance to heat[15] (500–600 °C).] It is used for windows, some low-temperature incandescent light bulbs, and tableware. Container glass is a soda-lime glass that is a slight variation on flat glass, which uses more alumina and calcium, and less sodium and magnesium, which are more water-soluble. This makes it less susceptible to water erosion.', 'glass'),
+(19, 'O18191-950-E-K-30101-001', 2, 28, 'Valve', '1', 'No', 'ie2203', 2, '2019-03-19 12:46:16', NULL, NULL, NULL, 'Type=Butterfly,NB=100mm,MOC=SS316,Class=150#', 'Instrumentation Equipment'),
+(20, 'O18191-950-E-K-30101-001', 2, 32, 'Valve 105', '1', 'No', 'ie6701', 2, '2019-03-19 12:46:16', NULL, NULL, NULL, 'xxx', 'Instrumentation Equipment'),
+(21, 'O18191-950-E-K-30101-001', 2, 28, 'Valve', '1', 'No', 'ie2203', 3, '2019-03-19 13:08:47', NULL, NULL, NULL, 'Type=Butterfly,NB=100mm,MOC=SS316,Class=150#', 'Instrumentation Equipment'),
+(22, 'O18191-950-E-K-30101-001', 2, 32, 'Valve 105', '1', 'No', 'ie6701', 3, '2019-03-19 13:08:47', NULL, NULL, NULL, 'xxx', 'Instrumentation Equipment'),
+(23, 'O18191-950-E-K-30106-001', 7, 1, 'electric bulb 100watt', '1', 'SET', '4410', 1, '2019-03-21 05:33:44', NULL, NULL, NULL, 'To improve the efficiency of the lamp, the filament usually consists of multiple coils of coiled fine wire, also known as a \'coiled coil\'. Light bulbs using coiled coil filaments are sometimes referred to as \'double-coil bulbs\'. For a 60-watt 120-volt lamp, the uncoiled length of the tungsten filament is usually 22.8 inches (580 mm)', 'electrical'),
+(24, 'O18191-950-E-K-30106-001', 23, 2, 'candle flame bulb 60 watt', '100', 'No', '4411', 1, '2019-03-21 05:33:44', NULL, NULL, NULL, '?35 mm (~?11/8\") candle-flame shape, ?12 mm Edison screw', 'electrical'),
+(25, 'O18191-950-E-K-30106-001', 24, 15, 'electric bulb 60 watt', '200', '1', '4424', 1, '2019-03-21 05:33:45', NULL, NULL, NULL, ' For a 60-watt 120-volt lamp, the uncoiled length of the tungsten filament is usually 22.8 inches (580 mm)', 'electrical'),
+(26, 'O18191-950-E-K-30106-001', 25, 16, 'led bulb 100 watt', '500', 'set', '4425', 1, '2019-03-21 05:33:45', NULL, NULL, NULL, ' For a 100-watt 120-volt lamp, the uncoiled length of the tungsten filament is usually 22.8 inches (580 mm)', 'electrical '),
+(27, 'O18191-950-E-K-30108-001', 8, 1, 'electric bulb 100watt', '1', 'SET', '4410', 1, '2019-03-21 05:40:02', NULL, NULL, NULL, 'To improve the efficiency of the lamp, the filament usually consists of multiple coils of coiled fine wire, also known as a \'coiled coil\'. Light bulbs using coiled coil filaments are sometimes referred to as \'double-coil bulbs\'. For a 60-watt 120-volt lamp, the uncoiled length of the tungsten filament is usually 22.8 inches (580 mm)', 'electrical'),
+(28, 'O18191-950-E-K-30108-001', 27, 2, 'candle flame bulb 60 watt', '1', 'No', '4411', 1, '2019-03-21 05:40:02', NULL, NULL, NULL, '?35 mm (~?11/8\") candle-flame shape, ?12 mm Edison screw', 'electrical'),
+(29, 'O18191-950-E-K-30108-001', 28, 15, 'electric bulb 60 watt', '100', '1', '4424', 1, '2019-03-21 05:40:02', NULL, NULL, NULL, ' For a 60-watt 120-volt lamp, the uncoiled length of the tungsten filament is usually 22.8 inches (580 mm)', 'electrical'),
+(30, 'O18191-950-E-K-30108-001', 29, 16, 'led bulb 100 watt', '200', 'set', '4425', 1, '2019-03-21 05:40:02', NULL, NULL, NULL, ' For a 100-watt 120-volt lamp, the uncoiled length of the tungsten filament is usually 22.8 inches (580 mm)', 'electrical '),
+(31, 'O18191-950-E-K-30109-001', 9, 1, 'electric bulb 100watt', '1', 'SET', '4410', 1, '2019-03-23 10:53:59', NULL, NULL, NULL, 'To improve the efficiency of the lamp, the filament usually consists of multiple coils of coiled fine wire, also known as a \'coiled coil\'. Light bulbs using coiled coil filaments are sometimes referred to as \'double-coil bulbs\'. For a 60-watt 120-volt lamp, the uncoiled length of the tungsten filament is usually 22.8 inches (580 mm)', 'electrical'),
+(32, 'O18191-950-E-K-30109-001', 31, 2, 'candle flame bulb 60 watt', '1', 'No', '4411', 1, '2019-03-23 10:53:59', NULL, NULL, NULL, '?35 mm (~?11/8\") candle-flame shape, ?12 mm Edison screw', 'electrical'),
+(33, 'O18191-950-E-K-30109-001', 32, 15, 'electric bulb 60 watt', '1', '1', '4424', 1, '2019-03-23 10:53:59', NULL, NULL, NULL, ' For a 60-watt 120-volt lamp, the uncoiled length of the tungsten filament is usually 22.8 inches (580 mm)', 'electrical'),
+(34, 'O18191-950-E-K-30109-001', 33, 16, 'led bulb 100 watt', '1', 'set', '4425', 1, '2019-03-23 10:54:00', NULL, NULL, NULL, ' For a 100-watt 120-volt lamp, the uncoiled length of the tungsten filament is usually 22.8 inches (580 mm)', 'electrical ');
 
 -- --------------------------------------------------------
 
@@ -2411,7 +3012,21 @@ INSERT INTO `Ilab_master_mr_technical_parameter_info` (`slno_para`, `mr_no_tech`
 (51, '2019-01-31-sv7C4', 29, 2, 'tec10', 'xxx', 42, 1, '2019-01-31 14:00:16'),
 (52, '2019-01-31-sv7C4', 29, 4, '67tyu', 'cvbnmxrt', 42, 1, '2019-01-31 14:00:16'),
 (53, '2019-01-31-sv7C4', 29, 5, 'BNTRY', 'bnmiyutre', 42, 1, '2019-01-31 14:00:16'),
-(54, '2019-01-31-sv7C4', 29, 10, 'tech454', 'xxxxx', 42, 1, '2019-01-31 14:00:16');
+(54, '2019-01-31-sv7C4', 29, 10, 'tech454', 'xxxxx', 42, 1, '2019-01-31 14:00:16'),
+(55, '2019-02-20-mxbMC', 31, 9, 'tech34311', 'xxxxx', 45, 1, '2019-02-20 07:48:51'),
+(56, '2019-02-20-poza4', 32, 9, 'tech34311', 'xxxxx', 46, 1, '2019-02-20 07:52:30'),
+(57, '2019-02-20-poza4', 32, 6, 'technical 1', 'et me prefix this by saying that I know what foreach is, does and how to use it. This question concerns how it works under the bonnet, and I don\'t want any answers along the lines of \"this is how you loop an array with foreach\".', 47, 1, '2019-02-20 07:52:30'),
+(58, '2019-02-20-poza4', 32, 7, 'technical 1667', 'For a long time I assumed that foreach worked with the array itself. Then I found many references to the fact that it works with a copy of the array, and I have since assumed this to be the end of the story. But I recently got i', 47, 1, '2019-02-20 07:52:30'),
+(59, '2019-02-20-zJmFa', 33, 9, 'tech34311', 'xxxxx', 48, 1, '2019-02-20 08:01:26'),
+(60, '2019-02-20-zJmFa', 33, 6, 'technical 1', 'et me prefix this by saying that I know what foreach is, does and how to use it. This question concerns how it works under the bonnet, and I don\'t want any answers along the lines of \"this is how you loop an array with foreach\".', 49, 1, '2019-02-20 08:01:26'),
+(61, '2019-02-20-zJmFa', 33, 7, 'technical 1667', 'For a long time I assumed that foreach worked with the array itself. Then I found many references to the fact that it works with a copy of the array, and I have since assumed this to be the end of the story. But I recently got i', 49, 1, '2019-02-20 08:01:26'),
+(62, '2019-02-20-FCepH', 34, 9, 'tech34311', 'xxxxx', 50, 1, '2019-02-20 08:03:38'),
+(63, '2019-02-20-FCepH', 34, 6, 'technical 1', 'et me prefix this by saying that I know what foreach is, does and how to use it. This question concerns how it works under the bonnet, and I don\'t want any answers along the lines of \"this is how you loop an array with foreach\".', 51, 1, '2019-02-20 08:03:38'),
+(64, '2019-02-20-FCepH', 34, 7, 'technical 1667', 'For a long time I assumed that foreach worked with the array itself. Then I found many references to the fact that it works with a copy of the array, and I have since assumed this to be the end of the story. But I recently got i', 51, 1, '2019-02-20 08:03:38'),
+(65, '2019-02-20-Rcyqr', 35, 9, 'tech34311', 'xxxxx', 52, 1, '2019-02-20 12:15:03'),
+(66, '2019-02-20-Rcyqr', 35, 6, 'technical 1', 'et me prefix this by saying that I know what foreach is, does and how to use it. This question concerns how it works under the bonnet, and I don\'t want any answers along the lines of \"this is how you loop an array with foreach\".', 53, 1, '2019-02-20 12:15:03'),
+(67, '2019-02-20-Rcyqr', 35, 7, 'technical 1667', 'For a long time I assumed that foreach worked with the array itself. Then I found many references to the fact that it works with a copy of the array, and I have since assumed this to be the end of the story. But I recently got i', 53, 1, '2019-02-20 12:15:03'),
+(68, '2019-02-20-Rcyqr', 35, 8, 'ABCD 3333', 'This clearly shows that we are not working directly with the source array - otherwise the loop would continue forever, since we are constantly pushing items onto the array during the loop. But just to be sure this is the case:', 54, 1, '2019-02-20 12:15:03');
 
 -- --------------------------------------------------------
 
@@ -2607,7 +3222,9 @@ INSERT INTO `Ilab_master_procurement_MR` (`Slno_procurement`, `Mr_id`, `Slno_MR_
 (33, '2019-01-31-SpwWK', 25, '0770', 18, 'pro@ilab.com', 'procurement user 1', 'buyer 1', 'buy1@ilab.com', '2019-01-31', 1, 1, '1', 1, 2, '2019-01-31'),
 (34, '2019-01-31-JFCTV', 28, '0770', 18, 'pro@ilab.com', 'procurement user 1', 'buyer 1', 'buy1@ilab.com', '2019-01-31', 1, 1, '1', 1, 2, '2019-01-31'),
 (35, '2019-01-31-sv7C4', 29, '0770', 18, 'pro@ilab.com', 'procurement user 1', 'buyer 1', 'buy1@ilab.com', '2019-01-31', 1, 1, '1', 1, 2, '2019-01-31'),
-(36, '2019-02-01-kJV97', 30, '0770', 18, 'pro@ilab.com', 'procurement user 1', 'buyer 1', 'buy1@ilab.com', '2019-02-01', 1, 1, '1', 1, 1, '2019-02-01');
+(36, '2019-02-01-kJV97', 30, '0770', 18, 'pro@ilab.com', 'procurement user 1', 'buyer 1', 'buy1@ilab.com', '2019-02-01', 1, 1, '1', 1, 1, '2019-02-01'),
+(37, '2019-02-20-zJmFa', 33, '0770', 18, 'pro@ilab.com', 'procurement user 1', 'buyer 1', 'buy1@ilab.com', '2019-02-20', 1, 1, '1', 1, 2, '2019-02-20'),
+(38, '2019-02-20-Rcyqr', 35, '0770', 18, 'pro@ilab.com', 'procurement user 1', 'buyer 1', 'buy1@ilab.com', '2019-02-20', 1, 1, '1', 1, 1, '2019-02-20');
 
 -- --------------------------------------------------------
 
@@ -2640,7 +3257,221 @@ INSERT INTO `Ilab_master_project` (`Project_Slno`, `Project_Name`, `job_Code`, `
 (4, 'Nalanda', '902345', '2018-10-01', 'sdcf', '12345667890', 'nmmkku', 1, 0, '2018-10-23', '16:11:35'),
 (5, 'Dream', '567432', '2018-10-01', 'mntyu', '12345667890', 'nmmkkk', 1, 0, '2018-10-23', '16:12:34'),
 (6, 'revenue', '189067', '2018-10-03', 'msdfrt', '12345667890', 'mnghtyu', 1, 1, '2018-10-23', '16:13:34'),
-(7, 'proj1112', '7877', '0000-00-00', 'cust22201', '12345667890', 'xxxx', 1, 0, '2019-01-17', '17:57:06');
+(7, 'proj1112', '7877', '0000-00-00', 'cust22201', '12345667890', 'xxxx', 1, 0, '2019-01-17', '17:57:06'),
+(8, 'xtxx', '600', '2019-05-08', 'cust211', '12345667890', 'tps', 1, 0, '2019-02-20', '15:55:08');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Ilab_master_pr_comments_c`
+--
+
+CREATE TABLE `Ilab_master_pr_comments_c` (
+  `slno` int(11) NOT NULL,
+  `pr_no` varchar(255) NOT NULL,
+  `job_code` varchar(255) NOT NULL,
+  `master_pr_slno` varchar(255) NOT NULL,
+  `pr_no_slno` varchar(255) NOT NULL,
+  `comment` text NOT NULL,
+  `approver_id` varchar(255) NOT NULL,
+  `date_entry` varchar(255) NOT NULL,
+  `date_required` varchar(255) NOT NULL,
+  `date_insert` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `edit_type` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `Ilab_master_pr_comments_c`
+--
+
+INSERT INTO `Ilab_master_pr_comments_c` (`slno`, `pr_no`, `job_code`, `master_pr_slno`, `pr_no_slno`, `comment`, `approver_id`, `date_entry`, `date_required`, `date_insert`, `edit_type`) VALUES
+(1, 'O18191-950-E-K-30101-001', '1', '2', '1', 'test deploy information', 'siprah@gmail.com', '2019-03-16', '2019-03-27', '2019-03-18 11:24:13', '1'),
+(2, 'O18191-950-E-K-30101-001', '1', '2', '1', 'test Comment users ', 'siprah@gmail.com', '2019-03-19', '2019-03-27', '2019-03-19 13:05:34', '2'),
+(3, 'O18191-950-E-K-30105-001', '1', '5', '5', 'test bu jcode id ', 'siprah@gmail.com', '2019-03-18', '2019-03-27', '2019-03-19 13:43:34', '1');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Ilab_master_pr_process_detail`
+--
+
+CREATE TABLE `Ilab_master_pr_process_detail` (
+  `slno` int(11) NOT NULL,
+  `pr_no` varchar(255) NOT NULL,
+  `project_slno` varchar(255) NOT NULL,
+  `project_name` varchar(255) NOT NULL,
+  `pr_no_slno` varchar(255) NOT NULL,
+  `design_user_id` varchar(255) NOT NULL,
+  `design_user_id_slno` varchar(255) NOT NULL,
+  `design_user_status` int(11) NOT NULL DEFAULT '0' COMMENT '1-approved 2-drafted 3-process for approved 4-resubmission',
+  `design_date` date NOT NULL,
+  `approver_user_id` varchar(255) DEFAULT NULL,
+  `approver_user_slno` varchar(255) DEFAULT NULL,
+  `approver_user_status` int(11) NOT NULL DEFAULT '0' COMMENT '1-approved 2-> not approved',
+  `approver_date` date DEFAULT NULL,
+  `type_bidding_technical` int(11) NOT NULL DEFAULT '0' COMMENT '1-technical/commercial 2-commercial only',
+  `procurement_user_id` varchar(255) DEFAULT NULL,
+  `procurement_user_id_slno` varchar(255) DEFAULT NULL,
+  `procurement_user_status` int(11) NOT NULL DEFAULT '0' COMMENT '1-forwarded 2-not forwarded',
+  `procurement_date` date NOT NULL,
+  `buyer_user_id` varchar(255) DEFAULT NULL,
+  `buyer_user_slno` varchar(255) DEFAULT NULL,
+  `buyer_user_status` int(11) NOT NULL DEFAULT '0' COMMENT '1-forwarded 2-not forwarded',
+  `buyer_date` date DEFAULT NULL,
+  `technical_user_id_slno` varchar(255) DEFAULT NULL,
+  `technical_bid_id` varchar(255) DEFAULT NULL,
+  `technical_bid_ref` varchar(255) DEFAULT NULL,
+  `technical_type_bid` int(11) NOT NULL DEFAULT '0' COMMENT '1-simple 2-closed 3-rank order',
+  `technical_complete_status` int(11) NOT NULL DEFAULT '0' COMMENT '1-complete 2 -not complete',
+  `technical_bid_master_slno` varchar(255) DEFAULT NULL,
+  `technical_amendment_status` int(11) NOT NULL DEFAULT '2' COMMENT '2-not use 1-used 0-auto used',
+  `technical_user_status` int(11) NOT NULL DEFAULT '0' COMMENT '1-completed 2-not completed ',
+  `technical_date` date DEFAULT NULL,
+  `commercial_user_id` varchar(255) DEFAULT NULL,
+  `commercial_bid_id` varchar(255) DEFAULT NULL,
+  `commercial_bid_ref` varchar(255) DEFAULT NULL,
+  `commercial_type_bid` int(11) NOT NULL DEFAULT '0' COMMENT '1-simple 2-closed 3-rank order',
+  `commercial_complete_status` int(11) NOT NULL DEFAULT '0' COMMENT '1-complete 2-not complete',
+  `commercial_user_status` int(11) NOT NULL DEFAULT '0' COMMENT '1-completed 2-not completed',
+  `commercial_bid_master_slno` varchar(255) DEFAULT NULL,
+  `commercial_amendment_status` int(11) NOT NULL DEFAULT '2' COMMENT '2-not use 1-used 0-auto used',
+  `commercial_date` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `Ilab_master_pr_process_detail`
+--
+
+INSERT INTO `Ilab_master_pr_process_detail` (`slno`, `pr_no`, `project_slno`, `project_name`, `pr_no_slno`, `design_user_id`, `design_user_id_slno`, `design_user_status`, `design_date`, `approver_user_id`, `approver_user_slno`, `approver_user_status`, `approver_date`, `type_bidding_technical`, `procurement_user_id`, `procurement_user_id_slno`, `procurement_user_status`, `procurement_date`, `buyer_user_id`, `buyer_user_slno`, `buyer_user_status`, `buyer_date`, `technical_user_id_slno`, `technical_bid_id`, `technical_bid_ref`, `technical_type_bid`, `technical_complete_status`, `technical_bid_master_slno`, `technical_amendment_status`, `technical_user_status`, `technical_date`, `commercial_user_id`, `commercial_bid_id`, `commercial_bid_ref`, `commercial_type_bid`, `commercial_complete_status`, `commercial_user_status`, `commercial_bid_master_slno`, `commercial_amendment_status`, `commercial_date`) VALUES
+(1, 'O18191-950-E-K-30102-001', '1', 'project 1', '2', 'design2@ilab.com', '10', 1, '2019-03-16', 'siprah@gmail.com', '18', 1, '2019-03-16', 2, 'pro@ilab.com', '13', 1, '2019-03-20', 'buy1@ilab.com', '15', 2, NULL, NULL, NULL, NULL, 0, 0, NULL, 2, 0, NULL, NULL, NULL, NULL, 0, 0, 0, NULL, 2, NULL),
+(2, 'O18191-950-E-K-30101-001', '1', 'project 1', '1', 'design2@ilab.com', '10', 1, '2019-03-19', 'siprah@gmail.com', '18', 1, '2019-03-23', 2, 'pro@ilab.com', '13', 1, '2019-03-23', 'buy1@ilab.com', '15', 2, NULL, NULL, NULL, NULL, 0, 0, NULL, 2, 0, NULL, NULL, NULL, NULL, 0, 0, 0, NULL, 2, NULL),
+(3, 'O18191-950-E-K-30103-001', '1', 'project 1', '3', 'design2@ilab.com', '10', 3, '2019-03-16', 'siprah@gmail.com', '18', 2, NULL, 2, NULL, NULL, 0, '0000-00-00', NULL, NULL, 0, NULL, NULL, NULL, NULL, 0, 0, NULL, 2, 0, NULL, NULL, NULL, NULL, 0, 0, 0, NULL, 2, NULL),
+(4, 'O18191-950-E-K-30104-001', '1', 'project 1', '4', 'design2@ilab.com', '10', 3, '2019-03-16', 'siprah@gmail.com', '18', 2, NULL, 2, NULL, NULL, 0, '0000-00-00', NULL, NULL, 0, NULL, NULL, NULL, NULL, 0, 0, NULL, 2, 0, NULL, NULL, NULL, NULL, 0, 0, 0, NULL, 2, NULL),
+(5, 'O18191-950-E-K-30105-001', '1', 'project 1', '5', 'design2@ilab.com', '10', 4, '2019-03-18', 'siprah@gmail.com', '18', 0, '2019-03-19', 2, NULL, NULL, 0, '0000-00-00', NULL, NULL, 0, NULL, NULL, NULL, NULL, 0, 0, NULL, 2, 0, NULL, NULL, NULL, NULL, 0, 0, 0, NULL, 2, NULL),
+(6, 'O18191-950-E-K-30107-001', '1', 'project 1', '7', 'design2@ilab.com', '10', 3, '2019-03-18', 'siprah@gmail.com', '18', 2, NULL, 2, NULL, NULL, 2, '0000-00-00', NULL, NULL, 0, NULL, NULL, NULL, NULL, 0, 0, NULL, 2, 0, NULL, NULL, NULL, NULL, 0, 0, 0, NULL, 2, NULL),
+(7, 'O18191-950-E-K-30106-001', '1', 'project 1', '6', 'design2@ilab.com', '10', 3, '2019-03-21', 'siprah@gmail.com', '18', 2, NULL, 1, NULL, NULL, 0, '0000-00-00', NULL, NULL, 0, NULL, NULL, NULL, NULL, 0, 0, NULL, 2, 0, NULL, NULL, NULL, NULL, 0, 0, 0, NULL, 2, NULL),
+(8, 'O18191-950-E-K-30108-001', '1', 'project 1', '8', 'design2@ilab.com', '10', 1, '2019-03-21', 'siprah@gmail.com', '18', 1, '2019-03-21', 1, 'pro@ilab.com', '13', 1, '2019-03-21', 'buy1@ilab.com', '15', 2, NULL, NULL, NULL, NULL, 0, 0, NULL, 2, 0, NULL, NULL, NULL, NULL, 0, 0, 0, NULL, 2, NULL),
+(9, 'O18191-950-E-K-30109-001', '1', 'project 1', '9', 'design2@ilab.com', '10', 3, '2019-03-23', 'siprah@gmail.com', '18', 2, NULL, 1, NULL, NULL, 0, '0000-00-00', NULL, NULL, 0, NULL, NULL, NULL, NULL, 0, 0, NULL, 2, 0, NULL, NULL, NULL, NULL, 0, 0, 0, NULL, 2, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Ilab_master_pr_process_detail_clone`
+--
+
+CREATE TABLE `Ilab_master_pr_process_detail_clone` (
+  `slno` int(11) NOT NULL,
+  `pr_no` varchar(255) NOT NULL,
+  `project_slno` varchar(255) NOT NULL,
+  `pr_no_slno` varchar(255) NOT NULL,
+  `design_user_id` varchar(255) NOT NULL,
+  `design_user_id_slno` varchar(255) NOT NULL,
+  `design_user_status` int(11) NOT NULL DEFAULT '0' COMMENT '1-approved 2-drafted 3-process for approved 4-resubmission',
+  `design_date` date NOT NULL,
+  `approver_user_id` varchar(255) DEFAULT NULL,
+  `approver_user_slno` varchar(255) DEFAULT NULL,
+  `approver_user_status` int(11) NOT NULL DEFAULT '0' COMMENT '1-approved 2-> not approved',
+  `approver_date` date DEFAULT NULL,
+  `type_bidding_technical` int(11) NOT NULL DEFAULT '0' COMMENT '1-technical/commercial 2-commercial only',
+  `procurement_user_id` varchar(255) DEFAULT NULL,
+  `procurement_user_id_slno` varchar(255) DEFAULT NULL,
+  `procurement_user_status` int(11) NOT NULL DEFAULT '0' COMMENT '1-forwarded 2-not forwarded',
+  `procurement_date` date NOT NULL,
+  `buyer_user_id` varchar(255) DEFAULT NULL,
+  `buyer_user_slno` varchar(255) DEFAULT NULL,
+  `buyer_user_status` int(11) NOT NULL DEFAULT '0' COMMENT '1-forwarded 2-not forwarded',
+  `buyer_date` date DEFAULT NULL,
+  `technical_user_id_slno` varchar(255) DEFAULT NULL,
+  `technical_user_status` int(11) NOT NULL DEFAULT '0' COMMENT '1-completed 2-not completed ',
+  `technical_date` date DEFAULT NULL,
+  `commercial_user_id` varchar(255) DEFAULT NULL,
+  `commercial_user_status` int(11) NOT NULL DEFAULT '0' COMMENT '1-completed 2-not completed',
+  `commercial_date` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Ilab_master_pr_schedule`
+--
+
+CREATE TABLE `Ilab_master_pr_schedule` (
+  `slno` int(11) NOT NULL,
+  `discipline` varchar(255) NOT NULL,
+  `pr_no` varchar(255) NOT NULL,
+  `area` varchar(255) DEFAULT NULL,
+  `item` varchar(255) NOT NULL,
+  `UOM` varchar(255) NOT NULL,
+  `quantity` varchar(255) NOT NULL,
+  `job_code` varchar(255) NOT NULL,
+  `status` int(11) NOT NULL DEFAULT '0' COMMENT '1-active 2-inactive 3-delete',
+  `status_bu_used` int(11) NOT NULL DEFAULT '0' COMMENT '1->tracking tool is active 0->bu tracking not stated',
+  `mr_status` int(11) DEFAULT '0' COMMENT '1->mr is created 0->mr is nto created',
+  `date_insert` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `date_of_update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `original_schedule` varchar(255) DEFAULT NULL,
+  `revised_schedule` varchar(255) DEFAULT NULL COMMENT 'this date will be entery by design user',
+  `update_revised_schedule_date` text COMMENT 'this is array of date mr creation date',
+  `update_user_id` varchar(255) DEFAULT NULL,
+  `entry_user_id` varchar(255) DEFAULT NULL,
+  `update_bu_revised_schedule_date` text COMMENT 'bu_revised_schedule this buentry date',
+  `bu_revised_schedule` varchar(255) DEFAULT NULL COMMENT 'bu_revised_schedule date'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `Ilab_master_pr_schedule`
+--
+
+INSERT INTO `Ilab_master_pr_schedule` (`slno`, `discipline`, `pr_no`, `area`, `item`, `UOM`, `quantity`, `job_code`, `status`, `status_bu_used`, `mr_status`, `date_insert`, `date_of_update`, `original_schedule`, `revised_schedule`, `update_revised_schedule_date`, `update_user_id`, `entry_user_id`, `update_bu_revised_schedule_date`, `bu_revised_schedule`) VALUES
+(1, 'Electrical', 'O18191-950-E-K-30101-001', NULL, 'TPD for 33KV HT Switch board', 'Set', '1', '1', 1, 1, 1, '2019-03-07 12:27:13', '2019-03-19 13:08:48', '2018-12-15', '2019-03-19', 'a:3:{s:9:\"id_master\";s:1:\"2\";s:8:\"id_clone\";i:9;s:10:\"date_entry\";s:10:\"2019-03-19\";}', NULL, 'bu1@ilab.com', '[{\"slno_id\":1,\"date_id\":\"2019-03-09\"},{\"slno_id\":2,\"date_id\":\"2019-03-09\"},{\"slno_id\":3,\"date_id\":\"2019-03-09\"}]', '2019-03-09'),
+(2, 'Electrical', 'O18191-950-E-K-30102-001', NULL, 'TPD for 33/11 KV ONAN/ONAF Power Transformer ', 'Nr', '2', '1', 1, 1, 1, '2019-03-07 12:27:13', '2019-03-16 12:50:56', '2018-12-18', '2019-03-16', 'a:3:{s:9:\"id_master\";i:1;s:8:\"id_clone\";i:2;s:10:\"date_entry\";s:10:\"2019-03-16\";}', NULL, 'bu1@ilab.com', '[{\"slno_id\":4,\"date_id\":\"2019-03-09\"}]', '2019-03-09'),
+(3, 'Electrical', 'O18191-950-E-K-30103-001', NULL, 'TPD for NIFPS of 33/11 KV Power Transformer ', 'Nr', '2', '1', 1, 0, 1, '2019-03-07 12:27:13', '2019-03-16 13:15:24', '2018-12-18', '2019-03-16', 'a:3:{s:9:\"id_master\";i:5;s:8:\"id_clone\";i:4;s:10:\"date_entry\";s:10:\"2019-03-16\";}', NULL, 'bu1@ilab.com', NULL, NULL),
+(4, 'Electrical', 'O18191-950-E-K-30104-001', NULL, 'TPD for 11/.415 KV, 2MVA Distribution Transformer ', 'Nr', '10', '1', 1, 0, 1, '2019-03-07 12:27:13', '2019-03-16 13:20:59', '2018-12-24', '2019-03-16', 'a:3:{s:9:\"id_master\";i:9;s:8:\"id_clone\";i:5;s:10:\"date_entry\";s:10:\"2019-03-16\";}', NULL, 'bu1@ilab.com', NULL, NULL),
+(5, 'Electrical', 'O18191-950-E-K-30105-001', NULL, 'TPD for 11KV AIS Switch Board', 'Set', '1', '1', 1, 0, 1, '2019-03-07 12:27:13', '2019-03-18 05:57:13', '2018-12-31', '2019-03-18', 'a:3:{s:9:\"id_master\";i:12;s:8:\"id_clone\";i:6;s:10:\"date_entry\";s:10:\"2019-03-18\";}', NULL, 'bu1@ilab.com', NULL, NULL),
+(6, 'Electrical', 'O18191-950-E-K-30106-001', NULL, 'TPD for11KV AIS VCB isolator Panel ', 'Nr', '4', '1', 1, 0, 1, '2019-03-07 12:27:13', '2019-03-21 05:33:45', '2018-12-31', '2019-03-21', 'a:3:{s:9:\"id_master\";i:26;s:8:\"id_clone\";i:10;s:10:\"date_entry\";s:10:\"2019-03-21\";}', NULL, 'bu1@ilab.com', NULL, NULL),
+(7, 'Electrical', 'O18191-950-E-K-30107-001', NULL, 'TPD for 11 KV APFC Panel', 'Set', '2', '1', 1, 0, 1, '2019-03-07 12:27:13', '2019-03-18 05:58:49', '2019-02-15', '2019-03-18', 'a:3:{s:9:\"id_master\";i:18;s:8:\"id_clone\";i:7;s:10:\"date_entry\";s:10:\"2019-03-18\";}', NULL, 'bu1@ilab.com', NULL, NULL),
+(8, 'Electrical', 'O18191-950-E-K-30108-001', NULL, 'TPD for 110V DC Battery Bank & battery charger', 'Nr', '1', '1', 1, 1, 1, '2019-03-07 12:27:13', '2019-03-21 05:40:02', '2019-01-12', '2019-03-21', 'a:3:{s:9:\"id_master\";i:30;s:8:\"id_clone\";i:11;s:10:\"date_entry\";s:10:\"2019-03-21\";}', NULL, 'bu1@ilab.com', '[{\"slno_id\":5,\"date_id\":\"2019-03-09\"}]', '2019-03-09'),
+(9, 'Electrical', 'O18191-950-E-K-30109-001', NULL, 'TPD for 415V & 11KV NGR', 'Nr', '20', '1', 1, 0, 1, '2019-03-07 12:27:13', '2019-03-23 10:54:00', '2019-01-15', '2019-03-23', 'a:3:{s:9:\"id_master\";i:34;s:8:\"id_clone\";i:12;s:10:\"date_entry\";s:10:\"2019-03-23\";}', NULL, 'bu1@ilab.com', NULL, NULL),
+(10, 'Electrical', 'O18191-950-E-K-30110-001', NULL, 'TPD for 415V LT Busduct', 'Set', '10', '1', 1, 0, 0, '2019-03-07 12:27:13', '2019-03-07 12:27:13', '2019-01-17', NULL, NULL, NULL, 'bu1@ilab.com', NULL, NULL),
+(11, 'Electrical', 'O18191-950-E-K-30111-001', NULL, 'TPD for 415V LT Smart PMCC', 'Set', '4', '1', 1, 1, 0, '2019-03-07 12:27:13', '2019-03-09 11:24:44', '2019-01-15', NULL, NULL, NULL, 'bu1@ilab.com', '[{\"slno_id\":6,\"date_id\":\"2019-03-09\"}]', '2019-03-09'),
+(12, 'Electrical', 'O18191-950-E-K-30112-001', NULL, 'TPD for 415V LT Smart MCC', 'Set', '6', '1', 1, 0, 0, '2019-03-07 12:27:13', '2019-03-07 12:27:13', '2019-01-15', NULL, NULL, NULL, 'bu1@ilab.com', NULL, NULL),
+(13, 'Electrical', 'O18191-950-E-K-30113-001', NULL, 'TPD for 415V PDB', 'Set', '2', '1', 1, 1, 0, '2019-03-07 12:27:13', '2019-03-09 11:28:02', '2019-02-22', NULL, NULL, NULL, 'bu1@ilab.com', '[{\"slno_id\":7,\"date_id\":\"2019-03-09\"}]', '2019-03-09');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Ilab_master_pr_schedule_file`
+--
+
+CREATE TABLE `Ilab_master_pr_schedule_file` (
+  `slno_id` int(11) NOT NULL,
+  `job_code_id` varchar(255) NOT NULL,
+  `file_name` varchar(255) NOT NULL,
+  `upload_by` varchar(255) NOT NULL,
+  `date_entry` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `update_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='here project pr schude file name is stored';
+
+--
+-- Dumping data for table `Ilab_master_pr_schedule_file`
+--
+
+INSERT INTO `Ilab_master_pr_schedule_file` (`slno_id`, `job_code_id`, `file_name`, `upload_by`, `date_entry`, `update_date`) VALUES
+(1, '1', '2019-03-05-115049-TEST.xlsx', '1', '2019-03-05 06:20:49', '2019-03-05 06:20:49'),
+(2, '1', '2019-03-07-172324-Sample_PR_Sched.xlsx', 'bu1@ilab.com', '2019-03-07 11:53:24', '2019-03-07 11:53:24'),
+(3, '1', '2019-03-07-172431-Sample_PR_Sched.xlsx', 'bu1@ilab.com', '2019-03-07 11:54:31', '2019-03-07 11:54:31'),
+(4, '1', '2019-03-07-172700-Sample_PR_Sched.xlsx', 'bu1@ilab.com', '2019-03-07 11:57:00', '2019-03-07 11:57:00'),
+(5, '1', '2019-03-07-172752-Sample_PR_Sched.xlsx', 'bu1@ilab.com', '2019-03-07 11:57:52', '2019-03-07 11:57:52'),
+(6, '1', '2019-03-07-173034-Sample_PR_Sched.xlsx', 'bu1@ilab.com', '2019-03-07 12:00:34', '2019-03-07 12:00:34'),
+(7, '1', '2019-03-07-173317-Sample_PR_Sched.xlsx', 'bu1@ilab.com', '2019-03-07 12:03:17', '2019-03-07 12:03:17'),
+(8, '1', '2019-03-07-173524-Sample_PR_Sched.xlsx', 'bu1@ilab.com', '2019-03-07 12:05:24', '2019-03-07 12:05:24'),
+(9, '3', '2019-03-07-174115-Sample_PR_Sched.xlsx', 'bu1@ilab.com', '2019-03-07 12:11:15', '2019-03-07 12:11:15'),
+(10, '1', '2019-03-07-174516-Sample_PR_Sched.xlsx', 'bu1@ilab.com', '2019-03-07 12:15:16', '2019-03-07 12:15:16'),
+(11, '4', '2019-03-07-174826-Sample_PR_Sched.xlsx', 'bu1@ilab.com', '2019-03-07 12:18:27', '2019-03-07 12:18:27'),
+(12, '1', '2019-03-07-174959-Sample_PR_Sched.xlsx', 'bu1@ilab.com', '2019-03-07 12:19:59', '2019-03-07 12:19:59'),
+(13, '1', '2019-03-07-175113-Sample_PR_Sched.xlsx', 'bu1@ilab.com', '2019-03-07 12:21:13', '2019-03-07 12:21:13'),
+(14, '1', '2019-03-07-175200-Sample_PR_Sched.xlsx', 'bu1@ilab.com', '2019-03-07 12:22:00', '2019-03-07 12:22:00'),
+(15, '1', '2019-03-07-175712-Sample_PR_Sched.xlsx', 'bu1@ilab.com', '2019-03-07 12:27:12', '2019-03-07 12:27:12');
 
 -- --------------------------------------------------------
 
@@ -3247,7 +4078,404 @@ INSERT INTO `Ilab_master_session_history` (`slno_history`, `user_id`, `username`
 (131, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Firefox\",\"browserVersion\":\"64.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:64.0) Gecko\\/20100101 Firefox\\/64.0\"}', '192.168.0.4', '2019-02-01', '15:55:27', 2, '15:56:25', '2019-02-01', 'm9rb2r0tenhvmg102rfpjtmmkm7mkqqj'),
 (132, 'siprah@gmail.com', 'Approver5', 8, '{\"browser\":\"Firefox\",\"browserVersion\":\"64.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:64.0) Gecko\\/20100101 Firefox\\/64.0\"}', '192.168.0.4', '2019-02-01', '16:13:33', 2, '16:13:59', '2019-02-01', 'a3079d0i6a9o4i41nrf164t27jlgvh3g'),
 (133, 'pro@ilab.com', 'procurement user 1', 4, '{\"browser\":\"Firefox\",\"browserVersion\":\"64.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:64.0) Gecko\\/20100101 Firefox\\/64.0\"}', '192.168.0.4', '2019-02-01', '16:14:32', 2, '16:14:54', '2019-02-01', '0kn12nr3nfmoi9t4t9cfn5ab573acp26'),
-(134, 'buy1@ilab.com', 'buyer 1', 7, '{\"browser\":\"Firefox\",\"browserVersion\":\"64.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:64.0) Gecko\\/20100101 Firefox\\/64.0\"}', '192.168.0.4', '2019-02-01', '16:15:14', 1, NULL, NULL, 'ac137p6sgr1rcc8vcrtv02qqde6saeie');
+(134, 'buy1@ilab.com', 'buyer 1', 7, '{\"browser\":\"Firefox\",\"browserVersion\":\"64.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:64.0) Gecko\\/20100101 Firefox\\/64.0\"}', '192.168.0.4', '2019-02-01', '16:15:14', 1, NULL, NULL, 'ac137p6sgr1rcc8vcrtv02qqde6saeie'),
+(135, 'admin@ilab.com', 'Admin', 1, '{\"browser\":\"Chrome\",\"browserVersion\":\"68.0.3440.106\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/68.0.3440.106 Safari\\/537.36\"}', '192.168.0.6', '2019-02-16', '13:28:58', 1, NULL, NULL, 'r9bgfr7nj9ria1ftpuf6afs70hqt8o10'),
+(136, 'admin@ilab.com', 'Admin', 1, '{\"browser\":\"Chrome\",\"browserVersion\":\"68.0.3440.106\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/68.0.3440.106 Safari\\/537.36\"}', '192.168.0.6', '2019-02-16', '16:37:57', 1, NULL, NULL, '01e1tdjp8afkifrocoj29th4cjds6psj');
+INSERT INTO `Ilab_master_session_history` (`slno_history`, `user_id`, `username`, `user_role`, `browser_detail`, `ip`, `entry_date`, `entry_time`, `status`, `logout_time`, `logout_date`, `session_id`) VALUES
+(137, 'admin@ilab.com', 'Admin', 1, '{\"browser\":\"Chrome\",\"browserVersion\":\"68.0.3440.106\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/68.0.3440.106 Safari\\/537.36\"}', '192.168.0.6', '2019-02-19', '12:51:19', 1, NULL, NULL, 'bijt1784rrih4c1vgv8vcppho019m7e5'),
+(138, 'admin@ilab.com', 'Admin', 1, '{\"browser\":\"Chrome\",\"browserVersion\":\"68.0.3440.106\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/68.0.3440.106 Safari\\/537.36\"}', '192.168.0.6', '2019-02-19', '18:26:09', 1, NULL, NULL, 'nddgff0ons8b2hgudetpaljo0nb2qsig'),
+(139, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"68.0.3440.106\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/68.0.3440.106 Safari\\/537.36\"}', '192.168.0.6', '2019-02-20', '11:30:50', 1, NULL, NULL, 'tta06i4end0dkalj6o49k2aupfhpgpeg'),
+(140, 'admin@ilab.com', 'Admin', 1, '{\"browser\":\"Chrome\",\"browserVersion\":\"68.0.3440.106\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/68.0.3440.106 Safari\\/537.36\"}', '192.168.0.6', '2019-02-20', '12:05:18', 1, NULL, NULL, 'nor67q6jhb1oim1lg5d5stqoshi9judp'),
+(141, 'admin@ilab.com', 'Admin', 1, '{\"browser\":\"Firefox\",\"browserVersion\":\"65.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko\\/20100101 Firefox\\/65.0\"}', '192.168.0.4', '2019-02-20', '12:08:30', 1, NULL, NULL, 's4b9auutak5sja4gchhd65l5q23o3art'),
+(142, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"68.0.3440.106\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/68.0.3440.106 Safari\\/537.36\"}', '192.168.0.6', '2019-02-20', '12:17:14', 1, NULL, NULL, '85b9vpim012f40j8411lqburt8mmsnap'),
+(143, 'bu1@ilab.com', 'bu user1', 6, '{\"browser\":\"Chrome\",\"browserVersion\":\"68.0.3440.106\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/68.0.3440.106 Safari\\/537.36\"}', '192.168.0.6', '2019-02-20', '12:47:29', 2, '12:49:13', '2019-02-20', '7engckt3ca61sjmn5n3fr1vubdgp4j7r'),
+(144, 'admin@ilab.com', 'Admin', 1, '{\"browser\":\"Chrome\",\"browserVersion\":\"68.0.3440.106\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/68.0.3440.106 Safari\\/537.36\"}', '192.168.0.6', '2019-02-20', '12:54:02', 1, NULL, NULL, '8th7fm0om0e96cff1pn52bdv7l2htdfi'),
+(145, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"68.0.3440.106\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/68.0.3440.106 Safari\\/537.36\"}', '192.168.0.6', '2019-02-20', '13:17:10', 2, '13:18:57', '2019-02-20', '52garto88urpb7v4g8ba4bdfgct4ktvg'),
+(146, 'siprah@gmail.com', 'Approver5', 8, '{\"browser\":\"Chrome\",\"browserVersion\":\"68.0.3440.106\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/68.0.3440.106 Safari\\/537.36\"}', '192.168.0.6', '2019-02-20', '13:19:16', 2, '13:20:58', '2019-02-20', '8jl4b7n8ur1v2ckcdpaa27giin29iu5a'),
+(147, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"68.0.3440.106\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/68.0.3440.106 Safari\\/537.36\"}', '192.168.0.6', '2019-02-20', '13:21:14', 2, '13:22:39', '2019-02-20', '0l4t78emp5tepkh0iiiafls2pr23o43f'),
+(148, 'siprah@gmail.com', 'Approver5', 8, '{\"browser\":\"Chrome\",\"browserVersion\":\"68.0.3440.106\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/68.0.3440.106 Safari\\/537.36\"}', '192.168.0.6', '2019-02-20', '13:22:49', 2, '13:24:25', '2019-02-20', 'n8qb3cojoilgjp305ia0ak822cb4fefs'),
+(149, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"68.0.3440.106\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/68.0.3440.106 Safari\\/537.36\"}', '192.168.0.6', '2019-02-20', '13:24:38', 1, NULL, NULL, 'joe9p59nm7pejdm34qojqvmhtlmkh2kk'),
+(150, 'siprah@gmail.com', 'Approver5', 8, '{\"browser\":\"Chrome\",\"browserVersion\":\"68.0.3440.106\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/68.0.3440.106 Safari\\/537.36\"}', '192.168.0.6', '2019-02-20', '13:33:55', 2, '13:34:30', '2019-02-20', '15ife325eke4s5dqou6q7q532gqcgo35'),
+(151, 'pro@ilab.com', 'procurement user 1', 4, '{\"browser\":\"Chrome\",\"browserVersion\":\"68.0.3440.106\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/68.0.3440.106 Safari\\/537.36\"}', '192.168.0.6', '2019-02-20', '14:42:54', 2, '14:43:42', '2019-02-20', '1kdu6eo3s23minjr59nsoc6fi498bfua'),
+(152, 'buy1@ilab.com', 'buyer 1', 7, '{\"browser\":\"Chrome\",\"browserVersion\":\"68.0.3440.106\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/68.0.3440.106 Safari\\/537.36\"}', '192.168.0.6', '2019-02-20', '14:44:43', 1, NULL, NULL, 't5tqrm10m90c2uc4l0su0bssp5nsganb'),
+(153, 'buy1@ilab.com', 'buyer 1', 7, '{\"browser\":\"Firefox\",\"browserVersion\":\"65.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko\\/20100101 Firefox\\/65.0\"}', '192.168.0.4', '2019-02-20', '14:53:02', 1, NULL, NULL, 'di4pkqetlt16vnu7sn0gov7345gff18k'),
+(154, 'buy1@ilab.com', 'buyer 1', 7, '{\"browser\":\"Chrome\",\"browserVersion\":\"68.0.3440.106\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/68.0.3440.106 Safari\\/537.36\"}', '192.168.0.6', '2019-02-20', '14:54:05', 2, '14:54:33', '2019-02-20', '119anfn5fv1dnct1c0gv1bi1p6fijhb0'),
+(155, 'buy1@ilab.com', 'buyer 1', 7, '{\"browser\":\"Chrome\",\"browserVersion\":\"68.0.3440.106\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/68.0.3440.106 Safari\\/537.36\"}', '192.168.0.6', '2019-02-20', '14:54:51', 2, '14:55:37', '2019-02-20', '40rhdrraha48opg6evqlmiv9eeagr3cd'),
+(156, 'admin@ilab.com', 'Admin', 1, '{\"browser\":\"Firefox\",\"browserVersion\":\"65.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko\\/20100101 Firefox\\/65.0\"}', '192.168.0.4', '2019-02-20', '14:54:53', 2, '14:55:09', '2019-02-20', '8kshg6o1igcm5uoig9uf7qgb1un4l4mc'),
+(157, 'buy1@ilab.com', 'buyer 1', 7, '{\"browser\":\"Firefox\",\"browserVersion\":\"65.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko\\/20100101 Firefox\\/65.0\"}', '192.168.0.4', '2019-02-20', '14:55:21', 1, NULL, NULL, 'mt9drh8hemduemadlpa68voah8mqtha8'),
+(158, 'admin@ilab.com', 'Admin', 1, '{\"browser\":\"Chrome\",\"browserVersion\":\"68.0.3440.106\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/68.0.3440.106 Safari\\/537.36\"}', '192.168.0.6', '2019-02-20', '15:46:51', 1, NULL, NULL, '517gk0q455agtkih9rjqhq0s3gvbufv2'),
+(159, 'admin@ilab.com', 'Admin', 1, '{\"browser\":\"Firefox\",\"browserVersion\":\"65.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko\\/20100101 Firefox\\/65.0\"}', '192.168.0.4', '2019-02-20', '15:49:04', 1, NULL, NULL, 'opkr4d3klie9aecruupaka4s2kguaum7'),
+(160, 'admin@ilab.com', 'Admin', 1, '{\"browser\":\"Chrome\",\"browserVersion\":\"68.0.3440.106\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/68.0.3440.106 Safari\\/537.36\"}', '192.168.0.6', '2019-02-20', '15:50:43', 1, NULL, NULL, 'mu6j9hkso6o766pfo10tr9n53n95dpcp'),
+(161, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"68.0.3440.106\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/68.0.3440.106 Safari\\/537.36\"}', '192.168.0.6', '2019-02-20', '17:36:54', 1, NULL, NULL, 'fo2hc2lu7i3u8sat3av7asjjiss7gl79'),
+(162, 'siprah@gmail.com', 'Approver5', 8, '{\"browser\":\"Chrome\",\"browserVersion\":\"68.0.3440.106\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/68.0.3440.106 Safari\\/537.36\"}', '192.168.0.6', '2019-02-20', '17:45:42', 2, '17:46:20', '2019-02-20', 'jvusn6egsu5nl8q8mhm1fqi8eus13fo6'),
+(163, 'pro@ilab.com', 'procurement user 1', 4, '{\"browser\":\"Chrome\",\"browserVersion\":\"68.0.3440.106\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/68.0.3440.106 Safari\\/537.36\"}', '192.168.0.6', '2019-02-20', '17:46:53', 2, '17:47:47', '2019-02-20', 'vbgcmdu68kshmvuj8fvhkdjdo9v754t3'),
+(164, 'buy1@ilab.com', 'buyer 1', 7, '{\"browser\":\"Chrome\",\"browserVersion\":\"68.0.3440.106\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/68.0.3440.106 Safari\\/537.36\"}', '192.168.0.6', '2019-02-20', '17:48:07', 1, NULL, NULL, 'ne9jf64k5uvj2sqnr8cgmb3v9khsvvc9'),
+(165, 'buy1@ilab.com', 'buyer 1', 7, '{\"browser\":\"Chrome\",\"browserVersion\":\"68.0.3440.106\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/68.0.3440.106 Safari\\/537.36\"}', '192.168.0.6', '2019-02-20', '18:13:25', 1, NULL, NULL, '61p44mhtupchitjqjqa8glqc49g07dk7'),
+(166, 'commerical@ilab.com', 'user3', 10, '{\"browser\":\"Chrome\",\"browserVersion\":\"68.0.3440.106\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/68.0.3440.106 Safari\\/537.36\"}', '192.168.0.6', '2019-02-20', '18:25:16', 1, NULL, NULL, '3d72s2t65nfislvvmcrfrs2dqals8984'),
+(167, 'admin@ilab.com', 'Admin', 1, '{\"browser\":\"Chrome\",\"browserVersion\":\"68.0.3440.106\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/68.0.3440.106 Safari\\/537.36\"}', '192.168.0.6', '2019-02-20', '18:25:55', 1, NULL, NULL, 'n1r6k970pm40t2rbh2vrmjc0jq5g1p1c'),
+(168, 'admin@ilab.com', 'Admin', 1, '{\"browser\":\"Chrome\",\"browserVersion\":\"68.0.3440.106\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/68.0.3440.106 Safari\\/537.36\"}', '192.168.0.6', '2019-02-21', '11:55:24', 1, NULL, NULL, 'jm5u7ngana9ggsmj8376c6c8o6sg4csv'),
+(169, 'abc@ilab.com', 'Technical User', 9, '{\"browser\":\"Firefox\",\"browserVersion\":\"65.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko\\/20100101 Firefox\\/65.0\"}', '192.168.0.4', '2019-02-21', '16:48:51', 1, NULL, NULL, 'tp25pnus679hh2hfqu7kigqqd9tm7jau'),
+(170, 'admin@ilab.com', 'Admin', 1, '{\"browser\":\"Chrome\",\"browserVersion\":\"68.0.3440.106\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/68.0.3440.106 Safari\\/537.36\"}', '192.168.0.6', '2019-02-21', '18:11:54', 1, NULL, NULL, '1h0b5k8dmcuad3f2ut0bd8citve78mlk'),
+(171, 'buy1@ilab.com', 'buyer 1', 7, '{\"browser\":\"Firefox\",\"browserVersion\":\"65.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko\\/20100101 Firefox\\/65.0\"}', '192.168.0.4', '2019-02-27', '19:18:00', 1, NULL, NULL, '45gs4kv66c8grc5g60v16p2a96ioimvo'),
+(172, 'buy1@ilab.com', 'buyer 1', 7, '{\"browser\":\"Chrome\",\"browserVersion\":\"68.0.3440.106\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/68.0.3440.106 Safari\\/537.36\"}', '192.168.0.4', '2019-03-01', '16:17:28', 1, NULL, NULL, '6v9oo4aqlkd18dj2pligjr1n0dqk0ia9'),
+(173, 'buy1@ilab.com', 'buyer 1', 7, '{\"browser\":\"Chrome\",\"browserVersion\":\"68.0.3440.106\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/68.0.3440.106 Safari\\/537.36\"}', '192.168.0.4', '2019-03-01', '16:58:39', 1, NULL, NULL, 'dv6rritr59sf8q0g2lg4hmjlkbcig2tm'),
+(174, 'buy1@ilab.com', 'buyer 1', 7, '{\"browser\":\"Chrome\",\"browserVersion\":\"68.0.3440.106\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/68.0.3440.106 Safari\\/537.36\"}', '192.168.0.4', '2019-03-01', '17:22:15', 1, NULL, NULL, 'u1h5p6vivn1g31s3t02k7t82n1b8dfa2'),
+(175, 'buy1@ilab.com', 'buyer 1', 7, '{\"browser\":\"Chrome\",\"browserVersion\":\"68.0.3440.106\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/68.0.3440.106 Safari\\/537.36\"}', '192.168.0.4', '2019-03-01', '18:21:05', 1, NULL, NULL, '844n55l311isb7o83igknbpvf48ptpt2'),
+(176, 'buy1@ilab.com', 'buyer 1', 7, '{\"browser\":\"Chrome\",\"browserVersion\":\"68.0.3440.106\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/68.0.3440.106 Safari\\/537.36\"}', '192.168.0.4', '2019-03-01', '18:21:55', 1, NULL, NULL, 'dd1ud3is0rh3mbiv1snfr16psngqendq'),
+(177, 'buy1@ilab.com', 'buyer 1', 7, '{\"browser\":\"Chrome\",\"browserVersion\":\"68.0.3440.106\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/68.0.3440.106 Safari\\/537.36\"}', '192.168.0.4', '2019-03-01', '18:22:22', 1, NULL, NULL, '7t37fp1jn1boqvstb2rlahsq9qcds85v'),
+(178, 'buy1@ilab.com', 'buyer 1', 7, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.119\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.119 Safari\\/537.36\"}', '192.168.0.4', '2019-03-02', '11:30:40', 1, NULL, NULL, 'flnvqaac1pe5h2ooeganrsb819btf5rl'),
+(179, 'bu1@ilab.com', 'bu user1', 6, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.119\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.119 Safari\\/537.36\"}', '192.168.0.4', '2019-03-02', '13:21:05', 1, NULL, NULL, 'n8ssbikt6nnefpp1vp6crop009rp8rki'),
+(180, 'buy1@ilab.com', 'buyer 1', 7, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.119\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.119 Safari\\/537.36\"}', '192.168.0.4', '2019-03-02', '15:12:15', 1, NULL, NULL, 'a38lfjhmbvbaute0snjckkcrmjanftk8'),
+(181, 'bu1@ilab.com', 'bu user1', 6, '{\"browser\":\"Firefox\",\"browserVersion\":\"65.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko\\/20100101 Firefox\\/65.0\"}', '192.168.0.3', '2019-03-02', '15:37:33', 1, NULL, NULL, '539fop6la18pc5v7ujt2aol8emm2o7af'),
+(182, 'bu1@ilab.com', 'bu user1', 6, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-02', '15:51:14', 1, NULL, NULL, 'ra2rkmti0ue5taku4s3kk2oekjbspfgg'),
+(183, 'bu1@ilab.com', 'bu user1', 6, '{\"browser\":\"Firefox\",\"browserVersion\":\"65.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko\\/20100101 Firefox\\/65.0\"}', '192.168.0.3', '2019-03-04', '12:06:56', 1, NULL, NULL, 'mas1j0qccts83dvsq43jdtco3285e1oi'),
+(184, 'buy1@ilab.com', 'buyer 1', 7, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-04', '12:38:57', 2, '12:39:09', '2019-03-04', 'horf43t9lfv4hr5kh0delaj29d4445kb'),
+(185, 'bu1@ilab.com', 'bu user1', 6, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-04', '12:40:16', 1, NULL, NULL, 'ita9ru8e8gee56tqm64rf5reuioqk8j9'),
+(186, 'bu1@ilab.com', 'bu user1', 6, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-04', '15:09:49', 1, NULL, NULL, 'uc95bdtte92h253qi7jn6ki0jqsbq6lr'),
+(187, 'bu1@ilab.com', 'bu user1', 6, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-04', '15:30:43', 1, NULL, NULL, 'uvuirofftkb9shuhn85u56u4bdio3eba'),
+(188, 'bu1@ilab.com', 'bu user1', 6, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-04', '15:33:01', 1, NULL, NULL, 'lum64a38mqacetvvugptjmb3sk3h0lu5'),
+(189, 'bu1@ilab.com', 'bu user1', 6, '{\"browser\":\"Firefox\",\"browserVersion\":\"65.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko\\/20100101 Firefox\\/65.0\"}', '192.168.0.3', '2019-03-04', '15:34:10', 1, NULL, NULL, '11cgpdd10kueoqo70jomvij4por1vntf'),
+(190, 'bu1@ilab.com', 'bu user1', 6, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-04', '15:55:00', 1, NULL, NULL, '4o0qokm4h3f6238li1p7slecba8kcve5'),
+(191, 'bu1@ilab.com', 'bu user1', 6, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-04', '15:58:44', 1, NULL, NULL, '7lqeqlda867j90gokf8vel9qd0pvommm'),
+(192, 'bu1@ilab.com', 'bu user1', 6, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-04', '16:00:19', 1, NULL, NULL, 'ohh6fellt98n0klmcgkq86kj5gobetij'),
+(193, 'bu1@ilab.com', 'bu user1', 6, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-04', '16:04:31', 1, NULL, NULL, '1a2dqavtsuuk89ra34gs9ahofkfcbga7'),
+(194, 'bu1@ilab.com', 'bu user1', 6, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-04', '16:05:09', 2, '16:09:23', '2019-03-04', '2ecr6ane6jhio1u3n9kfl0vdpqsdsvfq'),
+(195, 'bu1@ilab.com', 'bu user1', 6, '{\"browser\":\"Firefox\",\"browserVersion\":\"65.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko\\/20100101 Firefox\\/65.0\"}', '192.168.0.3', '2019-03-04', '19:30:51', 1, NULL, NULL, 'mg5dolh36nb9qf0se9mmlioa190trqr5'),
+(196, 'bu1@ilab.com', 'bu user1', 6, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-05', '11:43:29', 1, NULL, NULL, '4nm5jni1ni9h8vjvassm1qlf7dvge45u'),
+(197, 'bu1@ilab.com', 'bu user1', 6, '{\"browser\":\"Firefox\",\"browserVersion\":\"65.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko\\/20100101 Firefox\\/65.0\"}', '192.168.0.2', '2019-03-05', '11:45:32', 1, NULL, NULL, 'hrsv61fmnr9371t0tomanmoou1nnorif'),
+(198, 'bu1@ilab.com', 'bu user1', 6, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-05', '11:59:02', 1, NULL, NULL, '5vgtelai7l2bbb2besd7chakrs5k82rj'),
+(199, 'bu1@ilab.com', 'bu user1', 6, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-05', '12:04:31', 1, NULL, NULL, 'ie1oc2m4jcna0e0a4k1n8p9t70va1o37'),
+(200, 'bu1@ilab.com', 'bu user1', 6, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-05', '12:51:03', 1, NULL, NULL, 'c0u7na42stciafopdhv89essfh9lt5jk'),
+(201, 'bu1@ilab.com', 'bu user1', 6, '{\"browser\":\"Firefox\",\"browserVersion\":\"65.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko\\/20100101 Firefox\\/65.0\"}', '192.168.0.2', '2019-03-05', '12:51:06', 1, NULL, NULL, 'mig7h6ikv8tmt05gn86qrt80eimjvjbf'),
+(202, 'bu1@ilab.com', 'bu user1', 6, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-05', '12:51:42', 1, NULL, NULL, 'aasqonjo9n180tcjfeeegblrvfcgl50k'),
+(203, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-05', '13:02:03', 1, NULL, NULL, 'kbgjdsr1ua2p93l9ddog7kt3cga4nrfk'),
+(204, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-05', '14:43:35', 1, NULL, NULL, '0rtjvpm7658bu05ks9adga53svh3qaip'),
+(205, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-05', '14:44:51', 1, NULL, NULL, 'bjlh06ih2c65c72sj8p059e0ao491p9d'),
+(206, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-05', '16:02:20', 1, NULL, NULL, 's6jhuhnegshmlrd8vduus2h44ttqcrql'),
+(207, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-05', '16:02:39', 1, NULL, NULL, 'k5vfee5fo6gcpd0dis8lmeb2l06i7tb5'),
+(208, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-05', '16:04:31', 1, NULL, NULL, '0p957vcelub31iljnmtgv9o9n8v95eka'),
+(209, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-05', '16:09:16', 1, NULL, NULL, 'sh4hjv8dc74v1vaekpuqbppfie32bp3a'),
+(210, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-05', '16:12:30', 1, NULL, NULL, '8f77md8ufrkjahfdl87n5oo3lp2kuci2'),
+(211, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-05', '16:21:56', 1, NULL, NULL, 'dehj75hj8es8ud1mvdea6j1ve0cqhrb9'),
+(212, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-05', '16:43:41', 1, NULL, NULL, 'oh41np820o7roetggtsvn2u9po6acop5'),
+(213, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-05', '16:45:56', 1, NULL, NULL, 'gqr2ciom3t1rfcf17muc3vp8l6g9sbsi'),
+(214, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-05', '17:13:03', 1, NULL, NULL, 'ljlt8156fhta5jh46uckh82mlj39aoeg'),
+(215, 'admin@ilab.com', 'Admin', 1, '{\"browser\":\"Firefox\",\"browserVersion\":\"65.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko\\/20100101 Firefox\\/65.0\"}', '192.168.0.2', '2019-03-05', '18:00:50', 1, NULL, NULL, '2mgh7dlrjbh733oft8roi5vpccou7710'),
+(216, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-06', '12:43:48', 1, NULL, NULL, '0vb15r21mr41gn8igsj3mqtfm2vqtttb'),
+(217, 'admin@ilab.com', 'Admin', 1, '{\"browser\":\"Firefox\",\"browserVersion\":\"65.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko\\/20100101 Firefox\\/65.0\"}', '192.168.0.3', '2019-03-06', '13:15:28', 1, NULL, NULL, 't23ome2o353src5bso3fv2elgug8kjr6'),
+(218, 'admin@ilab.com', 'Admin', 1, '{\"browser\":\"Firefox\",\"browserVersion\":\"65.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko\\/20100101 Firefox\\/65.0\"}', '192.168.0.3', '2019-03-06', '14:53:08', 1, NULL, NULL, 'g086kteddph8uvp89tmbb0o50plm209u'),
+(219, 'admin@ilab.com', 'Admin', 1, '{\"browser\":\"Firefox\",\"browserVersion\":\"65.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko\\/20100101 Firefox\\/65.0\"}', '192.168.0.3', '2019-03-06', '15:27:58', 1, NULL, NULL, '4e2ggrn94ib1nbqje7rbv20qjt3cdp5i'),
+(220, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-06', '16:18:42', 1, NULL, NULL, 'uu9b5ss0it3gud34mcl6qkunb54mspme'),
+(221, 'admin@ilab.com', 'Admin', 1, '{\"browser\":\"Firefox\",\"browserVersion\":\"65.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko\\/20100101 Firefox\\/65.0\"}', '192.168.0.3', '2019-03-06', '17:05:56', 1, NULL, NULL, '2cgl9q5r0a17unifb9h14kpbh2fg2blf'),
+(222, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Firefox\",\"browserVersion\":\"65.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko\\/20100101 Firefox\\/65.0\"}', '192.168.0.3', '2019-03-06', '17:47:42', 1, NULL, NULL, '07im41l51c2b599gu2eq20de8tohgqud'),
+(223, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-07', '10:08:39', 1, NULL, NULL, 'jtif7ru9fv538gfmhbbdm5dpeo964v8n'),
+(224, 'admin@ilab.com', 'Admin', 1, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-07', '10:37:14', 2, '10:37:47', '2019-03-07', '0ou7gi86ajp7d2hmmjofdfikl8ci2lm0'),
+(225, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-07', '10:38:46', 1, NULL, NULL, '7knofctntic5ssgj4pmduo02bphbc4ie'),
+(226, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Firefox\",\"browserVersion\":\"65.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko\\/20100101 Firefox\\/65.0\"}', '192.168.0.3', '2019-03-07', '11:43:27', 1, NULL, NULL, '8i0rp6lmpgbnbka36ji8vdncnd8uuq0m'),
+(227, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-07', '13:24:06', 1, NULL, NULL, 'ncgmio8acs8r1gi5919hsb79ge2upc7j'),
+(228, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-07', '13:29:22', 1, NULL, NULL, 'qlc3a3atkbh4fmioiio1qqjngjek9bhl'),
+(229, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-07', '13:32:09', 1, NULL, NULL, '3m6d1k5qmtp59h4vketn2fr216qjoglq'),
+(230, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-07', '14:45:17', 1, NULL, NULL, 'eqssduq9a872m8kao3lgohv53lshccul'),
+(231, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-07', '14:46:21', 1, NULL, NULL, 'ua7nsieqnamire24lstar47g4r8gha17'),
+(232, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Firefox\",\"browserVersion\":\"65.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko\\/20100101 Firefox\\/65.0\"}', '192.168.0.3', '2019-03-07', '15:14:08', 1, NULL, NULL, 'hnpsmu1f1nq6cojg7l3cirlteov5k5g3'),
+(233, 'bu1@ilab.com', 'bu user1', 6, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-07', '15:21:56', 1, NULL, NULL, 'd234flcurdsau2uvf5hjqq399s9gtd23'),
+(234, 'bu1@ilab.com', 'bu user1', 6, '{\"browser\":\"Firefox\",\"browserVersion\":\"65.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko\\/20100101 Firefox\\/65.0\"}', '192.168.0.3', '2019-03-07', '15:36:00', 1, NULL, NULL, 'k4fo7ndbf77dud4dlourg0vqciq8mb0m'),
+(235, 'bu1@ilab.com', 'bu user1', 6, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-07', '15:55:27', 1, NULL, NULL, 'cvkaqnoudo9bleh9qgs2sptrg6ie1n5b'),
+(236, 'bu1@ilab.com', 'bu user1', 6, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-07', '16:05:12', 1, NULL, NULL, '7o9rogeftpo60fbkpp91glfqt2ersasb'),
+(237, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-07', '16:09:59', 2, '16:10:21', '2019-03-07', 'rmh3ept23s1kcn4q82gi1prso8pu7531'),
+(238, 'bu1@ilab.com', 'bu user1', 6, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-07', '16:11:18', 2, '16:11:58', '2019-03-07', 'g5c1a3kutmuokk3k69kir81kj7bpe85q'),
+(239, 'bu1@ilab.com', 'bu user1', 6, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-07', '16:12:22', 1, NULL, NULL, 'shvna9doga63kptht1fqe94hd7593kfm'),
+(240, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-07', '16:21:30', 1, NULL, NULL, 'p3pu04eb06611t01vqaie2dhdrcqd9nh'),
+(241, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Firefox\",\"browserVersion\":\"65.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko\\/20100101 Firefox\\/65.0\"}', '192.168.0.3', '2019-03-07', '16:35:14', 2, '16:36:18', '2019-03-07', '3bkpvqlbaup8kcskd6pn81uk5rsep6om'),
+(242, 'bu1@ilab.com', 'bu user1', 6, '{\"browser\":\"Firefox\",\"browserVersion\":\"65.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko\\/20100101 Firefox\\/65.0\"}', '192.168.0.3', '2019-03-07', '16:51:44', 1, NULL, NULL, 'bn92rbis3s2n5ttduar5i0ds2ufb1tm4'),
+(243, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Firefox\",\"browserVersion\":\"65.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko\\/20100101 Firefox\\/65.0\"}', '192.168.0.3', '2019-03-07', '19:09:16', 1, NULL, NULL, 'khfde64ubg27dbf3jlmcip28e14mnuqa'),
+(244, 'bu1@ilab.com', 'bu user1', 6, '{\"browser\":\"Firefox\",\"browserVersion\":\"65.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko\\/20100101 Firefox\\/65.0\"}', '192.168.0.3', '2019-03-07', '19:15:52', 1, NULL, NULL, 'be1iutpmoua7j0bdas9noj41pelhuvf8'),
+(245, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-08', '10:09:59', 1, NULL, NULL, 'og1qjimhr4tjbeeabbkbmb1f0ia4lb44'),
+(246, 'bu1@ilab.com', 'bu user1', 6, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-08', '10:30:26', 1, NULL, NULL, 'ut2f74p4cvrkr2bbn5pqdnmnu06gqnvr'),
+(247, 'bu1@ilab.com', 'bu user1', 6, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-08', '10:30:58', 1, NULL, NULL, 'i2l31shrf2i81poa5icmjo5evjq85198'),
+(248, 'buy1@ilab.com', 'buyer 1', 7, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-08', '10:44:24', 1, NULL, NULL, 'oiv9oci5l4v73pjpors1kh2aqd4pub1m'),
+(249, 'bu1@ilab.com', 'bu user1', 6, '{\"browser\":\"Firefox\",\"browserVersion\":\"65.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko\\/20100101 Firefox\\/65.0\"}', '192.168.0.3', '2019-03-08', '13:15:13', 1, NULL, NULL, 'nr5of6ol7162rmkverrdluk2k2rlk8j5'),
+(250, 'bu1@ilab.com', 'bu user1', 6, '{\"browser\":\"Firefox\",\"browserVersion\":\"66.0\",\"platform\":\"Windows 8.1\",\"full_user_agent_string\":\"Mozilla\\/5.0 (Windows NT 6.3; Win64; x64; rv:66.0) Gecko\\/20100101 Firefox\\/66.0\"}', '192.168.0.6', '2019-03-08', '14:47:33', 1, NULL, NULL, 'kd08nf3l2mdocjoepucd6pprbfjhrj6n'),
+(251, 'bu1@ilab.com', 'bu user1', 6, '{\"browser\":\"Firefox\",\"browserVersion\":\"66.0\",\"platform\":\"Windows 8.1\",\"full_user_agent_string\":\"Mozilla\\/5.0 (Windows NT 6.3; Win64; x64; rv:66.0) Gecko\\/20100101 Firefox\\/66.0\"}', '192.168.0.6', '2019-03-08', '14:48:17', 1, NULL, NULL, '2rbo2s97aatvv1hiaelgb98vvpek64gk'),
+(252, 'buy1@ilab.com', 'buyer 1', 7, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-08', '16:37:49', 1, NULL, NULL, 'bvjd1k9afccbl1g0cad7ec5guhvp7p3n'),
+(253, 'buy1@ilab.com', 'buyer 1', 7, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-08', '16:43:47', 1, NULL, NULL, '7vth4o9r0u0km5j69ak670r8fca94lpb'),
+(254, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-08', '16:49:50', 1, NULL, NULL, 'cnse7eb2har91sihk0gc7j5dfc8aindg'),
+(255, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-08', '16:51:19', 1, NULL, NULL, 'sp8h9unjp5ml4paa44ohsg2utn6hvfkf'),
+(256, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-08', '16:56:22', 1, NULL, NULL, 'bl6sqmi6rlvfucilacfq4phi40e2ou1c'),
+(257, 'bu1@ilab.com', 'bu user1', 6, '{\"browser\":\"Firefox\",\"browserVersion\":\"65.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko\\/20100101 Firefox\\/65.0\"}', '192.168.0.3', '2019-03-08', '17:04:45', 1, NULL, NULL, 'jk1jvjg084tebr4e7qag45n5qfj2hunq'),
+(258, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-08', '17:06:20', 1, NULL, NULL, '0fd20devgk7vs6ddmp37a4rmq47j1h0o'),
+(259, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-08', '17:07:13', 1, NULL, NULL, 'pdkip0o9q1m9rbk2f9aig0d3ho9fs444'),
+(260, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-08', '17:07:52', 1, NULL, NULL, 'n8k7ngvdjlpan9vk2sp13areueji67jk'),
+(261, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-08', '17:08:40', 1, NULL, NULL, 'csk5ripaddbmi9vg9o96n64kikdm4kbh'),
+(262, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-08', '17:12:28', 1, NULL, NULL, 'roce6ubm5j5uii1l3kc6r0o83b563463'),
+(263, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-08', '17:21:56', 1, NULL, NULL, '0091cn4s1iq9499hubf6dj28e4p4ln4p'),
+(264, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-08', '17:32:29', 1, NULL, NULL, 'e4udqe9jhq8v4jaru2ql6asqcb8v778a'),
+(265, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-08', '17:58:49', 1, NULL, NULL, 'kusun41m58qp1ckstna8e0ui8n2pvd17'),
+(266, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-09', '09:59:45', 1, NULL, NULL, 'g8kf36l5d0k0g7oqi01gfmavtsmpj2el'),
+(267, 'buy1@ilab.com', 'buyer 1', 7, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-09', '11:48:42', 1, NULL, NULL, 'f0i9uiefe1mbuh0sb1iubqbf6383f5sl'),
+(268, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-09', '12:07:31', 1, NULL, NULL, 'v9fplp9antassluoe3tt3abto6t7csv4'),
+(269, 'bu1@ilab.com', 'bu user1', 6, '{\"browser\":\"Firefox\",\"browserVersion\":\"65.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko\\/20100101 Firefox\\/65.0\"}', '192.168.0.3', '2019-03-09', '14:19:59', 1, NULL, NULL, '2nue3aq8iiau5akhdehiufgvjs9q1uki'),
+(270, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-09', '14:33:49', 2, '14:35:56', '2019-03-09', 'qu8kf464jo9mqdd86s91cb4vqgsgg6qq'),
+(271, 'buy1@ilab.com', 'buyer 1', 7, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-09', '14:36:21', 1, NULL, NULL, '230par4sm0f9rl54md9pn7d8kj70rpth'),
+(272, 'bu1@ilab.com', 'bu user1', 6, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-09', '15:23:05', 2, '15:23:35', '2019-03-09', 'm2epidugejl21ncnfjjgo9tc6a5bcfvf'),
+(273, 'buy1@ilab.com', 'buyer 1', 7, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-09', '15:23:52', 2, '15:24:24', '2019-03-09', 'nibbneve6qrioqqpd81rb48nnh6o0ck3'),
+(274, 'bu1@ilab.com', 'bu user1', 6, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-09', '15:24:38', 2, '15:25:07', '2019-03-09', 'ukuj4okmh8eeulq1uu8pu34js0v6rc9c'),
+(275, 'buy1@ilab.com', 'buyer 1', 7, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-09', '15:25:20', 2, '15:27:19', '2019-03-09', 'iqhgbjnp6jqso70l3kn8u1m4h65qkt1j');
+INSERT INTO `Ilab_master_session_history` (`slno_history`, `user_id`, `username`, `user_role`, `browser_detail`, `ip`, `entry_date`, `entry_time`, `status`, `logout_time`, `logout_date`, `session_id`) VALUES
+(276, 'buy1@ilab.com', 'buyer 1', 7, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-09', '15:27:34', 1, NULL, NULL, 'suovlkac4hk7vdl1nd9m2j6i01ljhps8'),
+(277, 'bu1@ilab.com', 'bu user1', 6, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-09', '16:00:18', 1, NULL, NULL, 'qfjlo12hgmsrdg9e25ku0kq7hh3lid5m'),
+(278, 'buy1@ilab.com', 'buyer 1', 7, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-09', '16:17:33', 2, '16:17:50', '2019-03-09', 'kkfur882pq4og0e0lge2rs4gkbles7b9'),
+(279, 'bu1@ilab.com', 'bu user1', 6, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-09', '16:18:02', 1, NULL, NULL, 't3m7qtfg0ge58t6tt31eks8ee89l96e5'),
+(280, 'bu1@ilab.com', 'bu user1', 6, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-09', '16:51:01', 1, NULL, NULL, 'mprq3rn20hkoch3qvn778ook51t0vvt7'),
+(281, 'buy1@ilab.com', 'buyer 1', 7, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-09', '16:58:43', 1, NULL, NULL, 'qk9qkvnataekunhltjhap9tuvbin9isg'),
+(282, 'bu1@ilab.com', 'bu user1', 6, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-09', '17:32:33', 2, '17:32:54', '2019-03-09', '2bfsvm61d07v3c7723071vvsjujhafsn'),
+(283, 'bu1@ilab.com', 'bu user1', 6, '{\"browser\":\"Firefox\",\"browserVersion\":\"65.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko\\/20100101 Firefox\\/65.0\"}', '192.168.0.3', '2019-03-09', '19:09:02', 1, NULL, NULL, '4hg99uf3om4pcdrmlrev15fi8at4t1a3'),
+(284, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-09', '19:10:47', 1, NULL, NULL, 'elmsa5dkvhf5mbfsdhtms7bog3rvkbm5'),
+(285, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Firefox\",\"browserVersion\":\"65.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko\\/20100101 Firefox\\/65.0\"}', '192.168.0.3', '2019-03-11', '10:37:58', 1, NULL, NULL, 'jamgbhobvkvvd6pi8ob9581llc5td1ej'),
+(286, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Firefox\",\"browserVersion\":\"65.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko\\/20100101 Firefox\\/65.0\"}', '192.168.0.3', '2019-03-11', '17:19:04', 1, NULL, NULL, 'vfrlfggqd7livpkfb42ubtcaschvakt7'),
+(287, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Firefox\",\"browserVersion\":\"65.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko\\/20100101 Firefox\\/65.0\"}', '192.168.0.3', '2019-03-11', '17:43:49', 1, NULL, NULL, 'p8j03hmm082jpnb8q7jq6act0qs9aa5e'),
+(288, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Firefox\",\"browserVersion\":\"65.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64; rv:65.0) Gecko\\/20100101 Firefox\\/65.0\"}', '192.168.0.3', '2019-03-11', '18:06:03', 1, NULL, NULL, '353oh02gdq6h20r0hqggig05d0r4t031'),
+(289, 'buy1@ilab.com', 'buyer 1', 7, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-12', '10:38:23', 1, NULL, NULL, 'uv9fp46b0fupoie0ejikklpe0a1aj0im'),
+(290, 'bu1@ilab.com', 'bu user1', 6, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-12', '10:44:42', 1, NULL, NULL, 'ibco4gh9vjs5bffsmabcnhgsnigkligj'),
+(291, 'buy1@ilab.com', 'buyer 1', 7, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-12', '10:50:42', 1, NULL, NULL, 'i0eqnds8tp0n4674t9gmkpa5hhlufkd9'),
+(292, 'buy1@ilab.com', 'buyer 1', 7, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-12', '10:51:48', 2, '10:53:50', '2019-03-12', 'mmpc8o6psn6au8bvvhfrlae9v3iddopp'),
+(293, 'buy1@ilab.com', 'buyer 1', 7, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-12', '11:00:56', 1, NULL, NULL, 'u9gm8muh6vad470evufll72htdgaeqb1'),
+(294, 'buy1@ilab.com', 'buyer 1', 7, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-12', '11:08:11', 1, NULL, NULL, 'joa0kvebh0qhmndfpon14fr1pdmfbeui'),
+(295, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-12', '11:21:19', 1, NULL, NULL, '26q3vhr7dgn45cmlk06agkk2rbf8rdb1'),
+(296, 'buy1@ilab.com', 'buyer 1', 7, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-12', '11:47:00', 2, '11:49:42', '2019-03-12', '75qk6r3bs5c5g8jl6bcd2m7v549v417j'),
+(297, 'buy1@ilab.com', 'buyer 1', 7, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-12', '11:49:46', 1, NULL, NULL, '3lfi0bfa1jpdgd9dv4ap9vme50bff750'),
+(298, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-12', '12:27:00', 2, '12:33:18', '2019-03-12', 'oer8vjrpn4re3bupjjm7v3gii5dc74p6'),
+(299, 'buy1@ilab.com', 'buyer 1', 7, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-12', '12:37:17', 2, '12:39:13', '2019-03-12', '4uukoe6eo1knm78mnnp3sief2kdq213s'),
+(300, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-12', '12:39:34', 2, '12:42:17', '2019-03-12', 'pm8d7261ve1mh4602iurthtu6slfvu2u'),
+(301, 'buy1@ilab.com', 'buyer 1', 7, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-12', '12:43:26', 1, NULL, NULL, 'cqbembml97qa7v6olfc78o0t0vc1mq2h'),
+(302, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Firefox\",\"browserVersion\":\"65.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko\\/20100101 Firefox\\/65.0\"}', '192.168.0.3', '2019-03-12', '13:06:34', 1, NULL, NULL, 'e3gvo8dufp3lup2ofurbbnaq2f1a4hbg'),
+(303, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-12', '15:11:42', 2, '15:13:54', '2019-03-12', '56s4fj4oirgi9u3jdu49c6qipq96emq9'),
+(304, 'buy1@ilab.com', 'buyer 1', 7, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-12', '15:14:14', 1, NULL, NULL, '2ru99cckh2i3hlhcsi7rdl1fkjc531o7'),
+(305, 'buy1@ilab.com', 'buyer 1', 7, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-12', '16:41:10', 1, NULL, NULL, 'su7sa928iucafkisb3vjnbnvcjvekjll'),
+(306, 'bu1@ilab.com', 'bu user1', 6, '{\"browser\":\"Firefox\",\"browserVersion\":\"65.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko\\/20100101 Firefox\\/65.0\"}', '192.168.0.3', '2019-03-12', '16:48:59', 1, NULL, NULL, '3j3ecbuek8pa7lh4is5ue2t175uevf9j'),
+(307, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Firefox\",\"browserVersion\":\"65.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko\\/20100101 Firefox\\/65.0\"}', '192.168.0.3', '2019-03-12', '17:06:32', 1, NULL, NULL, 'm4ndfavb0ekrlmg6ihgru67uddtbnl6p'),
+(308, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-12', '17:20:36', 2, '17:23:56', '2019-03-12', 'p3v3vrfrn4dpqv82qc6hdk311unqsfhk'),
+(309, 'buy1@ilab.com', 'buyer 1', 7, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-12', '17:24:11', 2, '17:24:35', '2019-03-12', 'pfkli0406l801f5jjhf1t034k81gsoag'),
+(310, 'buy1@ilab.com', 'buyer 1', 7, '{\"browser\":\"Firefox\",\"browserVersion\":\"65.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko\\/20100101 Firefox\\/65.0\"}', '192.168.0.3', '2019-03-12', '17:24:48', 1, NULL, NULL, '2kkel2jptt8qg5htnrett88iie1i1tm0'),
+(311, 'buy1@ilab.com', 'buyer 1', 7, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-12', '17:31:22', 1, NULL, NULL, '6dtdi1faf2dpg39ajuprqc3el23s6e5n'),
+(312, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-12', '17:40:09', 2, '17:41:21', '2019-03-12', '01s0vb1fbfbff682bjaval59oklpgju8'),
+(313, 'buy1@ilab.com', 'buyer 1', 7, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-12', '17:41:33', 1, NULL, NULL, '9g64d85jhc8halpdvbo0gs3aoqa2doqk'),
+(314, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Firefox\",\"browserVersion\":\"65.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko\\/20100101 Firefox\\/65.0\"}', '192.168.0.3', '2019-03-12', '17:46:46', 1, NULL, NULL, 'o1tsa7bk737cvh9l1hu313hr6hqsot1k'),
+(315, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-12', '17:51:38', 2, '17:52:15', '2019-03-12', '17ad2g5dk8fhc8hh661db5rla30q4srl'),
+(316, 'buy1@ilab.com', 'buyer 1', 7, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-12', '17:52:56', 1, NULL, NULL, 'l2f17rfb295g8dr5oir3repo00c3e8jn'),
+(317, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-12', '18:14:04', 2, '18:14:40', '2019-03-12', 'sgp0u4kohtcshqm44k9uhet7fr4q7hql'),
+(318, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-12', '18:15:17', 1, NULL, NULL, 's734mm0r8gkt87h2g7l3ll9ntm1qdcgd'),
+(319, 'buy1@ilab.com', 'buyer 1', 7, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-12', '18:56:26', 2, '18:56:49', '2019-03-12', 'rq271ati7r5cstajjpgqf5lf915rrc8t'),
+(320, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-12', '18:57:03', 2, '18:59:00', '2019-03-12', '5p0d96c8mmqgv0eifc2lulgor71d82l5'),
+(321, 'bu1@ilab.com', 'bu user1', 6, '{\"browser\":\"Firefox\",\"browserVersion\":\"65.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko\\/20100101 Firefox\\/65.0\"}', '192.168.0.3', '2019-03-12', '19:31:33', 1, NULL, NULL, '8m1bjj3hojkij906t8c5pse3vmvrcj96'),
+(322, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-13', '10:19:45', 1, NULL, NULL, 'ej4bs4gdslng7gtalk2qee7pj2njocu9'),
+(323, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-13', '10:20:30', 1, NULL, NULL, '8c262ebal8ui8dp0vr6nod5e9kka6tck'),
+(324, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-13', '10:38:39', 1, NULL, NULL, 'ce84r3clddkj0cc3v0pqqaer4fo26bm8'),
+(325, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-13', '10:39:08', 1, NULL, NULL, 'ai7lefiba9cdnmugfl7p0lgt5n1v38gc'),
+(326, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Firefox\",\"browserVersion\":\"65.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko\\/20100101 Firefox\\/65.0\"}', '192.168.0.3', '2019-03-13', '11:10:30', 1, NULL, NULL, 'f3eov1si9jhij0g6r631bvn8jt4fapkd'),
+(327, 'bu1@ilab.com', 'bu user1', 6, '{\"browser\":\"Firefox\",\"browserVersion\":\"65.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko\\/20100101 Firefox\\/65.0\"}', '192.168.0.3', '2019-03-13', '12:22:34', 1, NULL, NULL, '83l0crrm1ua2nvpoj11v8p2184jv2o15'),
+(328, 'bu1@ilab.com', 'bu user1', 6, '{\"browser\":\"Firefox\",\"browserVersion\":\"65.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko\\/20100101 Firefox\\/65.0\"}', '192.168.0.3', '2019-03-13', '14:11:49', 1, NULL, NULL, '20c0g0qi1m162npqna4skgo5n6gu7khj'),
+(329, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-13', '14:53:16', 1, NULL, NULL, 'gc0vmm8gf0i6a9ejtpqqi9tftpdbfmi0'),
+(330, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Firefox\",\"browserVersion\":\"65.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko\\/20100101 Firefox\\/65.0\"}', '192.168.0.3', '2019-03-13', '15:14:57', 2, '15:17:08', '2019-03-13', 'be5j7pk2l3n4c03drnc38bfpq22hhv85'),
+(331, 'bu1@ilab.com', 'bu user1', 6, '{\"browser\":\"Firefox\",\"browserVersion\":\"65.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko\\/20100101 Firefox\\/65.0\"}', '192.168.0.3', '2019-03-13', '15:17:26', 1, NULL, NULL, 'fifvh5ugqbj252cptctpdivmr07n3v81'),
+(332, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-13', '15:29:36', 1, NULL, NULL, 'c4j33rr97v1god59glb88qfmqod49n1g'),
+(333, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Firefox\",\"browserVersion\":\"65.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko\\/20100101 Firefox\\/65.0\"}', '192.168.0.3', '2019-03-13', '15:30:33', 1, NULL, NULL, '1rkv5o1knsp300nf6tddh3ce94nrfovd'),
+(334, 'bu1@ilab.com', 'bu user1', 6, '{\"browser\":\"Firefox\",\"browserVersion\":\"65.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko\\/20100101 Firefox\\/65.0\"}', '192.168.0.3', '2019-03-13', '15:43:42', 2, '15:44:52', '2019-03-13', 'f98768k5t98itf4gr43du316bdqn0hfa'),
+(335, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Firefox\",\"browserVersion\":\"65.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko\\/20100101 Firefox\\/65.0\"}', '192.168.0.3', '2019-03-13', '15:52:24', 1, NULL, NULL, '7ci2du9iutv2in24ukpsi5be2v0ch46u'),
+(336, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-13', '16:55:18', 1, NULL, NULL, 'ckoq2fd0d4favv9jtvslrngfdf100j06'),
+(337, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-13', '17:09:37', 1, NULL, NULL, 'mgeuijsrdop4k90jsu6eog6cdavvgnmi'),
+(338, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-13', '17:09:54', 1, NULL, NULL, '55mol7te8bsm0bl23u9mhdv2ladctlpn'),
+(339, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-13', '17:21:00', 1, NULL, NULL, '8uo6bsev89vat9ic5bfh6akq0b4a4po8'),
+(340, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-13', '17:21:46', 1, NULL, NULL, 'il4frq2f3hf6c9mula1ccp031ja0c77f'),
+(341, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-13', '17:22:33', 1, NULL, NULL, 'hr23kn3t0qbara1mg75n3ujj57laq102'),
+(342, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-13', '17:50:08', 1, NULL, NULL, '3euh8incec84cbm5thrv8v2ionjbg50o'),
+(343, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-14', '11:44:46', 1, NULL, NULL, '04jjub7gpr3f8isqmlaef9p6skj7j5db'),
+(344, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Firefox\",\"browserVersion\":\"65.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko\\/20100101 Firefox\\/65.0\"}', '192.168.0.3', '2019-03-14', '13:37:35', 1, NULL, NULL, 'n2ho17d1pi77a366eam7ms091atbds5h'),
+(345, 'siprah@gmail.com', 'Approver5', 8, '{\"browser\":\"Firefox\",\"browserVersion\":\"65.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko\\/20100101 Firefox\\/65.0\"}', '192.168.0.3', '2019-03-14', '18:51:17', 1, NULL, NULL, 'mk4te9289o4actb9b381t8nqqvhcdmpa'),
+(346, 'siprah@gmail.com', 'Approver5', 8, '{\"browser\":\"Firefox\",\"browserVersion\":\"65.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko\\/20100101 Firefox\\/65.0\"}', '192.168.0.3', '2019-03-14', '19:39:03', 1, NULL, NULL, 'h17l9aj547md1vucd1p4a9us3ebh1s4s'),
+(347, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Firefox\",\"browserVersion\":\"65.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko\\/20100101 Firefox\\/65.0\"}', '192.168.0.3', '2019-03-14', '19:55:11', 1, NULL, NULL, 'qsgluvdq39jkh4th6cqrvc9mn1crates'),
+(348, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-15', '10:11:52', 2, '10:14:44', '2019-03-15', 'vghu57pkk0uimkc5i0drsjlcvm9fktb4'),
+(349, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-15', '10:14:59', 1, NULL, NULL, 'd9umrm8inbsuh9368l6bhn3k00255igp'),
+(350, 'siprah@gmail.com', 'Approver5', 8, '{\"browser\":\"Chrome\",\"browserVersion\":\"71.0.3578.98\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/71.0.3578.98 Safari\\/537.36\"}', '192.168.0.3', '2019-03-15', '11:03:40', 1, NULL, NULL, 'pr6763tq80i9jhkl4brdhvpnlj9b42to'),
+(351, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-15', '12:52:22', 1, NULL, NULL, '4jtamfp508hcfip88tli50k1vu8p1hf8'),
+(352, 'siprah@gmail.com', 'Approver5', 8, '{\"browser\":\"Firefox\",\"browserVersion\":\"65.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko\\/20100101 Firefox\\/65.0\"}', '192.168.0.3', '2019-03-15', '16:44:54', 1, NULL, NULL, 'tsst4knk25ivgtacqlg2l50snoj56j4d'),
+(353, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-15', '17:13:06', 1, NULL, NULL, 'pe0ajj4ldin2vc6mp3oa3g1epgbhn8is'),
+(354, 'siprah@gmail.com', 'Approver5', 8, '{\"browser\":\"Chrome\",\"browserVersion\":\"71.0.3578.98\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/71.0.3578.98 Safari\\/537.36\"}', '192.168.0.3', '2019-03-15', '17:44:39', 1, NULL, NULL, '908t501mbmn7jt69deknv4eodmerrpee'),
+(355, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-16', '10:16:39', 1, NULL, NULL, 'buaf1pt31tp6a5p1b4nuujlapefibtsl'),
+(356, 'siprah@gmail.com', 'Approver5', 8, '{\"browser\":\"Firefox\",\"browserVersion\":\"65.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko\\/20100101 Firefox\\/65.0\"}', '192.168.0.3', '2019-03-16', '11:20:39', 1, NULL, NULL, 'sbbcjg3tqtjig9jb0pgun2aoh2mc7dc6'),
+(357, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-16', '13:50:39', 1, NULL, NULL, '4uj6g43aiin7v40d464mgd8lgmdh9jia'),
+(358, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-16', '15:18:33', 1, NULL, NULL, 'qg49t5pc6a5ikljnoc1ngcgf566t5m8c'),
+(359, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-16', '15:38:18', 1, NULL, NULL, '7aertjtack2v2q0jso83qlvbqak74rek'),
+(360, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-16', '15:57:51', 1, NULL, NULL, 'sh2tufajggcqj13lv07lj71552qc5fl1'),
+(361, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-16', '16:21:09', 1, NULL, NULL, '9vpiu6i1cvvntkugr0pbh4k38cvp3547'),
+(362, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-16', '16:58:19', 1, NULL, NULL, '20utb3u70msh2ockvp0512oq4dmuaojl'),
+(363, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-16', '17:03:25', 1, NULL, NULL, '5cj6or14bquajmllo7nd17deg6vf1gcd'),
+(364, 'siprah@gmail.com', 'Approver5', 8, '{\"browser\":\"Firefox\",\"browserVersion\":\"65.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko\\/20100101 Firefox\\/65.0\"}', '192.168.0.3', '2019-03-16', '17:51:40', 1, NULL, NULL, '57hoct6imiq2d79knc8dndae586rmco0'),
+(365, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Firefox\",\"browserVersion\":\"65.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko\\/20100101 Firefox\\/65.0\"}', '192.168.0.3', '2019-03-16', '17:53:47', 1, NULL, NULL, 'nqk9khbgn2egg7e08us1i7nsn9l1gfi7'),
+(366, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-16', '17:59:44', 1, NULL, NULL, 'll734d2r0qsfqf3b51p24h93lks8a3b2'),
+(367, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-16', '18:22:42', 1, NULL, NULL, 'k2ge65apon5ll9v4tqk7ao8q3usor5vt'),
+(368, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-16', '19:06:21', 2, '19:08:47', '2019-03-16', '5gqt12tc8mjrr36ao18ukdrc9hocshe5'),
+(369, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-18', '10:15:25', 2, '10:16:58', '2019-03-18', '8j2kefdd5mn89njto8dhvsfstn0brt6a'),
+(370, 'pro@ilab.com', 'procurement user 1', 4, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-18', '10:18:14', 1, NULL, NULL, 'lniek3lkpm1n5rdg8t33a2v871l1pslm'),
+(371, 'pro@ilab.com', 'procurement user 1', 4, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-18', '10:28:37', 1, NULL, NULL, 'oqo8emnptk4v68055gt148jitmjn8tj4'),
+(372, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-18', '10:41:46', 2, '10:43:36', '2019-03-18', 'fa38jrmt98d7o9pge77bsovnikferk3e'),
+(373, 'pro@ilab.com', 'procurement user 1', 4, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-18', '10:43:57', 1, NULL, NULL, 'tk73rgpnfk18fhu69n5anacr5jic3le6'),
+(374, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-18', '10:53:59', 2, '10:54:55', '2019-03-18', '4iuvi50aa8h3h44rksvolli1mse0aip2'),
+(375, 'pro@ilab.com', 'procurement user 1', 4, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-18', '10:55:21', 1, NULL, NULL, 'ra80t4bvhdd0pf1tn38tm5dr60qmq3gk'),
+(376, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-18', '10:59:28', 1, NULL, NULL, 'li7bl363fqoseo2t4roip03ircll7mj1'),
+(377, 'pro@ilab.com', 'procurement user 1', 4, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-18', '11:01:03', 1, NULL, NULL, 'e8d90u2clkdlgd41qhhmhqhs7mj6v2lo'),
+(378, 'siprah@gmail.com', 'Approver5', 8, '{\"browser\":\"Firefox\",\"browserVersion\":\"65.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko\\/20100101 Firefox\\/65.0\"}', '192.168.0.3', '2019-03-18', '11:21:35', 1, NULL, NULL, 'qh4um94iupjlomd7gkfa4satufkefffb'),
+(379, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-18', '11:25:45', 2, '11:29:00', '2019-03-18', '8t57fs2bdl4q20llive2ikd7vtm7359f'),
+(380, 'pro@ilab.com', 'procurement user 1', 4, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-18', '11:29:27', 1, NULL, NULL, 'et3587dn0cn8m8vv32seegavqmukc3ns'),
+(381, 'siprah@gmail.com', 'Approver5', 8, '{\"browser\":\"Firefox\",\"browserVersion\":\"65.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko\\/20100101 Firefox\\/65.0\"}', '192.168.0.3', '2019-03-18', '12:32:20', 1, NULL, NULL, '9dte29fdj1o8r3ghf86s1i5ihu19u2ol'),
+(382, 'pro@ilab.com', 'procurement user 1', 4, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-18', '12:47:40', 1, NULL, NULL, 'iut07juhj9dnaer18gbpcstvjrqru650'),
+(383, 'pro@ilab.com', 'procurement user 1', 4, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-18', '12:52:37', 1, NULL, NULL, '8ve650vtpnh7dd92k9tmbjui10e2tr4o'),
+(384, 'pro@ilab.com', 'procurement user 1', 4, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-18', '12:53:25', 1, NULL, NULL, 'qh6313ich9o1utc9mot7fje3295240su'),
+(385, 'siprah@gmail.com', 'Approver5', 8, '{\"browser\":\"Firefox\",\"browserVersion\":\"65.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko\\/20100101 Firefox\\/65.0\"}', '192.168.0.3', '2019-03-18', '12:53:26', 1, NULL, NULL, 'r7jl6qb40go2d47r1ri5mvn881nuot0a'),
+(386, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Firefox\",\"browserVersion\":\"66.0\",\"platform\":\"Windows 8.1\",\"full_user_agent_string\":\"Mozilla\\/5.0 (Windows NT 6.3; WOW64; rv:66.0) Gecko\\/20100101 Firefox\\/66.0\"}', '192.168.0.8', '2019-03-18', '12:54:48', 1, NULL, NULL, 'nqggou5lo1fvsu9bs81p77gtgv65777o'),
+(387, 'siprah@gmail.com', 'Approver5', 8, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-18', '12:58:47', 2, '12:59:28', '2019-03-18', 'drmei6v3tt84r2m9513ehbuqtqc0kbgs'),
+(388, 'pro@ilab.com', 'procurement user 1', 4, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-18', '12:59:40', 1, NULL, NULL, 'npbealj3o0qarek8orajgkc1i4lgfprt'),
+(389, 'pro@ilab.com', 'procurement user 1', 4, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-18', '13:03:22', 1, NULL, NULL, 'v4p9fdcs51euaufkjco4rfkg5j3mkn08'),
+(390, 'pro@ilab.com', 'procurement user 1', 4, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-18', '13:04:43', 1, NULL, NULL, 'e47k84jlt5egekf2bjstgur5r0dfb8oq'),
+(391, 'pro@ilab.com', 'procurement user 1', 4, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-18', '13:14:08', 1, NULL, NULL, 'he1bc4kca552t8nc0djq4c6gt1eq1g65'),
+(392, 'siprah@gmail.com', 'Approver5', 8, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-18', '13:21:00', 2, '13:21:49', '2019-03-18', 'k5bopcnailrkf4prmpll4bpdsdslpovc'),
+(393, 'pro@ilab.com', 'procurement user 1', 4, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-18', '13:22:03', 1, NULL, NULL, 'nv4jn3ntcidbt8p4mv4gqljmt9pa74f5'),
+(394, 'pro@ilab.com', 'procurement user 1', 4, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-18', '13:46:42', 1, NULL, NULL, 'k3p7j5phhp8ob63citsmoi4fhtvlhduc'),
+(395, 'pro@ilab.com', 'procurement user 1', 4, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-18', '15:29:25', 1, NULL, NULL, '3obrmptrn64sqeve2q0jgch7olo3jr3t'),
+(396, 'pro@ilab.com', 'procurement user 1', 4, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-18', '15:30:17', 1, NULL, NULL, 'oqd6e0bka1n84hrksc5nn172joio0u0h'),
+(397, 'siprah@gmail.com', 'Approver5', 8, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-18', '15:32:06', 2, '15:33:16', '2019-03-18', '6ov59m9d5r8dpqquiibm036dngip01u5'),
+(398, 'pro@ilab.com', 'procurement user 1', 4, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-18', '15:33:28', 1, NULL, NULL, 'lrmvs4r4lsf6mlophpi0rpfh27oq9d8u'),
+(399, 'pro@ilab.com', 'procurement user 1', 4, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-18', '15:45:05', 1, NULL, NULL, 'u4pth6f5lq6uitb1bl3emfdqjeipu95q'),
+(400, 'siprah@gmail.com', 'Approver5', 8, '{\"browser\":\"Firefox\",\"browserVersion\":\"65.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko\\/20100101 Firefox\\/65.0\"}', '192.168.0.3', '2019-03-18', '16:28:37', 1, NULL, NULL, 'o4ejphchtveseeuq1om044v9j9lrcm7c'),
+(401, 'pro@ilab.com', 'procurement user 1', 4, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-18', '16:28:45', 1, NULL, NULL, '5kr912ke4o55sq5s6avobbk0utvkrmpg'),
+(402, 'pro@ilab.com', 'procurement user 1', 4, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-18', '16:30:13', 1, NULL, NULL, 'i0d0v1077k4cue2dqpr3ijnj2fr908b4'),
+(403, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-18', '16:32:48', 1, NULL, NULL, 'm1h9pku3s0d9ieja3o0vadckkuand19k'),
+(404, 'pro@ilab.com', 'procurement user 1', 4, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-18', '16:34:22', 1, NULL, NULL, 'av7cm7pu6ovl1il1g2pnh8nvrum64a23'),
+(405, 'pro@ilab.com', 'procurement user 1', 4, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-18', '16:45:47', 1, NULL, NULL, 'koeaq68mut3v92d40dmi3fm5ph8ds4mp'),
+(406, 'buy1@ilab.com', 'buyer 1', 7, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-18', '16:52:13', 1, NULL, NULL, '8oce11vvn50fb370arkujau4qp79qukl'),
+(407, 'buy1@ilab.com', 'buyer 1', 7, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-18', '16:54:10', 1, NULL, NULL, 'gngmso8pkhqssn92h95jpt6c4g46q3n8'),
+(408, 'buy1@ilab.com', 'buyer 1', 7, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-18', '17:01:45', 2, '17:02:10', '2019-03-18', '8omsi3qnlqeuubptr7ev0hv0qj9oenp0'),
+(409, 'pro@ilab.com', 'procurement user 1', 4, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-18', '17:02:25', 1, NULL, NULL, 'vi5up918939p8equc41o6eucv6nc2mp6'),
+(410, 'siprah@gmail.com', 'Approver5', 8, '{\"browser\":\"Firefox\",\"browserVersion\":\"65.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko\\/20100101 Firefox\\/65.0\"}', '192.168.0.3', '2019-03-18', '17:08:00', 2, '17:08:44', '2019-03-18', 'eit2fn1i7gm3n1qksqpstr2d309g1k37'),
+(411, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Firefox\",\"browserVersion\":\"65.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko\\/20100101 Firefox\\/65.0\"}', '192.168.0.3', '2019-03-18', '17:09:46', 1, NULL, NULL, 'mo4p1rcd6jakgi98gt44fpt4gc9cjcu0'),
+(412, 'pro@ilab.com', 'procurement user 1', 4, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-18', '17:17:33', 1, NULL, NULL, 'pfmag6lco0ssuir55kisqai54qne7jmv'),
+(413, 'pro@ilab.com', 'procurement user 1', 4, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-18', '17:22:00', 1, NULL, NULL, '1bao2con0sv08dti6o2v4mhigsbpttaq');
+INSERT INTO `Ilab_master_session_history` (`slno_history`, `user_id`, `username`, `user_role`, `browser_detail`, `ip`, `entry_date`, `entry_time`, `status`, `logout_time`, `logout_date`, `session_id`) VALUES
+(414, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Firefox\",\"browserVersion\":\"65.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko\\/20100101 Firefox\\/65.0\"}', '192.168.0.3', '2019-03-18', '17:35:58', 1, NULL, NULL, 'kt35qrkm9qpkbglq4c0o1mbn0o80f6vr'),
+(415, 'pro@ilab.com', 'procurement user 1', 4, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-18', '17:37:26', 1, NULL, NULL, 'eej2d4d0mpmlqoece7jb5hniilefdadc'),
+(416, 'pro@ilab.com', 'procurement user 1', 4, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-18', '17:37:51', 1, NULL, NULL, '9nas6t65sahg8bf1q5135vdit456cnjn'),
+(417, 'pro@ilab.com', 'procurement user 1', 4, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-18', '17:41:22', 1, NULL, NULL, 'osg3hscigc8d7imcnqb3eg6bg46bh56d'),
+(418, 'pro@ilab.com', 'procurement user 1', 4, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-18', '17:51:01', 1, NULL, NULL, '1u1ojkqs8eh47misqbs2lssn16343pp8'),
+(419, 'pro@ilab.com', 'procurement user 1', 4, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-18', '17:58:11', 1, NULL, NULL, 'nv26bid55jbmqb2o14sv92kolk4gu40h'),
+(420, 'pro@ilab.com', 'procurement user 1', 4, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-18', '18:11:04', 1, NULL, NULL, '2scq0bdaglb58ehsivvsevop6nvrrs5d'),
+(421, 'pro@ilab.com', 'procurement user 1', 4, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-18', '18:25:55', 1, NULL, NULL, 'lneh9rvldgg8l7khrl9aavpme2gu7hug'),
+(422, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Firefox\",\"browserVersion\":\"65.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko\\/20100101 Firefox\\/65.0\"}', '192.168.0.3', '2019-03-18', '18:59:54', 1, NULL, NULL, '7f193gbl4d5kceqh8st6895m2a7kdmc5'),
+(423, 'buy1@ilab.com', 'buyer 1', 7, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-19', '10:06:46', 2, '10:07:01', '2019-03-19', 'n7qbn4cdfc5mb37n7eq1opm0np1pagvl'),
+(424, 'pro@ilab.com', 'procurement user 1', 4, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-19', '10:07:25', 1, NULL, NULL, '2566mdrq1kqnpj5mo7vb8dap3rniltn2'),
+(425, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-19', '10:30:27', 2, '10:30:59', '2019-03-19', '2ulg1ksn2dg7s6s9hcljjfuaqkq1597v'),
+(426, 'pro@ilab.com', 'procurement user 1', 4, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-19', '10:31:09', 1, NULL, NULL, 'okq7nahu5m3dkt2l6ifu2u5tt5jlp334'),
+(427, 'siprah@gmail.com', 'Approver5', 8, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-19', '10:36:14', 2, '10:37:05', '2019-03-19', 'qrcifadji9dkn1tr2797ok11nhcgbbc8'),
+(428, 'pro@ilab.com', 'procurement user 1', 4, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-19', '10:37:20', 1, NULL, NULL, '4b4d665ago5mj0vfrpi9vkm2gkafhqr7'),
+(429, 'siprah@gmail.com', 'Approver5', 8, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-19', '11:13:58', 1, NULL, NULL, 'vk6kjdii45t79rggknf5iggfe1sjf4kn'),
+(430, 'pro@ilab.com', 'procurement user 1', 4, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-19', '11:15:58', 1, NULL, NULL, 'hsgq6keinp84oufpcd16odgt1ll4rht9'),
+(431, 'siprah@gmail.com', 'Approver5', 8, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-19', '11:17:18', 2, '11:17:45', '2019-03-19', '000572v3481l8tgs9vh592nau737uert'),
+(432, 'pro@ilab.com', 'procurement user 1', 4, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-19', '11:17:57', 1, NULL, NULL, 'vjj72p7f321pc89e3qfljcr49the73p5'),
+(433, 'siprah@gmail.com', 'Approver5', 8, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-19', '11:36:28', 1, NULL, NULL, 'tvdik0tr2bf5mq53obkvh291r40lo35e'),
+(434, 'pro@ilab.com', 'procurement user 1', 4, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-19', '11:37:38', 1, NULL, NULL, 'kdbag77mc8o138kk9nb9e993pao47kep'),
+(435, 'pro@ilab.com', 'procurement user 1', 4, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-19', '11:56:48', 1, NULL, NULL, 'qlfjgk8b123vatig39p94k1t59v2sehm'),
+(436, 'siprah@gmail.com', 'Approver5', 8, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-19', '11:58:13', 2, '11:58:33', '2019-03-19', 'krpoqqva9tgruefd70209qms4kv4539e'),
+(437, 'pro@ilab.com', 'procurement user 1', 4, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-19', '11:58:56', 1, NULL, NULL, 'ub99pp5v4t42l7d8iegpqhd0lpgbpspq'),
+(438, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-19', '12:10:58', 1, NULL, NULL, 'tctlu84pipt1po7v2cdphqdej0r1cu0i'),
+(439, 'pro@ilab.com', 'procurement user 1', 4, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-19', '12:12:05', 1, NULL, NULL, 'kamrlvq9roubl13pln2eereeo9fe28kn'),
+(440, 'pro@ilab.com', 'procurement user 1', 4, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-19', '12:14:44', 1, NULL, NULL, 'i4ifq13hi43ufbkpbt4ub4jtgc4tf9fj'),
+(441, 'siprah@gmail.com', 'Approver5', 8, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-19', '13:09:28', 2, '13:10:25', '2019-03-19', 'o67546asa6sceea8kqidbua16tqi4i3m'),
+(442, 'pro@ilab.com', 'procurement user 1', 4, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-19', '13:10:38', 1, NULL, NULL, 'e0rk5sfd8er6jucrj1la3s143a047rcn'),
+(443, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Firefox\",\"browserVersion\":\"65.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko\\/20100101 Firefox\\/65.0\"}', '192.168.0.3', '2019-03-19', '14:52:25', 1, NULL, NULL, 'snpfgs8g32ajrhdqjk8m4nqbvkdt8vgf'),
+(444, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Firefox\",\"browserVersion\":\"65.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko\\/20100101 Firefox\\/65.0\"}', '192.168.0.3', '2019-03-19', '15:29:19', 1, NULL, NULL, '6t3ut1215tkjkvsm1eulfe7d71un586j'),
+(445, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Firefox\",\"browserVersion\":\"65.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko\\/20100101 Firefox\\/65.0\"}', '192.168.0.3', '2019-03-19', '15:31:35', 1, NULL, NULL, 'pcp8598uj8bjatj9uc0fhirhnm3t64k0'),
+(446, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Firefox\",\"browserVersion\":\"65.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko\\/20100101 Firefox\\/65.0\"}', '192.168.0.3', '2019-03-19', '15:40:34', 1, NULL, NULL, '65378jm0vgfhfcd9d2bpk6ug6uauq7ed'),
+(447, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Firefox\",\"browserVersion\":\"65.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko\\/20100101 Firefox\\/65.0\"}', '192.168.0.3', '2019-03-19', '15:48:23', 1, NULL, NULL, 'd6in03ovk6ntqgue75d3iji2sci2nts2'),
+(448, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-19', '15:51:41', 1, NULL, NULL, 'mtrrn66q30c7uam0mb1avfqqosf0tnqc'),
+(449, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Firefox\",\"browserVersion\":\"65.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko\\/20100101 Firefox\\/65.0\"}', '192.168.0.3', '2019-03-19', '15:52:47', 1, NULL, NULL, 'ot8p2q8bpjohdmlrsdokspfpr4rcpd4i'),
+(450, 'pro@ilab.com', 'procurement user 1', 4, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-19', '15:53:11', 1, NULL, NULL, 'rbfarvj0lj1mvn6fhr21h74vjtdlkm0u'),
+(451, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Firefox\",\"browserVersion\":\"65.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko\\/20100101 Firefox\\/65.0\"}', '192.168.0.3', '2019-03-19', '15:55:28', 1, NULL, NULL, 'pl3bd6ebtli848fvobnmd8ak115bh9hg'),
+(452, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Firefox\",\"browserVersion\":\"65.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko\\/20100101 Firefox\\/65.0\"}', '192.168.0.3', '2019-03-19', '15:59:00', 1, NULL, NULL, 'iji933fki7af00thqfca6mfs0qk7tpbh'),
+(453, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Firefox\",\"browserVersion\":\"65.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko\\/20100101 Firefox\\/65.0\"}', '192.168.0.3', '2019-03-19', '16:02:08', 1, NULL, NULL, 'v5755kfbqfivaauvi6q1748somb2b8r8'),
+(454, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Firefox\",\"browserVersion\":\"65.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko\\/20100101 Firefox\\/65.0\"}', '192.168.0.3', '2019-03-19', '16:06:37', 1, NULL, NULL, 'hu2hun51q6hvnntuutl93aal2vq6os8l'),
+(455, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Firefox\",\"browserVersion\":\"65.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko\\/20100101 Firefox\\/65.0\"}', '192.168.0.3', '2019-03-19', '16:10:49', 1, NULL, NULL, '3tvupk4cl05bvu8j0qoq3bdo1b8851c1'),
+(456, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Firefox\",\"browserVersion\":\"65.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko\\/20100101 Firefox\\/65.0\"}', '192.168.0.3', '2019-03-19', '16:28:54', 1, NULL, NULL, 'sf1atra2rt5at8825f8qjq3r62vkbvd9'),
+(457, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Firefox\",\"browserVersion\":\"65.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko\\/20100101 Firefox\\/65.0\"}', '192.168.0.3', '2019-03-19', '16:32:33', 1, NULL, NULL, 'ovaupda7aguffbjvmrv6vket6n428jv5'),
+(458, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Firefox\",\"browserVersion\":\"65.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko\\/20100101 Firefox\\/65.0\"}', '192.168.0.3', '2019-03-19', '16:33:36', 1, NULL, NULL, 'a7oo30390i0l5qoobcqk93hhfo63m2vf'),
+(459, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Firefox\",\"browserVersion\":\"65.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko\\/20100101 Firefox\\/65.0\"}', '192.168.0.3', '2019-03-19', '16:48:45', 1, NULL, NULL, 'mufho4b77ej5k9heu0qesiq2c01tiq6j'),
+(460, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Firefox\",\"browserVersion\":\"65.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko\\/20100101 Firefox\\/65.0\"}', '192.168.0.3', '2019-03-19', '16:53:59', 1, NULL, NULL, 's7tr1elm70vevf4q9guoekl193ukr0pl'),
+(461, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Firefox\",\"browserVersion\":\"65.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko\\/20100101 Firefox\\/65.0\"}', '192.168.0.3', '2019-03-19', '16:58:27', 1, NULL, NULL, 'jshr7urh048cjo32o3pihturpuacu179'),
+(462, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Firefox\",\"browserVersion\":\"65.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko\\/20100101 Firefox\\/65.0\"}', '192.168.0.3', '2019-03-19', '17:21:05', 1, NULL, NULL, 'mh7u01stko76oqugt8dfgj8k6fo54cat'),
+(463, 'siprah@gmail.com', 'Approver5', 8, '{\"browser\":\"Firefox\",\"browserVersion\":\"66.0\",\"platform\":\"Windows 8.1\",\"full_user_agent_string\":\"Mozilla\\/5.0 (Windows NT 6.3; WOW64; rv:66.0) Gecko\\/20100101 Firefox\\/66.0\"}', '192.168.0.8', '2019-03-19', '17:44:41', 1, NULL, NULL, '09ve9u1qrdg8ktja7d8slv9jj5duvapk'),
+(464, 'pro@ilab.com', 'procurement user 1', 4, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-19', '18:30:17', 1, NULL, NULL, 'slophvvsipevn2pvun6219gvthb18a23'),
+(465, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Firefox\",\"browserVersion\":\"65.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko\\/20100101 Firefox\\/65.0\"}', '192.168.0.3', '2019-03-19', '18:30:41', 2, '18:31:07', '2019-03-19', '2dcrpdvmgohtv538dd9le84jkgg3rtoa'),
+(466, 'siprah@gmail.com', 'Approver5', 8, '{\"browser\":\"Firefox\",\"browserVersion\":\"65.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko\\/20100101 Firefox\\/65.0\"}', '192.168.0.3', '2019-03-19', '18:32:10', 1, NULL, NULL, 'pp3ntpjljmdbcath9cvbe711nkq8nppe'),
+(467, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-19', '18:34:00', 1, NULL, NULL, 'jtp2lm18mh34dvccsmlqea4kmu0002r6'),
+(468, 'pro@ilab.com', 'procurement user 1', 4, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-19', '18:35:01', 1, NULL, NULL, '67ivdh18trojjqfdipvf99bgl23rn7ei'),
+(469, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-19', '18:36:20', 1, NULL, NULL, 'qf1knhkjn2k0k107m3cj1j7unf0m1e6r'),
+(470, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-19', '18:37:42', 2, '18:38:53', '2019-03-19', 'qgh36bne164gffiuo2dqpummed30u73b'),
+(471, 'pro@ilab.com', 'procurement user 1', 4, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-19', '18:39:20', 1, NULL, NULL, 'jn14cpci8fkvuqebentij1fbfkb33d07'),
+(472, 'pro@ilab.com', 'procurement user 1', 4, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-19', '18:56:32', 1, NULL, NULL, 'g613p8qv9edp0pkjffe4s8gg5qrctsui'),
+(473, 'pro@ilab.com', 'procurement user 1', 4, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-20', '10:15:15', 1, NULL, NULL, 'b1ce5j1fr45sbhcgaassjm7dresras2k'),
+(474, 'pro@ilab.com', 'procurement user 1', 4, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-20', '10:32:52', 1, NULL, NULL, 's08inad41n12sds1stul98pi949t2dko'),
+(475, 'pro@ilab.com', 'procurement user 1', 4, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-20', '11:02:46', 1, NULL, NULL, '80jqa20htr3kvl0594o4nu8vc81f5bvd'),
+(476, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Firefox\",\"browserVersion\":\"65.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko\\/20100101 Firefox\\/65.0\"}', '192.168.0.3', '2019-03-20', '11:31:58', 2, '11:36:23', '2019-03-20', 'rmjcqmfs5nh1t8tinsarjjscoh6v79u4'),
+(477, 'pro@ilab.com', 'procurement user 1', 4, '{\"browser\":\"Firefox\",\"browserVersion\":\"65.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko\\/20100101 Firefox\\/65.0\"}', '192.168.0.3', '2019-03-20', '11:57:06', 1, NULL, NULL, 'padpdkfdmu63trabtgbvethcqduk9rgu'),
+(478, 'pro@ilab.com', 'procurement user 1', 4, '{\"browser\":\"Firefox\",\"browserVersion\":\"65.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko\\/20100101 Firefox\\/65.0\"}', '192.168.0.3', '2019-03-20', '11:59:52', 1, NULL, NULL, 'msu28ijlgq9a2kr2gtsmic1lh9bqp0kg'),
+(479, 'pro@ilab.com', 'procurement user 1', 4, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-20', '12:06:42', 1, NULL, NULL, 'q8ieqv93j601jse91kuiucak9pjodsck'),
+(480, 'pro@ilab.com', 'procurement user 1', 4, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-20', '12:18:09', 1, NULL, NULL, 'gtoh1f2al42ngbmhhfed895nli5a3dos'),
+(481, 'pro@ilab.com', 'procurement user 1', 4, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-20', '12:34:44', 1, NULL, NULL, 'hn68s9i7f1r3j1c9dkodc11sbd74bpia'),
+(482, 'pro@ilab.com', 'procurement user 1', 4, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-20', '12:36:07', 1, NULL, NULL, 'nv33s2tsg8fj2m2mlubd78b5oe62cs0h'),
+(483, 'pro@ilab.com', 'procurement user 1', 4, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-20', '12:37:06', 1, NULL, NULL, '1di6artc60ur2uf7qov4fqvkdtciea58'),
+(484, 'pro@ilab.com', 'procurement user 1', 4, '{\"browser\":\"Firefox\",\"browserVersion\":\"65.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko\\/20100101 Firefox\\/65.0\"}', '192.168.0.3', '2019-03-20', '12:38:45', 2, '12:38:49', '2019-03-20', 't9it97lbqmd42h51glveicf8241nvh58'),
+(485, 'buy1@ilab.com', 'buyer 1', 7, '{\"browser\":\"Firefox\",\"browserVersion\":\"65.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko\\/20100101 Firefox\\/65.0\"}', '192.168.0.3', '2019-03-20', '13:10:38', 1, NULL, NULL, 'kvskka9no4aadnipft97naj39tv54cat'),
+(486, 'pro@ilab.com', 'procurement user 1', 4, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-20', '15:00:52', 1, NULL, NULL, '8l440qh9riketmop6lhqk829a8uqamei'),
+(487, 'pro@ilab.com', 'procurement user 1', 4, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-20', '15:05:17', 1, NULL, NULL, 'ufongbe7klc9mfof30pnlu5p1kn3k0uc'),
+(488, 'pro@ilab.com', 'procurement user 1', 4, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-20', '15:09:16', 1, NULL, NULL, 'hkd37bq28bd71d1q4i4janjhe8phjpgu'),
+(489, 'pro@ilab.com', 'procurement user 1', 4, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-20', '15:13:20', 1, NULL, NULL, 'uj2aq8fpi9mhh8260eafoan4q6qr9q4f'),
+(490, 'pro@ilab.com', 'procurement user 1', 4, '{\"browser\":\"Firefox\",\"browserVersion\":\"65.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko\\/20100101 Firefox\\/65.0\"}', '192.168.0.3', '2019-03-20', '15:17:59', 2, '15:22:23', '2019-03-20', '7f9d5ulg48699l0a6j51kb37fak88jue'),
+(491, 'buy1@ilab.com', 'buyer 1', 7, '{\"browser\":\"Firefox\",\"browserVersion\":\"65.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko\\/20100101 Firefox\\/65.0\"}', '192.168.0.3', '2019-03-20', '15:23:38', 1, NULL, NULL, 'c92j23lg5ch1q2v8edrcohqn1behs5a7'),
+(492, 'buy1@ilab.com', 'buyer 1', 7, '{\"browser\":\"Firefox\",\"browserVersion\":\"65.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko\\/20100101 Firefox\\/65.0\"}', '192.168.0.3', '2019-03-20', '15:47:11', 1, NULL, NULL, 'mcb9amoarajk29l1igag362hi9okeco2'),
+(493, 'pro@ilab.com', 'procurement user 1', 4, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-20', '17:27:38', 1, NULL, NULL, '93j7p5jbk03rg0vo9vr314bfg3k8euaf'),
+(494, 'buy1@ilab.com', 'buyer 1', 7, '{\"browser\":\"Firefox\",\"browserVersion\":\"65.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko\\/20100101 Firefox\\/65.0\"}', '192.168.0.3', '2019-03-20', '18:15:13', 1, NULL, NULL, 'po9bpnsvq379ld1br9vcg7hdpnadcmqe'),
+(495, 'pro@ilab.com', 'procurement user 1', 4, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-21', '10:00:55', 2, '10:01:55', '2019-03-21', 'qrquqcieh1fj22lu3eom9d1nbpgohh4i'),
+(496, 'pro@ilab.com', 'procurement user 1', 4, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-21', '10:12:35', 2, '10:13:33', '2019-03-21', '629rl7d33ru1j7kqmlataesj7uodc6lg'),
+(497, 'siprah@gmail.com', 'Approver5', 8, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-21', '10:13:45', 2, '10:14:25', '2019-03-21', '7s9arip4lcelrbv9i4as83f66ir4fis4'),
+(498, 'pro@ilab.com', 'procurement user 1', 4, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-21', '10:14:40', 1, NULL, NULL, '9cs90lbeh5mlfimkvqb17v0kj0vgftqv'),
+(499, 'pro@ilab.com', 'procurement user 1', 4, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-21', '10:22:25', 1, NULL, NULL, '3manr77oahui1gaf6c69oft75vjts349'),
+(500, 'pro@ilab.com', 'procurement user 1', 4, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-21', '10:23:03', 1, NULL, NULL, 'c8hafth9cdvm8etoa8qb0djch7u7537g'),
+(501, 'buy1@ilab.com', 'buyer 1', 7, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-21', '10:28:55', 1, NULL, NULL, 'g30delhq3pf8h091alreg0mmjqj8ridl'),
+(502, 'buy1@ilab.com', 'buyer 1', 7, '{\"browser\":\"Firefox\",\"browserVersion\":\"65.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko\\/20100101 Firefox\\/65.0\"}', '192.168.0.3', '2019-03-21', '10:52:04', 1, NULL, NULL, 'q2sgg39i86d75ht5s57jkqejuqgg0rcb'),
+(503, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-21', '10:55:02', 1, NULL, NULL, 'mgn94q0v39j5s7pfo6uoddmf91na0g00'),
+(504, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-21', '11:02:32', 2, '11:03:53', '2019-03-21', 'g7or6hn2v2pfcla300ff30kcmf7f9ghk'),
+(505, 'siprah@gmail.com', 'Approver5', 8, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-21', '11:04:18', 2, '11:05:04', '2019-03-21', 'jembq2uvatj15k9vjv7m1gc83afk9j92'),
+(506, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-21', '11:05:18', 1, NULL, NULL, 'bsr7er78t6a5nf4dnmqp1fo9tf5lnn59'),
+(507, 'siprah@gmail.com', 'Approver5', 8, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-21', '11:10:34', 2, '11:11:52', '2019-03-21', 'pl8lpf5r3eot30k3dih3kcvatdn80s9g'),
+(508, 'pro@ilab.com', 'procurement user 1', 4, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-21', '11:12:22', 1, NULL, NULL, '3203puut8nahrrj0rbvvj5i41fc7ub1g'),
+(509, 'buy1@ilab.com', 'buyer 1', 7, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-21', '11:44:52', 2, '11:47:20', '2019-03-21', 'ov9k0m5qftiqmlmdien0bvm0sudctdoh'),
+(510, 'pro@ilab.com', 'procurement user 1', 4, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-21', '11:47:56', 2, '11:48:23', '2019-03-21', 'asa5cnjnq24l56bot8iea5cnfk47qogt'),
+(511, 'buy1@ilab.com', 'buyer 1', 7, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-21', '11:48:50', 1, NULL, NULL, 'skn6n6ak9dh7k44es6ls59fuharepdlh'),
+(512, 'buy1@ilab.com', 'buyer 1', 7, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-21', '12:08:16', 1, NULL, NULL, 'nm5e613t41hrsfb47bv1lp5ch4dfa2ch'),
+(513, 'pro@ilab.com', 'procurement user 1', 4, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-21', '12:15:04', 2, '12:15:34', '2019-03-21', '3u6cho6sp4f0nvdsfmdc9mfcssgmlchf'),
+(514, 'siprah@gmail.com', 'Approver5', 8, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-21', '12:16:02', 2, '12:17:01', '2019-03-21', '27jtlclcmb8rpkf6shks65m2kms12rvj'),
+(515, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-21', '12:17:17', 2, '12:18:30', '2019-03-21', 'pebtarvjd6vbic4u8cfr9o7557rh5iad'),
+(516, 'buy1@ilab.com', 'buyer 1', 7, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-21', '12:19:13', 1, NULL, NULL, 'i77opjnk6m2p51p0a5u6gh6pbeb3ilfo'),
+(517, 'buy1@ilab.com', 'buyer 1', 7, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-21', '13:06:04', 1, NULL, NULL, 'avnmh4cl62dq3t066kc04vpebdcekjfu'),
+(518, 'buy1@ilab.com', 'buyer 1', 7, '{\"browser\":\"Firefox\",\"browserVersion\":\"65.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:65.0) Gecko\\/20100101 Firefox\\/65.0\"}', '192.168.0.3', '2019-03-21', '17:44:07', 1, NULL, NULL, 'raq3u9t8840fsef85bdiigs767t14u7j'),
+(519, 'buy1@ilab.com', 'buyer 1', 7, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-23', '10:15:39', 1, NULL, NULL, '3607rvqkfs3d62nkqmad83fdaa81dg47'),
+(520, 'buy1@ilab.com', 'buyer 1', 7, '{\"browser\":\"Firefox\",\"browserVersion\":\"66.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko\\/20100101 Firefox\\/66.0\"}', '192.168.0.3', '2019-03-23', '11:44:44', 1, NULL, NULL, 'lq9lbl11dg7gclf0id0uidk9hdq5jtlm'),
+(521, 'buy1@ilab.com', 'buyer 1', 7, '{\"browser\":\"Firefox\",\"browserVersion\":\"66.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko\\/20100101 Firefox\\/66.0\"}', '192.168.0.3', '2019-03-23', '13:06:57', 1, NULL, NULL, '67mf7h39hgq7riubjme06vh93bqvvve7'),
+(522, 'buy1@ilab.com', 'buyer 1', 7, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-23', '15:32:54', 1, NULL, NULL, 'hh1kq176mk5n67hffhbi06srt5m2hhnr'),
+(523, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-23', '16:23:01', 2, '16:24:05', '2019-03-23', 'l6eobbg5741p3lsvivhchrhonbv1so58'),
+(524, 'siprah@gmail.com', 'Approver5', 8, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-23', '16:24:24', 2, '16:24:51', '2019-03-23', 'hs9m8uedh2mdckdl1c31acl1cpmlau09'),
+(525, 'pro@ilab.com', 'procurement user 1', 4, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-23', '16:25:14', 2, '16:25:52', '2019-03-23', 'kgarf9emhu7g0lrf4uejm6nisog8js65'),
+(526, 'buy1@ilab.com', 'buyer 1', 7, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-23', '16:26:05', 1, NULL, NULL, 'hupe69gk0cnkm18giqi0fjs0o6r1r18u'),
+(527, 'buy1@ilab.com', 'buyer 1', 7, '{\"browser\":\"Firefox\",\"browserVersion\":\"66.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko\\/20100101 Firefox\\/66.0\"}', '192.168.0.3', '2019-03-23', '16:40:49', 1, NULL, NULL, 'v2ervghvo406d5r0mjudj02o87lmj3ao'),
+(528, 'buy1@ilab.com', 'buyer 1', 7, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-23', '17:15:17', 1, NULL, NULL, 'jtjke3b5ph4jj38lju3opcbqoku8s3g6');
 
 -- --------------------------------------------------------
 
@@ -3338,7 +4566,9 @@ INSERT INTO `Ilab_master_session_history_vendors` (`slno_history`, `user_id`, `u
 (61, 'ven121@gmail.com', 'INFOLEX METAMORF ', 4, '{\"browser\":\"Chrome\",\"browserVersion\":\"68.0.3440.106\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/68.0.3440.106 Safari\\/537.36\"}', '192.168.0.6', '2019-01-31', '18:55:24', 1, NULL, NULL, 'bjbisqs3ohpntckljkqjdor2rk62d7dv'),
 (62, 'ven121@gmail.com', 'INFOLEX METAMORF ', 4, '{\"browser\":\"Firefox\",\"browserVersion\":\"64.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:64.0) Gecko\\/20100101 Firefox\\/64.0\"}', '192.168.0.4', '2019-01-31', '18:56:52', 1, NULL, NULL, '81toujucuf8gn9gclgp3da4305fvckcb'),
 (63, 'ven121@gmail.com', 'INFOLEX METAMORF ', 4, '{\"browser\":\"Chrome\",\"browserVersion\":\"68.0.3440.106\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/68.0.3440.106 Safari\\/537.36\"}', '192.168.0.6', '2019-01-31', '19:51:33', 1, NULL, NULL, 'ncr8u222ujdcs1dit168i3snjd8l5kfm'),
-(64, 'ven121@gmail.com', 'INFOLEX METAMORF ', 4, '{\"browser\":\"Chrome\",\"browserVersion\":\"68.0.3440.106\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/68.0.3440.106 Safari\\/537.36\"}', '192.168.0.6', '2019-01-31', '20:03:44', 2, '20:07:07', '2019-01-31', 'cioos1228fng87sel6g7lf1p6160v8b0');
+(64, 'ven121@gmail.com', 'INFOLEX METAMORF ', 4, '{\"browser\":\"Chrome\",\"browserVersion\":\"68.0.3440.106\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/68.0.3440.106 Safari\\/537.36\"}', '192.168.0.6', '2019-01-31', '20:03:44', 2, '20:07:07', '2019-01-31', 'cioos1228fng87sel6g7lf1p6160v8b0'),
+(65, 'ven121@gmail.com', 'INFOLEX METAMORF ', 4, '{\"browser\":\"Chrome\",\"browserVersion\":\"68.0.3440.106\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/68.0.3440.106 Safari\\/537.36\"}', '192.168.0.6', '2019-02-20', '15:40:30', 1, NULL, NULL, '2vhu6l2q41hgst8u6k7ecu5vqdehnvd5'),
+(66, 'ven121@gmail.com', 'INFOLEX METAMORF ', 4, '{\"browser\":\"Chrome\",\"browserVersion\":\"68.0.3440.106\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/68.0.3440.106 Safari\\/537.36\"}', '192.168.0.6', '2019-02-20', '15:42:09', 1, NULL, NULL, 'lh035ehr8qt5i2r4g1lk4hcajrivvsje');
 
 -- --------------------------------------------------------
 
@@ -4195,7 +5425,8 @@ INSERT INTO `Ilab_master_technical_detail` (`Slno_technical`, `technical_name`, 
 (7, 'technical 1667', 'For a long time I assumed that foreach worked with the array itself. Then I found many references to the fact that it works with a copy of the array, and I have since assumed this to be the end of the story. But I recently got i', 'techid001sssd', '1', 7, 1, '2018-10-15', '17:43:28'),
 (8, 'ABCD 3333', 'This clearly shows that we are not working directly with the source array - otherwise the loop would continue forever, since we are constantly pushing items onto the array during the loop. But just to be sure this is the case:', 'techid0013343434', '1', 8, 1, '2018-10-15', '17:44:00'),
 (9, 'tech34311', 'xxxxx', '12131', '1', 2, 1, '2019-01-18', '17:23:05'),
-(10, 'tech454', 'xxxxx', '455555', '1', 6, 1, '2019-01-18', '17:30:26');
+(10, 'tech454', 'xxxxx', '455555', '1', 6, 1, '2019-01-18', '17:30:26'),
+(11, 'tec404', 'xyz', '111', '1', 6, 1, '2019-02-20', '15:58:30');
 
 -- --------------------------------------------------------
 
@@ -4249,18 +5480,118 @@ CREATE TABLE `Ilab_master_tracking_tools` (
   `Status` int(11) NOT NULL DEFAULT '1',
   `Entry_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `Update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `submitted_by` varchar(255) NOT NULL
+  `submitted_by` varchar(255) NOT NULL,
+  `project_id` varchar(255) NOT NULL,
+  `pr_no_schedule` varchar(255) NOT NULL,
+  `pr_no_schedule_slno` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Ilab_master_tracking_tools_m`
+--
+
+CREATE TABLE `Ilab_master_tracking_tools_m` (
+  `Slno_tracking` int(11) NOT NULL,
+  `Job_code` varchar(255) DEFAULT NULL,
+  `Po_no` varchar(255) NOT NULL,
+  `Po_date` varchar(255) DEFAULT NULL,
+  `Date_creation` varchar(255) DEFAULT NULL,
+  `Bg_submission_date` varchar(255) DEFAULT NULL,
+  `Drg_submission_date` varchar(255) DEFAULT NULL,
+  `Advance_payment_date` varchar(255) DEFAULT NULL,
+  `Drg_approval_date` varchar(255) DEFAULT NULL,
+  `Inspection_call_date` varchar(255) DEFAULT NULL,
+  `Inspection_call_remark` text,
+  `Inspection_clearance_date` varchar(255) DEFAULT NULL,
+  `Inspection_clearance_remark` text,
+  `Dispatch_clearance_date` varchar(255) DEFAULT NULL,
+  `Dispatch_clearance_remark` text,
+  `Qty_receipt_at_site` text,
+  `Qty_pending` varchar(255) DEFAULT NULL,
+  `Supply_completion` varchar(255) DEFAULT NULL,
+  `Remark_process` text,
+  `ACE_Basic` varchar(255) DEFAULT NULL,
+  `Invoice_value` varchar(255) DEFAULT NULL,
+  `Order_value` varchar(255) DEFAULT NULL,
+  `Cost_saving` varchar(255) DEFAULT NULL,
+  `Mfg_clear_date` varchar(255) DEFAULT NULL,
+  `Status` int(11) NOT NULL DEFAULT '1',
+  `Entry_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `Update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `submitted_by` varchar(255) NOT NULL,
+  `pr_no` varchar(255) NOT NULL,
+  `pr_no_slno` varchar(255) NOT NULL,
+  `item_name_pr` varchar(255) NOT NULL,
+  `project_slno` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `Ilab_master_tracking_tools`
+-- Dumping data for table `Ilab_master_tracking_tools_m`
 --
 
-INSERT INTO `Ilab_master_tracking_tools` (`Slno_tracking`, `Job_code`, `Po_no`, `Po_date`, `Date_creation`, `Bg_submission_date`, `Drg_submission_date`, `Advance_payment_date`, `Drg_approval_date`, `Inspection_call_date`, `Inspection_call_remark`, `Inspection_clearance_date`, `Inspection_clearance_remark`, `Dispatch_clearance_date`, `Dispatch_clearance_remark`, `Qty_receipt_at_site`, `Qty_pending`, `Supply_completion`, `Remark_process`, `ACE_Basic`, `Invoice_value`, `Order_value`, `Cost_saving`, `Mfg_clear_date`, `Status`, `Entry_date`, `Update`, `submitted_by`) VALUES
-(1, '33', '345434', '2018-11-28', '2018-11-28', '', NULL, '', NULL, '', '', '', '', '', '', '', '', '2', '', '', '', '', '', '', 1, '2018-11-09 12:16:15', '2018-11-09 12:16:15', 'bu1@ilab.com'),
-(2, '787867', '678989', '2019-01-28', '2019-01-18', '2019-01-21', NULL, '2018-11-12', NULL, '2019-01-07', 'xxx', '2019-01-29', 'xxxx', '2019-02-09', 'xxxxxx', '77879898700', '0', '1', 'xx', '12', '980000', '9', '56000', '2019-01-24', 1, '2019-01-16 11:26:04', '2019-01-16 11:26:04', 'bu1@ilab.com'),
-(3, '98778', '758808', '2019-01-18', '2019-01-05', '2019-01-11', NULL, '', '', '2019-01-24', 'xxxxx', '2019-01-28', 'xxxxx', '2019-01-30', 'xxx', '12', '0', '1', 'x', '17', '3500', '9', '8000', '2019-01-21', 1, '2019-01-16 11:55:00', '2019-01-16 12:08:04', 'bu1@ilab.com'),
-(4, '7776', '66767', '2019-01-12', '2019-01-09', '2019-01-18', NULL, '', NULL, '2019-01-11', 'xxxx', '2019-01-16', 'xxxxxxxxxxxxxx', '2019-01-17', 'xx', '8700', '8900', '1', 'xxxx', '7.9', '7000', '9.9', '6750', '2019-01-21', 1, '2019-01-19 12:48:01', '2019-01-19 12:48:01', 'bu1@ilab.com');
+INSERT INTO `Ilab_master_tracking_tools_m` (`Slno_tracking`, `Job_code`, `Po_no`, `Po_date`, `Date_creation`, `Bg_submission_date`, `Drg_submission_date`, `Advance_payment_date`, `Drg_approval_date`, `Inspection_call_date`, `Inspection_call_remark`, `Inspection_clearance_date`, `Inspection_clearance_remark`, `Dispatch_clearance_date`, `Dispatch_clearance_remark`, `Qty_receipt_at_site`, `Qty_pending`, `Supply_completion`, `Remark_process`, `ACE_Basic`, `Invoice_value`, `Order_value`, `Cost_saving`, `Mfg_clear_date`, `Status`, `Entry_date`, `Update`, `submitted_by`, `pr_no`, `pr_no_slno`, `item_name_pr`, `project_slno`) VALUES
+(1, '0770 [ project 1 ]', '345434', '2019-03-28', '2019-03-16', '2019-03-23', '', '2019-03-14', '', '', '', '', '', '', '', '', '', '2', '', '', '', '', '', '2019-03-23', 1, '2019-03-09 10:26:18', '2019-03-09 10:27:24', 'bu1@ilab.com', 'O18191-950-E-K-30101-001', '1', 'TPD for 33KV HT Switch board', '1'),
+(2, '0770 [ project 1 ]', '77600', '2019-04-19', '2019-03-29', '2019-03-30', '', '', NULL, '2019-04-16', 'okay', '2019-04-10', 'fine', '2019-04-12', 'complete', '670', '5', '1', 'okay', '9.8', '23000', '8', '5500', '2019-03-31', 2, '2019-03-09 10:46:31', '2019-03-09 10:46:31', 'bu1@ilab.com', 'O18191-950-E-K-30102-001', '2', 'TPD for 33/11 KV ONAN/ONAF Power Transformer ', '1'),
+(3, '0770 [ project 1 ]', '55600', '2019-04-11', '2019-04-04', '2019-04-10', '', '6', NULL, '2019-04-19', 'okay', '2019-04-25', 'okay', '2019-04-30', 'okay', '5000', '5', '2', 'okay', '7.9', '567000', '9', '80000', '2019-04-17', 1, '2019-03-09 11:19:42', '2019-03-09 11:19:42', 'bu1@ilab.com', 'O18191-950-E-K-30108-001', '8', 'TPD for 110V DC Battery Bank & battery charger', '1'),
+(4, '0770 [ project 1 ]', '8700', '2019-04-30', '2019-04-16', '2019-04-18', '', '9-7-2019', NULL, '2019-03-24', 'okay', '2019-04-17', 'okay', '2019-04-30', 'okay', '7800', '5', '2', 'okay', '9.9', '3500', '8', '7700', '2019-04-27', 2, '2019-03-09 11:24:44', '2019-03-09 11:24:44', 'bu1@ilab.com', 'O18191-950-E-K-30111-001', '11', 'TPD for 415V LT Smart PMCC', '1'),
+(5, '0770 [ project 1 ]', '7908', '2019-04-30', '2019-04-30', '2019-04-23', '', '15-7-2019', NULL, '2019-05-22', 'okay', '2019-04-23', 'okay', '2019-04-19', 'okay', '7900', '7', '2', 'okay', '15', '8800', '8', '8900', '2019-05-21', 1, '2019-03-09 11:28:02', '2019-03-09 11:28:02', 'bu1@ilab.com', 'O18191-950-E-K-30113-001', '13', 'TPD for 415V PDB', '1');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Ilab_master_tracking_tools_m_clone`
+--
+
+CREATE TABLE `Ilab_master_tracking_tools_m_clone` (
+  `Slno_tracking` int(11) NOT NULL,
+  `Job_code` varchar(255) DEFAULT NULL,
+  `Po_date` varchar(255) DEFAULT NULL,
+  `Date_creation` varchar(255) DEFAULT NULL,
+  `Bg_submission_date` varchar(255) DEFAULT NULL,
+  `Drg_submission_date` varchar(255) DEFAULT NULL,
+  `Advance_payment_date` varchar(255) DEFAULT NULL,
+  `Drg_approval_date` varchar(255) DEFAULT NULL,
+  `Inspection_call_date` varchar(255) DEFAULT NULL,
+  `Inspection_call_remark` text,
+  `Inspection_clearance_date` varchar(255) DEFAULT NULL,
+  `Inspection_clearance_remark` text,
+  `Dispatch_clearance_date` varchar(255) DEFAULT NULL,
+  `Dispatch_clearance_remark` text,
+  `Qty_receipt_at_site` text,
+  `Qty_pending` varchar(255) DEFAULT NULL,
+  `Supply_completion` varchar(255) DEFAULT NULL,
+  `Remark_process` text,
+  `ACE_Basic` varchar(255) DEFAULT NULL,
+  `Invoice_value` varchar(255) DEFAULT NULL,
+  `Order_value` varchar(255) DEFAULT NULL,
+  `Cost_saving` varchar(255) DEFAULT NULL,
+  `Mfg_clear_date` varchar(255) DEFAULT NULL,
+  `Status` int(11) NOT NULL DEFAULT '1',
+  `Entry_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `Update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `submitted_by` varchar(255) NOT NULL,
+  `pr_no` varchar(255) NOT NULL,
+  `pr_no_slno` varchar(255) NOT NULL,
+  `item_name_pr` varchar(255) NOT NULL,
+  `project_slno` varchar(255) NOT NULL,
+  `master_id` int(11) NOT NULL,
+  `Po_no` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `Ilab_master_tracking_tools_m_clone`
+--
+
+INSERT INTO `Ilab_master_tracking_tools_m_clone` (`Slno_tracking`, `Job_code`, `Po_date`, `Date_creation`, `Bg_submission_date`, `Drg_submission_date`, `Advance_payment_date`, `Drg_approval_date`, `Inspection_call_date`, `Inspection_call_remark`, `Inspection_clearance_date`, `Inspection_clearance_remark`, `Dispatch_clearance_date`, `Dispatch_clearance_remark`, `Qty_receipt_at_site`, `Qty_pending`, `Supply_completion`, `Remark_process`, `ACE_Basic`, `Invoice_value`, `Order_value`, `Cost_saving`, `Mfg_clear_date`, `Status`, `Entry_date`, `Update`, `submitted_by`, `pr_no`, `pr_no_slno`, `item_name_pr`, `project_slno`, `master_id`, `Po_no`) VALUES
+(1, '0770 [ project 1 ]', '2019-03-28', '2019-03-16', '', '', '', NULL, '', '', '', '', '', '', '', '', '2', '', '', '', '', '', '2019-03-23', 1, '2019-03-09 10:26:18', '2019-03-09 10:26:18', 'bu1@ilab.com', 'O18191-950-E-K-30101-001', '1', 'TPD for 33KV HT Switch board', '1', 1, '345434'),
+(2, '0770 [ project 1 ]', '2019-03-28', '2019-03-16', '', '', '2019-03-14', '', '', '', '', '', '', '', '', '', '2', '', '', '', '', '', '2019-03-23', 1, '2019-03-09 10:26:43', '2019-03-09 10:26:43', 'bu1@ilab.com', 'O18191-950-E-K-30101-001', '1', 'TPD for 33KV HT Switch board', '1', 1, '345434'),
+(3, '0770 [ project 1 ]', '2019-03-28', '2019-03-16', '2019-03-23', '', '2019-03-14', '', '', '', '', '', '', '', '', '', '2', '', '', '', '', '', '2019-03-23', 2, '2019-03-09 10:27:24', '2019-03-09 10:27:24', 'bu1@ilab.com', 'O18191-950-E-K-30101-001', '1', 'TPD for 33KV HT Switch board', '1', 1, '345434'),
+(4, '0770 [ project 1 ]', '2019-04-19', '2019-03-29', '2019-03-30', '', '', NULL, '2019-04-16', 'okay', '2019-04-10', 'fine', '2019-04-12', 'complete', '670', '5', '1', 'okay', '9.8', '23000', '8', '5500', '2019-03-31', 1, '2019-03-09 10:46:31', '2019-03-09 10:46:31', 'bu1@ilab.com', 'O18191-950-E-K-30102-001', '2', 'TPD for 33/11 KV ONAN/ONAF Power Transformer ', '1', 2, '77600'),
+(5, '0770 [ project 1 ]', '2019-04-11', '2019-04-04', '2019-04-10', '', '6', NULL, '2019-04-19', 'okay', '2019-04-25', 'okay', '2019-04-30', 'okay', '5000', '5', '2', 'okay', '7.9', '567000', '9', '80000', '2019-04-17', 2, '2019-03-09 11:19:42', '2019-03-09 11:19:42', 'bu1@ilab.com', 'O18191-950-E-K-30108-001', '8', 'TPD for 110V DC Battery Bank & battery charger', '1', 3, '55600'),
+(6, '0770 [ project 1 ]', '2019-04-30', '2019-04-16', '2019-04-18', '', '9-7-2019', NULL, '2019-03-24', 'okay', '2019-04-17', 'okay', '2019-04-30', 'okay', '7800', '5', '2', 'okay', '9.9', '3500', '8', '7700', '2019-04-27', 1, '2019-03-09 11:24:44', '2019-03-09 11:24:44', 'bu1@ilab.com', 'O18191-950-E-K-30111-001', '11', 'TPD for 415V LT Smart PMCC', '1', 4, '8700'),
+(7, '0770 [ project 1 ]', '2019-04-30', '2019-04-30', '2019-04-23', '', '15-7-2019', NULL, '2019-05-22', 'okay', '2019-04-23', 'okay', '2019-04-19', 'okay', '7900', '7', '2', 'okay', '15', '8800', '8', '8900', '2019-05-21', 2, '2019-03-09 11:28:02', '2019-03-09 11:28:02', 'bu1@ilab.com', 'O18191-950-E-K-30113-001', '13', 'TPD for 415V PDB', '1', 5, '7908');
 
 -- --------------------------------------------------------
 
@@ -4346,7 +5677,8 @@ INSERT INTO `Ilab_master_vehicle_type` (`Slno_vehicle`, `vehicle_type`, `status`
 (4, 'vehicle12', 1, '2018-09-25', '16:59:37'),
 (5, 'vehicle2', 3, '2018-09-26', '15:26:05'),
 (6, 'vehech', 3, '2018-10-11', '18:01:42'),
-(7, 'vehicle13343', 1, '2019-01-18', '17:46:35');
+(7, 'vehicle13343', 1, '2019-01-18', '17:46:35'),
+(8, 'vehic342', 1, '2019-02-20', '15:58:54');
 
 -- --------------------------------------------------------
 
@@ -4376,7 +5708,7 @@ CREATE TABLE `Ilab_master_vendor_detail` (
 INSERT INTO `Ilab_master_vendor_detail` (`Slno_vendor`, `Vendor_name`, `Vendor_email_id`, `Mobile_no`, `Organisation_name`, `Password`, `Password_hash`, `Status`, `Date_entry`, `Time_entry`, `Vendor_desc`, `Organisation_address`) VALUES
 (1, 'vendor 2', 'vender2@ilab.com', '99330', 'vendor 2 pvt ltd', '1234', '81dc9bdb52d04dc20036dbd8313ed055', 1, '2019-01-18', '16:56:30', 'teartt', 'wqqwqw'),
 (2, 'vendor 1', 'vender@ilab.com', '99330', 'vendor pvt ltd', '1234', '81dc9bdb52d04dc20036dbd8313ed055', 1, '2018-09-22', '19:08:40', 'teartt', 'wqqwqw'),
-(3, 'ven10', 'ven111@gmail.com', '985676768', 'xyz', '111', '698d51a19d8a121ce581499d7b701668', 1, '2018-09-26', '15:14:25', 'ttt', 'xxxt'),
+(3, 'ven10', 'ven111@gmail.com', '985676768', 'xyz', '111', '698d51a19d8a121ce581499d7b701668', 3, '2018-09-26', '15:14:25', 'ttt', 'xxxt'),
 (4, 'INFOLEX METAMORF ', 'ven121@gmail.com', '76673498510', 'INFOLEX METAMORF BUSINESS SOLUTIONS PRIVATE LIMITED', '1234', '81dc9bdb52d04dc20036dbd8313ed055', 1, '2018-09-26', '15:24:14', 'xxxy', 'No.3, 3rd Main, Bahubalinagar, MES Ring Road, Jalahalli Post Bangalore Bangalore KA 560013 IN'),
 (5, 'Vendor 4', 'ven221@gmail.com', '8635787011', 'T&T', '5432', '2e92962c0b6996add9517e4242ea9bdc', 1, '2018-11-13', '11:44:36', 'abc', 'Chennai'),
 (6, 'Vendor5', 'ven001@gmail.com', '76453892344', 'WWPE', '4444', 'dbc4d84bfcfe2284ba11beffb853a8c4', 1, '2018-11-13', '11:46:49', 'xxxc', 'odisha'),
@@ -4459,7 +5791,15 @@ INSERT INTO `Ilab_master_vendor_notifications` (`slno_approve`, `vendor_id_bid`,
 (26, '109', 'ven121@gmail.com', '2019-01-31 10:40:16', '2019-01-31 10:41:51', 1, 'bid  final '),
 (27, '161', 'ven121@gmail.com', '2019-01-31 13:16:24', '2019-01-31 13:25:44', 1, 'A Rank order reverse auction shall be conducted for the bid no  600 dated on 01/31/2019 6:44 PM you are requested to participate. <br> <p>For any query send your queries accross ther application no '),
 (28, '175', 'ven121@gmail.com', '2019-01-31 13:22:33', '2019-01-31 13:25:39', 1, 'A Rank order reverse auction shall be conducted for the bid no  670 dated on 01/31/2019 6:51 PM you are requested to participate. <br> <p>For any query send your queries accross ther application no '),
-(29, '189', 'ven121@gmail.com', '2019-01-31 13:23:17', '2019-01-31 13:25:31', 1, 'A Rank order reverse auction shall be conducted for the bid no  99 dated on 01/31/2019 6:52 PM you are requested to participate. <br> <p>For any query send your queries accross ther application no ');
+(29, '189', 'ven121@gmail.com', '2019-01-31 13:23:17', '2019-01-31 13:25:31', 1, 'A Rank order reverse auction shall be conducted for the bid no  99 dated on 01/31/2019 6:52 PM you are requested to participate. <br> <p>For any query send your queries accross ther application no '),
+(30, '161', 'ven121@gmail.com', '2019-02-20 09:19:15', '2019-02-20 10:11:08', 1, 'A Rank order reverse auction shall be conducted for the bid no  600 dated on 01/31/2019 6:44 PM you are requested to participate. <br> <p>For any query send your queries accross ther application no '),
+(31, '74', 'ven121@gmail.com', '2019-02-20 10:09:31', '2019-02-20 10:09:31', 0, 'txy'),
+(32, '203', 'ven121@gmail.com', '2019-02-20 12:24:47', '2019-02-20 12:24:47', 0, 'A Rank order reverse auction shall be conducted for the bid no  8700 dated on 02/20/2019 5:53 PM you are requested to participate. <br> <p>For any query send your queries accross ther application no '),
+(33, '161', 'ven121@gmail.com', '2019-03-01 12:52:04', '2019-03-01 12:52:04', 0, 'A Rank order reverse auction shall be conducted for the bid no  600 dated on 01/31/2019 6:44 PM you are requested to participate. <br> <p>For any query send your queries accross ther application no '),
+(34, '161', 'ven121@gmail.com', '2019-03-01 12:52:52', '2019-03-01 12:52:52', 0, 'A Rank order reverse auction shall be conducted for the bid no  600 dated on 01/31/2019 6:44 PM you are requested to participate. <br> <p>For any query send your queries accross ther application no '),
+(35, '175', 'ven121@gmail.com', '2019-03-01 12:56:38', '2019-03-01 12:56:38', 0, 'A Rank order reverse auction shall be conducted for the bid no  670 dated on 01/31/2019 6:51 PM you are requested to participate. <br> <p>For any query send your queries accross ther application no '),
+(36, '203', 'ven121@gmail.com', '2019-03-01 13:00:00', '2019-03-01 13:00:00', 0, 'A Rank order reverse auction shall be conducted for the bid no  8700 dated on 02/20/2019 5:53 PM you are requested to participate. <br> <p>For any query send your queries accross ther application no '),
+(37, '161', 'ven121@gmail.com', '2019-03-12 05:20:52', '2019-03-12 05:20:52', 0, 'A Rank order reverse auction shall be conducted for the bid no  600 dated on 01/31/2019 6:44 PM you are requested to participate. <br> <p>For any query send your queries accross ther application no ');
 
 -- --------------------------------------------------------
 
@@ -4653,7 +5993,14 @@ INSERT INTO `Ilab_pms_log_entries` (`Slno`, `Form_name`, `Data_entry`, `status`,
 (149, 'Vehicle Capacity Entery Form', '{\"vehicle_capacity\":\"vehicle111211\",\"status\":1,\"date_entry\":\"2019-01-18\",\"time_entry\":\"18:03:55\"}', 1, '2019-01-18', '18:03:55', '192.168.0.6', '{\"browser\":\"Chrome\",\"browserVersion\":\"68.0.3440.106\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/68.0.3440.106 Safari\\/537.36\"}'),
 (150, 'Vehicle Entery Form', '{\"vehicle_type\":\"vehicle3s\",\"vehicle_capacity\":\"8000ponds\",\"vehicle_desc\":\"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"category_slno\":3,\"status\":1,\"date_entry\":\"2019-01-18\",\"time_entry\":\"18:28:57\"}', 1, '2019-01-18', '18:28:57', '192.168.0.6', '{\"browser\":\"Chrome\",\"browserVersion\":\"68.0.3440.106\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/68.0.3440.106 Safari\\/537.36\"}'),
 (151, 'Vehicle Entery Form', '{\"vehicle_type\":\"vehicle10\",\"vehicle_capacity\":\"50s ponds\",\"vehicle_desc\":\"xxxxxx\",\"category_slno\":3,\"status\":1,\"date_entry\":\"2019-01-18\",\"time_entry\":\"18:29:37\"}', 1, '2019-01-18', '18:29:37', '192.168.0.6', '{\"browser\":\"Chrome\",\"browserVersion\":\"68.0.3440.106\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/68.0.3440.106 Safari\\/537.36\"}'),
-(152, 'Vehicle Entery Form', '{\"vehicle_type\":\"vehicle10\",\"vehicle_capacity\":\"50s ponds\",\"vehicle_desc\":\"xxxxxx\",\"category_slno\":3,\"status\":1,\"date_entry\":\"2019-01-18\",\"time_entry\":\"18:31:11\"}', 1, '2019-01-18', '18:31:11', '192.168.0.6', '{\"browser\":\"Chrome\",\"browserVersion\":\"68.0.3440.106\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/68.0.3440.106 Safari\\/537.36\"}');
+(152, 'Vehicle Entery Form', '{\"vehicle_type\":\"vehicle10\",\"vehicle_capacity\":\"50s ponds\",\"vehicle_desc\":\"xxxxxx\",\"category_slno\":3,\"status\":1,\"date_entry\":\"2019-01-18\",\"time_entry\":\"18:31:11\"}', 1, '2019-01-18', '18:31:11', '192.168.0.6', '{\"browser\":\"Chrome\",\"browserVersion\":\"68.0.3440.106\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/68.0.3440.106 Safari\\/537.36\"}'),
+(153, 'User_Entry_Form', '{\"email_id\":\"sha12@gmail.com\",\"Username\":\"user5\",\"Password\":\"shA10000\",\"password_hash\":\"59ad47f426392d811349ec6bc4cdef82\",\"Status\":1,\"role_id\":\"2\",\"user_mobile\":\"5675678800\",\"user_degination\":\"design50\"}', 1, '2019-02-20', '12:56:25', '192.168.0.6', '{\"browser\":\"Chrome\",\"browserVersion\":\"68.0.3440.106\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/68.0.3440.106 Safari\\/537.36\"}'),
+(154, 'Project Entry Form', '{\"Project_Name\":\"xtxx\",\"job_Code\":\"600\",\"Date_Start\":\"2019-05-08\",\"Customer_Name\":\"cust211\",\"Customer_Mobile_No\":\"12345667890\",\"project_Description\":\"tps\",\"status\":\"1\",\"Date_Entry\":\"2019-02-20\",\"Time_Entry\":\"15:55:08\"}', 1, '2019-02-20', '15:55:08', '192.168.0.6', '{\"browser\":\"Chrome\",\"browserVersion\":\"68.0.3440.106\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/68.0.3440.106 Safari\\/537.36\"}'),
+(155, 'other charges entry', '{\"Charges_name\":\"char44410\",\"description_charge\":\"\",\"charge_value\":\"\",\"status\":\"1\",\"date_entry\":\"2019-02-20\",\"time_entry\":\"15:55:40\"}', 1, '2019-02-20', '15:55:40', '192.168.0.6', '{\"browser\":\"Chrome\",\"browserVersion\":\"68.0.3440.106\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/68.0.3440.106 Safari\\/537.36\"}'),
+(156, 'other charge update', '{\"data_change\":{\"Charges_name\":\"char44410\"},\"data_id\":{\"Slno_other\":\"5\"}}', 1, '2019-02-20', '15:56:16', '192.168.0.6', '{\"browser\":\"Chrome\",\"browserVersion\":\"68.0.3440.106\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/68.0.3440.106 Safari\\/537.36\"}'),
+(157, 'material item entry', '{\"Category_slno\":\"1\",\"item_name\":\"ttst\",\"item_id\":\"6600\",\"item_detail\":\"xyz\",\"item_uom\":\"505\",\"category_id\":\"cat005\",\"category_name\":\"standard catalogued item\",\"status\":\"1\",\"date_entry\":\"2019-02-20\",\"time_entry\":\"15:57:24\"}', 1, '2019-02-20', '15:57:24', '192.168.0.6', '{\"browser\":\"Chrome\",\"browserVersion\":\"68.0.3440.106\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/68.0.3440.106 Safari\\/537.36\"}'),
+(158, 'Technical Entery Form', '{\"technical_name\":\"tec404\",\"technical_desc\":\"xyz\",\"technical_id\":\"111\",\"category_slno\":\"1\",\"status\":1,\"date_entry\":\"2019-02-20\",\"time_entry\":\"15:58:30\",\"material_slno\":\"6\"}', 1, '2019-02-20', '15:58:30', '192.168.0.6', '{\"browser\":\"Chrome\",\"browserVersion\":\"68.0.3440.106\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/68.0.3440.106 Safari\\/537.36\"}'),
+(159, 'Vehicle Type Entery Form', '{\"vehicle_type\":\"vehic342\",\"status\":1,\"date_entry\":\"2019-02-20\",\"time_entry\":\"15:58:54\"}', 1, '2019-02-20', '15:58:54', '192.168.0.6', '{\"browser\":\"Chrome\",\"browserVersion\":\"68.0.3440.106\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/68.0.3440.106 Safari\\/537.36\"}');
 
 -- --------------------------------------------------------
 
@@ -4677,7 +6024,7 @@ INSERT INTO `Ilab_section` (`Section_Slno`, `section_Name`, `Status`, `Date_Entr
 (1, 'xyz', 3, '2018-09-14', '21:35:46'),
 (2, 'section 4', 3, '2018-09-15', '13:06:47'),
 (3, 'sec 1', 3, '2018-09-15', '15:50:18'),
-(4, 'section2', 1, '2018-09-18', '12:52:03'),
+(4, 'section2', 2, '2018-09-18', '12:52:03'),
 (5, 'section2', 1, '2018-09-26', '14:58:49'),
 (6, 'section2311', 1, '2019-01-17', '18:22:23');
 
@@ -4853,7 +6200,36 @@ INSERT INTO `messages` (`id`, `message`, `created_at`) VALUES
 (90, 'Test MySQL recurring Event', '2019-02-01 18:38:51'),
 (91, 'Test MySQL recurring Event', '2019-02-01 18:39:00'),
 (92, 'Test MySQL recurring Event', '2019-02-01 18:39:51'),
-(93, 'Test MySQL recurring Event', '2019-02-01 18:40:00');
+(93, 'Test MySQL recurring Event', '2019-02-01 18:40:00'),
+(94, 'Test MySQL recurring Event', '2019-02-01 18:40:51'),
+(95, 'Test MySQL recurring Event', '2019-02-01 18:41:00'),
+(96, 'Test MySQL recurring Event', '2019-02-01 18:41:51'),
+(97, 'Test MySQL recurring Event', '2019-02-01 18:42:00'),
+(98, 'Test MySQL recurring Event', '2019-02-01 18:42:51'),
+(99, 'Test MySQL recurring Event', '2019-02-01 18:43:00'),
+(100, 'Test MySQL recurring Event', '2019-02-01 18:43:51'),
+(101, 'Test MySQL recurring Event', '2019-02-01 18:44:00'),
+(102, 'Test MySQL recurring Event', '2019-02-01 18:44:51'),
+(103, 'Test MySQL recurring Event', '2019-02-01 18:45:00'),
+(104, 'Test MySQL recurring Event', '2019-02-01 18:45:51'),
+(105, 'Test MySQL recurring Event', '2019-02-01 18:46:00'),
+(106, 'Test MySQL recurring Event', '2019-02-01 18:46:51'),
+(107, 'Test MySQL recurring Event', '2019-02-01 18:47:00'),
+(108, 'Test MySQL recurring Event', '2019-02-01 18:47:51'),
+(109, 'Test MySQL recurring Event', '2019-02-01 18:48:00'),
+(110, 'Test MySQL recurring Event', '2019-02-01 18:48:51'),
+(111, 'Test MySQL recurring Event', '2019-02-01 18:49:00'),
+(112, 'Test MySQL recurring Event', '2019-02-01 18:49:51'),
+(113, 'Test MySQL recurring Event', '2019-02-01 18:50:00'),
+(114, 'Test MySQL recurring Event', '2019-02-01 18:50:51'),
+(115, 'Test MySQL recurring Event', '2019-02-01 18:51:00'),
+(116, 'Test MySQL recurring Event', '2019-02-01 18:51:51'),
+(117, 'Test MySQL recurring Event', '2019-02-01 18:52:00'),
+(118, 'Test MySQL recurring Event', '2019-02-01 18:52:51'),
+(119, 'Test MySQL recurring Event', '2019-02-01 18:53:00'),
+(120, 'Test MySQL recurring Event', '2019-02-01 18:53:51'),
+(121, 'Test MySQL recurring Event', '2019-02-01 18:54:00'),
+(122, 'Test MySQL recurring Event', '2019-02-01 18:55:00');
 
 --
 -- Indexes for dumped tables
@@ -4881,6 +6257,13 @@ ALTER TABLE `Ilab_master_admin`
 -- Indexes for table `Ilab_master_bid`
 --
 ALTER TABLE `Ilab_master_bid`
+  ADD PRIMARY KEY (`Slno_bid`),
+  ADD KEY `buyer_slno` (`buyer_slno`);
+
+--
+-- Indexes for table `Ilab_master_bid_c`
+--
+ALTER TABLE `Ilab_master_bid_c`
   ADD PRIMARY KEY (`Slno_bid`),
   ADD KEY `buyer_slno` (`buyer_slno`);
 
@@ -4916,6 +6299,14 @@ ALTER TABLE `Ilab_master_bid_date_details_commerical`
   ADD KEY `buyer_slno` (`buyer_slno`);
 
 --
+-- Indexes for table `Ilab_master_bid_date_details_m`
+--
+ALTER TABLE `Ilab_master_bid_date_details_m`
+  ADD PRIMARY KEY (`Slno_bid_date`),
+  ADD KEY `bid_sl no` (`bid_slno`),
+  ADD KEY `buyer_slno` (`buyer_slno`);
+
+--
 -- Indexes for table `Ilab_master_bid_details`
 --
 ALTER TABLE `Ilab_master_bid_details`
@@ -4927,6 +6318,14 @@ ALTER TABLE `Ilab_master_bid_details`
 -- Indexes for table `Ilab_master_bid_details_commerical`
 --
 ALTER TABLE `Ilab_master_bid_details_commerical`
+  ADD PRIMARY KEY (`slno_bid_detail`),
+  ADD KEY `bid_slno` (`bid_slno`),
+  ADD KEY `buyer_sl no` (`buyer_slno`);
+
+--
+-- Indexes for table `Ilab_master_bid_details_m`
+--
+ALTER TABLE `Ilab_master_bid_details_m`
   ADD PRIMARY KEY (`slno_bid_detail`),
   ADD KEY `bid_slno` (`bid_slno`),
   ADD KEY `buyer_sl no` (`buyer_slno`);
@@ -4998,6 +6397,14 @@ ALTER TABLE `Ilab_master_bid_technicalevaluation`
   ADD KEY `buyer_slno` (`buyer_slno`);
 
 --
+-- Indexes for table `Ilab_master_bid_technicalevaluation_m`
+--
+ALTER TABLE `Ilab_master_bid_technicalevaluation_m`
+  ADD PRIMARY KEY (`slno_bid_tech_id`),
+  ADD KEY `bid_slno` (`bid_slno`),
+  ADD KEY `buyer_slno` (`buyer_slno`);
+
+--
 -- Indexes for table `Ilab_master_bid_vendor`
 --
 ALTER TABLE `Ilab_master_bid_vendor`
@@ -5023,6 +6430,14 @@ ALTER TABLE `Ilab_master_bid_vendor_file_details`
   ADD KEY `vendor_slno` (`vendor_slno`);
 
 --
+-- Indexes for table `Ilab_master_bid_vendor_m`
+--
+ALTER TABLE `Ilab_master_bid_vendor_m`
+  ADD PRIMARY KEY (`slno_vendor`),
+  ADD KEY `bid_sl no` (`bid_slno`),
+  ADD KEY `buyer_slno` (`buyer_slno`);
+
+--
 -- Indexes for table `Ilab_master_buyer_material_details`
 --
 ALTER TABLE `Ilab_master_buyer_material_details`
@@ -5044,6 +6459,12 @@ ALTER TABLE `Ilab_master_buyer_MR`
 ALTER TABLE `Ilab_master_category`
   ADD PRIMARY KEY (`Slno_cat`),
   ADD UNIQUE KEY `category_id` (`category_id`);
+
+--
+-- Indexes for table `Ilab_master_category_item`
+--
+ALTER TABLE `Ilab_master_category_item`
+  ADD PRIMARY KEY (`slno_master_item`);
 
 --
 -- Indexes for table `Ilab_master_charges_other`
@@ -5092,6 +6513,12 @@ ALTER TABLE `Ilab_master_commercial_notifications`
 --
 ALTER TABLE `Ilab_master_createuser`
   ADD PRIMARY KEY (`Create_Slno`);
+
+--
+-- Indexes for table `Ilab_master_date_schedule`
+--
+ALTER TABLE `Ilab_master_date_schedule`
+  ADD PRIMARY KEY (`slno`);
 
 --
 -- Indexes for table `Ilab_master_final_closed_bid_item`
@@ -5148,6 +6575,12 @@ ALTER TABLE `Ilab_master_logistic_vehicle_commerical`
   ADD PRIMARY KEY (`Slno_logic_comm`);
 
 --
+-- Indexes for table `Ilab_master_material_category_file`
+--
+ALTER TABLE `Ilab_master_material_category_file`
+  ADD PRIMARY KEY (`slno_id`);
+
+--
 -- Indexes for table `Ilab_master_mr_approver_order`
 --
 ALTER TABLE `Ilab_master_mr_approver_order`
@@ -5165,6 +6598,14 @@ ALTER TABLE `Ilab_master_mr_file_upload`
   ADD KEY `slno_mr_id` (`slno_mr_id`);
 
 --
+-- Indexes for table `Ilab_master_mr_file_upload_m`
+--
+ALTER TABLE `Ilab_master_mr_file_upload_m`
+  ADD PRIMARY KEY (`slno_file`),
+  ADD KEY `mr_no_id` (`pr_no`),
+  ADD KEY `slno_mr_id` (`pr_no_slno`);
+
+--
 -- Indexes for table `Ilab_master_mr_job_comments`
 --
 ALTER TABLE `Ilab_master_mr_job_comments`
@@ -5180,6 +6621,19 @@ ALTER TABLE `Ilab_master_mr_job_details`
   ADD UNIQUE KEY `mr_no` (`mr_no`);
 
 --
+-- Indexes for table `Ilab_master_mr_job_details_m`
+--
+ALTER TABLE `Ilab_master_mr_job_details_m`
+  ADD PRIMARY KEY (`slno_mr`),
+  ADD UNIQUE KEY `mr_no` (`pr_no`);
+
+--
+-- Indexes for table `Ilab_master_mr_job_details_m_clone`
+--
+ALTER TABLE `Ilab_master_mr_job_details_m_clone`
+  ADD PRIMARY KEY (`slno_mr`);
+
+--
 -- Indexes for table `Ilab_master_mr_location`
 --
 ALTER TABLE `Ilab_master_mr_location`
@@ -5189,6 +6643,15 @@ ALTER TABLE `Ilab_master_mr_location`
 -- Indexes for table `Ilab_master_mr_material_item`
 --
 ALTER TABLE `Ilab_master_mr_material_item`
+  ADD PRIMARY KEY (`slno_item_mr`),
+  ADD KEY `material_item_id` (`material_item_id`),
+  ADD KEY `mr_no_item` (`mr_no_item`),
+  ADD KEY `slno_mr_id` (`slno_mr_id`);
+
+--
+-- Indexes for table `Ilab_master_mr_material_item_m`
+--
+ALTER TABLE `Ilab_master_mr_material_item_m`
   ADD PRIMARY KEY (`slno_item_mr`),
   ADD KEY `material_item_id` (`material_item_id`),
   ADD KEY `mr_no_item` (`mr_no_item`),
@@ -5237,6 +6700,36 @@ ALTER TABLE `Ilab_master_procurement_MR`
 --
 ALTER TABLE `Ilab_master_project`
   ADD PRIMARY KEY (`Project_Slno`);
+
+--
+-- Indexes for table `Ilab_master_pr_comments_c`
+--
+ALTER TABLE `Ilab_master_pr_comments_c`
+  ADD PRIMARY KEY (`slno`);
+
+--
+-- Indexes for table `Ilab_master_pr_process_detail`
+--
+ALTER TABLE `Ilab_master_pr_process_detail`
+  ADD PRIMARY KEY (`slno`);
+
+--
+-- Indexes for table `Ilab_master_pr_process_detail_clone`
+--
+ALTER TABLE `Ilab_master_pr_process_detail_clone`
+  ADD PRIMARY KEY (`slno`);
+
+--
+-- Indexes for table `Ilab_master_pr_schedule`
+--
+ALTER TABLE `Ilab_master_pr_schedule`
+  ADD PRIMARY KEY (`slno`);
+
+--
+-- Indexes for table `Ilab_master_pr_schedule_file`
+--
+ALTER TABLE `Ilab_master_pr_schedule_file`
+  ADD PRIMARY KEY (`slno_id`);
 
 --
 -- Indexes for table `Ilab_master_rankorder_bid`
@@ -5362,6 +6855,21 @@ ALTER TABLE `Ilab_master_tracking_tools`
   ADD KEY `Job_code` (`Job_code`);
 
 --
+-- Indexes for table `Ilab_master_tracking_tools_m`
+--
+ALTER TABLE `Ilab_master_tracking_tools_m`
+  ADD PRIMARY KEY (`Slno_tracking`),
+  ADD UNIQUE KEY `Po_no` (`Po_no`),
+  ADD KEY `Job_code` (`Job_code`);
+
+--
+-- Indexes for table `Ilab_master_tracking_tools_m_clone`
+--
+ALTER TABLE `Ilab_master_tracking_tools_m_clone`
+  ADD PRIMARY KEY (`Slno_tracking`),
+  ADD KEY `Job_code` (`Job_code`);
+
+--
 -- Indexes for table `Ilab_master_vehicle`
 --
 ALTER TABLE `Ilab_master_vehicle`
@@ -5445,47 +6953,62 @@ ALTER TABLE `Ilab_activity`
 -- AUTO_INCREMENT for table `Ilab_assign_project_user`
 --
 ALTER TABLE `Ilab_assign_project_user`
-  MODIFY `slno_assign_project` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
+  MODIFY `slno_assign_project` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
 --
 -- AUTO_INCREMENT for table `Ilab_master_admin`
 --
 ALTER TABLE `Ilab_master_admin`
-  MODIFY `slno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `slno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 --
 -- AUTO_INCREMENT for table `Ilab_master_bid`
 --
 ALTER TABLE `Ilab_master_bid`
-  MODIFY `Slno_bid` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `Slno_bid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `Ilab_master_bid_c`
+--
+ALTER TABLE `Ilab_master_bid_c`
+  MODIFY `Slno_bid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `Ilab_master_bid_commerical`
 --
 ALTER TABLE `Ilab_master_bid_commerical`
-  MODIFY `Slno_bid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `Slno_bid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 --
 -- AUTO_INCREMENT for table `Ilab_master_bid_commericalevaluation`
 --
 ALTER TABLE `Ilab_master_bid_commericalevaluation`
-  MODIFY `slno_bid_tech_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `slno_bid_tech_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 --
 -- AUTO_INCREMENT for table `Ilab_master_bid_date_details`
 --
 ALTER TABLE `Ilab_master_bid_date_details`
-  MODIFY `Slno_bid_date` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `Slno_bid_date` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `Ilab_master_bid_date_details_commerical`
 --
 ALTER TABLE `Ilab_master_bid_date_details_commerical`
-  MODIFY `Slno_bid_date` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `Slno_bid_date` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+--
+-- AUTO_INCREMENT for table `Ilab_master_bid_date_details_m`
+--
+ALTER TABLE `Ilab_master_bid_date_details_m`
+  MODIFY `Slno_bid_date` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `Ilab_master_bid_details`
 --
 ALTER TABLE `Ilab_master_bid_details`
-  MODIFY `slno_bid_detail` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `slno_bid_detail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `Ilab_master_bid_details_commerical`
 --
 ALTER TABLE `Ilab_master_bid_details_commerical`
-  MODIFY `slno_bid_detail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `slno_bid_detail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+--
+-- AUTO_INCREMENT for table `Ilab_master_bid_details_m`
+--
+ALTER TABLE `Ilab_master_bid_details_m`
+  MODIFY `slno_bid_detail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `Ilab_master_bid_file_commerical`
 --
@@ -5495,12 +7018,12 @@ ALTER TABLE `Ilab_master_bid_file_commerical`
 -- AUTO_INCREMENT for table `Ilab_master_bid_file_technical`
 --
 ALTER TABLE `Ilab_master_bid_file_technical`
-  MODIFY `Slno_bid_file` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `Slno_bid_file` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `Ilab_master_bid_invitation_rank`
 --
 ALTER TABLE `Ilab_master_bid_invitation_rank`
-  MODIFY `slno_invi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `slno_invi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `Ilab_master_bid_invi_otp`
 --
@@ -5510,17 +7033,17 @@ ALTER TABLE `Ilab_master_bid_invi_otp`
 -- AUTO_INCREMENT for table `Ilab_master_bid_invi_rank_approvals`
 --
 ALTER TABLE `Ilab_master_bid_invi_rank_approvals`
-  MODIFY `slno_approve` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `slno_approve` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `Ilab_master_bid_invi_rank_not_app`
 --
 ALTER TABLE `Ilab_master_bid_invi_rank_not_app`
-  MODIFY `slno_not` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `slno_not` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 --
 -- AUTO_INCREMENT for table `Ilab_master_bid_otp_commerical`
 --
 ALTER TABLE `Ilab_master_bid_otp_commerical`
-  MODIFY `slno_comm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+  MODIFY `slno_comm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 --
 -- AUTO_INCREMENT for table `Ilab_master_bid_query`
 --
@@ -5535,42 +7058,57 @@ ALTER TABLE `Ilab_master_bid_query_commerical`
 -- AUTO_INCREMENT for table `Ilab_master_bid_technicalevaluation`
 --
 ALTER TABLE `Ilab_master_bid_technicalevaluation`
-  MODIFY `slno_bid_tech_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `slno_bid_tech_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `Ilab_master_bid_technicalevaluation_m`
+--
+ALTER TABLE `Ilab_master_bid_technicalevaluation_m`
+  MODIFY `slno_bid_tech_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `Ilab_master_bid_vendor`
 --
 ALTER TABLE `Ilab_master_bid_vendor`
-  MODIFY `slno_vendor` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `slno_vendor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `Ilab_master_bid_vendor_commerical`
 --
 ALTER TABLE `Ilab_master_bid_vendor_commerical`
-  MODIFY `slno_vendor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=243;
+  MODIFY `slno_vendor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=249;
 --
 -- AUTO_INCREMENT for table `Ilab_master_bid_vendor_file_details`
 --
 ALTER TABLE `Ilab_master_bid_vendor_file_details`
   MODIFY `slno_document` int(11) NOT NULL AUTO_INCREMENT;
 --
+-- AUTO_INCREMENT for table `Ilab_master_bid_vendor_m`
+--
+ALTER TABLE `Ilab_master_bid_vendor_m`
+  MODIFY `slno_vendor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+--
 -- AUTO_INCREMENT for table `Ilab_master_buyer_material_details`
 --
 ALTER TABLE `Ilab_master_buyer_material_details`
-  MODIFY `slno_mat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `slno_mat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 --
 -- AUTO_INCREMENT for table `Ilab_master_buyer_MR`
 --
 ALTER TABLE `Ilab_master_buyer_MR`
-  MODIFY `Slno_buyer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `Slno_buyer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 --
 -- AUTO_INCREMENT for table `Ilab_master_category`
 --
 ALTER TABLE `Ilab_master_category`
-  MODIFY `Slno_cat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `Slno_cat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `Ilab_master_category_item`
+--
+ALTER TABLE `Ilab_master_category_item`
+  MODIFY `slno_master_item` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 --
 -- AUTO_INCREMENT for table `Ilab_master_charges_other`
 --
 ALTER TABLE `Ilab_master_charges_other`
-  MODIFY `Slno_other` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `Slno_other` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `Ilab_master_closed_bid`
 --
@@ -5600,12 +7138,17 @@ ALTER TABLE `Ilab_master_closed_bid_logistics`
 -- AUTO_INCREMENT for table `Ilab_master_commercial_notifications`
 --
 ALTER TABLE `Ilab_master_commercial_notifications`
-  MODIFY `slno_notification` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `slno_notification` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT for table `Ilab_master_createuser`
 --
 ALTER TABLE `Ilab_master_createuser`
   MODIFY `Create_Slno` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `Ilab_master_date_schedule`
+--
+ALTER TABLE `Ilab_master_date_schedule`
+  MODIFY `slno` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `Ilab_master_final_closed_bid_item`
 --
@@ -5630,7 +7173,7 @@ ALTER TABLE `Ilab_master_final_rankorder_bid_logistics`
 -- AUTO_INCREMENT for table `Ilab_master_final_simple_bid_item`
 --
 ALTER TABLE `Ilab_master_final_simple_bid_item`
-  MODIFY `Slno_simple_item` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `Slno_simple_item` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 --
 -- AUTO_INCREMENT for table `Ilab_master_final_simple_bid_logistic`
 --
@@ -5640,27 +7183,37 @@ ALTER TABLE `Ilab_master_final_simple_bid_logistic`
 -- AUTO_INCREMENT for table `Ilab_master_items_material`
 --
 ALTER TABLE `Ilab_master_items_material`
-  MODIFY `Slno_item` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `Slno_item` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `Ilab_master_loaction_details`
 --
 ALTER TABLE `Ilab_master_loaction_details`
-  MODIFY `slno_loc` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `slno_loc` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `Ilab_master_logistic_vehicle_commerical`
 --
 ALTER TABLE `Ilab_master_logistic_vehicle_commerical`
   MODIFY `Slno_logic_comm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 --
+-- AUTO_INCREMENT for table `Ilab_master_material_category_file`
+--
+ALTER TABLE `Ilab_master_material_category_file`
+  MODIFY `slno_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
 -- AUTO_INCREMENT for table `Ilab_master_mr_approver_order`
 --
 ALTER TABLE `Ilab_master_mr_approver_order`
-  MODIFY `Slno_approver` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `Slno_approver` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 --
 -- AUTO_INCREMENT for table `Ilab_master_mr_file_upload`
 --
 ALTER TABLE `Ilab_master_mr_file_upload`
-  MODIFY `slno_file` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+  MODIFY `slno_file` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
+--
+-- AUTO_INCREMENT for table `Ilab_master_mr_file_upload_m`
+--
+ALTER TABLE `Ilab_master_mr_file_upload_m`
+  MODIFY `slno_file` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `Ilab_master_mr_job_comments`
 --
@@ -5670,7 +7223,17 @@ ALTER TABLE `Ilab_master_mr_job_comments`
 -- AUTO_INCREMENT for table `Ilab_master_mr_job_details`
 --
 ALTER TABLE `Ilab_master_mr_job_details`
-  MODIFY `slno_mr` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `slno_mr` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+--
+-- AUTO_INCREMENT for table `Ilab_master_mr_job_details_m`
+--
+ALTER TABLE `Ilab_master_mr_job_details_m`
+  MODIFY `slno_mr` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+--
+-- AUTO_INCREMENT for table `Ilab_master_mr_job_details_m_clone`
+--
+ALTER TABLE `Ilab_master_mr_job_details_m_clone`
+  MODIFY `slno_mr` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `Ilab_master_mr_location`
 --
@@ -5680,12 +7243,17 @@ ALTER TABLE `Ilab_master_mr_location`
 -- AUTO_INCREMENT for table `Ilab_master_mr_material_item`
 --
 ALTER TABLE `Ilab_master_mr_material_item`
-  MODIFY `slno_item_mr` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `slno_item_mr` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+--
+-- AUTO_INCREMENT for table `Ilab_master_mr_material_item_m`
+--
+ALTER TABLE `Ilab_master_mr_material_item_m`
+  MODIFY `slno_item_mr` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 --
 -- AUTO_INCREMENT for table `Ilab_master_mr_technical_parameter_info`
 --
 ALTER TABLE `Ilab_master_mr_technical_parameter_info`
-  MODIFY `slno_para` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+  MODIFY `slno_para` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
 --
 -- AUTO_INCREMENT for table `Ilab_master_mr_vehicle_mr_detail`
 --
@@ -5700,12 +7268,37 @@ ALTER TABLE `Ilab_master_new_order_book`
 -- AUTO_INCREMENT for table `Ilab_master_procurement_MR`
 --
 ALTER TABLE `Ilab_master_procurement_MR`
-  MODIFY `Slno_procurement` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `Slno_procurement` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 --
 -- AUTO_INCREMENT for table `Ilab_master_project`
 --
 ALTER TABLE `Ilab_master_project`
-  MODIFY `Project_Slno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `Project_Slno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+--
+-- AUTO_INCREMENT for table `Ilab_master_pr_comments_c`
+--
+ALTER TABLE `Ilab_master_pr_comments_c`
+  MODIFY `slno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `Ilab_master_pr_process_detail`
+--
+ALTER TABLE `Ilab_master_pr_process_detail`
+  MODIFY `slno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+--
+-- AUTO_INCREMENT for table `Ilab_master_pr_process_detail_clone`
+--
+ALTER TABLE `Ilab_master_pr_process_detail_clone`
+  MODIFY `slno` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `Ilab_master_pr_schedule`
+--
+ALTER TABLE `Ilab_master_pr_schedule`
+  MODIFY `slno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+--
+-- AUTO_INCREMENT for table `Ilab_master_pr_schedule_file`
+--
+ALTER TABLE `Ilab_master_pr_schedule_file`
+  MODIFY `slno_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT for table `Ilab_master_rankorder_bid`
 --
@@ -5760,12 +7353,12 @@ ALTER TABLE `Ilab_master_rankorder_item_total_temp`
 -- AUTO_INCREMENT for table `Ilab_master_session_history`
 --
 ALTER TABLE `Ilab_master_session_history`
-  MODIFY `slno_history` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=135;
+  MODIFY `slno_history` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=529;
 --
 -- AUTO_INCREMENT for table `Ilab_master_session_history_vendors`
 --
 ALTER TABLE `Ilab_master_session_history_vendors`
-  MODIFY `slno_history` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
+  MODIFY `slno_history` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 --
 -- AUTO_INCREMENT for table `Ilab_master_simple_bid`
 --
@@ -5795,7 +7388,7 @@ ALTER TABLE `Ilab_master_simple_bid_logistic`
 -- AUTO_INCREMENT for table `Ilab_master_technical_detail`
 --
 ALTER TABLE `Ilab_master_technical_detail`
-  MODIFY `Slno_technical` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `Slno_technical` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `Ilab_master_tech_bid_comment`
 --
@@ -5805,7 +7398,17 @@ ALTER TABLE `Ilab_master_tech_bid_comment`
 -- AUTO_INCREMENT for table `Ilab_master_tracking_tools`
 --
 ALTER TABLE `Ilab_master_tracking_tools`
-  MODIFY `Slno_tracking` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `Slno_tracking` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `Ilab_master_tracking_tools_m`
+--
+ALTER TABLE `Ilab_master_tracking_tools_m`
+  MODIFY `Slno_tracking` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT for table `Ilab_master_tracking_tools_m_clone`
+--
+ALTER TABLE `Ilab_master_tracking_tools_m_clone`
+  MODIFY `Slno_tracking` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `Ilab_master_vehicle`
 --
@@ -5820,7 +7423,7 @@ ALTER TABLE `Ilab_master_vehicle_capacity`
 -- AUTO_INCREMENT for table `Ilab_master_vehicle_type`
 --
 ALTER TABLE `Ilab_master_vehicle_type`
-  MODIFY `Slno_vehicle` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `Slno_vehicle` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `Ilab_master_vendor_detail`
 --
@@ -5835,7 +7438,7 @@ ALTER TABLE `Ilab_master_vendor_file_token`
 -- AUTO_INCREMENT for table `Ilab_master_vendor_notifications`
 --
 ALTER TABLE `Ilab_master_vendor_notifications`
-  MODIFY `slno_approve` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `slno_approve` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 --
 -- AUTO_INCREMENT for table `Ilab_master_vendor_tech_token_bid`
 --
@@ -5845,7 +7448,7 @@ ALTER TABLE `Ilab_master_vendor_tech_token_bid`
 -- AUTO_INCREMENT for table `Ilab_pms_log_entries`
 --
 ALTER TABLE `Ilab_pms_log_entries`
-  MODIFY `Slno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=153;
+  MODIFY `Slno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=160;
 --
 -- AUTO_INCREMENT for table `Ilab_section`
 --
@@ -5860,7 +7463,7 @@ ALTER TABLE `Ilab_Vendor_operation_detail`
 -- AUTO_INCREMENT for table `messages`
 --
 ALTER TABLE `messages`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=94;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=123;
 --
 -- Constraints for dumped tables
 --
@@ -5917,14 +7520,7 @@ DELIMITER $$
 --
 -- Events
 --
-CREATE DEFINER=`root`@`localhost` EVENT `test_event_0334` ON SCHEDULE EVERY 1 MINUTE STARTS '2019-02-01 17:53:51' ENDS '2019-02-01 18:53:51' ON COMPLETION NOT PRESERVE ENABLE DO INSERT INTO messages(message,created_at)
-   VALUES('Test MySQL recurring Event',NOW())$$
-
-CREATE DEFINER=`root`@`localhost` EVENT `test_event_03344` ON SCHEDULE EVERY 1 MINUTE STARTS '2019-02-01 17:55:00' ENDS '2019-02-01 18:55:00' ON COMPLETION NOT PRESERVE ENABLE DO INSERT INTO messages(message,created_at) VALUES('Test MySQL recurring Event',NOW())$$
-
 CREATE DEFINER=`root`@`localhost` EVENT `test_event_03` ON SCHEDULE EVERY 10 SECOND STARTS '2019-02-01 17:45:32' ON COMPLETION NOT PRESERVE ENABLE DO UPDATE `Ilab_master_buyer_MR` SET `Ilab_master_buyer_MR`.`complete_status_bid`='1' WHERE `Ilab_master_buyer_MR`.`Slno_buyer`IN (SELECT `Ilab_master_bid_commerical`.`buyer_slno` FROM `Ilab_master_bid_commerical` WHERE `Ilab_master_bid_commerical`.`status_bid`='6')$$
-
-CREATE DEFINER=`root`@`localhost` EVENT `test_event_0334ss` ON SCHEDULE EVERY 1 MINUTE STARTS '2019-02-01 17:55:17' ENDS '2019-02-01 18:55:17' ON COMPLETION NOT PRESERVE ENABLE DO UPDATE `Ilab_master_buyer_MR` SET `Ilab_master_buyer_MR`.`complete_status_bid`='1' WHERE `Ilab_master_buyer_MR`.`Mr_id`IN (SELECT `Ilab_master_bid_commerical`.`mr_no` FROM `Ilab_master_bid_commerical` WHERE `Ilab_master_bid_commerical`.`status_bid`='6')$$
 
 DELIMITER ;
 
