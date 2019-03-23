@@ -1,4 +1,4 @@
-<?php 
+0<?php 
 $email_id=$this->session->userdata('bu_email_id');
 if(empty($email_id)){
 	

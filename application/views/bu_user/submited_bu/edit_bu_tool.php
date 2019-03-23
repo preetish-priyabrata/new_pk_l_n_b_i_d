@@ -7,7 +7,6 @@ if(empty($email_id)){
 $value=$value;
 $resutl=$this->user->get_bu_trackinh(1,$value);
 $data_received=$resutl['received_list'][0];
-
 ?>
 
 <div class="sidebar-bg"></div>

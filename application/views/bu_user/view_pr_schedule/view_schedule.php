@@ -11,7 +11,8 @@ $this->db->select('*');
 	$query_bu = $this->db->get();
 
 ?>
-
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.5.2/css/buttons.dataTables.min.css">
 <div class="sidebar-bg"></div>
 		<!-- end #sidebar -->
 		
@@ -84,7 +85,8 @@ $this->db->select('*');
 							</div>
 							<div class="row">
 								<br />
-								<div class="table-responsive" id="customer_data">
+								<div class="col-lg-12" id="customer_data">
+								<!-- <div  id="customer_data"> -->
 
 								</div>
 							</div>
@@ -99,29 +101,64 @@ $this->db->select('*');
 <script type="text/javascript">
 
 function load_data(){
+	var date = new Date();
 	var actions_file='bu_Views_total';
     var Mr_no = $('#job_code').val();
     queryString_id = 'actions_file='+actions_file+'&job_code='+ Mr_no;
 	    if(Mr_no!=""){
-	    	$('#sub').show();
-			// jQuery.ajax({
-			// 	url: "<?php echo base_url(); ?>file-upload-data",
-			// 	data:queryString_id,
-			// 	type: "POST",
-			// 	success:function(data){
-			// 		$("#cart-item-files").html(data);
-			// 	}
-			// });
+	    	
 			$.ajax({
 				url:"<?php echo base_url(); ?>excel-upload/entry",
 				data:queryString_id,
 				method:"POST",
 				success:function(data){
-					$('#customer_data').html(data);
+					$("#customer_data").html(data);
+					$('.example_buyer_bu').DataTable( {
+						scrollX: true,
+					    dom: 'Bfrtip',
+					    buttons: [
+					        {
+					            extend: 'copyHtml5',
+					             title: 'Receive Material Requisition - '+date,
+					            exportOptions: {
+					                columns: [ 0, ':visible' ]
+					            }
+					        },
+					        {
+					            extend: 'excelHtml5',
+					            title: 'Receive Material Requisition - '+date,
+					            exportOptions: {
+					                columns: ':visible'
+					            }
+					        },
+					        {
+					            extend: 'pdfHtml5',
+					            orientation:'landscape',
+					            title: 'Receive Material Requisition - '+date,
+					            exportOptions: {
+					                columns: ':visible'
+					            },
+					            // customize: function(doc) {
+				             //            console.log(doc.content)
+				             //            doc.content.splice(0, 0, {
+				             //                margin: [12, 0, 0, 12],
+				             //                alignment: "center",
+				             //            });
+
+				             //            doc.content[2].table.widths = ["*", "*", "*"];
+				             //        }
+					            // exportOptions: {
+					            //     columns: [ 0, 1, 2, 5 ]
+					            // }
+					        },
+					        'colvis'
+					    ]
+					} );
 				}
 			});
 		}else{
 			alert('Please Select Project');	
+			$('#customer_data').html('');
 		}
 	}
 </script>

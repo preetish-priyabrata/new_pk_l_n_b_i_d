@@ -33,12 +33,15 @@
 						<a href="javascript:;">
 					        <b class="caret"></b>
 						    <i class="fas fa-atlas"></i>
-						    <span>Material Requisition</span>
+						    <span>Project Pr Schedule</span>
 					    </a>
 						<ul class="sub-menu">
-						    <li class="<?php if($sub_menu==1){ echo 'active'; }?>"><a href="<?=base_url()?>approver-new-mr-receive" >Receive Material Requisition </a></li>
+							<li class="<?php if($sub_menu==5){ echo 'active'; }?>"><a href="<?=base_url()?>approver-project-pr"> Project PR Received</a></li>
+							<li class="<?php if($sub_menu==5){ echo 'active'; }?>"><a href="<?=base_url()?>approved-project-pr"> Project PR Approved </a></li>
+							<li class="<?php if($sub_menu==5){ echo 'active'; }?>"><a href="<?=base_url()?>approver-comment-project-pr"> Project PR Comment </a></li>
+						   <!--  <li class="<?php if($sub_menu==1){ echo 'active'; }?>"><a href="<?=base_url()?>approver-new-mr-receive" >Receive Material Requisition </a></li>
 						    <li class="<?php if($sub_menu==2){ echo 'active'; }?>"><a href="<?=base_url()?>approver-new-mr-conform" >Approved Material Requisition List</a></li>
-						     <li class="<?php if($sub_menu==3){ echo 'active'; }?>"><a href="<?=base_url()?>approver-resubmission-mr-order" >Resubmission Material Requisition List </a></li>
+						     <li class="<?php if($sub_menu==3){ echo 'active'; }?>"><a href="<?=base_url()?>approver-resubmission-mr-order" >Resubmission Material Requisition List </a></li> -->
 						    <!--  <li class="<?php if($sub_menu==4){ echo 'active'; }?>"><a href="<?=base_url()?>design-submitted-mr-order" >Submission Material Requisition List </a></li> -->
 						    <!-- <li><a href="index_v2.html">Dashboard v2</a></li> -->
 						</ul>

@@ -29,7 +29,7 @@
 				<!-- begin sidebar nav -->
 				<ul class="nav">
 					<li class="nav-header">Navigation</li>
-					<li class="has-sub <?php if($menu_status==1){echo 'active';}?>">
+					<!-- <li class="has-sub <?php if($menu_status==1){echo 'active';}?>">
 						<a href="javascript:;">
 					        <b class="caret"></b>
 						    <i class="fas fa-atlas"></i>
@@ -38,8 +38,9 @@
 						<ul class="sub-menu">
 						    <li class="<?php if($sub_menu==1){ echo 'active'; }?>"><a href="<?=base_url()?>buyer-mr-received" >Received MR </a></li>
 
-						    <!-- <li><a href="index_v2.html">Dashboard v2</a></li> -->
+						 
 						</ul>
+						
 					</li>
 					<li class="has-sub <?php if($menu_status==2){echo 'active';}?>">
 						<a href="javascript:;">
@@ -50,7 +51,7 @@
 						<ul class="sub-menu">
 
 						    <li class="<?php if($sub_menu==2){ echo 'active'; }?>"><a href="<?=base_url()?>buyer-drafted-bid" >Save Bid Information of Technical</a></li>
-						     <li class="<?php if($sub_menu==5){ echo 'active'; }?>"><a href="<?=base_url()?>buyer-drafted-bid-commerical" >Save Bid Information of Commerical</a></li>
+						     <li class="<?php if($sub_menu==5){ echo 'active'; }?>"><a href="<?=base_url()?>buyer-drafted-bid-commerical" >Save Bid Information of Commercial</a></li>
 
 						</ul>
 					</li>
@@ -63,9 +64,9 @@
 						<ul class="sub-menu">
 
 						    <li class="<?php if($sub_menu==3){ echo 'active'; }?>"><a href="<?=base_url()?>buyer-send-bid-tech" >Send Bid Information of Technical</a></li>
-						    <li class="<?php if($sub_menu==4){ echo 'active'; }?>"><a href="<?=base_url()?>buyer-send-bid-commerical" >Send Bid Information of Commerical Simple / Closed</a></li>
-						     <li class="<?php if($sub_menu==6){ echo 'active'; }?>"><a href="<?=base_url()?>buyer-send-bid-commerical-rank-order" >Send Bid Information of Commerical Rank order</a></li>
-						    <!-- <li><a href="index_v2.html">Dashboard v2</a></li> -->
+						    <li class="<?php if($sub_menu==4){ echo 'active'; }?>"><a href="<?=base_url()?>buyer-send-bid-commerical" >Send Bid Information of Commercial Simple / Closed</a></li>
+						     <li class="<?php if($sub_menu==6){ echo 'active'; }?>"><a href="<?=base_url()?>buyer-send-bid-commerical-rank-order" >Send Bid Information of Commercial Rank order</a></li>
+						   
 						</ul>
 					</li>
 					<li class="has-sub <?php if($menu_status==4){echo 'active';}?>">
@@ -77,12 +78,25 @@
 						<ul class="sub-menu">
 
 						    <li class="<?php if($sub_menu==7){ echo 'active'; }?>"><a href="<?=base_url()?>buyer-send-bid-tech" >Send Bid Information of Technical</a></li>
-						    <li class="<?php if($sub_menu==8){ echo 'active'; }?>"><a href="<?=base_url()?>buyer-send-bid-commerical-history" >Completed Bid Information of Commerical Simple / Closed</a></li>
-						     <li class="<?php if($sub_menu==9){ echo 'active'; }?>"><a href="<?=base_url()?>buyer-send-bid-commerical-rank-order" >Send Bid Information of Commerical Rank order</a></li>
-						    <!-- <li><a href="index_v2.html">Dashboard v2</a></li> -->
+						    <li class="<?php if($sub_menu==8){ echo 'active'; }?>"><a href="<?=base_url()?>buyer-send-bid-commerical-history" >Completed Bid Information of Commercial Simple / Closed</a></li>
+						     <li class="<?php if($sub_menu==9){ echo 'active'; }?>"><a href="<?=base_url()?>buyer-send-bid-commerical-rank-order" >Send Bid Information of Commercial Rank order</a></li>
+						  
 						</ul>
 					</li>
+ -->
+ 					<li class="has-sub <?php if($menu_status==10){echo 'active';}?>">
+						<a href="javascript:;">
+					        <b class="caret"></b>
+						    <i class="fas fa-atlas"></i>
+						    <span>MR Received</span>
+					    </a>
+						<ul class="sub-menu">
+						    <li class="<?php if($sub_menu==10){ echo 'active'; }?>"><a href="<?=base_url()?>buyer-pr-receive" >Received MR </a></li>
 
+						 
+						</ul>
+						
+					</li>
 
 
 
@@ -94,4 +108,3 @@
 			</div>
 			<!-- end sidebar scrollbar -->
 		</div>
-		<div class="sidebar-bg"></div>

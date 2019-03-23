@@ -58,6 +58,18 @@ class Design_model extends CI_Model {
         }
      
     }
+    public function get_design_mr_no_check_m($data_id){
+        $data_array_mr = array('pr_no' => $data_id );
+        $query_mr=$this->db->get_where('master_mr_job_details_m',$data_array_mr);
+        if ($query_mr->num_rows() == 0) {
+          return 1;
+          exit;
+        }else{
+          return 3;
+          exit;
+        }
+     
+    }
     /**
      * [get_design_approver_list description]
      * @return [type] [description]  here approver user list is send for mr creation  only selected approver
@@ -83,6 +95,20 @@ class Design_model extends CI_Model {
      */
     public function get_design_approver_single($data_id){
       $data_array_approver = array('Status' => 1,'role_id'=>8,'slno'=>$data_id );
+      $query_approver=$this->db->get_where('master_admin',$data_array_approver);
+      if($query_approver->num_rows() == 0){
+        $data_send = array('no_user' =>2 );
+        return $data_send;
+        exit;
+      }else{
+        $results=$query_approver->result();
+        $data_send = array('no_user' =>1, 'user_approver'=>$results);
+        return $data_send;
+        exit;
+      }     
+    }
+    public function get_design_user_single($data_id){
+      $data_array_approver = array('Status' => 1,'email_id'=>$data_id);
       $query_approver=$this->db->get_where('master_admin',$data_array_approver);
       if($query_approver->num_rows() == 0){
         $data_send = array('no_user' =>2 );
@@ -191,6 +217,22 @@ class Design_model extends CI_Model {
         exit;
       }  
     }
+
+     public function get_design_master_items_material_single_m($value){
+      // master_items_material
+      $data_array_materials_item = array('status' => 1,'slno_master_item'=>$value);
+      $query_material_item=$this->db->get_where('master_category_item',$data_array_materials_item);
+      if($query_material_item->num_rows() == 0){
+        $data_send = array('no_materials_item' =>2 );
+        return $data_send;
+        exit;
+      }else{
+        $results=$query_material_item->result();
+        $data_send = array('no_materials_item' =>1, 'materials_list'=>$results);
+        return $data_send;
+        exit;
+      }  
+    }
      public function get_design_master_items_material_single_technical($value){
       // master_items_material
       $data_array_materials_item = array('status' => 1,'material_slno'=>$value);
@@ -222,10 +264,41 @@ class Design_model extends CI_Model {
         exit;
       }  
     }
+     public function get_design_mr_file_list_m($value,$value1,$value2){
+      // `pr_no`, `pr_no_slno`, `file_title`, `edit_id`, `attach_name`, `file_name_actucal`
+      // master_items_material
+      $data_array_mr_files = array('pr_no' =>$value,'pr_no_slno'=>$value1,'job_code_slno'=>$value2);
+      $query_mr_files =$this->db->get_where('master_mr_file_upload_m',$data_array_mr_files);
+      if($query_mr_files->num_rows() == 0){
+        $data_send = array('no_files' =>2 );
+        return $data_send;
+        exit;
+      }else{
+        $results=$query_mr_files->result();
+        $data_send = array('no_files' =>1, 'files_list'=>$results);
+        return $data_send;
+        exit;
+      }  
+    }
     public function get_design_mr_file_list_check($value,$value1){
       // master_items_material
       $data_array_mr_files = array('mr_no_id' =>$value1,'slno_mr_id'=>$value);
       $query_mr_files =$this->db->get_where('master_mr_file_upload',$data_array_mr_files);
+      if($query_mr_files->num_rows() == 0){
+        $data_send = array('no_files' =>2 );
+        return $data_send;
+        exit;
+      }else{
+        $results=$query_mr_files->result();
+        $data_send = array('no_files' =>1);
+        return $data_send;
+        exit;
+      }  
+    }
+    public function get_design_mr_file_list_check_m($value,$value1,$value2){
+      // master_items_material
+      $data_array_mr_files = array('pr_no' =>$value,'pr_no_slno'=>$value1,'job_code_slno'=>$value2);
+      $query_mr_files =$this->db->get_where('master_mr_file_upload_m',$data_array_mr_files);
       if($query_mr_files->num_rows() == 0){
         $data_send = array('no_files' =>2 );
         return $data_send;
@@ -245,6 +318,16 @@ class Design_model extends CI_Model {
      */
     public function design_common_insert_id($data){        
       $query=$this->db->insert('master_mr_material_item', $data);
+      $this->db->last_query();
+      if($query){
+        return $this->db->insert_id();
+      }else{
+        return 0;
+      }
+
+    }
+    public function design_common_insert_id_m($data){        
+      $query=$this->db->insert('master_mr_material_item_m', $data);
       $this->db->last_query();
       if($query){
         return $this->db->insert_id();
@@ -287,6 +370,19 @@ class Design_model extends CI_Model {
         // exit();
         if($query){
           return $this->db->insert_id();
+        }else{
+          return 0;
+        }
+    }
+     public function master_mr_job_details_value_m($value,$id){
+      // print_r($id);
+      
+        $query=$this->db->update('master_mr_job_details_m', $value,$id);
+
+        echo $this->db->last_query();
+       
+        if($query){
+          return 1;
         }else{
           return 0;
         }

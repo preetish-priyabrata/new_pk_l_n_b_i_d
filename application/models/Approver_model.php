@@ -169,6 +169,27 @@ class Approver_model extends CI_Model {
       }
       # code...
     }
+     public function get_approver_mr_job_detail_m($value=''){
+      if(!empty($value)){
+        $data_array_mr = array('pr_no' => $value ,'mr_forword_status'=>0 );
+        $query_mr=$this->db->get_where('master_mr_job_details_m',$data_array_mr);
+        if($query_mr->num_rows() == 0){
+          $data_send = array('no_mr_deatils' =>2 );
+          return $data_send;
+          exit;
+        }else{
+          $results=$query_mr->result();
+          $data_send = array('no_mr_deatils' =>1, 'mr_details'=>$results);
+          return $data_send;
+          exit;
+        }
+      }else{
+        $data_send = array('no_mr_deatils' =>2 );
+        return $data_send;
+        exit;
+      }
+      # code...
+    }
     public function get_approver_conform_mr_job_detail($value=''){
       if(!empty($value)){
         $data_array_mr = array('Slno_mr_id' => $value );

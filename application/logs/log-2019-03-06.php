@@ -4958,3 +4958,2869 @@ INFO - 2019-03-06 17:09:25 --> User Agent Class Initialized
 INFO - 2019-03-06 17:09:25 --> File loaded: /var/www/html/m_lnt_bid/application/views/errors/Error_404.php
 INFO - 2019-03-06 17:09:25 --> Final output sent to browser
 DEBUG - 2019-03-06 17:09:25 --> Total execution time: 0.0796
+ERROR - 2019-03-06 17:38:08 --> $config['composer_autoload'] is set to TRUE but /var/www/html/m_lnt_bid/application/vendor/autoload.php was not found.
+INFO - 2019-03-06 17:38:08 --> Config Class Initialized
+INFO - 2019-03-06 17:38:08 --> Hooks Class Initialized
+DEBUG - 2019-03-06 17:38:08 --> UTF-8 Support Enabled
+INFO - 2019-03-06 17:38:08 --> Utf8 Class Initialized
+INFO - 2019-03-06 17:38:08 --> URI Class Initialized
+INFO - 2019-03-06 17:38:08 --> Router Class Initialized
+INFO - 2019-03-06 17:38:08 --> Output Class Initialized
+INFO - 2019-03-06 17:38:08 --> Security Class Initialized
+DEBUG - 2019-03-06 17:38:08 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-06 17:38:08 --> Input Class Initialized
+INFO - 2019-03-06 17:38:08 --> Language Class Initialized
+INFO - 2019-03-06 17:38:08 --> Loader Class Initialized
+INFO - 2019-03-06 17:38:08 --> Helper loaded: url_helper
+INFO - 2019-03-06 17:38:08 --> Helper loaded: file_helper
+INFO - 2019-03-06 17:38:08 --> Encrypt Class Initialized
+INFO - 2019-03-06 17:38:08 --> Controller Class Initialized
+INFO - 2019-03-06 17:38:08 --> Database Driver Class Initialized
+INFO - 2019-03-06 17:38:08 --> Model "User_model" initialized
+INFO - 2019-03-06 17:38:08 --> Model "Design_model" initialized
+DEBUG - 2019-03-06 17:38:08 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-03-06 17:38:09 --> Session: Class initialized using 'files' driver.
+INFO - 2019-03-06 17:38:09 --> User Agent Class Initialized
+DEBUG - 2019-03-06 17:38:09 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-03-06 17:38:09 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-03-06 17:38:09 --> Encryption Class Initialized
+INFO - 2019-03-06 17:38:09 --> Helper loaded: form_helper
+INFO - 2019-03-06 17:38:09 --> Form Validation Class Initialized
+INFO - 2019-03-06 17:38:09 --> Helper loaded: string_helper
+INFO - 2019-03-06 17:38:09 --> Upload Class Initialized
+INFO - 2019-03-06 17:38:09 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_header.php
+INFO - 2019-03-06 17:38:09 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/template/template_top_head.php
+INFO - 2019-03-06 17:38:09 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/template/template_side_bar.php
+INFO - 2019-03-06 17:38:09 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/pr_schedule_design/pr_schedule.php
+INFO - 2019-03-06 17:38:09 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_footer.php
+INFO - 2019-03-06 17:38:09 --> Final output sent to browser
+DEBUG - 2019-03-06 17:38:09 --> Total execution time: 0.7262
+ERROR - 2019-03-06 17:47:21 --> $config['composer_autoload'] is set to TRUE but /var/www/html/m_lnt_bid/application/vendor/autoload.php was not found.
+INFO - 2019-03-06 17:47:21 --> Config Class Initialized
+INFO - 2019-03-06 17:47:21 --> Hooks Class Initialized
+DEBUG - 2019-03-06 17:47:21 --> UTF-8 Support Enabled
+INFO - 2019-03-06 17:47:21 --> Utf8 Class Initialized
+INFO - 2019-03-06 17:47:21 --> URI Class Initialized
+INFO - 2019-03-06 17:47:21 --> Router Class Initialized
+INFO - 2019-03-06 17:47:21 --> Output Class Initialized
+INFO - 2019-03-06 17:47:21 --> Security Class Initialized
+DEBUG - 2019-03-06 17:47:21 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-06 17:47:21 --> Input Class Initialized
+INFO - 2019-03-06 17:47:21 --> Language Class Initialized
+INFO - 2019-03-06 17:47:21 --> Loader Class Initialized
+INFO - 2019-03-06 17:47:21 --> Helper loaded: url_helper
+INFO - 2019-03-06 17:47:21 --> Helper loaded: file_helper
+INFO - 2019-03-06 17:47:21 --> Encrypt Class Initialized
+INFO - 2019-03-06 17:47:21 --> Controller Class Initialized
+INFO - 2019-03-06 17:47:21 --> Database Driver Class Initialized
+INFO - 2019-03-06 17:47:21 --> Model "User_model" initialized
+DEBUG - 2019-03-06 17:47:21 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-03-06 17:47:21 --> Session: Class initialized using 'files' driver.
+INFO - 2019-03-06 17:47:21 --> User Agent Class Initialized
+ERROR - 2019-03-06 17:47:21 --> $config['composer_autoload'] is set to TRUE but /var/www/html/m_lnt_bid/application/vendor/autoload.php was not found.
+INFO - 2019-03-06 17:47:21 --> Config Class Initialized
+INFO - 2019-03-06 17:47:21 --> Hooks Class Initialized
+DEBUG - 2019-03-06 17:47:21 --> UTF-8 Support Enabled
+INFO - 2019-03-06 17:47:21 --> Utf8 Class Initialized
+INFO - 2019-03-06 17:47:21 --> URI Class Initialized
+INFO - 2019-03-06 17:47:21 --> Router Class Initialized
+INFO - 2019-03-06 17:47:21 --> Output Class Initialized
+INFO - 2019-03-06 17:47:21 --> Security Class Initialized
+DEBUG - 2019-03-06 17:47:21 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-06 17:47:21 --> Input Class Initialized
+INFO - 2019-03-06 17:47:21 --> Language Class Initialized
+INFO - 2019-03-06 17:47:21 --> Loader Class Initialized
+INFO - 2019-03-06 17:47:21 --> Helper loaded: url_helper
+INFO - 2019-03-06 17:47:21 --> Helper loaded: file_helper
+INFO - 2019-03-06 17:47:21 --> Encrypt Class Initialized
+INFO - 2019-03-06 17:47:21 --> Controller Class Initialized
+INFO - 2019-03-06 17:47:21 --> Database Driver Class Initialized
+DEBUG - 2019-03-06 17:47:21 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-03-06 17:47:21 --> Session: Class initialized using 'files' driver.
+INFO - 2019-03-06 17:47:21 --> File loaded: /var/www/html/m_lnt_bid/application/views/login_view/index_view.php
+INFO - 2019-03-06 17:47:21 --> Final output sent to browser
+DEBUG - 2019-03-06 17:47:21 --> Total execution time: 0.0830
+ERROR - 2019-03-06 17:47:22 --> $config['composer_autoload'] is set to TRUE but /var/www/html/m_lnt_bid/application/vendor/autoload.php was not found.
+INFO - 2019-03-06 17:47:22 --> Config Class Initialized
+INFO - 2019-03-06 17:47:22 --> Hooks Class Initialized
+DEBUG - 2019-03-06 17:47:22 --> UTF-8 Support Enabled
+INFO - 2019-03-06 17:47:22 --> Utf8 Class Initialized
+INFO - 2019-03-06 17:47:22 --> URI Class Initialized
+INFO - 2019-03-06 17:47:22 --> Router Class Initialized
+INFO - 2019-03-06 17:47:22 --> Output Class Initialized
+INFO - 2019-03-06 17:47:22 --> Security Class Initialized
+DEBUG - 2019-03-06 17:47:22 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-06 17:47:22 --> Input Class Initialized
+INFO - 2019-03-06 17:47:22 --> Language Class Initialized
+INFO - 2019-03-06 17:47:22 --> Loader Class Initialized
+INFO - 2019-03-06 17:47:22 --> Helper loaded: url_helper
+INFO - 2019-03-06 17:47:22 --> Helper loaded: file_helper
+INFO - 2019-03-06 17:47:22 --> Encrypt Class Initialized
+INFO - 2019-03-06 17:47:22 --> Controller Class Initialized
+INFO - 2019-03-06 17:47:22 --> Database Driver Class Initialized
+ERROR - 2019-03-06 17:47:22 --> $config['composer_autoload'] is set to TRUE but /var/www/html/m_lnt_bid/application/vendor/autoload.php was not found.
+INFO - 2019-03-06 17:47:22 --> Config Class Initialized
+INFO - 2019-03-06 17:47:22 --> Hooks Class Initialized
+DEBUG - 2019-03-06 17:47:22 --> UTF-8 Support Enabled
+INFO - 2019-03-06 17:47:22 --> Utf8 Class Initialized
+INFO - 2019-03-06 17:47:22 --> URI Class Initialized
+INFO - 2019-03-06 17:47:22 --> Router Class Initialized
+INFO - 2019-03-06 17:47:22 --> Output Class Initialized
+INFO - 2019-03-06 17:47:22 --> Security Class Initialized
+DEBUG - 2019-03-06 17:47:22 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-06 17:47:22 --> Input Class Initialized
+INFO - 2019-03-06 17:47:22 --> Language Class Initialized
+INFO - 2019-03-06 17:47:22 --> Loader Class Initialized
+INFO - 2019-03-06 17:47:22 --> Helper loaded: url_helper
+INFO - 2019-03-06 17:47:22 --> Helper loaded: file_helper
+INFO - 2019-03-06 17:47:22 --> Encrypt Class Initialized
+INFO - 2019-03-06 17:47:22 --> Controller Class Initialized
+INFO - 2019-03-06 17:47:22 --> Database Driver Class Initialized
+ERROR - 2019-03-06 17:47:22 --> $config['composer_autoload'] is set to TRUE but /var/www/html/m_lnt_bid/application/vendor/autoload.php was not found.
+INFO - 2019-03-06 17:47:22 --> Config Class Initialized
+INFO - 2019-03-06 17:47:22 --> Hooks Class Initialized
+DEBUG - 2019-03-06 17:47:22 --> UTF-8 Support Enabled
+INFO - 2019-03-06 17:47:22 --> Utf8 Class Initialized
+INFO - 2019-03-06 17:47:22 --> URI Class Initialized
+INFO - 2019-03-06 17:47:22 --> Router Class Initialized
+INFO - 2019-03-06 17:47:22 --> Output Class Initialized
+INFO - 2019-03-06 17:47:22 --> Security Class Initialized
+DEBUG - 2019-03-06 17:47:22 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-06 17:47:22 --> Input Class Initialized
+INFO - 2019-03-06 17:47:22 --> Language Class Initialized
+INFO - 2019-03-06 17:47:22 --> Loader Class Initialized
+INFO - 2019-03-06 17:47:22 --> Helper loaded: url_helper
+INFO - 2019-03-06 17:47:22 --> Helper loaded: file_helper
+INFO - 2019-03-06 17:47:22 --> Encrypt Class Initialized
+INFO - 2019-03-06 17:47:22 --> Controller Class Initialized
+INFO - 2019-03-06 17:47:22 --> Database Driver Class Initialized
+INFO - 2019-03-06 17:47:22 --> User Agent Class Initialized
+INFO - 2019-03-06 17:47:22 --> File loaded: /var/www/html/m_lnt_bid/application/views/errors/Error_404.php
+INFO - 2019-03-06 17:47:22 --> Final output sent to browser
+DEBUG - 2019-03-06 17:47:22 --> Total execution time: 0.2855
+INFO - 2019-03-06 17:47:22 --> User Agent Class Initialized
+INFO - 2019-03-06 17:47:22 --> File loaded: /var/www/html/m_lnt_bid/application/views/errors/Error_404.php
+INFO - 2019-03-06 17:47:22 --> Final output sent to browser
+DEBUG - 2019-03-06 17:47:22 --> Total execution time: 0.3072
+INFO - 2019-03-06 17:47:22 --> User Agent Class Initialized
+INFO - 2019-03-06 17:47:22 --> File loaded: /var/www/html/m_lnt_bid/application/views/errors/Error_404.php
+INFO - 2019-03-06 17:47:22 --> Final output sent to browser
+DEBUG - 2019-03-06 17:47:22 --> Total execution time: 0.2645
+ERROR - 2019-03-06 17:47:22 --> $config['composer_autoload'] is set to TRUE but /var/www/html/m_lnt_bid/application/vendor/autoload.php was not found.
+INFO - 2019-03-06 17:47:22 --> Config Class Initialized
+INFO - 2019-03-06 17:47:22 --> Hooks Class Initialized
+DEBUG - 2019-03-06 17:47:22 --> UTF-8 Support Enabled
+INFO - 2019-03-06 17:47:22 --> Utf8 Class Initialized
+INFO - 2019-03-06 17:47:22 --> URI Class Initialized
+INFO - 2019-03-06 17:47:22 --> Router Class Initialized
+INFO - 2019-03-06 17:47:22 --> Output Class Initialized
+INFO - 2019-03-06 17:47:22 --> Security Class Initialized
+DEBUG - 2019-03-06 17:47:22 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-06 17:47:22 --> Input Class Initialized
+INFO - 2019-03-06 17:47:22 --> Language Class Initialized
+INFO - 2019-03-06 17:47:22 --> Loader Class Initialized
+INFO - 2019-03-06 17:47:22 --> Helper loaded: url_helper
+INFO - 2019-03-06 17:47:22 --> Helper loaded: file_helper
+INFO - 2019-03-06 17:47:22 --> Encrypt Class Initialized
+INFO - 2019-03-06 17:47:22 --> Controller Class Initialized
+INFO - 2019-03-06 17:47:22 --> Database Driver Class Initialized
+INFO - 2019-03-06 17:47:22 --> User Agent Class Initialized
+INFO - 2019-03-06 17:47:22 --> File loaded: /var/www/html/m_lnt_bid/application/views/errors/Error_404.php
+INFO - 2019-03-06 17:47:22 --> Final output sent to browser
+DEBUG - 2019-03-06 17:47:22 --> Total execution time: 0.1060
+ERROR - 2019-03-06 17:47:41 --> $config['composer_autoload'] is set to TRUE but /var/www/html/m_lnt_bid/application/vendor/autoload.php was not found.
+INFO - 2019-03-06 17:47:41 --> Config Class Initialized
+INFO - 2019-03-06 17:47:41 --> Hooks Class Initialized
+DEBUG - 2019-03-06 17:47:41 --> UTF-8 Support Enabled
+INFO - 2019-03-06 17:47:41 --> Utf8 Class Initialized
+INFO - 2019-03-06 17:47:41 --> URI Class Initialized
+INFO - 2019-03-06 17:47:41 --> Router Class Initialized
+INFO - 2019-03-06 17:47:41 --> Output Class Initialized
+INFO - 2019-03-06 17:47:41 --> Security Class Initialized
+DEBUG - 2019-03-06 17:47:41 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-06 17:47:41 --> Input Class Initialized
+INFO - 2019-03-06 17:47:41 --> Language Class Initialized
+INFO - 2019-03-06 17:47:41 --> Loader Class Initialized
+INFO - 2019-03-06 17:47:41 --> Helper loaded: url_helper
+INFO - 2019-03-06 17:47:41 --> Helper loaded: file_helper
+INFO - 2019-03-06 17:47:41 --> Encrypt Class Initialized
+INFO - 2019-03-06 17:47:41 --> Controller Class Initialized
+INFO - 2019-03-06 17:47:41 --> Database Driver Class Initialized
+INFO - 2019-03-06 17:47:41 --> Model "User_model" initialized
+DEBUG - 2019-03-06 17:47:41 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-03-06 17:47:41 --> Session: Class initialized using 'files' driver.
+INFO - 2019-03-06 17:47:41 --> User Agent Class Initialized
+ERROR - 2019-03-06 17:47:42 --> $config['composer_autoload'] is set to TRUE but /var/www/html/m_lnt_bid/application/vendor/autoload.php was not found.
+INFO - 2019-03-06 17:47:42 --> Config Class Initialized
+INFO - 2019-03-06 17:47:42 --> Hooks Class Initialized
+DEBUG - 2019-03-06 17:47:42 --> UTF-8 Support Enabled
+INFO - 2019-03-06 17:47:42 --> Utf8 Class Initialized
+INFO - 2019-03-06 17:47:42 --> URI Class Initialized
+INFO - 2019-03-06 17:47:42 --> Router Class Initialized
+INFO - 2019-03-06 17:47:42 --> Output Class Initialized
+INFO - 2019-03-06 17:47:42 --> Security Class Initialized
+DEBUG - 2019-03-06 17:47:42 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-06 17:47:42 --> Input Class Initialized
+INFO - 2019-03-06 17:47:42 --> Language Class Initialized
+INFO - 2019-03-06 17:47:42 --> Loader Class Initialized
+INFO - 2019-03-06 17:47:42 --> Helper loaded: url_helper
+INFO - 2019-03-06 17:47:42 --> Helper loaded: file_helper
+INFO - 2019-03-06 17:47:42 --> Encrypt Class Initialized
+INFO - 2019-03-06 17:47:42 --> Controller Class Initialized
+INFO - 2019-03-06 17:47:42 --> Database Driver Class Initialized
+INFO - 2019-03-06 17:47:42 --> Model "User_model" initialized
+INFO - 2019-03-06 17:47:42 --> Model "Design_model" initialized
+DEBUG - 2019-03-06 17:47:42 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-03-06 17:47:42 --> Session: Class initialized using 'files' driver.
+INFO - 2019-03-06 17:47:42 --> User Agent Class Initialized
+DEBUG - 2019-03-06 17:47:42 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-03-06 17:47:42 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-03-06 17:47:42 --> Encryption Class Initialized
+INFO - 2019-03-06 17:47:42 --> Helper loaded: form_helper
+INFO - 2019-03-06 17:47:42 --> Form Validation Class Initialized
+INFO - 2019-03-06 17:47:42 --> Helper loaded: string_helper
+INFO - 2019-03-06 17:47:42 --> Upload Class Initialized
+INFO - 2019-03-06 17:47:42 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_header.php
+INFO - 2019-03-06 17:47:42 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/template/template_top_head.php
+INFO - 2019-03-06 17:47:42 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/template/template_side_bar.php
+INFO - 2019-03-06 17:47:42 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/user_dashboard.php
+INFO - 2019-03-06 17:47:42 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_footer.php
+INFO - 2019-03-06 17:47:42 --> Final output sent to browser
+DEBUG - 2019-03-06 17:47:42 --> Total execution time: 0.1058
+ERROR - 2019-03-06 17:47:51 --> $config['composer_autoload'] is set to TRUE but /var/www/html/m_lnt_bid/application/vendor/autoload.php was not found.
+INFO - 2019-03-06 17:47:51 --> Config Class Initialized
+INFO - 2019-03-06 17:47:51 --> Hooks Class Initialized
+DEBUG - 2019-03-06 17:47:51 --> UTF-8 Support Enabled
+INFO - 2019-03-06 17:47:51 --> Utf8 Class Initialized
+INFO - 2019-03-06 17:47:51 --> URI Class Initialized
+INFO - 2019-03-06 17:47:51 --> Router Class Initialized
+INFO - 2019-03-06 17:47:51 --> Output Class Initialized
+INFO - 2019-03-06 17:47:51 --> Security Class Initialized
+DEBUG - 2019-03-06 17:47:51 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-06 17:47:51 --> Input Class Initialized
+INFO - 2019-03-06 17:47:51 --> Language Class Initialized
+INFO - 2019-03-06 17:47:51 --> Loader Class Initialized
+INFO - 2019-03-06 17:47:51 --> Helper loaded: url_helper
+INFO - 2019-03-06 17:47:51 --> Helper loaded: file_helper
+INFO - 2019-03-06 17:47:51 --> Encrypt Class Initialized
+INFO - 2019-03-06 17:47:51 --> Controller Class Initialized
+INFO - 2019-03-06 17:47:51 --> Database Driver Class Initialized
+INFO - 2019-03-06 17:47:51 --> Model "User_model" initialized
+INFO - 2019-03-06 17:47:51 --> Model "Design_model" initialized
+DEBUG - 2019-03-06 17:47:51 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-03-06 17:47:51 --> Session: Class initialized using 'files' driver.
+INFO - 2019-03-06 17:47:51 --> User Agent Class Initialized
+DEBUG - 2019-03-06 17:47:51 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-03-06 17:47:51 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-03-06 17:47:51 --> Encryption Class Initialized
+INFO - 2019-03-06 17:47:51 --> Helper loaded: form_helper
+INFO - 2019-03-06 17:47:51 --> Form Validation Class Initialized
+INFO - 2019-03-06 17:47:51 --> Helper loaded: string_helper
+INFO - 2019-03-06 17:47:51 --> Upload Class Initialized
+INFO - 2019-03-06 17:47:51 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_header.php
+INFO - 2019-03-06 17:47:51 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/template/template_top_head.php
+INFO - 2019-03-06 17:47:51 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/template/template_side_bar.php
+INFO - 2019-03-06 17:47:51 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/pr_schedule_design/pr_schedule.php
+INFO - 2019-03-06 17:47:51 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_footer.php
+INFO - 2019-03-06 17:47:51 --> Final output sent to browser
+DEBUG - 2019-03-06 17:47:51 --> Total execution time: 0.1229
+ERROR - 2019-03-06 17:52:00 --> $config['composer_autoload'] is set to TRUE but /var/www/html/m_lnt_bid/application/vendor/autoload.php was not found.
+INFO - 2019-03-06 17:52:00 --> Config Class Initialized
+INFO - 2019-03-06 17:52:00 --> Hooks Class Initialized
+DEBUG - 2019-03-06 17:52:00 --> UTF-8 Support Enabled
+INFO - 2019-03-06 17:52:00 --> Utf8 Class Initialized
+INFO - 2019-03-06 17:52:00 --> URI Class Initialized
+INFO - 2019-03-06 17:52:00 --> Router Class Initialized
+INFO - 2019-03-06 17:52:00 --> Output Class Initialized
+INFO - 2019-03-06 17:52:00 --> Security Class Initialized
+DEBUG - 2019-03-06 17:52:00 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-06 17:52:00 --> Input Class Initialized
+INFO - 2019-03-06 17:52:00 --> Language Class Initialized
+INFO - 2019-03-06 17:52:00 --> Loader Class Initialized
+INFO - 2019-03-06 17:52:00 --> Helper loaded: url_helper
+INFO - 2019-03-06 17:52:00 --> Helper loaded: file_helper
+INFO - 2019-03-06 17:52:00 --> Encrypt Class Initialized
+INFO - 2019-03-06 17:52:00 --> Controller Class Initialized
+INFO - 2019-03-06 17:52:00 --> Database Driver Class Initialized
+INFO - 2019-03-06 17:52:00 --> Model "User_model" initialized
+INFO - 2019-03-06 17:52:00 --> Model "Design_model" initialized
+DEBUG - 2019-03-06 17:52:00 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-03-06 17:52:00 --> Session: Class initialized using 'files' driver.
+INFO - 2019-03-06 17:52:00 --> User Agent Class Initialized
+DEBUG - 2019-03-06 17:52:00 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-03-06 17:52:00 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-03-06 17:52:00 --> Encryption Class Initialized
+INFO - 2019-03-06 17:52:00 --> Helper loaded: form_helper
+INFO - 2019-03-06 17:52:00 --> Form Validation Class Initialized
+INFO - 2019-03-06 17:52:00 --> Helper loaded: string_helper
+INFO - 2019-03-06 17:52:00 --> Upload Class Initialized
+INFO - 2019-03-06 17:52:00 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_header.php
+INFO - 2019-03-06 17:52:00 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/template/template_top_head.php
+INFO - 2019-03-06 17:52:00 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/template/template_side_bar.php
+INFO - 2019-03-06 17:52:00 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/pr_schedule_design/pr_schedule.php
+INFO - 2019-03-06 17:52:00 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_footer.php
+INFO - 2019-03-06 17:52:00 --> Final output sent to browser
+DEBUG - 2019-03-06 17:52:00 --> Total execution time: 0.1694
+ERROR - 2019-03-06 17:52:12 --> $config['composer_autoload'] is set to TRUE but /var/www/html/m_lnt_bid/application/vendor/autoload.php was not found.
+INFO - 2019-03-06 17:52:12 --> Config Class Initialized
+INFO - 2019-03-06 17:52:12 --> Hooks Class Initialized
+DEBUG - 2019-03-06 17:52:12 --> UTF-8 Support Enabled
+INFO - 2019-03-06 17:52:12 --> Utf8 Class Initialized
+INFO - 2019-03-06 17:52:12 --> URI Class Initialized
+INFO - 2019-03-06 17:52:12 --> Router Class Initialized
+INFO - 2019-03-06 17:52:12 --> Output Class Initialized
+INFO - 2019-03-06 17:52:12 --> Security Class Initialized
+DEBUG - 2019-03-06 17:52:12 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-06 17:52:12 --> Input Class Initialized
+INFO - 2019-03-06 17:52:12 --> Language Class Initialized
+INFO - 2019-03-06 17:52:12 --> Loader Class Initialized
+INFO - 2019-03-06 17:52:12 --> Helper loaded: url_helper
+INFO - 2019-03-06 17:52:12 --> Helper loaded: file_helper
+INFO - 2019-03-06 17:52:12 --> Encrypt Class Initialized
+INFO - 2019-03-06 17:52:12 --> Controller Class Initialized
+INFO - 2019-03-06 17:52:12 --> Database Driver Class Initialized
+INFO - 2019-03-06 17:52:12 --> Model "User_model" initialized
+INFO - 2019-03-06 17:52:12 --> Model "Design_model" initialized
+DEBUG - 2019-03-06 17:52:12 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-03-06 17:52:12 --> Session: Class initialized using 'files' driver.
+INFO - 2019-03-06 17:52:12 --> User Agent Class Initialized
+DEBUG - 2019-03-06 17:52:12 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-03-06 17:52:12 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-03-06 17:52:12 --> Encryption Class Initialized
+INFO - 2019-03-06 17:52:12 --> Helper loaded: form_helper
+INFO - 2019-03-06 17:52:12 --> Form Validation Class Initialized
+INFO - 2019-03-06 17:52:12 --> Helper loaded: string_helper
+INFO - 2019-03-06 17:52:12 --> Upload Class Initialized
+INFO - 2019-03-06 17:52:12 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_header.php
+INFO - 2019-03-06 17:52:12 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/template/template_top_head.php
+INFO - 2019-03-06 17:52:12 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/template/template_side_bar.php
+INFO - 2019-03-06 17:52:12 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/pr_schedule_design/pr_schedule.php
+INFO - 2019-03-06 17:52:12 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_footer.php
+INFO - 2019-03-06 17:52:12 --> Final output sent to browser
+DEBUG - 2019-03-06 17:52:12 --> Total execution time: 0.1539
+ERROR - 2019-03-06 17:53:41 --> $config['composer_autoload'] is set to TRUE but /var/www/html/m_lnt_bid/application/vendor/autoload.php was not found.
+INFO - 2019-03-06 17:53:41 --> Config Class Initialized
+INFO - 2019-03-06 17:53:41 --> Hooks Class Initialized
+DEBUG - 2019-03-06 17:53:41 --> UTF-8 Support Enabled
+INFO - 2019-03-06 17:53:41 --> Utf8 Class Initialized
+INFO - 2019-03-06 17:53:41 --> URI Class Initialized
+INFO - 2019-03-06 17:53:41 --> Router Class Initialized
+INFO - 2019-03-06 17:53:41 --> Output Class Initialized
+INFO - 2019-03-06 17:53:41 --> Security Class Initialized
+DEBUG - 2019-03-06 17:53:41 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-06 17:53:41 --> Input Class Initialized
+INFO - 2019-03-06 17:53:41 --> Language Class Initialized
+INFO - 2019-03-06 17:53:41 --> Loader Class Initialized
+INFO - 2019-03-06 17:53:41 --> Helper loaded: url_helper
+INFO - 2019-03-06 17:53:41 --> Helper loaded: file_helper
+INFO - 2019-03-06 17:53:41 --> Encrypt Class Initialized
+INFO - 2019-03-06 17:53:41 --> Controller Class Initialized
+INFO - 2019-03-06 17:53:41 --> Database Driver Class Initialized
+INFO - 2019-03-06 17:53:41 --> Model "User_model" initialized
+INFO - 2019-03-06 17:53:41 --> Model "Design_model" initialized
+DEBUG - 2019-03-06 17:53:41 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-03-06 17:53:41 --> Session: Class initialized using 'files' driver.
+INFO - 2019-03-06 17:53:41 --> User Agent Class Initialized
+DEBUG - 2019-03-06 17:53:41 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-03-06 17:53:41 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-03-06 17:53:41 --> Encryption Class Initialized
+INFO - 2019-03-06 17:53:41 --> Helper loaded: form_helper
+INFO - 2019-03-06 17:53:41 --> Form Validation Class Initialized
+INFO - 2019-03-06 17:53:41 --> Helper loaded: string_helper
+INFO - 2019-03-06 17:53:41 --> Upload Class Initialized
+INFO - 2019-03-06 17:53:41 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_header.php
+INFO - 2019-03-06 17:53:41 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/template/template_top_head.php
+INFO - 2019-03-06 17:53:41 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/template/template_side_bar.php
+INFO - 2019-03-06 17:53:41 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/pr_schedule_design/pr_schedule.php
+INFO - 2019-03-06 17:53:41 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_footer.php
+INFO - 2019-03-06 17:53:41 --> Final output sent to browser
+DEBUG - 2019-03-06 17:53:41 --> Total execution time: 0.1426
+ERROR - 2019-03-06 18:02:48 --> $config['composer_autoload'] is set to TRUE but /var/www/html/m_lnt_bid/application/vendor/autoload.php was not found.
+INFO - 2019-03-06 18:02:48 --> Config Class Initialized
+INFO - 2019-03-06 18:02:48 --> Hooks Class Initialized
+DEBUG - 2019-03-06 18:02:48 --> UTF-8 Support Enabled
+INFO - 2019-03-06 18:02:48 --> Utf8 Class Initialized
+INFO - 2019-03-06 18:02:48 --> URI Class Initialized
+INFO - 2019-03-06 18:02:48 --> Router Class Initialized
+INFO - 2019-03-06 18:02:48 --> Output Class Initialized
+INFO - 2019-03-06 18:02:48 --> Security Class Initialized
+DEBUG - 2019-03-06 18:02:48 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-06 18:02:48 --> Input Class Initialized
+INFO - 2019-03-06 18:02:48 --> Language Class Initialized
+INFO - 2019-03-06 18:02:48 --> Loader Class Initialized
+INFO - 2019-03-06 18:02:48 --> Helper loaded: url_helper
+INFO - 2019-03-06 18:02:48 --> Helper loaded: file_helper
+INFO - 2019-03-06 18:02:48 --> Encrypt Class Initialized
+INFO - 2019-03-06 18:02:48 --> Controller Class Initialized
+INFO - 2019-03-06 18:02:48 --> Database Driver Class Initialized
+INFO - 2019-03-06 18:02:48 --> Model "User_model" initialized
+INFO - 2019-03-06 18:02:48 --> Model "Design_model" initialized
+DEBUG - 2019-03-06 18:02:48 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-03-06 18:02:48 --> Session: Class initialized using 'files' driver.
+INFO - 2019-03-06 18:02:48 --> User Agent Class Initialized
+DEBUG - 2019-03-06 18:02:48 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-03-06 18:02:48 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-03-06 18:02:48 --> Encryption Class Initialized
+INFO - 2019-03-06 18:02:48 --> Helper loaded: form_helper
+INFO - 2019-03-06 18:02:48 --> Form Validation Class Initialized
+INFO - 2019-03-06 18:02:48 --> Helper loaded: string_helper
+INFO - 2019-03-06 18:02:48 --> Upload Class Initialized
+INFO - 2019-03-06 18:02:48 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_header.php
+INFO - 2019-03-06 18:02:48 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/template/template_top_head.php
+INFO - 2019-03-06 18:02:48 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/template/template_side_bar.php
+INFO - 2019-03-06 18:02:48 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/pr_schedule_design/pr_schedule.php
+INFO - 2019-03-06 18:02:48 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_footer.php
+INFO - 2019-03-06 18:02:48 --> Final output sent to browser
+DEBUG - 2019-03-06 18:02:48 --> Total execution time: 0.1504
+ERROR - 2019-03-06 18:02:53 --> $config['composer_autoload'] is set to TRUE but /var/www/html/m_lnt_bid/application/vendor/autoload.php was not found.
+INFO - 2019-03-06 18:02:53 --> Config Class Initialized
+INFO - 2019-03-06 18:02:53 --> Hooks Class Initialized
+DEBUG - 2019-03-06 18:02:53 --> UTF-8 Support Enabled
+INFO - 2019-03-06 18:02:53 --> Utf8 Class Initialized
+INFO - 2019-03-06 18:02:53 --> URI Class Initialized
+INFO - 2019-03-06 18:02:53 --> Router Class Initialized
+INFO - 2019-03-06 18:02:53 --> Output Class Initialized
+INFO - 2019-03-06 18:02:53 --> Security Class Initialized
+DEBUG - 2019-03-06 18:02:53 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-06 18:02:53 --> Input Class Initialized
+INFO - 2019-03-06 18:02:53 --> Language Class Initialized
+INFO - 2019-03-06 18:02:53 --> Loader Class Initialized
+INFO - 2019-03-06 18:02:53 --> Helper loaded: url_helper
+INFO - 2019-03-06 18:02:53 --> Helper loaded: file_helper
+INFO - 2019-03-06 18:02:53 --> Encrypt Class Initialized
+INFO - 2019-03-06 18:02:53 --> Controller Class Initialized
+INFO - 2019-03-06 18:02:53 --> Database Driver Class Initialized
+INFO - 2019-03-06 18:02:53 --> User Agent Class Initialized
+INFO - 2019-03-06 18:02:53 --> File loaded: /var/www/html/m_lnt_bid/application/views/errors/Error_404.php
+INFO - 2019-03-06 18:02:53 --> Final output sent to browser
+DEBUG - 2019-03-06 18:02:53 --> Total execution time: 0.0887
+ERROR - 2019-03-06 18:02:53 --> $config['composer_autoload'] is set to TRUE but /var/www/html/m_lnt_bid/application/vendor/autoload.php was not found.
+INFO - 2019-03-06 18:02:53 --> Config Class Initialized
+INFO - 2019-03-06 18:02:53 --> Hooks Class Initialized
+DEBUG - 2019-03-06 18:02:53 --> UTF-8 Support Enabled
+INFO - 2019-03-06 18:02:53 --> Utf8 Class Initialized
+INFO - 2019-03-06 18:02:53 --> URI Class Initialized
+INFO - 2019-03-06 18:02:53 --> Router Class Initialized
+INFO - 2019-03-06 18:02:53 --> Output Class Initialized
+INFO - 2019-03-06 18:02:53 --> Security Class Initialized
+DEBUG - 2019-03-06 18:02:53 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-06 18:02:53 --> Input Class Initialized
+INFO - 2019-03-06 18:02:53 --> Language Class Initialized
+INFO - 2019-03-06 18:02:53 --> Loader Class Initialized
+INFO - 2019-03-06 18:02:53 --> Helper loaded: url_helper
+INFO - 2019-03-06 18:02:53 --> Helper loaded: file_helper
+INFO - 2019-03-06 18:02:53 --> Encrypt Class Initialized
+INFO - 2019-03-06 18:02:53 --> Controller Class Initialized
+INFO - 2019-03-06 18:02:53 --> Database Driver Class Initialized
+INFO - 2019-03-06 18:02:53 --> User Agent Class Initialized
+INFO - 2019-03-06 18:02:53 --> File loaded: /var/www/html/m_lnt_bid/application/views/errors/Error_404.php
+INFO - 2019-03-06 18:02:53 --> Final output sent to browser
+DEBUG - 2019-03-06 18:02:53 --> Total execution time: 0.1281
+ERROR - 2019-03-06 18:02:53 --> $config['composer_autoload'] is set to TRUE but /var/www/html/m_lnt_bid/application/vendor/autoload.php was not found.
+INFO - 2019-03-06 18:02:53 --> Config Class Initialized
+INFO - 2019-03-06 18:02:53 --> Hooks Class Initialized
+DEBUG - 2019-03-06 18:02:53 --> UTF-8 Support Enabled
+INFO - 2019-03-06 18:02:53 --> Utf8 Class Initialized
+INFO - 2019-03-06 18:02:53 --> URI Class Initialized
+INFO - 2019-03-06 18:02:53 --> Router Class Initialized
+INFO - 2019-03-06 18:02:53 --> Output Class Initialized
+INFO - 2019-03-06 18:02:53 --> Security Class Initialized
+DEBUG - 2019-03-06 18:02:53 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-06 18:02:53 --> Input Class Initialized
+INFO - 2019-03-06 18:02:53 --> Language Class Initialized
+INFO - 2019-03-06 18:02:53 --> Loader Class Initialized
+INFO - 2019-03-06 18:02:53 --> Helper loaded: url_helper
+INFO - 2019-03-06 18:02:53 --> Helper loaded: file_helper
+INFO - 2019-03-06 18:02:53 --> Encrypt Class Initialized
+INFO - 2019-03-06 18:02:53 --> Controller Class Initialized
+INFO - 2019-03-06 18:02:53 --> Database Driver Class Initialized
+INFO - 2019-03-06 18:02:53 --> User Agent Class Initialized
+INFO - 2019-03-06 18:02:53 --> File loaded: /var/www/html/m_lnt_bid/application/views/errors/Error_404.php
+INFO - 2019-03-06 18:02:53 --> Final output sent to browser
+DEBUG - 2019-03-06 18:02:53 --> Total execution time: 0.1068
+ERROR - 2019-03-06 18:05:34 --> $config['composer_autoload'] is set to TRUE but /var/www/html/m_lnt_bid/application/vendor/autoload.php was not found.
+INFO - 2019-03-06 18:05:34 --> Config Class Initialized
+INFO - 2019-03-06 18:05:34 --> Hooks Class Initialized
+DEBUG - 2019-03-06 18:05:34 --> UTF-8 Support Enabled
+INFO - 2019-03-06 18:05:34 --> Utf8 Class Initialized
+INFO - 2019-03-06 18:05:34 --> URI Class Initialized
+INFO - 2019-03-06 18:05:34 --> Router Class Initialized
+INFO - 2019-03-06 18:05:34 --> Output Class Initialized
+INFO - 2019-03-06 18:05:34 --> Security Class Initialized
+DEBUG - 2019-03-06 18:05:34 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-06 18:05:34 --> Input Class Initialized
+INFO - 2019-03-06 18:05:34 --> Language Class Initialized
+INFO - 2019-03-06 18:05:34 --> Loader Class Initialized
+INFO - 2019-03-06 18:05:34 --> Helper loaded: url_helper
+INFO - 2019-03-06 18:05:34 --> Helper loaded: file_helper
+INFO - 2019-03-06 18:05:34 --> Encrypt Class Initialized
+INFO - 2019-03-06 18:05:34 --> Controller Class Initialized
+INFO - 2019-03-06 18:05:34 --> Database Driver Class Initialized
+INFO - 2019-03-06 18:05:34 --> User Agent Class Initialized
+INFO - 2019-03-06 18:05:34 --> File loaded: /var/www/html/m_lnt_bid/application/views/errors/Error_404.php
+INFO - 2019-03-06 18:05:34 --> Final output sent to browser
+DEBUG - 2019-03-06 18:05:34 --> Total execution time: 0.0892
+ERROR - 2019-03-06 18:05:34 --> $config['composer_autoload'] is set to TRUE but /var/www/html/m_lnt_bid/application/vendor/autoload.php was not found.
+INFO - 2019-03-06 18:05:34 --> Config Class Initialized
+INFO - 2019-03-06 18:05:34 --> Hooks Class Initialized
+DEBUG - 2019-03-06 18:05:34 --> UTF-8 Support Enabled
+INFO - 2019-03-06 18:05:34 --> Utf8 Class Initialized
+INFO - 2019-03-06 18:05:34 --> URI Class Initialized
+INFO - 2019-03-06 18:05:34 --> Router Class Initialized
+INFO - 2019-03-06 18:05:34 --> Output Class Initialized
+INFO - 2019-03-06 18:05:34 --> Security Class Initialized
+DEBUG - 2019-03-06 18:05:34 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-06 18:05:34 --> Input Class Initialized
+INFO - 2019-03-06 18:05:34 --> Language Class Initialized
+INFO - 2019-03-06 18:05:34 --> Loader Class Initialized
+INFO - 2019-03-06 18:05:34 --> Helper loaded: url_helper
+INFO - 2019-03-06 18:05:34 --> Helper loaded: file_helper
+INFO - 2019-03-06 18:05:34 --> Encrypt Class Initialized
+INFO - 2019-03-06 18:05:34 --> Controller Class Initialized
+INFO - 2019-03-06 18:05:34 --> Database Driver Class Initialized
+INFO - 2019-03-06 18:05:34 --> User Agent Class Initialized
+INFO - 2019-03-06 18:05:34 --> File loaded: /var/www/html/m_lnt_bid/application/views/errors/Error_404.php
+INFO - 2019-03-06 18:05:34 --> Final output sent to browser
+DEBUG - 2019-03-06 18:05:34 --> Total execution time: 0.1405
+ERROR - 2019-03-06 18:05:35 --> $config['composer_autoload'] is set to TRUE but /var/www/html/m_lnt_bid/application/vendor/autoload.php was not found.
+INFO - 2019-03-06 18:05:35 --> Config Class Initialized
+INFO - 2019-03-06 18:05:35 --> Hooks Class Initialized
+DEBUG - 2019-03-06 18:05:35 --> UTF-8 Support Enabled
+INFO - 2019-03-06 18:05:35 --> Utf8 Class Initialized
+INFO - 2019-03-06 18:05:35 --> URI Class Initialized
+INFO - 2019-03-06 18:05:35 --> Router Class Initialized
+INFO - 2019-03-06 18:05:35 --> Output Class Initialized
+INFO - 2019-03-06 18:05:35 --> Security Class Initialized
+DEBUG - 2019-03-06 18:05:35 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-06 18:05:35 --> Input Class Initialized
+INFO - 2019-03-06 18:05:35 --> Language Class Initialized
+INFO - 2019-03-06 18:05:35 --> Loader Class Initialized
+INFO - 2019-03-06 18:05:35 --> Helper loaded: url_helper
+INFO - 2019-03-06 18:05:35 --> Helper loaded: file_helper
+INFO - 2019-03-06 18:05:35 --> Encrypt Class Initialized
+INFO - 2019-03-06 18:05:35 --> Controller Class Initialized
+INFO - 2019-03-06 18:05:35 --> Database Driver Class Initialized
+INFO - 2019-03-06 18:05:35 --> User Agent Class Initialized
+INFO - 2019-03-06 18:05:35 --> File loaded: /var/www/html/m_lnt_bid/application/views/errors/Error_404.php
+INFO - 2019-03-06 18:05:35 --> Final output sent to browser
+DEBUG - 2019-03-06 18:05:35 --> Total execution time: 0.1013
+ERROR - 2019-03-06 18:05:36 --> $config['composer_autoload'] is set to TRUE but /var/www/html/m_lnt_bid/application/vendor/autoload.php was not found.
+INFO - 2019-03-06 18:05:36 --> Config Class Initialized
+INFO - 2019-03-06 18:05:36 --> Hooks Class Initialized
+DEBUG - 2019-03-06 18:05:36 --> UTF-8 Support Enabled
+INFO - 2019-03-06 18:05:36 --> Utf8 Class Initialized
+INFO - 2019-03-06 18:05:36 --> URI Class Initialized
+INFO - 2019-03-06 18:05:36 --> Router Class Initialized
+INFO - 2019-03-06 18:05:36 --> Output Class Initialized
+INFO - 2019-03-06 18:05:36 --> Security Class Initialized
+DEBUG - 2019-03-06 18:05:36 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-06 18:05:36 --> Input Class Initialized
+INFO - 2019-03-06 18:05:36 --> Language Class Initialized
+INFO - 2019-03-06 18:05:36 --> Loader Class Initialized
+INFO - 2019-03-06 18:05:36 --> Helper loaded: url_helper
+INFO - 2019-03-06 18:05:36 --> Helper loaded: file_helper
+INFO - 2019-03-06 18:05:36 --> Encrypt Class Initialized
+INFO - 2019-03-06 18:05:36 --> Controller Class Initialized
+INFO - 2019-03-06 18:05:36 --> Database Driver Class Initialized
+INFO - 2019-03-06 18:05:36 --> User Agent Class Initialized
+INFO - 2019-03-06 18:05:36 --> File loaded: /var/www/html/m_lnt_bid/application/views/errors/Error_404.php
+INFO - 2019-03-06 18:05:36 --> Final output sent to browser
+DEBUG - 2019-03-06 18:05:36 --> Total execution time: 0.0888
+ERROR - 2019-03-06 18:05:36 --> $config['composer_autoload'] is set to TRUE but /var/www/html/m_lnt_bid/application/vendor/autoload.php was not found.
+INFO - 2019-03-06 18:05:36 --> Config Class Initialized
+INFO - 2019-03-06 18:05:36 --> Hooks Class Initialized
+DEBUG - 2019-03-06 18:05:36 --> UTF-8 Support Enabled
+INFO - 2019-03-06 18:05:36 --> Utf8 Class Initialized
+INFO - 2019-03-06 18:05:36 --> URI Class Initialized
+INFO - 2019-03-06 18:05:36 --> Router Class Initialized
+INFO - 2019-03-06 18:05:36 --> Output Class Initialized
+INFO - 2019-03-06 18:05:36 --> Security Class Initialized
+DEBUG - 2019-03-06 18:05:36 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-06 18:05:36 --> Input Class Initialized
+INFO - 2019-03-06 18:05:36 --> Language Class Initialized
+INFO - 2019-03-06 18:05:36 --> Loader Class Initialized
+INFO - 2019-03-06 18:05:36 --> Helper loaded: url_helper
+INFO - 2019-03-06 18:05:36 --> Helper loaded: file_helper
+INFO - 2019-03-06 18:05:36 --> Encrypt Class Initialized
+INFO - 2019-03-06 18:05:36 --> Controller Class Initialized
+INFO - 2019-03-06 18:05:36 --> Database Driver Class Initialized
+INFO - 2019-03-06 18:05:36 --> User Agent Class Initialized
+INFO - 2019-03-06 18:05:36 --> File loaded: /var/www/html/m_lnt_bid/application/views/errors/Error_404.php
+INFO - 2019-03-06 18:05:36 --> Final output sent to browser
+DEBUG - 2019-03-06 18:05:36 --> Total execution time: 0.0933
+ERROR - 2019-03-06 18:05:51 --> $config['composer_autoload'] is set to TRUE but /var/www/html/m_lnt_bid/application/vendor/autoload.php was not found.
+INFO - 2019-03-06 18:05:51 --> Config Class Initialized
+INFO - 2019-03-06 18:05:51 --> Hooks Class Initialized
+DEBUG - 2019-03-06 18:05:51 --> UTF-8 Support Enabled
+INFO - 2019-03-06 18:05:51 --> Utf8 Class Initialized
+INFO - 2019-03-06 18:05:51 --> URI Class Initialized
+INFO - 2019-03-06 18:05:51 --> Router Class Initialized
+INFO - 2019-03-06 18:05:51 --> Output Class Initialized
+INFO - 2019-03-06 18:05:51 --> Security Class Initialized
+DEBUG - 2019-03-06 18:05:51 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-06 18:05:51 --> Input Class Initialized
+INFO - 2019-03-06 18:05:51 --> Language Class Initialized
+INFO - 2019-03-06 18:05:51 --> Loader Class Initialized
+INFO - 2019-03-06 18:05:51 --> Helper loaded: url_helper
+INFO - 2019-03-06 18:05:51 --> Helper loaded: file_helper
+INFO - 2019-03-06 18:05:51 --> Encrypt Class Initialized
+INFO - 2019-03-06 18:05:51 --> Controller Class Initialized
+INFO - 2019-03-06 18:05:51 --> Database Driver Class Initialized
+INFO - 2019-03-06 18:05:51 --> Model "User_model" initialized
+INFO - 2019-03-06 18:05:51 --> Model "Design_model" initialized
+DEBUG - 2019-03-06 18:05:51 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-03-06 18:05:51 --> Session: Class initialized using 'files' driver.
+INFO - 2019-03-06 18:05:51 --> User Agent Class Initialized
+DEBUG - 2019-03-06 18:05:51 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-03-06 18:05:51 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-03-06 18:05:51 --> Encryption Class Initialized
+INFO - 2019-03-06 18:05:51 --> Helper loaded: form_helper
+INFO - 2019-03-06 18:05:51 --> Form Validation Class Initialized
+INFO - 2019-03-06 18:05:51 --> Helper loaded: string_helper
+INFO - 2019-03-06 18:05:51 --> Upload Class Initialized
+INFO - 2019-03-06 18:05:51 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_header.php
+INFO - 2019-03-06 18:05:51 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/template/template_top_head.php
+INFO - 2019-03-06 18:05:51 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/template/template_side_bar.php
+INFO - 2019-03-06 18:05:51 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/new_pr_schedule_design/project_pr_schedule.php
+INFO - 2019-03-06 18:05:51 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_footer.php
+INFO - 2019-03-06 18:05:51 --> Final output sent to browser
+DEBUG - 2019-03-06 18:05:51 --> Total execution time: 0.1068
+ERROR - 2019-03-06 18:06:54 --> $config['composer_autoload'] is set to TRUE but /var/www/html/m_lnt_bid/application/vendor/autoload.php was not found.
+INFO - 2019-03-06 18:06:54 --> Config Class Initialized
+INFO - 2019-03-06 18:06:54 --> Hooks Class Initialized
+DEBUG - 2019-03-06 18:06:54 --> UTF-8 Support Enabled
+INFO - 2019-03-06 18:06:54 --> Utf8 Class Initialized
+INFO - 2019-03-06 18:06:54 --> URI Class Initialized
+INFO - 2019-03-06 18:06:54 --> Router Class Initialized
+INFO - 2019-03-06 18:06:54 --> Output Class Initialized
+INFO - 2019-03-06 18:06:54 --> Security Class Initialized
+DEBUG - 2019-03-06 18:06:54 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-06 18:06:54 --> Input Class Initialized
+INFO - 2019-03-06 18:06:54 --> Language Class Initialized
+INFO - 2019-03-06 18:06:54 --> Loader Class Initialized
+INFO - 2019-03-06 18:06:54 --> Helper loaded: url_helper
+INFO - 2019-03-06 18:06:54 --> Helper loaded: file_helper
+INFO - 2019-03-06 18:06:54 --> Encrypt Class Initialized
+INFO - 2019-03-06 18:06:54 --> Controller Class Initialized
+INFO - 2019-03-06 18:06:54 --> Database Driver Class Initialized
+INFO - 2019-03-06 18:06:54 --> Model "User_model" initialized
+INFO - 2019-03-06 18:06:54 --> Model "Design_model" initialized
+DEBUG - 2019-03-06 18:06:54 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-03-06 18:06:54 --> Session: Class initialized using 'files' driver.
+INFO - 2019-03-06 18:06:54 --> User Agent Class Initialized
+DEBUG - 2019-03-06 18:06:54 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-03-06 18:06:54 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-03-06 18:06:54 --> Encryption Class Initialized
+INFO - 2019-03-06 18:06:54 --> Helper loaded: form_helper
+INFO - 2019-03-06 18:06:54 --> Form Validation Class Initialized
+INFO - 2019-03-06 18:06:54 --> Helper loaded: string_helper
+INFO - 2019-03-06 18:06:54 --> Upload Class Initialized
+INFO - 2019-03-06 18:06:54 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_header.php
+INFO - 2019-03-06 18:06:54 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/template/template_top_head.php
+INFO - 2019-03-06 18:06:54 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/template/template_side_bar.php
+INFO - 2019-03-06 18:06:54 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/new_pr_schedule_design/project_pr_schedule.php
+INFO - 2019-03-06 18:06:54 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_footer.php
+INFO - 2019-03-06 18:06:54 --> Final output sent to browser
+DEBUG - 2019-03-06 18:06:54 --> Total execution time: 0.0963
+ERROR - 2019-03-06 18:09:32 --> $config['composer_autoload'] is set to TRUE but /var/www/html/m_lnt_bid/application/vendor/autoload.php was not found.
+INFO - 2019-03-06 18:09:32 --> Config Class Initialized
+INFO - 2019-03-06 18:09:32 --> Hooks Class Initialized
+DEBUG - 2019-03-06 18:09:32 --> UTF-8 Support Enabled
+INFO - 2019-03-06 18:09:32 --> Utf8 Class Initialized
+INFO - 2019-03-06 18:09:32 --> URI Class Initialized
+INFO - 2019-03-06 18:09:32 --> Router Class Initialized
+INFO - 2019-03-06 18:09:32 --> Output Class Initialized
+INFO - 2019-03-06 18:09:32 --> Security Class Initialized
+DEBUG - 2019-03-06 18:09:32 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-06 18:09:32 --> Input Class Initialized
+INFO - 2019-03-06 18:09:32 --> Language Class Initialized
+INFO - 2019-03-06 18:09:33 --> Loader Class Initialized
+INFO - 2019-03-06 18:09:33 --> Helper loaded: url_helper
+INFO - 2019-03-06 18:09:33 --> Helper loaded: file_helper
+INFO - 2019-03-06 18:09:33 --> Encrypt Class Initialized
+INFO - 2019-03-06 18:09:33 --> Controller Class Initialized
+INFO - 2019-03-06 18:09:33 --> Database Driver Class Initialized
+INFO - 2019-03-06 18:09:33 --> Model "User_model" initialized
+INFO - 2019-03-06 18:09:33 --> Model "Design_model" initialized
+DEBUG - 2019-03-06 18:09:33 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-03-06 18:09:33 --> Session: Class initialized using 'files' driver.
+INFO - 2019-03-06 18:09:33 --> User Agent Class Initialized
+DEBUG - 2019-03-06 18:09:33 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-03-06 18:09:33 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-03-06 18:09:33 --> Encryption Class Initialized
+INFO - 2019-03-06 18:09:33 --> Helper loaded: form_helper
+INFO - 2019-03-06 18:09:33 --> Form Validation Class Initialized
+INFO - 2019-03-06 18:09:33 --> Helper loaded: string_helper
+INFO - 2019-03-06 18:09:33 --> Upload Class Initialized
+INFO - 2019-03-06 18:09:33 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_header.php
+INFO - 2019-03-06 18:09:33 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/template/template_top_head.php
+INFO - 2019-03-06 18:09:33 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/template/template_side_bar.php
+INFO - 2019-03-06 18:09:33 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/pr_schedule_design/pr_schedule.php
+INFO - 2019-03-06 18:09:33 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_footer.php
+INFO - 2019-03-06 18:09:33 --> Final output sent to browser
+DEBUG - 2019-03-06 18:09:33 --> Total execution time: 0.1415
+ERROR - 2019-03-06 18:15:00 --> $config['composer_autoload'] is set to TRUE but /var/www/html/m_lnt_bid/application/vendor/autoload.php was not found.
+INFO - 2019-03-06 18:15:00 --> Config Class Initialized
+INFO - 2019-03-06 18:15:00 --> Hooks Class Initialized
+DEBUG - 2019-03-06 18:15:00 --> UTF-8 Support Enabled
+INFO - 2019-03-06 18:15:00 --> Utf8 Class Initialized
+INFO - 2019-03-06 18:15:00 --> URI Class Initialized
+INFO - 2019-03-06 18:15:00 --> Router Class Initialized
+INFO - 2019-03-06 18:15:00 --> Output Class Initialized
+INFO - 2019-03-06 18:15:00 --> Security Class Initialized
+DEBUG - 2019-03-06 18:15:00 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-06 18:15:00 --> Input Class Initialized
+INFO - 2019-03-06 18:15:00 --> Language Class Initialized
+INFO - 2019-03-06 18:15:00 --> Loader Class Initialized
+INFO - 2019-03-06 18:15:00 --> Helper loaded: url_helper
+INFO - 2019-03-06 18:15:00 --> Helper loaded: file_helper
+INFO - 2019-03-06 18:15:00 --> Encrypt Class Initialized
+INFO - 2019-03-06 18:15:00 --> Controller Class Initialized
+INFO - 2019-03-06 18:15:00 --> Database Driver Class Initialized
+INFO - 2019-03-06 18:15:00 --> Model "User_model" initialized
+INFO - 2019-03-06 18:15:00 --> Model "Design_model" initialized
+DEBUG - 2019-03-06 18:15:00 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-03-06 18:15:00 --> Session: Class initialized using 'files' driver.
+INFO - 2019-03-06 18:15:00 --> User Agent Class Initialized
+DEBUG - 2019-03-06 18:15:00 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-03-06 18:15:00 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-03-06 18:15:00 --> Encryption Class Initialized
+INFO - 2019-03-06 18:15:00 --> Helper loaded: form_helper
+INFO - 2019-03-06 18:15:00 --> Form Validation Class Initialized
+INFO - 2019-03-06 18:15:00 --> Helper loaded: string_helper
+INFO - 2019-03-06 18:15:00 --> Upload Class Initialized
+INFO - 2019-03-06 18:15:00 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_header.php
+INFO - 2019-03-06 18:15:00 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/template/template_top_head.php
+INFO - 2019-03-06 18:15:00 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/template/template_side_bar.php
+INFO - 2019-03-06 18:15:00 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/pr_schedule_design/pr_schedule.php
+INFO - 2019-03-06 18:15:00 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_footer.php
+INFO - 2019-03-06 18:15:00 --> Final output sent to browser
+DEBUG - 2019-03-06 18:15:00 --> Total execution time: 0.1598
+ERROR - 2019-03-06 18:15:55 --> $config['composer_autoload'] is set to TRUE but /var/www/html/m_lnt_bid/application/vendor/autoload.php was not found.
+INFO - 2019-03-06 18:15:55 --> Config Class Initialized
+INFO - 2019-03-06 18:15:55 --> Hooks Class Initialized
+DEBUG - 2019-03-06 18:15:55 --> UTF-8 Support Enabled
+INFO - 2019-03-06 18:15:55 --> Utf8 Class Initialized
+INFO - 2019-03-06 18:15:55 --> URI Class Initialized
+INFO - 2019-03-06 18:15:55 --> Router Class Initialized
+INFO - 2019-03-06 18:15:55 --> Output Class Initialized
+INFO - 2019-03-06 18:15:55 --> Security Class Initialized
+DEBUG - 2019-03-06 18:15:55 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-06 18:15:55 --> Input Class Initialized
+INFO - 2019-03-06 18:15:55 --> Language Class Initialized
+INFO - 2019-03-06 18:15:55 --> Loader Class Initialized
+INFO - 2019-03-06 18:15:55 --> Helper loaded: url_helper
+INFO - 2019-03-06 18:15:55 --> Helper loaded: file_helper
+INFO - 2019-03-06 18:15:55 --> Encrypt Class Initialized
+INFO - 2019-03-06 18:15:55 --> Controller Class Initialized
+INFO - 2019-03-06 18:15:55 --> Database Driver Class Initialized
+INFO - 2019-03-06 18:15:55 --> Model "User_model" initialized
+INFO - 2019-03-06 18:15:55 --> Model "Design_model" initialized
+DEBUG - 2019-03-06 18:15:55 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-03-06 18:15:55 --> Session: Class initialized using 'files' driver.
+INFO - 2019-03-06 18:15:55 --> User Agent Class Initialized
+DEBUG - 2019-03-06 18:15:55 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-03-06 18:15:55 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-03-06 18:15:55 --> Encryption Class Initialized
+INFO - 2019-03-06 18:15:55 --> Helper loaded: form_helper
+INFO - 2019-03-06 18:15:55 --> Form Validation Class Initialized
+INFO - 2019-03-06 18:15:55 --> Helper loaded: string_helper
+INFO - 2019-03-06 18:15:55 --> Upload Class Initialized
+INFO - 2019-03-06 18:15:55 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_header.php
+INFO - 2019-03-06 18:15:55 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/template/template_top_head.php
+INFO - 2019-03-06 18:15:55 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/template/template_side_bar.php
+INFO - 2019-03-06 18:15:55 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/pr_schedule_design/pr_schedule.php
+INFO - 2019-03-06 18:15:55 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_footer.php
+INFO - 2019-03-06 18:15:55 --> Final output sent to browser
+DEBUG - 2019-03-06 18:15:55 --> Total execution time: 0.1004
+ERROR - 2019-03-06 18:16:30 --> $config['composer_autoload'] is set to TRUE but /var/www/html/m_lnt_bid/application/vendor/autoload.php was not found.
+INFO - 2019-03-06 18:16:30 --> Config Class Initialized
+INFO - 2019-03-06 18:16:30 --> Hooks Class Initialized
+DEBUG - 2019-03-06 18:16:30 --> UTF-8 Support Enabled
+INFO - 2019-03-06 18:16:30 --> Utf8 Class Initialized
+INFO - 2019-03-06 18:16:30 --> URI Class Initialized
+INFO - 2019-03-06 18:16:30 --> Router Class Initialized
+INFO - 2019-03-06 18:16:30 --> Output Class Initialized
+INFO - 2019-03-06 18:16:30 --> Security Class Initialized
+DEBUG - 2019-03-06 18:16:30 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-06 18:16:30 --> Input Class Initialized
+INFO - 2019-03-06 18:16:30 --> Language Class Initialized
+INFO - 2019-03-06 18:16:30 --> Loader Class Initialized
+INFO - 2019-03-06 18:16:30 --> Helper loaded: url_helper
+INFO - 2019-03-06 18:16:30 --> Helper loaded: file_helper
+INFO - 2019-03-06 18:16:30 --> Encrypt Class Initialized
+INFO - 2019-03-06 18:16:30 --> Controller Class Initialized
+INFO - 2019-03-06 18:16:30 --> Database Driver Class Initialized
+INFO - 2019-03-06 18:16:30 --> Model "User_model" initialized
+INFO - 2019-03-06 18:16:30 --> Model "Design_model" initialized
+DEBUG - 2019-03-06 18:16:30 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-03-06 18:16:30 --> Session: Class initialized using 'files' driver.
+INFO - 2019-03-06 18:16:30 --> User Agent Class Initialized
+DEBUG - 2019-03-06 18:16:30 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-03-06 18:16:30 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-03-06 18:16:30 --> Encryption Class Initialized
+INFO - 2019-03-06 18:16:30 --> Helper loaded: form_helper
+INFO - 2019-03-06 18:16:30 --> Form Validation Class Initialized
+INFO - 2019-03-06 18:16:30 --> Helper loaded: string_helper
+INFO - 2019-03-06 18:16:30 --> Upload Class Initialized
+INFO - 2019-03-06 18:16:30 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_header.php
+INFO - 2019-03-06 18:16:30 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/template/template_top_head.php
+INFO - 2019-03-06 18:16:30 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/template/template_side_bar.php
+INFO - 2019-03-06 18:16:30 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/new_pr_schedule_design/project_pr_schedule.php
+INFO - 2019-03-06 18:16:30 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_footer.php
+INFO - 2019-03-06 18:16:30 --> Final output sent to browser
+DEBUG - 2019-03-06 18:16:30 --> Total execution time: 0.0785
+ERROR - 2019-03-06 18:16:35 --> $config['composer_autoload'] is set to TRUE but /var/www/html/m_lnt_bid/application/vendor/autoload.php was not found.
+INFO - 2019-03-06 18:16:35 --> Config Class Initialized
+INFO - 2019-03-06 18:16:35 --> Hooks Class Initialized
+DEBUG - 2019-03-06 18:16:35 --> UTF-8 Support Enabled
+INFO - 2019-03-06 18:16:35 --> Utf8 Class Initialized
+INFO - 2019-03-06 18:16:35 --> URI Class Initialized
+INFO - 2019-03-06 18:16:35 --> Router Class Initialized
+INFO - 2019-03-06 18:16:35 --> Output Class Initialized
+INFO - 2019-03-06 18:16:35 --> Security Class Initialized
+DEBUG - 2019-03-06 18:16:35 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-06 18:16:35 --> Input Class Initialized
+INFO - 2019-03-06 18:16:35 --> Language Class Initialized
+INFO - 2019-03-06 18:16:35 --> Loader Class Initialized
+INFO - 2019-03-06 18:16:35 --> Helper loaded: url_helper
+INFO - 2019-03-06 18:16:35 --> Helper loaded: file_helper
+INFO - 2019-03-06 18:16:35 --> Encrypt Class Initialized
+INFO - 2019-03-06 18:16:35 --> Controller Class Initialized
+INFO - 2019-03-06 18:16:35 --> Database Driver Class Initialized
+INFO - 2019-03-06 18:16:35 --> Model "User_model" initialized
+INFO - 2019-03-06 18:16:35 --> Model "Design_model" initialized
+DEBUG - 2019-03-06 18:16:35 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-03-06 18:16:35 --> Session: Class initialized using 'files' driver.
+INFO - 2019-03-06 18:16:35 --> User Agent Class Initialized
+DEBUG - 2019-03-06 18:16:35 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-03-06 18:16:35 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-03-06 18:16:35 --> Encryption Class Initialized
+INFO - 2019-03-06 18:16:35 --> Helper loaded: form_helper
+INFO - 2019-03-06 18:16:35 --> Form Validation Class Initialized
+INFO - 2019-03-06 18:16:35 --> Helper loaded: string_helper
+INFO - 2019-03-06 18:16:35 --> Upload Class Initialized
+INFO - 2019-03-06 18:16:35 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_header.php
+INFO - 2019-03-06 18:16:35 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/template/template_top_head.php
+INFO - 2019-03-06 18:16:35 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/template/template_side_bar.php
+INFO - 2019-03-06 18:16:35 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/pr_schedule_design/pr_schedule.php
+INFO - 2019-03-06 18:16:35 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_footer.php
+INFO - 2019-03-06 18:16:35 --> Final output sent to browser
+DEBUG - 2019-03-06 18:16:35 --> Total execution time: 0.1242
+ERROR - 2019-03-06 18:16:47 --> $config['composer_autoload'] is set to TRUE but /var/www/html/m_lnt_bid/application/vendor/autoload.php was not found.
+INFO - 2019-03-06 18:16:47 --> Config Class Initialized
+INFO - 2019-03-06 18:16:47 --> Hooks Class Initialized
+DEBUG - 2019-03-06 18:16:47 --> UTF-8 Support Enabled
+INFO - 2019-03-06 18:16:47 --> Utf8 Class Initialized
+INFO - 2019-03-06 18:16:47 --> URI Class Initialized
+INFO - 2019-03-06 18:16:47 --> Router Class Initialized
+INFO - 2019-03-06 18:16:47 --> Output Class Initialized
+INFO - 2019-03-06 18:16:47 --> Security Class Initialized
+DEBUG - 2019-03-06 18:16:47 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-06 18:16:47 --> Input Class Initialized
+INFO - 2019-03-06 18:16:47 --> Language Class Initialized
+INFO - 2019-03-06 18:16:47 --> Loader Class Initialized
+INFO - 2019-03-06 18:16:47 --> Helper loaded: url_helper
+INFO - 2019-03-06 18:16:47 --> Helper loaded: file_helper
+INFO - 2019-03-06 18:16:47 --> Encrypt Class Initialized
+INFO - 2019-03-06 18:16:47 --> Controller Class Initialized
+INFO - 2019-03-06 18:16:47 --> Database Driver Class Initialized
+INFO - 2019-03-06 18:16:47 --> Model "User_model" initialized
+INFO - 2019-03-06 18:16:47 --> Model "Design_model" initialized
+DEBUG - 2019-03-06 18:16:47 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-03-06 18:16:47 --> Session: Class initialized using 'files' driver.
+INFO - 2019-03-06 18:16:47 --> User Agent Class Initialized
+DEBUG - 2019-03-06 18:16:47 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-03-06 18:16:47 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-03-06 18:16:47 --> Encryption Class Initialized
+INFO - 2019-03-06 18:16:47 --> Helper loaded: form_helper
+INFO - 2019-03-06 18:16:47 --> Form Validation Class Initialized
+INFO - 2019-03-06 18:16:47 --> Helper loaded: string_helper
+INFO - 2019-03-06 18:16:47 --> Upload Class Initialized
+INFO - 2019-03-06 18:16:48 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_header.php
+INFO - 2019-03-06 18:16:48 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/template/template_top_head.php
+INFO - 2019-03-06 18:16:48 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/template/template_side_bar.php
+INFO - 2019-03-06 18:16:48 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/new_pr_schedule_design/project_pr_schedule.php
+INFO - 2019-03-06 18:16:48 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_footer.php
+INFO - 2019-03-06 18:16:48 --> Final output sent to browser
+DEBUG - 2019-03-06 18:16:48 --> Total execution time: 0.1007
+ERROR - 2019-03-06 18:16:55 --> $config['composer_autoload'] is set to TRUE but /var/www/html/m_lnt_bid/application/vendor/autoload.php was not found.
+INFO - 2019-03-06 18:16:55 --> Config Class Initialized
+INFO - 2019-03-06 18:16:55 --> Hooks Class Initialized
+DEBUG - 2019-03-06 18:16:55 --> UTF-8 Support Enabled
+INFO - 2019-03-06 18:16:55 --> Utf8 Class Initialized
+INFO - 2019-03-06 18:16:55 --> URI Class Initialized
+INFO - 2019-03-06 18:16:55 --> Router Class Initialized
+INFO - 2019-03-06 18:16:55 --> Output Class Initialized
+INFO - 2019-03-06 18:16:55 --> Security Class Initialized
+DEBUG - 2019-03-06 18:16:55 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-06 18:16:55 --> Input Class Initialized
+INFO - 2019-03-06 18:16:55 --> Language Class Initialized
+INFO - 2019-03-06 18:16:55 --> Loader Class Initialized
+INFO - 2019-03-06 18:16:55 --> Helper loaded: url_helper
+INFO - 2019-03-06 18:16:55 --> Helper loaded: file_helper
+INFO - 2019-03-06 18:16:55 --> Encrypt Class Initialized
+INFO - 2019-03-06 18:16:55 --> Controller Class Initialized
+INFO - 2019-03-06 18:16:55 --> Database Driver Class Initialized
+INFO - 2019-03-06 18:16:55 --> Model "User_model" initialized
+INFO - 2019-03-06 18:16:55 --> Model "Design_model" initialized
+DEBUG - 2019-03-06 18:16:55 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-03-06 18:16:55 --> Session: Class initialized using 'files' driver.
+INFO - 2019-03-06 18:16:55 --> User Agent Class Initialized
+DEBUG - 2019-03-06 18:16:55 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-03-06 18:16:55 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-03-06 18:16:55 --> Encryption Class Initialized
+INFO - 2019-03-06 18:16:55 --> Helper loaded: form_helper
+INFO - 2019-03-06 18:16:55 --> Form Validation Class Initialized
+INFO - 2019-03-06 18:16:55 --> Helper loaded: string_helper
+INFO - 2019-03-06 18:16:55 --> Upload Class Initialized
+INFO - 2019-03-06 18:16:55 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_header.php
+INFO - 2019-03-06 18:16:55 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/template/template_top_head.php
+INFO - 2019-03-06 18:16:55 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/template/template_side_bar.php
+INFO - 2019-03-06 18:16:55 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/material_requisition/Create_material_requisition_form.php
+INFO - 2019-03-06 18:16:55 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_footer.php
+INFO - 2019-03-06 18:16:55 --> Final output sent to browser
+DEBUG - 2019-03-06 18:16:55 --> Total execution time: 0.1029
+ERROR - 2019-03-06 18:16:59 --> $config['composer_autoload'] is set to TRUE but /var/www/html/m_lnt_bid/application/vendor/autoload.php was not found.
+INFO - 2019-03-06 18:16:59 --> Config Class Initialized
+INFO - 2019-03-06 18:16:59 --> Hooks Class Initialized
+DEBUG - 2019-03-06 18:16:59 --> UTF-8 Support Enabled
+INFO - 2019-03-06 18:16:59 --> Utf8 Class Initialized
+INFO - 2019-03-06 18:16:59 --> URI Class Initialized
+INFO - 2019-03-06 18:16:59 --> Router Class Initialized
+INFO - 2019-03-06 18:16:59 --> Output Class Initialized
+INFO - 2019-03-06 18:16:59 --> Security Class Initialized
+DEBUG - 2019-03-06 18:16:59 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-06 18:16:59 --> Input Class Initialized
+INFO - 2019-03-06 18:16:59 --> Language Class Initialized
+INFO - 2019-03-06 18:16:59 --> Loader Class Initialized
+INFO - 2019-03-06 18:16:59 --> Helper loaded: url_helper
+INFO - 2019-03-06 18:16:59 --> Helper loaded: file_helper
+INFO - 2019-03-06 18:16:59 --> Encrypt Class Initialized
+INFO - 2019-03-06 18:16:59 --> Controller Class Initialized
+INFO - 2019-03-06 18:16:59 --> Database Driver Class Initialized
+INFO - 2019-03-06 18:16:59 --> Model "User_model" initialized
+INFO - 2019-03-06 18:16:59 --> Model "Design_model" initialized
+DEBUG - 2019-03-06 18:16:59 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-03-06 18:16:59 --> Session: Class initialized using 'files' driver.
+INFO - 2019-03-06 18:16:59 --> User Agent Class Initialized
+DEBUG - 2019-03-06 18:16:59 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-03-06 18:16:59 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-03-06 18:16:59 --> Encryption Class Initialized
+INFO - 2019-03-06 18:16:59 --> Helper loaded: form_helper
+INFO - 2019-03-06 18:16:59 --> Form Validation Class Initialized
+INFO - 2019-03-06 18:16:59 --> Helper loaded: string_helper
+INFO - 2019-03-06 18:16:59 --> Upload Class Initialized
+INFO - 2019-03-06 18:16:59 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_header.php
+INFO - 2019-03-06 18:16:59 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/template/template_top_head.php
+INFO - 2019-03-06 18:16:59 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/template/template_side_bar.php
+INFO - 2019-03-06 18:16:59 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/material_requisition/view_mr_list_drafted.php
+INFO - 2019-03-06 18:16:59 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_footer.php
+INFO - 2019-03-06 18:16:59 --> Final output sent to browser
+DEBUG - 2019-03-06 18:16:59 --> Total execution time: 0.1009
+ERROR - 2019-03-06 18:17:01 --> $config['composer_autoload'] is set to TRUE but /var/www/html/m_lnt_bid/application/vendor/autoload.php was not found.
+INFO - 2019-03-06 18:17:01 --> Config Class Initialized
+INFO - 2019-03-06 18:17:01 --> Hooks Class Initialized
+DEBUG - 2019-03-06 18:17:01 --> UTF-8 Support Enabled
+INFO - 2019-03-06 18:17:01 --> Utf8 Class Initialized
+INFO - 2019-03-06 18:17:01 --> URI Class Initialized
+INFO - 2019-03-06 18:17:01 --> Router Class Initialized
+INFO - 2019-03-06 18:17:01 --> Output Class Initialized
+INFO - 2019-03-06 18:17:01 --> Security Class Initialized
+DEBUG - 2019-03-06 18:17:01 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-06 18:17:01 --> Input Class Initialized
+INFO - 2019-03-06 18:17:01 --> Language Class Initialized
+INFO - 2019-03-06 18:17:01 --> Loader Class Initialized
+INFO - 2019-03-06 18:17:01 --> Helper loaded: url_helper
+INFO - 2019-03-06 18:17:01 --> Helper loaded: file_helper
+INFO - 2019-03-06 18:17:01 --> Encrypt Class Initialized
+INFO - 2019-03-06 18:17:01 --> Controller Class Initialized
+INFO - 2019-03-06 18:17:01 --> Database Driver Class Initialized
+INFO - 2019-03-06 18:17:01 --> Model "User_model" initialized
+INFO - 2019-03-06 18:17:01 --> Model "Design_model" initialized
+DEBUG - 2019-03-06 18:17:01 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-03-06 18:17:01 --> Session: Class initialized using 'files' driver.
+INFO - 2019-03-06 18:17:01 --> User Agent Class Initialized
+DEBUG - 2019-03-06 18:17:01 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-03-06 18:17:01 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-03-06 18:17:01 --> Encryption Class Initialized
+INFO - 2019-03-06 18:17:01 --> Helper loaded: form_helper
+INFO - 2019-03-06 18:17:01 --> Form Validation Class Initialized
+INFO - 2019-03-06 18:17:01 --> Helper loaded: string_helper
+INFO - 2019-03-06 18:17:01 --> Upload Class Initialized
+INFO - 2019-03-06 18:17:02 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_header.php
+INFO - 2019-03-06 18:17:02 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/template/template_top_head.php
+INFO - 2019-03-06 18:17:02 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/template/template_side_bar.php
+INFO - 2019-03-06 18:17:02 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/re_submit/viewresubmitlist.php
+INFO - 2019-03-06 18:17:02 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_footer.php
+INFO - 2019-03-06 18:17:02 --> Final output sent to browser
+DEBUG - 2019-03-06 18:17:02 --> Total execution time: 0.0862
+ERROR - 2019-03-06 18:17:08 --> $config['composer_autoload'] is set to TRUE but /var/www/html/m_lnt_bid/application/vendor/autoload.php was not found.
+INFO - 2019-03-06 18:17:08 --> Config Class Initialized
+INFO - 2019-03-06 18:17:08 --> Hooks Class Initialized
+DEBUG - 2019-03-06 18:17:08 --> UTF-8 Support Enabled
+INFO - 2019-03-06 18:17:08 --> Utf8 Class Initialized
+INFO - 2019-03-06 18:17:08 --> URI Class Initialized
+INFO - 2019-03-06 18:17:08 --> Router Class Initialized
+INFO - 2019-03-06 18:17:08 --> Output Class Initialized
+INFO - 2019-03-06 18:17:08 --> Security Class Initialized
+DEBUG - 2019-03-06 18:17:08 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-06 18:17:08 --> Input Class Initialized
+INFO - 2019-03-06 18:17:08 --> Language Class Initialized
+INFO - 2019-03-06 18:17:08 --> Loader Class Initialized
+INFO - 2019-03-06 18:17:08 --> Helper loaded: url_helper
+INFO - 2019-03-06 18:17:08 --> Helper loaded: file_helper
+INFO - 2019-03-06 18:17:08 --> Encrypt Class Initialized
+INFO - 2019-03-06 18:17:08 --> Controller Class Initialized
+INFO - 2019-03-06 18:17:08 --> Database Driver Class Initialized
+INFO - 2019-03-06 18:17:08 --> Model "User_model" initialized
+INFO - 2019-03-06 18:17:08 --> Model "Design_model" initialized
+DEBUG - 2019-03-06 18:17:08 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-03-06 18:17:08 --> Session: Class initialized using 'files' driver.
+INFO - 2019-03-06 18:17:08 --> User Agent Class Initialized
+DEBUG - 2019-03-06 18:17:08 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-03-06 18:17:08 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-03-06 18:17:08 --> Encryption Class Initialized
+INFO - 2019-03-06 18:17:08 --> Helper loaded: form_helper
+INFO - 2019-03-06 18:17:08 --> Form Validation Class Initialized
+INFO - 2019-03-06 18:17:08 --> Helper loaded: string_helper
+INFO - 2019-03-06 18:17:08 --> Upload Class Initialized
+INFO - 2019-03-06 18:17:08 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_header.php
+INFO - 2019-03-06 18:17:08 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/template/template_top_head.php
+INFO - 2019-03-06 18:17:08 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/template/template_side_bar.php
+INFO - 2019-03-06 18:17:08 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/submit_mr_list/view_submited_mr_list.php
+INFO - 2019-03-06 18:17:08 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_footer.php
+INFO - 2019-03-06 18:17:08 --> Final output sent to browser
+DEBUG - 2019-03-06 18:17:08 --> Total execution time: 0.1265
+ERROR - 2019-03-06 18:23:27 --> $config['composer_autoload'] is set to TRUE but /var/www/html/m_lnt_bid/application/vendor/autoload.php was not found.
+INFO - 2019-03-06 18:23:27 --> Config Class Initialized
+INFO - 2019-03-06 18:23:27 --> Hooks Class Initialized
+DEBUG - 2019-03-06 18:23:27 --> UTF-8 Support Enabled
+INFO - 2019-03-06 18:23:27 --> Utf8 Class Initialized
+INFO - 2019-03-06 18:23:27 --> URI Class Initialized
+INFO - 2019-03-06 18:23:27 --> Router Class Initialized
+INFO - 2019-03-06 18:23:27 --> Output Class Initialized
+INFO - 2019-03-06 18:23:27 --> Security Class Initialized
+DEBUG - 2019-03-06 18:23:27 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-06 18:23:27 --> Input Class Initialized
+INFO - 2019-03-06 18:23:27 --> Language Class Initialized
+INFO - 2019-03-06 18:23:27 --> Loader Class Initialized
+INFO - 2019-03-06 18:23:27 --> Helper loaded: url_helper
+INFO - 2019-03-06 18:23:27 --> Helper loaded: file_helper
+INFO - 2019-03-06 18:23:27 --> Encrypt Class Initialized
+INFO - 2019-03-06 18:23:27 --> Controller Class Initialized
+INFO - 2019-03-06 18:23:27 --> Database Driver Class Initialized
+INFO - 2019-03-06 18:23:27 --> Model "User_model" initialized
+INFO - 2019-03-06 18:23:27 --> Model "Design_model" initialized
+DEBUG - 2019-03-06 18:23:27 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-03-06 18:23:27 --> Session: Class initialized using 'files' driver.
+INFO - 2019-03-06 18:23:27 --> User Agent Class Initialized
+DEBUG - 2019-03-06 18:23:27 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-03-06 18:23:27 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-03-06 18:23:27 --> Encryption Class Initialized
+INFO - 2019-03-06 18:23:27 --> Helper loaded: form_helper
+INFO - 2019-03-06 18:23:27 --> Form Validation Class Initialized
+INFO - 2019-03-06 18:23:27 --> Helper loaded: string_helper
+INFO - 2019-03-06 18:23:27 --> Upload Class Initialized
+INFO - 2019-03-06 18:23:27 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_header.php
+INFO - 2019-03-06 18:23:27 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/template/template_top_head.php
+INFO - 2019-03-06 18:23:27 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/template/template_side_bar.php
+ERROR - 2019-03-06 18:23:27 --> Severity: Notice --> Undefined variable: edit_id /var/www/html/m_lnt_bid/application/views/design_user/pr_schedule_design/pr_schedule.php 118
+ERROR - 2019-03-06 18:23:27 --> Severity: Notice --> Undefined variable: mr_no /var/www/html/m_lnt_bid/application/views/design_user/pr_schedule_design/pr_schedule.php 118
+ERROR - 2019-03-06 18:23:27 --> Severity: Notice --> Undefined variable: value /var/www/html/m_lnt_bid/application/views/design_user/pr_schedule_design/pr_schedule.php 118
+INFO - 2019-03-06 18:23:27 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/pr_schedule_design/pr_schedule.php
+INFO - 2019-03-06 18:23:27 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_footer.php
+INFO - 2019-03-06 18:23:27 --> Final output sent to browser
+DEBUG - 2019-03-06 18:23:27 --> Total execution time: 0.1423
+ERROR - 2019-03-06 18:23:44 --> $config['composer_autoload'] is set to TRUE but /var/www/html/m_lnt_bid/application/vendor/autoload.php was not found.
+INFO - 2019-03-06 18:23:44 --> Config Class Initialized
+INFO - 2019-03-06 18:23:44 --> Hooks Class Initialized
+DEBUG - 2019-03-06 18:23:44 --> UTF-8 Support Enabled
+INFO - 2019-03-06 18:23:44 --> Utf8 Class Initialized
+INFO - 2019-03-06 18:23:44 --> URI Class Initialized
+INFO - 2019-03-06 18:23:44 --> Router Class Initialized
+INFO - 2019-03-06 18:23:44 --> Output Class Initialized
+INFO - 2019-03-06 18:23:44 --> Security Class Initialized
+DEBUG - 2019-03-06 18:23:44 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-06 18:23:44 --> Input Class Initialized
+INFO - 2019-03-06 18:23:44 --> Language Class Initialized
+INFO - 2019-03-06 18:23:44 --> Loader Class Initialized
+INFO - 2019-03-06 18:23:44 --> Helper loaded: url_helper
+INFO - 2019-03-06 18:23:44 --> Helper loaded: file_helper
+INFO - 2019-03-06 18:23:44 --> Encrypt Class Initialized
+INFO - 2019-03-06 18:23:44 --> Controller Class Initialized
+INFO - 2019-03-06 18:23:44 --> Database Driver Class Initialized
+INFO - 2019-03-06 18:23:44 --> Model "User_model" initialized
+INFO - 2019-03-06 18:23:44 --> Model "Design_model" initialized
+DEBUG - 2019-03-06 18:23:44 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-03-06 18:23:44 --> Session: Class initialized using 'files' driver.
+INFO - 2019-03-06 18:23:44 --> User Agent Class Initialized
+DEBUG - 2019-03-06 18:23:44 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-03-06 18:23:44 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-03-06 18:23:44 --> Encryption Class Initialized
+INFO - 2019-03-06 18:23:44 --> Helper loaded: form_helper
+INFO - 2019-03-06 18:23:44 --> Form Validation Class Initialized
+INFO - 2019-03-06 18:23:44 --> Helper loaded: string_helper
+INFO - 2019-03-06 18:23:44 --> Upload Class Initialized
+INFO - 2019-03-06 18:23:44 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_header.php
+INFO - 2019-03-06 18:23:44 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/template/template_top_head.php
+INFO - 2019-03-06 18:23:44 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/template/template_side_bar.php
+INFO - 2019-03-06 18:23:44 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/new_pr_schedule_design/project_pr_schedule.php
+INFO - 2019-03-06 18:23:44 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_footer.php
+INFO - 2019-03-06 18:23:44 --> Final output sent to browser
+DEBUG - 2019-03-06 18:23:44 --> Total execution time: 0.0964
+ERROR - 2019-03-06 18:25:37 --> $config['composer_autoload'] is set to TRUE but /var/www/html/m_lnt_bid/application/vendor/autoload.php was not found.
+INFO - 2019-03-06 18:25:37 --> Config Class Initialized
+INFO - 2019-03-06 18:25:37 --> Hooks Class Initialized
+DEBUG - 2019-03-06 18:25:37 --> UTF-8 Support Enabled
+INFO - 2019-03-06 18:25:37 --> Utf8 Class Initialized
+INFO - 2019-03-06 18:25:37 --> URI Class Initialized
+INFO - 2019-03-06 18:25:37 --> Router Class Initialized
+INFO - 2019-03-06 18:25:37 --> Output Class Initialized
+INFO - 2019-03-06 18:25:37 --> Security Class Initialized
+DEBUG - 2019-03-06 18:25:37 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-06 18:25:37 --> Input Class Initialized
+INFO - 2019-03-06 18:25:37 --> Language Class Initialized
+INFO - 2019-03-06 18:25:37 --> Loader Class Initialized
+INFO - 2019-03-06 18:25:37 --> Helper loaded: url_helper
+INFO - 2019-03-06 18:25:37 --> Helper loaded: file_helper
+INFO - 2019-03-06 18:25:37 --> Encrypt Class Initialized
+INFO - 2019-03-06 18:25:37 --> Controller Class Initialized
+INFO - 2019-03-06 18:25:37 --> Database Driver Class Initialized
+INFO - 2019-03-06 18:25:37 --> Model "User_model" initialized
+INFO - 2019-03-06 18:25:37 --> Model "Design_model" initialized
+DEBUG - 2019-03-06 18:25:37 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-03-06 18:25:37 --> Session: Class initialized using 'files' driver.
+INFO - 2019-03-06 18:25:37 --> User Agent Class Initialized
+DEBUG - 2019-03-06 18:25:37 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-03-06 18:25:37 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-03-06 18:25:37 --> Encryption Class Initialized
+INFO - 2019-03-06 18:25:37 --> Helper loaded: form_helper
+INFO - 2019-03-06 18:25:37 --> Form Validation Class Initialized
+INFO - 2019-03-06 18:25:37 --> Helper loaded: string_helper
+INFO - 2019-03-06 18:25:37 --> Upload Class Initialized
+INFO - 2019-03-06 18:25:37 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_header.php
+INFO - 2019-03-06 18:25:37 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/template/template_top_head.php
+INFO - 2019-03-06 18:25:37 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/template/template_side_bar.php
+ERROR - 2019-03-06 18:25:37 --> Severity: Notice --> Undefined variable: edit_id /var/www/html/m_lnt_bid/application/views/design_user/pr_schedule_design/pr_schedule.php 118
+ERROR - 2019-03-06 18:25:37 --> Severity: Notice --> Undefined variable: mr_no /var/www/html/m_lnt_bid/application/views/design_user/pr_schedule_design/pr_schedule.php 118
+ERROR - 2019-03-06 18:25:37 --> Severity: Notice --> Undefined variable: value /var/www/html/m_lnt_bid/application/views/design_user/pr_schedule_design/pr_schedule.php 118
+INFO - 2019-03-06 18:25:37 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/pr_schedule_design/pr_schedule.php
+INFO - 2019-03-06 18:25:37 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_footer.php
+INFO - 2019-03-06 18:25:37 --> Final output sent to browser
+DEBUG - 2019-03-06 18:25:37 --> Total execution time: 0.0808
+ERROR - 2019-03-06 18:26:30 --> $config['composer_autoload'] is set to TRUE but /var/www/html/m_lnt_bid/application/vendor/autoload.php was not found.
+INFO - 2019-03-06 18:26:30 --> Config Class Initialized
+INFO - 2019-03-06 18:26:30 --> Hooks Class Initialized
+DEBUG - 2019-03-06 18:26:30 --> UTF-8 Support Enabled
+INFO - 2019-03-06 18:26:30 --> Utf8 Class Initialized
+INFO - 2019-03-06 18:26:30 --> URI Class Initialized
+INFO - 2019-03-06 18:26:30 --> Router Class Initialized
+INFO - 2019-03-06 18:26:30 --> Output Class Initialized
+INFO - 2019-03-06 18:26:30 --> Security Class Initialized
+DEBUG - 2019-03-06 18:26:30 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-06 18:26:30 --> Input Class Initialized
+INFO - 2019-03-06 18:26:30 --> Language Class Initialized
+INFO - 2019-03-06 18:26:30 --> Loader Class Initialized
+INFO - 2019-03-06 18:26:30 --> Helper loaded: url_helper
+INFO - 2019-03-06 18:26:30 --> Helper loaded: file_helper
+INFO - 2019-03-06 18:26:30 --> Encrypt Class Initialized
+INFO - 2019-03-06 18:26:30 --> Controller Class Initialized
+INFO - 2019-03-06 18:26:30 --> Database Driver Class Initialized
+INFO - 2019-03-06 18:26:30 --> Model "User_model" initialized
+INFO - 2019-03-06 18:26:30 --> Model "Design_model" initialized
+DEBUG - 2019-03-06 18:26:30 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-03-06 18:26:30 --> Session: Class initialized using 'files' driver.
+INFO - 2019-03-06 18:26:30 --> User Agent Class Initialized
+DEBUG - 2019-03-06 18:26:30 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-03-06 18:26:30 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-03-06 18:26:30 --> Encryption Class Initialized
+INFO - 2019-03-06 18:26:30 --> Helper loaded: form_helper
+INFO - 2019-03-06 18:26:30 --> Form Validation Class Initialized
+INFO - 2019-03-06 18:26:30 --> Helper loaded: string_helper
+INFO - 2019-03-06 18:26:30 --> Upload Class Initialized
+INFO - 2019-03-06 18:26:30 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_header.php
+INFO - 2019-03-06 18:26:30 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/template/template_top_head.php
+INFO - 2019-03-06 18:26:30 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/template/template_side_bar.php
+ERROR - 2019-03-06 18:26:30 --> Severity: Notice --> Undefined variable: edit_id /var/www/html/m_lnt_bid/application/views/design_user/pr_schedule_design/pr_schedule.php 118
+ERROR - 2019-03-06 18:26:30 --> Severity: Notice --> Undefined variable: mr_no /var/www/html/m_lnt_bid/application/views/design_user/pr_schedule_design/pr_schedule.php 118
+ERROR - 2019-03-06 18:26:30 --> Severity: Notice --> Undefined variable: value /var/www/html/m_lnt_bid/application/views/design_user/pr_schedule_design/pr_schedule.php 118
+INFO - 2019-03-06 18:26:30 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/pr_schedule_design/pr_schedule.php
+INFO - 2019-03-06 18:26:30 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_footer.php
+INFO - 2019-03-06 18:26:30 --> Final output sent to browser
+DEBUG - 2019-03-06 18:26:30 --> Total execution time: 0.0961
+ERROR - 2019-03-06 18:31:03 --> $config['composer_autoload'] is set to TRUE but /var/www/html/m_lnt_bid/application/vendor/autoload.php was not found.
+INFO - 2019-03-06 18:31:03 --> Config Class Initialized
+INFO - 2019-03-06 18:31:03 --> Hooks Class Initialized
+DEBUG - 2019-03-06 18:31:03 --> UTF-8 Support Enabled
+INFO - 2019-03-06 18:31:03 --> Utf8 Class Initialized
+INFO - 2019-03-06 18:31:03 --> URI Class Initialized
+INFO - 2019-03-06 18:31:03 --> Router Class Initialized
+INFO - 2019-03-06 18:31:03 --> Output Class Initialized
+INFO - 2019-03-06 18:31:03 --> Security Class Initialized
+DEBUG - 2019-03-06 18:31:03 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-06 18:31:03 --> Input Class Initialized
+INFO - 2019-03-06 18:31:03 --> Language Class Initialized
+INFO - 2019-03-06 18:31:03 --> Loader Class Initialized
+INFO - 2019-03-06 18:31:03 --> Helper loaded: url_helper
+INFO - 2019-03-06 18:31:03 --> Helper loaded: file_helper
+INFO - 2019-03-06 18:31:03 --> Encrypt Class Initialized
+INFO - 2019-03-06 18:31:03 --> Controller Class Initialized
+INFO - 2019-03-06 18:31:03 --> Database Driver Class Initialized
+INFO - 2019-03-06 18:31:03 --> Model "User_model" initialized
+INFO - 2019-03-06 18:31:03 --> Model "Design_model" initialized
+DEBUG - 2019-03-06 18:31:03 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-03-06 18:31:03 --> Session: Class initialized using 'files' driver.
+INFO - 2019-03-06 18:31:03 --> User Agent Class Initialized
+DEBUG - 2019-03-06 18:31:03 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-03-06 18:31:03 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-03-06 18:31:03 --> Encryption Class Initialized
+INFO - 2019-03-06 18:31:03 --> Helper loaded: form_helper
+INFO - 2019-03-06 18:31:03 --> Form Validation Class Initialized
+INFO - 2019-03-06 18:31:03 --> Helper loaded: string_helper
+INFO - 2019-03-06 18:31:03 --> Upload Class Initialized
+INFO - 2019-03-06 18:31:03 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_header.php
+INFO - 2019-03-06 18:31:03 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/template/template_top_head.php
+INFO - 2019-03-06 18:31:03 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/template/template_side_bar.php
+ERROR - 2019-03-06 18:31:03 --> Severity: Notice --> Undefined variable: result_drafted /var/www/html/m_lnt_bid/application/views/design_user/pr_schedule_design/pr_schedule.php 128
+INFO - 2019-03-06 18:31:03 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/pr_schedule_design/pr_schedule.php
+INFO - 2019-03-06 18:31:03 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_footer.php
+INFO - 2019-03-06 18:31:03 --> Final output sent to browser
+DEBUG - 2019-03-06 18:31:03 --> Total execution time: 0.1055
+ERROR - 2019-03-06 18:34:25 --> $config['composer_autoload'] is set to TRUE but /var/www/html/m_lnt_bid/application/vendor/autoload.php was not found.
+INFO - 2019-03-06 18:34:25 --> Config Class Initialized
+INFO - 2019-03-06 18:34:25 --> Hooks Class Initialized
+DEBUG - 2019-03-06 18:34:25 --> UTF-8 Support Enabled
+INFO - 2019-03-06 18:34:25 --> Utf8 Class Initialized
+INFO - 2019-03-06 18:34:25 --> URI Class Initialized
+INFO - 2019-03-06 18:34:25 --> Router Class Initialized
+INFO - 2019-03-06 18:34:25 --> Output Class Initialized
+INFO - 2019-03-06 18:34:25 --> Security Class Initialized
+DEBUG - 2019-03-06 18:34:25 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-06 18:34:25 --> Input Class Initialized
+INFO - 2019-03-06 18:34:25 --> Language Class Initialized
+INFO - 2019-03-06 18:34:25 --> Loader Class Initialized
+INFO - 2019-03-06 18:34:25 --> Helper loaded: url_helper
+INFO - 2019-03-06 18:34:25 --> Helper loaded: file_helper
+INFO - 2019-03-06 18:34:25 --> Encrypt Class Initialized
+INFO - 2019-03-06 18:34:25 --> Controller Class Initialized
+INFO - 2019-03-06 18:34:25 --> Database Driver Class Initialized
+INFO - 2019-03-06 18:34:25 --> Model "User_model" initialized
+INFO - 2019-03-06 18:34:25 --> Model "Design_model" initialized
+DEBUG - 2019-03-06 18:34:25 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-03-06 18:34:25 --> Session: Class initialized using 'files' driver.
+INFO - 2019-03-06 18:34:25 --> User Agent Class Initialized
+DEBUG - 2019-03-06 18:34:25 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-03-06 18:34:25 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-03-06 18:34:25 --> Encryption Class Initialized
+INFO - 2019-03-06 18:34:25 --> Helper loaded: form_helper
+INFO - 2019-03-06 18:34:25 --> Form Validation Class Initialized
+INFO - 2019-03-06 18:34:25 --> Helper loaded: string_helper
+INFO - 2019-03-06 18:34:25 --> Upload Class Initialized
+INFO - 2019-03-06 18:34:25 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_header.php
+INFO - 2019-03-06 18:34:25 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/template/template_top_head.php
+INFO - 2019-03-06 18:34:25 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/template/template_side_bar.php
+ERROR - 2019-03-06 18:34:25 --> Severity: Notice --> Undefined variable: result_drafted /var/www/html/m_lnt_bid/application/views/design_user/pr_schedule_design/pr_schedule.php 130
+INFO - 2019-03-06 18:34:25 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/pr_schedule_design/pr_schedule.php
+INFO - 2019-03-06 18:34:25 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_footer.php
+INFO - 2019-03-06 18:34:25 --> Final output sent to browser
+DEBUG - 2019-03-06 18:34:25 --> Total execution time: 0.0874
+ERROR - 2019-03-06 18:35:26 --> $config['composer_autoload'] is set to TRUE but /var/www/html/m_lnt_bid/application/vendor/autoload.php was not found.
+INFO - 2019-03-06 18:35:26 --> Config Class Initialized
+INFO - 2019-03-06 18:35:26 --> Hooks Class Initialized
+DEBUG - 2019-03-06 18:35:26 --> UTF-8 Support Enabled
+INFO - 2019-03-06 18:35:26 --> Utf8 Class Initialized
+INFO - 2019-03-06 18:35:26 --> URI Class Initialized
+INFO - 2019-03-06 18:35:26 --> Router Class Initialized
+INFO - 2019-03-06 18:35:26 --> Output Class Initialized
+INFO - 2019-03-06 18:35:26 --> Security Class Initialized
+DEBUG - 2019-03-06 18:35:26 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-06 18:35:26 --> Input Class Initialized
+INFO - 2019-03-06 18:35:26 --> Language Class Initialized
+INFO - 2019-03-06 18:35:26 --> Loader Class Initialized
+INFO - 2019-03-06 18:35:26 --> Helper loaded: url_helper
+INFO - 2019-03-06 18:35:26 --> Helper loaded: file_helper
+INFO - 2019-03-06 18:35:26 --> Encrypt Class Initialized
+INFO - 2019-03-06 18:35:26 --> Controller Class Initialized
+INFO - 2019-03-06 18:35:26 --> Database Driver Class Initialized
+INFO - 2019-03-06 18:35:26 --> Model "User_model" initialized
+INFO - 2019-03-06 18:35:26 --> Model "Design_model" initialized
+DEBUG - 2019-03-06 18:35:26 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-03-06 18:35:26 --> Session: Class initialized using 'files' driver.
+INFO - 2019-03-06 18:35:26 --> User Agent Class Initialized
+DEBUG - 2019-03-06 18:35:26 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-03-06 18:35:26 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-03-06 18:35:26 --> Encryption Class Initialized
+INFO - 2019-03-06 18:35:26 --> Helper loaded: form_helper
+INFO - 2019-03-06 18:35:26 --> Form Validation Class Initialized
+INFO - 2019-03-06 18:35:26 --> Helper loaded: string_helper
+INFO - 2019-03-06 18:35:26 --> Upload Class Initialized
+INFO - 2019-03-06 18:35:26 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_header.php
+INFO - 2019-03-06 18:35:26 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/template/template_top_head.php
+INFO - 2019-03-06 18:35:26 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/template/template_side_bar.php
+ERROR - 2019-03-06 18:35:26 --> Severity: Notice --> Undefined variable: result_drafted /var/www/html/m_lnt_bid/application/views/design_user/pr_schedule_design/pr_schedule.php 130
+INFO - 2019-03-06 18:35:26 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/pr_schedule_design/pr_schedule.php
+INFO - 2019-03-06 18:35:26 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_footer.php
+INFO - 2019-03-06 18:35:26 --> Final output sent to browser
+DEBUG - 2019-03-06 18:35:26 --> Total execution time: 0.0895
+ERROR - 2019-03-06 18:36:26 --> $config['composer_autoload'] is set to TRUE but /var/www/html/m_lnt_bid/application/vendor/autoload.php was not found.
+INFO - 2019-03-06 18:36:26 --> Config Class Initialized
+INFO - 2019-03-06 18:36:26 --> Hooks Class Initialized
+DEBUG - 2019-03-06 18:36:26 --> UTF-8 Support Enabled
+INFO - 2019-03-06 18:36:26 --> Utf8 Class Initialized
+INFO - 2019-03-06 18:36:26 --> URI Class Initialized
+INFO - 2019-03-06 18:36:26 --> Router Class Initialized
+INFO - 2019-03-06 18:36:26 --> Output Class Initialized
+INFO - 2019-03-06 18:36:26 --> Security Class Initialized
+DEBUG - 2019-03-06 18:36:26 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-06 18:36:26 --> Input Class Initialized
+INFO - 2019-03-06 18:36:26 --> Language Class Initialized
+INFO - 2019-03-06 18:36:26 --> Loader Class Initialized
+INFO - 2019-03-06 18:36:26 --> Helper loaded: url_helper
+INFO - 2019-03-06 18:36:26 --> Helper loaded: file_helper
+INFO - 2019-03-06 18:36:26 --> Encrypt Class Initialized
+INFO - 2019-03-06 18:36:26 --> Controller Class Initialized
+INFO - 2019-03-06 18:36:26 --> Database Driver Class Initialized
+INFO - 2019-03-06 18:36:26 --> Model "User_model" initialized
+INFO - 2019-03-06 18:36:26 --> Model "Design_model" initialized
+DEBUG - 2019-03-06 18:36:26 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-03-06 18:36:26 --> Session: Class initialized using 'files' driver.
+INFO - 2019-03-06 18:36:26 --> User Agent Class Initialized
+DEBUG - 2019-03-06 18:36:26 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-03-06 18:36:26 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-03-06 18:36:26 --> Encryption Class Initialized
+INFO - 2019-03-06 18:36:26 --> Helper loaded: form_helper
+INFO - 2019-03-06 18:36:26 --> Form Validation Class Initialized
+INFO - 2019-03-06 18:36:26 --> Helper loaded: string_helper
+INFO - 2019-03-06 18:36:26 --> Upload Class Initialized
+INFO - 2019-03-06 18:36:26 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_header.php
+INFO - 2019-03-06 18:36:26 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/template/template_top_head.php
+INFO - 2019-03-06 18:36:26 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/template/template_side_bar.php
+INFO - 2019-03-06 18:36:26 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/new_pr_schedule_design/project_pr_schedule.php
+INFO - 2019-03-06 18:36:26 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_footer.php
+INFO - 2019-03-06 18:36:26 --> Final output sent to browser
+DEBUG - 2019-03-06 18:36:26 --> Total execution time: 0.1507
+ERROR - 2019-03-06 18:36:37 --> $config['composer_autoload'] is set to TRUE but /var/www/html/m_lnt_bid/application/vendor/autoload.php was not found.
+INFO - 2019-03-06 18:36:37 --> Config Class Initialized
+INFO - 2019-03-06 18:36:37 --> Hooks Class Initialized
+DEBUG - 2019-03-06 18:36:37 --> UTF-8 Support Enabled
+INFO - 2019-03-06 18:36:37 --> Utf8 Class Initialized
+INFO - 2019-03-06 18:36:37 --> URI Class Initialized
+INFO - 2019-03-06 18:36:37 --> Router Class Initialized
+INFO - 2019-03-06 18:36:37 --> Output Class Initialized
+INFO - 2019-03-06 18:36:37 --> Security Class Initialized
+DEBUG - 2019-03-06 18:36:37 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-06 18:36:37 --> Input Class Initialized
+INFO - 2019-03-06 18:36:37 --> Language Class Initialized
+INFO - 2019-03-06 18:36:37 --> Loader Class Initialized
+INFO - 2019-03-06 18:36:37 --> Helper loaded: url_helper
+INFO - 2019-03-06 18:36:37 --> Helper loaded: file_helper
+INFO - 2019-03-06 18:36:37 --> Encrypt Class Initialized
+INFO - 2019-03-06 18:36:37 --> Controller Class Initialized
+INFO - 2019-03-06 18:36:37 --> Database Driver Class Initialized
+INFO - 2019-03-06 18:36:37 --> Model "User_model" initialized
+INFO - 2019-03-06 18:36:37 --> Model "Design_model" initialized
+DEBUG - 2019-03-06 18:36:37 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-03-06 18:36:37 --> Session: Class initialized using 'files' driver.
+INFO - 2019-03-06 18:36:37 --> User Agent Class Initialized
+DEBUG - 2019-03-06 18:36:37 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-03-06 18:36:37 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-03-06 18:36:37 --> Encryption Class Initialized
+INFO - 2019-03-06 18:36:37 --> Helper loaded: form_helper
+INFO - 2019-03-06 18:36:37 --> Form Validation Class Initialized
+INFO - 2019-03-06 18:36:37 --> Helper loaded: string_helper
+INFO - 2019-03-06 18:36:37 --> Upload Class Initialized
+ERROR - 2019-03-06 18:36:37 --> Severity: Warning --> Use of undefined constant variable - assumed 'variable' (this will throw an Error in a future version of PHP) /var/www/html/m_lnt_bid/application/controllers/Designusernew.php 61
+INFO - 2019-03-06 18:36:37 --> Final output sent to browser
+DEBUG - 2019-03-06 18:36:37 --> Total execution time: 0.0827
+ERROR - 2019-03-06 18:36:42 --> $config['composer_autoload'] is set to TRUE but /var/www/html/m_lnt_bid/application/vendor/autoload.php was not found.
+INFO - 2019-03-06 18:36:42 --> Config Class Initialized
+INFO - 2019-03-06 18:36:42 --> Hooks Class Initialized
+DEBUG - 2019-03-06 18:36:42 --> UTF-8 Support Enabled
+INFO - 2019-03-06 18:36:42 --> Utf8 Class Initialized
+INFO - 2019-03-06 18:36:42 --> URI Class Initialized
+INFO - 2019-03-06 18:36:42 --> Router Class Initialized
+INFO - 2019-03-06 18:36:42 --> Output Class Initialized
+INFO - 2019-03-06 18:36:42 --> Security Class Initialized
+DEBUG - 2019-03-06 18:36:42 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-06 18:36:42 --> Input Class Initialized
+INFO - 2019-03-06 18:36:42 --> Language Class Initialized
+INFO - 2019-03-06 18:36:42 --> Loader Class Initialized
+INFO - 2019-03-06 18:36:42 --> Helper loaded: url_helper
+INFO - 2019-03-06 18:36:42 --> Helper loaded: file_helper
+INFO - 2019-03-06 18:36:42 --> Encrypt Class Initialized
+INFO - 2019-03-06 18:36:42 --> Controller Class Initialized
+INFO - 2019-03-06 18:36:42 --> Database Driver Class Initialized
+INFO - 2019-03-06 18:36:42 --> Model "User_model" initialized
+INFO - 2019-03-06 18:36:42 --> Model "Design_model" initialized
+DEBUG - 2019-03-06 18:36:42 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-03-06 18:36:42 --> Session: Class initialized using 'files' driver.
+INFO - 2019-03-06 18:36:42 --> User Agent Class Initialized
+DEBUG - 2019-03-06 18:36:42 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-03-06 18:36:42 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-03-06 18:36:42 --> Encryption Class Initialized
+INFO - 2019-03-06 18:36:42 --> Helper loaded: form_helper
+INFO - 2019-03-06 18:36:42 --> Form Validation Class Initialized
+INFO - 2019-03-06 18:36:42 --> Helper loaded: string_helper
+INFO - 2019-03-06 18:36:42 --> Upload Class Initialized
+INFO - 2019-03-06 18:36:42 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_header.php
+INFO - 2019-03-06 18:36:42 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/template/template_top_head.php
+INFO - 2019-03-06 18:36:42 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/template/template_side_bar.php
+ERROR - 2019-03-06 18:36:42 --> Severity: Notice --> Undefined variable: result_drafted /var/www/html/m_lnt_bid/application/views/design_user/pr_schedule_design/pr_schedule.php 130
+INFO - 2019-03-06 18:36:42 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/pr_schedule_design/pr_schedule.php
+INFO - 2019-03-06 18:36:42 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_footer.php
+INFO - 2019-03-06 18:36:42 --> Final output sent to browser
+DEBUG - 2019-03-06 18:36:42 --> Total execution time: 0.1102
+ERROR - 2019-03-06 18:37:20 --> $config['composer_autoload'] is set to TRUE but /var/www/html/m_lnt_bid/application/vendor/autoload.php was not found.
+INFO - 2019-03-06 18:37:20 --> Config Class Initialized
+INFO - 2019-03-06 18:37:20 --> Hooks Class Initialized
+DEBUG - 2019-03-06 18:37:20 --> UTF-8 Support Enabled
+INFO - 2019-03-06 18:37:20 --> Utf8 Class Initialized
+INFO - 2019-03-06 18:37:20 --> URI Class Initialized
+INFO - 2019-03-06 18:37:20 --> Router Class Initialized
+INFO - 2019-03-06 18:37:20 --> Output Class Initialized
+INFO - 2019-03-06 18:37:20 --> Security Class Initialized
+DEBUG - 2019-03-06 18:37:20 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-06 18:37:20 --> Input Class Initialized
+INFO - 2019-03-06 18:37:20 --> Language Class Initialized
+INFO - 2019-03-06 18:37:20 --> Loader Class Initialized
+INFO - 2019-03-06 18:37:20 --> Helper loaded: url_helper
+INFO - 2019-03-06 18:37:20 --> Helper loaded: file_helper
+INFO - 2019-03-06 18:37:20 --> Encrypt Class Initialized
+INFO - 2019-03-06 18:37:20 --> Controller Class Initialized
+INFO - 2019-03-06 18:37:20 --> Database Driver Class Initialized
+INFO - 2019-03-06 18:37:20 --> Model "User_model" initialized
+INFO - 2019-03-06 18:37:20 --> Model "Design_model" initialized
+DEBUG - 2019-03-06 18:37:20 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-03-06 18:37:20 --> Session: Class initialized using 'files' driver.
+INFO - 2019-03-06 18:37:20 --> User Agent Class Initialized
+DEBUG - 2019-03-06 18:37:20 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-03-06 18:37:20 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-03-06 18:37:20 --> Encryption Class Initialized
+INFO - 2019-03-06 18:37:20 --> Helper loaded: form_helper
+INFO - 2019-03-06 18:37:20 --> Form Validation Class Initialized
+INFO - 2019-03-06 18:37:20 --> Helper loaded: string_helper
+INFO - 2019-03-06 18:37:20 --> Upload Class Initialized
+INFO - 2019-03-06 18:37:21 --> Final output sent to browser
+DEBUG - 2019-03-06 18:37:21 --> Total execution time: 0.0892
+ERROR - 2019-03-06 18:37:27 --> $config['composer_autoload'] is set to TRUE but /var/www/html/m_lnt_bid/application/vendor/autoload.php was not found.
+INFO - 2019-03-06 18:37:27 --> Config Class Initialized
+INFO - 2019-03-06 18:37:27 --> Hooks Class Initialized
+DEBUG - 2019-03-06 18:37:27 --> UTF-8 Support Enabled
+INFO - 2019-03-06 18:37:27 --> Utf8 Class Initialized
+INFO - 2019-03-06 18:37:27 --> URI Class Initialized
+INFO - 2019-03-06 18:37:27 --> Router Class Initialized
+INFO - 2019-03-06 18:37:27 --> Output Class Initialized
+INFO - 2019-03-06 18:37:27 --> Security Class Initialized
+DEBUG - 2019-03-06 18:37:27 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-06 18:37:27 --> Input Class Initialized
+INFO - 2019-03-06 18:37:27 --> Language Class Initialized
+INFO - 2019-03-06 18:37:27 --> Loader Class Initialized
+INFO - 2019-03-06 18:37:27 --> Helper loaded: url_helper
+INFO - 2019-03-06 18:37:27 --> Helper loaded: file_helper
+INFO - 2019-03-06 18:37:27 --> Encrypt Class Initialized
+INFO - 2019-03-06 18:37:27 --> Controller Class Initialized
+INFO - 2019-03-06 18:37:27 --> Database Driver Class Initialized
+INFO - 2019-03-06 18:37:27 --> Model "User_model" initialized
+INFO - 2019-03-06 18:37:27 --> Model "Design_model" initialized
+DEBUG - 2019-03-06 18:37:27 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-03-06 18:37:27 --> Session: Class initialized using 'files' driver.
+INFO - 2019-03-06 18:37:27 --> User Agent Class Initialized
+DEBUG - 2019-03-06 18:37:27 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-03-06 18:37:27 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-03-06 18:37:27 --> Encryption Class Initialized
+INFO - 2019-03-06 18:37:27 --> Helper loaded: form_helper
+INFO - 2019-03-06 18:37:27 --> Form Validation Class Initialized
+INFO - 2019-03-06 18:37:27 --> Helper loaded: string_helper
+INFO - 2019-03-06 18:37:27 --> Upload Class Initialized
+INFO - 2019-03-06 18:37:27 --> Final output sent to browser
+DEBUG - 2019-03-06 18:37:27 --> Total execution time: 0.1027
+ERROR - 2019-03-06 18:37:29 --> $config['composer_autoload'] is set to TRUE but /var/www/html/m_lnt_bid/application/vendor/autoload.php was not found.
+INFO - 2019-03-06 18:37:29 --> Config Class Initialized
+INFO - 2019-03-06 18:37:29 --> Hooks Class Initialized
+DEBUG - 2019-03-06 18:37:29 --> UTF-8 Support Enabled
+INFO - 2019-03-06 18:37:29 --> Utf8 Class Initialized
+INFO - 2019-03-06 18:37:29 --> URI Class Initialized
+INFO - 2019-03-06 18:37:29 --> Router Class Initialized
+INFO - 2019-03-06 18:37:29 --> Output Class Initialized
+INFO - 2019-03-06 18:37:29 --> Security Class Initialized
+DEBUG - 2019-03-06 18:37:29 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-06 18:37:29 --> Input Class Initialized
+INFO - 2019-03-06 18:37:29 --> Language Class Initialized
+INFO - 2019-03-06 18:37:29 --> Loader Class Initialized
+INFO - 2019-03-06 18:37:29 --> Helper loaded: url_helper
+INFO - 2019-03-06 18:37:29 --> Helper loaded: file_helper
+INFO - 2019-03-06 18:37:29 --> Encrypt Class Initialized
+INFO - 2019-03-06 18:37:29 --> Controller Class Initialized
+INFO - 2019-03-06 18:37:29 --> Database Driver Class Initialized
+INFO - 2019-03-06 18:37:29 --> Model "User_model" initialized
+INFO - 2019-03-06 18:37:29 --> Model "Design_model" initialized
+DEBUG - 2019-03-06 18:37:29 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-03-06 18:37:29 --> Session: Class initialized using 'files' driver.
+INFO - 2019-03-06 18:37:29 --> User Agent Class Initialized
+DEBUG - 2019-03-06 18:37:29 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-03-06 18:37:29 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-03-06 18:37:29 --> Encryption Class Initialized
+INFO - 2019-03-06 18:37:29 --> Helper loaded: form_helper
+INFO - 2019-03-06 18:37:29 --> Form Validation Class Initialized
+INFO - 2019-03-06 18:37:29 --> Helper loaded: string_helper
+INFO - 2019-03-06 18:37:29 --> Upload Class Initialized
+INFO - 2019-03-06 18:37:29 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_header.php
+INFO - 2019-03-06 18:37:29 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/template/template_top_head.php
+INFO - 2019-03-06 18:37:29 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/template/template_side_bar.php
+ERROR - 2019-03-06 18:37:29 --> Severity: Notice --> Undefined variable: result_drafted /var/www/html/m_lnt_bid/application/views/design_user/pr_schedule_design/pr_schedule.php 130
+INFO - 2019-03-06 18:37:29 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/pr_schedule_design/pr_schedule.php
+INFO - 2019-03-06 18:37:29 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_footer.php
+INFO - 2019-03-06 18:37:29 --> Final output sent to browser
+DEBUG - 2019-03-06 18:37:29 --> Total execution time: 0.2748
+ERROR - 2019-03-06 18:37:42 --> $config['composer_autoload'] is set to TRUE but /var/www/html/m_lnt_bid/application/vendor/autoload.php was not found.
+INFO - 2019-03-06 18:37:42 --> Config Class Initialized
+INFO - 2019-03-06 18:37:42 --> Hooks Class Initialized
+DEBUG - 2019-03-06 18:37:42 --> UTF-8 Support Enabled
+INFO - 2019-03-06 18:37:42 --> Utf8 Class Initialized
+INFO - 2019-03-06 18:37:42 --> URI Class Initialized
+INFO - 2019-03-06 18:37:42 --> Router Class Initialized
+INFO - 2019-03-06 18:37:42 --> Output Class Initialized
+INFO - 2019-03-06 18:37:42 --> Security Class Initialized
+DEBUG - 2019-03-06 18:37:42 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-06 18:37:42 --> Input Class Initialized
+INFO - 2019-03-06 18:37:42 --> Language Class Initialized
+INFO - 2019-03-06 18:37:42 --> Loader Class Initialized
+INFO - 2019-03-06 18:37:42 --> Helper loaded: url_helper
+INFO - 2019-03-06 18:37:42 --> Helper loaded: file_helper
+INFO - 2019-03-06 18:37:42 --> Encrypt Class Initialized
+INFO - 2019-03-06 18:37:42 --> Controller Class Initialized
+INFO - 2019-03-06 18:37:42 --> Database Driver Class Initialized
+INFO - 2019-03-06 18:37:42 --> Model "User_model" initialized
+INFO - 2019-03-06 18:37:42 --> Model "Design_model" initialized
+DEBUG - 2019-03-06 18:37:42 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-03-06 18:37:42 --> Session: Class initialized using 'files' driver.
+INFO - 2019-03-06 18:37:42 --> User Agent Class Initialized
+DEBUG - 2019-03-06 18:37:42 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-03-06 18:37:42 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-03-06 18:37:42 --> Encryption Class Initialized
+INFO - 2019-03-06 18:37:42 --> Helper loaded: form_helper
+INFO - 2019-03-06 18:37:42 --> Form Validation Class Initialized
+INFO - 2019-03-06 18:37:42 --> Helper loaded: string_helper
+INFO - 2019-03-06 18:37:42 --> Upload Class Initialized
+INFO - 2019-03-06 18:37:42 --> Final output sent to browser
+DEBUG - 2019-03-06 18:37:42 --> Total execution time: 0.0847
+ERROR - 2019-03-06 18:38:06 --> $config['composer_autoload'] is set to TRUE but /var/www/html/m_lnt_bid/application/vendor/autoload.php was not found.
+INFO - 2019-03-06 18:38:06 --> Config Class Initialized
+INFO - 2019-03-06 18:38:06 --> Hooks Class Initialized
+DEBUG - 2019-03-06 18:38:06 --> UTF-8 Support Enabled
+INFO - 2019-03-06 18:38:06 --> Utf8 Class Initialized
+INFO - 2019-03-06 18:38:06 --> URI Class Initialized
+INFO - 2019-03-06 18:38:06 --> Router Class Initialized
+INFO - 2019-03-06 18:38:06 --> Output Class Initialized
+INFO - 2019-03-06 18:38:06 --> Security Class Initialized
+DEBUG - 2019-03-06 18:38:06 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-06 18:38:06 --> Input Class Initialized
+INFO - 2019-03-06 18:38:06 --> Language Class Initialized
+INFO - 2019-03-06 18:38:06 --> Loader Class Initialized
+INFO - 2019-03-06 18:38:06 --> Helper loaded: url_helper
+INFO - 2019-03-06 18:38:06 --> Helper loaded: file_helper
+INFO - 2019-03-06 18:38:06 --> Encrypt Class Initialized
+INFO - 2019-03-06 18:38:06 --> Controller Class Initialized
+INFO - 2019-03-06 18:38:06 --> Database Driver Class Initialized
+INFO - 2019-03-06 18:38:06 --> Model "User_model" initialized
+INFO - 2019-03-06 18:38:06 --> Model "Design_model" initialized
+DEBUG - 2019-03-06 18:38:06 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-03-06 18:38:06 --> Session: Class initialized using 'files' driver.
+INFO - 2019-03-06 18:38:06 --> User Agent Class Initialized
+DEBUG - 2019-03-06 18:38:06 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-03-06 18:38:06 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-03-06 18:38:06 --> Encryption Class Initialized
+INFO - 2019-03-06 18:38:06 --> Helper loaded: form_helper
+INFO - 2019-03-06 18:38:06 --> Form Validation Class Initialized
+INFO - 2019-03-06 18:38:06 --> Helper loaded: string_helper
+INFO - 2019-03-06 18:38:06 --> Upload Class Initialized
+INFO - 2019-03-06 18:38:06 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_header.php
+INFO - 2019-03-06 18:38:06 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/template/template_top_head.php
+INFO - 2019-03-06 18:38:06 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/template/template_side_bar.php
+INFO - 2019-03-06 18:38:06 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/new_pr_schedule_design/project_pr_schedule.php
+INFO - 2019-03-06 18:38:06 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_footer.php
+INFO - 2019-03-06 18:38:06 --> Final output sent to browser
+DEBUG - 2019-03-06 18:38:06 --> Total execution time: 0.0950
+ERROR - 2019-03-06 18:38:17 --> $config['composer_autoload'] is set to TRUE but /var/www/html/m_lnt_bid/application/vendor/autoload.php was not found.
+INFO - 2019-03-06 18:38:17 --> Config Class Initialized
+INFO - 2019-03-06 18:38:17 --> Hooks Class Initialized
+DEBUG - 2019-03-06 18:38:17 --> UTF-8 Support Enabled
+INFO - 2019-03-06 18:38:17 --> Utf8 Class Initialized
+INFO - 2019-03-06 18:38:17 --> URI Class Initialized
+INFO - 2019-03-06 18:38:17 --> Router Class Initialized
+INFO - 2019-03-06 18:38:17 --> Output Class Initialized
+INFO - 2019-03-06 18:38:17 --> Security Class Initialized
+DEBUG - 2019-03-06 18:38:17 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-06 18:38:17 --> Input Class Initialized
+INFO - 2019-03-06 18:38:17 --> Language Class Initialized
+INFO - 2019-03-06 18:38:17 --> Loader Class Initialized
+INFO - 2019-03-06 18:38:17 --> Helper loaded: url_helper
+INFO - 2019-03-06 18:38:17 --> Helper loaded: file_helper
+INFO - 2019-03-06 18:38:17 --> Encrypt Class Initialized
+INFO - 2019-03-06 18:38:17 --> Controller Class Initialized
+INFO - 2019-03-06 18:38:17 --> Database Driver Class Initialized
+INFO - 2019-03-06 18:38:17 --> Model "User_model" initialized
+INFO - 2019-03-06 18:38:17 --> Model "Design_model" initialized
+DEBUG - 2019-03-06 18:38:17 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-03-06 18:38:17 --> Session: Class initialized using 'files' driver.
+INFO - 2019-03-06 18:38:17 --> User Agent Class Initialized
+DEBUG - 2019-03-06 18:38:17 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-03-06 18:38:17 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-03-06 18:38:17 --> Encryption Class Initialized
+INFO - 2019-03-06 18:38:17 --> Helper loaded: form_helper
+INFO - 2019-03-06 18:38:17 --> Form Validation Class Initialized
+INFO - 2019-03-06 18:38:17 --> Helper loaded: string_helper
+INFO - 2019-03-06 18:38:17 --> Upload Class Initialized
+ERROR - 2019-03-06 18:43:16 --> $config['composer_autoload'] is set to TRUE but /var/www/html/m_lnt_bid/application/vendor/autoload.php was not found.
+INFO - 2019-03-06 18:43:16 --> Config Class Initialized
+INFO - 2019-03-06 18:43:16 --> Hooks Class Initialized
+DEBUG - 2019-03-06 18:43:16 --> UTF-8 Support Enabled
+INFO - 2019-03-06 18:43:16 --> Utf8 Class Initialized
+INFO - 2019-03-06 18:43:16 --> URI Class Initialized
+INFO - 2019-03-06 18:43:16 --> Router Class Initialized
+INFO - 2019-03-06 18:43:16 --> Output Class Initialized
+INFO - 2019-03-06 18:43:16 --> Security Class Initialized
+DEBUG - 2019-03-06 18:43:16 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-06 18:43:16 --> Input Class Initialized
+INFO - 2019-03-06 18:43:16 --> Language Class Initialized
+INFO - 2019-03-06 18:43:16 --> Loader Class Initialized
+INFO - 2019-03-06 18:43:16 --> Helper loaded: url_helper
+INFO - 2019-03-06 18:43:16 --> Helper loaded: file_helper
+INFO - 2019-03-06 18:43:16 --> Encrypt Class Initialized
+INFO - 2019-03-06 18:43:16 --> Controller Class Initialized
+INFO - 2019-03-06 18:43:16 --> Database Driver Class Initialized
+INFO - 2019-03-06 18:43:16 --> Model "User_model" initialized
+INFO - 2019-03-06 18:43:16 --> Model "Design_model" initialized
+DEBUG - 2019-03-06 18:43:16 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-03-06 18:43:16 --> Session: Class initialized using 'files' driver.
+INFO - 2019-03-06 18:43:16 --> User Agent Class Initialized
+DEBUG - 2019-03-06 18:43:16 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-03-06 18:43:16 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-03-06 18:43:16 --> Encryption Class Initialized
+INFO - 2019-03-06 18:43:16 --> Helper loaded: form_helper
+INFO - 2019-03-06 18:43:16 --> Form Validation Class Initialized
+INFO - 2019-03-06 18:43:16 --> Helper loaded: string_helper
+INFO - 2019-03-06 18:43:16 --> Upload Class Initialized
+ERROR - 2019-03-06 18:43:16 --> $config['composer_autoload'] is set to TRUE but /var/www/html/m_lnt_bid/application/vendor/autoload.php was not found.
+INFO - 2019-03-06 18:43:16 --> Config Class Initialized
+INFO - 2019-03-06 18:43:16 --> Hooks Class Initialized
+DEBUG - 2019-03-06 18:43:16 --> UTF-8 Support Enabled
+INFO - 2019-03-06 18:43:16 --> Utf8 Class Initialized
+INFO - 2019-03-06 18:43:16 --> URI Class Initialized
+INFO - 2019-03-06 18:43:16 --> Router Class Initialized
+INFO - 2019-03-06 18:43:16 --> Output Class Initialized
+INFO - 2019-03-06 18:43:16 --> Security Class Initialized
+DEBUG - 2019-03-06 18:43:16 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-06 18:43:16 --> Input Class Initialized
+INFO - 2019-03-06 18:43:16 --> Language Class Initialized
+INFO - 2019-03-06 18:43:16 --> Loader Class Initialized
+INFO - 2019-03-06 18:43:16 --> Helper loaded: url_helper
+INFO - 2019-03-06 18:43:16 --> Helper loaded: file_helper
+INFO - 2019-03-06 18:43:16 --> Encrypt Class Initialized
+INFO - 2019-03-06 18:43:16 --> Controller Class Initialized
+INFO - 2019-03-06 18:43:16 --> Database Driver Class Initialized
+DEBUG - 2019-03-06 18:43:16 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-03-06 18:43:16 --> Session: Class initialized using 'files' driver.
+INFO - 2019-03-06 18:43:16 --> File loaded: /var/www/html/m_lnt_bid/application/views/login_view/index_view.php
+INFO - 2019-03-06 18:43:16 --> Final output sent to browser
+DEBUG - 2019-03-06 18:43:16 --> Total execution time: 0.0842
+ERROR - 2019-03-06 18:43:16 --> $config['composer_autoload'] is set to TRUE but /var/www/html/m_lnt_bid/application/vendor/autoload.php was not found.
+INFO - 2019-03-06 18:43:16 --> Config Class Initialized
+INFO - 2019-03-06 18:43:16 --> Hooks Class Initialized
+DEBUG - 2019-03-06 18:43:16 --> UTF-8 Support Enabled
+INFO - 2019-03-06 18:43:16 --> Utf8 Class Initialized
+INFO - 2019-03-06 18:43:16 --> URI Class Initialized
+INFO - 2019-03-06 18:43:16 --> Router Class Initialized
+INFO - 2019-03-06 18:43:16 --> Output Class Initialized
+INFO - 2019-03-06 18:43:16 --> Security Class Initialized
+DEBUG - 2019-03-06 18:43:16 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-06 18:43:16 --> Input Class Initialized
+INFO - 2019-03-06 18:43:16 --> Language Class Initialized
+INFO - 2019-03-06 18:43:16 --> Loader Class Initialized
+INFO - 2019-03-06 18:43:16 --> Helper loaded: url_helper
+INFO - 2019-03-06 18:43:16 --> Helper loaded: file_helper
+INFO - 2019-03-06 18:43:16 --> Encrypt Class Initialized
+INFO - 2019-03-06 18:43:16 --> Controller Class Initialized
+INFO - 2019-03-06 18:43:16 --> Database Driver Class Initialized
+ERROR - 2019-03-06 18:43:16 --> $config['composer_autoload'] is set to TRUE but /var/www/html/m_lnt_bid/application/vendor/autoload.php was not found.
+INFO - 2019-03-06 18:43:16 --> Config Class Initialized
+INFO - 2019-03-06 18:43:16 --> Hooks Class Initialized
+DEBUG - 2019-03-06 18:43:16 --> UTF-8 Support Enabled
+INFO - 2019-03-06 18:43:16 --> Utf8 Class Initialized
+INFO - 2019-03-06 18:43:16 --> URI Class Initialized
+ERROR - 2019-03-06 18:43:16 --> $config['composer_autoload'] is set to TRUE but /var/www/html/m_lnt_bid/application/vendor/autoload.php was not found.
+INFO - 2019-03-06 18:43:16 --> Config Class Initialized
+INFO - 2019-03-06 18:43:16 --> Hooks Class Initialized
+DEBUG - 2019-03-06 18:43:16 --> UTF-8 Support Enabled
+INFO - 2019-03-06 18:43:16 --> Utf8 Class Initialized
+INFO - 2019-03-06 18:43:16 --> URI Class Initialized
+INFO - 2019-03-06 18:43:16 --> Router Class Initialized
+INFO - 2019-03-06 18:43:16 --> Output Class Initialized
+INFO - 2019-03-06 18:43:16 --> Security Class Initialized
+DEBUG - 2019-03-06 18:43:16 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-06 18:43:16 --> Input Class Initialized
+INFO - 2019-03-06 18:43:16 --> Language Class Initialized
+INFO - 2019-03-06 18:43:16 --> Loader Class Initialized
+INFO - 2019-03-06 18:43:16 --> Helper loaded: url_helper
+INFO - 2019-03-06 18:43:16 --> Helper loaded: file_helper
+INFO - 2019-03-06 18:43:16 --> Encrypt Class Initialized
+INFO - 2019-03-06 18:43:16 --> Controller Class Initialized
+INFO - 2019-03-06 18:43:16 --> Database Driver Class Initialized
+INFO - 2019-03-06 18:43:16 --> Router Class Initialized
+INFO - 2019-03-06 18:43:16 --> Output Class Initialized
+INFO - 2019-03-06 18:43:16 --> Security Class Initialized
+DEBUG - 2019-03-06 18:43:16 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-06 18:43:16 --> Input Class Initialized
+INFO - 2019-03-06 18:43:16 --> Language Class Initialized
+INFO - 2019-03-06 18:43:16 --> Loader Class Initialized
+INFO - 2019-03-06 18:43:16 --> Helper loaded: url_helper
+INFO - 2019-03-06 18:43:16 --> Helper loaded: file_helper
+INFO - 2019-03-06 18:43:16 --> Encrypt Class Initialized
+INFO - 2019-03-06 18:43:16 --> Controller Class Initialized
+INFO - 2019-03-06 18:43:16 --> Database Driver Class Initialized
+INFO - 2019-03-06 18:43:16 --> User Agent Class Initialized
+INFO - 2019-03-06 18:43:16 --> File loaded: /var/www/html/m_lnt_bid/application/views/errors/Error_404.php
+INFO - 2019-03-06 18:43:16 --> Final output sent to browser
+DEBUG - 2019-03-06 18:43:16 --> Total execution time: 0.1150
+INFO - 2019-03-06 18:43:16 --> User Agent Class Initialized
+INFO - 2019-03-06 18:43:16 --> File loaded: /var/www/html/m_lnt_bid/application/views/errors/Error_404.php
+INFO - 2019-03-06 18:43:16 --> Final output sent to browser
+DEBUG - 2019-03-06 18:43:16 --> Total execution time: 0.1552
+INFO - 2019-03-06 18:43:16 --> User Agent Class Initialized
+INFO - 2019-03-06 18:43:16 --> File loaded: /var/www/html/m_lnt_bid/application/views/errors/Error_404.php
+INFO - 2019-03-06 18:43:16 --> Final output sent to browser
+DEBUG - 2019-03-06 18:43:16 --> Total execution time: 0.1596
+ERROR - 2019-03-06 18:45:21 --> $config['composer_autoload'] is set to TRUE but /var/www/html/m_lnt_bid/application/vendor/autoload.php was not found.
+INFO - 2019-03-06 18:45:21 --> Config Class Initialized
+INFO - 2019-03-06 18:45:21 --> Hooks Class Initialized
+DEBUG - 2019-03-06 18:45:21 --> UTF-8 Support Enabled
+INFO - 2019-03-06 18:45:21 --> Utf8 Class Initialized
+INFO - 2019-03-06 18:45:21 --> URI Class Initialized
+INFO - 2019-03-06 18:45:21 --> Router Class Initialized
+INFO - 2019-03-06 18:45:21 --> Output Class Initialized
+INFO - 2019-03-06 18:45:21 --> Security Class Initialized
+DEBUG - 2019-03-06 18:45:21 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-06 18:45:21 --> Input Class Initialized
+INFO - 2019-03-06 18:45:21 --> Language Class Initialized
+INFO - 2019-03-06 18:45:21 --> Loader Class Initialized
+INFO - 2019-03-06 18:45:21 --> Helper loaded: url_helper
+INFO - 2019-03-06 18:45:21 --> Helper loaded: file_helper
+INFO - 2019-03-06 18:45:21 --> Encrypt Class Initialized
+INFO - 2019-03-06 18:45:21 --> Controller Class Initialized
+INFO - 2019-03-06 18:45:21 --> Database Driver Class Initialized
+INFO - 2019-03-06 18:45:21 --> Model "User_model" initialized
+INFO - 2019-03-06 18:45:21 --> Model "Design_model" initialized
+DEBUG - 2019-03-06 18:45:21 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-03-06 18:45:21 --> Session: Class initialized using 'files' driver.
+INFO - 2019-03-06 18:45:21 --> User Agent Class Initialized
+DEBUG - 2019-03-06 18:45:21 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-03-06 18:45:21 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-03-06 18:45:21 --> Encryption Class Initialized
+INFO - 2019-03-06 18:45:21 --> Helper loaded: form_helper
+INFO - 2019-03-06 18:45:21 --> Form Validation Class Initialized
+INFO - 2019-03-06 18:45:21 --> Helper loaded: string_helper
+INFO - 2019-03-06 18:45:21 --> Upload Class Initialized
+INFO - 2019-03-06 18:45:21 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_header.php
+INFO - 2019-03-06 18:45:21 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/template/template_top_head.php
+INFO - 2019-03-06 18:45:21 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/template/template_side_bar.php
+INFO - 2019-03-06 18:45:21 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/new_pr_schedule_design/project_pr_schedule.php
+INFO - 2019-03-06 18:45:21 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_footer.php
+INFO - 2019-03-06 18:45:21 --> Final output sent to browser
+DEBUG - 2019-03-06 18:45:21 --> Total execution time: 0.0934
+ERROR - 2019-03-06 18:45:31 --> $config['composer_autoload'] is set to TRUE but /var/www/html/m_lnt_bid/application/vendor/autoload.php was not found.
+INFO - 2019-03-06 18:45:31 --> Config Class Initialized
+INFO - 2019-03-06 18:45:31 --> Hooks Class Initialized
+DEBUG - 2019-03-06 18:45:31 --> UTF-8 Support Enabled
+INFO - 2019-03-06 18:45:31 --> Utf8 Class Initialized
+INFO - 2019-03-06 18:45:31 --> URI Class Initialized
+INFO - 2019-03-06 18:45:31 --> Router Class Initialized
+INFO - 2019-03-06 18:45:31 --> Output Class Initialized
+INFO - 2019-03-06 18:45:31 --> Security Class Initialized
+DEBUG - 2019-03-06 18:45:31 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-06 18:45:31 --> Input Class Initialized
+INFO - 2019-03-06 18:45:31 --> Language Class Initialized
+INFO - 2019-03-06 18:45:31 --> Loader Class Initialized
+INFO - 2019-03-06 18:45:31 --> Helper loaded: url_helper
+INFO - 2019-03-06 18:45:31 --> Helper loaded: file_helper
+INFO - 2019-03-06 18:45:31 --> Encrypt Class Initialized
+INFO - 2019-03-06 18:45:31 --> Controller Class Initialized
+INFO - 2019-03-06 18:45:31 --> Database Driver Class Initialized
+INFO - 2019-03-06 18:45:31 --> Model "User_model" initialized
+INFO - 2019-03-06 18:45:31 --> Model "Design_model" initialized
+DEBUG - 2019-03-06 18:45:31 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-03-06 18:45:31 --> Session: Class initialized using 'files' driver.
+INFO - 2019-03-06 18:45:31 --> User Agent Class Initialized
+DEBUG - 2019-03-06 18:45:31 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-03-06 18:45:31 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-03-06 18:45:31 --> Encryption Class Initialized
+INFO - 2019-03-06 18:45:31 --> Helper loaded: form_helper
+INFO - 2019-03-06 18:45:31 --> Form Validation Class Initialized
+INFO - 2019-03-06 18:45:31 --> Helper loaded: string_helper
+INFO - 2019-03-06 18:45:31 --> Upload Class Initialized
+ERROR - 2019-03-06 18:45:33 --> $config['composer_autoload'] is set to TRUE but /var/www/html/m_lnt_bid/application/vendor/autoload.php was not found.
+INFO - 2019-03-06 18:45:33 --> Config Class Initialized
+INFO - 2019-03-06 18:45:33 --> Hooks Class Initialized
+DEBUG - 2019-03-06 18:45:33 --> UTF-8 Support Enabled
+INFO - 2019-03-06 18:45:33 --> Utf8 Class Initialized
+INFO - 2019-03-06 18:45:33 --> URI Class Initialized
+INFO - 2019-03-06 18:45:33 --> Router Class Initialized
+INFO - 2019-03-06 18:45:33 --> Output Class Initialized
+INFO - 2019-03-06 18:45:33 --> Security Class Initialized
+DEBUG - 2019-03-06 18:45:33 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-06 18:45:33 --> Input Class Initialized
+INFO - 2019-03-06 18:45:33 --> Language Class Initialized
+INFO - 2019-03-06 18:45:33 --> Loader Class Initialized
+INFO - 2019-03-06 18:45:33 --> Helper loaded: url_helper
+INFO - 2019-03-06 18:45:33 --> Helper loaded: file_helper
+INFO - 2019-03-06 18:45:33 --> Encrypt Class Initialized
+INFO - 2019-03-06 18:45:33 --> Controller Class Initialized
+INFO - 2019-03-06 18:45:33 --> Database Driver Class Initialized
+INFO - 2019-03-06 18:45:33 --> Model "User_model" initialized
+INFO - 2019-03-06 18:45:33 --> Model "Design_model" initialized
+DEBUG - 2019-03-06 18:45:33 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-03-06 18:45:33 --> Session: Class initialized using 'files' driver.
+INFO - 2019-03-06 18:45:33 --> User Agent Class Initialized
+DEBUG - 2019-03-06 18:45:33 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-03-06 18:45:33 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-03-06 18:45:33 --> Encryption Class Initialized
+INFO - 2019-03-06 18:45:33 --> Helper loaded: form_helper
+INFO - 2019-03-06 18:45:33 --> Form Validation Class Initialized
+INFO - 2019-03-06 18:45:33 --> Helper loaded: string_helper
+INFO - 2019-03-06 18:45:33 --> Upload Class Initialized
+INFO - 2019-03-06 18:45:33 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_header.php
+INFO - 2019-03-06 18:45:33 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/template/template_top_head.php
+INFO - 2019-03-06 18:45:33 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/template/template_side_bar.php
+INFO - 2019-03-06 18:45:33 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/new_mr_requisition/Create_material_requisition_form.php
+INFO - 2019-03-06 18:45:33 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_footer.php
+INFO - 2019-03-06 18:45:33 --> Final output sent to browser
+DEBUG - 2019-03-06 18:45:33 --> Total execution time: 0.0975
+ERROR - 2019-03-06 18:45:34 --> $config['composer_autoload'] is set to TRUE but /var/www/html/m_lnt_bid/application/vendor/autoload.php was not found.
+INFO - 2019-03-06 18:45:34 --> Config Class Initialized
+INFO - 2019-03-06 18:45:34 --> Hooks Class Initialized
+DEBUG - 2019-03-06 18:45:34 --> UTF-8 Support Enabled
+INFO - 2019-03-06 18:45:34 --> Utf8 Class Initialized
+ERROR - 2019-03-06 18:45:34 --> $config['composer_autoload'] is set to TRUE but /var/www/html/m_lnt_bid/application/vendor/autoload.php was not found.
+INFO - 2019-03-06 18:45:34 --> URI Class Initialized
+INFO - 2019-03-06 18:45:34 --> Config Class Initialized
+INFO - 2019-03-06 18:45:34 --> Hooks Class Initialized
+DEBUG - 2019-03-06 18:45:34 --> UTF-8 Support Enabled
+INFO - 2019-03-06 18:45:34 --> Utf8 Class Initialized
+INFO - 2019-03-06 18:45:34 --> URI Class Initialized
+INFO - 2019-03-06 18:45:34 --> Router Class Initialized
+INFO - 2019-03-06 18:45:34 --> Output Class Initialized
+INFO - 2019-03-06 18:45:34 --> Security Class Initialized
+DEBUG - 2019-03-06 18:45:34 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-06 18:45:34 --> Input Class Initialized
+INFO - 2019-03-06 18:45:34 --> Language Class Initialized
+INFO - 2019-03-06 18:45:34 --> Loader Class Initialized
+INFO - 2019-03-06 18:45:34 --> Helper loaded: url_helper
+INFO - 2019-03-06 18:45:34 --> Helper loaded: file_helper
+INFO - 2019-03-06 18:45:34 --> Encrypt Class Initialized
+INFO - 2019-03-06 18:45:34 --> Controller Class Initialized
+INFO - 2019-03-06 18:45:34 --> Database Driver Class Initialized
+INFO - 2019-03-06 18:45:34 --> Router Class Initialized
+INFO - 2019-03-06 18:45:34 --> Output Class Initialized
+INFO - 2019-03-06 18:45:34 --> Security Class Initialized
+DEBUG - 2019-03-06 18:45:34 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-06 18:45:34 --> Input Class Initialized
+INFO - 2019-03-06 18:45:34 --> Language Class Initialized
+INFO - 2019-03-06 18:45:34 --> Loader Class Initialized
+INFO - 2019-03-06 18:45:34 --> Helper loaded: url_helper
+INFO - 2019-03-06 18:45:34 --> Helper loaded: file_helper
+INFO - 2019-03-06 18:45:34 --> Encrypt Class Initialized
+INFO - 2019-03-06 18:45:34 --> Controller Class Initialized
+INFO - 2019-03-06 18:45:34 --> Database Driver Class Initialized
+INFO - 2019-03-06 18:45:34 --> User Agent Class Initialized
+INFO - 2019-03-06 18:45:34 --> File loaded: /var/www/html/m_lnt_bid/application/views/errors/Error_404.php
+INFO - 2019-03-06 18:45:34 --> Final output sent to browser
+DEBUG - 2019-03-06 18:45:34 --> Total execution time: 0.2205
+INFO - 2019-03-06 18:45:34 --> User Agent Class Initialized
+INFO - 2019-03-06 18:45:34 --> File loaded: /var/www/html/m_lnt_bid/application/views/errors/Error_404.php
+INFO - 2019-03-06 18:45:34 --> Final output sent to browser
+DEBUG - 2019-03-06 18:45:34 --> Total execution time: 0.2618
+ERROR - 2019-03-06 18:50:51 --> $config['composer_autoload'] is set to TRUE but /var/www/html/m_lnt_bid/application/vendor/autoload.php was not found.
+INFO - 2019-03-06 18:50:51 --> Config Class Initialized
+INFO - 2019-03-06 18:50:51 --> Hooks Class Initialized
+DEBUG - 2019-03-06 18:50:51 --> UTF-8 Support Enabled
+INFO - 2019-03-06 18:50:51 --> Utf8 Class Initialized
+INFO - 2019-03-06 18:50:51 --> URI Class Initialized
+INFO - 2019-03-06 18:50:51 --> Router Class Initialized
+INFO - 2019-03-06 18:50:51 --> Output Class Initialized
+INFO - 2019-03-06 18:50:51 --> Security Class Initialized
+DEBUG - 2019-03-06 18:50:51 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-06 18:50:51 --> Input Class Initialized
+INFO - 2019-03-06 18:50:51 --> Language Class Initialized
+INFO - 2019-03-06 18:50:51 --> Loader Class Initialized
+INFO - 2019-03-06 18:50:51 --> Helper loaded: url_helper
+INFO - 2019-03-06 18:50:51 --> Helper loaded: file_helper
+INFO - 2019-03-06 18:50:51 --> Encrypt Class Initialized
+INFO - 2019-03-06 18:50:51 --> Controller Class Initialized
+INFO - 2019-03-06 18:50:51 --> Database Driver Class Initialized
+INFO - 2019-03-06 18:50:51 --> Model "User_model" initialized
+INFO - 2019-03-06 18:50:51 --> Model "Design_model" initialized
+DEBUG - 2019-03-06 18:50:51 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-03-06 18:50:51 --> Session: Class initialized using 'files' driver.
+INFO - 2019-03-06 18:50:51 --> User Agent Class Initialized
+DEBUG - 2019-03-06 18:50:51 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-03-06 18:50:51 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-03-06 18:50:51 --> Encryption Class Initialized
+INFO - 2019-03-06 18:50:51 --> Helper loaded: form_helper
+INFO - 2019-03-06 18:50:51 --> Form Validation Class Initialized
+INFO - 2019-03-06 18:50:51 --> Helper loaded: string_helper
+INFO - 2019-03-06 18:50:51 --> Upload Class Initialized
+INFO - 2019-03-06 18:50:51 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_header.php
+INFO - 2019-03-06 18:50:51 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/template/template_top_head.php
+INFO - 2019-03-06 18:50:51 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/template/template_side_bar.php
+INFO - 2019-03-06 18:50:51 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/new_mr_requisition/Create_material_requisition_form.php
+INFO - 2019-03-06 18:50:51 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_footer.php
+INFO - 2019-03-06 18:50:51 --> Final output sent to browser
+DEBUG - 2019-03-06 18:50:51 --> Total execution time: 0.1403
+ERROR - 2019-03-06 18:50:51 --> $config['composer_autoload'] is set to TRUE but /var/www/html/m_lnt_bid/application/vendor/autoload.php was not found.
+INFO - 2019-03-06 18:50:51 --> Config Class Initialized
+INFO - 2019-03-06 18:50:51 --> Hooks Class Initialized
+DEBUG - 2019-03-06 18:50:51 --> UTF-8 Support Enabled
+INFO - 2019-03-06 18:50:51 --> Utf8 Class Initialized
+INFO - 2019-03-06 18:50:51 --> URI Class Initialized
+INFO - 2019-03-06 18:50:51 --> Router Class Initialized
+INFO - 2019-03-06 18:50:51 --> Output Class Initialized
+INFO - 2019-03-06 18:50:51 --> Security Class Initialized
+DEBUG - 2019-03-06 18:50:51 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-06 18:50:51 --> Input Class Initialized
+INFO - 2019-03-06 18:50:51 --> Language Class Initialized
+INFO - 2019-03-06 18:50:51 --> Loader Class Initialized
+INFO - 2019-03-06 18:50:51 --> Helper loaded: url_helper
+INFO - 2019-03-06 18:50:51 --> Helper loaded: file_helper
+INFO - 2019-03-06 18:50:51 --> Encrypt Class Initialized
+INFO - 2019-03-06 18:50:51 --> Controller Class Initialized
+INFO - 2019-03-06 18:50:51 --> Database Driver Class Initialized
+ERROR - 2019-03-06 18:50:51 --> $config['composer_autoload'] is set to TRUE but /var/www/html/m_lnt_bid/application/vendor/autoload.php was not found.
+INFO - 2019-03-06 18:50:51 --> Config Class Initialized
+INFO - 2019-03-06 18:50:51 --> Hooks Class Initialized
+DEBUG - 2019-03-06 18:50:51 --> UTF-8 Support Enabled
+INFO - 2019-03-06 18:50:51 --> Utf8 Class Initialized
+INFO - 2019-03-06 18:50:51 --> URI Class Initialized
+INFO - 2019-03-06 18:50:51 --> Router Class Initialized
+INFO - 2019-03-06 18:50:51 --> Output Class Initialized
+INFO - 2019-03-06 18:50:51 --> Security Class Initialized
+DEBUG - 2019-03-06 18:50:51 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-06 18:50:51 --> Input Class Initialized
+INFO - 2019-03-06 18:50:51 --> Language Class Initialized
+INFO - 2019-03-06 18:50:51 --> Loader Class Initialized
+INFO - 2019-03-06 18:50:51 --> Helper loaded: url_helper
+INFO - 2019-03-06 18:50:51 --> Helper loaded: file_helper
+INFO - 2019-03-06 18:50:51 --> Encrypt Class Initialized
+INFO - 2019-03-06 18:50:51 --> Controller Class Initialized
+INFO - 2019-03-06 18:50:51 --> Database Driver Class Initialized
+INFO - 2019-03-06 18:50:52 --> User Agent Class Initialized
+INFO - 2019-03-06 18:50:52 --> File loaded: /var/www/html/m_lnt_bid/application/views/errors/Error_404.php
+INFO - 2019-03-06 18:50:52 --> Final output sent to browser
+DEBUG - 2019-03-06 18:50:52 --> Total execution time: 0.1478
+INFO - 2019-03-06 18:50:52 --> User Agent Class Initialized
+INFO - 2019-03-06 18:50:52 --> File loaded: /var/www/html/m_lnt_bid/application/views/errors/Error_404.php
+INFO - 2019-03-06 18:50:52 --> Final output sent to browser
+DEBUG - 2019-03-06 18:50:52 --> Total execution time: 0.1743
+ERROR - 2019-03-06 18:50:52 --> $config['composer_autoload'] is set to TRUE but /var/www/html/m_lnt_bid/application/vendor/autoload.php was not found.
+INFO - 2019-03-06 18:50:52 --> Config Class Initialized
+INFO - 2019-03-06 18:50:52 --> Hooks Class Initialized
+DEBUG - 2019-03-06 18:50:52 --> UTF-8 Support Enabled
+INFO - 2019-03-06 18:50:52 --> Utf8 Class Initialized
+INFO - 2019-03-06 18:50:52 --> URI Class Initialized
+INFO - 2019-03-06 18:50:52 --> Router Class Initialized
+INFO - 2019-03-06 18:50:52 --> Output Class Initialized
+INFO - 2019-03-06 18:50:52 --> Security Class Initialized
+DEBUG - 2019-03-06 18:50:52 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-06 18:50:52 --> Input Class Initialized
+INFO - 2019-03-06 18:50:52 --> Language Class Initialized
+INFO - 2019-03-06 18:50:52 --> Loader Class Initialized
+INFO - 2019-03-06 18:50:52 --> Helper loaded: url_helper
+INFO - 2019-03-06 18:50:52 --> Helper loaded: file_helper
+INFO - 2019-03-06 18:50:52 --> Encrypt Class Initialized
+INFO - 2019-03-06 18:50:52 --> Controller Class Initialized
+INFO - 2019-03-06 18:50:52 --> Database Driver Class Initialized
+ERROR - 2019-03-06 18:50:52 --> $config['composer_autoload'] is set to TRUE but /var/www/html/m_lnt_bid/application/vendor/autoload.php was not found.
+INFO - 2019-03-06 18:50:52 --> Config Class Initialized
+INFO - 2019-03-06 18:50:52 --> Hooks Class Initialized
+DEBUG - 2019-03-06 18:50:52 --> UTF-8 Support Enabled
+INFO - 2019-03-06 18:50:52 --> Utf8 Class Initialized
+INFO - 2019-03-06 18:50:52 --> URI Class Initialized
+INFO - 2019-03-06 18:50:52 --> Router Class Initialized
+INFO - 2019-03-06 18:50:52 --> Output Class Initialized
+INFO - 2019-03-06 18:50:52 --> Security Class Initialized
+DEBUG - 2019-03-06 18:50:52 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-06 18:50:52 --> Input Class Initialized
+INFO - 2019-03-06 18:50:52 --> Language Class Initialized
+INFO - 2019-03-06 18:50:52 --> Loader Class Initialized
+INFO - 2019-03-06 18:50:52 --> Helper loaded: url_helper
+INFO - 2019-03-06 18:50:52 --> Helper loaded: file_helper
+INFO - 2019-03-06 18:50:52 --> Encrypt Class Initialized
+INFO - 2019-03-06 18:50:52 --> Controller Class Initialized
+INFO - 2019-03-06 18:50:52 --> Database Driver Class Initialized
+INFO - 2019-03-06 18:50:52 --> User Agent Class Initialized
+INFO - 2019-03-06 18:50:52 --> File loaded: /var/www/html/m_lnt_bid/application/views/errors/Error_404.php
+INFO - 2019-03-06 18:50:52 --> Final output sent to browser
+DEBUG - 2019-03-06 18:50:52 --> Total execution time: 0.1266
+INFO - 2019-03-06 18:50:52 --> User Agent Class Initialized
+INFO - 2019-03-06 18:50:52 --> File loaded: /var/www/html/m_lnt_bid/application/views/errors/Error_404.php
+INFO - 2019-03-06 18:50:52 --> Final output sent to browser
+DEBUG - 2019-03-06 18:50:52 --> Total execution time: 0.1499
+ERROR - 2019-03-06 18:51:07 --> $config['composer_autoload'] is set to TRUE but /var/www/html/m_lnt_bid/application/vendor/autoload.php was not found.
+INFO - 2019-03-06 18:51:07 --> Config Class Initialized
+INFO - 2019-03-06 18:51:07 --> Hooks Class Initialized
+DEBUG - 2019-03-06 18:51:07 --> UTF-8 Support Enabled
+INFO - 2019-03-06 18:51:07 --> Utf8 Class Initialized
+INFO - 2019-03-06 18:51:07 --> URI Class Initialized
+INFO - 2019-03-06 18:51:07 --> Router Class Initialized
+INFO - 2019-03-06 18:51:07 --> Output Class Initialized
+INFO - 2019-03-06 18:51:07 --> Security Class Initialized
+DEBUG - 2019-03-06 18:51:07 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-06 18:51:07 --> Input Class Initialized
+INFO - 2019-03-06 18:51:07 --> Language Class Initialized
+INFO - 2019-03-06 18:51:07 --> Loader Class Initialized
+INFO - 2019-03-06 18:51:07 --> Helper loaded: url_helper
+INFO - 2019-03-06 18:51:07 --> Helper loaded: file_helper
+INFO - 2019-03-06 18:51:07 --> Encrypt Class Initialized
+INFO - 2019-03-06 18:51:07 --> Controller Class Initialized
+INFO - 2019-03-06 18:51:07 --> Database Driver Class Initialized
+INFO - 2019-03-06 18:51:07 --> Model "User_model" initialized
+INFO - 2019-03-06 18:51:07 --> Model "Design_model" initialized
+DEBUG - 2019-03-06 18:51:07 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-03-06 18:51:07 --> Session: Class initialized using 'files' driver.
+INFO - 2019-03-06 18:51:07 --> User Agent Class Initialized
+DEBUG - 2019-03-06 18:51:07 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-03-06 18:51:07 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-03-06 18:51:07 --> Encryption Class Initialized
+INFO - 2019-03-06 18:51:07 --> Helper loaded: form_helper
+INFO - 2019-03-06 18:51:07 --> Form Validation Class Initialized
+INFO - 2019-03-06 18:51:07 --> Helper loaded: string_helper
+INFO - 2019-03-06 18:51:07 --> Upload Class Initialized
+INFO - 2019-03-06 18:51:07 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_header.php
+INFO - 2019-03-06 18:51:07 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/template/template_top_head.php
+INFO - 2019-03-06 18:51:07 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/template/template_side_bar.php
+INFO - 2019-03-06 18:51:07 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/new_mr_requisition/Create_material_requisition_form.php
+INFO - 2019-03-06 18:51:07 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_footer.php
+INFO - 2019-03-06 18:51:07 --> Final output sent to browser
+DEBUG - 2019-03-06 18:51:07 --> Total execution time: 0.0951
+ERROR - 2019-03-06 18:51:07 --> $config['composer_autoload'] is set to TRUE but /var/www/html/m_lnt_bid/application/vendor/autoload.php was not found.
+INFO - 2019-03-06 18:51:07 --> Config Class Initialized
+INFO - 2019-03-06 18:51:07 --> Hooks Class Initialized
+DEBUG - 2019-03-06 18:51:07 --> UTF-8 Support Enabled
+INFO - 2019-03-06 18:51:07 --> Utf8 Class Initialized
+INFO - 2019-03-06 18:51:07 --> URI Class Initialized
+INFO - 2019-03-06 18:51:07 --> Router Class Initialized
+INFO - 2019-03-06 18:51:07 --> Output Class Initialized
+INFO - 2019-03-06 18:51:07 --> Security Class Initialized
+DEBUG - 2019-03-06 18:51:07 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-06 18:51:07 --> Input Class Initialized
+INFO - 2019-03-06 18:51:07 --> Language Class Initialized
+INFO - 2019-03-06 18:51:07 --> Loader Class Initialized
+INFO - 2019-03-06 18:51:07 --> Helper loaded: url_helper
+INFO - 2019-03-06 18:51:07 --> Helper loaded: file_helper
+INFO - 2019-03-06 18:51:07 --> Encrypt Class Initialized
+INFO - 2019-03-06 18:51:07 --> Controller Class Initialized
+INFO - 2019-03-06 18:51:07 --> Database Driver Class Initialized
+ERROR - 2019-03-06 18:51:07 --> $config['composer_autoload'] is set to TRUE but /var/www/html/m_lnt_bid/application/vendor/autoload.php was not found.
+INFO - 2019-03-06 18:51:07 --> Config Class Initialized
+INFO - 2019-03-06 18:51:07 --> Hooks Class Initialized
+DEBUG - 2019-03-06 18:51:07 --> UTF-8 Support Enabled
+INFO - 2019-03-06 18:51:07 --> Utf8 Class Initialized
+INFO - 2019-03-06 18:51:07 --> URI Class Initialized
+INFO - 2019-03-06 18:51:07 --> Router Class Initialized
+INFO - 2019-03-06 18:51:07 --> Output Class Initialized
+INFO - 2019-03-06 18:51:07 --> Security Class Initialized
+DEBUG - 2019-03-06 18:51:07 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-06 18:51:07 --> Input Class Initialized
+INFO - 2019-03-06 18:51:07 --> Language Class Initialized
+INFO - 2019-03-06 18:51:07 --> Loader Class Initialized
+INFO - 2019-03-06 18:51:07 --> Helper loaded: url_helper
+INFO - 2019-03-06 18:51:07 --> Helper loaded: file_helper
+INFO - 2019-03-06 18:51:07 --> Encrypt Class Initialized
+INFO - 2019-03-06 18:51:07 --> Controller Class Initialized
+INFO - 2019-03-06 18:51:07 --> Database Driver Class Initialized
+INFO - 2019-03-06 18:51:07 --> User Agent Class Initialized
+INFO - 2019-03-06 18:51:07 --> File loaded: /var/www/html/m_lnt_bid/application/views/errors/Error_404.php
+INFO - 2019-03-06 18:51:07 --> Final output sent to browser
+DEBUG - 2019-03-06 18:51:07 --> Total execution time: 0.1535
+INFO - 2019-03-06 18:51:07 --> User Agent Class Initialized
+INFO - 2019-03-06 18:51:07 --> File loaded: /var/www/html/m_lnt_bid/application/views/errors/Error_404.php
+INFO - 2019-03-06 18:51:07 --> Final output sent to browser
+DEBUG - 2019-03-06 18:51:07 --> Total execution time: 0.1767
+ERROR - 2019-03-06 18:51:07 --> $config['composer_autoload'] is set to TRUE but /var/www/html/m_lnt_bid/application/vendor/autoload.php was not found.
+INFO - 2019-03-06 18:51:07 --> Config Class Initialized
+INFO - 2019-03-06 18:51:07 --> Hooks Class Initialized
+DEBUG - 2019-03-06 18:51:07 --> UTF-8 Support Enabled
+INFO - 2019-03-06 18:51:07 --> Utf8 Class Initialized
+INFO - 2019-03-06 18:51:07 --> URI Class Initialized
+INFO - 2019-03-06 18:51:07 --> Router Class Initialized
+INFO - 2019-03-06 18:51:07 --> Output Class Initialized
+INFO - 2019-03-06 18:51:07 --> Security Class Initialized
+DEBUG - 2019-03-06 18:51:07 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-06 18:51:07 --> Input Class Initialized
+INFO - 2019-03-06 18:51:07 --> Language Class Initialized
+INFO - 2019-03-06 18:51:07 --> Loader Class Initialized
+INFO - 2019-03-06 18:51:07 --> Helper loaded: url_helper
+INFO - 2019-03-06 18:51:07 --> Helper loaded: file_helper
+INFO - 2019-03-06 18:51:07 --> Encrypt Class Initialized
+INFO - 2019-03-06 18:51:07 --> Controller Class Initialized
+INFO - 2019-03-06 18:51:07 --> Database Driver Class Initialized
+ERROR - 2019-03-06 18:51:07 --> $config['composer_autoload'] is set to TRUE but /var/www/html/m_lnt_bid/application/vendor/autoload.php was not found.
+INFO - 2019-03-06 18:51:07 --> Config Class Initialized
+INFO - 2019-03-06 18:51:07 --> Hooks Class Initialized
+DEBUG - 2019-03-06 18:51:07 --> UTF-8 Support Enabled
+INFO - 2019-03-06 18:51:07 --> Utf8 Class Initialized
+INFO - 2019-03-06 18:51:07 --> URI Class Initialized
+INFO - 2019-03-06 18:51:07 --> Router Class Initialized
+INFO - 2019-03-06 18:51:07 --> Output Class Initialized
+INFO - 2019-03-06 18:51:07 --> Security Class Initialized
+DEBUG - 2019-03-06 18:51:07 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-06 18:51:07 --> Input Class Initialized
+INFO - 2019-03-06 18:51:07 --> Language Class Initialized
+INFO - 2019-03-06 18:51:07 --> Loader Class Initialized
+INFO - 2019-03-06 18:51:07 --> Helper loaded: url_helper
+INFO - 2019-03-06 18:51:07 --> Helper loaded: file_helper
+INFO - 2019-03-06 18:51:07 --> Encrypt Class Initialized
+INFO - 2019-03-06 18:51:07 --> Controller Class Initialized
+INFO - 2019-03-06 18:51:07 --> Database Driver Class Initialized
+INFO - 2019-03-06 18:51:08 --> User Agent Class Initialized
+INFO - 2019-03-06 18:51:08 --> File loaded: /var/www/html/m_lnt_bid/application/views/errors/Error_404.php
+INFO - 2019-03-06 18:51:08 --> Final output sent to browser
+DEBUG - 2019-03-06 18:51:08 --> Total execution time: 0.1598
+INFO - 2019-03-06 18:51:08 --> User Agent Class Initialized
+INFO - 2019-03-06 18:51:08 --> File loaded: /var/www/html/m_lnt_bid/application/views/errors/Error_404.php
+INFO - 2019-03-06 18:51:08 --> Final output sent to browser
+DEBUG - 2019-03-06 18:51:08 --> Total execution time: 0.1958
+ERROR - 2019-03-06 18:52:38 --> $config['composer_autoload'] is set to TRUE but /var/www/html/m_lnt_bid/application/vendor/autoload.php was not found.
+INFO - 2019-03-06 18:52:38 --> Config Class Initialized
+INFO - 2019-03-06 18:52:38 --> Hooks Class Initialized
+DEBUG - 2019-03-06 18:52:38 --> UTF-8 Support Enabled
+INFO - 2019-03-06 18:52:38 --> Utf8 Class Initialized
+INFO - 2019-03-06 18:52:38 --> URI Class Initialized
+INFO - 2019-03-06 18:52:38 --> Router Class Initialized
+INFO - 2019-03-06 18:52:38 --> Output Class Initialized
+INFO - 2019-03-06 18:52:38 --> Security Class Initialized
+DEBUG - 2019-03-06 18:52:38 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-06 18:52:38 --> Input Class Initialized
+INFO - 2019-03-06 18:52:38 --> Language Class Initialized
+INFO - 2019-03-06 18:52:38 --> Loader Class Initialized
+INFO - 2019-03-06 18:52:38 --> Helper loaded: url_helper
+INFO - 2019-03-06 18:52:38 --> Helper loaded: file_helper
+INFO - 2019-03-06 18:52:38 --> Encrypt Class Initialized
+INFO - 2019-03-06 18:52:38 --> Controller Class Initialized
+INFO - 2019-03-06 18:52:38 --> Database Driver Class Initialized
+INFO - 2019-03-06 18:52:38 --> Model "User_model" initialized
+INFO - 2019-03-06 18:52:38 --> Model "Design_model" initialized
+DEBUG - 2019-03-06 18:52:38 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-03-06 18:52:38 --> Session: Class initialized using 'files' driver.
+INFO - 2019-03-06 18:52:38 --> User Agent Class Initialized
+DEBUG - 2019-03-06 18:52:38 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-03-06 18:52:38 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-03-06 18:52:38 --> Encryption Class Initialized
+INFO - 2019-03-06 18:52:38 --> Helper loaded: form_helper
+INFO - 2019-03-06 18:52:38 --> Form Validation Class Initialized
+INFO - 2019-03-06 18:52:38 --> Helper loaded: string_helper
+INFO - 2019-03-06 18:52:38 --> Upload Class Initialized
+INFO - 2019-03-06 18:52:38 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_header.php
+INFO - 2019-03-06 18:52:38 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/template/template_top_head.php
+INFO - 2019-03-06 18:52:38 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/template/template_side_bar.php
+INFO - 2019-03-06 18:52:38 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/new_mr_requisition/Create_material_requisition_form.php
+INFO - 2019-03-06 18:52:38 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_footer.php
+INFO - 2019-03-06 18:52:38 --> Final output sent to browser
+DEBUG - 2019-03-06 18:52:38 --> Total execution time: 0.1157
+ERROR - 2019-03-06 18:52:38 --> $config['composer_autoload'] is set to TRUE but /var/www/html/m_lnt_bid/application/vendor/autoload.php was not found.
+INFO - 2019-03-06 18:52:38 --> Config Class Initialized
+INFO - 2019-03-06 18:52:38 --> Hooks Class Initialized
+DEBUG - 2019-03-06 18:52:38 --> UTF-8 Support Enabled
+INFO - 2019-03-06 18:52:38 --> Utf8 Class Initialized
+INFO - 2019-03-06 18:52:38 --> URI Class Initialized
+INFO - 2019-03-06 18:52:38 --> Router Class Initialized
+INFO - 2019-03-06 18:52:38 --> Output Class Initialized
+INFO - 2019-03-06 18:52:38 --> Security Class Initialized
+DEBUG - 2019-03-06 18:52:38 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-06 18:52:38 --> Input Class Initialized
+INFO - 2019-03-06 18:52:38 --> Language Class Initialized
+INFO - 2019-03-06 18:52:38 --> Loader Class Initialized
+INFO - 2019-03-06 18:52:38 --> Helper loaded: url_helper
+INFO - 2019-03-06 18:52:38 --> Helper loaded: file_helper
+INFO - 2019-03-06 18:52:38 --> Encrypt Class Initialized
+INFO - 2019-03-06 18:52:38 --> Controller Class Initialized
+INFO - 2019-03-06 18:52:38 --> Database Driver Class Initialized
+ERROR - 2019-03-06 18:52:38 --> $config['composer_autoload'] is set to TRUE but /var/www/html/m_lnt_bid/application/vendor/autoload.php was not found.
+INFO - 2019-03-06 18:52:38 --> Config Class Initialized
+INFO - 2019-03-06 18:52:38 --> Hooks Class Initialized
+DEBUG - 2019-03-06 18:52:38 --> UTF-8 Support Enabled
+INFO - 2019-03-06 18:52:38 --> Utf8 Class Initialized
+INFO - 2019-03-06 18:52:38 --> URI Class Initialized
+INFO - 2019-03-06 18:52:38 --> Router Class Initialized
+INFO - 2019-03-06 18:52:38 --> Output Class Initialized
+INFO - 2019-03-06 18:52:38 --> Security Class Initialized
+DEBUG - 2019-03-06 18:52:38 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-06 18:52:38 --> Input Class Initialized
+INFO - 2019-03-06 18:52:38 --> Language Class Initialized
+INFO - 2019-03-06 18:52:38 --> Loader Class Initialized
+INFO - 2019-03-06 18:52:38 --> Helper loaded: url_helper
+INFO - 2019-03-06 18:52:38 --> Helper loaded: file_helper
+INFO - 2019-03-06 18:52:38 --> Encrypt Class Initialized
+INFO - 2019-03-06 18:52:38 --> Controller Class Initialized
+INFO - 2019-03-06 18:52:38 --> Database Driver Class Initialized
+INFO - 2019-03-06 18:52:38 --> User Agent Class Initialized
+INFO - 2019-03-06 18:52:38 --> File loaded: /var/www/html/m_lnt_bid/application/views/errors/Error_404.php
+INFO - 2019-03-06 18:52:38 --> Final output sent to browser
+DEBUG - 2019-03-06 18:52:38 --> Total execution time: 0.1176
+INFO - 2019-03-06 18:52:38 --> User Agent Class Initialized
+INFO - 2019-03-06 18:52:38 --> File loaded: /var/www/html/m_lnt_bid/application/views/errors/Error_404.php
+INFO - 2019-03-06 18:52:38 --> Final output sent to browser
+DEBUG - 2019-03-06 18:52:38 --> Total execution time: 0.1499
+ERROR - 2019-03-06 18:52:39 --> $config['composer_autoload'] is set to TRUE but /var/www/html/m_lnt_bid/application/vendor/autoload.php was not found.
+INFO - 2019-03-06 18:52:39 --> Config Class Initialized
+INFO - 2019-03-06 18:52:39 --> Hooks Class Initialized
+DEBUG - 2019-03-06 18:52:39 --> UTF-8 Support Enabled
+INFO - 2019-03-06 18:52:39 --> Utf8 Class Initialized
+INFO - 2019-03-06 18:52:39 --> URI Class Initialized
+INFO - 2019-03-06 18:52:39 --> Router Class Initialized
+INFO - 2019-03-06 18:52:39 --> Output Class Initialized
+INFO - 2019-03-06 18:52:39 --> Security Class Initialized
+DEBUG - 2019-03-06 18:52:39 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-06 18:52:39 --> Input Class Initialized
+INFO - 2019-03-06 18:52:39 --> Language Class Initialized
+INFO - 2019-03-06 18:52:39 --> Loader Class Initialized
+INFO - 2019-03-06 18:52:39 --> Helper loaded: url_helper
+INFO - 2019-03-06 18:52:39 --> Helper loaded: file_helper
+INFO - 2019-03-06 18:52:39 --> Encrypt Class Initialized
+INFO - 2019-03-06 18:52:39 --> Controller Class Initialized
+INFO - 2019-03-06 18:52:39 --> Database Driver Class Initialized
+ERROR - 2019-03-06 18:52:39 --> $config['composer_autoload'] is set to TRUE but /var/www/html/m_lnt_bid/application/vendor/autoload.php was not found.
+INFO - 2019-03-06 18:52:39 --> Config Class Initialized
+INFO - 2019-03-06 18:52:39 --> Hooks Class Initialized
+DEBUG - 2019-03-06 18:52:39 --> UTF-8 Support Enabled
+INFO - 2019-03-06 18:52:39 --> Utf8 Class Initialized
+INFO - 2019-03-06 18:52:39 --> URI Class Initialized
+INFO - 2019-03-06 18:52:39 --> Router Class Initialized
+INFO - 2019-03-06 18:52:39 --> Output Class Initialized
+INFO - 2019-03-06 18:52:39 --> Security Class Initialized
+DEBUG - 2019-03-06 18:52:39 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-06 18:52:39 --> Input Class Initialized
+INFO - 2019-03-06 18:52:39 --> Language Class Initialized
+INFO - 2019-03-06 18:52:39 --> Loader Class Initialized
+INFO - 2019-03-06 18:52:39 --> Helper loaded: url_helper
+INFO - 2019-03-06 18:52:39 --> Helper loaded: file_helper
+INFO - 2019-03-06 18:52:39 --> Encrypt Class Initialized
+INFO - 2019-03-06 18:52:39 --> Controller Class Initialized
+INFO - 2019-03-06 18:52:39 --> Database Driver Class Initialized
+INFO - 2019-03-06 18:52:39 --> User Agent Class Initialized
+INFO - 2019-03-06 18:52:39 --> File loaded: /var/www/html/m_lnt_bid/application/views/errors/Error_404.php
+INFO - 2019-03-06 18:52:39 --> Final output sent to browser
+DEBUG - 2019-03-06 18:52:39 --> Total execution time: 0.1247
+INFO - 2019-03-06 18:52:39 --> User Agent Class Initialized
+INFO - 2019-03-06 18:52:39 --> File loaded: /var/www/html/m_lnt_bid/application/views/errors/Error_404.php
+INFO - 2019-03-06 18:52:39 --> Final output sent to browser
+DEBUG - 2019-03-06 18:52:39 --> Total execution time: 0.1469
+ERROR - 2019-03-06 18:56:16 --> $config['composer_autoload'] is set to TRUE but /var/www/html/m_lnt_bid/application/vendor/autoload.php was not found.
+INFO - 2019-03-06 18:56:16 --> Config Class Initialized
+INFO - 2019-03-06 18:56:16 --> Hooks Class Initialized
+DEBUG - 2019-03-06 18:56:16 --> UTF-8 Support Enabled
+INFO - 2019-03-06 18:56:16 --> Utf8 Class Initialized
+INFO - 2019-03-06 18:56:16 --> URI Class Initialized
+INFO - 2019-03-06 18:56:16 --> Router Class Initialized
+INFO - 2019-03-06 18:56:16 --> Output Class Initialized
+INFO - 2019-03-06 18:56:16 --> Security Class Initialized
+DEBUG - 2019-03-06 18:56:16 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-06 18:56:16 --> Input Class Initialized
+INFO - 2019-03-06 18:56:16 --> Language Class Initialized
+INFO - 2019-03-06 18:56:16 --> Loader Class Initialized
+INFO - 2019-03-06 18:56:16 --> Helper loaded: url_helper
+INFO - 2019-03-06 18:56:16 --> Helper loaded: file_helper
+INFO - 2019-03-06 18:56:16 --> Encrypt Class Initialized
+INFO - 2019-03-06 18:56:16 --> Controller Class Initialized
+INFO - 2019-03-06 18:56:16 --> Database Driver Class Initialized
+INFO - 2019-03-06 18:56:16 --> Model "User_model" initialized
+INFO - 2019-03-06 18:56:16 --> Model "Design_model" initialized
+DEBUG - 2019-03-06 18:56:16 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-03-06 18:56:16 --> Session: Class initialized using 'files' driver.
+INFO - 2019-03-06 18:56:16 --> User Agent Class Initialized
+DEBUG - 2019-03-06 18:56:16 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-03-06 18:56:16 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-03-06 18:56:16 --> Encryption Class Initialized
+INFO - 2019-03-06 18:56:16 --> Helper loaded: form_helper
+INFO - 2019-03-06 18:56:16 --> Form Validation Class Initialized
+INFO - 2019-03-06 18:56:16 --> Helper loaded: string_helper
+INFO - 2019-03-06 18:56:16 --> Upload Class Initialized
+INFO - 2019-03-06 18:56:16 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_header.php
+INFO - 2019-03-06 18:56:16 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/template/template_top_head.php
+INFO - 2019-03-06 18:56:16 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/template/template_side_bar.php
+INFO - 2019-03-06 18:56:16 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/new_mr_requisition/Create_material_requisition_form.php
+INFO - 2019-03-06 18:56:16 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_footer.php
+INFO - 2019-03-06 18:56:16 --> Final output sent to browser
+DEBUG - 2019-03-06 18:56:16 --> Total execution time: 0.1029
+ERROR - 2019-03-06 18:56:17 --> $config['composer_autoload'] is set to TRUE but /var/www/html/m_lnt_bid/application/vendor/autoload.php was not found.
+INFO - 2019-03-06 18:56:17 --> Config Class Initialized
+INFO - 2019-03-06 18:56:17 --> Hooks Class Initialized
+DEBUG - 2019-03-06 18:56:17 --> UTF-8 Support Enabled
+INFO - 2019-03-06 18:56:17 --> Utf8 Class Initialized
+INFO - 2019-03-06 18:56:17 --> URI Class Initialized
+INFO - 2019-03-06 18:56:17 --> Router Class Initialized
+INFO - 2019-03-06 18:56:17 --> Output Class Initialized
+INFO - 2019-03-06 18:56:17 --> Security Class Initialized
+DEBUG - 2019-03-06 18:56:17 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-06 18:56:17 --> Input Class Initialized
+INFO - 2019-03-06 18:56:17 --> Language Class Initialized
+INFO - 2019-03-06 18:56:17 --> Loader Class Initialized
+INFO - 2019-03-06 18:56:17 --> Helper loaded: url_helper
+INFO - 2019-03-06 18:56:17 --> Helper loaded: file_helper
+INFO - 2019-03-06 18:56:17 --> Encrypt Class Initialized
+INFO - 2019-03-06 18:56:17 --> Controller Class Initialized
+INFO - 2019-03-06 18:56:17 --> Database Driver Class Initialized
+ERROR - 2019-03-06 18:56:17 --> $config['composer_autoload'] is set to TRUE but /var/www/html/m_lnt_bid/application/vendor/autoload.php was not found.
+INFO - 2019-03-06 18:56:17 --> Config Class Initialized
+INFO - 2019-03-06 18:56:17 --> Hooks Class Initialized
+DEBUG - 2019-03-06 18:56:17 --> UTF-8 Support Enabled
+INFO - 2019-03-06 18:56:17 --> Utf8 Class Initialized
+INFO - 2019-03-06 18:56:17 --> URI Class Initialized
+INFO - 2019-03-06 18:56:17 --> Router Class Initialized
+INFO - 2019-03-06 18:56:17 --> Output Class Initialized
+INFO - 2019-03-06 18:56:17 --> Security Class Initialized
+DEBUG - 2019-03-06 18:56:17 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-06 18:56:17 --> Input Class Initialized
+INFO - 2019-03-06 18:56:17 --> Language Class Initialized
+INFO - 2019-03-06 18:56:17 --> Loader Class Initialized
+INFO - 2019-03-06 18:56:17 --> Helper loaded: url_helper
+INFO - 2019-03-06 18:56:17 --> Helper loaded: file_helper
+INFO - 2019-03-06 18:56:17 --> Encrypt Class Initialized
+INFO - 2019-03-06 18:56:17 --> Controller Class Initialized
+INFO - 2019-03-06 18:56:17 --> Database Driver Class Initialized
+INFO - 2019-03-06 18:56:17 --> User Agent Class Initialized
+INFO - 2019-03-06 18:56:17 --> File loaded: /var/www/html/m_lnt_bid/application/views/errors/Error_404.php
+INFO - 2019-03-06 18:56:17 --> Final output sent to browser
+DEBUG - 2019-03-06 18:56:17 --> Total execution time: 0.1468
+INFO - 2019-03-06 18:56:17 --> User Agent Class Initialized
+INFO - 2019-03-06 18:56:17 --> File loaded: /var/www/html/m_lnt_bid/application/views/errors/Error_404.php
+INFO - 2019-03-06 18:56:17 --> Final output sent to browser
+DEBUG - 2019-03-06 18:56:17 --> Total execution time: 0.1675
+ERROR - 2019-03-06 18:56:17 --> $config['composer_autoload'] is set to TRUE but /var/www/html/m_lnt_bid/application/vendor/autoload.php was not found.
+INFO - 2019-03-06 18:56:17 --> Config Class Initialized
+INFO - 2019-03-06 18:56:17 --> Hooks Class Initialized
+DEBUG - 2019-03-06 18:56:17 --> UTF-8 Support Enabled
+INFO - 2019-03-06 18:56:17 --> Utf8 Class Initialized
+INFO - 2019-03-06 18:56:17 --> URI Class Initialized
+INFO - 2019-03-06 18:56:17 --> Router Class Initialized
+INFO - 2019-03-06 18:56:17 --> Output Class Initialized
+INFO - 2019-03-06 18:56:17 --> Security Class Initialized
+DEBUG - 2019-03-06 18:56:17 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-06 18:56:17 --> Input Class Initialized
+INFO - 2019-03-06 18:56:17 --> Language Class Initialized
+INFO - 2019-03-06 18:56:17 --> Loader Class Initialized
+INFO - 2019-03-06 18:56:17 --> Helper loaded: url_helper
+INFO - 2019-03-06 18:56:17 --> Helper loaded: file_helper
+INFO - 2019-03-06 18:56:17 --> Encrypt Class Initialized
+INFO - 2019-03-06 18:56:17 --> Controller Class Initialized
+INFO - 2019-03-06 18:56:17 --> Database Driver Class Initialized
+ERROR - 2019-03-06 18:56:17 --> $config['composer_autoload'] is set to TRUE but /var/www/html/m_lnt_bid/application/vendor/autoload.php was not found.
+INFO - 2019-03-06 18:56:17 --> Config Class Initialized
+INFO - 2019-03-06 18:56:17 --> Hooks Class Initialized
+DEBUG - 2019-03-06 18:56:17 --> UTF-8 Support Enabled
+INFO - 2019-03-06 18:56:17 --> Utf8 Class Initialized
+INFO - 2019-03-06 18:56:17 --> URI Class Initialized
+INFO - 2019-03-06 18:56:17 --> Router Class Initialized
+INFO - 2019-03-06 18:56:17 --> Output Class Initialized
+INFO - 2019-03-06 18:56:17 --> Security Class Initialized
+DEBUG - 2019-03-06 18:56:17 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-06 18:56:17 --> Input Class Initialized
+INFO - 2019-03-06 18:56:17 --> Language Class Initialized
+INFO - 2019-03-06 18:56:17 --> Loader Class Initialized
+INFO - 2019-03-06 18:56:17 --> Helper loaded: url_helper
+INFO - 2019-03-06 18:56:17 --> Helper loaded: file_helper
+INFO - 2019-03-06 18:56:17 --> Encrypt Class Initialized
+INFO - 2019-03-06 18:56:17 --> Controller Class Initialized
+INFO - 2019-03-06 18:56:17 --> Database Driver Class Initialized
+INFO - 2019-03-06 18:56:17 --> User Agent Class Initialized
+INFO - 2019-03-06 18:56:17 --> File loaded: /var/www/html/m_lnt_bid/application/views/errors/Error_404.php
+INFO - 2019-03-06 18:56:17 --> Final output sent to browser
+DEBUG - 2019-03-06 18:56:17 --> Total execution time: 0.1488
+INFO - 2019-03-06 18:56:17 --> User Agent Class Initialized
+INFO - 2019-03-06 18:56:17 --> File loaded: /var/www/html/m_lnt_bid/application/views/errors/Error_404.php
+INFO - 2019-03-06 18:56:17 --> Final output sent to browser
+DEBUG - 2019-03-06 18:56:17 --> Total execution time: 0.1821
+ERROR - 2019-03-06 18:56:43 --> $config['composer_autoload'] is set to TRUE but /var/www/html/m_lnt_bid/application/vendor/autoload.php was not found.
+INFO - 2019-03-06 18:56:43 --> Config Class Initialized
+INFO - 2019-03-06 18:56:43 --> Hooks Class Initialized
+DEBUG - 2019-03-06 18:56:43 --> UTF-8 Support Enabled
+INFO - 2019-03-06 18:56:43 --> Utf8 Class Initialized
+INFO - 2019-03-06 18:56:43 --> URI Class Initialized
+INFO - 2019-03-06 18:56:43 --> Router Class Initialized
+INFO - 2019-03-06 18:56:43 --> Output Class Initialized
+INFO - 2019-03-06 18:56:43 --> Security Class Initialized
+DEBUG - 2019-03-06 18:56:43 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-06 18:56:43 --> Input Class Initialized
+INFO - 2019-03-06 18:56:43 --> Language Class Initialized
+INFO - 2019-03-06 18:56:43 --> Loader Class Initialized
+INFO - 2019-03-06 18:56:43 --> Helper loaded: url_helper
+INFO - 2019-03-06 18:56:43 --> Helper loaded: file_helper
+INFO - 2019-03-06 18:56:43 --> Encrypt Class Initialized
+INFO - 2019-03-06 18:56:43 --> Controller Class Initialized
+INFO - 2019-03-06 18:56:43 --> Database Driver Class Initialized
+INFO - 2019-03-06 18:56:43 --> Model "User_model" initialized
+INFO - 2019-03-06 18:56:43 --> Model "Design_model" initialized
+DEBUG - 2019-03-06 18:56:43 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-03-06 18:56:43 --> Session: Class initialized using 'files' driver.
+INFO - 2019-03-06 18:56:43 --> User Agent Class Initialized
+DEBUG - 2019-03-06 18:56:43 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-03-06 18:56:43 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-03-06 18:56:43 --> Encryption Class Initialized
+INFO - 2019-03-06 18:56:43 --> Helper loaded: form_helper
+INFO - 2019-03-06 18:56:43 --> Form Validation Class Initialized
+INFO - 2019-03-06 18:56:43 --> Helper loaded: string_helper
+INFO - 2019-03-06 18:56:43 --> Upload Class Initialized
+INFO - 2019-03-06 18:56:43 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_header.php
+INFO - 2019-03-06 18:56:43 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/template/template_top_head.php
+INFO - 2019-03-06 18:56:43 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/template/template_side_bar.php
+ERROR - 2019-03-06 18:56:43 --> Severity: Notice --> Undefined variable: result_drafted /var/www/html/m_lnt_bid/application/views/design_user/pr_schedule_design/pr_schedule.php 130
+INFO - 2019-03-06 18:56:43 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/pr_schedule_design/pr_schedule.php
+INFO - 2019-03-06 18:56:43 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_footer.php
+INFO - 2019-03-06 18:56:43 --> Final output sent to browser
+DEBUG - 2019-03-06 18:56:43 --> Total execution time: 0.0829
+ERROR - 2019-03-06 18:56:46 --> $config['composer_autoload'] is set to TRUE but /var/www/html/m_lnt_bid/application/vendor/autoload.php was not found.
+INFO - 2019-03-06 18:56:46 --> Config Class Initialized
+INFO - 2019-03-06 18:56:46 --> Hooks Class Initialized
+DEBUG - 2019-03-06 18:56:46 --> UTF-8 Support Enabled
+INFO - 2019-03-06 18:56:46 --> Utf8 Class Initialized
+INFO - 2019-03-06 18:56:46 --> URI Class Initialized
+INFO - 2019-03-06 18:56:46 --> Router Class Initialized
+INFO - 2019-03-06 18:56:46 --> Output Class Initialized
+INFO - 2019-03-06 18:56:46 --> Security Class Initialized
+DEBUG - 2019-03-06 18:56:46 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-06 18:56:46 --> Input Class Initialized
+INFO - 2019-03-06 18:56:46 --> Language Class Initialized
+INFO - 2019-03-06 18:56:46 --> Loader Class Initialized
+INFO - 2019-03-06 18:56:46 --> Helper loaded: url_helper
+INFO - 2019-03-06 18:56:46 --> Helper loaded: file_helper
+INFO - 2019-03-06 18:56:46 --> Encrypt Class Initialized
+INFO - 2019-03-06 18:56:46 --> Controller Class Initialized
+INFO - 2019-03-06 18:56:46 --> Database Driver Class Initialized
+INFO - 2019-03-06 18:56:46 --> Model "User_model" initialized
+INFO - 2019-03-06 18:56:46 --> Model "Design_model" initialized
+DEBUG - 2019-03-06 18:56:46 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-03-06 18:56:46 --> Session: Class initialized using 'files' driver.
+INFO - 2019-03-06 18:56:46 --> User Agent Class Initialized
+DEBUG - 2019-03-06 18:56:46 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-03-06 18:56:46 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-03-06 18:56:46 --> Encryption Class Initialized
+INFO - 2019-03-06 18:56:46 --> Helper loaded: form_helper
+INFO - 2019-03-06 18:56:46 --> Form Validation Class Initialized
+INFO - 2019-03-06 18:56:46 --> Helper loaded: string_helper
+INFO - 2019-03-06 18:56:46 --> Upload Class Initialized
+INFO - 2019-03-06 18:56:46 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_header.php
+INFO - 2019-03-06 18:56:46 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/template/template_top_head.php
+INFO - 2019-03-06 18:56:46 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/template/template_side_bar.php
+INFO - 2019-03-06 18:56:46 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/new_pr_schedule_design/project_pr_schedule.php
+INFO - 2019-03-06 18:56:46 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_footer.php
+INFO - 2019-03-06 18:56:46 --> Final output sent to browser
+DEBUG - 2019-03-06 18:56:46 --> Total execution time: 0.0849
+ERROR - 2019-03-06 18:57:28 --> $config['composer_autoload'] is set to TRUE but /var/www/html/m_lnt_bid/application/vendor/autoload.php was not found.
+INFO - 2019-03-06 18:57:28 --> Config Class Initialized
+INFO - 2019-03-06 18:57:28 --> Hooks Class Initialized
+DEBUG - 2019-03-06 18:57:28 --> UTF-8 Support Enabled
+INFO - 2019-03-06 18:57:28 --> Utf8 Class Initialized
+INFO - 2019-03-06 18:57:28 --> URI Class Initialized
+INFO - 2019-03-06 18:57:28 --> Router Class Initialized
+INFO - 2019-03-06 18:57:28 --> Output Class Initialized
+INFO - 2019-03-06 18:57:28 --> Security Class Initialized
+DEBUG - 2019-03-06 18:57:28 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-06 18:57:28 --> Input Class Initialized
+INFO - 2019-03-06 18:57:28 --> Language Class Initialized
+INFO - 2019-03-06 18:57:28 --> Loader Class Initialized
+INFO - 2019-03-06 18:57:28 --> Helper loaded: url_helper
+INFO - 2019-03-06 18:57:28 --> Helper loaded: file_helper
+INFO - 2019-03-06 18:57:28 --> Encrypt Class Initialized
+INFO - 2019-03-06 18:57:28 --> Controller Class Initialized
+INFO - 2019-03-06 18:57:28 --> Database Driver Class Initialized
+INFO - 2019-03-06 18:57:28 --> Model "User_model" initialized
+INFO - 2019-03-06 18:57:28 --> Model "Design_model" initialized
+DEBUG - 2019-03-06 18:57:28 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-03-06 18:57:28 --> Session: Class initialized using 'files' driver.
+INFO - 2019-03-06 18:57:28 --> User Agent Class Initialized
+DEBUG - 2019-03-06 18:57:28 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-03-06 18:57:28 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-03-06 18:57:28 --> Encryption Class Initialized
+INFO - 2019-03-06 18:57:28 --> Helper loaded: form_helper
+INFO - 2019-03-06 18:57:28 --> Form Validation Class Initialized
+INFO - 2019-03-06 18:57:28 --> Helper loaded: string_helper
+INFO - 2019-03-06 18:57:28 --> Upload Class Initialized
+INFO - 2019-03-06 18:57:28 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_header.php
+INFO - 2019-03-06 18:57:28 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/template/template_top_head.php
+INFO - 2019-03-06 18:57:28 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/template/template_side_bar.php
+INFO - 2019-03-06 18:57:28 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/new_pr_schedule_design/project_pr_schedule.php
+INFO - 2019-03-06 18:57:28 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_footer.php
+INFO - 2019-03-06 18:57:28 --> Final output sent to browser
+DEBUG - 2019-03-06 18:57:28 --> Total execution time: 0.0928
+ERROR - 2019-03-06 18:57:34 --> $config['composer_autoload'] is set to TRUE but /var/www/html/m_lnt_bid/application/vendor/autoload.php was not found.
+INFO - 2019-03-06 18:57:34 --> Config Class Initialized
+INFO - 2019-03-06 18:57:34 --> Hooks Class Initialized
+DEBUG - 2019-03-06 18:57:34 --> UTF-8 Support Enabled
+INFO - 2019-03-06 18:57:34 --> Utf8 Class Initialized
+INFO - 2019-03-06 18:57:34 --> URI Class Initialized
+INFO - 2019-03-06 18:57:34 --> Router Class Initialized
+INFO - 2019-03-06 18:57:34 --> Output Class Initialized
+INFO - 2019-03-06 18:57:34 --> Security Class Initialized
+DEBUG - 2019-03-06 18:57:34 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-06 18:57:34 --> Input Class Initialized
+INFO - 2019-03-06 18:57:34 --> Language Class Initialized
+INFO - 2019-03-06 18:57:34 --> Loader Class Initialized
+INFO - 2019-03-06 18:57:34 --> Helper loaded: url_helper
+INFO - 2019-03-06 18:57:34 --> Helper loaded: file_helper
+INFO - 2019-03-06 18:57:34 --> Encrypt Class Initialized
+INFO - 2019-03-06 18:57:34 --> Controller Class Initialized
+INFO - 2019-03-06 18:57:34 --> Database Driver Class Initialized
+INFO - 2019-03-06 18:57:34 --> Model "User_model" initialized
+INFO - 2019-03-06 18:57:34 --> Model "Design_model" initialized
+DEBUG - 2019-03-06 18:57:34 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-03-06 18:57:34 --> Session: Class initialized using 'files' driver.
+INFO - 2019-03-06 18:57:34 --> User Agent Class Initialized
+DEBUG - 2019-03-06 18:57:34 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-03-06 18:57:34 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-03-06 18:57:34 --> Encryption Class Initialized
+INFO - 2019-03-06 18:57:34 --> Helper loaded: form_helper
+INFO - 2019-03-06 18:57:34 --> Form Validation Class Initialized
+INFO - 2019-03-06 18:57:34 --> Helper loaded: string_helper
+INFO - 2019-03-06 18:57:34 --> Upload Class Initialized
+ERROR - 2019-03-06 18:57:35 --> $config['composer_autoload'] is set to TRUE but /var/www/html/m_lnt_bid/application/vendor/autoload.php was not found.
+INFO - 2019-03-06 18:57:35 --> Config Class Initialized
+INFO - 2019-03-06 18:57:35 --> Hooks Class Initialized
+DEBUG - 2019-03-06 18:57:35 --> UTF-8 Support Enabled
+INFO - 2019-03-06 18:57:35 --> Utf8 Class Initialized
+INFO - 2019-03-06 18:57:35 --> URI Class Initialized
+INFO - 2019-03-06 18:57:35 --> Router Class Initialized
+INFO - 2019-03-06 18:57:35 --> Output Class Initialized
+INFO - 2019-03-06 18:57:35 --> Security Class Initialized
+DEBUG - 2019-03-06 18:57:35 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-06 18:57:35 --> Input Class Initialized
+INFO - 2019-03-06 18:57:35 --> Language Class Initialized
+INFO - 2019-03-06 18:57:35 --> Loader Class Initialized
+INFO - 2019-03-06 18:57:35 --> Helper loaded: url_helper
+INFO - 2019-03-06 18:57:35 --> Helper loaded: file_helper
+INFO - 2019-03-06 18:57:35 --> Encrypt Class Initialized
+INFO - 2019-03-06 18:57:35 --> Controller Class Initialized
+INFO - 2019-03-06 18:57:35 --> Database Driver Class Initialized
+INFO - 2019-03-06 18:57:35 --> Model "User_model" initialized
+INFO - 2019-03-06 18:57:35 --> Model "Design_model" initialized
+DEBUG - 2019-03-06 18:57:35 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-03-06 18:57:35 --> Session: Class initialized using 'files' driver.
+INFO - 2019-03-06 18:57:35 --> User Agent Class Initialized
+DEBUG - 2019-03-06 18:57:35 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-03-06 18:57:35 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-03-06 18:57:35 --> Encryption Class Initialized
+INFO - 2019-03-06 18:57:35 --> Helper loaded: form_helper
+INFO - 2019-03-06 18:57:35 --> Form Validation Class Initialized
+INFO - 2019-03-06 18:57:35 --> Helper loaded: string_helper
+INFO - 2019-03-06 18:57:35 --> Upload Class Initialized
+INFO - 2019-03-06 18:57:35 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_header.php
+INFO - 2019-03-06 18:57:35 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/template/template_top_head.php
+INFO - 2019-03-06 18:57:35 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/template/template_side_bar.php
+INFO - 2019-03-06 18:57:35 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/new_mr_requisition/Create_material_requisition_form.php
+INFO - 2019-03-06 18:57:35 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_footer.php
+INFO - 2019-03-06 18:57:35 --> Final output sent to browser
+DEBUG - 2019-03-06 18:57:35 --> Total execution time: 0.1092
+ERROR - 2019-03-06 18:57:36 --> $config['composer_autoload'] is set to TRUE but /var/www/html/m_lnt_bid/application/vendor/autoload.php was not found.
+INFO - 2019-03-06 18:57:36 --> Config Class Initialized
+INFO - 2019-03-06 18:57:36 --> Hooks Class Initialized
+DEBUG - 2019-03-06 18:57:36 --> UTF-8 Support Enabled
+INFO - 2019-03-06 18:57:36 --> Utf8 Class Initialized
+INFO - 2019-03-06 18:57:36 --> URI Class Initialized
+INFO - 2019-03-06 18:57:36 --> Router Class Initialized
+INFO - 2019-03-06 18:57:36 --> Output Class Initialized
+INFO - 2019-03-06 18:57:36 --> Security Class Initialized
+DEBUG - 2019-03-06 18:57:36 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-06 18:57:36 --> Input Class Initialized
+INFO - 2019-03-06 18:57:36 --> Language Class Initialized
+INFO - 2019-03-06 18:57:36 --> Loader Class Initialized
+INFO - 2019-03-06 18:57:36 --> Helper loaded: url_helper
+INFO - 2019-03-06 18:57:36 --> Helper loaded: file_helper
+INFO - 2019-03-06 18:57:36 --> Encrypt Class Initialized
+INFO - 2019-03-06 18:57:36 --> Controller Class Initialized
+INFO - 2019-03-06 18:57:36 --> Database Driver Class Initialized
+ERROR - 2019-03-06 18:57:36 --> $config['composer_autoload'] is set to TRUE but /var/www/html/m_lnt_bid/application/vendor/autoload.php was not found.
+INFO - 2019-03-06 18:57:36 --> Config Class Initialized
+INFO - 2019-03-06 18:57:36 --> Hooks Class Initialized
+DEBUG - 2019-03-06 18:57:36 --> UTF-8 Support Enabled
+INFO - 2019-03-06 18:57:36 --> Utf8 Class Initialized
+INFO - 2019-03-06 18:57:36 --> URI Class Initialized
+INFO - 2019-03-06 18:57:36 --> Router Class Initialized
+INFO - 2019-03-06 18:57:36 --> Output Class Initialized
+INFO - 2019-03-06 18:57:36 --> Security Class Initialized
+DEBUG - 2019-03-06 18:57:36 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-06 18:57:36 --> Input Class Initialized
+INFO - 2019-03-06 18:57:36 --> Language Class Initialized
+INFO - 2019-03-06 18:57:36 --> Loader Class Initialized
+INFO - 2019-03-06 18:57:36 --> Helper loaded: url_helper
+INFO - 2019-03-06 18:57:36 --> Helper loaded: file_helper
+INFO - 2019-03-06 18:57:36 --> Encrypt Class Initialized
+INFO - 2019-03-06 18:57:36 --> Controller Class Initialized
+INFO - 2019-03-06 18:57:36 --> Database Driver Class Initialized
+INFO - 2019-03-06 18:57:36 --> User Agent Class Initialized
+INFO - 2019-03-06 18:57:36 --> File loaded: /var/www/html/m_lnt_bid/application/views/errors/Error_404.php
+INFO - 2019-03-06 18:57:36 --> Final output sent to browser
+DEBUG - 2019-03-06 18:57:36 --> Total execution time: 0.2023
+INFO - 2019-03-06 18:57:36 --> User Agent Class Initialized
+INFO - 2019-03-06 18:57:36 --> File loaded: /var/www/html/m_lnt_bid/application/views/errors/Error_404.php
+INFO - 2019-03-06 18:57:36 --> Final output sent to browser
+DEBUG - 2019-03-06 18:57:36 --> Total execution time: 0.2271
+ERROR - 2019-03-06 19:03:04 --> $config['composer_autoload'] is set to TRUE but /var/www/html/m_lnt_bid/application/vendor/autoload.php was not found.
+INFO - 2019-03-06 19:03:04 --> Config Class Initialized
+INFO - 2019-03-06 19:03:04 --> Hooks Class Initialized
+DEBUG - 2019-03-06 19:03:04 --> UTF-8 Support Enabled
+INFO - 2019-03-06 19:03:04 --> Utf8 Class Initialized
+INFO - 2019-03-06 19:03:04 --> URI Class Initialized
+INFO - 2019-03-06 19:03:04 --> Router Class Initialized
+INFO - 2019-03-06 19:03:04 --> Output Class Initialized
+INFO - 2019-03-06 19:03:04 --> Security Class Initialized
+DEBUG - 2019-03-06 19:03:04 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-06 19:03:04 --> Input Class Initialized
+INFO - 2019-03-06 19:03:04 --> Language Class Initialized
+INFO - 2019-03-06 19:03:04 --> Loader Class Initialized
+INFO - 2019-03-06 19:03:04 --> Helper loaded: url_helper
+INFO - 2019-03-06 19:03:04 --> Helper loaded: file_helper
+INFO - 2019-03-06 19:03:04 --> Encrypt Class Initialized
+INFO - 2019-03-06 19:03:04 --> Controller Class Initialized
+INFO - 2019-03-06 19:03:04 --> Database Driver Class Initialized
+INFO - 2019-03-06 19:03:04 --> Model "User_model" initialized
+INFO - 2019-03-06 19:03:04 --> Model "Design_model" initialized
+DEBUG - 2019-03-06 19:03:04 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-03-06 19:03:04 --> Session: Class initialized using 'files' driver.
+INFO - 2019-03-06 19:03:04 --> User Agent Class Initialized
+DEBUG - 2019-03-06 19:03:04 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-03-06 19:03:04 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-03-06 19:03:04 --> Encryption Class Initialized
+INFO - 2019-03-06 19:03:04 --> Helper loaded: form_helper
+INFO - 2019-03-06 19:03:04 --> Form Validation Class Initialized
+INFO - 2019-03-06 19:03:04 --> Helper loaded: string_helper
+INFO - 2019-03-06 19:03:04 --> Upload Class Initialized
+INFO - 2019-03-06 19:03:04 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_header.php
+INFO - 2019-03-06 19:03:04 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/template/template_top_head.php
+INFO - 2019-03-06 19:03:04 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/template/template_side_bar.php
+ERROR - 2019-03-06 19:03:04 --> Severity: Notice --> Undefined variable: result_drafted /var/www/html/m_lnt_bid/application/views/design_user/pr_schedule_design/pr_schedule.php 130
+INFO - 2019-03-06 19:03:04 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/pr_schedule_design/pr_schedule.php
+INFO - 2019-03-06 19:03:04 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_footer.php
+INFO - 2019-03-06 19:03:04 --> Final output sent to browser
+DEBUG - 2019-03-06 19:03:04 --> Total execution time: 0.1114
+ERROR - 2019-03-06 19:03:41 --> $config['composer_autoload'] is set to TRUE but /var/www/html/m_lnt_bid/application/vendor/autoload.php was not found.
+INFO - 2019-03-06 19:03:41 --> Config Class Initialized
+INFO - 2019-03-06 19:03:41 --> Hooks Class Initialized
+DEBUG - 2019-03-06 19:03:41 --> UTF-8 Support Enabled
+INFO - 2019-03-06 19:03:41 --> Utf8 Class Initialized
+INFO - 2019-03-06 19:03:41 --> URI Class Initialized
+INFO - 2019-03-06 19:03:41 --> Router Class Initialized
+INFO - 2019-03-06 19:03:41 --> Output Class Initialized
+INFO - 2019-03-06 19:03:41 --> Security Class Initialized
+DEBUG - 2019-03-06 19:03:41 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-06 19:03:41 --> Input Class Initialized
+INFO - 2019-03-06 19:03:41 --> Language Class Initialized
+INFO - 2019-03-06 19:03:41 --> Loader Class Initialized
+INFO - 2019-03-06 19:03:41 --> Helper loaded: url_helper
+INFO - 2019-03-06 19:03:41 --> Helper loaded: file_helper
+INFO - 2019-03-06 19:03:41 --> Encrypt Class Initialized
+INFO - 2019-03-06 19:03:41 --> Controller Class Initialized
+INFO - 2019-03-06 19:03:41 --> Database Driver Class Initialized
+INFO - 2019-03-06 19:03:41 --> Model "User_model" initialized
+INFO - 2019-03-06 19:03:41 --> Model "Design_model" initialized
+DEBUG - 2019-03-06 19:03:41 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-03-06 19:03:41 --> Session: Class initialized using 'files' driver.
+INFO - 2019-03-06 19:03:41 --> User Agent Class Initialized
+DEBUG - 2019-03-06 19:03:41 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-03-06 19:03:41 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-03-06 19:03:41 --> Encryption Class Initialized
+INFO - 2019-03-06 19:03:41 --> Helper loaded: form_helper
+INFO - 2019-03-06 19:03:41 --> Form Validation Class Initialized
+INFO - 2019-03-06 19:03:41 --> Helper loaded: string_helper
+INFO - 2019-03-06 19:03:41 --> Upload Class Initialized
+INFO - 2019-03-06 19:03:41 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_header.php
+INFO - 2019-03-06 19:03:41 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/template/template_top_head.php
+INFO - 2019-03-06 19:03:41 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/template/template_side_bar.php
+INFO - 2019-03-06 19:03:41 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/new_pr_schedule_design/project_pr_schedule.php
+INFO - 2019-03-06 19:03:41 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_footer.php
+INFO - 2019-03-06 19:03:41 --> Final output sent to browser
+DEBUG - 2019-03-06 19:03:41 --> Total execution time: 0.0748
+ERROR - 2019-03-06 19:03:48 --> $config['composer_autoload'] is set to TRUE but /var/www/html/m_lnt_bid/application/vendor/autoload.php was not found.
+INFO - 2019-03-06 19:03:48 --> Config Class Initialized
+INFO - 2019-03-06 19:03:48 --> Hooks Class Initialized
+DEBUG - 2019-03-06 19:03:48 --> UTF-8 Support Enabled
+INFO - 2019-03-06 19:03:48 --> Utf8 Class Initialized
+INFO - 2019-03-06 19:03:48 --> URI Class Initialized
+INFO - 2019-03-06 19:03:48 --> Router Class Initialized
+INFO - 2019-03-06 19:03:48 --> Output Class Initialized
+INFO - 2019-03-06 19:03:48 --> Security Class Initialized
+DEBUG - 2019-03-06 19:03:48 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-06 19:03:48 --> Input Class Initialized
+INFO - 2019-03-06 19:03:48 --> Language Class Initialized
+INFO - 2019-03-06 19:03:48 --> Loader Class Initialized
+INFO - 2019-03-06 19:03:48 --> Helper loaded: url_helper
+INFO - 2019-03-06 19:03:48 --> Helper loaded: file_helper
+INFO - 2019-03-06 19:03:48 --> Encrypt Class Initialized
+INFO - 2019-03-06 19:03:48 --> Controller Class Initialized
+INFO - 2019-03-06 19:03:48 --> Database Driver Class Initialized
+INFO - 2019-03-06 19:03:48 --> Model "User_model" initialized
+INFO - 2019-03-06 19:03:48 --> Model "Design_model" initialized
+DEBUG - 2019-03-06 19:03:48 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-03-06 19:03:48 --> Session: Class initialized using 'files' driver.
+INFO - 2019-03-06 19:03:48 --> User Agent Class Initialized
+DEBUG - 2019-03-06 19:03:48 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-03-06 19:03:48 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-03-06 19:03:48 --> Encryption Class Initialized
+INFO - 2019-03-06 19:03:48 --> Helper loaded: form_helper
+INFO - 2019-03-06 19:03:48 --> Form Validation Class Initialized
+INFO - 2019-03-06 19:03:48 --> Helper loaded: string_helper
+INFO - 2019-03-06 19:03:48 --> Upload Class Initialized
+ERROR - 2019-03-06 19:04:02 --> $config['composer_autoload'] is set to TRUE but /var/www/html/m_lnt_bid/application/vendor/autoload.php was not found.
+INFO - 2019-03-06 19:04:02 --> Config Class Initialized
+INFO - 2019-03-06 19:04:02 --> Hooks Class Initialized
+DEBUG - 2019-03-06 19:04:02 --> UTF-8 Support Enabled
+INFO - 2019-03-06 19:04:02 --> Utf8 Class Initialized
+INFO - 2019-03-06 19:04:02 --> URI Class Initialized
+INFO - 2019-03-06 19:04:02 --> Router Class Initialized
+INFO - 2019-03-06 19:04:02 --> Output Class Initialized
+INFO - 2019-03-06 19:04:02 --> Security Class Initialized
+DEBUG - 2019-03-06 19:04:02 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-06 19:04:02 --> Input Class Initialized
+INFO - 2019-03-06 19:04:02 --> Language Class Initialized
+INFO - 2019-03-06 19:04:02 --> Loader Class Initialized
+INFO - 2019-03-06 19:04:02 --> Helper loaded: url_helper
+INFO - 2019-03-06 19:04:02 --> Helper loaded: file_helper
+INFO - 2019-03-06 19:04:02 --> Encrypt Class Initialized
+INFO - 2019-03-06 19:04:02 --> Controller Class Initialized
+INFO - 2019-03-06 19:04:02 --> Database Driver Class Initialized
+INFO - 2019-03-06 19:04:02 --> Model "User_model" initialized
+INFO - 2019-03-06 19:04:02 --> Model "Design_model" initialized
+DEBUG - 2019-03-06 19:04:02 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-03-06 19:04:02 --> Session: Class initialized using 'files' driver.
+INFO - 2019-03-06 19:04:02 --> User Agent Class Initialized
+DEBUG - 2019-03-06 19:04:02 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-03-06 19:04:02 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-03-06 19:04:02 --> Encryption Class Initialized
+INFO - 2019-03-06 19:04:02 --> Helper loaded: form_helper
+INFO - 2019-03-06 19:04:02 --> Form Validation Class Initialized
+INFO - 2019-03-06 19:04:02 --> Helper loaded: string_helper
+INFO - 2019-03-06 19:04:02 --> Upload Class Initialized
+INFO - 2019-03-06 19:04:02 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_header.php
+INFO - 2019-03-06 19:04:02 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/template/template_top_head.php
+INFO - 2019-03-06 19:04:02 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/template/template_side_bar.php
+ERROR - 2019-03-06 19:04:02 --> Severity: Notice --> Undefined variable: result_drafted /var/www/html/m_lnt_bid/application/views/design_user/pr_schedule_design/pr_schedule.php 130
+INFO - 2019-03-06 19:04:02 --> File loaded: /var/www/html/m_lnt_bid/application/views/design_user/pr_schedule_design/pr_schedule.php
+INFO - 2019-03-06 19:04:02 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_footer.php
+INFO - 2019-03-06 19:04:02 --> Final output sent to browser
+DEBUG - 2019-03-06 19:04:02 --> Total execution time: 0.0901
+ERROR - 2019-03-06 19:08:01 --> $config['composer_autoload'] is set to TRUE but /var/www/html/m_lnt_bid/application/vendor/autoload.php was not found.
+INFO - 2019-03-06 19:08:01 --> Config Class Initialized
+INFO - 2019-03-06 19:08:01 --> Hooks Class Initialized
+DEBUG - 2019-03-06 19:08:01 --> UTF-8 Support Enabled
+INFO - 2019-03-06 19:08:01 --> Utf8 Class Initialized
+INFO - 2019-03-06 19:08:01 --> URI Class Initialized
+INFO - 2019-03-06 19:08:01 --> Router Class Initialized
+INFO - 2019-03-06 19:08:01 --> Output Class Initialized
+INFO - 2019-03-06 19:08:01 --> Security Class Initialized
+DEBUG - 2019-03-06 19:08:01 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-06 19:08:01 --> Input Class Initialized
+INFO - 2019-03-06 19:08:01 --> Language Class Initialized
+INFO - 2019-03-06 19:08:01 --> Loader Class Initialized
+INFO - 2019-03-06 19:08:01 --> Helper loaded: url_helper
+INFO - 2019-03-06 19:08:01 --> Helper loaded: file_helper
+INFO - 2019-03-06 19:08:01 --> Encrypt Class Initialized
+INFO - 2019-03-06 19:08:01 --> Controller Class Initialized
+INFO - 2019-03-06 19:08:01 --> Database Driver Class Initialized
+INFO - 2019-03-06 19:08:01 --> Model "User_model" initialized
+INFO - 2019-03-06 19:08:01 --> Model "Design_model" initialized
+DEBUG - 2019-03-06 19:08:01 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-03-06 19:08:01 --> Session: Class initialized using 'files' driver.
+INFO - 2019-03-06 19:08:01 --> User Agent Class Initialized
+DEBUG - 2019-03-06 19:08:01 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-03-06 19:08:01 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-03-06 19:08:01 --> Encryption Class Initialized
+INFO - 2019-03-06 19:08:01 --> Helper loaded: form_helper
+INFO - 2019-03-06 19:08:01 --> Form Validation Class Initialized
+INFO - 2019-03-06 19:08:01 --> Helper loaded: string_helper
+INFO - 2019-03-06 19:08:01 --> Upload Class Initialized
+ERROR - 2019-03-06 19:08:01 --> $config['composer_autoload'] is set to TRUE but /var/www/html/m_lnt_bid/application/vendor/autoload.php was not found.
+INFO - 2019-03-06 19:08:01 --> Config Class Initialized
+INFO - 2019-03-06 19:08:01 --> Hooks Class Initialized
+DEBUG - 2019-03-06 19:08:01 --> UTF-8 Support Enabled
+INFO - 2019-03-06 19:08:01 --> Utf8 Class Initialized
+INFO - 2019-03-06 19:08:01 --> URI Class Initialized
+INFO - 2019-03-06 19:08:01 --> Router Class Initialized
+INFO - 2019-03-06 19:08:01 --> Output Class Initialized
+INFO - 2019-03-06 19:08:01 --> Security Class Initialized
+DEBUG - 2019-03-06 19:08:01 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-06 19:08:01 --> Input Class Initialized
+INFO - 2019-03-06 19:08:01 --> Language Class Initialized
+INFO - 2019-03-06 19:08:01 --> Loader Class Initialized
+INFO - 2019-03-06 19:08:01 --> Helper loaded: url_helper
+INFO - 2019-03-06 19:08:01 --> Helper loaded: file_helper
+INFO - 2019-03-06 19:08:01 --> Encrypt Class Initialized
+INFO - 2019-03-06 19:08:01 --> Controller Class Initialized
+INFO - 2019-03-06 19:08:01 --> Database Driver Class Initialized
+DEBUG - 2019-03-06 19:08:01 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-03-06 19:08:01 --> Session: Class initialized using 'files' driver.
+INFO - 2019-03-06 19:08:01 --> File loaded: /var/www/html/m_lnt_bid/application/views/login_view/index_view.php
+INFO - 2019-03-06 19:08:01 --> Final output sent to browser
+DEBUG - 2019-03-06 19:08:01 --> Total execution time: 0.1947
+ERROR - 2019-03-06 19:08:01 --> $config['composer_autoload'] is set to TRUE but /var/www/html/m_lnt_bid/application/vendor/autoload.php was not found.
+INFO - 2019-03-06 19:08:01 --> Config Class Initialized
+INFO - 2019-03-06 19:08:01 --> Hooks Class Initialized
+DEBUG - 2019-03-06 19:08:01 --> UTF-8 Support Enabled
+INFO - 2019-03-06 19:08:01 --> Utf8 Class Initialized
+INFO - 2019-03-06 19:08:01 --> URI Class Initialized
+INFO - 2019-03-06 19:08:01 --> Router Class Initialized
+INFO - 2019-03-06 19:08:01 --> Output Class Initialized
+INFO - 2019-03-06 19:08:01 --> Security Class Initialized
+DEBUG - 2019-03-06 19:08:01 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-06 19:08:01 --> Input Class Initialized
+INFO - 2019-03-06 19:08:01 --> Language Class Initialized
+INFO - 2019-03-06 19:08:01 --> Loader Class Initialized
+INFO - 2019-03-06 19:08:01 --> Helper loaded: url_helper
+INFO - 2019-03-06 19:08:01 --> Helper loaded: file_helper
+INFO - 2019-03-06 19:08:01 --> Encrypt Class Initialized
+INFO - 2019-03-06 19:08:01 --> Controller Class Initialized
+INFO - 2019-03-06 19:08:01 --> Database Driver Class Initialized
+ERROR - 2019-03-06 19:08:01 --> $config['composer_autoload'] is set to TRUE but /var/www/html/m_lnt_bid/application/vendor/autoload.php was not found.
+INFO - 2019-03-06 19:08:01 --> Config Class Initialized
+INFO - 2019-03-06 19:08:01 --> Hooks Class Initialized
+DEBUG - 2019-03-06 19:08:01 --> UTF-8 Support Enabled
+INFO - 2019-03-06 19:08:01 --> Utf8 Class Initialized
+INFO - 2019-03-06 19:08:01 --> URI Class Initialized
+INFO - 2019-03-06 19:08:01 --> Router Class Initialized
+INFO - 2019-03-06 19:08:01 --> Output Class Initialized
+INFO - 2019-03-06 19:08:01 --> Security Class Initialized
+DEBUG - 2019-03-06 19:08:01 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-06 19:08:01 --> Input Class Initialized
+INFO - 2019-03-06 19:08:01 --> Language Class Initialized
+INFO - 2019-03-06 19:08:01 --> Loader Class Initialized
+INFO - 2019-03-06 19:08:01 --> Helper loaded: url_helper
+INFO - 2019-03-06 19:08:01 --> Helper loaded: file_helper
+INFO - 2019-03-06 19:08:01 --> Encrypt Class Initialized
+INFO - 2019-03-06 19:08:01 --> Controller Class Initialized
+INFO - 2019-03-06 19:08:01 --> Database Driver Class Initialized
+ERROR - 2019-03-06 19:08:01 --> $config['composer_autoload'] is set to TRUE but /var/www/html/m_lnt_bid/application/vendor/autoload.php was not found.
+INFO - 2019-03-06 19:08:01 --> Config Class Initialized
+INFO - 2019-03-06 19:08:01 --> Hooks Class Initialized
+DEBUG - 2019-03-06 19:08:01 --> UTF-8 Support Enabled
+INFO - 2019-03-06 19:08:01 --> Utf8 Class Initialized
+INFO - 2019-03-06 19:08:01 --> URI Class Initialized
+INFO - 2019-03-06 19:08:01 --> Router Class Initialized
+INFO - 2019-03-06 19:08:01 --> Output Class Initialized
+INFO - 2019-03-06 19:08:01 --> Security Class Initialized
+DEBUG - 2019-03-06 19:08:01 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-06 19:08:01 --> Input Class Initialized
+INFO - 2019-03-06 19:08:01 --> Language Class Initialized
+INFO - 2019-03-06 19:08:01 --> Loader Class Initialized
+INFO - 2019-03-06 19:08:01 --> Helper loaded: url_helper
+INFO - 2019-03-06 19:08:01 --> Helper loaded: file_helper
+INFO - 2019-03-06 19:08:01 --> Encrypt Class Initialized
+INFO - 2019-03-06 19:08:01 --> Controller Class Initialized
+INFO - 2019-03-06 19:08:01 --> Database Driver Class Initialized
+INFO - 2019-03-06 19:08:02 --> User Agent Class Initialized
+INFO - 2019-03-06 19:08:02 --> File loaded: /var/www/html/m_lnt_bid/application/views/errors/Error_404.php
+INFO - 2019-03-06 19:08:02 --> Final output sent to browser
+DEBUG - 2019-03-06 19:08:02 --> Total execution time: 0.3059
+INFO - 2019-03-06 19:08:02 --> User Agent Class Initialized
+INFO - 2019-03-06 19:08:02 --> File loaded: /var/www/html/m_lnt_bid/application/views/errors/Error_404.php
+INFO - 2019-03-06 19:08:02 --> Final output sent to browser
+DEBUG - 2019-03-06 19:08:02 --> Total execution time: 0.3353
+INFO - 2019-03-06 19:08:02 --> User Agent Class Initialized
+INFO - 2019-03-06 19:08:02 --> File loaded: /var/www/html/m_lnt_bid/application/views/errors/Error_404.php
+INFO - 2019-03-06 19:08:02 --> Final output sent to browser
+DEBUG - 2019-03-06 19:08:02 --> Total execution time: 0.2958

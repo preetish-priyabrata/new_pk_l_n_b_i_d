@@ -16,7 +16,7 @@ if(empty($created_session_id)){
 		<div id="header" class="header navbar-default">
 			<!-- begin navbar-header -->
 			<div class="navbar-header">
-				<a href="user-admin-home" class="navbar-brand"><span class="navbar-logo rounded-circle" style="background: url(<?=base_url()?>file_css_admin/assets/img/logo/logo-admin.png) no-repeat;width: 48px; background-size: cover; height: 40px; margin-top: -6px ;"></span> <b>Ilab</b> Admin</a>
+				<a href="<?=base_url()?>user-bu-home" class="navbar-brand"><span class="navbar-logo rounded-circle" style="background: url(<?=base_url()?>file_css_admin/assets/img/logo/logo-admin.png) no-repeat;width: 48px; background-size: cover; height: 40px; margin-top: -6px ;"></span> <b>Ilab</b> Admin</a>
 				<button type="button" class="navbar-toggle" data-click="sidebar-toggled">
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
@@ -26,7 +26,15 @@ if(empty($created_session_id)){
 			<!-- end navbar-header -->
 			
 			<!-- begin header-nav -->
-			<ul class="navbar-nav navbar-right">				
+			<ul class="navbar-nav navbar-right">
+				<li>
+					<form class="navbar-form" action="<?=base_url()?>bu-search-pr-no" method="POST">
+						<div class="form-group">
+							<input type="text" class="form-control" name="get_pr_no" placeholder="Enter PR NO" required="" />
+							<button type="submit" class="btn btn-search"><i class="fa fa-search"></i></button>
+						</div>
+					</form>
+				</li>				
 				<li class="dropdown navbar-user">
 					<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
 						<img src="<?=base_url()?>file_css_admin/assets/img/user/user-13.jpg" alt="" /> 

@@ -1253,4 +1253,183 @@ class Approveruser extends CI_Controller {
 
     }
 
+
+
+    // new section build here onwards
+    // 
+    // 
+    public function approver_project_pr_details($value=''){
+
+         $scripts='<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script><script src=" https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script> <script src="'.base_url().'file_css_admin/own_js.js"></script>';
+            $data=array('title' =>'PR Received List Designer User','script_js'=>$scripts ,'menu_status'=>'','sub_menu'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'');
+
+            $this->load->view('template/template_header',$data);
+            $this->load->view('approver_user/template/template_top_head');
+            $this->load->view('approver_user/template/template_side_bar',$data);
+            $this->load->view('approver_user/project_pr_schedule_m/Pr_schudele_index',$data);
+            $this->load->view('template/template_footer',$data);
+        # code...
+    }
+    public function approver_mr_view_pr($value='',$value1='',$value2='',$value3=''){
+        $scripts='';
+        $data=array('title' =>'PR Received List Designer User','script_js'=>$scripts ,'menu_status'=>'','sub_menu'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','Pr_no'=>$value,'Pr_no_slno'=>$value1,'Project_slno'=>$value2,'redirect'=>$value3);
+
+            $this->load->view('template/template_header',$data);
+            $this->load->view('approver_user/template/template_top_head');
+            $this->load->view('approver_user/template/template_side_bar',$data);
+            $this->load->view('approver_user/pr_information_details/pr_details_infrmation_approve_comment',$data);
+            $this->load->view('template/template_footer',$data);
+        # code...
+    }
+    public function approver_add_new_pr_save($value=''){
+       $email_id=$this->session->userdata('approver_email_id');
+        if(empty($email_id)){
+            
+            redirect('approve-logout-by-pass');
+        }
+        $date_system=date('Y-m-d');
+        $pr_no=$this->input->post('pr_no');
+        $slno_pr=$this->input->post('slno_pr');
+        $job_code=$this->input->post('job_code');
+        $type_action=$this->input->post('type_action');
+        $approver_id=$this->input->post('approver_id');
+        $Procurement=$this->input->post('Procurement');
+        $comment=$this->input->post('comment');
+
+        $edit_type=$this->input->post('edit_type');
+
+        $result_procuremnet=$this->approver_user->get_approver_procurement_list($Procurement);
+        $proc_details=$result_procuremnet['user_approver'][0];
+        $Procurement_id=$proc_details->email_id;
+        $Procurement_name=$proc_details->Username;
+
+        $result_mr=$this->approver_user->get_approver_mr_job_detail_m($pr_no);
+        $date=date('Y-m-d');
+
+        $data_table=array('pr_no'=>$pr_no,'mr_forword_status'=>0);
+        $query_data=$this->db->get_where('master_mr_job_details_m',$data_table);
+        if($query_data->num_rows()!=1){
+            $this->session->set_flashdata('error_message', ' Something went wrong ');
+            redirect('user-approver-home');
+            exit();
+        }
+        $result_table=$query_data->result();
+        if($result_mr['no_mr_deatils']==1){
+            
+            $mr_details=$result_mr['mr_details'][0];
+            $creators_id=$mr_details->creators_id;
+
+            $Mr_id=$mr_details->pr_no;
+            // $Slno_mr_id=$slno_Mr_no;
+            $Edit=$mr_details->edit_id;
+            $Creator_id_sender=$mr_details->approver_id;
+            $Approve_id=$this->session->userdata('approver_email_id');
+            $job_code_id=$mr_details->job_code_id;
+            $techinal_evalution=$mr_details->techinal_evalution;
+            $approver_id_slno=$mr_details->approver_id_slno;
+        }else{
+             $this->session->set_flashdata('error_message', ' Something went wrong ');
+            redirect('user-approver-home');
+            exit();
+        }
+
+        if($type_action==1){ // Send information to Procurement officer
+            $data_forword=array('design_user_status'=>1,'approver_user_status'=>1,'approver_date'=>$date_system,'procurement_user_id'=>$Procurement_id,'procurement_user_id_slno'=>$Procurement,'procurement_user_status'=>2);
+            $data_id = array('pr_no' =>$pr_no ,'pr_no_slno'=>$slno_pr );
+            $update=$this->db->update('master_pr_process_detail',$data_forword,$data_id);
+            if($update){
+                $id_array_mr=array('pr_no' =>$pr_no); // mr slno which will able to update
+                $data_mr = array('mr_forword_status' =>1 , 'mr_forword_date'=>$date); // mr data to be update
+                $this->db->update('master_mr_job_details_m',$data_mr,$id_array_mr);
+                 $this->db->update('master_mr_job_details_m_clone',$data_mr,$id_array_mr);
+                $this->session->set_flashdata('success_message', ' Successfully Send To Procuremnet User ');
+                redirect('user-approver-home');
+                exit();
+            }else{
+                $this->session->set_flashdata('error_message', ' Something went wrong ');
+                redirect('user-approver-home');
+                exit();
+            }
+        }else if($type_action==2){ // send comment information to design user
+            // print_r($this->input->post());
+            $techinal_evalution=$result_table[0]->techinal_evalution;
+            $master_pr_slno=$result_table[0]->slno_mr;
+            $date_required=$result_table[0]->date_required;
+            $date_creation=$result_table[0]->date_creation;
+            $edit_type=$result_table[0]->edit_id;
+            $resubmit_count=$result_table[0]->resubmit_count;
+            $total_id=$resubmit_count+1;
+        
+            $data_comment = array('pr_no' =>$pr_no ,'job_code'=>$job_code,'master_pr_slno'=>$master_pr_slno,'pr_no_slno'=>$slno_pr,'comment'=>$comment,'approver_id'=> $email_id,'date_entry'=>$date_creation,'date_required'=>$date_required,'edit_type'=>$edit_type);
+
+            $query_insert=$this->db->insert('master_pr_comments_c',$data_comment);
+            if($query_insert){
+                $data_forword=array('design_user_status'=>4,'approver_user_status'=>0,'approver_date'=>$date_system);
+                $data_id = array('pr_no' =>$pr_no ,'pr_no_slno'=>$slno_pr );
+                $update=$this->db->update('master_pr_process_detail',$data_forword,$data_id);
+
+                $data_mr = array('resubmit_count' =>$total_id , 'status_resubmit'=>1); // mr data to be update
+                $this->db->update('master_mr_job_details_m',$data_mr,$id_array_mr);
+
+                $this->session->set_flashdata('success_message', ' Successfully Comment ');
+                redirect('user-approver-home');
+                exit();
+            }else{
+                $this->session->set_flashdata('error_message', ' Something went wrong ');
+                redirect('user-approver-home');
+                exit();
+            }
+
+
+        }else{
+            $this->session->set_flashdata('error_message', ' Something went wrong ');
+            redirect('user-approver-home');
+            exit();
+        }
+
+        // print_r($this->input->post());
+        # code...
+    }
+    public function approved_project_pr($value=''){
+        $scripts='<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script><script src=" https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script> <script src="'.base_url().'file_css_admin/own_js.js"></script>';
+            $data=array('title' =>'PR Received List Designer User','script_js'=>$scripts ,'menu_status'=>'','sub_menu'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'');
+
+            $this->load->view('template/template_header',$data);
+            $this->load->view('approver_user/template/template_top_head');
+            $this->load->view('approver_user/template/template_side_bar',$data);
+            $this->load->view('approver_user/project_pr_schedule_m/Pr_schudele_approved_index',$data);
+            $this->load->view('template/template_footer',$data);
+    }
+    public function approved_mr_view_pr($value='',$value1='',$value2='',$value3=''){
+        $scripts='';
+        $data=array('title' =>'PR Received List Designer User','script_js'=>$scripts ,'menu_status'=>'','sub_menu'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','Pr_no'=>$value,'Pr_no_slno'=>$value1,'Project_slno'=>$value2,'redirect'=>$value3);
+
+            $this->load->view('template/template_header',$data);
+            $this->load->view('approver_user/template/template_top_head');
+            $this->load->view('approver_user/template/template_side_bar',$data);
+            $this->load->view('approver_user/pr_information_details/pr_details_information_approve',$data);
+            $this->load->view('template/template_footer',$data);
+        # code...
+    }
+    public function approved_mr_view_comment_pr($value='',$value1='',$value2='',$value3=''){
+        $scripts='';
+        $data=array('title' =>'PR Received List Designer User','script_js'=>$scripts ,'menu_status'=>'','sub_menu'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','Pr_no'=>$value,'Pr_no_slno'=>$value1,'Project_slno'=>$value2,'redirect'=>$value3);
+
+            $this->load->view('template/template_header',$data);
+            $this->load->view('approver_user/template/template_top_head');
+            $this->load->view('approver_user/template/template_side_bar',$data);
+            $this->load->view('approver_user/pr_information_details/pr_details_information_comment',$data);
+            $this->load->view('template/template_footer',$data);
+    }
+    public function approver_comment_project_pr($value=''){
+        $scripts='<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script><script src=" https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script> <script src="'.base_url().'file_css_admin/own_js.js"></script>';
+            $data=array('title' =>'PR Received List Designer User','script_js'=>$scripts ,'menu_status'=>'','sub_menu'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'');
+
+            $this->load->view('template/template_header',$data);
+            $this->load->view('approver_user/template/template_top_head');
+            $this->load->view('approver_user/template/template_side_bar',$data);
+            $this->load->view('approver_user/project_pr_schedule_m/Pr_schudele_comment_index',$data);
+            $this->load->view('template/template_footer',$data);
+    }
+
 }

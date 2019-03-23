@@ -29,15 +29,27 @@
 				<!-- begin sidebar nav -->
 				<ul class="nav">
 					<li class="nav-header">Navigation</li>
-					<li class="has-sub <?php if($menu_status==1){echo 'active';}?>">
+					<!--<li class="has-sub <?php if($menu_status==1){echo 'active';}?>">
 						<a href="javascript:;">
 					        <b class="caret"></b>
 						    <i class="fas fa-atlas"></i>
-						    <span>Material Requisition</span>
+						    <span>Material Requistion</span>
 					    </a>
 						<ul class="sub-menu">
 						    <li class="<?php if($sub_menu==1){ echo 'active'; }?>"><a href="<?=base_url()?>procurement-new-mr-receive" >Receive Material Requisition </a></li>
 						    <li class="<?php if($sub_menu==2){ echo 'active'; }?>"><a href="<?=base_url()?>procurement-new-mr-conform" >History Of Buyer Assignment</a></li>
+						   
+						</ul>
+					</li>-->
+					<li class="has-sub <?php if($menu_status==1){echo 'active';}?>">
+						<a href="javascript:;">
+					        <b class="caret"></b>
+						    <i class="fas fa-atlas"></i>
+						    <span>PR Schedule</span>
+					    </a>
+						<ul class="sub-menu">
+						    <li class="<?php if($sub_menu==1){ echo 'active'; }?>"><a href="<?=base_url()?>procurement-new-pr-receive" >View Project PR Schedule </a></li>
+						    <li class="<?php if($sub_menu==2){ echo 'active'; }?>"><a href="<?=base_url()?>procurement-new-pr-schedule-complete" >View PR Schedule Complete</a></li>
 						   
 						</ul>
 					</li>

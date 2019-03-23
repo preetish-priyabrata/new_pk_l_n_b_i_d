@@ -77,6 +77,7 @@ class Designuser extends CI_Controller {
             $this->load->view('template/template_footer',$data);
         # code...
     }
+
     public function design_add_new_design_plan_save(){
         $email_id=$this->session->userdata('design_email_id');
         if(empty($email_id)){
@@ -104,6 +105,56 @@ class Designuser extends CI_Controller {
             $this->load->view('template/template_footer',$data);
 
         # code...
+    }
+
+     public function design_user_add_new_material(){
+        $email_id=$this->session->userdata('design_email_id');
+        if(empty($email_id)){
+            
+            redirect('design-logout-by-pass');
+        }
+        $scripts='<script src="'.base_url().'file_css_admin/own_js_date_picker.js"></script>';
+
+        $data=array('title' =>"Create New Material Requisition",'script_js'=>$scripts ,'menu_status'=>'1','sub_menu'=>'1','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'');  
+
+            // $this->load->view('template/template_header',$data);
+            // $this->load->view('design_user/template/template_top_head');
+             //$this->load->view('design_user/template/template_side_bar',$data);
+            $this->load->view('design_user/new_mr_requisition/design_user_add_new_material');
+            // $this->load->view('template/template_footer',$data);
+
+        
+    }
+     
+    public function design_user_add_new_material_save(){
+        $email_id=$this->session->userdata('design_email_id');
+        if(empty($email_id)){
+            
+            redirect('design-logout-by-pass');
+        }
+        // print_r($this->input->post());
+        //Array ( [material_category] => Electrical equipment [uom] => No [technical_parameters] => MOC=CRCA,Terminals=40,thickness=2mm,Application=outdoor [material_name] => Junction Box [material_id] => ee02 )
+       $material_category=$this->input->post('material_category');
+       $uom=$this->input->post('uom');
+       $technical_parameters=$this->input->post('technical_parameters');
+       $material_name=$this->input->post('material_name');
+       $material_id=$this->input->post('material_id');
+       $data_entry=array('category_name'=>$material_category,'uom'=>$uom,'technical_details'=>$technical_parameters,'material_item_name'=>$material_name,'material_item_id'=>$material_id,'entry_id'=>$email_id,'status'=>1);
+       $query=$this->db->insert('master_category_item',$data_entry);
+      
+       if($query){
+            $this->session->set_flashdata('success_message', ' successfully material is added to our library');
+                // After that you need to used redirect function instead of load view such as                 
+            redirect('design-user-add-new-material');
+       }else{
+          $this->session->set_flashdata('error_message', ' Something went wrong please try again');
+                // After that you need to used redirect function instead of load view such as                 
+                redirect('design-user-add-new-material');
+       }
+
+
+
+        
     }
     public function design_add_new_mr_save(){
         $email_id=$this->session->userdata('design_email_id');
@@ -202,6 +253,7 @@ class Designuser extends CI_Controller {
             redirect('design-logout-by-pass'); 
         }
     }
+
     public function design_new_mr_order_first($value,$value1,$value2){ //SCI
         $email_id=$this->session->userdata('design_email_id');
         if(empty($email_id)){
@@ -330,12 +382,29 @@ class Designuser extends CI_Controller {
        # code...
    }
     
+   public function design_pr_schedule_complete($value=''){ // CREATING mR
+          $scripts='<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script><script src=" https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script> <script src="'.base_url().'file_css_admin/own_js.js"></script>';
+            $data=array('title' =>"BU Pr Schedule",'script_js'=>$scripts,'menu_status'=>'2','sub_menu'=>'4','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'');
+            $this->load->view('template/template_header',$data);
+            $this->load->view('design_user/template/template_top_head');
+            $this->load->view('design_user/template/template_side_bar',$data);
+            $this->load->view('design_user/pr_schedule_complete/pr_schedule_complete',$data);
+
+            $this->load->view('template/template_footer',$data);
+       # code...
+   }
+   public function design_project_pr_schedule_view($value=''){ // CREATING mR
+          $scripts='</script> <script src="'.base_url().'file_css_admin/own_js_date_picker.js"></script>';
+            $data=array('title' =>"BU Pr Schedule",'script_js'=>$scripts,'menu_status'=>'2','sub_menu'=>'4','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'');
+            $this->load->view('template/template_header',$data);
+            $this->load->view('design_user/template/template_top_head');
+            $this->load->view('design_user/template/template_side_bar',$data);
+            $this->load->view('design_user/view_project_pr_schedule/view_project_pr',$data);
+
+            $this->load->view('template/template_footer',$data);
+       # code...
+   }
     
-
-
-
-
-
     public function design_vehicle_required_session(){
         $email_id=$this->session->userdata('design_email_id');
         if(empty($email_id)){
@@ -2845,9 +2914,14 @@ class Designuser extends CI_Controller {
     }
 
      public function design_logout_bypass(){
+          $session_id=session_id();
+         session_destroy();
+        session_start();   
         $this->session->set_flashdata('error_msg', 'Invalid entry to Design User panel');
         redirect('home');     
                 
     }
+
+   
 
 }

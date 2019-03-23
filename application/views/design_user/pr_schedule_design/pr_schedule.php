@@ -48,7 +48,7 @@ if(empty($email_id)){
 			}
 			 // print_r($this->session->userdata());
 			 ?>
-<div class="panel panel-inverse">
+			<div class="panel panel-inverse">
 				<div class="panel-heading">
 					<div class="panel-heading-btn">
 					<!-- 	<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a> -->
@@ -59,7 +59,7 @@ if(empty($email_id)){
 					<h4 class="panel-title"> PR Schedule</h4>
 				</div>	
 				<div class="panel-body">
-					<form  method="POST" enctype="multipart/form-data"	>
+					<form action="" method="POST" enctype="multipart/form-data"	>
 						<div class="alert alert-secondary">
 	                       	<span style="color: red"> *</span>All mandatory fields shall be duly filled up 
 	                    </div>	   
@@ -77,142 +77,81 @@ if(empty($email_id)){
 														echo "<option value='".$key_job_code->Project_Slno."'>".$key_job_code->job_Code." [ ".$key_job_code->Project_Name." ]</option>";
 													}
 												?>
-											</select>
-											<small class="f-s-12 text-grey-darker">Please Select Project For Upload PR Schedule</small>
+											</select> 
+											<small class="f-s-12 text-grey-darker">Please Select Project for Upload of PR Schedule</small>
 										</div>
-
-																		
-								</div>	
-
 									</div>
-									 <div class="col-md-6 col-lg-6"><!-- part g start -->
-									<div class="form-group row m-b-15">
-										<label class="col-form-label col-md-3" for="job_files">Get Info <span style="color: red">*</span></label>
-										<div class="col-md-9">
-											<input class=" m-b-5" name="job_files" id="job_files" type="file" required="" required accept=".xls, .xlsx" >	
-											<!-- <span class="btn btn-sm btn-info" > -->
-											
-											<!-- </span> -->
-												<br>
-											
-										</div>
-
-							</div>
-							<div class="form-group row pull-right">
-			                    <div class="form-group row pull-right">
-			                        <div class="col-md-12">
-			                            <button type="button" class="btn btn-sm btn-primary m-r-5" name="send_button" id="sub" value="save">Save</button>
-			                            <button type="button" class="btn btn-info btn-sm m-r-5" id="upload" style="display: none">Uploading ...</button>
-			                           	 
-			                            <a  href="<?=base_url()?>user-designuser-home" class="btn btn-sm btn-danger">Cancel</a> 
-			                        </div>
-			                    </div>
-									</div>											
 								</div>
-								   <script>
-$(document).ready(function(){
+								<div class="col-md-6 col-lg-6"><!-- part g start -->									
+									<div class="form-group row pull-right">
+					                    <div class="form-group row pull-right">
+					                        <div class="col-md-12">
+					                            <button type="Submit" class="btn btn-sm btn-primary m-r-5" name="send_button" id="sub" value="find">Get Info</button>
+					                            
+					                        </div>
+					                    </div>
+					                </div>
+					            </div>					            
+					        </div>
+					    </div>
+					</form>
+				</div>
+			</div>
+			<?php 
+			$send_button=$this->input->post('send_button');
+			if($send_button=="find"){
+				$table="master_pr_schedule"; 
+				$job_code=$this->input->post('job_code');
+				$data_check = array('job_code' => $job_code,'status'=>1, 'mr_status'=>0);
+                $query=$this->db->get_where($table,$data_check);
+                    // echo  $this->db->last_query();
+                $output = '
+                  
+                ';
+               
+                // $output .= '</table>';
+               
+				?>
+			<div class="panel panel-inverse">
+				<div class="panel-heading">					
+					<h4 class="panel-title">PR Schedule List</h4>
+				</div>
+				<div class="panel-body">
 
-	load_data();
-		$('#upload').hide();
-	
-	$('#sub').on('click', function () {
-		if (document.getElementById('job_files').value !== '') {
-			
-        	var actions_file='bu_files_uploaded_details';
-        	var Mr_no = $('#job_code').val();
-			// var slno_Mr_no = $('#job_files').val();
-            var file_data = $('#job_files').prop('files')[0];
-            if(Mr_no!=""){
-            	$('#sub').hide();
-				$('#upload').show();
-	            if(file_data!=""){
-	                var form_data = new FormData();
-	                form_data.append('file', file_data);
-	                form_data.append('job_code', Mr_no);
-	          		// form_data.append('slno_Mr_no', slno_Mr_no);
-	          		form_data.append('actions_file', actions_file);
+					<table class="table table-striped table-bordered">
+                    <tr>
+                      <th>Discipline</th>
+                      <th>PR No</th>
+                      <th>Area</th>
+                      <th>Item</th>
+                      <th>UOM</th>
+                      <th>Quantity</th>
+                      <th>Original Schedule</th>
+                      <th>Action</th>
+                    </tr>
+					<?php
+					 foreach($query->result() as $row){
+                    echo '
+                    <tr>
+                      <td>'.$row->discipline.'</td>
+                      <td>'.$row->pr_no.'</td>
+                      <td>'.$row->area.'</td>
+                      <td>'.$row->item.'</td>
+                      <td>'.$row->UOM.'</td>
+                      <td>'.$row->quantity.'</td>
+                      <td>'.$row->original_schedule.'</td> 
+                      <td><a href="'.base_url().'design-mr-new-create/'.$row->pr_no.'/'.$row->slno.'/'.$row->job_code.'" target="_blank"> Click to Generated PR </a></td>
+                    </tr>
+                    ';
+                }
+					?>
+				</table>
+					<!-- table -->
 
-	                $.ajax({
-	                    url: '<?php echo base_url(); ?>excel-upload/entry', // point to server-side controller method
-	                    dataType: 'text', // what to expect back from the server
-	                    cache: false,
-	                    contentType: false,
-	                    processData: false,
-	                    data: form_data,
-	                    type: 'post',
-	                    success: function (response) {
-	                    	if(response==1){
-	                    		$('#sub').show();
-								$('#upload').hide();
-	                    		load_data();
-	                    		alert('File Is successfully attached ');
-	                    		 
-	                    	}else if(response==2){
-	                    		alert('Same File name is found ');
-	                    	}else{
-	                    		alert('Some thing went worng Please check internet connection ');
-	                    	}
-	                        // $('#msg').html(response); // display success response from the server
-	                    }
-	                    // error: function (response) {
-	                    //     $('#msg').html(response); // display error response from the server
-	                    // }
-	                });
-	            }else{
-	            	alert('Please Attachment Some file click on upload');
-	            }
-	        }else{
-	        	alert('Please Select Project ');	
-	        }
-	    }else{
-	    	 alert('No File Attached');
-	    }
-
-    });
-
-	// $('#import_form').on('submit', function(event){
-	// 	event.preventDefault();
-	// 	$.ajax({
-	// 		url:"<?php echo base_url(); ?>excel-upload/entry",
-	// 		method:"POST",
-	// 		data:new FormData(this),
-	// 		contentType:false,
-	// 		cache:false,
-	// 		processData:false,
-	// 		success:function(data){
-	// 			$('#job_files').val('');
-	// 			load_data();
-	// 			alert(data);
-	// 		}
-	// 	})
-	// });
-
-});
-function load_data(){
-	var actions_file='design_Views';
-    var Mr_no = $('#job_code').val();
-    queryString_id = 'actions_file='+actions_file+'&job_code='+ Mr_no;
-	    if(Mr_no!=""){
-	    	$('#sub').show();
-			// jQuery.ajax({
-			// 	url: "<?php echo base_url(); ?>file-upload-data",
-			// 	data:queryString_id,
-			// 	type: "POST",
-			// 	success:function(data){
-			// 		$("#cart-item-files").html(data);
-			// 	}
-			// });
-			$.ajax({
-				url:"<?php echo base_url(); ?>excel-upload/entry",
-				data:queryString_id,
-				method:"POST",
-				success:function(data){
-					$('#customer_data').html(data);
-				}
-			});
-		}else{
-			alert('Please Select Project');	
-		}
-	}
-</script>
-
+				</div>
+			</div>
+		<?php }?>
+						
+					        		        
+					    
+					

@@ -84,7 +84,7 @@ $route['user-admin-home']='adminuser/user_admin_home';
 ##############################################################################################################################
 ########################################## ###################################################################################
 #
-#								admin ( Create ,view ,update , delete, active , in active ) user 							 #
+#								Admin ( Create ,view ,update , delete, active , in active ) user 							 #
 #
 ##############################################################################################################################
 $route['admin-view-user']='adminuser/viewusers';
@@ -156,7 +156,7 @@ $route['edit-Other-charges-info/(:any)/(:any)']='adminuser/admin_edit_Other_char
 $route['admin-edit-other-charge-save']='adminuser/admin_edit_Other_charges_save';
 ######################################################################################################################################
 #
-# 											admin material item create update delete view status
+# 											Admin material item create update delete view status
 #
 ######################################################################################################################################
 $route['admin-view-Material-Item']='adminuser/admin_view_Material_Item';
@@ -265,6 +265,8 @@ $route['bu-edit-order-book/(:any)/(:any)']='buuser_old/bu_edit_order_book/$1/$2'
 $route['bu-edit-new-order-book-save']='buuser_old/bu_edit_new_order_book_save';
 
 
+
+
 ######################################################################################################################################
 #
 #                                                         Design User Section
@@ -316,7 +318,32 @@ $route['design-resubmit-mr-order-edit/(:any)/(:any)/(:any)']='designuser/design_
 $route['design-resubmit-new-mr-save-formII']='designuser/design_resubmit_new_mr_save_formII';
 
 $route['design-pr-schedule']='designuser/design_pr_schedule';
+$route['design-pr-schedule-complete']='designuser/design_pr_schedule_complete';
+$route['design-mr-view-pr/(:any)/(:any)/(:any)/(:any)']='designusernew/design_mr_view_pr_details/$1/$2/$3/$4';
+// $route['design-mr-view-pr/(:any)/(:any)/(:any)/(:any)']='designuser/design_mr_view_pr_details/$1/$2/$3/$4';
+//view project pr schedule
+$route['design-project-pr-schedule-view']='designuser/design_project_pr_schedule_view';
+// project  new bid
+$route['design-project-pr-schedule']='designusernew/design_project_pr_schedule';
+$route['design-pr-schedule-api']='designusernew/design_project_pr_schedule_api';
+$route['design-mr-new-create/(:any)/(:any)/(:any)']='designusernew/design_new_mr_pr_list/$1/$2/$3';
+// search_material
+$route['design-material-search-get']='designusernew/design_new_material_search_get';
+$route['design-material-search-reset']='designusernew/design_new_material_search_reset';
+// $routw['design-new-item-required-session']='designusernew/design_new_item_required_session';
+$route['ajax-cart-new-services']='designusernew/design_new_cart_services';
+// new file Pr attachment
+$route['design-file-upload-data']='designusernew/design_file_upload_data_m';
+// new material 
+$route['design-user-add-new-material']='designuser/design_user_add_new_material';
+$route['design-user-add-new-material-save']='designuser/design_user_add_new_material_save';
+$route['design-add-new-pr-save']='designusernew/design_add_new_pr_save';
+$route['design-project-pr-schedule-comment']='designusernew/design_project_pr_schedule_comment';
+// ajax get view of added resubmit infromation
+$route['design-user-new-resubmission-cart']='designusernew/design_user_new_resubmission_cart';
 
+//  statsu of PR Schedule information
+$route['design-project-pr-schedule-status']='designusernew/design_project_pr_schedule_status';
 
 #####################################################################################################################################
 #
@@ -340,6 +367,16 @@ $route['approver-resubmission-mr-order']='approveruser/approver_resubmission_mr_
 $route['approver-new-mr-order-Comment-view/(:any)/(:any)/(:any)']='approveruser/design_new_mr_order_Comment_view/$1/$2/$3';
 
 
+// new Changes in work
+// 
+$route['approver-project-pr']='approveruser/approver_project_pr_details';
+// 
+$route['approver-mr-view-pr/(:any)/(:any)/(:any)/(:any)']='approveruser/approver_mr_view_pr/$1/$2/$3/$4';
+$route['approver-add-new-pr-save']='approveruser/approver_add_new_pr_save';
+$route['approved-project-pr']='approveruser/approved_project_pr';
+$route['approved-mr-view-pr/(:any)/(:any)/(:any)/(:any)']='approveruser/approved_mr_view_pr/$1/$2/$3/$4';
+$route['approver-comment-project-pr']='approveruser/approver_comment_project_pr';
+$route['approved-mr-view-comment-pr/(:any)/(:any)/(:any)/(:any)']='approveruser/approved_mr_view_comment_pr/$1/$2/$3/$4';
 ###########################################################################################################################################
 #
 #						Procurment User
@@ -355,6 +392,16 @@ $route['procurement-assigned-buyer']='procurementuser/procurement_assigned_buyer
 $route['procurement-new-mr-conform']='procurementuser/procurement_new_mr_conform';
 
 $route['procurement-assign-mr-order-receive-view/(:any)/(:any)/(:any)']='procurementuser/procurement_assign_mr_order_receive_view/$1/$2/$3';
+$route['procurement-pr-schedule']='procurementuser/procurement_pr_schedule';
+$route['procurement-new-pr-receive']='procurementuser/procurement_new_pr_receive';
+$route['procurement-mr-view-pr/(:any)/(:any)/(:any)/(:any)']='procurementuser/procurement_mr_view_pr/$1/$2/$3/$4';
+$route['procurement-new-pr-conform']='procurementuser/procurement_new_pr_conform';
+$route['procurement-user-create-new-material/(:any)/(:any)/(:any)/(:any)']='procurementuser/procurement_user_create_new_material/$1/$2/$3/$4';
+$route['procurement-new-pr-schedule-complete']='procurementuser/procurement_new_pr_schedule_complete';
+$route['procurement-add-new-pr-save']='procurementuser/procurement_add_new_pr_save';
+$route['procurement-new-pr-complete-requisition/(:any)/(:any)/(:any)/(:any)']='procurementuser/procurement_new_pr_complete_requisition/$1/$2/$3/$4';
+
+
 
 #############################################################################################################################################
 #
@@ -376,6 +423,22 @@ $route['bu-view-pr-schedule']='buuser/bu_view_pr_schedule_new';
 $route['excel-upload/entry']='buuser/bu_excel_uploads_save';
 $route['excel-upload/view']='buuser/bu_excel_uploads_view';
 $route['bu-view-project']='buuser/bu_project_view';
+//
+$route['bu-mr-new-create/(:any)/(:any)/(:any)']='buuser/bu_bu_create_tracking_new/$1/$2/$3';
+$route['bu-create-tracking-save_m']='buuser/bu_create_tracking_new_save_m';
+
+//
+$route['bu-view-project-old']='buuser/bu_view_project_old';
+
+$route['bu-mr-drafted/(:any)/(:any)/(:any)/(:any)']='buuser/bu_edit_tracking_tool_m/$1/$2/$3/$4';
+// $route['bu-mr-view-submit/(:any)/(:any)/(:any)/(:any)']='buuser/bu_mr_view_submit/$1/$2/$3/$4';
+$route['bu-update-tracking-save-m']='buuser/bu_update_tracking_new_save_m';
+
+$route['bu-view-edit-tracking-tool-m/(:any)/(:any)/(:any)/(:any)']='buuser/bu_view_edit_tracking_tool_m/$1/$2/$3/$4';
+$route['bu-view-tracking-tool-m/(:any)/(:any)/(:any)/(:any)']='buuser/bu_view_tracking_tool_m/$1/$2/$3/$4';
+
+// search bu user pr 
+$route['bu-search-pr-no']='buuser/bu_search_pr_no';
 ###########################################################################################################################################
 #
 #                                          Buyer Section
@@ -383,6 +446,8 @@ $route['bu-view-project']='buuser/bu_project_view';
 ############################################################################################################################################
 $route['user-buyer-home']='buyeruser/home';
 $route['buyer-mr-received']='buyeruser/buyer_mr_received';
+$route['buyer-mr-received-m']='buyeruser/buyer_mr_received_m';
+
 $route['buyer-technical-commercial-assign/(:any)/(:any)/(:any)/(:any)/(:any)']='buyeruser/buyer_technical_commercial_assign/$1/$2/$3/$4/$5';
 $route['get-buyer-bid-check']='buyeruser/buyer_get_buyer_bid_Check';
 // $route['get-buyer-bid-check']='buyeruser/buyer_get_buyer_bid_Check';
@@ -403,7 +468,7 @@ $route['bid-tech-entry']='buyeruser/buyer_bid_tech_entry';
 
 
 
-// commerical Bid In buyer
+// Commercial Bid In buyer
 $route['bid-commerical-entry']='buyeruser/bid_commerical_entry';
 $route['buyer-drafted-bid-commerical']='buyeruser/user_buyer_bid_drafted_commerical';
 $route['buyer-bid-commerical-sent/(:any)/(:any)']='buyeruser/buyer_bid_sent_commerical/$1/$2';
@@ -426,6 +491,16 @@ $route['buyer-otp-verification-success/(:any)/(:any)/(:any)/(:any)/(:any)/(:any)
 
 $route['buyer-bid-rank-invitation-to-vendor-com']='buyeruser/buyer_bid_rank_invitation_to_vendor_com';
 
+//new pr schudele
+$route['buyer-pr-receive']='buyeruser/buyer_pr_receive';
+$route['buyer-user-create-new-pr/(:any)/(:any)/(:any)/(:any)']='buyerusernew/buyer_user_create_new_pr/$1/$2/$3/$4';
+//
+//buyer_user new where it holds vender search information
+$route['buyer-vendor-search-informations']='buyerusernew/buyer_vendor_search_informations';
+$route['buyer-vendor-cart']='buyerusernew/buyer_vendor_cart';
+$route['buyer-vendor-cart-show']='buyerusernew/buyer_vendor_cart_show';
+$route['buyer-vendor-cart-delete-cart']='buyerusernew/buyer_vendor_cart_delete_cart';
+
 #################################################################################################################################
 #
 #Technical Evaluator section
@@ -446,7 +521,7 @@ $route['tech-evalutor-logout']='technicalevalutor/tech_evalutor_logout';
 
 #################################################################################################################################
 #
-#Commerical Evaluator section
+#Commercial Evaluator section
 #
 #################################################################################################################################
 $route['user-commerical-evalutor-home']='commericalevalutor/comm_evalutor_home';
@@ -531,7 +606,7 @@ $route['bu-logout-by-pass']='buuser/bu_logout_bypass';
 //design user logout
 $route['design-logout']='designuser/design_logout';
 $route['design-logout-by-pass']='designuser/design_logout_bypass';
-
+$route['design-logout-pass']='designuser/design_logout';
 
 $route['approve-logout']='approveruser/approver_logout';
 $route['approve-logout-by-pass']='approveruser/approver_logout_bypass';

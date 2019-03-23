@@ -80,6 +80,7 @@ $(document).ready(function() {
 	} );
 } );
 
+
   $( function() {
     $( "#datepicker" ).datepicker({
     		changeMonth: true,
@@ -87,3 +88,6 @@ $(document).ready(function() {
       		dateFormat: 'yy-mm-dd'
     	});
   } );
+$(document).ready(function() {
+    $('table.display').DataTable();
+} );

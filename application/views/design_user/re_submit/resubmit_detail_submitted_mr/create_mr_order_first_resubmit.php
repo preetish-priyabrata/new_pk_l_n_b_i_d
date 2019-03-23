@@ -8,7 +8,7 @@ $value=$value;
 $value1=$value1;
 $value2=$value2;
 if($value2!=$value){
-	  $this->session->set_flashdata('error_message', 'Some thing went worng');
+	  $this->session->set_flashdata('error_message', 'Some thing went wrong');
 	redirect('user-design-home');
 }
 	

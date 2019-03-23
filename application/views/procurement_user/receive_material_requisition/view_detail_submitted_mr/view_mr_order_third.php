@@ -10,7 +10,7 @@ $value1=$value1;
 $value2=$value2;
 $type='';
 if($value2!=$value){
-	  $this->session->set_flashdata('error_message', 'Some thing went worng');
+	  $this->session->set_flashdata('error_message', 'Somthing went wrong');
 	redirect('user-approver-home');
 }
 $data_array_procurement=$this->approver_user->get_approver_procurement_list();	

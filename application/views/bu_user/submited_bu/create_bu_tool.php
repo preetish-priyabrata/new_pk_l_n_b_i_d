@@ -12,6 +12,7 @@ if($resutl['no_received']==2){
 	$this->session->set_flashdata('error_message', 'ilegal Access Please Contact Admin');
     redirect('user-bu-home');  
 }
+
 ?>
 
 <div class="sidebar-bg"></div>
