@@ -83,7 +83,7 @@ $result_table=$query_data->result();
 					<div class="alert alert-secondary">
                         		<span style="color: red"> *</span> All mandatory fields shall be duly filled up 
                         	</div>
-					<form action="<?=base_url()?>procurement-add-new-pr-save" method="POST" >
+					<form action="<?=base_url()?>Buyer-add-new-pr-save" method="POST" >
 						<div class="row">
 							<div class="col-md-6 col-lg-6">
 								<div class="form-group row m-b-15">
@@ -99,6 +99,7 @@ $result_table=$query_data->result();
 										<input class="form-control m-b-5"  name="pr_no_type" id="pr_no_type" type="hidden" value="new_pr_creater" required="" readonly>
 										<input class="form-control m-b-5"  name="edit_type" id="edit_type" type="hidden" value="<?=$edit_id=$result_table[0]->edit_id?>"required="" readonly>
 										<input type="hidden"  name="tech_evalution"  value="<?=$result_table[0]->techinal_evalution?>">
+										<input type="hidden"  name="tech_evalution_commer"  value="Technical_start">
 										<small class="f-s-12 text-grey-darker">PR No.</small>
 									</div>
 								</div>
@@ -603,10 +604,56 @@ $result_table=$query_data->result();
 							</div>
 							<!-- part Accordion 4 End -->
 
+							<!-- Part Accordion 5 Start -->
+							<div class="card">
+								<div class="card-header text-center">
+									<a class="collapsed card-link" data-toggle="collapse" href="#collapsesix">
+										Terms and Conditions
+									</a>
+								</div>
+								<div id="collapsesix" class="collapse" data-parent="#accordion">
+									<div class="card-body">
+										<h5 class="text-left">Terms and Conditions</h5>
+										<hr style="background: lightblue">
+										<!-- row Start -->
+										<div class="row">
+											<!-- part g -->
+											
+											<!-- part g end here -->
+											<!-- part h -->
+											<div class="col-md-12 col-lg-12">
+												<!-- part h start -->
+												<div class="row">
+													<div class="col-lg-12">
+												    
+												<div class="form-group row m-b-15">
+													<label class="col-form-label col-md-3">Terms and Conditions <span style="color: red">*</span></label>
+													<div class="col-md-9">
+														<?php echo $this->ckeditor->editor("terms_condition","default textarea value"); ?>
+														
+														
+													</div>
+												</div>		
+                                                  
+
+
+													</div>
+												</div>
+
+												<!-- part h end -->
+											</div>
+											<!-- part h end here -->
+										</div>
+										<!-- row end here -->
+									</div>
+								</div>
+							</div>
+							<!-- part Accordion 5 End -->
+
 							 <div class="card">
 							    <div class="card-header text-center">
 							      	<a class="collapsed card-link" data-toggle="collapse" href="#collapseFive">
-							       		Technical Evaluator / Vendor Selection
+							       		Vendor Selection
 							      	</a>
 							    </div>
 							    <div id="collapseFive" class="collapse" data-parent="#accordion">
@@ -662,10 +709,12 @@ $result_table=$query_data->result();
 						
 						<div class="form-group row pull-right">
                             <div class="col-md-12">
-                               <!--  <button type="submit" class="btn btn-sm btn-primary m-r-5" >Next</button> -->
-                               <!-- <input type="submit" name="submission" value="Save" class="btn btn-success btn-sm"> -->
-                               <!--<input type="submit" name="submission" value="Sent" class="btn btn-info btn-sm">-->
-                               <a  href="<?=base_url()?>procurement-new-pr-complete-requisition" class="btn btn-sm btn-primary">Back</a> 
+                            	<span id="spl"> 
+	                               <!--  <button type="submit" class="btn btn-sm btn-primary m-r-5" >Next</button> -->
+	                               <input type="submit" name="submission" value="Save" class="btn btn-success btn-sm">
+	                               <input type="submit" name="submission" value="Sent" class="btn btn-info btn-sm">
+                           		</span>
+                               <a  href="<?=base_url()?>buyer-pr-receive" class="btn btn-sm btn-primary">Back</a> 
                             </div>
                         </div>
 						
@@ -693,6 +742,7 @@ function get_vender() {
 
 }
 $(document).ready(function(){
+	$('#spl').hide();
 	get_vender();
 		// $('.add_cart').click(function(){
 		$(document).on('click','.add_cart',function(){
@@ -730,7 +780,93 @@ $(document).ready(function(){
 			});
 		});
 	});
+	function get_bid_ref(id) {
+		if(id==1){
+			var job_code=document.getElementById('bid_ref_no').value;
+			var pass1 = document.getElementById('bid_ref_no');
+			var message = document.getElementById('job_code_error1');
+			
+			var goodColor = "#0C6";
+			var badColor = "#FF9B37";    				
+			var results;
+			if(job_code!=""){
+				$.ajax({
+			  		url:'<?=base_url()?>get-buyer-bid-check-pr',
+			    	method: 'post',
+			    	data: {field_id:'1',job_codes:job_code},
+			    	// dataType: 'json',
+			    	success: function(response){
+			    		if(response==1){
+							pass1.style.backgroundColor = goodColor;
+					        message.style.color = goodColor;
+					        message.innerHTML = "valid Bid Ref code";
+					        $('#spl').show();
+					        results=1;
+					        return 1;
+					    }else{
+					    	pass1.style.backgroundColor = badColor;
+							message.style.color = badColor;
+							message.innerHTML = "invalid Bid Ref code";
+							results=2;
+							// $('#bid_ref_no').val('');
+							$('#spl').hide();
+							return false;
+					    }
+				    }
+				});
 
+			}else{
+				pass1.style.backgroundColor = badColor;
+				message.style.color = badColor;
+				message.innerHTML = "Should not left blank";
+				return false;
+			}
+
+		}else if(id==2){
+			var bid_Id=document.getElementById('bid_Id').value;
+			var pass1 = document.getElementById('bid_Id');
+			var message = document.getElementById('job_code_error2');
+					
+   			var goodColor = "#0C6";
+    		var badColor = "#FF9B37";				
+			if(bid_Id!=""){
+				 $.ajax({
+					url:'<?=base_url()?>get-buyer-bid-check-pr',
+					method: 'post',
+					data: {field_id:'2',job_codes:job_code},
+					    // dataType: 'json',
+					success: function(response){						   
+					    if(response==1){
+							pass1.style.backgroundColor = goodColor;
+					        message.style.color = goodColor;
+					        message.innerHTML = "valid Bid id code";
+					        $('#spl').show();
+					        // return 	get_bid_ref(true);						       
+					        // return "preetish";
+
+						        
+						}else if(response==2){
+							pass1.style.backgroundColor = badColor;
+					        message.style.color = badColor;
+					        message.innerHTML = "invalid Bid id code";									      
+					        $('#bid_Id').val('');
+					        $('#spl').hide();
+					         return false;							         
+					         
+						}
+
+					}
+				});
+
+			}else{
+				pass1.style.backgroundColor = badColor;
+				message.style.color = badColor;
+				message.innerHTML = "Should not left blank";
+				 return false;
+			}
+
+		}
+	}
 
 </script>
 				

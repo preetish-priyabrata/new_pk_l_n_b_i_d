@@ -501,6 +501,14 @@ $route['buyer-vendor-cart']='buyerusernew/buyer_vendor_cart';
 $route['buyer-vendor-cart-show']='buyerusernew/buyer_vendor_cart_show';
 $route['buyer-vendor-cart-delete-cart']='buyerusernew/buyer_vendor_cart_delete_cart';
 
+// this for technical subission and sve infromation 
+$route['Buyer-add-new-pr-save']='buyerusernew/Buyer_add_new_pr_save';
+
+// ajax checking for pr bid reference and bid id
+
+$route['get-buyer-bid-check-pr']='buyeruser/buyer_get_buyer_bid_check_pr';
+
+
 #################################################################################################################################
 #
 #Technical Evaluator section

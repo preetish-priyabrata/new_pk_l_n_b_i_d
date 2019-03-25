@@ -45,6 +45,97 @@ class Buyeruser extends CI_Controller {
             $this->load->view('template/template_footer',$data);
        # code...
    }
+   public function buyer_get_buyer_bid_check_pr($value='',$value1=''){
+     
+    // print_r($this->input->post());
+    // Array ( [field_id] => 1 [job_codes] => bid tes ) 
+    $field_id=$this->input->post('field_id');
+    $job_codes=$this->input->post('job_codes');
+    switch ($field_id) {
+        case '1':
+            $this->db->like('technical_bid_ref',$job_codes);
+            $query_check=$this->db->get('master_pr_process_detail');
+            if($query_check->num_rows()==0){
+                echo 1;
+                exit;
+            }else{
+                 $this->db->where('technical_bid_ref',$job_codes);
+                 $query_check_2=$this->db->get('master_pr_process_detail');
+                 if($query_check_2->num_rows()==0){
+                    echo 1;
+                    exit;
+                 }else{
+                     echo 2;
+                    exit;
+                 }
+                
+            }
+            break;
+        case '2':
+           $this->db->like('technical_bid_id',$job_codes);
+            $query_check=$this->db->get('master_pr_process_detail');
+            if($query_check->num_rows()==0){
+                echo 1;
+                exit;
+            }else{
+                 $this->db->where('technical_bid_id',$job_codes);
+                 $query_check_2=$this->db->get('master_pr_process_detail');
+                 if($query_check_2->num_rows()==0){
+                    echo 1;
+                    exit;
+                 }else{
+                     echo 2;
+                    exit;
+                 }
+                
+            }
+            break;
+        case '3':
+            $this->db->like('commercial_bid_ref',$job_codes);
+            $query_check=$this->db->get('master_pr_process_detail');
+            if($query_check->num_rows()==0){
+                echo 1;
+                exit;
+            }else{
+                 $this->db->where('commercial_bid_ref',$job_codes);
+                 $query_check_2=$this->db->get('master_pr_process_detail');
+                 if($query_check_2->num_rows()==0){
+                    echo 1;
+                    exit;
+                 }else{
+                     echo 2;
+                    exit;
+                 }
+                
+            }
+            break; 
+         case '4':
+            $this->db->like('commercial_bid_id',$job_codes);
+            $query_check=$this->db->get('master_pr_process_detail');
+            if($query_check->num_rows()==0){
+                echo 1;
+                exit;
+            }else{
+                 $this->db->where('commercial_bid_id',$job_codes);
+                 $query_check_2=$this->db->get('master_pr_process_detail');
+                 if($query_check_2->num_rows()==0){
+                    echo 1;
+                    exit;
+                 }else{
+                     echo 2;
+                    exit;
+                 }
+                
+            }
+            break;    
+        default:
+            # code...
+            break;
+    }
+
+
+
+    }
    public function buyer_mr_received_m($value=''){ // will show mr in mr received
         $scripts='<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script><script src=" https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script> <script src="'.base_url().'file_css_admin/own_js.js"></script>';
             $data=array('title' =>"Buyer List Of Mr Received",'script_js'=>$scripts,'menu_status'=>'1','sub_menu'=>'1','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'');

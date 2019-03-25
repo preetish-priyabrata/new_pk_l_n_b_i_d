@@ -149,7 +149,13 @@ if(empty($email_id)){
 					 			case '2': //drafted
 					 					$status_detai="Not Forward";
 					 					$url='#';
-					 						$url='<a href="'.base_url().'buyer-user-create-new-pr/'.$row->pr_no.'/'.$row->slno.'/'.$row->job_code.'/'.$tech.'" > Click to View/ forward </a>';
+					 					if($tech==1){
+					 						$word="Techno/Commerical";
+					 					}else if($tech==2){
+					 						$word="Commerical";
+					 					}
+					 						$url='<a href="'.base_url().'buyer-user-create-new-pr/'.$row->pr_no.'/'.$row->slno.'/'.$row->job_code.'/'.$tech.'" > Click to View '.$word.' </a>';
+					 					
 					 				break;
 					 			
 					 			

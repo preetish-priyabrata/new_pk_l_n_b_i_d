@@ -615,6 +615,50 @@ $result_table=$query_data->result();
 									</div>
 								</div>
 							</div>
+
+
+							<div class="card">
+								<div class="card-header text-center">
+									<a class="collapsed card-link" data-toggle="collapse" href="#collapsesix">
+										Terms and Conditions
+									</a>
+								</div>
+								<div id="collapsesix" class="collapse" data-parent="#accordion">
+									<div class="card-body">
+										<h5 class="text-left">Terms and Conditions</h5>
+										<hr style="background: lightblue">
+										<!-- row Start -->
+										<div class="row">
+											<!-- part g -->
+											
+											<!-- part g end here -->
+											<!-- part h -->
+											<div class="col-md-12 col-lg-12">
+												<!-- part h start -->
+												<div class="row">
+													<div class="col-lg-12">
+												    
+												<div class="form-group row m-b-15">
+													<label class="col-form-label col-md-3">Terms and Conditions <span style="color: red">*</span></label>
+													<div class="col-md-9">
+															<?php echo $this->ckeditor->editor("terms_condition","default textarea value"); ?>
+														
+													</div>
+												</div>		
+                                                  
+
+
+													</div>
+												</div>
+
+												<!-- part h end -->
+											</div>
+											<!-- part h end here -->
+										</div>
+										<!-- row end here -->
+									</div>
+								</div>
+							</div>
 							<!-- part Accordion 4 End -->
 
 							 <div class="card">

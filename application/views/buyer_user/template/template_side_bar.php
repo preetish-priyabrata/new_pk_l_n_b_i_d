@@ -88,10 +88,10 @@
 						<a href="javascript:;">
 					        <b class="caret"></b>
 						    <i class="fas fa-atlas"></i>
-						    <span>MR Received</span>
+						    <span>PR Received</span>
 					    </a>
 						<ul class="sub-menu">
-						    <li class="<?php if($sub_menu==10){ echo 'active'; }?>"><a href="<?=base_url()?>buyer-pr-receive" >Received MR </a></li>
+						    <li class="<?php if($sub_menu==10){ echo 'active'; }?>"><a href="<?=base_url()?>buyer-pr-receive" >Received PR </a></li>
 
 						 
 						</ul>
