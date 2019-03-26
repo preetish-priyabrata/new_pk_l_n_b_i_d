@@ -36,8 +36,8 @@
 						    <span>Bid Information </span>
 					    </a>
 						<ul class="sub-menu">
-						    <li class="<?php if($sub_menu==1){ echo 'active'; }?>"><a href="<?=base_url()?>technical-evalutor-pr-create" >View New Bids  </a></li>
-						    <!--<li class="<?php if($sub_menu==2){ echo 'active'; }?>"><a href="<?=base_url()?>user-technical-evaluator-bid-old-list" >History Of Technical Bid</a></li>-->
+						    <li class="<?php if($sub_menu==1){ echo 'active'; }?>"><a href="<?=base_url()?>user-technical-evaluator-bid-new-list" >Technical Bid Active Bid  </a></li>
+						    <li class="<?php if($sub_menu==2){ echo 'active'; }?>"><a href="<?=base_url()?>user-technical-evaluator-bid-old-list" >History Of Technical Bid</a></li>
 
 						</ul>
 					</li>

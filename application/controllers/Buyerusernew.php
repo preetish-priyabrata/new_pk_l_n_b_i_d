@@ -278,7 +278,9 @@ EOT;
 
 
     public function Buyer_add_new_pr_save(){
-        // print_r($this->input->post());
+
+
+        print_r($this->input->post());
         // 
         $pr_no=$this->input->post('pr_no');
         $slno_pr=$this->input->post('slno_pr');
@@ -311,26 +313,103 @@ EOT;
         $terms_condition=$this->input->post('terms_condition');
         $submission=$this->input->post('submission');
 
-        $query=$this->db->get('master_vendor_detail');
-        print_r($this->cart->contents());
+        $edit_type_bid=$this->input->post('edit_type_bid')+1;
+
+         $email_id=$this->session->userdata('buy_email_id');
+
+          if(empty($this->cart->contents())){
+             $this->session->set_flashdata('error_message',  'Please choose atleast Vendor complete process of saving');
+            redirect('buyer-user-create-new-pr/'.$pr_no.'/'.$slno_pr.'/'.$job_code.'/'.$tech_evalution);
+          }
+
+
+        // `Slno_bid`, `pr_slno`, `bid_date_entry`, `bid_ref`, `bid_id`, `category`, `mode_bid`, `technical_bid_type`, `status_bid`, `pr_no`, `job_code`, `edit_id`, `bid_title`, `bid_description`, `data_entry`, `bid_creator_id`, `date_publish`, `date_closing`
+            $data_bid_master = array('pr_slno'=>$slno_pr, 'bid_date_entry'=>$date_create, 'bid_ref'=>$bid_ref_no, 'bid_id'=>$bid_Id,'mode_bid'=>$bid_method, 'technical_bid_type'=>$tech_evalution, 'status_bid'=>'4', 'pr_no'=>$pr_no, 'job_code'=>$job_code, 'edit_id'=>$edit_type_bid,'bid_title'=>$bid_title,'bid_description'=>$bid_work_description,'bid_creator_id'=>$email_id,'date_publish'=>$date_publish,'date_closing'=>$date_closing);
+            $query_bid_master=$this->db->insert('master_bid_m',$data_bid_master);
+
+            $insert_id = $this->db->insert_id();
+         if($query_bid_master){         
+                $data_title = array('pr_slno'=>$slno_pr, 'Title_bid'=>$bid_title, 'work_detail_bid'=>$bid_work_description, 'period_work_detail'=>$bid_period_work, 'location_detail'=>$bid_location_work, 'master_bid_id'=>$insert_id,'pr_no'=>$pr_no,'edit_id_bid'=>$edit_type_bid);
+                $query_title_master=$this->db->insert('master_bid_details_m',$data_title);
+               
+                $data_bid_date = array('pr_slno'=>$slno_pr, 'bid_start_date'=>$date_start_bid, 'bid_closed_date'=>$date_closed_bid, 'bid_query_closed_date'=>$date_clearfication_bid, 'status'=>'4', 'master_bid_id'=>$insert_id,'bid_detail_description'=>$bid_detail_description,'pr_no'=>$pr_no,'edit_id_bid'=>$edit_type_bid);
+                $query_bid_date_master=$this->db->insert('master_bid_date_details_m',$data_bid_date);
+
+               
+
+                 $bid_technical = array('pr_slno'=>$slno_pr, 'pr_no'=>$pr_no, 'Technical_id_person'=>$Technical_ev, 'master_bid_id'=>$insert_id,'edit_id_bid'=>$edit_type_bid);
+                $query_technical_master=$this->db->insert('master_bid_technicalevaluation_m',$bid_technical);
+
+           
+            $data_email_ids = array();
         foreach ($this->cart->contents() as $items) {
             $ID_VENDORS=$items['id'];
              $query=$this->db->get_where('master_vendor_detail', array('Slno_vendor' => $ID_VENDORS));
              $results_id=$query->result();
+             $key_vendor=$results_id[0]->Vendor_email_id;
+             $data_email_ids[] = array('Slno_vendor'=>$ID_VENDORS,'vendor_email'=>$key_vendor);
+
+                    $vendor_infom = array('edit_id_bid'=>$edit_type_bid, 'slno_vendor_id_master'=>$ID_VENDORS, 'vendor_id'=>$key_vendor, 'status'=>4, 'title'=>$bid_title, 'description'=>$bid_work_description, 'date_start'=>$date_start_bid, 'date_end'=>$date_closed_bid,'query_end_date'=>$date_clearfication_bid, 'master_bid_id'=>$insert_id,'bid_ref'=>$bid_ref_no, 'bid_id'=>$bid_Id, 'mode_bid'=>$bid_method, 'technical_bid_type'=>$tech_evalution, 'pr_slno'=>$slno_pr, 'pr_no'=>$pr_no, 'job_code'=>$job_code, 'edit_id'=>$edit_type );
+                    $query_vendor_inform_master=$this->db->insert('master_bid_vendor_m',$vendor_infom);
+               
+
 
         }
-                            // 
+          $infom_tc = array('pr_no'=>$pr_no,'pr_slno'=>$slno_pr,'edit_id_bid'=>$edit_type_bid,'t_c_detail'=>$terms_condition);
+        // `pr_no`, `pr_slno`, `edit_id_bid`, `t_c_detail`
 
-        // $items['id'];
-        // Array ( [a87ff679a2f3e71d9181a67b7542122c] => Array ( [id] => 4 [name] => INFOLEX METAMORF BUSINESS SOLUTIONS PRIVATE LIMITED [qty] => 1 [price] => 1 [rowid] => a87ff679a2f3e71d9181a67b7542122c [subtotal] => 1 ) [c81e728d9d4c2f636f067f89cc14862c] => Array ( [id] => 2 [name] => vendor pvt ltd [qty] => 1 [price] => 1 [rowid] => c81e728d9d4c2f636f067f89cc14862c [subtotal] => 1 ) [c20ad4d76fe97759aa27a0c99bff6710] => Array ( [id] => 12 [name] => TTS [qty] => 1 [price] => 1 [rowid] => c20ad4d76fe97759aa27a0c99bff6710 [subtotal] => 1 ) ) 
+          $query_tec=$this->db->insert('master_bid_t_c_tech_m',$infom_tc);
 
-        if($submission=='Save'){
 
-        }else if($submission=='Sent'){
+             $result_procuremnet=$this->buyer_user->get_technical_commerial_user_list($Technical_ev,9);
+                    $proc_details=$result_procuremnet['user_approver'][0];
+                    $tech_email_id=$proc_details->email_id;
+                    $Procurement_name=$proc_details->Username;
+                    
+            if($submission=='Save'){
+
+                $date_processing = array('buyer_user_status' => 3,'buyer_date_tech'=>date('Y-m-d'),'technical_user_id'=>$tech_email_id, 'technical_user_slno'=>$Technical_ev,'technical_bid_id'=>$bid_Id,'technical_bid_ref'=>$bid_ref_no,'technical_edit_id'=>$edit_type_bid,'technical_type_bid'=>$bid_method,'commercial_bid_id'=>$bid_Id,'commercial_bid_ref'=>$bid_ref_no,'    technical_user_status'=>2,'techno_commercial_status'=>3);
+                $process_id = array('pr_no' => $pr_no );
+                $query_process=$this->db->update('master_pr_process_detail',$date_processing,$process_id);
+                 $this->session->set_flashdata('success_message', ' Successfully Bid Is Published ');
+                redirect('user-buyer-home');
+                exit();
+
+            }else if($submission=='Sent'){
+                $data_master_bid = array('pr_slno'=>$slno_pr, 'pr_no'=>$pr_no, 'edit_id'=>$edit_type_bid);
+                $update_status_master = array('status_bid'=>'1');
+                $this->db->update('master_bid_m',$update_status_master,$data_master_bid);
+                $data_update_id = array('pr_slno'=>$slno_pr,'pr_no'=>$pr_no,'edit_id_bid'=>$edit_type_bid);
+                $date_date_status = array('status' => 1);
+                $this->db->update('master_bid_date_details_m',$date_date_status,$data_update_id);
+                $this->db->update('master_bid_technicalevaluation_m',$update_status_master,$data_update_id);
+
+                $this->db->update('master_bid_vendor_m',$date_date_status,$data_update_id);
+               
+
+                $date_processing = array('buyer_user_status' => 3,'buyer_date_tech'=>date('Y-m-d'),'technical_user_id'=>$tech_email_id, 'technical_user_slno'=>$Technical_ev,'technical_bid_id'=>$bid_Id,'technical_bid_ref'=>$bid_ref_no,'technical_edit_id'=>$edit_type_bid,'technical_type_bid'=>$bid_method,'commercial_bid_id'=>$bid_Id,'commercial_bid_ref'=>$bid_ref_no,'    technical_user_status'=>2,'techno_commercial_status'=>3);
+                $process_id = array('pr_no' => $pr_no );
+                $query_process=$this->db->update('master_pr_process_detail',$date_processing,$process_id);
+
+                $this->session->set_flashdata('success_message', ' Successfully Bid Is Published ');
+                redirect('user-buyer-home');
+                exit();
+            }else{
+
+            }
 
         }else{
-
+             $this->session->set_flashdata('error_message',  'Some thing went wrong please Try Again');
+                redirect('buyer-user-create-new-pr/'.$pr_no.'/'.$slno_pr.'/'.$job_code.'/'.$tech_evalution);
         }
+
+   
+      
+                         
+
+      
+
+        
     }
 
 }

@@ -66,6 +66,17 @@ $result_table=$query_data->result();
 			}
 			 // print_r($this->session->userdata());
 			 ?>
+			 <?php if(!empty($this->session->flashdata('error_message'))){?>
+			<div class="alert alert-danger fade show">
+			  <span class="close" data-dismiss="alert">×</span>
+			  <strong>Error!</strong>
+			  <?=$this->session->flashdata('error_message')?> 
+			  <!-- <a href="#" class="alert-link">an example link</a>.  -->
+			</div>
+			<?php 
+			}
+			 // print_r($this->session->userdata());
+			 ?>
 
 			<!-- begin panel -->
 			<div class="panel panel-inverse">
@@ -98,6 +109,7 @@ $result_table=$query_data->result();
 										<input type="hidden" readonly="" name="job_code" id="job_code" value="<?=$job_code?>">
 										<input class="form-control m-b-5"  name="pr_no_type" id="pr_no_type" type="hidden" value="new_pr_creater" required="" readonly>
 										<input class="form-control m-b-5"  name="edit_type" id="edit_type" type="hidden" value="<?=$edit_id=$result_table[0]->edit_id?>"required="" readonly>
+										<input class="form-control m-b-5"  name="edit_type_bid" id="edit_type" type="hidden" value="<?=$edit_id_bid=$result_process[0]->technical_edit_id?>"required="" readonly>
 										<input type="hidden"  name="tech_evalution"  value="<?=$result_table[0]->techinal_evalution?>">
 										<input type="hidden"  name="tech_evalution_commer"  value="Technical_start">
 										<small class="f-s-12 text-grey-darker">PR No.</small>

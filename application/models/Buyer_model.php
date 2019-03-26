@@ -5,6 +5,36 @@ class Buyer_model extends CI_Model {
         parent::__construct();
         $this->load->database();
     }
+    public function get_technical_commerial_user_list($value='',$value1=''){
+      if(!empty($value)){
+        $data_array_approver = array('Status' => 1,'role_id'=>$value1,'slno'=>$value);
+        $query_approver=$this->db->get_where('master_admin',$data_array_approver);
+        if($query_approver->num_rows() == 0){
+          $data_send = array('no_user' =>2 );
+          return $data_send;
+          exit;
+        }else{
+          $results=$query_approver->result();
+          $data_send = array('no_user' =>1, 'user_tech_comm'=>$results);
+          return $data_send;
+          exit;
+        }  
+      }else{
+        $data_array_approver = array('Status' => 1,'role_id'=>$value1);
+        $query_approver=$this->db->get_where('master_admin',$data_array_approver);
+        if($query_approver->num_rows() == 0){
+          $data_send = array('no_user' =>2 );
+          return $data_send;
+          exit;
+        }else{
+          $results=$query_approver->result();
+          $data_send = array('no_user' =>1, 'user_tech_comm'=>$results);
+          return $data_send;
+          exit;
+        }  
+      }
+         
+    }
     public function buyer_mr_receive_list($email='',$type='',$slno=''){
       // complete_status_bid
       $this->db->where('complete_status_bid','0');
