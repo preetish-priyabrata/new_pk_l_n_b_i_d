@@ -23,7 +23,7 @@ if(empty($email_id)){
 			</ol>
 			<!-- end breadcrumb -->
 			<!-- begin page-header -->
-			<h1 class="page-header">New Bids view details
+			<h1 class="page-header">View New Bids 
 			 <!-- <small>header small text goes here...</small> -->
 			</h1>
 			<!-- end page-header -->
@@ -76,7 +76,7 @@ if(empty($email_id)){
 													}
 												?>
 											</select>
-											<small class="f-s-12 text-grey-darker">Please Select Project For Upload PR Schedule Complete</small>
+											<small class="f-s-12 text-grey-darker">Please Select Project For Upload PR Schedule </small>
 										</div>
 									</div>
 								</div>
@@ -110,22 +110,19 @@ if(empty($email_id)){
 				?>
 			<div class="panel panel-inverse">
 				<div class="panel-heading">					
-					<h4 class="panel-title"> PR Schedule Complete List</h4>
+					<h4 class="panel-title"> PR Schedule List </h4>
 				</div>
 				<div class="panel-body">
 
 					<table id="example" class="display" style="width:100%">
 						<thead>
                     <tr>
-                      <th>Discipline</th>
                       <th>PR No</th>
-                      <th>Area</th>
                       <th>Item</th>
-                      <th>UOM</th>
-                      <th>Quantity</th>
-                      <th>Original Schedule</th>                      
-                      <th>Status</th>
-                      <th>Action</th>
+                      <th>Bid Ref</th>
+                      <th>Bid Id</th>
+                      <!-- <th>Bid Publish Date</th> -->
+                      <th>View</th>
                       
                     </tr>
                 </thead>
@@ -133,23 +130,26 @@ if(empty($email_id)){
 					<?php
 					 foreach($query->result() as $row){
 					 	$pr_no=$row->pr_no;
-					 	$data_check=array('pr_no'=>$pr_no,'procurement_user_id'=>$email_id,'approver_user_status'=>1,'design_user_status'=>1,'procurement_user_status'=>2);
+					 	$data_check=array('pr_no'=>$pr_no,'technical_user_id'=>$email_id,'approver_user_status'=>1,'design_user_status'=>1,'technical_user_status'=>2);
 					 	$query_check=$this->db->get_where('master_pr_process_detail',$data_check);
 					 	$num_rows_check=$query_check->num_rows();
 					 	if($num_rows_check!=0){
 					 		$result_id=$query_check->result();
+
+					 		$technical_bid_ref=$result_id[0]->technical_bid_ref;
+					 		$technical_bid_id=$result_id[0]->technical_bid_id;
 					 		
 					 		$design_user_status=$result_id[0]->procurement_user_status;
 					 		$url="#";
 					 		switch ($design_user_status) {
 					 			case '1': // completed
 					 				$status_detai="Forward";
-					 					$url='<a href="'.base_url().'procurement-user-create-new-material/'.$row->pr_no.'/'.$row->slno.'/'.$row->job_code.'/3" > Click to View </a>';
+					 					$url='<a href="'.base_url().'technical-user-create-new-material/'.$row->pr_no.'/'.$row->slno.'/'.$row->job_code.'/3" > Click to View </a>';
 					 				break;
 					 			case '2': //drafted
 					 					$status_detai="Not Forward";
 					 					$url='#';
-					 						$url='<a href="'.base_url().'procurement-user-create-new-material/'.$row->pr_no.'/'.$row->slno.'/'.$row->job_code.'/3" > Click to View/ forward </a>';
+					 						$url='<a href="'.base_url().'technical-user-create-new-material/'.$row->pr_no.'/'.$row->slno.'/'.$row->job_code.'/3" > Click to View/ forward </a>';
 					 				break;
 					 			
 					 			
@@ -159,15 +159,13 @@ if(empty($email_id)){
 					 		}
 		                    echo '
 		                    <tr>
-		                      <td>'.$row->discipline.'</td>
 		                      <td>'.$row->pr_no.'</td>
-		                      <td>'.$row->area.'</td>
 		                      <td>'.$row->item.'</td>
-		                      <td>'.$row->UOM.'</td>
-		                      <td>'.$row->quantity.'</td>
-		                      <td>'.$row->original_schedule.'</td> 
+		                      <td>'.$technical_bid_ref.'</td>
+		                      <td>'.$technical_bid_id.'</td>
 		                      
-		                      <td>'.$status_detai.'</td>
+		                      
+		                    
 		                      <td>'.$url.'</td>
 		                    </tr>
 		                    ';

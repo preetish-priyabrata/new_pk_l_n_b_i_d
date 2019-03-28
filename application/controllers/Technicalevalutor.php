@@ -21,6 +21,7 @@ class Technicalevalutor extends CI_Controller {
          $this->load->library('encryption');
          $this->load->library('form_validation');
          $this->load->library('cronfile');
+         $this->load->helper('string');
          $this->cronfile->index_event();
 
 
@@ -148,19 +149,36 @@ class Technicalevalutor extends CI_Controller {
 
         # code...
     }
-     public function technical_evalutor_pr_create($value=''){ // will show mr in mr received
+     public function user_technical_evalutor_pr_receive($value=''){ // will show mr in mr received
         $scripts='<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script><script src=" https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script> <script src="'.base_url().'file_css_admin/own_js.js"></script>';
             $data=array('title' =>"Buyer List Of Mr Received",'script_js'=>$scripts,'menu_status'=>'1','sub_menu'=>'1','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'');
             $this->load->view('template/template_header',$data);
             $this->load->view('tech_evalutor_user/template/template_top_head');
             $this->load->view('tech_evalutor_user/template/template_side_bar',$data);
-            $this->load->view('tech_evalutor_user/pr_create/create_view_new_bids');
+            $this->load->view('tech_evalutor_user/pr_create/create_view_new_bids',$data);
             $this->load->view('template/template_footer',$data);
        # code...
    }
 
 
 
+public function technical_user_create_new_material($value='',$value1='',$value2='',$value3=''){ // will show mr in mr received
+        $scripts='<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script><script src=" https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script> <script src="'.base_url().'file_css_admin/own_js.js"></script>';
+            $data=array('title' =>"Buyer List Of Mr Received",'script_js'=>$scripts,'menu_status'=>'1','sub_menu'=>'1','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','Pr_no'=>$value,'Pr_no_slno'=>$value1,'Project_slno'=>$value2,'edit_type'=>$value3);
+            $this->load->view('template/template_header',$data);
+            $this->load->view('tech_evalutor_user/template/template_top_head');
+            $this->load->view('tech_evalutor_user/template/template_side_bar',$data);
+            $this->load->view('tech_evalutor_user/pr_details/view_details_create_view_new_bids',$data);
+            $this->load->view('template/template_footer',$data);
+       # code...
+   }
+   //public function technical_evalutor_pr_create_save(){
+    //print_r($this->input->post());
+
+     //$pr_no=$this->input->post('pr_no');
+     //$bid_ref_no=$this->input->post('bid_ref_no');    
+     //$bid_Id=$this->input->post('bid_Id');
+   //}
 
 
     public function technical_evalutor_get_approved_reject_save($value=''){

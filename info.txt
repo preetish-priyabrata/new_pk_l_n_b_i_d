@@ -1,0 +1,29 @@
+TRUNCATE `Ilab_master_bid_date_details_m`;
+TRUNCATE `Ilab_master_bid_details_m`;
+TRUNCATE `Ilab_master_bid_m`;
+TRUNCATE `Ilab_master_bid_technicalevaluation_m`;
+TRUNCATE `Ilab_master_bid_t_c_tech_m`;
+TRUNCATE `Ilab_master_bid_vendor_m`;
+
+
+Ilab_master_bid_Com_date_details_m
+
+
+Ilab_master_bid_Com_details_m
+
+Ilab_master_bid_Com_m
+
+Ilab_master_bid_Com_evaluation_m
+
+Ilab_master_bid_t_c_comm_m
+
+Ilab_master_bid_Com_vendor_m
+
+
+TRUNCATE `Ilab_master_bid_Com_date_details_m`;
+TRUNCATE `Ilab_master_bid_Com_details_m`;
+TRUNCATE `Ilab_master_bid_Com_m`;
+TRUNCATE `Ilab_master_bid_Com_evaluation_m`;
+TRUNCATE `Ilab_master_bid_t_c_comm_m`;
+TRUNCATE `Ilab_master_bid_Com_vendor_m`;
+TRUNCATE `Ilab_master_mr_material_item_comm_m`;

@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Mar 26, 2019 at 07:40 PM
+-- Generation Time: Mar 28, 2019 at 07:05 PM
 -- Server version: 5.7.25-0ubuntu0.18.04.2
--- PHP Version: 7.2.15-0ubuntu0.18.04.1
+-- PHP Version: 7.2.15-0ubuntu0.18.04.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -347,6 +347,170 @@ INSERT INTO `Ilab_master_bid_commericalevaluation` (`slno_bid_tech_id`, `bid_sln
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `Ilab_master_bid_Com_date_details_m`
+--
+
+CREATE TABLE `Ilab_master_bid_Com_date_details_m` (
+  `Slno_bid_date` int(11) NOT NULL,
+  `pr_slno` int(11) NOT NULL,
+  `bid_start_date` varchar(255) DEFAULT NULL,
+  `bid_closed_date` varchar(255) DEFAULT NULL,
+  `bid_query_closed_date` varchar(255) DEFAULT NULL,
+  `status` int(11) NOT NULL DEFAULT '0' COMMENT '4- no active  1-> active bid 0->closed 2->internal process',
+  `master_bid_id` int(11) NOT NULL,
+  `bid_detail_description` text NOT NULL,
+  `pr_no` varchar(255) NOT NULL,
+  `edit_id_bid` int(11) NOT NULL DEFAULT '0',
+  `commercial_resubmit_count` int(11) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `Ilab_master_bid_Com_date_details_m`
+--
+
+INSERT INTO `Ilab_master_bid_Com_date_details_m` (`Slno_bid_date`, `pr_slno`, `bid_start_date`, `bid_closed_date`, `bid_query_closed_date`, `status`, `master_bid_id`, `bid_detail_description`, `pr_no`, `edit_id_bid`, `commercial_resubmit_count`) VALUES
+(1, 1, '2019-03-24', '2019-03-30', '2019-03-27', 4, 1, 'Any dispute relating in any way to your visit to the AWS Site or to services provided by AWS or through the AWS Site in which the aggregate total claim for relief sought on behalf of one or more parties exceeds $7,500 shall be adjudicated in any state or federal court in King County, Washington, and you consent to exclusive jurisdiction and venue in such courts.', 'O18191-950-E-K-30101-001', 2, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Ilab_master_bid_Com_details_m`
+--
+
+CREATE TABLE `Ilab_master_bid_Com_details_m` (
+  `slno_bid_detail` int(11) NOT NULL,
+  `pr_slno` int(11) NOT NULL,
+  `Title_bid` varchar(255) NOT NULL,
+  `work_detail_bid` text NOT NULL,
+  `period_work_detail` varchar(255) NOT NULL,
+  `location_detail` varchar(255) NOT NULL,
+  `master_bid_id` int(11) NOT NULL,
+  `pr_no` varchar(255) NOT NULL,
+  `edit_id_bid` int(11) NOT NULL DEFAULT '0',
+  `commercial_resubmit_count` int(11) DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `Ilab_master_bid_Com_details_m`
+--
+
+INSERT INTO `Ilab_master_bid_Com_details_m` (`slno_bid_detail`, `pr_slno`, `Title_bid`, `work_detail_bid`, `period_work_detail`, `location_detail`, `master_bid_id`, `pr_no`, `edit_id_bid`, `commercial_resubmit_count`) VALUES
+(1, 1, 'Test bid summary', 'Please review our other policies on the AWS Site. These policies also govern your visit to the AWS Site. We reserve the right to make changes to the AWS Site, policies, and these Site Terms at any time. If any of these conditions shall be deemed invalid, void, or for any reason unenforceable, that condition shall be deemed severable and shall not affect the validity and enforceability of any remaining condition.', '6 month', 'Bhubanswar', 1, 'O18191-950-E-K-30101-001', 2, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Ilab_master_bid_Com_evaluation_m`
+--
+
+CREATE TABLE `Ilab_master_bid_Com_evaluation_m` (
+  `slno_bid_tech_id` int(11) NOT NULL,
+  `pr_slno` int(11) NOT NULL,
+  `pr_no` varchar(255) NOT NULL,
+  `commerical_id_person` varchar(255) NOT NULL,
+  `master_bid_id` int(11) NOT NULL,
+  `status_bid` int(11) NOT NULL DEFAULT '0' COMMENT '0->not started  1->started  8->complete bid',
+  `view_status` int(11) NOT NULL DEFAULT '0' COMMENT '0->not viewed 1->viewied',
+  `edit_id_bid` int(11) NOT NULL DEFAULT '0',
+  `commercial_resubmit_count` int(11) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `Ilab_master_bid_Com_evaluation_m`
+--
+
+INSERT INTO `Ilab_master_bid_Com_evaluation_m` (`slno_bid_tech_id`, `pr_slno`, `pr_no`, `commerical_id_person`, `master_bid_id`, `status_bid`, `view_status`, `edit_id_bid`, `commercial_resubmit_count`) VALUES
+(1, 1, 'O18191-950-E-K-30101-001', '21', 1, 0, 0, 2, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Ilab_master_bid_Com_m`
+--
+
+CREATE TABLE `Ilab_master_bid_Com_m` (
+  `Slno_bid` int(11) NOT NULL,
+  `pr_slno` int(11) NOT NULL COMMENT 'here pr slno comes from process table',
+  `bid_date_entry` date NOT NULL,
+  `bid_ref` varchar(255) NOT NULL,
+  `bid_id` varchar(255) NOT NULL,
+  `category` varchar(255) DEFAULT NULL,
+  `mode_bid` varchar(255) NOT NULL,
+  `technical_bid_type` varchar(255) NOT NULL,
+  `status_bid` int(11) NOT NULL DEFAULT '1' COMMENT '4- no active  1-> active bid 0->closed 2->internal process',
+  `pr_no` varchar(255) NOT NULL,
+  `job_code` varchar(255) NOT NULL,
+  `edit_id` int(11) NOT NULL COMMENT 'bid project  edit id ',
+  `bid_title` varchar(255) NOT NULL,
+  `bid_description` text NOT NULL,
+  `data_entry` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `bid_creator_id` varchar(255) NOT NULL,
+  `date_publish` varchar(255) NOT NULL,
+  `date_closing` varchar(255) NOT NULL,
+  `commercial_resubmit_count` int(11) NOT NULL DEFAULT '0',
+  `Ace_value_detail` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `Ilab_master_bid_Com_m`
+--
+
+INSERT INTO `Ilab_master_bid_Com_m` (`Slno_bid`, `pr_slno`, `bid_date_entry`, `bid_ref`, `bid_id`, `category`, `mode_bid`, `technical_bid_type`, `status_bid`, `pr_no`, `job_code`, `edit_id`, `bid_title`, `bid_description`, `data_entry`, `bid_creator_id`, `date_publish`, `date_closing`, `commercial_resubmit_count`, `Ace_value_detail`) VALUES
+(1, 1, '2019-03-28', 'REF 2018', 'bid 0012', NULL, 'Closed Bid', '2', 4, 'O18191-950-E-K-30101-001', '1', 2, 'Test bid summary', 'Please review our other policies on the AWS Site. These policies also govern your visit to the AWS Site. We reserve the right to make changes to the AWS Site, policies, and these Site Terms at any time. If any of these conditions shall be deemed invalid, void, or for any reason unenforceable, that condition shall be deemed severable and shall not affect the validity and enforceability of any remaining condition.', '2019-03-28 12:53:21', 'buy1@ilab.com', '2019-03-24', '2019-03-30', 0, '100000');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Ilab_master_bid_Com_vendor_m`
+--
+
+CREATE TABLE `Ilab_master_bid_Com_vendor_m` (
+  `slno_vendor` int(11) NOT NULL,
+  `edit_id_bid` int(11) NOT NULL DEFAULT '0',
+  `vendor_id` varchar(255) NOT NULL,
+  `slno_vendor_id_master` int(11) NOT NULL,
+  `status` int(11) NOT NULL DEFAULT '0',
+  `approval_status` varchar(255) DEFAULT NULL,
+  `submission_status` varchar(255) DEFAULT '0',
+  `submission_count` varchar(255) NOT NULL DEFAULT '0',
+  `title` varchar(255) NOT NULL,
+  `description` varchar(255) NOT NULL,
+  `date_start` varchar(255) NOT NULL,
+  `date_end` varchar(255) NOT NULL,
+  `query_end_date` varchar(255) NOT NULL,
+  `master_bid_id` int(11) NOT NULL,
+  `view_status_approve` int(11) NOT NULL DEFAULT '0',
+  `bid_ref` varchar(255) NOT NULL,
+  `bid_id` varchar(255) NOT NULL,
+  `category` varchar(255) NOT NULL,
+  `mode_bid` varchar(255) NOT NULL,
+  `technical_bid_type` varchar(255) NOT NULL,
+  `pr_slno` int(11) NOT NULL,
+  `pr_no` varchar(255) NOT NULL,
+  `job_code` varchar(255) NOT NULL,
+  `edit_id` int(11) NOT NULL,
+  `material_category_name` varchar(255) NOT NULL,
+  `date_entry` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `date_update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `status_active` int(11) NOT NULL DEFAULT '0' COMMENT '0-bid is not active 1-bid is active 2-bid is close',
+  `status_view` int(11) NOT NULL DEFAULT '5' COMMENT '5-not viewed 6-viewed 7-submitted 8-> resubmission',
+  `comment` text,
+  `commercial_resubmit_count` int(11) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `Ilab_master_bid_Com_vendor_m`
+--
+
+INSERT INTO `Ilab_master_bid_Com_vendor_m` (`slno_vendor`, `edit_id_bid`, `vendor_id`, `slno_vendor_id_master`, `status`, `approval_status`, `submission_status`, `submission_count`, `title`, `description`, `date_start`, `date_end`, `query_end_date`, `master_bid_id`, `view_status_approve`, `bid_ref`, `bid_id`, `category`, `mode_bid`, `technical_bid_type`, `pr_slno`, `pr_no`, `job_code`, `edit_id`, `material_category_name`, `date_entry`, `date_update`, `status_active`, `status_view`, `comment`, `commercial_resubmit_count`) VALUES
+(1, 2, 'vender2@ilab.com', 1, 4, NULL, '0', '0', 'Test bid summary', 'Please review our other policies on the AWS Site. These policies also govern your visit to the AWS Site. We reserve the right to make changes to the AWS Site, policies, and these Site Terms at any time. If any of these conditions shall be deemed invalid, ', '2019-03-24', '2019-03-30', '2019-03-27', 1, 0, 'REF 2018', 'bid 0012', '', 'Closed Bid', '2', 1, 'O18191-950-E-K-30101-001', '1', 3, '', '2019-03-28 12:53:21', '2019-03-28 12:53:21', 0, 5, NULL, 0),
+(2, 2, 'vender@ilab.com', 2, 4, NULL, '0', '0', 'Test bid summary', 'Please review our other policies on the AWS Site. These policies also govern your visit to the AWS Site. We reserve the right to make changes to the AWS Site, policies, and these Site Terms at any time. If any of these conditions shall be deemed invalid, ', '2019-03-24', '2019-03-30', '2019-03-27', 1, 0, 'REF 2018', 'bid 0012', '', 'Closed Bid', '2', 1, 'O18191-950-E-K-30101-001', '1', 3, '', '2019-03-28 12:53:21', '2019-03-28 12:53:21', 0, 5, NULL, 0),
+(3, 2, 'ven121@gmail.com', 4, 4, NULL, '0', '0', 'Test bid summary', 'Please review our other policies on the AWS Site. These policies also govern your visit to the AWS Site. We reserve the right to make changes to the AWS Site, policies, and these Site Terms at any time. If any of these conditions shall be deemed invalid, ', '2019-03-24', '2019-03-30', '2019-03-27', 1, 0, 'REF 2018', 'bid 0012', '', 'Closed Bid', '2', 1, 'O18191-950-E-K-30101-001', '1', 3, '', '2019-03-28 12:53:21', '2019-03-28 12:53:21', 0, 5, NULL, 0),
+(4, 2, 'ven310@yahoo.com', 7, 4, NULL, '0', '0', 'Test bid summary', 'Please review our other policies on the AWS Site. These policies also govern your visit to the AWS Site. We reserve the right to make changes to the AWS Site, policies, and these Site Terms at any time. If any of these conditions shall be deemed invalid, ', '2019-03-24', '2019-03-30', '2019-03-27', 1, 0, 'REF 2018', 'bid 0012', '', 'Closed Bid', '2', 1, 'O18191-950-E-K-30101-001', '1', 3, '', '2019-03-28 12:53:21', '2019-03-28 12:53:21', 0, 5, NULL, 0);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `Ilab_master_bid_date_details`
 --
 
@@ -434,6 +598,13 @@ CREATE TABLE `Ilab_master_bid_date_details_m` (
   `edit_id_bid` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `Ilab_master_bid_date_details_m`
+--
+
+INSERT INTO `Ilab_master_bid_date_details_m` (`Slno_bid_date`, `pr_slno`, `bid_start_date`, `bid_closed_date`, `bid_query_closed_date`, `status`, `master_bid_id`, `bid_detail_description`, `pr_no`, `edit_id_bid`) VALUES
+(1, 8, '2019-03-25', '2019-03-30', '2019-03-28', 1, 1, 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).\r\n', 'O18191-950-E-K-30108-001', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -520,6 +691,13 @@ CREATE TABLE `Ilab_master_bid_details_m` (
   `pr_no` varchar(255) NOT NULL,
   `edit_id_bid` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `Ilab_master_bid_details_m`
+--
+
+INSERT INTO `Ilab_master_bid_details_m` (`slno_bid_detail`, `pr_slno`, `Title_bid`, `work_detail_bid`, `period_work_detail`, `location_detail`, `master_bid_id`, `pr_no`, `edit_id_bid`) VALUES
+(1, 8, 'Test bid summary', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', '6 month', 'Bhubanswar', 1, 'O18191-950-E-K-30108-001', 1);
 
 -- --------------------------------------------------------
 
@@ -784,6 +962,13 @@ CREATE TABLE `Ilab_master_bid_m` (
   `date_closing` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `Ilab_master_bid_m`
+--
+
+INSERT INTO `Ilab_master_bid_m` (`Slno_bid`, `pr_slno`, `bid_date_entry`, `bid_ref`, `bid_id`, `category`, `mode_bid`, `technical_bid_type`, `status_bid`, `pr_no`, `job_code`, `edit_id`, `bid_title`, `bid_description`, `data_entry`, `bid_creator_id`, `date_publish`, `date_closing`) VALUES
+(1, 8, '2019-03-27', 'bid 1', 'bid 001', NULL, 'Simple Bid', '1', 1, 'O18191-950-E-K-30108-001', '1', 1, 'Test bid summary', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', '2019-03-27 07:17:16', 'buy1@ilab.com', '2019-03-25', '2019-03-30');
+
 -- --------------------------------------------------------
 
 --
@@ -954,6 +1139,13 @@ CREATE TABLE `Ilab_master_bid_technicalevaluation_m` (
   `edit_id_bid` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `Ilab_master_bid_technicalevaluation_m`
+--
+
+INSERT INTO `Ilab_master_bid_technicalevaluation_m` (`slno_bid_tech_id`, `pr_slno`, `pr_no`, `Technical_id_person`, `master_bid_id`, `status_bid`, `view_status`, `edit_id_bid`) VALUES
+(1, 8, 'O18191-950-E-K-30108-001', '19', 1, 1, 0, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -966,8 +1158,16 @@ CREATE TABLE `Ilab_master_bid_t_c_comm_m` (
   `pr_slno` int(11) NOT NULL,
   `edit_id_bid` int(11) NOT NULL DEFAULT '0',
   `t_c_detail` text NOT NULL,
-  `data_entry` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `data_entry` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `commercial_resubmit_count` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `Ilab_master_bid_t_c_comm_m`
+--
+
+INSERT INTO `Ilab_master_bid_t_c_comm_m` (`slno`, `pr_no`, `pr_slno`, `edit_id_bid`, `t_c_detail`, `data_entry`, `commercial_resubmit_count`) VALUES
+(1, 'O18191-950-E-K-30101-001', 1, 2, '<div>\r\n<div>\r\n<h3><a name=\"ELECTRONIC_COMMUNICATIONS\"> ELECTRONIC COMMUNICATIONS </a></h3>\r\n</div>\r\n</div>\r\n\r\n<div>\r\n<p>When you visit the AWS Site or send e-mails to us, you are communicating with us electronically. You consent to receive communications from us electronically. We will communicate with you by e-mail or by posting notices on the AWS Site. You agree that all agreements, notices, disclosures and other communications that we provide to you electronically satisfy any legal requirement that such communications be in writing.</p>\r\n</div>\r\n\r\n<div>\r\n<div>\r\n<h3><a name=\"COPYRIGHT\"> COPYRIGHT </a></h3>\r\n</div>\r\n</div>\r\n\r\n<div>\r\n<p>All content included on the AWS Site, such as text, graphics, logos, button icons, images, audio clips, digital downloads, data compilations, and software, is the property of AWS or its content suppliers and protected by United States and international copyright laws. The compilation of all content on the AWS Site is the exclusive property of AWS and protected by U.S. and international copyright laws. All software used on the AWS Site is the property of AWS or its software suppliers and protected by United States and international copyright laws.</p>\r\n</div>\r\n\r\n<div>\r\n<div>\r\n<h3><a name=\"TRADEMARKS\"> TRADEMARKS </a></h3>\r\n</div>\r\n</div>\r\n\r\n<div>\r\n<p>&ldquo;Amazon Web Services&rdquo;, &ldquo;AWS&rdquo;, &ldquo;Amazon EC2&rdquo;, &ldquo;EC2&rdquo;, &ldquo;Amazon Elastic Compute Cloud&rdquo;, &ldquo;Amazon Virtual Private Cloud&rdquo;, &ldquo;Amazon VPC&rdquo;, &ldquo;Amazon SimpleDB&rdquo;, &ldquo;SimpleDB&rdquo;, &ldquo;Amazon S3&rdquo;, &ldquo;Amazon Simple Storage Service&rdquo;, &ldquo;Amazon CloudFront&rdquo;, &ldquo;CloudFront&rdquo;, &ldquo;Amazon SQS&rdquo;, &ldquo;SQS&rdquo;, &ldquo;Amazon Simple Queue Service&rdquo;, &ldquo;Amazon Simple Email Service&rdquo;, &ldquo;Amazon Elastic Beanstalk&rdquo;, &ldquo;Amazon Simple Notification Service&rdquo;, &ldquo;Amazon Route 53&rdquo;, &ldquo;Amazon RDS&rdquo;, &ldquo;Amazon Relational Database&rdquo;, &ldquo;Amazon CloudWatch&rdquo;, &ldquo;AWS Premium Support&rdquo;, &ldquo;AWS Import/Export&rdquo;, &ldquo;Amazon FPS&rdquo;, &ldquo;Amazon Flexible Payments Service&rdquo;, &ldquo;Amazon DevPay&rdquo;, &ldquo;DevPay&rdquo;, &ldquo;Amazon Mechanical Turk&rdquo;, &ldquo;Mechanical Turk&rdquo;, &ldquo;Alexa Web Search&rdquo;, &ldquo;Alexa Web Information Service&rdquo;, &ldquo;Alexa Top Sites&rdquo;, &ldquo;Alexa Site Thumbnail&rdquo;, &ldquo;Amazon FWS&rdquo;, &ldquo;Amazon Fulfillment Web Service&rdquo;, &ldquo;Amazon Associates Web Service&rdquo;, and other AWS graphics, logos, page headers, button icons, scripts, and service names are trademarks, registered trademarks or trade dress of AWS in the U.S. and/or other countries. AWS&rsquo;s trademarks and trade dress may not be used in connection with any product or service that is not AWS&rsquo;s, in any manner that is likely to cause confusion among customers, or in any manner that disparages or discredits AWS. All other trademarks not owned by AWS that appear on this Site are the property of their respective owners, who may or may not be affiliated with, connected to, or sponsored by AWS.</p>\r\n</div>\r\n\r\n<div>\r\n<div>\r\n<h3><a name=\"PATENTS\"> PATENTS </a></h3>\r\n</div>\r\n</div>\r\n\r\n<div>\r\n<p>One or more patents owned by Amazon.com, Inc. or its affiliates may apply to the AWS Site and to the features and services accessible via the AWS Site. Portions of the AWS Site may operate under license of one or more patents. <a href=\"http://www.amazon.com/gp/help/customer/display.html/?nodeId=200204190\" onclick=\"s_objectID=&quot;http://www.amazon.com/gp/help/customer/display.html/?nodeId=200204190_1&quot;;return this.s_oc?this.s_oc(e):true\">Click here to see a non-exhaustive list of applicable Amazon patents and applicable licensed patents.&nbsp;&nbsp;</a></p>\r\n</div>\r\n\r\n<div>\r\n<div>\r\n<h3><a name=\"LICENSE_AND_SITE_ACCESS\"> LICENSE AND SITE ACCESS </a></h3>\r\n</div>\r\n</div>\r\n\r\n<div>\r\n<p>AWS grants you a limited license to access and make personal use of the AWS Site and not to download (other than page caching) or modify it, or any portion of it, except with express written consent of AWS. This license does not include any resale or commercial use of the AWS Site or its contents; any derivative use of the AWS Site or its contents; any downloading or copying of account information; or any use of data mining, robots, or similar data gathering and extraction tools. Unless otherwise specified by AWS in a separate license, your right to use any software, data, documentation or other materials that you access or download through the AWS Site is subject to these Site Terms or, if you have an AWS account, the Agreement.</p>\r\n\r\n<p>The AWS Site or any portion of the AWS Site may not be reproduced, duplicated, copied, sold, resold, visited, or otherwise exploited for any commercial purpose without express written consent of AWS. You may not frame or utilize framing techniques to enclose any trademark, logo, or other proprietary information (including images, text, page layout, or form) of AWS without express written consent. You may not use any meta tags or any other &ldquo;hidden text&rdquo; utilizing AWS&rsquo;s name or trademarks without the express written consent of AWS. Any unauthorized use terminates the permission or license granted by AWS. You are granted a limited, revocable, and nonexclusive right to create a hyperlink to the home page of the AWS Site, so long as the link does not portray AWS, or its products or services in a false, misleading, derogatory, or otherwise offensive matter. You may not use any AWS logo or other proprietary graphic or trademark as part of the link without express written permission.</p>\r\n</div>\r\n\r\n<div>\r\n<div>\r\n<h3><a name=\"YOUR_ACCOUNT\"> YOUR ACCOUNT </a></h3>\r\n</div>\r\n</div>\r\n\r\n<div>\r\n<p>If you use the AWS Site, you are responsible for maintaining the confidentiality of your AWS account and password and for restricting access to your computer, and you agree to accept responsibility for all activities that occur under your account or password. AWS reserves the right to refuse service, terminate accounts, remove or edit content in its sole discretion.</p>\r\n</div>\r\n\r\n<div>\r\n<div>\r\n<h3><a name=\"REVIEWS,_COMMENTS,_COMMUNICATIONS,_AND_OTHER_CONTENT\"> REVIEWS, COMMENTS, COMMUNICATIONS, AND OTHER CONTENT </a></h3>\r\n</div>\r\n</div>\r\n\r\n<div>\r\n<p>Visitors may post reviews, comments and other content; and submit suggestions, ideas, comments, questions, or other information, so long as the content is not illegal, obscene, threatening, defamatory, invasive of privacy, infringing of intellectual property rights, or otherwise injurious to third parties or objectionable and does not consist of or contain software viruses, political campaigning, commercial solicitation, chain letters, mass mailings, or any form of &ldquo;spam.&rdquo; You may not use a false e-mail address, impersonate any person or entity, or otherwise mislead as to the origin of a card or other content. AWS reserves the right (but not the obligation) to remove or edit such content, but does not regularly review posted content. If you do post content or submit material, and unless we indicate otherwise, you grant AWS a nonexclusive, royalty-free, perpetual, irrevocable, and fully sublicensable right to use, reproduce, modify, adapt, publish, translate, create derivative works from, distribute, and display such content throughout the world in any media. You grant AWS and sublicensees the right to use the name that you submit in connection with such content, if they choose.</p>\r\n\r\n<p>You and third parties may be permitted to upload certain software (including machine images), data, text, audio, video, images or other content (&ldquo;Third Party Content&rdquo;) to community areas of the AWS Site. You acknowledge that (a) AWS has not tested or screened Third Party Content, (b) you use any Third Party Content is at your sole risk, and&copy; Third Party Content may be subject to separate license terms as determined by the person posting such content.</p>\r\n\r\n<p>You represent and warrant that you own or otherwise control all of the rights to the content, including any Third Party Content, that you post; that the content is accurate; that use of the content you supply does not violate this policy and will not cause injury to any person or entity; and that you will indemnify AWS for all claims resulting from content you supply. AWS has the right but not the obligation to monitor and edit or remove any activity or content. AWS takes no responsibility and assumes no liability for any content posted by you or any third party.</p>\r\n</div>\r\n\r\n<div>\r\n<div>\r\n<h3><a name=\"COPYRIGHT_COMPLAINTS\"> COPYRIGHT COMPLAINTS </a></h3>\r\n</div>\r\n</div>\r\n\r\n<div>\r\n<p>AWS respects the intellectual property of others. If you believe that your work has been copied in a way that constitutes copyright infringement, please follow our <a href=\"http://aws.amazon.com/terms/#notice-and-procedure-for-making-claims-of-copyright-infringement\" onclick=\"s_objectID=&quot;http://aws.amazon.com/terms/#notice-and-procedure-for-making-claims-of-copyright-infringement_1&quot;;return this.s_oc?this.s_oc(e):true\">Notice and Procedure for Making Claims of Copyright Infringement</a>.</p>\r\n</div>\r\n\r\n<div>\r\n<div>\r\n<h3><a name=\"DISCLAIMER_OF_WARRANTIES_AND_LIMITATION_OF_LIABILITY\"> DISCLAIMER OF WARRANTIES AND LIMITATION OF LIABILITY </a></h3>\r\n</div>\r\n</div>\r\n\r\n<div>\r\n<p>THE AWS SITE AND ALL INFORMATION, CONTENT, MATERIALS, PRODUCTS (INCLUDING ANY SOFTWARE) AND SERVICES INCLUDED ON OR OTHERWISE MADE AVAILABLE TO YOU THROUGH THIS SITE ARE PROVIDED BY AWS ON AN &ldquo;AS IS&rdquo; AND &ldquo;AS AVAILABLE&rdquo; BASIS, UNLESS OTHERWISE SPECIFIED IN THE AGREEMENT. AWS MAKES NO REPRESENTATIONS OR WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED, AS TO THE OPERATION OF THIS SITE OR THE INFORMATION, CONTENT, MATERIALS, PRODUCTS (INCLUDING ANY SOFTWARE) OR SERVICES INCLUDED ON OR OTHERWISE MADE AVAILABLE TO YOU THROUGH THE AWS SITE, UNLESS OTHERWISE SPECIFIED IN WRITING. YOU EXPRESSLY AGREE THAT YOUR USE OF THIS SITE IS AT YOUR SOLE RISK. TO THE FULL EXTENT PERMISSIBLE BY APPLICABLE LAW, AWS DISCLAIMS ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. AWS DOES NOT WARRANT THAT THIS SITE; INFORMATION, CONTENT, MATERIALS, PRODUCTS (INCLUDING ANY SOFTWARE) OR SERVICES INCLUDED ON OR OTHERWISE MADE AVAILABLE TO YOU THROUGH THE AWS SITE; ITS SERVERS; OR E-MAIL SENT FROM AWS ARE FREE OF VIRUSES OR OTHER HARMFUL COMPONENTS. AWS WILL NOT BE LIABLE FOR ANY DAMAGES OF ANY KIND ARISING FROM THE USE OF THE AWS SITE OR FROM ANY INFORMATION, CONTENT, MATERIALS, PRODUCTS (INCLUDING SOFTWARE) OR SERVICES INCLUDED ON OR OTHERWISE MADE AVAILABLE TO YOU THROUGH THE AWS SITE, INCLUDING, BUT NOT LIMITED TO DIRECT, INDIRECT, INCIDENTAL, PUNITIVE, AND CONSEQUENTIAL DAMAGES, UNLESS OTHERWISE SPECIFIED IN THE AGREEMENT. CERTAIN STATE LAWS DO NOT ALLOW LIMITATIONS ON IMPLIED WARRANTIES OR THE EXCLUSION OR LIMITATION OF CERTAIN DAMAGES. IF THESE LAWS APPLY TO YOU, SOME OR ALL OF THE ABOVE DISCLAIMERS, EXCLUSIONS, OR LIMITATIONS MAY NOT APPLY TO YOU, AND YOU MIGHT HAVE ADDITIONAL RIGHTS.</p>\r\n</div>\r\n\r\n<div>\r\n<div>\r\n<h3><a name=\"APPLICABLE_LAW\"> APPLICABLE LAW </a></h3>\r\n</div>\r\n</div>\r\n\r\n<div>\r\n<p>By visiting the AWS Site, you agree that the laws of the state of Washington, without regard to principles of conflict of laws, will govern these Site Terms and any dispute of any sort that might arise between you and AWS.</p>\r\n</div>\r\n\r\n<div>\r\n<div>\r\n<h3><a name=\"DISPUTES\"> DISPUTES </a></h3>\r\n</div>\r\n</div>\r\n\r\n<div>\r\n<p>Any dispute relating in any way to your visit to the AWS Site or to services provided by AWS or through the AWS Site in which the aggregate total claim for relief sought on behalf of one or more parties exceeds $7,500 shall be adjudicated in any state or federal court in King County, Washington, and you consent to exclusive jurisdiction and venue in such courts.</p>\r\n</div>\r\n\r\n<div>\r\n<div>\r\n<h3><a name=\"SITE_POLICIES,_MODIFICATION,_AND_SEVERABILITY\"> SITE POLICIES, MODIFICATION, AND SEVERABILITY </a></h3>\r\n</div>\r\n</div>\r\n\r\n<div>\r\n<p>Please review our other policies on the AWS Site. These policies also govern your visit to the AWS Site. We reserve the right to make changes to the AWS Site, policies, and these Site Terms at any time. If any of these conditions shall be deemed invalid, void, or for any reason unenforceable, that condition shall be deemed severable and shall not affect the validity and enforceability of any remaining condition.</p>\r\n</div>\r\n\r\n<div>\r\n<div>\r\n<h3><a name=\"OUR_ADDRESS_\"> OUR ADDRESS </a></h3>\r\n</div>\r\n</div>\r\n\r\n<div>\r\n<p style=\"margin-left:40px\">Amazon Web Services, Inc.<br />\r\nP.O. Box 81226<br />\r\nSeattle, WA 98108-1226<br />\r\n<a href=\"http://aws.amazon.com/\" onclick=\"s_objectID=&quot;http://aws.amazon.com/_3&quot;;return this.s_oc?this.s_oc(e):true\">http://aws.amazon.com</a></p>\r\n</div>\r\n\r\n<div>\r\n<div>\r\n<h3><a name=\"notice-and-procedure-for-making-claims-of-copyright-infringement\">NOTICE AND PROCEDURE FOR MAKING CLAIMS OF COPYRIGHT INFRINGEMENT</a></h3>\r\n</div>\r\n</div>\r\n\r\n<div>\r\n<p>If you believe that your work has been copied in a way that constitutes copyright infringement, please provide our copyright agent the written information specified below. Please note that this procedure is exclusively for notifying AWS that your copyrighted material has been infringed.</p>\r\n\r\n<ul>\r\n	<li>An electronic or physical signature of the person authorized to act on behalf of the owner of the copyright interest;</li>\r\n	<li>A description of the copyrighted work that you claim has been infringed upon;</li>\r\n	<li>A description of where the material that you claim is infringing is located on the Site;</li>\r\n	<li>Your address, telephone number, and e-mail address;</li>\r\n	<li>A statement by you that you have a good-faith belief that the disputed use is not authorized by the copyright owner, its agent, or the law;</li>\r\n	<li>A statement by you, made under penalty of perjury, that the above information in your notice is accurate and that you are the copyright owner or authorized to act on the copyright owner&rsquo;s behalf.</li>\r\n</ul>\r\n\r\n<p>&nbsp;</p>\r\n</div>\r\n', '2019-03-28 12:53:21', 0);
 
 -- --------------------------------------------------------
 
@@ -983,6 +1183,13 @@ CREATE TABLE `Ilab_master_bid_t_c_tech_m` (
   `t_c_detail` text NOT NULL,
   `data_entry` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `Ilab_master_bid_t_c_tech_m`
+--
+
+INSERT INTO `Ilab_master_bid_t_c_tech_m` (`slno`, `pr_no`, `pr_slno`, `edit_id_bid`, `t_c_detail`, `data_entry`) VALUES
+(1, 'O18191-950-E-K-30108-001', 8, 1, '<div>\r\n<h3><strong>The standard Lorem Ipsum passage, used since the 1500s</strong></h3>\r\n\r\n<p><span style=\"background-color:#f39c12\">&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&quot;</span></p>\r\n\r\n<h3><strong>Section 1.10.32 of &quot;de Finibus Bonorum et Malorum&quot;, written by Cicero in 45 BC</strong></h3>\r\n\r\n<p>&quot;Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?&quot;</p>\r\n\r\n<h3><strong>1914 translation by H. Rackham</strong></h3>\r\n\r\n<p>&quot;But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?&quot;</p>\r\n\r\n<h3><strong>Section 1.10.33 of &quot;de Finibus Bonorum et Malorum&quot;, written by Cicero in 45 BC</strong></h3>\r\n\r\n<p>&quot;At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.&quot;</p>\r\n\r\n<h3><strong>1914 translation by H. Rackham</strong></h3>\r\n\r\n<p><span style=\"color:#e74c3c\">&quot;On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. </span>These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided. But in certain circumstances and owing to the claims of duty or the obligations of business it will frequently occur that pleasures have to be repudiated and annoyances accepted. The wise man therefore always holds in these matters to this principle of selection: he rejects pleasures to secure other greater pleasures, or else he endures pains to avoid worse pains.&quot;</p>\r\n</div>\r\n', '2019-03-27 07:17:17');
 
 -- --------------------------------------------------------
 
@@ -1392,6 +1599,17 @@ CREATE TABLE `Ilab_master_bid_vendor_m` (
   `status_view` int(11) NOT NULL DEFAULT '5' COMMENT '5-not viewed 6-viewed 7-submitted 8-> resubmission',
   `comment` text
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `Ilab_master_bid_vendor_m`
+--
+
+INSERT INTO `Ilab_master_bid_vendor_m` (`slno_vendor`, `edit_id_bid`, `vendor_id`, `slno_vendor_id_master`, `status`, `approval_status`, `submission_status`, `submission_count`, `title`, `description`, `date_start`, `date_end`, `query_end_date`, `master_bid_id`, `view_status_approve`, `bid_ref`, `bid_id`, `category`, `mode_bid`, `technical_bid_type`, `pr_slno`, `pr_no`, `job_code`, `edit_id`, `material_category_name`, `date_entry`, `date_update`, `status_active`, `status_view`, `comment`) VALUES
+(1, 1, 'vender2@ilab.com', 1, 1, NULL, '0', '0', 'Test bid summary', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has su', '2019-03-25', '2019-03-30', '2019-03-28', 1, 0, 'bid 1', 'bid 001', '', 'Simple Bid', '1', 8, 'O18191-950-E-K-30108-001', '1', 1, '', '2019-03-27 07:17:17', '2019-03-27 07:17:17', 0, 5, NULL),
+(2, 1, 'vender@ilab.com', 2, 1, NULL, '0', '0', 'Test bid summary', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has su', '2019-03-25', '2019-03-30', '2019-03-28', 1, 0, 'bid 1', 'bid 001', '', 'Simple Bid', '1', 8, 'O18191-950-E-K-30108-001', '1', 1, '', '2019-03-27 07:17:17', '2019-03-27 07:17:17', 0, 5, NULL),
+(3, 1, 'ven121@gmail.com', 4, 1, NULL, '0', '0', 'Test bid summary', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has su', '2019-03-25', '2019-03-30', '2019-03-28', 1, 0, 'bid 1', 'bid 001', '', 'Simple Bid', '1', 8, 'O18191-950-E-K-30108-001', '1', 1, '', '2019-03-27 07:17:17', '2019-03-27 07:17:17', 0, 5, NULL),
+(4, 1, 'ven66@gmail.com', 13, 1, NULL, '0', '0', 'Test bid summary', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has su', '2019-03-25', '2019-03-30', '2019-03-28', 1, 0, 'bid 1', 'bid 001', '', 'Simple Bid', '1', 8, 'O18191-950-E-K-30108-001', '1', 1, '', '2019-03-27 07:17:17', '2019-03-27 07:17:17', 0, 5, NULL),
+(5, 1, 'ven90@gmail.com', 12, 1, NULL, '0', '0', 'Test bid summary', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has su', '2019-03-25', '2019-03-30', '2019-03-28', 1, 0, 'bid 1', 'bid 001', '', 'Simple Bid', '1', 8, 'O18191-950-E-K-30108-001', '1', 1, '', '2019-03-27 07:17:17', '2019-03-27 07:17:17', 0, 5, NULL);
 
 -- --------------------------------------------------------
 
@@ -2544,7 +2762,10 @@ INSERT INTO `Ilab_master_mr_file_upload_m` (`slno_file`, `pr_no`, `pr_no_slno`, 
 (9, 'O18191-950-E-K-30106-001', 6, 1, 'electrical', 1, '2019-03-21-undraw_resume_1hqp.svg', 'undraw_resume_1hqp.svg', '2019-03-23 13:15:29', 'design2@ilab.com'),
 (10, 'O18191-950-E-K-30108-001', 8, 1, 'electrical', 1, '2019-03-21-undraw_resume_1hqp.svg', 'undraw_resume_1hqp.svg', '2019-03-23 13:15:29', 'design2@ilab.com'),
 (11, 'O18191-950-E-K-30108-001', 8, 1, 'electrical', 1, '2019-03-21-undraw_team_ih79.svg', 'undraw_team_ih79.svg', '2019-03-23 13:15:29', 'design2@ilab.com'),
-(12, 'O18191-950-E-K-30109-001', 9, 1, '', 1, '2019-03-23-undraw_secure_data_0rwp.svg', 'undraw_secure_data_0rwp.svg', '2019-03-23 13:15:29', 'design2@ilab.com');
+(12, 'O18191-950-E-K-30109-001', 9, 1, '', 1, '2019-03-23-undraw_secure_data_0rwp.svg', 'undraw_secure_data_0rwp.svg', '2019-03-23 13:15:29', 'design2@ilab.com'),
+(13, 'O18191-950-E-K-30110-001', 10, 1, 'nanoconductors', 1, '2019-03-28-undraw_statistics_ctoq.svg', 'undraw_statistics_ctoq.svg', '2019-03-28 06:39:57', 'design2@ilab.com'),
+(14, 'O18191-950-E-K-30110-001', 10, 1, 'electrical', 1, '2019-03-28-undraw_statistics_ctoq.svg', 'undraw_statistics_ctoq.svg', '2019-03-28 06:42:00', 'design2@ilab.com'),
+(15, 'O18191-950-E-K-30111-001', 11, 1, 'electrical', 1, '2019-03-28-undraw_statistics_ctoq.svg', 'undraw_statistics_ctoq.svg', '2019-03-28 06:47:03', 'design2@ilab.com');
 
 -- --------------------------------------------------------
 
@@ -2674,13 +2895,15 @@ CREATE TABLE `Ilab_master_mr_job_details_m` (
 INSERT INTO `Ilab_master_mr_job_details_m` (`slno_mr`, `pr_no`, `approver_id_slno`, `approver_id`, `approver_name`, `job_code_id_slno`, `job_code_id`, `material_category_name`, `techinal_evalution`, `status`, `status_resubmit`, `resubmit_count`, `edit_id`, `date_creation`, `time_creation`, `time_date_creation`, `date_submition`, `time_submition`, `date_required`, `creators_id`, `mr_forword_status`, `mr_forword_date`) VALUES
 (1, 'O18191-950-E-K-30102-001', 18, 'siprah@gmail.com', 'Approver5', 1, '0770', 'semiconductors', 2, 1, 1, 3, 1, '2019-03-16', '18:20:56', '2019-03-19 13:43:34', '2019-03-16', '18:20:56', '2019-03-28', 'design2@ilab.com', 1, '2019-03-16'),
 (2, 'O18191-950-E-K-30101-001', 18, 'siprah@gmail.com', 'Approver5', 1, '0770', 'Instrumentation Equipment', 2, 1, 1, 3, 3, '2019-03-19', '18:38:47', '2019-03-23 10:54:48', '2019-03-19', '18:38:47', '2019-03-27', 'design2@ilab.com', 1, '2019-03-23'),
-(3, 'O18191-950-E-K-30103-001', 18, 'siprah@gmail.com', 'Approver5', 1, '0770', 'cables', 2, 4, 1, 3, 1, '2019-03-16', '18:45:23', '2019-03-19 13:43:34', NULL, NULL, '2019-03-27', 'design2@ilab.com', 0, NULL),
-(4, 'O18191-950-E-K-30104-001', 18, 'siprah@gmail.com', 'Approver5', 1, '0770', 'electrical', 2, 4, 1, 3, 1, '2019-03-16', '18:50:58', '2019-03-19 13:43:34', NULL, NULL, '2019-03-22', 'design2@ilab.com', 0, NULL),
+(3, 'O18191-950-E-K-30103-001', 18, 'siprah@gmail.com', 'Approver5', 1, '0770', 'cables', 2, 4, 1, 3, 1, '2019-03-16', '18:45:23', '2019-03-28 06:43:05', NULL, NULL, '2019-03-27', 'design2@ilab.com', 1, '2019-03-28'),
+(4, 'O18191-950-E-K-30104-001', 18, 'siprah@gmail.com', 'Approver5', 1, '0770', 'electrical', 2, 4, 1, 3, 1, '2019-03-16', '18:50:58', '2019-03-28 06:52:10', NULL, NULL, '2019-03-22', 'design2@ilab.com', 1, '2019-03-28'),
 (5, 'O18191-950-E-K-30105-001', 18, 'siprah@gmail.com', 'Approver5', 1, '0770', 'wood', 2, 4, 1, 3, 1, '2019-03-18', '11:27:12', '2019-03-19 13:43:34', NULL, NULL, '2019-03-27', 'design2@ilab.com', 0, NULL),
 (6, 'O18191-950-E-K-30107-001', 18, 'siprah@gmail.com', 'Approver5', 1, '0770', 'glass', 2, 4, 1, 3, 1, '2019-03-18', '11:28:49', '2019-03-19 13:43:34', NULL, NULL, '2019-03-28', 'design2@ilab.com', 0, NULL),
 (7, 'O18191-950-E-K-30106-001', 18, 'siprah@gmail.com', 'Approver5', 1, '0770', 'electrical', 1, 4, 0, 0, 1, '2019-03-21', '11:03:44', '2019-03-21 05:33:44', NULL, NULL, '2019-03-29', 'design2@ilab.com', 0, NULL),
 (8, 'O18191-950-E-K-30108-001', 18, 'siprah@gmail.com', 'Approver5', 1, '0770', 'electrical', 1, 4, 0, 0, 1, '2019-03-21', '11:10:01', '2019-03-21 05:41:36', NULL, NULL, '2019-03-27', 'design2@ilab.com', 1, '2019-03-21'),
-(9, 'O18191-950-E-K-30109-001', 18, 'siprah@gmail.com', 'Approver5', 1, '0770', 'electrical', 1, 4, 0, 0, 1, '2019-03-23', '16:23:59', '2019-03-23 10:53:59', NULL, NULL, '2018-12-31', 'design2@ilab.com', 0, NULL);
+(9, 'O18191-950-E-K-30109-001', 18, 'siprah@gmail.com', 'Approver5', 1, '0770', 'electrical', 1, 4, 0, 0, 1, '2019-03-23', '16:23:59', '2019-03-23 10:53:59', NULL, NULL, '2018-12-31', 'design2@ilab.com', 0, NULL),
+(10, 'O18191-950-E-K-30110-001', 18, 'siprah@gmail.com', 'Approver5', 1, '0770', 'electrical', 1, 4, 0, 0, 1, '2019-03-28', '12:12:10', '2019-03-28 06:42:10', NULL, NULL, '2019-04-17', 'design2@ilab.com', 0, NULL),
+(11, 'O18191-950-E-K-30111-001', 18, 'siprah@gmail.com', 'Approver5', 1, '0770', 'electrical', 1, 4, 0, 0, 1, '2019-03-28', '12:17:11', '2019-03-28 06:54:09', NULL, NULL, '2019-03-30', 'design2@ilab.com', 1, '2019-03-28');
 
 -- --------------------------------------------------------
 
@@ -2722,15 +2945,17 @@ INSERT INTO `Ilab_master_mr_job_details_m_clone` (`slno_mr`, `approver_id_slno`,
 (1, 18, 'siprah@gmail.com', 'Approver5', 1, '0770', 'semiconductors', 2, 4, 0, 0, 0, '2019-03-16', '18:18:25', '2019-03-16 13:01:58', NULL, NULL, '2019-03-28', 'design2@ilab.com', 1, '2019-03-16', 1, 'O18191-950-E-K-30102-001'),
 (2, 18, 'siprah@gmail.com', 'Approver5', 1, '0770', 'semiconductors', 2, 4, 0, 0, 0, '2019-03-16', '18:20:56', '2019-03-16 13:01:58', NULL, NULL, '2019-03-28', 'design2@ilab.com', 1, '2019-03-16', 1, 'O18191-950-E-K-30102-001'),
 (3, 18, 'siprah@gmail.com', 'Approver5', 1, '0770', 'Instrumentation Equipment', 2, 4, 0, 0, 0, '2019-03-16', '18:43:11', '2019-03-23 10:54:48', NULL, NULL, '2019-03-27', 'design2@ilab.com', 1, '2019-03-23', 2, 'O18191-950-E-K-30101-001'),
-(4, 18, 'siprah@gmail.com', 'Approver5', 1, '0770', 'cables', 2, 4, 0, 0, 0, '2019-03-16', '18:45:23', '2019-03-16 13:15:23', NULL, NULL, '2019-03-27', 'design2@ilab.com', 0, NULL, 3, 'O18191-950-E-K-30103-001'),
-(5, 18, 'siprah@gmail.com', 'Approver5', 1, '0770', 'electrical', 2, 4, 0, 0, 0, '2019-03-16', '18:50:58', '2019-03-16 13:20:58', NULL, NULL, '2019-03-22', 'design2@ilab.com', 0, NULL, 4, 'O18191-950-E-K-30104-001'),
+(4, 18, 'siprah@gmail.com', 'Approver5', 1, '0770', 'cables', 2, 4, 0, 0, 0, '2019-03-16', '18:45:23', '2019-03-28 06:43:05', NULL, NULL, '2019-03-27', 'design2@ilab.com', 1, '2019-03-28', 3, 'O18191-950-E-K-30103-001'),
+(5, 18, 'siprah@gmail.com', 'Approver5', 1, '0770', 'electrical', 2, 4, 0, 0, 0, '2019-03-16', '18:50:58', '2019-03-28 06:52:10', NULL, NULL, '2019-03-22', 'design2@ilab.com', 1, '2019-03-28', 4, 'O18191-950-E-K-30104-001'),
 (6, 18, 'siprah@gmail.com', 'Approver5', 1, '0770', 'wood', 2, 4, 0, 0, 1, '2019-03-18', '11:27:12', '2019-03-18 05:57:12', NULL, NULL, '2019-03-27', 'design2@ilab.com', 0, NULL, 5, 'O18191-950-E-K-30105-001'),
 (7, 18, 'siprah@gmail.com', 'Approver5', 1, '0770', 'glass', 2, 4, 0, 0, 1, '2019-03-18', '11:28:49', '2019-03-18 05:58:49', NULL, NULL, '2019-03-28', 'design2@ilab.com', 0, NULL, 6, 'O18191-950-E-K-30107-001'),
 (8, 18, 'siprah@gmail.com', 'Approver5', 1, '0770', 'Instrumentation Equipment', 2, 4, 0, 0, 2, '2019-03-19', '18:16:15', '2019-03-23 10:54:48', NULL, NULL, '2019-03-27', 'design2@ilab.com', 1, '2019-03-23', 2, 'O18191-950-E-K-30101-001'),
 (9, 18, 'siprah@gmail.com', 'Approver5', 1, '0770', 'Instrumentation Equipment', 2, 4, 0, 0, 3, '2019-03-19', '18:38:47', '2019-03-23 10:54:48', NULL, NULL, '2019-03-27', 'design2@ilab.com', 1, '2019-03-23', 2, 'O18191-950-E-K-30101-001'),
 (10, 18, 'siprah@gmail.com', 'Approver5', 1, '0770', 'electrical', 1, 4, 0, 0, 1, '2019-03-21', '11:03:44', '2019-03-21 05:33:44', NULL, NULL, '2019-03-29', 'design2@ilab.com', 0, NULL, 7, 'O18191-950-E-K-30106-001'),
 (11, 18, 'siprah@gmail.com', 'Approver5', 1, '0770', 'electrical', 1, 4, 0, 0, 1, '2019-03-21', '11:10:01', '2019-03-21 05:41:37', NULL, NULL, '2019-03-27', 'design2@ilab.com', 1, '2019-03-21', 8, 'O18191-950-E-K-30108-001'),
-(12, 18, 'siprah@gmail.com', 'Approver5', 1, '0770', 'electrical', 1, 4, 0, 0, 1, '2019-03-23', '16:23:59', '2019-03-23 10:53:59', NULL, NULL, '2018-12-31', 'design2@ilab.com', 0, NULL, 9, 'O18191-950-E-K-30109-001');
+(12, 18, 'siprah@gmail.com', 'Approver5', 1, '0770', 'electrical', 1, 4, 0, 0, 1, '2019-03-23', '16:23:59', '2019-03-23 10:53:59', NULL, NULL, '2018-12-31', 'design2@ilab.com', 0, NULL, 9, 'O18191-950-E-K-30109-001'),
+(13, 18, 'siprah@gmail.com', 'Approver5', 1, '0770', 'electrical', 1, 4, 0, 0, 1, '2019-03-28', '12:12:10', '2019-03-28 06:42:10', NULL, NULL, '2019-04-17', 'design2@ilab.com', 0, NULL, 10, 'O18191-950-E-K-30110-001'),
+(14, 18, 'siprah@gmail.com', 'Approver5', 1, '0770', 'electrical', 1, 4, 0, 0, 1, '2019-03-28', '12:17:11', '2019-03-28 06:54:09', NULL, NULL, '2019-03-30', 'design2@ilab.com', 1, '2019-03-28', 11, 'O18191-950-E-K-30111-001');
 
 -- --------------------------------------------------------
 
@@ -2856,6 +3081,43 @@ INSERT INTO `Ilab_master_mr_material_item` (`slno_item_mr`, `mr_no_item`, `slno_
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `Ilab_master_mr_material_item_comm_m`
+--
+
+CREATE TABLE `Ilab_master_mr_material_item_comm_m` (
+  `slno_item_mr` int(11) NOT NULL,
+  `mr_no_item` varchar(255) NOT NULL,
+  `slno_mr_id` int(11) NOT NULL,
+  `material_item_id` int(11) NOT NULL,
+  `material_name` varchar(255) NOT NULL,
+  `material_quantity` varchar(255) NOT NULL,
+  `material_unit` varchar(255) NOT NULL,
+  `material_id` varchar(255) NOT NULL,
+  `edit_id` int(11) NOT NULL,
+  `parameter_tech` text,
+  `Category_material` varchar(255) NOT NULL,
+  `unit_price` float(23,19) DEFAULT NULL,
+  `total_price` float(23,19) DEFAULT NULL,
+  `date_create` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `date_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `Resubmission_count_id` int(11) NOT NULL DEFAULT '0',
+  `buyer_id` varchar(255) NOT NULL,
+  `commercial_edit_id` int(11) DEFAULT NULL,
+  `master_itme_slno_id` int(11) DEFAULT NULL,
+  `master_bid_id_comm` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='here list of mr list of material item need to received';
+
+--
+-- Dumping data for table `Ilab_master_mr_material_item_comm_m`
+--
+
+INSERT INTO `Ilab_master_mr_material_item_comm_m` (`slno_item_mr`, `mr_no_item`, `slno_mr_id`, `material_item_id`, `material_name`, `material_quantity`, `material_unit`, `material_id`, `edit_id`, `parameter_tech`, `Category_material`, `unit_price`, `total_price`, `date_create`, `date_time`, `Resubmission_count_id`, `buyer_id`, `commercial_edit_id`, `master_itme_slno_id`, `master_bid_id_comm`) VALUES
+(1, 'O18191-950-E-K-30101-001', 2, 28, 'Valve', '1', 'No', 'ie2203', 3, 'Type=Butterfly,NB=100mm,MOC=SS316,Class=150#', 'Instrumentation Equipment', 2000.0000000000000000000, 2000.0000000000000000000, '2019-03-28 12:53:21', '2019-03-28 12:53:21', 0, 'buy1@ilab.com', 2, 21, 1),
+(2, 'O18191-950-E-K-30101-001', 2, 32, 'Valve 105', '1', 'No', 'ie6701', 3, 'xxx', 'Instrumentation Equipment', 1500.0000000000000000000, 1500.0000000000000000000, '2019-03-28 12:53:21', '2019-03-28 12:53:21', 0, 'buy1@ilab.com', 2, 22, 1);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `Ilab_master_mr_material_item_m`
 --
 
@@ -2915,7 +3177,13 @@ INSERT INTO `Ilab_master_mr_material_item_m` (`slno_item_mr`, `mr_no_item`, `sln
 (31, 'O18191-950-E-K-30109-001', 9, 1, 'electric bulb 100watt', '1', 'SET', '4410', 1, '2019-03-23 10:53:59', NULL, NULL, NULL, 'To improve the efficiency of the lamp, the filament usually consists of multiple coils of coiled fine wire, also known as a \'coiled coil\'. Light bulbs using coiled coil filaments are sometimes referred to as \'double-coil bulbs\'. For a 60-watt 120-volt lamp, the uncoiled length of the tungsten filament is usually 22.8 inches (580 mm)', 'electrical'),
 (32, 'O18191-950-E-K-30109-001', 31, 2, 'candle flame bulb 60 watt', '1', 'No', '4411', 1, '2019-03-23 10:53:59', NULL, NULL, NULL, '?35 mm (~?11/8\") candle-flame shape, ?12 mm Edison screw', 'electrical'),
 (33, 'O18191-950-E-K-30109-001', 32, 15, 'electric bulb 60 watt', '1', '1', '4424', 1, '2019-03-23 10:53:59', NULL, NULL, NULL, ' For a 60-watt 120-volt lamp, the uncoiled length of the tungsten filament is usually 22.8 inches (580 mm)', 'electrical'),
-(34, 'O18191-950-E-K-30109-001', 33, 16, 'led bulb 100 watt', '1', 'set', '4425', 1, '2019-03-23 10:54:00', NULL, NULL, NULL, ' For a 100-watt 120-volt lamp, the uncoiled length of the tungsten filament is usually 22.8 inches (580 mm)', 'electrical ');
+(34, 'O18191-950-E-K-30109-001', 33, 16, 'led bulb 100 watt', '1', 'set', '4425', 1, '2019-03-23 10:54:00', NULL, NULL, NULL, ' For a 100-watt 120-volt lamp, the uncoiled length of the tungsten filament is usually 22.8 inches (580 mm)', 'electrical '),
+(35, 'O18191-950-E-K-30110-001', 10, 1, 'electric bulb 100watt', '1', 'SET', '4410', 1, '2019-03-28 06:42:10', NULL, NULL, NULL, 'To improve the efficiency of the lamp, the filament usually consists of multiple coils of coiled fine wire, also known as a \'coiled coil\'. Light bulbs using coiled coil filaments are sometimes referred to as \'double-coil bulbs\'. For a 60-watt 120-volt lamp, the uncoiled length of the tungsten filament is usually 22.8 inches (580 mm)', 'electrical'),
+(36, 'O18191-950-E-K-30110-001', 35, 2, 'candle flame bulb 60 watt', '1', 'No', '4411', 1, '2019-03-28 06:42:10', NULL, NULL, NULL, '?35 mm (~?11/8\") candle-flame shape, ?12 mm Edison screw', 'electrical'),
+(37, 'O18191-950-E-K-30110-001', 36, 15, 'electric bulb 60 watt', '1', '1', '4424', 1, '2019-03-28 06:42:10', NULL, NULL, NULL, ' For a 60-watt 120-volt lamp, the uncoiled length of the tungsten filament is usually 22.8 inches (580 mm)', 'electrical'),
+(38, 'O18191-950-E-K-30111-001', 11, 1, 'electric bulb 100watt', '1', 'SET', '4410', 1, '2019-03-28 06:47:11', NULL, NULL, NULL, 'To improve the efficiency of the lamp, the filament usually consists of multiple coils of coiled fine wire, also known as a \'coiled coil\'. Light bulbs using coiled coil filaments are sometimes referred to as \'double-coil bulbs\'. For a 60-watt 120-volt lamp, the uncoiled length of the tungsten filament is usually 22.8 inches (580 mm)', 'electrical'),
+(39, 'O18191-950-E-K-30111-001', 38, 2, 'candle flame bulb 60 watt', '1', 'No', '4411', 1, '2019-03-28 06:47:11', NULL, NULL, NULL, '?35 mm (~?11/8\") candle-flame shape, ?12 mm Edison screw', 'electrical'),
+(40, 'O18191-950-E-K-30111-001', 39, 15, 'electric bulb 60 watt', '1', '1', '4424', 1, '2019-03-28 06:47:11', NULL, NULL, NULL, ' For a 60-watt 120-volt lamp, the uncoiled length of the tungsten filament is usually 22.8 inches (580 mm)', 'electrical');
 
 -- --------------------------------------------------------
 
@@ -3297,7 +3565,7 @@ CREATE TABLE `Ilab_master_pr_process_detail` (
   `procurement_date` date DEFAULT NULL,
   `buyer_user_id` varchar(255) DEFAULT NULL,
   `buyer_user_slno` varchar(255) DEFAULT NULL,
-  `buyer_user_status` int(11) NOT NULL DEFAULT '0' COMMENT '3-forwarded to tech 2-not forwarded 4-> forwoard to comm, 4 ->drafted _edit 1->completed bid',
+  `buyer_user_status` int(11) NOT NULL DEFAULT '0' COMMENT '3-forwarded to tech 2-not forwarded 6-> forwoard to comm, 4 ->drafted _edit 1->completed bid',
   `buyer_date` date DEFAULT NULL,
   `buyer_date_tech` date DEFAULT NULL,
   `buyer_date_comm` date DEFAULT NULL,
@@ -3325,23 +3593,27 @@ CREATE TABLE `Ilab_master_pr_process_detail` (
   `commercial_resubmit_count` int(11) NOT NULL DEFAULT '0' COMMENT '0-number of times resubmitted',
   `commercial_amendment_status` int(11) NOT NULL DEFAULT '2' COMMENT '2-not use 1-used 0-auto used',
   `commercial_date` date DEFAULT NULL,
-  `techno_commercial_status` int(11) NOT NULL DEFAULT '0' COMMENT '1-bid is completed 2-commercial in process 3-technical in process 4-technical complete detail for commercial status 5-technical not started'
+  `techno_commercial_status` int(11) NOT NULL DEFAULT '0' COMMENT '1-bid is completed 2-commercial in process 3-technical in process 4-technical complete detail for commercial status 5-technical not started',
+  `tech_bid` int(11) DEFAULT NULL,
+  `comm_bid` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `Ilab_master_pr_process_detail`
 --
 
-INSERT INTO `Ilab_master_pr_process_detail` (`slno`, `pr_no`, `project_slno`, `project_name`, `pr_no_slno`, `design_user_id`, `design_user_id_slno`, `design_user_status`, `design_date`, `approver_user_id`, `approver_user_slno`, `approver_user_status`, `approver_date`, `type_bidding_technical`, `procurement_user_id`, `procurement_user_id_slno`, `procurement_user_status`, `procurement_date`, `buyer_user_id`, `buyer_user_slno`, `buyer_user_status`, `buyer_date`, `buyer_date_tech`, `buyer_date_comm`, `technical_user_id_slno`, `technical_user_slno`, `technical_user_id`, `technical_bid_id`, `technical_bid_ref`, `technical_edit_id`, `technical_type_bid`, `technical_complete_status`, `technical_amendment_status`, `technical_user_status`, `technical_date`, `commercial_user_id`, `commercial_user_slno`, `commercial_bid_id`, `commercial_bid_ref`, `commercial_edit_id`, `commercial_type_bid`, `commercial_complete_status`, `commercial_user_status`, `commercial_bid_master_slno`, `commercial_resubmit_status`, `commercial_resubmit_count`, `commercial_amendment_status`, `commercial_date`, `techno_commercial_status`) VALUES
-(1, 'O18191-950-E-K-30102-001', '1', 'project 1', '2', 'design2@ilab.com', '10', 1, '2019-03-16', 'siprah@gmail.com', '18', 1, '2019-03-16', 2, 'pro@ilab.com', '13', 1, '2019-03-20', 'buy1@ilab.com', '15', 2, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, '0', '0', 0, 2, 0, NULL, NULL, NULL, NULL, NULL, '0', '0', 0, 0, NULL, 0, 0, 2, NULL, 0),
-(2, 'O18191-950-E-K-30101-001', '1', 'project 1', '1', 'design2@ilab.com', '10', 1, '2019-03-19', 'siprah@gmail.com', '18', 1, '2019-03-23', 2, 'pro@ilab.com', '13', 1, '2019-03-23', 'buy1@ilab.com', '15', 2, NULL, NULL, NULL, NULL, '', NULL, NULL, 'bid Ref', '0', '0', 0, 2, 0, NULL, NULL, NULL, NULL, NULL, '0', '0', 0, 0, NULL, 0, 0, 2, NULL, 0),
-(3, 'O18191-950-E-K-30103-001', '1', 'project 1', '3', 'design2@ilab.com', '10', 3, '2019-03-16', 'siprah@gmail.com', '18', 2, NULL, 2, NULL, NULL, 0, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, '0', '0', 0, 2, 0, NULL, NULL, NULL, NULL, NULL, '0', '0', 0, 0, NULL, 0, 0, 2, NULL, 0),
-(4, 'O18191-950-E-K-30104-001', '1', 'project 1', '4', 'design2@ilab.com', '10', 3, '2019-03-16', 'siprah@gmail.com', '18', 2, NULL, 2, NULL, NULL, 0, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, '0', '0', 0, 2, 0, NULL, NULL, NULL, NULL, NULL, '0', '0', 0, 0, NULL, 0, 0, 2, NULL, 0),
-(5, 'O18191-950-E-K-30105-001', '1', 'project 1', '5', 'design2@ilab.com', '10', 4, '2019-03-18', 'siprah@gmail.com', '18', 0, '2019-03-19', 2, NULL, NULL, 0, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, '0', '0', 0, 2, 0, NULL, NULL, NULL, NULL, NULL, '0', '0', 0, 0, NULL, 0, 0, 2, NULL, 0),
-(6, 'O18191-950-E-K-30107-001', '1', 'project 1', '7', 'design2@ilab.com', '10', 3, '2019-03-18', 'siprah@gmail.com', '18', 2, NULL, 2, NULL, NULL, 2, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, '0', '0', 0, 2, 0, NULL, NULL, NULL, NULL, NULL, '0', '0', 0, 0, NULL, 0, 0, 2, NULL, 0),
-(7, 'O18191-950-E-K-30106-001', '1', 'project 1', '6', 'design2@ilab.com', '10', 3, '2019-03-21', 'siprah@gmail.com', '18', 2, NULL, 1, NULL, NULL, 0, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, '0', '0', 0, 2, 0, NULL, NULL, NULL, NULL, NULL, '0', '0', 0, 0, NULL, 0, 0, 2, NULL, 0),
-(8, 'O18191-950-E-K-30108-001', '1', 'project 1', '8', 'design2@ilab.com', '10', 1, '2019-03-21', 'siprah@gmail.com', '18', 1, '2019-03-21', 1, 'pro@ilab.com', '13', 1, '2019-03-21', 'buy1@ilab.com', '15', 2, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, '0', '0', 0, 2, 0, NULL, NULL, NULL, NULL, NULL, '0', '0', 0, 0, NULL, 0, 0, 2, NULL, 0),
-(9, 'O18191-950-E-K-30109-001', '1', 'project 1', '9', 'design2@ilab.com', '10', 3, '2019-03-23', 'siprah@gmail.com', '18', 2, NULL, 1, NULL, NULL, 0, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, '0', '0', 0, 2, 0, NULL, NULL, NULL, NULL, NULL, '0', '0', 0, 0, NULL, 0, 0, 2, NULL, 0);
+INSERT INTO `Ilab_master_pr_process_detail` (`slno`, `pr_no`, `project_slno`, `project_name`, `pr_no_slno`, `design_user_id`, `design_user_id_slno`, `design_user_status`, `design_date`, `approver_user_id`, `approver_user_slno`, `approver_user_status`, `approver_date`, `type_bidding_technical`, `procurement_user_id`, `procurement_user_id_slno`, `procurement_user_status`, `procurement_date`, `buyer_user_id`, `buyer_user_slno`, `buyer_user_status`, `buyer_date`, `buyer_date_tech`, `buyer_date_comm`, `technical_user_id_slno`, `technical_user_slno`, `technical_user_id`, `technical_bid_id`, `technical_bid_ref`, `technical_edit_id`, `technical_type_bid`, `technical_complete_status`, `technical_amendment_status`, `technical_user_status`, `technical_date`, `commercial_user_id`, `commercial_user_slno`, `commercial_bid_id`, `commercial_bid_ref`, `commercial_edit_id`, `commercial_type_bid`, `commercial_complete_status`, `commercial_user_status`, `commercial_bid_master_slno`, `commercial_resubmit_status`, `commercial_resubmit_count`, `commercial_amendment_status`, `commercial_date`, `techno_commercial_status`, `tech_bid`, `comm_bid`) VALUES
+(1, 'O18191-950-E-K-30102-001', '1', 'project 1', '2', 'design2@ilab.com', '10', 1, '2019-03-16', 'siprah@gmail.com', '18', 1, '2019-03-16', 2, 'pro@ilab.com', '13', 1, '2019-03-20', 'buy1@ilab.com', '15', 2, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, '0', '0', 0, 2, 0, NULL, NULL, NULL, NULL, NULL, '0', '0', 0, 0, NULL, 0, 0, 2, NULL, 0, NULL, NULL),
+(2, 'O18191-950-E-K-30101-001', '1', 'project 1', '1', 'design2@ilab.com', '10', 1, '2019-03-19', 'siprah@gmail.com', '18', 1, '2019-03-23', 2, 'pro@ilab.com', '13', 1, '2019-03-23', 'buy1@ilab.com', '15', 6, NULL, NULL, '2019-03-28', NULL, '', NULL, NULL, NULL, '0', '0', 0, 2, 0, NULL, 'commerical@ilab.com', '21', 'bid 0012', 'REF 2018', '2', 'Closed Bid', 2, 0, NULL, 0, 0, 2, NULL, 2, NULL, 1),
+(3, 'O18191-950-E-K-30103-001', '1', 'project 1', '3', 'design2@ilab.com', '10', 1, '2019-03-16', 'siprah@gmail.com', '18', 1, '2019-03-28', 2, 'pro@ilab.com', '13', 1, '2019-03-28', 'buy1@ilab.com', '15', 2, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, '0', '0', 0, 2, 0, NULL, NULL, NULL, NULL, NULL, '0', '0', 0, 0, NULL, 0, 0, 2, NULL, 0, NULL, NULL),
+(4, 'O18191-950-E-K-30104-001', '1', 'project 1', '4', 'design2@ilab.com', '10', 1, '2019-03-16', 'siprah@gmail.com', '18', 1, '2019-03-28', 2, 'pro@ilab.com', '13', 2, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, '0', '0', 0, 2, 0, NULL, NULL, NULL, NULL, NULL, '0', '0', 0, 0, NULL, 0, 0, 2, NULL, 0, NULL, NULL),
+(5, 'O18191-950-E-K-30105-001', '1', 'project 1', '5', 'design2@ilab.com', '10', 4, '2019-03-18', 'siprah@gmail.com', '18', 0, '2019-03-19', 2, NULL, NULL, 0, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, '0', '0', 0, 2, 0, NULL, NULL, NULL, NULL, NULL, '0', '0', 0, 0, NULL, 0, 0, 2, NULL, 0, NULL, NULL),
+(6, 'O18191-950-E-K-30107-001', '1', 'project 1', '7', 'design2@ilab.com', '10', 3, '2019-03-18', 'siprah@gmail.com', '18', 2, NULL, 2, NULL, NULL, 2, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, '0', '0', 0, 2, 0, NULL, NULL, NULL, NULL, NULL, '0', '0', 0, 0, NULL, 0, 0, 2, NULL, 0, NULL, NULL),
+(7, 'O18191-950-E-K-30106-001', '1', 'project 1', '6', 'design2@ilab.com', '10', 3, '2019-03-21', 'siprah@gmail.com', '18', 2, NULL, 1, NULL, NULL, 0, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, '0', '0', 0, 2, 0, NULL, NULL, NULL, NULL, NULL, '0', '0', 0, 0, NULL, 0, 0, 2, NULL, 0, NULL, NULL),
+(8, 'O18191-950-E-K-30108-001', '1', 'project 1', '8', 'design2@ilab.com', '10', 1, '2019-03-21', 'siprah@gmail.com', '18', 1, '2019-03-21', 1, 'pro@ilab.com', '13', 1, '2019-03-21', 'buy1@ilab.com', '15', 3, NULL, '2019-03-27', NULL, NULL, '19', 'abc@ilab.com', 'bid 001', 'bid 1', '1', 'Simple Bid', 0, 2, 2, NULL, NULL, NULL, 'bid 001', 'bid 1', '0', '0', 0, 0, NULL, 0, 0, 2, NULL, 3, 1, NULL),
+(9, 'O18191-950-E-K-30109-001', '1', 'project 1', '9', 'design2@ilab.com', '10', 3, '2019-03-23', 'siprah@gmail.com', '18', 2, NULL, 1, NULL, NULL, 0, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, '0', '0', 0, 2, 0, NULL, NULL, NULL, NULL, NULL, '0', '0', 0, 0, NULL, 0, 0, 2, NULL, 0, NULL, NULL),
+(10, 'O18191-950-E-K-30110-001', '1', 'project 1', '10', 'design2@ilab.com', '10', 3, '2019-03-28', 'siprah@gmail.com', '18', 2, NULL, 1, NULL, NULL, 0, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0', NULL, 0, 2, 0, NULL, NULL, NULL, NULL, NULL, '0', NULL, 0, 0, NULL, 0, 0, 2, NULL, 0, NULL, NULL),
+(11, 'O18191-950-E-K-30111-001', '1', 'project 1', '11', 'design2@ilab.com', '10', 1, '2019-03-28', 'siprah@gmail.com', '18', 1, '2019-03-28', 1, 'pro@ilab.com', '13', 2, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0', NULL, 0, 2, 0, NULL, NULL, NULL, NULL, NULL, '0', NULL, 0, 0, NULL, 0, 0, 2, NULL, 0, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -3422,8 +3694,8 @@ INSERT INTO `Ilab_master_pr_schedule` (`slno`, `discipline`, `pr_no`, `area`, `i
 (7, 'Electrical', 'O18191-950-E-K-30107-001', NULL, 'TPD for 11 KV APFC Panel', 'Set', '2', '1', 1, 0, 1, '2019-03-07 12:27:13', '2019-03-18 05:58:49', '2019-02-15', '2019-03-18', 'a:3:{s:9:\"id_master\";i:18;s:8:\"id_clone\";i:7;s:10:\"date_entry\";s:10:\"2019-03-18\";}', NULL, 'bu1@ilab.com', NULL, NULL),
 (8, 'Electrical', 'O18191-950-E-K-30108-001', NULL, 'TPD for 110V DC Battery Bank & battery charger', 'Nr', '1', '1', 1, 1, 1, '2019-03-07 12:27:13', '2019-03-21 05:40:02', '2019-01-12', '2019-03-21', 'a:3:{s:9:\"id_master\";i:30;s:8:\"id_clone\";i:11;s:10:\"date_entry\";s:10:\"2019-03-21\";}', NULL, 'bu1@ilab.com', '[{\"slno_id\":5,\"date_id\":\"2019-03-09\"}]', '2019-03-09'),
 (9, 'Electrical', 'O18191-950-E-K-30109-001', NULL, 'TPD for 415V & 11KV NGR', 'Nr', '20', '1', 1, 0, 1, '2019-03-07 12:27:13', '2019-03-23 10:54:00', '2019-01-15', '2019-03-23', 'a:3:{s:9:\"id_master\";i:34;s:8:\"id_clone\";i:12;s:10:\"date_entry\";s:10:\"2019-03-23\";}', NULL, 'bu1@ilab.com', NULL, NULL),
-(10, 'Electrical', 'O18191-950-E-K-30110-001', NULL, 'TPD for 415V LT Busduct', 'Set', '10', '1', 1, 0, 0, '2019-03-07 12:27:13', '2019-03-07 12:27:13', '2019-01-17', NULL, NULL, NULL, 'bu1@ilab.com', NULL, NULL),
-(11, 'Electrical', 'O18191-950-E-K-30111-001', NULL, 'TPD for 415V LT Smart PMCC', 'Set', '4', '1', 1, 1, 0, '2019-03-07 12:27:13', '2019-03-09 11:24:44', '2019-01-15', NULL, NULL, NULL, 'bu1@ilab.com', '[{\"slno_id\":6,\"date_id\":\"2019-03-09\"}]', '2019-03-09'),
+(10, 'Electrical', 'O18191-950-E-K-30110-001', NULL, 'TPD for 415V LT Busduct', 'Set', '10', '1', 1, 0, 1, '2019-03-07 12:27:13', '2019-03-28 06:42:10', '2019-01-17', '2019-03-28', 'a:3:{s:9:\"id_master\";i:37;s:8:\"id_clone\";i:13;s:10:\"date_entry\";s:10:\"2019-03-28\";}', NULL, 'bu1@ilab.com', NULL, NULL),
+(11, 'Electrical', 'O18191-950-E-K-30111-001', NULL, 'TPD for 415V LT Smart PMCC', 'Set', '4', '1', 1, 1, 1, '2019-03-07 12:27:13', '2019-03-28 06:47:11', '2019-01-15', '2019-03-28', 'a:3:{s:9:\"id_master\";i:40;s:8:\"id_clone\";i:14;s:10:\"date_entry\";s:10:\"2019-03-28\";}', NULL, 'bu1@ilab.com', '[{\"slno_id\":6,\"date_id\":\"2019-03-09\"}]', '2019-03-09'),
 (12, 'Electrical', 'O18191-950-E-K-30112-001', NULL, 'TPD for 415V LT Smart MCC', 'Set', '6', '1', 1, 0, 0, '2019-03-07 12:27:13', '2019-03-07 12:27:13', '2019-01-15', NULL, NULL, NULL, 'bu1@ilab.com', NULL, NULL),
 (13, 'Electrical', 'O18191-950-E-K-30113-001', NULL, 'TPD for 415V PDB', 'Set', '2', '1', 1, 1, 0, '2019-03-07 12:27:13', '2019-03-09 11:28:02', '2019-02-22', NULL, NULL, NULL, 'bu1@ilab.com', '[{\"slno_id\":7,\"date_id\":\"2019-03-09\"}]', '2019-03-09');
 
@@ -4483,7 +4755,60 @@ INSERT INTO `Ilab_master_session_history` (`slno_history`, `user_id`, `username`
 (543, 'buy1@ilab.com', 'buyer 1', 7, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-26', '15:03:00', 1, NULL, NULL, 'km221q85boduq99n4mcgtlddotbvea3r'),
 (544, 'buy1@ilab.com', 'buyer 1', 7, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-26', '17:59:53', 2, '18:03:07', '2019-03-26', 'lf8hm9n19dg9ekf9suqo7bg5b8eeul8v'),
 (545, 'abc@ilab.com', 'Technical User', 9, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-26', '18:03:35', 1, NULL, NULL, '5sg285gql41b1v2hnthvand6a4f0fceh'),
-(546, 'abc@ilab.com', 'Technical User', 9, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-26', '18:50:05', 1, NULL, NULL, 'he79vesca4dv64vd7mdouoo8cvmt7ugp');
+(546, 'abc@ilab.com', 'Technical User', 9, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-26', '18:50:05', 1, NULL, NULL, 'he79vesca4dv64vd7mdouoo8cvmt7ugp'),
+(547, 'abc@ilab.com', 'Technical User', 9, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-27', '10:12:52', 1, NULL, NULL, '0jh0ua2e82gfi47cpoli3dgjreo7k9td'),
+(548, 'abc@ilab.com', 'Technical User', 9, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-27', '10:16:10', 1, NULL, NULL, 'drf1441jb2iqpmqn36t4j5nnv775dpel'),
+(549, 'abc@ilab.com', 'Technical User', 9, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-27', '10:19:34', 1, NULL, NULL, 'jvqea1lqsp2578kulkjfitdgv5tdooi7'),
+(550, 'buy1@ilab.com', 'buyer 1', 7, '{\"browser\":\"Firefox\",\"browserVersion\":\"66.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko\\/20100101 Firefox\\/66.0\"}', '192.168.0.3', '2019-03-27', '12:10:23', 1, NULL, NULL, '8utgn6dp9j21nq8vu0ms992ketj21s9p'),
+(551, 'pro@ilab.com', 'procurement user 1', 4, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-27', '12:17:54', 2, '12:18:16', '2019-03-27', 'sujbkl0brioatedkulf61jif97uorl1e'),
+(552, 'abc@ilab.com', 'Technical User', 9, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-27', '12:18:39', 1, NULL, NULL, 'pl4edbkgd3gc8gl7j74h6ic3kku2f3f6');
+INSERT INTO `Ilab_master_session_history` (`slno_history`, `user_id`, `username`, `user_role`, `browser_detail`, `ip`, `entry_date`, `entry_time`, `status`, `logout_time`, `logout_date`, `session_id`) VALUES
+(553, 'abc@ilab.com', 'Technical User', 9, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-27', '13:29:06', 1, NULL, NULL, '2a3hkhk6pl7u3jq25hnvma8qpdm0aqv1'),
+(554, 'abc@ilab.com', 'Technical User', 9, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-27', '14:48:52', 1, NULL, NULL, 'ot472nvpub6htuvjalbumuejtc8okpmc'),
+(555, 'buy1@ilab.com', 'buyer 1', 7, '{\"browser\":\"Firefox\",\"browserVersion\":\"66.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko\\/20100101 Firefox\\/66.0\"}', '192.168.0.3', '2019-03-27', '15:37:01', 1, NULL, NULL, 'o5g49rjnqp8fps0m9hdv7tlnt4uk4s6s'),
+(556, 'abc@ilab.com', 'Technical User', 9, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-27', '15:39:15', 1, NULL, NULL, 'tepl3mom84ssph64e8s23jldj5sneptp'),
+(557, 'abc@ilab.com', 'Technical User', 9, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-27', '15:47:38', 1, NULL, NULL, 'doen7p9v8d8aod04ll82bmgcu65019ks'),
+(558, 'abc@ilab.com', 'Technical User', 9, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-27', '15:49:25', 1, NULL, NULL, 'og2a3e33mrsalmfhb99mc8473d7j78o0'),
+(559, 'abc@ilab.com', 'Technical User', 9, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-27', '15:50:23', 1, NULL, NULL, '4lfsjuq4gmajf2737ts4tniunm7ao0b7'),
+(560, 'buy1@ilab.com', 'buyer 1', 7, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-27', '15:54:46', 2, '15:55:03', '2019-03-27', 'utotfdk2vavktmp5cfku718cccdpacb2'),
+(561, 'abc@ilab.com', 'Technical User', 9, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-27', '15:55:20', 1, NULL, NULL, 'te4vqrv553khhmu4l3qaptjqfjfakdi8'),
+(562, 'abc@ilab.com', 'Technical User', 9, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-27', '16:07:04', 1, NULL, NULL, '3giiplt1e2tvrs30vrnf3a022v2tmcj9'),
+(563, 'abc@ilab.com', 'Technical User', 9, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-27', '16:09:05', 1, NULL, NULL, '8o67tf5onf04bnb2ieetb6rmvqmqbc89'),
+(564, 'abc@ilab.com', 'Technical User', 9, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-27', '16:10:02', 1, NULL, NULL, 'qj318ukl74o9jlr45mmrnj9oo5mut969'),
+(565, 'abc@ilab.com', 'Technical User', 9, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-27', '16:16:34', 1, NULL, NULL, '0jfoua6g0uul899aqfc0ee8kfn2034an'),
+(566, 'abc@ilab.com', 'Technical User', 9, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-27', '16:18:52', 1, NULL, NULL, 's5mrus200afl094s8e55l55g6k861lmi'),
+(567, 'abc@ilab.com', 'Technical User', 9, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-27', '16:30:12', 1, NULL, NULL, 'nvhp5q38497elfd7okjv8v43r3cnvkra'),
+(568, 'abc@ilab.com', 'Technical User', 9, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-27', '16:30:55', 1, NULL, NULL, '9ufcga7de31k5dv2ijtlb1jrmosbofqk'),
+(569, 'abc@ilab.com', 'Technical User', 9, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-27', '16:32:51', 1, NULL, NULL, 'hv1nlj1qpdqt9k9b1m6uoq4pateuc5b8'),
+(570, 'abc@ilab.com', 'Technical User', 9, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-27', '16:41:38', 1, NULL, NULL, 'ul8igqt0m8bpv9063ceprna93drt9a4a'),
+(571, 'abc@ilab.com', 'Technical User', 9, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-27', '16:49:38', 1, NULL, NULL, '8d98mkkmv51gkg57tasifo53gpkg8vrg'),
+(572, 'abc@ilab.com', 'Technical User', 9, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-27', '16:53:30', 1, NULL, NULL, 'st4ngvbebvq6rqa47fore7a3mcgcfrq8'),
+(573, 'abc@ilab.com', 'Technical User', 9, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-27', '17:31:02', 1, NULL, NULL, 'rr5qtcqkotd4ns5982lab4pieb16rfsu'),
+(574, 'abc@ilab.com', 'Technical User', 9, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-27', '17:43:21', 1, NULL, NULL, 'o289m9gvtt8p2ggremvloc0krj9g0p08'),
+(575, 'abc@ilab.com', 'Technical User', 9, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-27', '17:51:36', 1, NULL, NULL, 'lqnnfl0ugrv5lvl6l1gkdrs5qss994t3'),
+(576, 'abc@ilab.com', 'Technical User', 9, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-27', '18:20:07', 1, NULL, NULL, '6jon31c9oc2snpr2qpd7fhl9igqj4jaf'),
+(577, 'abc@ilab.com', 'Technical User', 9, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-28', '10:12:21', 1, NULL, NULL, 'mhmorfctak6kmnoggl7lnij9tir8beqp'),
+(578, 'abc@ilab.com', 'Technical User', 9, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-28', '10:26:41', 1, NULL, NULL, 'gm8vbnf3e6udni1j73qfluhvcamtq95n'),
+(579, 'abc@ilab.com', 'Technical User', 9, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-28', '10:27:05', 1, NULL, NULL, '1bgq66gg9qf439s9aa759votnoblvkht'),
+(580, 'buy1@ilab.com', 'buyer 1', 7, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-28', '11:57:51', 2, '11:58:12', '2019-03-28', 'l8o28ig908kdt4kjna0kmmpvbu8t841o'),
+(581, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-28', '12:08:23', 2, '12:10:54', '2019-03-28', 'ul12o172arhhcoio714sc745e55a0ddt'),
+(582, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-28', '12:11:31', 2, '12:12:14', '2019-03-28', 'r8veapl7u5r01b4ussn68h391n9j7orc'),
+(583, 'siprah@gmail.com', 'Approver5', 8, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-28', '12:12:36', 2, '12:13:09', '2019-03-28', 'mie49rfabqiq5j17eraf6o86jganumj8'),
+(584, 'pro@ilab.com', 'procurement user 1', 4, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-28', '12:13:37', 2, '12:14:16', '2019-03-28', '4hvkjjoiaf32vkui56t6o6o6pbrtt0em'),
+(585, 'buy1@ilab.com', 'buyer 1', 7, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-28', '12:14:54', 2, '12:16:02', '2019-03-28', 'idfikcr21arohbohnqqpabtie30g1ssu'),
+(586, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-28', '12:16:27', 2, '12:17:15', '2019-03-28', '81o0v0g4v7enk0l0ookhs0sqoq31ft0j'),
+(587, 'siprah@gmail.com', 'Approver5', 8, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-28', '12:17:35', 2, '12:22:15', '2019-03-28', 'du1784ektcqh421bfdvs2g3rtkvv5qju'),
+(588, 'siprah@gmail.com', 'Approver5', 8, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-28', '12:23:21', 2, '12:24:14', '2019-03-28', 'dp6k8dartlusqihn2k6jep3k9m9cuuto'),
+(589, 'buy1@ilab.com', 'buyer 1', 7, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-28', '12:24:33', 1, NULL, NULL, '1rv88r9602jnme2f7lc6cjpn99qfdd4l'),
+(590, 'design2@ilab.com', 'design user 2', 2, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-28', '12:40:19', 2, '12:40:21', '2019-03-28', 'qm8rtaup3uu2ultceprb1o6pdntd0ci1'),
+(591, 'siprah@gmail.com', 'Approver5', 8, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-28', '12:40:31', 2, '12:40:34', '2019-03-28', '1o57b7gmuivhbnqnd2ndn76g8k5ja71c'),
+(592, 'pro@ilab.com', 'procurement user 1', 4, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-28', '12:42:06', 2, '12:42:11', '2019-03-28', 'g679rnfk8jffbpb4cnbeprul2ec7k659'),
+(593, 'buy1@ilab.com', 'buyer 1', 7, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-28', '12:42:30', 2, '12:42:34', '2019-03-28', 'fk1nkclt8t5t4r1the8med0auv5k0jml'),
+(594, 'abc@ilab.com', 'Technical User', 9, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-28', '12:42:56', 1, NULL, NULL, 't4hvkiq41iouu4ihb01a6vpvnsns4olr'),
+(595, 'pro@ilab.com', 'procurement user 1', 4, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-28', '15:42:14', 2, '15:42:39', '2019-03-28', 'sdu21ng7ii6vbo9j6444ejd1cac4j9l1'),
+(596, 'abc@ilab.com', 'Technical User', 9, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.4', '2019-03-28', '15:42:54', 1, NULL, NULL, '20nuo7fbsgcr59etkr9q7q3g5sjl1jd4'),
+(597, 'buy1@ilab.com', 'buyer 1', 7, '{\"browser\":\"Firefox\",\"browserVersion\":\"66.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko\\/20100101 Firefox\\/66.0\"}', '192.168.0.3', '2019-03-28', '16:23:24', 1, NULL, NULL, 'lj8obimidl0ak056coktcmg92j6hfbfr'),
+(598, 'buy1@ilab.com', 'buyer 1', 7, '{\"browser\":\"Firefox\",\"browserVersion\":\"66.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko\\/20100101 Firefox\\/66.0\"}', '192.168.0.3', '2019-03-28', '18:04:16', 1, NULL, NULL, '3iahhl90543hqvnnrsq0tiic4hi7h9b7');
 
 -- --------------------------------------------------------
 
@@ -4576,7 +4901,8 @@ INSERT INTO `Ilab_master_session_history_vendors` (`slno_history`, `user_id`, `u
 (63, 'ven121@gmail.com', 'INFOLEX METAMORF ', 4, '{\"browser\":\"Chrome\",\"browserVersion\":\"68.0.3440.106\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/68.0.3440.106 Safari\\/537.36\"}', '192.168.0.6', '2019-01-31', '19:51:33', 1, NULL, NULL, 'ncr8u222ujdcs1dit168i3snjd8l5kfm'),
 (64, 'ven121@gmail.com', 'INFOLEX METAMORF ', 4, '{\"browser\":\"Chrome\",\"browserVersion\":\"68.0.3440.106\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/68.0.3440.106 Safari\\/537.36\"}', '192.168.0.6', '2019-01-31', '20:03:44', 2, '20:07:07', '2019-01-31', 'cioos1228fng87sel6g7lf1p6160v8b0'),
 (65, 'ven121@gmail.com', 'INFOLEX METAMORF ', 4, '{\"browser\":\"Chrome\",\"browserVersion\":\"68.0.3440.106\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/68.0.3440.106 Safari\\/537.36\"}', '192.168.0.6', '2019-02-20', '15:40:30', 1, NULL, NULL, '2vhu6l2q41hgst8u6k7ecu5vqdehnvd5'),
-(66, 'ven121@gmail.com', 'INFOLEX METAMORF ', 4, '{\"browser\":\"Chrome\",\"browserVersion\":\"68.0.3440.106\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/68.0.3440.106 Safari\\/537.36\"}', '192.168.0.6', '2019-02-20', '15:42:09', 1, NULL, NULL, 'lh035ehr8qt5i2r4g1lk4hcajrivvsje');
+(66, 'ven121@gmail.com', 'INFOLEX METAMORF ', 4, '{\"browser\":\"Chrome\",\"browserVersion\":\"68.0.3440.106\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/68.0.3440.106 Safari\\/537.36\"}', '192.168.0.6', '2019-02-20', '15:42:09', 1, NULL, NULL, 'lh035ehr8qt5i2r4g1lk4hcajrivvsje'),
+(67, 'ven121@gmail.com', 'INFOLEX METAMORF ', 4, '{\"browser\":\"Firefox\",\"browserVersion\":\"66.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko\\/20100101 Firefox\\/66.0\"}', '192.168.0.3', '2019-03-28', '18:35:50', 1, NULL, NULL, 'v71416esitjqjddcqd85b4j4q8v3rfc7');
 
 -- --------------------------------------------------------
 
@@ -5766,6 +6092,33 @@ CREATE TABLE `Ilab_master_vendor_notifications` (
   `message` text
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `Ilab_master_vendor_notifications`
+--
+
+INSERT INTO `Ilab_master_vendor_notifications` (`slno_approve`, `vendor_id_bid`, `vendor_id`, `date_entry`, `date_update`, `view_status`, `message`) VALUES
+(1, '1', 'vender2@ilab.com', '2019-03-27 07:17:17', '2019-03-27 07:17:17', 0, 'New Bid Is been Publish on 27-03-2019 Please Check Information Under Technical New Bid Information Bid Reference Id is bid 1 And Bid Type Is Simple Bid Bid will Be Closed On Date 2019-03-30\n'),
+(2, '2', 'vender@ilab.com', '2019-03-27 07:17:17', '2019-03-27 07:17:17', 0, 'New Bid Is been Publish on 27-03-2019 Please Check Information Under Technical New Bid Information Bid Reference Id is bid 1 And Bid Type Is Simple Bid Bid will Be Closed On Date 2019-03-30\n'),
+(3, '4', 'ven121@gmail.com', '2019-03-27 07:17:17', '2019-03-27 07:17:17', 0, 'New Bid Is been Publish on 27-03-2019 Please Check Information Under Technical New Bid Information Bid Reference Id is bid 1 And Bid Type Is Simple Bid Bid will Be Closed On Date 2019-03-30\n'),
+(4, '13', 'ven66@gmail.com', '2019-03-27 07:17:17', '2019-03-27 07:17:17', 0, 'New Bid Is been Publish on 27-03-2019 Please Check Information Under Technical New Bid Information Bid Reference Id is bid 1 And Bid Type Is Simple Bid Bid will Be Closed On Date 2019-03-30\n'),
+(5, '12', 'ven90@gmail.com', '2019-03-27 07:17:17', '2019-03-27 07:17:17', 0, 'New Bid Is been Publish on 27-03-2019 Please Check Information Under Technical New Bid Information Bid Reference Id is bid 1 And Bid Type Is Simple Bid Bid will Be Closed On Date 2019-03-30\n'),
+(6, '1', 'vender2@ilab.com', '2019-03-28 12:30:24', '2019-03-28 12:30:24', 0, 'New Bid Is been Publish on 28-03-2019 Please Check Information Under Commerical New Bid Information Bid Reference Id is bid 12 And Bid Type Is Closed Bid Bid will Be Closed On Date 2019-04-05\n'),
+(7, '2', 'vender@ilab.com', '2019-03-28 12:30:24', '2019-03-28 12:30:24', 0, 'New Bid Is been Publish on 28-03-2019 Please Check Information Under Commerical New Bid Information Bid Reference Id is bid 12 And Bid Type Is Closed Bid Bid will Be Closed On Date 2019-04-05\n'),
+(8, '4', 'ven121@gmail.com', '2019-03-28 12:30:24', '2019-03-28 12:30:24', 0, 'New Bid Is been Publish on 28-03-2019 Please Check Information Under Commerical New Bid Information Bid Reference Id is bid 12 And Bid Type Is Closed Bid Bid will Be Closed On Date 2019-04-05\n'),
+(9, '7', 'ven310@yahoo.com', '2019-03-28 12:30:24', '2019-03-28 12:30:24', 0, 'New Bid Is been Publish on 28-03-2019 Please Check Information Under Commerical New Bid Information Bid Reference Id is bid 12 And Bid Type Is Closed Bid Bid will Be Closed On Date 2019-04-05\n'),
+(10, '8', 'ven1011@yahoo.com', '2019-03-28 12:30:24', '2019-03-28 12:30:24', 0, 'New Bid Is been Publish on 28-03-2019 Please Check Information Under Commerical New Bid Information Bid Reference Id is bid 12 And Bid Type Is Closed Bid Bid will Be Closed On Date 2019-04-05\n'),
+(11, '12', 'ven90@gmail.com', '2019-03-28 12:30:24', '2019-03-28 12:30:24', 0, 'New Bid Is been Publish on 28-03-2019 Please Check Information Under Commerical New Bid Information Bid Reference Id is bid 12 And Bid Type Is Closed Bid Bid will Be Closed On Date 2019-04-05\n'),
+(12, '1', 'vender2@ilab.com', '2019-03-28 12:32:02', '2019-03-28 12:32:02', 0, 'New Bid Is been Publish on 28-03-2019 Please Check Information Under Commerical New Bid Information Bid Reference Id is bid 12 And Bid Type Is Closed Bid Bid will Be Closed On Date 2019-04-05\n'),
+(13, '2', 'vender@ilab.com', '2019-03-28 12:32:02', '2019-03-28 12:32:02', 0, 'New Bid Is been Publish on 28-03-2019 Please Check Information Under Commerical New Bid Information Bid Reference Id is bid 12 And Bid Type Is Closed Bid Bid will Be Closed On Date 2019-04-05\n'),
+(14, '4', 'ven121@gmail.com', '2019-03-28 12:32:02', '2019-03-28 12:32:02', 0, 'New Bid Is been Publish on 28-03-2019 Please Check Information Under Commerical New Bid Information Bid Reference Id is bid 12 And Bid Type Is Closed Bid Bid will Be Closed On Date 2019-04-05\n'),
+(15, '7', 'ven310@yahoo.com', '2019-03-28 12:32:02', '2019-03-28 12:32:02', 0, 'New Bid Is been Publish on 28-03-2019 Please Check Information Under Commerical New Bid Information Bid Reference Id is bid 12 And Bid Type Is Closed Bid Bid will Be Closed On Date 2019-04-05\n'),
+(16, '8', 'ven1011@yahoo.com', '2019-03-28 12:32:02', '2019-03-28 12:32:02', 0, 'New Bid Is been Publish on 28-03-2019 Please Check Information Under Commerical New Bid Information Bid Reference Id is bid 12 And Bid Type Is Closed Bid Bid will Be Closed On Date 2019-04-05\n'),
+(17, '12', 'ven90@gmail.com', '2019-03-28 12:32:02', '2019-03-28 12:32:02', 0, 'New Bid Is been Publish on 28-03-2019 Please Check Information Under Commerical New Bid Information Bid Reference Id is bid 12 And Bid Type Is Closed Bid Bid will Be Closed On Date 2019-04-05\n'),
+(18, '1', 'vender2@ilab.com', '2019-03-28 12:53:21', '2019-03-28 12:53:21', 0, 'New Bid Is been Publish on 28-03-2019 Please Check Information Under Commerical New Bid Information Bid Reference Id is REF 2018 And Bid Type Is Closed Bid Bid will Be Closed On Date 2019-03-30\n'),
+(19, '2', 'vender@ilab.com', '2019-03-28 12:53:21', '2019-03-28 12:53:21', 0, 'New Bid Is been Publish on 28-03-2019 Please Check Information Under Commerical New Bid Information Bid Reference Id is REF 2018 And Bid Type Is Closed Bid Bid will Be Closed On Date 2019-03-30\n'),
+(20, '4', 'ven121@gmail.com', '2019-03-28 12:53:21', '2019-03-28 12:53:21', 0, 'New Bid Is been Publish on 28-03-2019 Please Check Information Under Commerical New Bid Information Bid Reference Id is REF 2018 And Bid Type Is Closed Bid Bid will Be Closed On Date 2019-03-30\n'),
+(21, '7', 'ven310@yahoo.com', '2019-03-28 12:53:21', '2019-03-28 12:53:21', 0, 'New Bid Is been Publish on 28-03-2019 Please Check Information Under Commerical New Bid Information Bid Reference Id is REF 2018 And Bid Type Is Closed Bid Bid will Be Closed On Date 2019-03-30\n');
+
 -- --------------------------------------------------------
 
 --
@@ -6241,6 +6594,42 @@ ALTER TABLE `Ilab_master_bid_commericalevaluation`
   ADD KEY `buyer_slno` (`buyer_slno`);
 
 --
+-- Indexes for table `Ilab_master_bid_Com_date_details_m`
+--
+ALTER TABLE `Ilab_master_bid_Com_date_details_m`
+  ADD PRIMARY KEY (`Slno_bid_date`),
+  ADD KEY `buyer_slno` (`pr_slno`);
+
+--
+-- Indexes for table `Ilab_master_bid_Com_details_m`
+--
+ALTER TABLE `Ilab_master_bid_Com_details_m`
+  ADD PRIMARY KEY (`slno_bid_detail`),
+  ADD KEY `buyer_sl no` (`pr_slno`);
+
+--
+-- Indexes for table `Ilab_master_bid_Com_evaluation_m`
+--
+ALTER TABLE `Ilab_master_bid_Com_evaluation_m`
+  ADD PRIMARY KEY (`slno_bid_tech_id`),
+  ADD KEY `bid_slno` (`pr_slno`),
+  ADD KEY `buyer_slno` (`pr_no`);
+
+--
+-- Indexes for table `Ilab_master_bid_Com_m`
+--
+ALTER TABLE `Ilab_master_bid_Com_m`
+  ADD PRIMARY KEY (`Slno_bid`),
+  ADD KEY `buyer_slno` (`pr_slno`);
+
+--
+-- Indexes for table `Ilab_master_bid_Com_vendor_m`
+--
+ALTER TABLE `Ilab_master_bid_Com_vendor_m`
+  ADD PRIMARY KEY (`slno_vendor`),
+  ADD KEY `buyer_slno` (`edit_id_bid`);
+
+--
 -- Indexes for table `Ilab_master_bid_date_details`
 --
 ALTER TABLE `Ilab_master_bid_date_details`
@@ -6623,6 +7012,15 @@ ALTER TABLE `Ilab_master_mr_material_item`
   ADD KEY `slno_mr_id` (`slno_mr_id`);
 
 --
+-- Indexes for table `Ilab_master_mr_material_item_comm_m`
+--
+ALTER TABLE `Ilab_master_mr_material_item_comm_m`
+  ADD PRIMARY KEY (`slno_item_mr`),
+  ADD KEY `material_item_id` (`material_item_id`),
+  ADD KEY `mr_no_item` (`mr_no_item`),
+  ADD KEY `slno_mr_id` (`slno_mr_id`);
+
+--
 -- Indexes for table `Ilab_master_mr_material_item_m`
 --
 ALTER TABLE `Ilab_master_mr_material_item_m`
@@ -6949,6 +7347,31 @@ ALTER TABLE `Ilab_master_bid_commerical`
 ALTER TABLE `Ilab_master_bid_commericalevaluation`
   MODIFY `slno_bid_tech_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 --
+-- AUTO_INCREMENT for table `Ilab_master_bid_Com_date_details_m`
+--
+ALTER TABLE `Ilab_master_bid_Com_date_details_m`
+  MODIFY `Slno_bid_date` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `Ilab_master_bid_Com_details_m`
+--
+ALTER TABLE `Ilab_master_bid_Com_details_m`
+  MODIFY `slno_bid_detail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `Ilab_master_bid_Com_evaluation_m`
+--
+ALTER TABLE `Ilab_master_bid_Com_evaluation_m`
+  MODIFY `slno_bid_tech_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `Ilab_master_bid_Com_m`
+--
+ALTER TABLE `Ilab_master_bid_Com_m`
+  MODIFY `Slno_bid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `Ilab_master_bid_Com_vendor_m`
+--
+ALTER TABLE `Ilab_master_bid_Com_vendor_m`
+  MODIFY `slno_vendor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
 -- AUTO_INCREMENT for table `Ilab_master_bid_date_details`
 --
 ALTER TABLE `Ilab_master_bid_date_details`
@@ -6962,7 +7385,7 @@ ALTER TABLE `Ilab_master_bid_date_details_commerical`
 -- AUTO_INCREMENT for table `Ilab_master_bid_date_details_m`
 --
 ALTER TABLE `Ilab_master_bid_date_details_m`
-  MODIFY `Slno_bid_date` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `Slno_bid_date` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `Ilab_master_bid_details`
 --
@@ -6977,7 +7400,7 @@ ALTER TABLE `Ilab_master_bid_details_commerical`
 -- AUTO_INCREMENT for table `Ilab_master_bid_details_m`
 --
 ALTER TABLE `Ilab_master_bid_details_m`
-  MODIFY `slno_bid_detail` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `slno_bid_detail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `Ilab_master_bid_file_commerical`
 --
@@ -7012,7 +7435,7 @@ ALTER TABLE `Ilab_master_bid_invi_rank_not_app`
 -- AUTO_INCREMENT for table `Ilab_master_bid_m`
 --
 ALTER TABLE `Ilab_master_bid_m`
-  MODIFY `Slno_bid` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `Slno_bid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `Ilab_master_bid_otp_commerical`
 --
@@ -7037,17 +7460,17 @@ ALTER TABLE `Ilab_master_bid_technicalevaluation`
 -- AUTO_INCREMENT for table `Ilab_master_bid_technicalevaluation_m`
 --
 ALTER TABLE `Ilab_master_bid_technicalevaluation_m`
-  MODIFY `slno_bid_tech_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `slno_bid_tech_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `Ilab_master_bid_t_c_comm_m`
 --
 ALTER TABLE `Ilab_master_bid_t_c_comm_m`
-  MODIFY `slno` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `slno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `Ilab_master_bid_t_c_tech_m`
 --
 ALTER TABLE `Ilab_master_bid_t_c_tech_m`
-  MODIFY `slno` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `slno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `Ilab_master_bid_vendor`
 --
@@ -7067,7 +7490,7 @@ ALTER TABLE `Ilab_master_bid_vendor_file_details`
 -- AUTO_INCREMENT for table `Ilab_master_bid_vendor_m`
 --
 ALTER TABLE `Ilab_master_bid_vendor_m`
-  MODIFY `slno_vendor` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `slno_vendor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `Ilab_master_buyer_material_details`
 --
@@ -7197,7 +7620,7 @@ ALTER TABLE `Ilab_master_mr_file_upload`
 -- AUTO_INCREMENT for table `Ilab_master_mr_file_upload_m`
 --
 ALTER TABLE `Ilab_master_mr_file_upload_m`
-  MODIFY `slno_file` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `slno_file` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT for table `Ilab_master_mr_job_comments`
 --
@@ -7212,12 +7635,12 @@ ALTER TABLE `Ilab_master_mr_job_details`
 -- AUTO_INCREMENT for table `Ilab_master_mr_job_details_m`
 --
 ALTER TABLE `Ilab_master_mr_job_details_m`
-  MODIFY `slno_mr` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `slno_mr` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `Ilab_master_mr_job_details_m_clone`
 --
 ALTER TABLE `Ilab_master_mr_job_details_m_clone`
-  MODIFY `slno_mr` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `slno_mr` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT for table `Ilab_master_mr_location`
 --
@@ -7229,10 +7652,15 @@ ALTER TABLE `Ilab_master_mr_location`
 ALTER TABLE `Ilab_master_mr_material_item`
   MODIFY `slno_item_mr` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 --
+-- AUTO_INCREMENT for table `Ilab_master_mr_material_item_comm_m`
+--
+ALTER TABLE `Ilab_master_mr_material_item_comm_m`
+  MODIFY `slno_item_mr` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
 -- AUTO_INCREMENT for table `Ilab_master_mr_material_item_m`
 --
 ALTER TABLE `Ilab_master_mr_material_item_m`
-  MODIFY `slno_item_mr` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `slno_item_mr` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 --
 -- AUTO_INCREMENT for table `Ilab_master_mr_technical_parameter_info`
 --
@@ -7267,7 +7695,7 @@ ALTER TABLE `Ilab_master_pr_comments_c`
 -- AUTO_INCREMENT for table `Ilab_master_pr_process_detail`
 --
 ALTER TABLE `Ilab_master_pr_process_detail`
-  MODIFY `slno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `slno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `Ilab_master_pr_process_detail_clone`
 --
@@ -7337,12 +7765,12 @@ ALTER TABLE `Ilab_master_rankorder_item_total_temp`
 -- AUTO_INCREMENT for table `Ilab_master_session_history`
 --
 ALTER TABLE `Ilab_master_session_history`
-  MODIFY `slno_history` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=547;
+  MODIFY `slno_history` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=599;
 --
 -- AUTO_INCREMENT for table `Ilab_master_session_history_vendors`
 --
 ALTER TABLE `Ilab_master_session_history_vendors`
-  MODIFY `slno_history` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
+  MODIFY `slno_history` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
 --
 -- AUTO_INCREMENT for table `Ilab_master_simple_bid`
 --
@@ -7422,7 +7850,7 @@ ALTER TABLE `Ilab_master_vendor_file_token`
 -- AUTO_INCREMENT for table `Ilab_master_vendor_notifications`
 --
 ALTER TABLE `Ilab_master_vendor_notifications`
-  MODIFY `slno_approve` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `slno_approve` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 --
 -- AUTO_INCREMENT for table `Ilab_master_vendor_tech_token_bid`
 --

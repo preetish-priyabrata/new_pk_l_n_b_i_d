@@ -83,7 +83,7 @@ $result_table=$query_data->result();
 					<div class="alert alert-secondary">
                         		<span style="color: red"> *</span> All mandatory fields shall be duly filled up 
                         	</div>
-					<form action="<?=base_url()?>procurement-add-new-pr-save" method="POST" >
+					<form action="<?=base_url()?>buyer-add-new-pr-comm-save" method="POST" >
 						<div class="row">
 							<div class="col-md-6 col-lg-6">
 								<div class="form-group row m-b-15">
@@ -93,12 +93,24 @@ $result_table=$query_data->result();
 										$get_mr_id=$this->design_user->get_design_mr_no();	
 
 										?>
+										
+
 										<input class="form-control m-b-5"  name="pr_no" id="pr_no" type="text" value="<?=$pr_no?>" required="" readonly>
 										<input type="hidden" readonly="" name="slno_pr" id="slno_pr"  value="<?=$slno_pr?>">
 										<input type="hidden" readonly="" name="job_code" id="job_code" value="<?=$job_code?>">
 										<input class="form-control m-b-5"  name="pr_no_type" id="pr_no_type" type="hidden" value="new_pr_creater" required="" readonly>
+
 										<input class="form-control m-b-5"  name="edit_type" id="edit_type" type="hidden" value="<?=$edit_id=$result_table[0]->edit_id?>"required="" readonly>
+
+										<input class="form-control m-b-5"  name="commercial_edit_id" id="commercial_edit_id" type="hidden" value="<?=$commercial_edit_id=$result_process[0]->commercial_edit_id?>"required="" readonly>
+
+										<input class="form-control m-b-5"  name="commercial_resubmit_count" id="commercial_resubmit_count" type="hidden" value="<?=$commercial_resubmit_count=$result_process[0]->commercial_resubmit_count?>"required="" readonly>
+
+										<input class="form-control m-b-5"  name="commercial_resubmit_status" id="commercial_resubmit_status" type="hidden" value="<?=$commercial_resubmit_status=$result_process[0]->commercial_resubmit_status?>"required="" readonly>
+
 										<input type="hidden"  name="tech_evalution"  value="<?=$result_table[0]->techinal_evalution?>">
+										
+										<input type="hidden"  name="tcomm_evalution_commer"  value="Coomerical_start">
 										<small class="f-s-12 text-grey-darker">PR No.</small>
 									</div>
 								</div>
@@ -138,6 +150,13 @@ $result_table=$query_data->result();
 									<div class="col-md-9">
 										<input class="form-control m-b-5 datepickers" placeholder="Enter Date Required " name="required_date" id="required_date" type="text" required=""value="<?=$result_table[0]->date_required?>" readonly>
 										<small class="f-s-12 text-grey-darker">Please enter Date Required</small>
+									</div>
+								</div>
+								<div class="form-group row m-b-15">
+									<label class="col-form-label col-md-3" for="Ace_value_detail">ACE Value<span style="color: red">*</span></label>
+									<div class="col-md-9">
+										<input class="form-control m-b-5 " placeholder="Enter ACE Value Required " name="Ace_value_detail" id="Ace_value_detail" type="text" required=""value="" >
+										<small class="f-s-12 text-grey-darker">Please enter ACE Value Required</small>
 									</div>
 								</div>
 								
@@ -241,7 +260,7 @@ $result_table=$query_data->result();
 													<label class="col-form-label col-md-3" for="Technical_ev" >Commercial Evaluator Name <span style="color: red">*</span></label>
 													<div class="col-md-9">
 														<?php
-														$data_array_approver=$this->buyer_user->get_user_generic_list('1','0','0','9','','');	
+														$data_array_approver=$this->buyer_user->get_user_generic_list('1','0','0','10','','');	
 															
 														?>
 														
@@ -456,7 +475,7 @@ $result_table=$query_data->result();
 															<th>UOM</th>
 															<th>Technical Parameter</th>
 															<th>Qnty</th>
-															<th>Ace Value</th>
+															<th>Unit Value</th>
 														</tr>
 													</thead>
 													<tbody>
@@ -466,6 +485,7 @@ $result_table=$query_data->result();
 															
 												
 														<tr>
+															<input type="hidden" name="item_mateial_slno[]" Value="<?=$value_material->slno_item_mr?>" required>
 															<td><?=$value_material->material_name?></td>
 															<td><?=$value_material->material_unit?></td>
 															<td><?=$value_material->parameter_tech?></td>
@@ -560,27 +580,8 @@ $result_table=$query_data->result();
 										<hr style="background: lightblue">
 										<!-- row Start -->
 										<div class="row">
-											<!-- part g -->
-											<div class="col-md-6 col-lg-6">
-
-												<!-- part g start -->
-												<div class="form-group row m-b-15">
-													<label class="col-form-label col-md-3" for="job_code">Attach Files <span style="color: red">*</span></label>
-													<div class="col-md-9">
-														<input class=" m-b-5" placeholder="Enter Activity name" name="job_files" id="job_files" type="file"  >	<span class="btn btn-sm btn-info" id="sub">Upload</span>	<br>								
-														<small class="f-s-12 text-grey-darker">Job Attachment</small>
-													</div>
-												</div>
-												<div class="row">
-													<div class="col-lg-12">
-														<div id="cart-item-files"></div>
-													</div>
-												</div>
-												<!-- part g end -->
-											</div>
-											<!-- part g end here -->
 											<!-- part h -->
-											<div class="col-md-6 col-lg-6">
+											<div class="col-md-12 col-lg-12">
 												<!-- part h start -->
 												<div class="row">
 													<div class="col-lg-12">
@@ -664,12 +665,12 @@ $result_table=$query_data->result();
 							 <div class="card">
 							    <div class="card-header text-center">
 							      	<a class="collapsed card-link" data-toggle="collapse" href="#collapseFive">
-							       		Commercial Evaluator / Vendor Selection
+							       		 Vendor Selection
 							      	</a>
 							    </div>
 							    <div id="collapseFive" class="collapse" data-parent="#accordion">
 							      	<div class="card-body">
-							       		<h5 class="text-left">Commercial Evaluator / Vendor Selection</h5>
+							       		<h5 class="text-left"> Vendor Selection</h5>
 										<hr style="background: lightblue">
 										<!-- row Start -->
 										<div class="row">
@@ -715,10 +716,12 @@ $result_table=$query_data->result();
 						
 						<div class="form-group row pull-right">
                             <div class="col-md-12">
-                               <!--  <button type="submit" class="btn btn-sm btn-primary m-r-5" >Next</button> -->
-                               <!-- <input type="submit" name="submission" value="Save" class="btn btn-success btn-sm"> -->
-                               <!--<input type="submit" name="submission" value="Sent" class="btn btn-info btn-sm">-->
-                               <a  href="<?=base_url()?>procurement-new-pr-complete-requisition" class="btn btn-sm btn-primary">Back</a> 
+                           		<span id="spl"> 
+	                               
+	                               <input type="submit" name="submission" value="Save" class="btn btn-success btn-sm">
+	                               <input type="submit" name="submission" value="Sent" class="btn btn-info btn-sm">
+                           		</span>
+                               <a  href="<?=base_url()?>buyer-pr-receive" class="btn btn-sm btn-primary">Back</a> 
                             </div>
                         </div>
 						
@@ -746,6 +749,7 @@ function get_vender() {
 
 }
 $(document).ready(function(){
+	$('#spl').hide();
 	get_vender();
 		// $('.add_cart').click(function(){
 		$(document).on('click','.add_cart',function(){
@@ -783,7 +787,95 @@ $(document).ready(function(){
 			});
 		});
 	});
+	function get_bid_ref(id) {
+		if(id==1){
+			var job_code=document.getElementById('bid_ref_no').value;
+			var pass1 = document.getElementById('bid_ref_no');
+			var message = document.getElementById('job_code_error1');
+			
+			var goodColor = "#0C6";
+			var badColor = "#FF9B37";    				
+			var results;
+			if(job_code!=""){
+				$.ajax({
+			  		url:'<?=base_url()?>get-buyer-bid-check-pr',
+			    	method: 'post',
+			    	data: {field_id:'3',job_codes:job_code},
+			    	// dataType: 'json',
+			    	success: function(response){
+			    		if(response==1){
+							pass1.style.backgroundColor = goodColor;
+					        message.style.color = goodColor;
+					        message.innerHTML = "valid Bid Ref code";
+					        $('#spl').show();
+					        results=1;
+					        return 1;
+					    }else{
+					    	pass1.style.backgroundColor = badColor;
+							message.style.color = badColor;
+							message.innerHTML = "invalid Bid Ref code";
+							results=2;
+							// $('#bid_ref_no').val('');
+							$('#spl').hide();
+							return false;
+					    }
+				    }
+				});
 
+			}else{
+				pass1.style.backgroundColor = badColor;
+				message.style.color = badColor;
+				message.innerHTML = "Should not left blank";
+				return false;
+			}
+
+		}else if(id==2){
+			var bid_Id=document.getElementById('bid_Id').value;
+			var pass1 = document.getElementById('bid_Id');
+			var message = document.getElementById('job_code_error2');
+					
+   			var goodColor = "#0C6";
+    		var badColor = "#FF9B37";				
+			if(bid_Id!=""){
+				 $.ajax({
+					url:'<?=base_url()?>get-buyer-bid-check-pr',
+					method: 'post',
+					data: {field_id:'4',job_codes:bid_Id},
+					    // dataType: 'json',
+					success: function(response){						   
+					    if(response==1){
+							pass1.style.backgroundColor = goodColor;
+					        message.style.color = goodColor;
+					        message.innerHTML = "valid Bid id code";
+					        $('#spl').show();
+					        // return 	get_bid_ref(true);						       
+					        // return "preetish";
+
+						        
+						}else if(response==2){
+							pass1.style.backgroundColor = badColor;
+					        message.style.color = badColor;
+					        message.innerHTML = "invalid Bid id code";									      
+					        // $('#bid_Id').val('');
+					        $('#spl').hide();
+					         return false;							         
+					         
+						}
+
+					}
+				});
+
+			}else{
+				pass1.style.backgroundColor = badColor;
+				message.style.color = badColor;
+				message.innerHTML = "Should not left blank";
+				 return false;
+			}
+
+		}
+	}
 
 </script>
+				
+
 				

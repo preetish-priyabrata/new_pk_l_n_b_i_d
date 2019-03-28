@@ -504,6 +504,10 @@ $route['buyer-vendor-cart-delete-cart']='buyerusernew/buyer_vendor_cart_delete_c
 // this for technical subission and sve infromation 
 $route['Buyer-add-new-pr-save']='buyerusernew/Buyer_add_new_pr_save';
 
+// here information of commercial bid will phace here
+// 
+$route['buyer-add-new-pr-comm-save']='buyerusernew/buyer_add_new_pr_comm_save';
+
 // ajax checking for pr bid reference and bid id
 
 $route['get-buyer-bid-check-pr']='buyeruser/buyer_get_buyer_bid_check_pr';
@@ -520,12 +524,12 @@ $route['user-technical-evaluator-view-details-technical-bid-new-complete-view/(:
 $route['user-technical-evaluator-view-details-technical-bid-new/(:any)/(:any)']='technicalevalutor/technical_evaluator_view_details_technical_bid_new/$1/$2';
 $route['technical-evalutor-get-approved-reject/(:any)/(:any)/(:any)']='technicalevalutor/technical_evalutor_get_approved_reject/$1/$2/$3';
 $route['technical-evalutor-get-approved-reject-save']='technicalevalutor/technical_evalutor_get_approved_reject_save';
-$route['technical-evalutor-pr-create']='technicalevalutoruser/technical_evalutor_pr_create';
-
+$route['user-technical-evalutor-pr-receive']='technicalevalutor/user_technical_evalutor_pr_receive';
+$route['technical-user-create-new-material/(:any)/(:any)/(:any)/(:any)']='technicalevalutor/technical_user_create_new_material/$1/$2/$3/$4';
+//$route['user-technical-evalutor-pr-create-save']='technicalevalutor/technical_evalutor_pr_create_save';
 $route['user-technical-evaluator-bid-old-list']='technicalevalutor/technical_evaluator_bid_old_list';
 $route['tech-evalutor-logout-by-pass']='technicalevalutor/tech_evalutor_logout_bypass';
 $route['tech-evalutor-logout']='technicalevalutor/tech_evalutor_logout';
-
 
 
 #################################################################################################################################
