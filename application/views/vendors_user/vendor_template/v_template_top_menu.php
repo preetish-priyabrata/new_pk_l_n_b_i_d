@@ -11,6 +11,15 @@ if(empty($Vendor_email_id)){
 			<!-- begin top-menu nav -->
 			<ul class="nav">
 				<li>
+					<a href="<?=base_url()?>seller/user-vendor-bid-new-technical">
+						<div class="icon-img">
+							<img src="<?=base_url()?>file_css_admin/ven/RFP.jpg" alt="" />
+						</div>
+						<span>Technical Bid<span class="label label-theme m-l-5">NEW</span></span>
+					</a>
+				</li>
+
+				<!-- <li>
 					<a href="<?=base_url()?>user-vendor-new-technical">
 						<div class="icon-img">
 							<img src="<?=base_url()?>file_css_admin/assets/img/logo/logo-bs4.png" alt="" />
@@ -29,9 +38,8 @@ if(empty($Vendor_email_id)){
 				<li>
 					<a href="<?=base_url()?>user-vendor-new-auction-list">
 						<div class="icon-img">
-							<i class="fas fa-gavel" style="font-size: 19px; color: #64f664;"></i>
-							
-							<!-- <img src="<?=base_url()?>file_css_admin/assets/img/logo/logo-bs4.png" alt="" /> -->
+							<i class="fas fa-gavel" style="font-size: 19px; color: #64f664;"></i>		
+						
 						</div>
 						<span>Auction Biding<span class="label label-theme m-l-5">NEW</span></span>
 					</a>
@@ -40,12 +48,11 @@ if(empty($Vendor_email_id)){
 					<a href="<?=base_url()?>user-vendor-new-notification-list">
 						<div class="icon-img">
 							<i class="far fa-bell" style="font-size: 19px; color: red;"></i>
-							<!-- <span class="icon-bell"></span> -->
-							<!-- <img src="<?=base_url()?>file_css_admin/assets/img/logo/logo-bs4.png" alt="" /> -->
+							
 						</div>
 						<span>Notification <span id="Notification"></span> </span>
 					</a>
-				</li>
+				</li> -->
 				
 				
 				<li class="menu-control menu-control-left">

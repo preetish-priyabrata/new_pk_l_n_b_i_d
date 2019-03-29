@@ -22,6 +22,7 @@ class Vendor_model extends CI_Model {
 				return $data_return;
 			}
     }
+    
 		public function vendor_new_query_tech_title($value='',$value2){
 			$data=array('slno_vendor'=>$value,'status_active'=>1,'vendor_id'=>$value2);
 			$query=$this->db->get_where('master_bid_vendor',$data);
@@ -35,6 +36,7 @@ class Vendor_model extends CI_Model {
 			}
 			// code...
 		}
+		
 		public function vendor_new_query_list_view($value='',$value2){
 			$data=array('bid_slno'=>$value,'Vendor_id'=>$value2);
 			$query=$this->db->get_where('master_bid_query',$data);

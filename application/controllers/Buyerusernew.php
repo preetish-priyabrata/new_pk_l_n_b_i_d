@@ -385,10 +385,11 @@ EOT;
                 $this->db->update('master_bid_m',$update_status_master,$data_master_bid);
                 $data_update_id = array('pr_slno'=>$slno_pr,'pr_no'=>$pr_no,'edit_id_bid'=>$edit_type_bid);
                 $date_date_status = array('status' => 1);
+                  $date_date_status_vendor = array('status' => 1,'status_active'=>1);
                 $this->db->update('master_bid_date_details_m',$date_date_status,$data_update_id);
                 $this->db->update('master_bid_technicalevaluation_m',$update_status_master,$data_update_id);
 
-                $this->db->update('master_bid_vendor_m',$date_date_status,$data_update_id);
+                $this->db->update('master_bid_vendor_m',$date_date_status_vendor,$data_update_id);
                 // print_r($data_email_ids);
                 // master_vendor_notifications
                foreach ($data_email_ids as $key_id_vendor => $value_vendors) {
@@ -562,13 +563,15 @@ EOT;
             }else if($submission=='Sent'){
                 $data_master_bid = array('pr_slno'=>$slno_pr, 'pr_no'=>$pr_no, 'edit_id'=>$edit_type_bid);
                 $update_status_master = array('status_bid'=>'1');
-                $this->db->update('master_bid_m',$update_status_master,$data_master_bid);
+                $this->db->update('master_bid_Com_m',$update_status_master,$data_master_bid);
                 $data_update_id = array('pr_slno'=>$slno_pr,'pr_no'=>$pr_no,'edit_id_bid'=>$edit_type_bid);
                 $date_date_status = array('status' => 1);
-                $this->db->update('master_bid_date_details_m',$date_date_status,$data_update_id);
-                $this->db->update('master_bid_technicalevaluation_m',$update_status_master,$data_update_id);
+                $date_date_status_vendor = array('status' => 1,'status_active'=>1);
 
-                $this->db->update('master_bid_vendor_m',$date_date_status,$data_update_id);
+                $this->db->update('master_bid_Com_details_m',$date_date_status,$data_update_id);
+                $this->db->update('master_bid_Com_evaluation_m',$update_status_master,$data_update_id);
+
+                $this->db->update('master_bid_Com_vendor_m',$date_date_status_vendor,$data_update_id);
                 // print_r($data_email_ids);
                 // master_vendor_notifications
                foreach ($data_email_ids as $key_id_vendor => $value_vendors) {

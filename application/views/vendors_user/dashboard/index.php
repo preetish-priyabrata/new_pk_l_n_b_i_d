@@ -4,6 +4,15 @@ if(empty($Vendor_email_id)){
 	
 	redirect('vendor-logout-pass');
 }
+// master_bid_vendor_m
+//  ongoing project 
+$data_view = array('vendor_id' => $Vendor_email_id,'status'=>1,'status_active'=>1);
+$quety_on_goin=$this->db->get_where('master_bid_vendor_m',$data_view);
+$quety_on_going_comm=$this->db->get_where('master_bid_Com_vendor_m',$data_view);
+
+$data_view_new= array('vendor_id' => $Vendor_email_id,'status'=>1,'status_view'=>5,'status_active'=>1);
+$quety_on_goin_new=$this->db->get_where('master_bid_vendor_m',$data_view_new);
+
 ?>
 <!-- begin #content -->
 		<div id="content" class="content">
@@ -15,7 +24,7 @@ if(empty($Vendor_email_id)){
 			</ol>
 			<!-- end breadcrumb -->
 			<!-- begin page-header -->
-			<h1 class="page-header">Vendor DashBoard<small>All Start From Here</small></h1>
+			<h1 class="page-header">Vendor DashBoard</h1>
 			<!-- end page-header -->
 			<?php if(!empty($this->session->flashdata('success_message'))){?>
 			<div class="alert alert-success fade show">
@@ -36,21 +45,68 @@ if(empty($Vendor_email_id)){
 			}
 			 // print_r($this->session->userdata());
 			 ?>
-			<!-- begin panel -->
-			<!-- <div class="panel panel-inverse">
-				<div class="panel-heading">
-					<div class="panel-heading-btn">
-						<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
-						<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-redo"></i></a>
-						<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
-						<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
+
+			 <div class="row">
+				<!-- begin col-3 -->
+				<div class="col-lg-3 col-md-6">
+					<div class="widget widget-stats bg-indigo">
+						<div class="stats-icon">
+							<i class="fas fa-file"></i>
+							<!-- <i class="fa fa-desktop"></i> -->
+						</div>
+						<div class="stats-info">
+							<h4>Technical Bid ongoing </h4>
+							<p><?=$quety_on_goin->num_rows()?></p>	
+						</div>
+						<div class="stats-link">
+							<a href="<?=base_url()?>seller/user-vendor-bid-new-technical">View Detail 
+						
+
+								<i class="fa fa-arrow-alt-circle-right"></i>
+							</a>
+						</div>
 					</div>
-					<h4 class="panel-title">Panel Title here</h4>
 				</div>
-				<div class="panel-body">
-					Panel Content Here
+
+				<div class="col-lg-3 col-md-6">
+					<div class="widget widget-stats bg-blue">
+						<div class="stats-icon">
+							<i class="fas fa-file"></i>
+							<!-- <i class="fa fa-desktop"></i> -->
+						</div>
+						<div class="stats-info">
+							<h4>New Technical Bid </h4>
+							<p><?=$quety_on_goin_new->num_rows()?></p>	
+						</div>
+						<div class="stats-link">
+							<a href="<?=base_url()?>seller/user-vendor-bid-new-technical">View Detail 
+							
+
+								<i class="fa fa-arrow-alt-circle-right"></i>
+							</a>
+						</div>
+					</div>
 				</div>
-			</div> -->
-			<!-- end panel -->
+				<!-- begin col-3 -->
+				<div class="col-lg-3 col-md-6">
+					<div class="widget widget-stats bg-green">
+						<div class="stats-icon">
+							<i class="fas fa-file"></i>
+							<!-- <i class="fa fa-desktop"></i> -->
+						</div>
+						<div class="stats-info">
+							<h4>Commerical Bid ongoing </h4>
+							<p><?=$quety_on_going_comm->num_rows()?></p>	
+						</div>
+						<div class="stats-link">
+							<a href="<?=base_url()?>seller/user-vendor-bid-new-commerical">View Detail 
+
+								<i class="fa fa-arrow-alt-circle-right"></i>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			
 		</div>
 		<!-- end #content -->

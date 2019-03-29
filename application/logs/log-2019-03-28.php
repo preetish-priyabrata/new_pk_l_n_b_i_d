@@ -28401,3 +28401,1163 @@ INFO - 2019-03-28 19:04:28 --> Helper loaded: string_helper
 INFO - 2019-03-28 19:04:28 --> Helper loaded: ckeditor_helper
 INFO - 2019-03-28 19:04:28 --> Final output sent to browser
 DEBUG - 2019-03-28 19:04:28 --> Total execution time: 0.0960
+INFO - 2019-03-28 19:08:29 --> Config Class Initialized
+INFO - 2019-03-28 19:08:29 --> Hooks Class Initialized
+DEBUG - 2019-03-28 19:08:29 --> UTF-8 Support Enabled
+INFO - 2019-03-28 19:08:29 --> Utf8 Class Initialized
+INFO - 2019-03-28 19:08:29 --> URI Class Initialized
+INFO - 2019-03-28 19:08:29 --> Router Class Initialized
+INFO - 2019-03-28 19:08:29 --> Output Class Initialized
+INFO - 2019-03-28 19:08:29 --> Security Class Initialized
+DEBUG - 2019-03-28 19:08:29 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-28 19:08:29 --> Input Class Initialized
+INFO - 2019-03-28 19:08:29 --> Language Class Initialized
+INFO - 2019-03-28 19:08:29 --> Loader Class Initialized
+INFO - 2019-03-28 19:08:29 --> Helper loaded: url_helper
+INFO - 2019-03-28 19:08:29 --> Helper loaded: file_helper
+INFO - 2019-03-28 19:08:29 --> Encrypt Class Initialized
+INFO - 2019-03-28 19:08:29 --> Controller Class Initialized
+INFO - 2019-03-28 19:08:29 --> Database Driver Class Initialized
+INFO - 2019-03-28 19:08:29 --> Model "User_model" initialized
+INFO - 2019-03-28 19:08:29 --> Model "Design_model" initialized
+DEBUG - 2019-03-28 19:08:29 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-03-28 19:08:29 --> Session: Class initialized using 'files' driver.
+INFO - 2019-03-28 19:08:29 --> User Agent Class Initialized
+DEBUG - 2019-03-28 19:08:29 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-03-28 19:08:29 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-03-28 19:08:29 --> Encryption Class Initialized
+INFO - 2019-03-28 19:08:29 --> Helper loaded: form_helper
+INFO - 2019-03-28 19:08:29 --> Form Validation Class Initialized
+INFO - 2019-03-28 19:08:29 --> Helper loaded: string_helper
+INFO - 2019-03-28 19:08:29 --> Upload Class Initialized
+INFO - 2019-03-28 19:08:30 --> Config Class Initialized
+INFO - 2019-03-28 19:08:30 --> Hooks Class Initialized
+DEBUG - 2019-03-28 19:08:30 --> UTF-8 Support Enabled
+INFO - 2019-03-28 19:08:30 --> Utf8 Class Initialized
+INFO - 2019-03-28 19:08:30 --> URI Class Initialized
+INFO - 2019-03-28 19:08:30 --> Router Class Initialized
+INFO - 2019-03-28 19:08:30 --> Output Class Initialized
+INFO - 2019-03-28 19:08:30 --> Security Class Initialized
+DEBUG - 2019-03-28 19:08:30 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-28 19:08:30 --> Input Class Initialized
+INFO - 2019-03-28 19:08:30 --> Language Class Initialized
+INFO - 2019-03-28 19:08:30 --> Loader Class Initialized
+INFO - 2019-03-28 19:08:30 --> Helper loaded: url_helper
+INFO - 2019-03-28 19:08:30 --> Helper loaded: file_helper
+INFO - 2019-03-28 19:08:30 --> Encrypt Class Initialized
+INFO - 2019-03-28 19:08:30 --> Controller Class Initialized
+INFO - 2019-03-28 19:08:30 --> Database Driver Class Initialized
+INFO - 2019-03-28 19:08:30 --> Model "User_model" initialized
+INFO - 2019-03-28 19:08:30 --> Model "Design_model" initialized
+DEBUG - 2019-03-28 19:08:30 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-03-28 19:08:30 --> Session: Class initialized using 'files' driver.
+INFO - 2019-03-28 19:08:30 --> User Agent Class Initialized
+DEBUG - 2019-03-28 19:08:30 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-03-28 19:08:30 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-03-28 19:08:30 --> Encryption Class Initialized
+INFO - 2019-03-28 19:08:30 --> Helper loaded: form_helper
+INFO - 2019-03-28 19:08:30 --> Form Validation Class Initialized
+INFO - 2019-03-28 19:08:30 --> Helper loaded: string_helper
+INFO - 2019-03-28 19:08:30 --> Upload Class Initialized
+INFO - 2019-03-28 19:08:30 --> Config Class Initialized
+INFO - 2019-03-28 19:08:30 --> Hooks Class Initialized
+DEBUG - 2019-03-28 19:08:30 --> UTF-8 Support Enabled
+INFO - 2019-03-28 19:08:30 --> Utf8 Class Initialized
+INFO - 2019-03-28 19:08:30 --> URI Class Initialized
+INFO - 2019-03-28 19:08:30 --> Router Class Initialized
+INFO - 2019-03-28 19:08:30 --> Output Class Initialized
+INFO - 2019-03-28 19:08:30 --> Security Class Initialized
+DEBUG - 2019-03-28 19:08:30 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-28 19:08:30 --> Input Class Initialized
+INFO - 2019-03-28 19:08:30 --> Language Class Initialized
+INFO - 2019-03-28 19:08:30 --> Loader Class Initialized
+INFO - 2019-03-28 19:08:30 --> Helper loaded: url_helper
+INFO - 2019-03-28 19:08:30 --> Helper loaded: file_helper
+INFO - 2019-03-28 19:08:30 --> Encrypt Class Initialized
+INFO - 2019-03-28 19:08:30 --> Controller Class Initialized
+INFO - 2019-03-28 19:08:30 --> Database Driver Class Initialized
+INFO - 2019-03-28 19:08:30 --> Model "User_model" initialized
+INFO - 2019-03-28 19:08:30 --> Model "Design_model" initialized
+DEBUG - 2019-03-28 19:08:30 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-03-28 19:08:30 --> Session: Class initialized using 'files' driver.
+INFO - 2019-03-28 19:08:30 --> User Agent Class Initialized
+DEBUG - 2019-03-28 19:08:30 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-03-28 19:08:30 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-03-28 19:08:30 --> Encryption Class Initialized
+INFO - 2019-03-28 19:08:30 --> Helper loaded: form_helper
+INFO - 2019-03-28 19:08:30 --> Form Validation Class Initialized
+INFO - 2019-03-28 19:08:30 --> Helper loaded: string_helper
+INFO - 2019-03-28 19:08:30 --> Upload Class Initialized
+INFO - 2019-03-28 19:08:30 --> Config Class Initialized
+INFO - 2019-03-28 19:08:30 --> Hooks Class Initialized
+DEBUG - 2019-03-28 19:08:30 --> UTF-8 Support Enabled
+INFO - 2019-03-28 19:08:30 --> Utf8 Class Initialized
+INFO - 2019-03-28 19:08:30 --> URI Class Initialized
+INFO - 2019-03-28 19:08:30 --> Router Class Initialized
+INFO - 2019-03-28 19:08:30 --> Output Class Initialized
+INFO - 2019-03-28 19:08:30 --> Security Class Initialized
+DEBUG - 2019-03-28 19:08:30 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-28 19:08:30 --> Input Class Initialized
+INFO - 2019-03-28 19:08:30 --> Language Class Initialized
+INFO - 2019-03-28 19:08:30 --> Loader Class Initialized
+INFO - 2019-03-28 19:08:30 --> Helper loaded: url_helper
+INFO - 2019-03-28 19:08:30 --> Helper loaded: file_helper
+INFO - 2019-03-28 19:08:30 --> Encrypt Class Initialized
+INFO - 2019-03-28 19:08:30 --> Controller Class Initialized
+INFO - 2019-03-28 19:08:30 --> Database Driver Class Initialized
+INFO - 2019-03-28 19:08:30 --> Model "User_model" initialized
+INFO - 2019-03-28 19:08:30 --> Model "Design_model" initialized
+DEBUG - 2019-03-28 19:08:30 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-03-28 19:08:30 --> Session: Class initialized using 'files' driver.
+INFO - 2019-03-28 19:08:30 --> User Agent Class Initialized
+DEBUG - 2019-03-28 19:08:30 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-03-28 19:08:30 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-03-28 19:08:30 --> Encryption Class Initialized
+INFO - 2019-03-28 19:08:30 --> Helper loaded: form_helper
+INFO - 2019-03-28 19:08:30 --> Form Validation Class Initialized
+INFO - 2019-03-28 19:08:30 --> Helper loaded: string_helper
+INFO - 2019-03-28 19:08:30 --> Upload Class Initialized
+INFO - 2019-03-28 19:08:30 --> Config Class Initialized
+INFO - 2019-03-28 19:08:30 --> Hooks Class Initialized
+DEBUG - 2019-03-28 19:08:30 --> UTF-8 Support Enabled
+INFO - 2019-03-28 19:08:30 --> Utf8 Class Initialized
+INFO - 2019-03-28 19:08:30 --> URI Class Initialized
+INFO - 2019-03-28 19:08:30 --> Router Class Initialized
+INFO - 2019-03-28 19:08:30 --> Output Class Initialized
+INFO - 2019-03-28 19:08:30 --> Security Class Initialized
+DEBUG - 2019-03-28 19:08:30 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-28 19:08:30 --> Input Class Initialized
+INFO - 2019-03-28 19:08:30 --> Language Class Initialized
+INFO - 2019-03-28 19:08:30 --> Loader Class Initialized
+INFO - 2019-03-28 19:08:30 --> Helper loaded: url_helper
+INFO - 2019-03-28 19:08:30 --> Helper loaded: file_helper
+INFO - 2019-03-28 19:08:30 --> Encrypt Class Initialized
+INFO - 2019-03-28 19:08:30 --> Controller Class Initialized
+INFO - 2019-03-28 19:08:30 --> Database Driver Class Initialized
+INFO - 2019-03-28 19:08:30 --> Model "User_model" initialized
+INFO - 2019-03-28 19:08:30 --> Model "Design_model" initialized
+DEBUG - 2019-03-28 19:08:30 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-03-28 19:08:30 --> Session: Class initialized using 'files' driver.
+INFO - 2019-03-28 19:08:30 --> User Agent Class Initialized
+DEBUG - 2019-03-28 19:08:30 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-03-28 19:08:30 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-03-28 19:08:30 --> Encryption Class Initialized
+INFO - 2019-03-28 19:08:30 --> Helper loaded: form_helper
+INFO - 2019-03-28 19:08:30 --> Form Validation Class Initialized
+INFO - 2019-03-28 19:08:30 --> Helper loaded: string_helper
+INFO - 2019-03-28 19:08:30 --> Upload Class Initialized
+INFO - 2019-03-28 19:08:30 --> Config Class Initialized
+INFO - 2019-03-28 19:08:30 --> Hooks Class Initialized
+DEBUG - 2019-03-28 19:08:30 --> UTF-8 Support Enabled
+INFO - 2019-03-28 19:08:30 --> Utf8 Class Initialized
+INFO - 2019-03-28 19:08:30 --> URI Class Initialized
+INFO - 2019-03-28 19:08:30 --> Router Class Initialized
+INFO - 2019-03-28 19:08:30 --> Output Class Initialized
+INFO - 2019-03-28 19:08:30 --> Security Class Initialized
+DEBUG - 2019-03-28 19:08:30 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-28 19:08:30 --> Input Class Initialized
+INFO - 2019-03-28 19:08:30 --> Language Class Initialized
+INFO - 2019-03-28 19:08:30 --> Loader Class Initialized
+INFO - 2019-03-28 19:08:30 --> Helper loaded: url_helper
+INFO - 2019-03-28 19:08:30 --> Helper loaded: file_helper
+INFO - 2019-03-28 19:08:30 --> Encrypt Class Initialized
+INFO - 2019-03-28 19:08:30 --> Controller Class Initialized
+INFO - 2019-03-28 19:08:30 --> Database Driver Class Initialized
+INFO - 2019-03-28 19:08:30 --> Model "User_model" initialized
+INFO - 2019-03-28 19:08:30 --> Model "Design_model" initialized
+DEBUG - 2019-03-28 19:08:30 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-03-28 19:08:30 --> Session: Class initialized using 'files' driver.
+INFO - 2019-03-28 19:08:30 --> User Agent Class Initialized
+DEBUG - 2019-03-28 19:08:30 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-03-28 19:08:30 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-03-28 19:08:30 --> Encryption Class Initialized
+INFO - 2019-03-28 19:08:30 --> Helper loaded: form_helper
+INFO - 2019-03-28 19:08:30 --> Form Validation Class Initialized
+INFO - 2019-03-28 19:08:30 --> Helper loaded: string_helper
+INFO - 2019-03-28 19:08:30 --> Upload Class Initialized
+INFO - 2019-03-28 19:08:30 --> Config Class Initialized
+INFO - 2019-03-28 19:08:30 --> Hooks Class Initialized
+DEBUG - 2019-03-28 19:08:30 --> UTF-8 Support Enabled
+INFO - 2019-03-28 19:08:30 --> Utf8 Class Initialized
+INFO - 2019-03-28 19:08:30 --> URI Class Initialized
+INFO - 2019-03-28 19:08:30 --> Router Class Initialized
+INFO - 2019-03-28 19:08:30 --> Output Class Initialized
+INFO - 2019-03-28 19:08:30 --> Security Class Initialized
+DEBUG - 2019-03-28 19:08:30 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-28 19:08:30 --> Input Class Initialized
+INFO - 2019-03-28 19:08:30 --> Language Class Initialized
+INFO - 2019-03-28 19:08:30 --> Loader Class Initialized
+INFO - 2019-03-28 19:08:30 --> Helper loaded: url_helper
+INFO - 2019-03-28 19:08:30 --> Helper loaded: file_helper
+INFO - 2019-03-28 19:08:30 --> Encrypt Class Initialized
+INFO - 2019-03-28 19:08:30 --> Controller Class Initialized
+INFO - 2019-03-28 19:08:30 --> Database Driver Class Initialized
+INFO - 2019-03-28 19:08:30 --> Model "User_model" initialized
+INFO - 2019-03-28 19:08:30 --> Model "Design_model" initialized
+DEBUG - 2019-03-28 19:08:30 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-03-28 19:08:30 --> Session: Class initialized using 'files' driver.
+INFO - 2019-03-28 19:08:30 --> User Agent Class Initialized
+DEBUG - 2019-03-28 19:08:30 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-03-28 19:08:30 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-03-28 19:08:30 --> Encryption Class Initialized
+INFO - 2019-03-28 19:08:30 --> Helper loaded: form_helper
+INFO - 2019-03-28 19:08:30 --> Form Validation Class Initialized
+INFO - 2019-03-28 19:08:30 --> Helper loaded: string_helper
+INFO - 2019-03-28 19:08:30 --> Upload Class Initialized
+INFO - 2019-03-28 19:08:30 --> Config Class Initialized
+INFO - 2019-03-28 19:08:30 --> Hooks Class Initialized
+DEBUG - 2019-03-28 19:08:30 --> UTF-8 Support Enabled
+INFO - 2019-03-28 19:08:30 --> Utf8 Class Initialized
+INFO - 2019-03-28 19:08:30 --> URI Class Initialized
+INFO - 2019-03-28 19:08:30 --> Router Class Initialized
+INFO - 2019-03-28 19:08:30 --> Output Class Initialized
+INFO - 2019-03-28 19:08:30 --> Security Class Initialized
+DEBUG - 2019-03-28 19:08:30 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-28 19:08:30 --> Input Class Initialized
+INFO - 2019-03-28 19:08:30 --> Language Class Initialized
+INFO - 2019-03-28 19:08:30 --> Loader Class Initialized
+INFO - 2019-03-28 19:08:30 --> Helper loaded: url_helper
+INFO - 2019-03-28 19:08:30 --> Helper loaded: file_helper
+INFO - 2019-03-28 19:08:30 --> Encrypt Class Initialized
+INFO - 2019-03-28 19:08:30 --> Controller Class Initialized
+INFO - 2019-03-28 19:08:30 --> Database Driver Class Initialized
+INFO - 2019-03-28 19:08:30 --> Model "User_model" initialized
+INFO - 2019-03-28 19:08:30 --> Model "Design_model" initialized
+DEBUG - 2019-03-28 19:08:30 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-03-28 19:08:30 --> Session: Class initialized using 'files' driver.
+INFO - 2019-03-28 19:08:30 --> User Agent Class Initialized
+DEBUG - 2019-03-28 19:08:30 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-03-28 19:08:30 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-03-28 19:08:30 --> Encryption Class Initialized
+INFO - 2019-03-28 19:08:30 --> Helper loaded: form_helper
+INFO - 2019-03-28 19:08:30 --> Form Validation Class Initialized
+INFO - 2019-03-28 19:08:30 --> Helper loaded: string_helper
+INFO - 2019-03-28 19:08:30 --> Upload Class Initialized
+INFO - 2019-03-28 19:08:30 --> Config Class Initialized
+INFO - 2019-03-28 19:08:30 --> Hooks Class Initialized
+DEBUG - 2019-03-28 19:08:30 --> UTF-8 Support Enabled
+INFO - 2019-03-28 19:08:30 --> Utf8 Class Initialized
+INFO - 2019-03-28 19:08:30 --> URI Class Initialized
+INFO - 2019-03-28 19:08:30 --> Router Class Initialized
+INFO - 2019-03-28 19:08:30 --> Output Class Initialized
+INFO - 2019-03-28 19:08:30 --> Security Class Initialized
+DEBUG - 2019-03-28 19:08:30 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-28 19:08:30 --> Input Class Initialized
+INFO - 2019-03-28 19:08:30 --> Language Class Initialized
+INFO - 2019-03-28 19:08:30 --> Loader Class Initialized
+INFO - 2019-03-28 19:08:30 --> Helper loaded: url_helper
+INFO - 2019-03-28 19:08:30 --> Helper loaded: file_helper
+INFO - 2019-03-28 19:08:30 --> Encrypt Class Initialized
+INFO - 2019-03-28 19:08:30 --> Controller Class Initialized
+INFO - 2019-03-28 19:08:30 --> Database Driver Class Initialized
+INFO - 2019-03-28 19:08:30 --> Model "User_model" initialized
+INFO - 2019-03-28 19:08:30 --> Model "Design_model" initialized
+DEBUG - 2019-03-28 19:08:30 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-03-28 19:08:30 --> Session: Class initialized using 'files' driver.
+INFO - 2019-03-28 19:08:30 --> User Agent Class Initialized
+DEBUG - 2019-03-28 19:08:30 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-03-28 19:08:30 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-03-28 19:08:30 --> Encryption Class Initialized
+INFO - 2019-03-28 19:08:30 --> Helper loaded: form_helper
+INFO - 2019-03-28 19:08:30 --> Form Validation Class Initialized
+INFO - 2019-03-28 19:08:30 --> Helper loaded: string_helper
+INFO - 2019-03-28 19:08:30 --> Upload Class Initialized
+INFO - 2019-03-28 19:08:30 --> Config Class Initialized
+INFO - 2019-03-28 19:08:30 --> Hooks Class Initialized
+DEBUG - 2019-03-28 19:08:30 --> UTF-8 Support Enabled
+INFO - 2019-03-28 19:08:30 --> Utf8 Class Initialized
+INFO - 2019-03-28 19:08:30 --> URI Class Initialized
+INFO - 2019-03-28 19:08:30 --> Router Class Initialized
+INFO - 2019-03-28 19:08:30 --> Output Class Initialized
+INFO - 2019-03-28 19:08:30 --> Security Class Initialized
+DEBUG - 2019-03-28 19:08:30 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-28 19:08:30 --> Input Class Initialized
+INFO - 2019-03-28 19:08:30 --> Language Class Initialized
+INFO - 2019-03-28 19:08:30 --> Loader Class Initialized
+INFO - 2019-03-28 19:08:30 --> Helper loaded: url_helper
+INFO - 2019-03-28 19:08:30 --> Helper loaded: file_helper
+INFO - 2019-03-28 19:08:30 --> Encrypt Class Initialized
+INFO - 2019-03-28 19:08:30 --> Controller Class Initialized
+INFO - 2019-03-28 19:08:30 --> Database Driver Class Initialized
+INFO - 2019-03-28 19:08:30 --> Model "User_model" initialized
+INFO - 2019-03-28 19:08:30 --> Model "Design_model" initialized
+DEBUG - 2019-03-28 19:08:30 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-03-28 19:08:30 --> Session: Class initialized using 'files' driver.
+INFO - 2019-03-28 19:08:30 --> User Agent Class Initialized
+DEBUG - 2019-03-28 19:08:30 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-03-28 19:08:30 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-03-28 19:08:30 --> Encryption Class Initialized
+INFO - 2019-03-28 19:08:30 --> Helper loaded: form_helper
+INFO - 2019-03-28 19:08:30 --> Form Validation Class Initialized
+INFO - 2019-03-28 19:08:30 --> Helper loaded: string_helper
+INFO - 2019-03-28 19:08:30 --> Upload Class Initialized
+INFO - 2019-03-28 19:08:31 --> Config Class Initialized
+INFO - 2019-03-28 19:08:31 --> Hooks Class Initialized
+DEBUG - 2019-03-28 19:08:31 --> UTF-8 Support Enabled
+INFO - 2019-03-28 19:08:31 --> Utf8 Class Initialized
+INFO - 2019-03-28 19:08:31 --> URI Class Initialized
+INFO - 2019-03-28 19:08:31 --> Router Class Initialized
+INFO - 2019-03-28 19:08:31 --> Output Class Initialized
+INFO - 2019-03-28 19:08:31 --> Security Class Initialized
+DEBUG - 2019-03-28 19:08:31 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-28 19:08:31 --> Input Class Initialized
+INFO - 2019-03-28 19:08:31 --> Language Class Initialized
+INFO - 2019-03-28 19:08:31 --> Loader Class Initialized
+INFO - 2019-03-28 19:08:31 --> Helper loaded: url_helper
+INFO - 2019-03-28 19:08:31 --> Helper loaded: file_helper
+INFO - 2019-03-28 19:08:31 --> Encrypt Class Initialized
+INFO - 2019-03-28 19:08:31 --> Controller Class Initialized
+INFO - 2019-03-28 19:08:31 --> Database Driver Class Initialized
+INFO - 2019-03-28 19:08:31 --> Model "User_model" initialized
+INFO - 2019-03-28 19:08:31 --> Model "Design_model" initialized
+DEBUG - 2019-03-28 19:08:31 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-03-28 19:08:31 --> Session: Class initialized using 'files' driver.
+INFO - 2019-03-28 19:08:31 --> User Agent Class Initialized
+DEBUG - 2019-03-28 19:08:31 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-03-28 19:08:31 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-03-28 19:08:31 --> Encryption Class Initialized
+INFO - 2019-03-28 19:08:31 --> Helper loaded: form_helper
+INFO - 2019-03-28 19:08:31 --> Form Validation Class Initialized
+INFO - 2019-03-28 19:08:31 --> Helper loaded: string_helper
+INFO - 2019-03-28 19:08:31 --> Upload Class Initialized
+INFO - 2019-03-28 19:08:31 --> Config Class Initialized
+INFO - 2019-03-28 19:08:31 --> Hooks Class Initialized
+DEBUG - 2019-03-28 19:08:31 --> UTF-8 Support Enabled
+INFO - 2019-03-28 19:08:31 --> Utf8 Class Initialized
+INFO - 2019-03-28 19:08:31 --> URI Class Initialized
+INFO - 2019-03-28 19:08:31 --> Router Class Initialized
+INFO - 2019-03-28 19:08:31 --> Output Class Initialized
+INFO - 2019-03-28 19:08:31 --> Security Class Initialized
+DEBUG - 2019-03-28 19:08:31 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-28 19:08:31 --> Input Class Initialized
+INFO - 2019-03-28 19:08:31 --> Language Class Initialized
+INFO - 2019-03-28 19:08:31 --> Loader Class Initialized
+INFO - 2019-03-28 19:08:31 --> Helper loaded: url_helper
+INFO - 2019-03-28 19:08:31 --> Helper loaded: file_helper
+INFO - 2019-03-28 19:08:31 --> Encrypt Class Initialized
+INFO - 2019-03-28 19:08:31 --> Controller Class Initialized
+INFO - 2019-03-28 19:08:31 --> Database Driver Class Initialized
+INFO - 2019-03-28 19:08:31 --> Model "User_model" initialized
+INFO - 2019-03-28 19:08:31 --> Model "Design_model" initialized
+DEBUG - 2019-03-28 19:08:31 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-03-28 19:08:31 --> Session: Class initialized using 'files' driver.
+INFO - 2019-03-28 19:08:31 --> User Agent Class Initialized
+DEBUG - 2019-03-28 19:08:31 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-03-28 19:08:31 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-03-28 19:08:31 --> Encryption Class Initialized
+INFO - 2019-03-28 19:08:31 --> Helper loaded: form_helper
+INFO - 2019-03-28 19:08:31 --> Form Validation Class Initialized
+INFO - 2019-03-28 19:08:31 --> Helper loaded: string_helper
+INFO - 2019-03-28 19:08:31 --> Upload Class Initialized
+INFO - 2019-03-28 19:08:31 --> Config Class Initialized
+INFO - 2019-03-28 19:08:31 --> Hooks Class Initialized
+DEBUG - 2019-03-28 19:08:31 --> UTF-8 Support Enabled
+INFO - 2019-03-28 19:08:31 --> Utf8 Class Initialized
+INFO - 2019-03-28 19:08:31 --> URI Class Initialized
+INFO - 2019-03-28 19:08:31 --> Router Class Initialized
+INFO - 2019-03-28 19:08:31 --> Output Class Initialized
+INFO - 2019-03-28 19:08:31 --> Security Class Initialized
+DEBUG - 2019-03-28 19:08:31 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-28 19:08:31 --> Input Class Initialized
+INFO - 2019-03-28 19:08:31 --> Language Class Initialized
+INFO - 2019-03-28 19:08:31 --> Loader Class Initialized
+INFO - 2019-03-28 19:08:31 --> Helper loaded: url_helper
+INFO - 2019-03-28 19:08:31 --> Helper loaded: file_helper
+INFO - 2019-03-28 19:08:31 --> Encrypt Class Initialized
+INFO - 2019-03-28 19:08:31 --> Controller Class Initialized
+INFO - 2019-03-28 19:08:31 --> Database Driver Class Initialized
+INFO - 2019-03-28 19:08:31 --> Model "User_model" initialized
+INFO - 2019-03-28 19:08:31 --> Model "Design_model" initialized
+DEBUG - 2019-03-28 19:08:31 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-03-28 19:08:31 --> Session: Class initialized using 'files' driver.
+INFO - 2019-03-28 19:08:31 --> User Agent Class Initialized
+DEBUG - 2019-03-28 19:08:31 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-03-28 19:08:31 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-03-28 19:08:31 --> Encryption Class Initialized
+INFO - 2019-03-28 19:08:31 --> Helper loaded: form_helper
+INFO - 2019-03-28 19:08:31 --> Form Validation Class Initialized
+INFO - 2019-03-28 19:08:31 --> Helper loaded: string_helper
+INFO - 2019-03-28 19:08:31 --> Upload Class Initialized
+INFO - 2019-03-28 19:08:31 --> Config Class Initialized
+INFO - 2019-03-28 19:08:31 --> Hooks Class Initialized
+DEBUG - 2019-03-28 19:08:31 --> UTF-8 Support Enabled
+INFO - 2019-03-28 19:08:31 --> Utf8 Class Initialized
+INFO - 2019-03-28 19:08:31 --> URI Class Initialized
+INFO - 2019-03-28 19:08:31 --> Router Class Initialized
+INFO - 2019-03-28 19:08:31 --> Output Class Initialized
+INFO - 2019-03-28 19:08:31 --> Security Class Initialized
+DEBUG - 2019-03-28 19:08:31 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-28 19:08:31 --> Input Class Initialized
+INFO - 2019-03-28 19:08:31 --> Language Class Initialized
+INFO - 2019-03-28 19:08:31 --> Loader Class Initialized
+INFO - 2019-03-28 19:08:31 --> Helper loaded: url_helper
+INFO - 2019-03-28 19:08:31 --> Helper loaded: file_helper
+INFO - 2019-03-28 19:08:31 --> Encrypt Class Initialized
+INFO - 2019-03-28 19:08:31 --> Controller Class Initialized
+INFO - 2019-03-28 19:08:31 --> Database Driver Class Initialized
+INFO - 2019-03-28 19:08:31 --> Model "User_model" initialized
+INFO - 2019-03-28 19:08:31 --> Model "Design_model" initialized
+DEBUG - 2019-03-28 19:08:31 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-03-28 19:08:31 --> Session: Class initialized using 'files' driver.
+INFO - 2019-03-28 19:08:31 --> User Agent Class Initialized
+DEBUG - 2019-03-28 19:08:31 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-03-28 19:08:31 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-03-28 19:08:31 --> Encryption Class Initialized
+INFO - 2019-03-28 19:08:31 --> Helper loaded: form_helper
+INFO - 2019-03-28 19:08:31 --> Form Validation Class Initialized
+INFO - 2019-03-28 19:08:31 --> Helper loaded: string_helper
+INFO - 2019-03-28 19:08:31 --> Upload Class Initialized
+INFO - 2019-03-28 19:08:31 --> Config Class Initialized
+INFO - 2019-03-28 19:08:31 --> Hooks Class Initialized
+DEBUG - 2019-03-28 19:08:31 --> UTF-8 Support Enabled
+INFO - 2019-03-28 19:08:31 --> Utf8 Class Initialized
+INFO - 2019-03-28 19:08:31 --> URI Class Initialized
+INFO - 2019-03-28 19:08:31 --> Router Class Initialized
+INFO - 2019-03-28 19:08:31 --> Output Class Initialized
+INFO - 2019-03-28 19:08:31 --> Security Class Initialized
+DEBUG - 2019-03-28 19:08:31 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-28 19:08:31 --> Input Class Initialized
+INFO - 2019-03-28 19:08:31 --> Language Class Initialized
+INFO - 2019-03-28 19:08:31 --> Loader Class Initialized
+INFO - 2019-03-28 19:08:31 --> Helper loaded: url_helper
+INFO - 2019-03-28 19:08:31 --> Helper loaded: file_helper
+INFO - 2019-03-28 19:08:31 --> Encrypt Class Initialized
+INFO - 2019-03-28 19:08:31 --> Controller Class Initialized
+INFO - 2019-03-28 19:08:31 --> Database Driver Class Initialized
+INFO - 2019-03-28 19:08:31 --> Model "User_model" initialized
+INFO - 2019-03-28 19:08:31 --> Model "Design_model" initialized
+DEBUG - 2019-03-28 19:08:31 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-03-28 19:08:31 --> Session: Class initialized using 'files' driver.
+INFO - 2019-03-28 19:08:31 --> User Agent Class Initialized
+DEBUG - 2019-03-28 19:08:31 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-03-28 19:08:31 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-03-28 19:08:31 --> Encryption Class Initialized
+INFO - 2019-03-28 19:08:31 --> Helper loaded: form_helper
+INFO - 2019-03-28 19:08:31 --> Form Validation Class Initialized
+INFO - 2019-03-28 19:08:31 --> Helper loaded: string_helper
+INFO - 2019-03-28 19:08:31 --> Upload Class Initialized
+INFO - 2019-03-28 19:08:31 --> Config Class Initialized
+INFO - 2019-03-28 19:08:31 --> Hooks Class Initialized
+DEBUG - 2019-03-28 19:08:31 --> UTF-8 Support Enabled
+INFO - 2019-03-28 19:08:31 --> Utf8 Class Initialized
+INFO - 2019-03-28 19:08:31 --> URI Class Initialized
+INFO - 2019-03-28 19:08:31 --> Router Class Initialized
+INFO - 2019-03-28 19:08:31 --> Output Class Initialized
+INFO - 2019-03-28 19:08:31 --> Security Class Initialized
+DEBUG - 2019-03-28 19:08:31 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-28 19:08:31 --> Input Class Initialized
+INFO - 2019-03-28 19:08:31 --> Language Class Initialized
+INFO - 2019-03-28 19:08:31 --> Loader Class Initialized
+INFO - 2019-03-28 19:08:31 --> Helper loaded: url_helper
+INFO - 2019-03-28 19:08:31 --> Helper loaded: file_helper
+INFO - 2019-03-28 19:08:31 --> Encrypt Class Initialized
+INFO - 2019-03-28 19:08:31 --> Controller Class Initialized
+INFO - 2019-03-28 19:08:31 --> Database Driver Class Initialized
+INFO - 2019-03-28 19:08:31 --> Model "User_model" initialized
+INFO - 2019-03-28 19:08:31 --> Model "Design_model" initialized
+DEBUG - 2019-03-28 19:08:31 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-03-28 19:08:31 --> Session: Class initialized using 'files' driver.
+INFO - 2019-03-28 19:08:31 --> User Agent Class Initialized
+DEBUG - 2019-03-28 19:08:31 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-03-28 19:08:31 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-03-28 19:08:31 --> Encryption Class Initialized
+INFO - 2019-03-28 19:08:31 --> Helper loaded: form_helper
+INFO - 2019-03-28 19:08:31 --> Form Validation Class Initialized
+INFO - 2019-03-28 19:08:31 --> Helper loaded: string_helper
+INFO - 2019-03-28 19:08:31 --> Upload Class Initialized
+INFO - 2019-03-28 19:08:32 --> Config Class Initialized
+INFO - 2019-03-28 19:08:32 --> Hooks Class Initialized
+DEBUG - 2019-03-28 19:08:32 --> UTF-8 Support Enabled
+INFO - 2019-03-28 19:08:32 --> Utf8 Class Initialized
+INFO - 2019-03-28 19:08:32 --> URI Class Initialized
+INFO - 2019-03-28 19:08:32 --> Router Class Initialized
+INFO - 2019-03-28 19:08:32 --> Output Class Initialized
+INFO - 2019-03-28 19:08:32 --> Security Class Initialized
+DEBUG - 2019-03-28 19:08:32 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-28 19:08:32 --> Input Class Initialized
+INFO - 2019-03-28 19:08:32 --> Language Class Initialized
+INFO - 2019-03-28 19:08:32 --> Loader Class Initialized
+INFO - 2019-03-28 19:08:32 --> Helper loaded: url_helper
+INFO - 2019-03-28 19:08:32 --> Helper loaded: file_helper
+INFO - 2019-03-28 19:08:32 --> Encrypt Class Initialized
+INFO - 2019-03-28 19:08:32 --> Controller Class Initialized
+INFO - 2019-03-28 19:08:32 --> Database Driver Class Initialized
+INFO - 2019-03-28 19:08:32 --> Model "User_model" initialized
+INFO - 2019-03-28 19:08:32 --> Model "Design_model" initialized
+DEBUG - 2019-03-28 19:08:32 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-03-28 19:08:32 --> Session: Class initialized using 'files' driver.
+INFO - 2019-03-28 19:08:32 --> User Agent Class Initialized
+DEBUG - 2019-03-28 19:08:32 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-03-28 19:08:32 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-03-28 19:08:32 --> Encryption Class Initialized
+INFO - 2019-03-28 19:08:32 --> Helper loaded: form_helper
+INFO - 2019-03-28 19:08:32 --> Form Validation Class Initialized
+INFO - 2019-03-28 19:08:32 --> Helper loaded: string_helper
+INFO - 2019-03-28 19:08:32 --> Upload Class Initialized
+INFO - 2019-03-28 19:08:32 --> Config Class Initialized
+INFO - 2019-03-28 19:08:32 --> Hooks Class Initialized
+DEBUG - 2019-03-28 19:08:32 --> UTF-8 Support Enabled
+INFO - 2019-03-28 19:08:32 --> Utf8 Class Initialized
+INFO - 2019-03-28 19:08:32 --> URI Class Initialized
+INFO - 2019-03-28 19:08:32 --> Router Class Initialized
+INFO - 2019-03-28 19:08:32 --> Output Class Initialized
+INFO - 2019-03-28 19:08:32 --> Security Class Initialized
+DEBUG - 2019-03-28 19:08:32 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-28 19:08:32 --> Input Class Initialized
+INFO - 2019-03-28 19:08:32 --> Language Class Initialized
+INFO - 2019-03-28 19:08:32 --> Loader Class Initialized
+INFO - 2019-03-28 19:08:32 --> Helper loaded: url_helper
+INFO - 2019-03-28 19:08:32 --> Helper loaded: file_helper
+INFO - 2019-03-28 19:08:32 --> Encrypt Class Initialized
+INFO - 2019-03-28 19:08:32 --> Controller Class Initialized
+INFO - 2019-03-28 19:08:32 --> Database Driver Class Initialized
+INFO - 2019-03-28 19:08:32 --> Model "User_model" initialized
+INFO - 2019-03-28 19:08:32 --> Model "Design_model" initialized
+DEBUG - 2019-03-28 19:08:32 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-03-28 19:08:32 --> Session: Class initialized using 'files' driver.
+INFO - 2019-03-28 19:08:32 --> User Agent Class Initialized
+DEBUG - 2019-03-28 19:08:32 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-03-28 19:08:32 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-03-28 19:08:32 --> Encryption Class Initialized
+INFO - 2019-03-28 19:08:32 --> Helper loaded: form_helper
+INFO - 2019-03-28 19:08:32 --> Form Validation Class Initialized
+INFO - 2019-03-28 19:08:32 --> Helper loaded: string_helper
+INFO - 2019-03-28 19:08:32 --> Upload Class Initialized
+INFO - 2019-03-28 19:08:32 --> Config Class Initialized
+INFO - 2019-03-28 19:08:32 --> Hooks Class Initialized
+DEBUG - 2019-03-28 19:08:32 --> UTF-8 Support Enabled
+INFO - 2019-03-28 19:08:32 --> Utf8 Class Initialized
+INFO - 2019-03-28 19:08:32 --> URI Class Initialized
+INFO - 2019-03-28 19:08:32 --> Router Class Initialized
+INFO - 2019-03-28 19:08:32 --> Output Class Initialized
+INFO - 2019-03-28 19:08:32 --> Security Class Initialized
+DEBUG - 2019-03-28 19:08:32 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-28 19:08:32 --> Input Class Initialized
+INFO - 2019-03-28 19:08:32 --> Language Class Initialized
+INFO - 2019-03-28 19:08:32 --> Loader Class Initialized
+INFO - 2019-03-28 19:08:32 --> Helper loaded: url_helper
+INFO - 2019-03-28 19:08:32 --> Helper loaded: file_helper
+INFO - 2019-03-28 19:08:32 --> Encrypt Class Initialized
+INFO - 2019-03-28 19:08:32 --> Controller Class Initialized
+INFO - 2019-03-28 19:08:32 --> Database Driver Class Initialized
+INFO - 2019-03-28 19:08:32 --> Model "User_model" initialized
+INFO - 2019-03-28 19:08:32 --> Model "Design_model" initialized
+DEBUG - 2019-03-28 19:08:32 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-03-28 19:08:32 --> Session: Class initialized using 'files' driver.
+INFO - 2019-03-28 19:08:32 --> User Agent Class Initialized
+DEBUG - 2019-03-28 19:08:32 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-03-28 19:08:32 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-03-28 19:08:32 --> Encryption Class Initialized
+INFO - 2019-03-28 19:08:32 --> Helper loaded: form_helper
+INFO - 2019-03-28 19:08:32 --> Form Validation Class Initialized
+INFO - 2019-03-28 19:08:32 --> Helper loaded: string_helper
+INFO - 2019-03-28 19:08:32 --> Upload Class Initialized
+INFO - 2019-03-28 19:08:32 --> Config Class Initialized
+INFO - 2019-03-28 19:08:32 --> Hooks Class Initialized
+DEBUG - 2019-03-28 19:08:32 --> UTF-8 Support Enabled
+INFO - 2019-03-28 19:08:32 --> Utf8 Class Initialized
+INFO - 2019-03-28 19:08:32 --> URI Class Initialized
+INFO - 2019-03-28 19:08:32 --> Router Class Initialized
+INFO - 2019-03-28 19:08:32 --> Output Class Initialized
+INFO - 2019-03-28 19:08:32 --> Security Class Initialized
+DEBUG - 2019-03-28 19:08:32 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-28 19:08:32 --> Input Class Initialized
+INFO - 2019-03-28 19:08:32 --> Language Class Initialized
+INFO - 2019-03-28 19:08:32 --> Loader Class Initialized
+INFO - 2019-03-28 19:08:32 --> Helper loaded: url_helper
+INFO - 2019-03-28 19:08:32 --> Helper loaded: file_helper
+INFO - 2019-03-28 19:08:32 --> Encrypt Class Initialized
+INFO - 2019-03-28 19:08:32 --> Controller Class Initialized
+INFO - 2019-03-28 19:08:32 --> Database Driver Class Initialized
+INFO - 2019-03-28 19:08:32 --> Model "User_model" initialized
+INFO - 2019-03-28 19:08:32 --> Model "Design_model" initialized
+DEBUG - 2019-03-28 19:08:32 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-03-28 19:08:32 --> Session: Class initialized using 'files' driver.
+INFO - 2019-03-28 19:08:32 --> User Agent Class Initialized
+DEBUG - 2019-03-28 19:08:32 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-03-28 19:08:32 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-03-28 19:08:32 --> Encryption Class Initialized
+INFO - 2019-03-28 19:08:32 --> Helper loaded: form_helper
+INFO - 2019-03-28 19:08:32 --> Form Validation Class Initialized
+INFO - 2019-03-28 19:08:32 --> Helper loaded: string_helper
+INFO - 2019-03-28 19:08:32 --> Upload Class Initialized
+INFO - 2019-03-28 19:08:33 --> Config Class Initialized
+INFO - 2019-03-28 19:08:33 --> Hooks Class Initialized
+DEBUG - 2019-03-28 19:08:33 --> UTF-8 Support Enabled
+INFO - 2019-03-28 19:08:33 --> Utf8 Class Initialized
+INFO - 2019-03-28 19:08:33 --> URI Class Initialized
+INFO - 2019-03-28 19:08:33 --> Router Class Initialized
+INFO - 2019-03-28 19:08:33 --> Output Class Initialized
+INFO - 2019-03-28 19:08:33 --> Security Class Initialized
+DEBUG - 2019-03-28 19:08:33 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-28 19:08:33 --> Input Class Initialized
+INFO - 2019-03-28 19:08:33 --> Language Class Initialized
+INFO - 2019-03-28 19:08:33 --> Loader Class Initialized
+INFO - 2019-03-28 19:08:33 --> Helper loaded: url_helper
+INFO - 2019-03-28 19:08:33 --> Helper loaded: file_helper
+INFO - 2019-03-28 19:08:33 --> Encrypt Class Initialized
+INFO - 2019-03-28 19:08:33 --> Controller Class Initialized
+INFO - 2019-03-28 19:08:33 --> Database Driver Class Initialized
+INFO - 2019-03-28 19:08:33 --> Model "User_model" initialized
+INFO - 2019-03-28 19:08:33 --> Model "Design_model" initialized
+DEBUG - 2019-03-28 19:08:33 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-03-28 19:08:33 --> Session: Class initialized using 'files' driver.
+INFO - 2019-03-28 19:08:33 --> User Agent Class Initialized
+DEBUG - 2019-03-28 19:08:33 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-03-28 19:08:33 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-03-28 19:08:33 --> Encryption Class Initialized
+INFO - 2019-03-28 19:08:33 --> Helper loaded: form_helper
+INFO - 2019-03-28 19:08:33 --> Form Validation Class Initialized
+INFO - 2019-03-28 19:08:33 --> Helper loaded: string_helper
+INFO - 2019-03-28 19:08:33 --> Upload Class Initialized
+INFO - 2019-03-28 19:08:33 --> Config Class Initialized
+INFO - 2019-03-28 19:08:33 --> Hooks Class Initialized
+DEBUG - 2019-03-28 19:08:33 --> UTF-8 Support Enabled
+INFO - 2019-03-28 19:08:33 --> Utf8 Class Initialized
+INFO - 2019-03-28 19:08:33 --> URI Class Initialized
+INFO - 2019-03-28 19:08:33 --> Router Class Initialized
+INFO - 2019-03-28 19:08:33 --> Output Class Initialized
+INFO - 2019-03-28 19:08:33 --> Security Class Initialized
+DEBUG - 2019-03-28 19:08:33 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-28 19:08:33 --> Input Class Initialized
+INFO - 2019-03-28 19:08:33 --> Language Class Initialized
+INFO - 2019-03-28 19:08:33 --> Loader Class Initialized
+INFO - 2019-03-28 19:08:33 --> Helper loaded: url_helper
+INFO - 2019-03-28 19:08:33 --> Helper loaded: file_helper
+INFO - 2019-03-28 19:08:33 --> Encrypt Class Initialized
+INFO - 2019-03-28 19:08:33 --> Controller Class Initialized
+INFO - 2019-03-28 19:08:33 --> Database Driver Class Initialized
+INFO - 2019-03-28 19:08:33 --> Model "User_model" initialized
+INFO - 2019-03-28 19:08:33 --> Model "Design_model" initialized
+DEBUG - 2019-03-28 19:08:33 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-03-28 19:08:33 --> Session: Class initialized using 'files' driver.
+INFO - 2019-03-28 19:08:33 --> User Agent Class Initialized
+DEBUG - 2019-03-28 19:08:33 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-03-28 19:08:33 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-03-28 19:08:33 --> Encryption Class Initialized
+INFO - 2019-03-28 19:08:33 --> Helper loaded: form_helper
+INFO - 2019-03-28 19:08:33 --> Form Validation Class Initialized
+INFO - 2019-03-28 19:08:33 --> Helper loaded: string_helper
+INFO - 2019-03-28 19:08:33 --> Upload Class Initialized
+INFO - 2019-03-28 19:08:33 --> Config Class Initialized
+INFO - 2019-03-28 19:08:33 --> Hooks Class Initialized
+DEBUG - 2019-03-28 19:08:33 --> UTF-8 Support Enabled
+INFO - 2019-03-28 19:08:33 --> Utf8 Class Initialized
+INFO - 2019-03-28 19:08:33 --> URI Class Initialized
+INFO - 2019-03-28 19:08:33 --> Router Class Initialized
+INFO - 2019-03-28 19:08:33 --> Output Class Initialized
+INFO - 2019-03-28 19:08:33 --> Security Class Initialized
+DEBUG - 2019-03-28 19:08:33 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-28 19:08:33 --> Input Class Initialized
+INFO - 2019-03-28 19:08:33 --> Language Class Initialized
+INFO - 2019-03-28 19:08:33 --> Loader Class Initialized
+INFO - 2019-03-28 19:08:33 --> Helper loaded: url_helper
+INFO - 2019-03-28 19:08:33 --> Helper loaded: file_helper
+INFO - 2019-03-28 19:08:33 --> Encrypt Class Initialized
+INFO - 2019-03-28 19:08:33 --> Controller Class Initialized
+INFO - 2019-03-28 19:08:33 --> Database Driver Class Initialized
+INFO - 2019-03-28 19:08:33 --> Model "User_model" initialized
+INFO - 2019-03-28 19:08:33 --> Model "Design_model" initialized
+DEBUG - 2019-03-28 19:08:33 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-03-28 19:08:33 --> Session: Class initialized using 'files' driver.
+INFO - 2019-03-28 19:08:33 --> User Agent Class Initialized
+DEBUG - 2019-03-28 19:08:33 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-03-28 19:08:33 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-03-28 19:08:33 --> Encryption Class Initialized
+INFO - 2019-03-28 19:08:33 --> Helper loaded: form_helper
+INFO - 2019-03-28 19:08:33 --> Form Validation Class Initialized
+INFO - 2019-03-28 19:08:33 --> Helper loaded: string_helper
+INFO - 2019-03-28 19:08:33 --> Upload Class Initialized
+INFO - 2019-03-28 19:08:33 --> Config Class Initialized
+INFO - 2019-03-28 19:08:33 --> Hooks Class Initialized
+DEBUG - 2019-03-28 19:08:33 --> UTF-8 Support Enabled
+INFO - 2019-03-28 19:08:33 --> Utf8 Class Initialized
+INFO - 2019-03-28 19:08:33 --> URI Class Initialized
+INFO - 2019-03-28 19:08:33 --> Router Class Initialized
+INFO - 2019-03-28 19:08:33 --> Output Class Initialized
+INFO - 2019-03-28 19:08:33 --> Security Class Initialized
+DEBUG - 2019-03-28 19:08:33 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-28 19:08:33 --> Input Class Initialized
+INFO - 2019-03-28 19:08:33 --> Language Class Initialized
+INFO - 2019-03-28 19:08:33 --> Loader Class Initialized
+INFO - 2019-03-28 19:08:33 --> Helper loaded: url_helper
+INFO - 2019-03-28 19:08:33 --> Helper loaded: file_helper
+INFO - 2019-03-28 19:08:33 --> Encrypt Class Initialized
+INFO - 2019-03-28 19:08:33 --> Controller Class Initialized
+INFO - 2019-03-28 19:08:33 --> Database Driver Class Initialized
+INFO - 2019-03-28 19:08:33 --> Model "User_model" initialized
+INFO - 2019-03-28 19:08:33 --> Model "Design_model" initialized
+DEBUG - 2019-03-28 19:08:33 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-03-28 19:08:33 --> Session: Class initialized using 'files' driver.
+INFO - 2019-03-28 19:08:33 --> User Agent Class Initialized
+DEBUG - 2019-03-28 19:08:33 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-03-28 19:08:33 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-03-28 19:08:33 --> Encryption Class Initialized
+INFO - 2019-03-28 19:08:33 --> Helper loaded: form_helper
+INFO - 2019-03-28 19:08:33 --> Form Validation Class Initialized
+INFO - 2019-03-28 19:08:33 --> Helper loaded: string_helper
+INFO - 2019-03-28 19:08:33 --> Upload Class Initialized
+INFO - 2019-03-28 19:08:33 --> Config Class Initialized
+INFO - 2019-03-28 19:08:33 --> Hooks Class Initialized
+DEBUG - 2019-03-28 19:08:33 --> UTF-8 Support Enabled
+INFO - 2019-03-28 19:08:33 --> Utf8 Class Initialized
+INFO - 2019-03-28 19:08:33 --> URI Class Initialized
+INFO - 2019-03-28 19:08:33 --> Router Class Initialized
+INFO - 2019-03-28 19:08:33 --> Output Class Initialized
+INFO - 2019-03-28 19:08:33 --> Security Class Initialized
+DEBUG - 2019-03-28 19:08:33 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-28 19:08:33 --> Input Class Initialized
+INFO - 2019-03-28 19:08:33 --> Language Class Initialized
+INFO - 2019-03-28 19:08:33 --> Loader Class Initialized
+INFO - 2019-03-28 19:08:33 --> Helper loaded: url_helper
+INFO - 2019-03-28 19:08:33 --> Helper loaded: file_helper
+INFO - 2019-03-28 19:08:33 --> Encrypt Class Initialized
+INFO - 2019-03-28 19:08:33 --> Controller Class Initialized
+INFO - 2019-03-28 19:08:33 --> Database Driver Class Initialized
+INFO - 2019-03-28 19:08:33 --> Model "User_model" initialized
+INFO - 2019-03-28 19:08:33 --> Model "Design_model" initialized
+DEBUG - 2019-03-28 19:08:33 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-03-28 19:08:33 --> Session: Class initialized using 'files' driver.
+INFO - 2019-03-28 19:08:33 --> User Agent Class Initialized
+DEBUG - 2019-03-28 19:08:33 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-03-28 19:08:33 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-03-28 19:08:33 --> Encryption Class Initialized
+INFO - 2019-03-28 19:08:33 --> Helper loaded: form_helper
+INFO - 2019-03-28 19:08:33 --> Form Validation Class Initialized
+INFO - 2019-03-28 19:08:33 --> Helper loaded: string_helper
+INFO - 2019-03-28 19:08:33 --> Upload Class Initialized
+INFO - 2019-03-28 19:08:33 --> Config Class Initialized
+INFO - 2019-03-28 19:08:33 --> Hooks Class Initialized
+DEBUG - 2019-03-28 19:08:33 --> UTF-8 Support Enabled
+INFO - 2019-03-28 19:08:33 --> Utf8 Class Initialized
+INFO - 2019-03-28 19:08:33 --> URI Class Initialized
+INFO - 2019-03-28 19:08:34 --> Router Class Initialized
+INFO - 2019-03-28 19:08:34 --> Output Class Initialized
+INFO - 2019-03-28 19:08:34 --> Security Class Initialized
+DEBUG - 2019-03-28 19:08:34 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-28 19:08:34 --> Input Class Initialized
+INFO - 2019-03-28 19:08:34 --> Language Class Initialized
+INFO - 2019-03-28 19:08:34 --> Loader Class Initialized
+INFO - 2019-03-28 19:08:34 --> Helper loaded: url_helper
+INFO - 2019-03-28 19:08:34 --> Helper loaded: file_helper
+INFO - 2019-03-28 19:08:34 --> Encrypt Class Initialized
+INFO - 2019-03-28 19:08:34 --> Controller Class Initialized
+INFO - 2019-03-28 19:08:34 --> Database Driver Class Initialized
+INFO - 2019-03-28 19:08:34 --> Model "User_model" initialized
+INFO - 2019-03-28 19:08:34 --> Model "Design_model" initialized
+DEBUG - 2019-03-28 19:08:34 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-03-28 19:08:34 --> Session: Class initialized using 'files' driver.
+INFO - 2019-03-28 19:08:34 --> User Agent Class Initialized
+DEBUG - 2019-03-28 19:08:34 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-03-28 19:08:34 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-03-28 19:08:34 --> Encryption Class Initialized
+INFO - 2019-03-28 19:08:34 --> Helper loaded: form_helper
+INFO - 2019-03-28 19:08:34 --> Form Validation Class Initialized
+INFO - 2019-03-28 19:08:34 --> Helper loaded: string_helper
+INFO - 2019-03-28 19:08:34 --> Upload Class Initialized
+INFO - 2019-03-28 19:08:34 --> Config Class Initialized
+INFO - 2019-03-28 19:08:34 --> Hooks Class Initialized
+DEBUG - 2019-03-28 19:08:34 --> UTF-8 Support Enabled
+INFO - 2019-03-28 19:08:34 --> Utf8 Class Initialized
+INFO - 2019-03-28 19:08:34 --> URI Class Initialized
+INFO - 2019-03-28 19:08:34 --> Router Class Initialized
+INFO - 2019-03-28 19:08:34 --> Output Class Initialized
+INFO - 2019-03-28 19:08:34 --> Security Class Initialized
+DEBUG - 2019-03-28 19:08:34 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-28 19:08:34 --> Input Class Initialized
+INFO - 2019-03-28 19:08:34 --> Language Class Initialized
+INFO - 2019-03-28 19:08:34 --> Loader Class Initialized
+INFO - 2019-03-28 19:08:34 --> Helper loaded: url_helper
+INFO - 2019-03-28 19:08:34 --> Helper loaded: file_helper
+INFO - 2019-03-28 19:08:34 --> Encrypt Class Initialized
+INFO - 2019-03-28 19:08:34 --> Controller Class Initialized
+INFO - 2019-03-28 19:08:34 --> Database Driver Class Initialized
+INFO - 2019-03-28 19:08:34 --> Model "User_model" initialized
+INFO - 2019-03-28 19:08:34 --> Model "Design_model" initialized
+DEBUG - 2019-03-28 19:08:34 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-03-28 19:08:34 --> Session: Class initialized using 'files' driver.
+INFO - 2019-03-28 19:08:34 --> User Agent Class Initialized
+DEBUG - 2019-03-28 19:08:34 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-03-28 19:08:34 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-03-28 19:08:34 --> Encryption Class Initialized
+INFO - 2019-03-28 19:08:34 --> Helper loaded: form_helper
+INFO - 2019-03-28 19:08:34 --> Form Validation Class Initialized
+INFO - 2019-03-28 19:08:34 --> Helper loaded: string_helper
+INFO - 2019-03-28 19:08:34 --> Upload Class Initialized
+INFO - 2019-03-28 19:08:34 --> Config Class Initialized
+INFO - 2019-03-28 19:08:34 --> Hooks Class Initialized
+DEBUG - 2019-03-28 19:08:34 --> UTF-8 Support Enabled
+INFO - 2019-03-28 19:08:34 --> Utf8 Class Initialized
+INFO - 2019-03-28 19:08:34 --> URI Class Initialized
+INFO - 2019-03-28 19:08:34 --> Router Class Initialized
+INFO - 2019-03-28 19:08:34 --> Output Class Initialized
+INFO - 2019-03-28 19:08:34 --> Security Class Initialized
+DEBUG - 2019-03-28 19:08:34 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-28 19:08:34 --> Input Class Initialized
+INFO - 2019-03-28 19:08:34 --> Language Class Initialized
+INFO - 2019-03-28 19:08:34 --> Loader Class Initialized
+INFO - 2019-03-28 19:08:34 --> Helper loaded: url_helper
+INFO - 2019-03-28 19:08:34 --> Helper loaded: file_helper
+INFO - 2019-03-28 19:08:34 --> Encrypt Class Initialized
+INFO - 2019-03-28 19:08:34 --> Controller Class Initialized
+INFO - 2019-03-28 19:08:34 --> Database Driver Class Initialized
+INFO - 2019-03-28 19:08:34 --> Model "User_model" initialized
+INFO - 2019-03-28 19:08:34 --> Model "Design_model" initialized
+DEBUG - 2019-03-28 19:08:34 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-03-28 19:08:34 --> Session: Class initialized using 'files' driver.
+INFO - 2019-03-28 19:08:34 --> User Agent Class Initialized
+DEBUG - 2019-03-28 19:08:34 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-03-28 19:08:34 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-03-28 19:08:34 --> Encryption Class Initialized
+INFO - 2019-03-28 19:08:34 --> Helper loaded: form_helper
+INFO - 2019-03-28 19:08:34 --> Form Validation Class Initialized
+INFO - 2019-03-28 19:08:34 --> Helper loaded: string_helper
+INFO - 2019-03-28 19:08:34 --> Upload Class Initialized
+INFO - 2019-03-28 19:08:34 --> Config Class Initialized
+INFO - 2019-03-28 19:08:34 --> Hooks Class Initialized
+DEBUG - 2019-03-28 19:08:34 --> UTF-8 Support Enabled
+INFO - 2019-03-28 19:08:34 --> Utf8 Class Initialized
+INFO - 2019-03-28 19:08:34 --> URI Class Initialized
+INFO - 2019-03-28 19:08:34 --> Router Class Initialized
+INFO - 2019-03-28 19:08:34 --> Output Class Initialized
+INFO - 2019-03-28 19:08:34 --> Security Class Initialized
+DEBUG - 2019-03-28 19:08:34 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-28 19:08:34 --> Input Class Initialized
+INFO - 2019-03-28 19:08:34 --> Language Class Initialized
+INFO - 2019-03-28 19:08:34 --> Loader Class Initialized
+INFO - 2019-03-28 19:08:34 --> Helper loaded: url_helper
+INFO - 2019-03-28 19:08:34 --> Helper loaded: file_helper
+INFO - 2019-03-28 19:08:34 --> Encrypt Class Initialized
+INFO - 2019-03-28 19:08:34 --> Controller Class Initialized
+INFO - 2019-03-28 19:08:34 --> Database Driver Class Initialized
+INFO - 2019-03-28 19:08:34 --> Model "User_model" initialized
+INFO - 2019-03-28 19:08:34 --> Model "Design_model" initialized
+DEBUG - 2019-03-28 19:08:34 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-03-28 19:08:34 --> Session: Class initialized using 'files' driver.
+INFO - 2019-03-28 19:08:34 --> User Agent Class Initialized
+DEBUG - 2019-03-28 19:08:34 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-03-28 19:08:34 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-03-28 19:08:34 --> Encryption Class Initialized
+INFO - 2019-03-28 19:08:34 --> Helper loaded: form_helper
+INFO - 2019-03-28 19:08:34 --> Form Validation Class Initialized
+INFO - 2019-03-28 19:08:34 --> Helper loaded: string_helper
+INFO - 2019-03-28 19:08:34 --> Upload Class Initialized
+INFO - 2019-03-28 19:08:34 --> Config Class Initialized
+INFO - 2019-03-28 19:08:34 --> Hooks Class Initialized
+DEBUG - 2019-03-28 19:08:34 --> UTF-8 Support Enabled
+INFO - 2019-03-28 19:08:34 --> Utf8 Class Initialized
+INFO - 2019-03-28 19:08:34 --> URI Class Initialized
+INFO - 2019-03-28 19:08:34 --> Router Class Initialized
+INFO - 2019-03-28 19:08:34 --> Output Class Initialized
+INFO - 2019-03-28 19:08:34 --> Security Class Initialized
+DEBUG - 2019-03-28 19:08:34 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-28 19:08:34 --> Input Class Initialized
+INFO - 2019-03-28 19:08:34 --> Language Class Initialized
+INFO - 2019-03-28 19:08:34 --> Loader Class Initialized
+INFO - 2019-03-28 19:08:34 --> Helper loaded: url_helper
+INFO - 2019-03-28 19:08:34 --> Helper loaded: file_helper
+INFO - 2019-03-28 19:08:34 --> Encrypt Class Initialized
+INFO - 2019-03-28 19:08:34 --> Controller Class Initialized
+INFO - 2019-03-28 19:08:34 --> Database Driver Class Initialized
+INFO - 2019-03-28 19:08:34 --> Model "User_model" initialized
+INFO - 2019-03-28 19:08:34 --> Model "Design_model" initialized
+DEBUG - 2019-03-28 19:08:34 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-03-28 19:08:34 --> Session: Class initialized using 'files' driver.
+INFO - 2019-03-28 19:08:34 --> User Agent Class Initialized
+DEBUG - 2019-03-28 19:08:34 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-03-28 19:08:34 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-03-28 19:08:34 --> Encryption Class Initialized
+INFO - 2019-03-28 19:08:34 --> Helper loaded: form_helper
+INFO - 2019-03-28 19:08:34 --> Form Validation Class Initialized
+INFO - 2019-03-28 19:08:34 --> Helper loaded: string_helper
+INFO - 2019-03-28 19:08:34 --> Upload Class Initialized
+INFO - 2019-03-28 19:08:34 --> Config Class Initialized
+INFO - 2019-03-28 19:08:34 --> Hooks Class Initialized
+DEBUG - 2019-03-28 19:08:34 --> UTF-8 Support Enabled
+INFO - 2019-03-28 19:08:34 --> Utf8 Class Initialized
+INFO - 2019-03-28 19:08:34 --> URI Class Initialized
+INFO - 2019-03-28 19:08:34 --> Router Class Initialized
+INFO - 2019-03-28 19:08:34 --> Output Class Initialized
+INFO - 2019-03-28 19:08:34 --> Security Class Initialized
+DEBUG - 2019-03-28 19:08:34 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-28 19:08:34 --> Input Class Initialized
+INFO - 2019-03-28 19:08:34 --> Language Class Initialized
+INFO - 2019-03-28 19:08:34 --> Loader Class Initialized
+INFO - 2019-03-28 19:08:34 --> Helper loaded: url_helper
+INFO - 2019-03-28 19:08:34 --> Helper loaded: file_helper
+INFO - 2019-03-28 19:08:34 --> Encrypt Class Initialized
+INFO - 2019-03-28 19:08:34 --> Controller Class Initialized
+INFO - 2019-03-28 19:08:34 --> Database Driver Class Initialized
+INFO - 2019-03-28 19:08:34 --> Model "User_model" initialized
+INFO - 2019-03-28 19:08:34 --> Model "Design_model" initialized
+DEBUG - 2019-03-28 19:08:34 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-03-28 19:08:34 --> Session: Class initialized using 'files' driver.
+INFO - 2019-03-28 19:08:34 --> User Agent Class Initialized
+DEBUG - 2019-03-28 19:08:34 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-03-28 19:08:34 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-03-28 19:08:34 --> Encryption Class Initialized
+INFO - 2019-03-28 19:08:34 --> Helper loaded: form_helper
+INFO - 2019-03-28 19:08:34 --> Form Validation Class Initialized
+INFO - 2019-03-28 19:08:34 --> Helper loaded: string_helper
+INFO - 2019-03-28 19:08:34 --> Upload Class Initialized
+INFO - 2019-03-28 19:08:34 --> Config Class Initialized
+INFO - 2019-03-28 19:08:34 --> Hooks Class Initialized
+DEBUG - 2019-03-28 19:08:34 --> UTF-8 Support Enabled
+INFO - 2019-03-28 19:08:34 --> Utf8 Class Initialized
+INFO - 2019-03-28 19:08:34 --> URI Class Initialized
+INFO - 2019-03-28 19:08:34 --> Router Class Initialized
+INFO - 2019-03-28 19:08:34 --> Output Class Initialized
+INFO - 2019-03-28 19:08:34 --> Security Class Initialized
+DEBUG - 2019-03-28 19:08:34 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-28 19:08:34 --> Input Class Initialized
+INFO - 2019-03-28 19:08:34 --> Language Class Initialized
+INFO - 2019-03-28 19:08:34 --> Loader Class Initialized
+INFO - 2019-03-28 19:08:34 --> Helper loaded: url_helper
+INFO - 2019-03-28 19:08:34 --> Helper loaded: file_helper
+INFO - 2019-03-28 19:08:34 --> Encrypt Class Initialized
+INFO - 2019-03-28 19:08:34 --> Controller Class Initialized
+INFO - 2019-03-28 19:08:34 --> Database Driver Class Initialized
+INFO - 2019-03-28 19:08:34 --> Model "User_model" initialized
+INFO - 2019-03-28 19:08:34 --> Model "Design_model" initialized
+DEBUG - 2019-03-28 19:08:34 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-03-28 19:08:34 --> Session: Class initialized using 'files' driver.
+INFO - 2019-03-28 19:08:34 --> User Agent Class Initialized
+DEBUG - 2019-03-28 19:08:34 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-03-28 19:08:34 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-03-28 19:08:34 --> Encryption Class Initialized
+INFO - 2019-03-28 19:08:34 --> Helper loaded: form_helper
+INFO - 2019-03-28 19:08:34 --> Form Validation Class Initialized
+INFO - 2019-03-28 19:08:34 --> Helper loaded: string_helper
+INFO - 2019-03-28 19:08:34 --> Upload Class Initialized
+INFO - 2019-03-28 19:08:34 --> Config Class Initialized
+INFO - 2019-03-28 19:08:34 --> Hooks Class Initialized
+DEBUG - 2019-03-28 19:08:34 --> UTF-8 Support Enabled
+INFO - 2019-03-28 19:08:34 --> Utf8 Class Initialized
+INFO - 2019-03-28 19:08:34 --> URI Class Initialized
+INFO - 2019-03-28 19:08:34 --> Router Class Initialized
+INFO - 2019-03-28 19:08:34 --> Output Class Initialized
+INFO - 2019-03-28 19:08:34 --> Security Class Initialized
+DEBUG - 2019-03-28 19:08:34 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-28 19:08:34 --> Input Class Initialized
+INFO - 2019-03-28 19:08:34 --> Language Class Initialized
+INFO - 2019-03-28 19:08:34 --> Loader Class Initialized
+INFO - 2019-03-28 19:08:34 --> Helper loaded: url_helper
+INFO - 2019-03-28 19:08:34 --> Helper loaded: file_helper
+INFO - 2019-03-28 19:08:34 --> Encrypt Class Initialized
+INFO - 2019-03-28 19:08:34 --> Controller Class Initialized
+INFO - 2019-03-28 19:08:34 --> Database Driver Class Initialized
+INFO - 2019-03-28 19:08:34 --> Model "User_model" initialized
+INFO - 2019-03-28 19:08:34 --> Model "Design_model" initialized
+DEBUG - 2019-03-28 19:08:34 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-03-28 19:08:34 --> Session: Class initialized using 'files' driver.
+INFO - 2019-03-28 19:08:34 --> User Agent Class Initialized
+DEBUG - 2019-03-28 19:08:34 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-03-28 19:08:34 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-03-28 19:08:34 --> Encryption Class Initialized
+INFO - 2019-03-28 19:08:34 --> Helper loaded: form_helper
+INFO - 2019-03-28 19:08:34 --> Form Validation Class Initialized
+INFO - 2019-03-28 19:08:34 --> Helper loaded: string_helper
+INFO - 2019-03-28 19:08:34 --> Upload Class Initialized
+INFO - 2019-03-28 19:08:34 --> Config Class Initialized
+INFO - 2019-03-28 19:08:34 --> Hooks Class Initialized
+DEBUG - 2019-03-28 19:08:34 --> UTF-8 Support Enabled
+INFO - 2019-03-28 19:08:34 --> Utf8 Class Initialized
+INFO - 2019-03-28 19:08:34 --> URI Class Initialized
+INFO - 2019-03-28 19:08:34 --> Router Class Initialized
+INFO - 2019-03-28 19:08:34 --> Output Class Initialized
+INFO - 2019-03-28 19:08:34 --> Security Class Initialized
+DEBUG - 2019-03-28 19:08:34 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-28 19:08:34 --> Input Class Initialized
+INFO - 2019-03-28 19:08:34 --> Language Class Initialized
+INFO - 2019-03-28 19:08:34 --> Loader Class Initialized
+INFO - 2019-03-28 19:08:34 --> Helper loaded: url_helper
+INFO - 2019-03-28 19:08:34 --> Helper loaded: file_helper
+INFO - 2019-03-28 19:08:34 --> Encrypt Class Initialized
+INFO - 2019-03-28 19:08:34 --> Controller Class Initialized
+INFO - 2019-03-28 19:08:34 --> Database Driver Class Initialized
+INFO - 2019-03-28 19:08:34 --> Model "User_model" initialized
+INFO - 2019-03-28 19:08:34 --> Model "Design_model" initialized
+DEBUG - 2019-03-28 19:08:34 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-03-28 19:08:34 --> Session: Class initialized using 'files' driver.
+INFO - 2019-03-28 19:08:34 --> User Agent Class Initialized
+DEBUG - 2019-03-28 19:08:34 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-03-28 19:08:34 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-03-28 19:08:34 --> Encryption Class Initialized
+INFO - 2019-03-28 19:08:34 --> Helper loaded: form_helper
+INFO - 2019-03-28 19:08:34 --> Form Validation Class Initialized
+INFO - 2019-03-28 19:08:34 --> Helper loaded: string_helper
+INFO - 2019-03-28 19:08:34 --> Upload Class Initialized
+INFO - 2019-03-28 19:08:35 --> Config Class Initialized
+INFO - 2019-03-28 19:08:35 --> Hooks Class Initialized
+DEBUG - 2019-03-28 19:08:35 --> UTF-8 Support Enabled
+INFO - 2019-03-28 19:08:35 --> Utf8 Class Initialized
+INFO - 2019-03-28 19:08:35 --> URI Class Initialized
+INFO - 2019-03-28 19:08:35 --> Router Class Initialized
+INFO - 2019-03-28 19:08:35 --> Output Class Initialized
+INFO - 2019-03-28 19:08:35 --> Security Class Initialized
+DEBUG - 2019-03-28 19:08:35 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-28 19:08:35 --> Input Class Initialized
+INFO - 2019-03-28 19:08:35 --> Language Class Initialized
+INFO - 2019-03-28 19:08:35 --> Loader Class Initialized
+INFO - 2019-03-28 19:08:35 --> Helper loaded: url_helper
+INFO - 2019-03-28 19:08:35 --> Helper loaded: file_helper
+INFO - 2019-03-28 19:08:35 --> Encrypt Class Initialized
+INFO - 2019-03-28 19:08:35 --> Controller Class Initialized
+INFO - 2019-03-28 19:08:35 --> Database Driver Class Initialized
+INFO - 2019-03-28 19:08:35 --> Model "User_model" initialized
+INFO - 2019-03-28 19:08:35 --> Model "Design_model" initialized
+DEBUG - 2019-03-28 19:08:35 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-03-28 19:08:35 --> Session: Class initialized using 'files' driver.
+INFO - 2019-03-28 19:08:35 --> User Agent Class Initialized
+DEBUG - 2019-03-28 19:08:35 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-03-28 19:08:35 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-03-28 19:08:35 --> Encryption Class Initialized
+INFO - 2019-03-28 19:08:35 --> Helper loaded: form_helper
+INFO - 2019-03-28 19:08:35 --> Form Validation Class Initialized
+INFO - 2019-03-28 19:08:35 --> Helper loaded: string_helper
+INFO - 2019-03-28 19:08:35 --> Upload Class Initialized
+INFO - 2019-03-28 19:08:35 --> Config Class Initialized
+INFO - 2019-03-28 19:08:35 --> Hooks Class Initialized
+DEBUG - 2019-03-28 19:08:35 --> UTF-8 Support Enabled
+INFO - 2019-03-28 19:08:35 --> Utf8 Class Initialized
+INFO - 2019-03-28 19:08:35 --> URI Class Initialized
+INFO - 2019-03-28 19:08:35 --> Router Class Initialized
+INFO - 2019-03-28 19:08:35 --> Output Class Initialized
+INFO - 2019-03-28 19:08:35 --> Security Class Initialized
+DEBUG - 2019-03-28 19:08:35 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-28 19:08:35 --> Input Class Initialized
+INFO - 2019-03-28 19:08:35 --> Language Class Initialized
+INFO - 2019-03-28 19:08:35 --> Loader Class Initialized
+INFO - 2019-03-28 19:08:35 --> Helper loaded: url_helper
+INFO - 2019-03-28 19:08:35 --> Helper loaded: file_helper
+INFO - 2019-03-28 19:08:35 --> Encrypt Class Initialized
+INFO - 2019-03-28 19:08:35 --> Controller Class Initialized
+INFO - 2019-03-28 19:08:35 --> Database Driver Class Initialized
+INFO - 2019-03-28 19:08:35 --> Model "User_model" initialized
+INFO - 2019-03-28 19:08:35 --> Model "Design_model" initialized
+DEBUG - 2019-03-28 19:08:35 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-03-28 19:08:35 --> Session: Class initialized using 'files' driver.
+INFO - 2019-03-28 19:08:35 --> User Agent Class Initialized
+DEBUG - 2019-03-28 19:08:35 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-03-28 19:08:35 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-03-28 19:08:35 --> Encryption Class Initialized
+INFO - 2019-03-28 19:08:35 --> Helper loaded: form_helper
+INFO - 2019-03-28 19:08:35 --> Form Validation Class Initialized
+INFO - 2019-03-28 19:08:35 --> Helper loaded: string_helper
+INFO - 2019-03-28 19:08:35 --> Upload Class Initialized
+INFO - 2019-03-28 19:08:35 --> Config Class Initialized
+INFO - 2019-03-28 19:08:35 --> Hooks Class Initialized
+DEBUG - 2019-03-28 19:08:35 --> UTF-8 Support Enabled
+INFO - 2019-03-28 19:08:35 --> Utf8 Class Initialized
+INFO - 2019-03-28 19:08:35 --> URI Class Initialized
+INFO - 2019-03-28 19:08:35 --> Router Class Initialized
+INFO - 2019-03-28 19:08:35 --> Output Class Initialized
+INFO - 2019-03-28 19:08:35 --> Security Class Initialized
+DEBUG - 2019-03-28 19:08:35 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-28 19:08:35 --> Input Class Initialized
+INFO - 2019-03-28 19:08:35 --> Language Class Initialized
+INFO - 2019-03-28 19:08:35 --> Loader Class Initialized
+INFO - 2019-03-28 19:08:35 --> Helper loaded: url_helper
+INFO - 2019-03-28 19:08:35 --> Helper loaded: file_helper
+INFO - 2019-03-28 19:08:35 --> Encrypt Class Initialized
+INFO - 2019-03-28 19:08:35 --> Controller Class Initialized
+INFO - 2019-03-28 19:08:35 --> Database Driver Class Initialized
+INFO - 2019-03-28 19:08:35 --> Model "User_model" initialized
+INFO - 2019-03-28 19:08:35 --> Model "Design_model" initialized
+DEBUG - 2019-03-28 19:08:35 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-03-28 19:08:35 --> Session: Class initialized using 'files' driver.
+INFO - 2019-03-28 19:08:35 --> User Agent Class Initialized
+DEBUG - 2019-03-28 19:08:35 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-03-28 19:08:35 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-03-28 19:08:35 --> Encryption Class Initialized
+INFO - 2019-03-28 19:08:35 --> Helper loaded: form_helper
+INFO - 2019-03-28 19:08:35 --> Form Validation Class Initialized
+INFO - 2019-03-28 19:08:35 --> Helper loaded: string_helper
+INFO - 2019-03-28 19:08:35 --> Upload Class Initialized
+INFO - 2019-03-28 19:08:35 --> Config Class Initialized
+INFO - 2019-03-28 19:08:35 --> Hooks Class Initialized
+DEBUG - 2019-03-28 19:08:35 --> UTF-8 Support Enabled
+INFO - 2019-03-28 19:08:35 --> Utf8 Class Initialized
+INFO - 2019-03-28 19:08:35 --> URI Class Initialized
+INFO - 2019-03-28 19:08:35 --> Router Class Initialized
+INFO - 2019-03-28 19:08:35 --> Output Class Initialized
+INFO - 2019-03-28 19:08:35 --> Security Class Initialized
+DEBUG - 2019-03-28 19:08:35 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-28 19:08:35 --> Input Class Initialized
+INFO - 2019-03-28 19:08:35 --> Language Class Initialized
+INFO - 2019-03-28 19:08:35 --> Loader Class Initialized
+INFO - 2019-03-28 19:08:35 --> Helper loaded: url_helper
+INFO - 2019-03-28 19:08:35 --> Helper loaded: file_helper
+INFO - 2019-03-28 19:08:35 --> Encrypt Class Initialized
+INFO - 2019-03-28 19:08:35 --> Controller Class Initialized
+INFO - 2019-03-28 19:08:35 --> Database Driver Class Initialized
+INFO - 2019-03-28 19:08:35 --> Model "User_model" initialized
+INFO - 2019-03-28 19:08:35 --> Model "Design_model" initialized
+DEBUG - 2019-03-28 19:08:35 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-03-28 19:08:35 --> Session: Class initialized using 'files' driver.
+INFO - 2019-03-28 19:08:35 --> User Agent Class Initialized
+DEBUG - 2019-03-28 19:08:35 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-03-28 19:08:35 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-03-28 19:08:35 --> Encryption Class Initialized
+INFO - 2019-03-28 19:08:35 --> Helper loaded: form_helper
+INFO - 2019-03-28 19:08:35 --> Form Validation Class Initialized
+INFO - 2019-03-28 19:08:35 --> Helper loaded: string_helper
+INFO - 2019-03-28 19:08:35 --> Upload Class Initialized
+INFO - 2019-03-28 19:08:35 --> Config Class Initialized
+INFO - 2019-03-28 19:08:35 --> Hooks Class Initialized
+DEBUG - 2019-03-28 19:08:35 --> UTF-8 Support Enabled
+INFO - 2019-03-28 19:08:35 --> Utf8 Class Initialized
+INFO - 2019-03-28 19:08:35 --> URI Class Initialized
+INFO - 2019-03-28 19:08:35 --> Router Class Initialized
+INFO - 2019-03-28 19:08:35 --> Output Class Initialized
+INFO - 2019-03-28 19:08:35 --> Security Class Initialized
+DEBUG - 2019-03-28 19:08:35 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-28 19:08:35 --> Input Class Initialized
+INFO - 2019-03-28 19:08:35 --> Language Class Initialized
+INFO - 2019-03-28 19:08:35 --> Loader Class Initialized
+INFO - 2019-03-28 19:08:35 --> Helper loaded: url_helper
+INFO - 2019-03-28 19:08:35 --> Helper loaded: file_helper
+INFO - 2019-03-28 19:08:35 --> Encrypt Class Initialized
+INFO - 2019-03-28 19:08:35 --> Controller Class Initialized
+INFO - 2019-03-28 19:08:35 --> Database Driver Class Initialized
+INFO - 2019-03-28 19:08:35 --> Model "User_model" initialized
+INFO - 2019-03-28 19:08:35 --> Model "Design_model" initialized
+DEBUG - 2019-03-28 19:08:35 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-03-28 19:08:35 --> Session: Class initialized using 'files' driver.
+INFO - 2019-03-28 19:08:35 --> User Agent Class Initialized
+DEBUG - 2019-03-28 19:08:35 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-03-28 19:08:35 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-03-28 19:08:35 --> Encryption Class Initialized
+INFO - 2019-03-28 19:08:35 --> Helper loaded: form_helper
+INFO - 2019-03-28 19:08:35 --> Form Validation Class Initialized
+INFO - 2019-03-28 19:08:35 --> Helper loaded: string_helper
+INFO - 2019-03-28 19:08:35 --> Upload Class Initialized
+INFO - 2019-03-28 19:08:35 --> Config Class Initialized
+INFO - 2019-03-28 19:08:35 --> Hooks Class Initialized
+DEBUG - 2019-03-28 19:08:35 --> UTF-8 Support Enabled
+INFO - 2019-03-28 19:08:35 --> Utf8 Class Initialized
+INFO - 2019-03-28 19:08:35 --> URI Class Initialized
+INFO - 2019-03-28 19:08:35 --> Router Class Initialized
+INFO - 2019-03-28 19:08:35 --> Output Class Initialized
+INFO - 2019-03-28 19:08:35 --> Security Class Initialized
+DEBUG - 2019-03-28 19:08:35 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-28 19:08:35 --> Input Class Initialized
+INFO - 2019-03-28 19:08:35 --> Language Class Initialized
+INFO - 2019-03-28 19:08:35 --> Loader Class Initialized
+INFO - 2019-03-28 19:08:35 --> Helper loaded: url_helper
+INFO - 2019-03-28 19:08:35 --> Helper loaded: file_helper
+INFO - 2019-03-28 19:08:35 --> Encrypt Class Initialized
+INFO - 2019-03-28 19:08:35 --> Controller Class Initialized
+INFO - 2019-03-28 19:08:35 --> Database Driver Class Initialized
+INFO - 2019-03-28 19:08:35 --> Model "User_model" initialized
+INFO - 2019-03-28 19:08:35 --> Model "Design_model" initialized
+DEBUG - 2019-03-28 19:08:35 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-03-28 19:08:35 --> Session: Class initialized using 'files' driver.
+INFO - 2019-03-28 19:08:35 --> User Agent Class Initialized
+DEBUG - 2019-03-28 19:08:35 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-03-28 19:08:35 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-03-28 19:08:35 --> Encryption Class Initialized
+INFO - 2019-03-28 19:08:35 --> Helper loaded: form_helper
+INFO - 2019-03-28 19:08:35 --> Form Validation Class Initialized
+INFO - 2019-03-28 19:08:35 --> Helper loaded: string_helper
+INFO - 2019-03-28 19:08:35 --> Upload Class Initialized

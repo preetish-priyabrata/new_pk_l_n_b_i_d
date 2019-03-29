@@ -98,7 +98,8 @@ if($result_title['no_new_tech']!=1){
             </div>
 						<div class="form-group row pull-right">
                 <div class="col-md-12">
-                    <button type="submit" class="btn btn-sm btn-primary m-r-5">Save</button>
+                    <button type="submit" class="btn btn-sm btn-primary m-r-5" v=>Save</button>
+                   
                     <a  href="<?=base_url()?>user-vendor-home" class="btn btn-sm btn-default">Cancel</a>
                 </div>
             </div>

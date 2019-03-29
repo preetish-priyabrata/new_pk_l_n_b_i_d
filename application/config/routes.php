@@ -561,8 +561,8 @@ $route['comm-evalutor-logout']='commericalevalutor/comm_evalutor_logout';
 # Vendor section user
 #
 ######################################################################################################################################
-$route['vendor/login']='vendoruser/index';
-$route['vendor']='vendoruser/index';
+$route['seller/login']='vendoruser/index';
+$route['seller']='vendoruser/index';
 $route['vendor/login-process']='vendoruser/vendor_login_process';
 $route['user-vendor-home']='vendoruser/vendor_dashboard';
 $route['user-vendor-new-technical']='vendoruser/vendor_new_technical';
@@ -602,6 +602,20 @@ $route['vendor-logout-pass']='vendoruser/vendor_logout_bypass';
 $route['vendor-change-password-view']='vendoruser/vendor_change_password_view';
 $route['vendor-change-password-save']='vendoruser/vendor_change_password_save';
 
+
+//  pr
+$route['seller/user-vendor-home']='vendoruser/vendor_dashboard'; // dashboard list
+
+$route['seller/user-vendor-bid-new-technical']='vendorusernew/vendor_bid_new_technical_list'; // new technical materila list for biddding information
+
+$route['seller/user-vendor-bid-view-technical-details-pr/(:any)/(:any)']='vendorusernew/vendor_bid_new_technical_details/$1/$2';
+$route['seller/user-vendor-bid-submission-bid/(:any)']='vendorusernew/vendor_bid_new_technical_details_pr/$1';
+$route['seller/user-pr-vendor-tech-bid-submission-tokens/(:any)/(:any)/(:any)']='vendorusernew/vendor_bid_new_technical_submission_pr/$1/$2/$3';
+$route['seller/vendor-file-upload-data-pr']='vendorusernew/vendor_file_upload_data_pr_files';
+$route['seller/vendor-tech-file-new-bid-submission-info/(:any)/(:any)/(:any)']='vendorusernew/vendor_tech_file_new_bid_submission_pr_view/$1/$2/$3'; // is not complted
+$route['seller/user-vendor-tech-bid-submission-tokens-info/(:any)/(:any)/(:any)']='vendorusernew/vendor_tech_bid_submission_tokens_edit/$1/$2/$3';
+$route['seller/pr-vendor-tech-file-new-bid-submission']='vendorusernew/vendor_tech_file_new_bid_submission_pr';
+// 
 
 
 

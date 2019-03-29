@@ -515,7 +515,7 @@ $result_table=$query_data->result();
 													<label class="col-form-label col-md-3" for="date_clearfication_bid">Bid Clarfication Date <span style="color: red">*</span></label>
 													<div class="col-md-9">
 														<input class="form-control m-b-5 datepickers" placeholder="EnterBid Clearfication Date" name="date_clearfication_bid" id="date_clearfication_bid" type="text" required="" >
-														<small class="f-s-12 text-grey-darker">Please Select Bid Clarfication Date</small>
+														<small class="f-s-12 text-grey-darker">Please Select Bid Clarification Date</small>
 													</div>
 												</div>
 												<!-- part e end -->

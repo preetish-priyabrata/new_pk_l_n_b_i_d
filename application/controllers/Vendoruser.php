@@ -75,25 +75,25 @@ class Vendoruser extends CI_Controller {
                             // Set flash data
                             $this->session->set_flashdata('error_msg', 'Unable find user Please Try Again!!!');
                             // After that you need to used redirect function instead of load view such as
-                            redirect("vendor");
+                            redirect("seller");
                         }
 
                     }else{
                          // Set flash data
                         $this->session->set_flashdata('error_msg', 'Invalid User Please Try Again!!');
                         // After that you need to used redirect function instead of load view such as
-                        redirect("vendor");
+                        redirect("seller");
                     }
             }else{
                // Set flash data
                 $this->session->set_flashdata('error_msg', 'Invalid User Please Try Again!');
                 // After that you need to used redirect function instead of load view such as
-                redirect("vendor");
+                redirect("seller");
             }
         }else{
             $this->session->set_flashdata('error_msg', 'Please Fill All field In login Page ');
                 // After that you need to used redirect function instead of load view such as
-            redirect("vendor");
+            redirect("seller");
         }
 
     }
