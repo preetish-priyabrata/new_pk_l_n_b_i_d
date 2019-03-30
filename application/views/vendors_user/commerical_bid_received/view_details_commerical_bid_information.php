@@ -6,7 +6,7 @@ if(empty($Vendor_email_id)){
 }
 $value=$vendor_slno_id;
 $value1=$value1;
-$result_title=$this->vendor_db_usersnew->vendor_new_query_tech_title_pr($value,$Vendor_email_id);
+$result_title=$this->vendor_db_usersnew->vendor_new_query_commerical_title_pr($value,$Vendor_email_id);
 // print_r($result_title);
 
 
@@ -38,6 +38,24 @@ $approval_status=$result_title['new_tech_list'][0]->approval_status;
  // $result_file=$this->design_user->get_design_mr_file_list($mr_slno,$mr_no); // file information
 	$date_file_sub = array('bid_id_vendor' => $value );
  	$get_no_file=$this->db->get_where('master_vendor_tech_token_bid_c',$date_file_sub);
+
+ 	$mode_bid=$result_title['new_tech_list'][0]->mode_bid;
+
+ 	switch ($mode_bid) {
+ 		case 'Closed Bid':
+ 			$bid_type_id=1;
+ 			break;
+ 		case 'Simple Bid':
+ 			$bid_type_id=2;
+ 			break;
+ 		case 'Rank Order Bid':
+ 			$bid_type_id=3;
+ 			break;
+ 		
+ 		default:
+ 			# code...
+ 			break;
+ 	}
 ?>
 	<input type="hidden" readonly="" name="slno_pr" id="slno_pr"  value="<?=$slno_pr?>">
 	<input type="hidden" readonly="" name="job_code" id="job_code" value="<?=$job_code?>">
@@ -235,9 +253,13 @@ $approval_status=$result_title['new_tech_list'][0]->approval_status;
           		echo "<p style='color:green'><strong> BId Is been Approved </strong></p>";
           	 }else{
           	 	$today=date('Y-m-d');
-                	if($date_end<=$today){ 
+          	 	if($date_end < $today) {
+
+          	 	}else{
+	   
+                // if(strtotime($today) >= strtotime($date_end)){
 				?>
-				 <a href="<?=base_url()?>seller/user-vendor-bid-submission-bid/<?=$value?>" class="btn btn-sm btn-success m-r-5"><i class="fas fa-envelope-open-text"></i>   Click To Submit Bid </a>
+				 <a href="<?=base_url()?>seller/user-vendor-bid-commerical-submission-bid/<?=$value?>/<?=$bid_type_id?>" class="btn btn-sm btn-success m-r-5"><i class="fas fa-envelope-open-text"></i>   Click To Submit Bid </a>
 			<?php }
 				}
 				?>

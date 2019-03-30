@@ -309,22 +309,32 @@ class Vendorusernew extends CI_Controller {
         $this->load->view('vendors_user/commerical_bid_received/new_bid_information',$data);
         $this->load->view('vendors_user/vendor_template/v_template_top_footer',$data);
   }
-  public function view_commerical_details_pr_list($value='',$value1=''){
+  public function vendor_bid_view_commerical_details_pr_details($value='',$value1=''){
       if($value1==5){
         $data_update=array('status_view'=>6);
         $data_id=array('slno_vendor'=>$value);
         $query=$this->db->update('master_bid_Com_vendor_m',$data_update,$data_id);
       }
       $scripts='';
-            $data=array('title' =>"Commerical Bid Information which will have detail",'script_js'=>$scripts ,'menu_status'=>'','sub_menu'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','vendor_slno_id'=>$value,'value1'=>$value1);
+      $data=array('title' =>"Commerical Bid Information which will have detail",'script_js'=>$scripts ,'menu_status'=>'','sub_menu'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','vendor_slno_id'=>$value,'value1'=>$value1);
+      $page='vendors_user/commerical_bid_received/view_details_commerical_bid_information';
+      $this->load->view('vendors_user/vendor_template/v_template_header',$data);
+      $this->load->view('vendors_user/vendor_template/v_template_top_head',$data);
+      $this->load->view('vendors_user/vendor_template/v_template_top_menu',$data);
+      $this->load->view($page,$data);
+      $this->load->view('vendors_user/vendor_template/v_template_top_footer',$data);   
+  }
 
-            $page='vendors_user/commerical_bid_received/view_details_technical_bid_information';
+  public function vendor_bid_view_commerical_details_pr_details_com($value='',$value1=''){
+    $scripts='';
+      $data=array('title' =>"Commerical Bid Information which will have detail",'script_js'=>$scripts ,'menu_status'=>'','sub_menu'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','vendor_slno_id'=>$value,'type_bid'=>$value1);
+      $page='vendors_user/commerical_bid_received/submission_commerical_page1';
+      $this->load->view('vendors_user/vendor_template/v_template_header',$data);
+      $this->load->view('vendors_user/vendor_template/v_template_top_head',$data);
+      $this->load->view('vendors_user/vendor_template/v_template_top_menu',$data);
+      $this->load->view($page,$data);
+      $this->load->view('vendors_user/vendor_template/v_template_top_footer',$data);   
 
-            $this->load->view('vendors_user/vendor_template/v_template_header',$data);
-            $this->load->view('vendors_user/vendor_template/v_template_top_head',$data);
-            $this->load->view('vendors_user/vendor_template/v_template_top_menu',$data);
-            $this->load->view($page,$data);
-            $this->load->view('vendors_user/vendor_template/v_template_top_footer',$data);
     # code...
   }
 }

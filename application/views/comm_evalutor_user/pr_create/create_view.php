@@ -130,7 +130,7 @@ if(empty($email_id)){
 					<?php
 					 foreach($query->result() as $row){
 					 	$pr_no=$row->pr_no;
-					 	$data_check=array('pr_no'=>$pr_no,'technical_user_id'=>$email_id,'approver_user_status'=>1,'design_user_status'=>1,'technical_user_status'=>2);
+					 	$data_check=array('pr_no'=>$pr_no,'commerical_user_id'=>$email_id,'approver_user_status'=>1,'design_user_status'=>1,'commerical_user_status'=>2);
 					 	$query_check=$this->db->get_where('master_pr_process_detail',$data_check);
 					 	$num_rows_check=$query_check->num_rows();
 					 	if($num_rows_check!=0){

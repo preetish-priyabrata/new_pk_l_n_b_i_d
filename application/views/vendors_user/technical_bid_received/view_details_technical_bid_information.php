@@ -8,7 +8,7 @@ $value=$vendor_slno_id;
 $value1=$value1;
 $result_title=$this->vendor_db_usersnew->vendor_new_query_tech_title_pr($value,$Vendor_email_id);
 // print_r($result_title);
-
+$date1=date('d-m-Y');
 
 if($result_title['no_new_tech']!=1){
 	$this->session->set_flashdata('error_message', 'Unable find Bid');
@@ -254,9 +254,11 @@ $approval_status=$result_title['new_tech_list'][0]->approval_status;
 															}
 														
 														}else{
-															$today=date('Y-m-d');
-                												if($date_end<=$today){ 
-															if($submitted_status==1){ ?> <a href="<?=base_url().'seller/vendor-tech-file-new-bid-submission-info/'.$value.'/'.$submission->token_no .'/'.$submission->master_bid_id ?>">View Send </a><?php  }else{?> <a href="<?=base_url().'seller/user-vendor-tech-bid-submission-tokens-info/'.$value.'/'.$submission->token_no .'/'.$submission->master_bid_id ?>">Click View</a><?php }
+
+															$new_date_end=$date_end.' 19:00:00';         	 	
+                											if(strtotime($date1) >= strtotime($date_end)){
+																if($submitted_status==1){ ?> <a href="<?=base_url().'seller/vendor-tech-file-new-bid-submission-info/'.$value.'/'.$submission->token_no .'/'.$submission->master_bid_id ?>">View Send </a><?php  }else{?> <a href="<?=base_url().'seller/user-vendor-tech-bid-submission-tokens-info/'.$value.'/'.$submission->token_no .'/'.$submission->master_bid_id ?>">Click View</a><?php }
+                											
 															}else{
 																?> <a href="<?=base_url().'seller/vendor-tech-file-new-bid-submission-info/'.$value.'/'.$submission->token_no .'/'.$submission->master_bid_id ?>">View Send </a><?php
 
@@ -279,7 +281,9 @@ $approval_status=$result_title['new_tech_list'][0]->approval_status;
           		echo "<p style='color:green'><strong> BId Is been Approved </strong></p>";
           	 }else{
           	 	$today=date('Y-m-d');
-                	if($date_end<=$today){ 
+          	 	if($date_end < $today) {
+
+          	 	}else{
 				?>
 				 <a href="<?=base_url()?>seller/user-vendor-bid-submission-bid/<?=$value?>" class="btn btn-sm btn-success m-r-5"><i class="fas fa-envelope-open-text"></i>   Click To Submit Bid </a>
 			<?php }

@@ -19,11 +19,11 @@ if(empty($email_id)){
 			<ol class="breadcrumb pull-right">
 				<li class="breadcrumb-item active"><a href="#" class="fa fa-home ">Home</a></li>
 				<!-- <li class="breadcrumb-item"><a href="javascript:;">Page Options</a></li> -->
-				<li class="breadcrumb-item active">View New Bids</li>
+				<li class="breadcrumb-item active"> View New Bids </li>
 			</ol>
 			<!-- end breadcrumb -->
 			<!-- begin page-header -->
-			<h1 class="page-header">View New Bids 
+			<h1 class="page-header"> View New Bids 
 			 <!-- <small>header small text goes here...</small> -->
 			</h1>
 			<!-- end page-header -->

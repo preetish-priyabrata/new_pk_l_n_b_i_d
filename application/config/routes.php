@@ -621,7 +621,9 @@ $route['seller/pr-vendor-tech-file-new-bid-submission']='vendorusernew/vendor_te
 // commerical vendor
 // 
 $route['seller/user-vendor-bid-new-commerical']='vendorusernew/vendor_bid_new_commerical_list';
-$route['seller/user-vendor-bid-view-commerical-details-pr/(:any)/(:any)']='vendorusernew/vendor_bid-view_commerical_details_pr_list/$1/$2';// here infotmation of bid
+$route['seller/user-vendor-bid-view-commerical-details-pr/(:any)/(:any)']='vendorusernew/vendor_bid_view_commerical_details_pr_details/$1/$2';// here infotmation of bid
+
+$route['seller/user-vendor-bid-commerical-submission-bid/(:any)/(:any)']='vendorusernew/vendor_bid_view_commerical_details_pr_details_com/$1/$2';
 
 
 ######################################################################################################################################
