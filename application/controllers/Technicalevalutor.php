@@ -204,15 +204,15 @@ public function technical_user_create_new_material($value='',$value1='',$value2=
                          $this->session->set_flashdata('success_message',  'Sucessfully Approval Of Technical bid ');
                         redirect('user-technical-evaluator-view-details-technical-bid-new/'.$value1.'/'.$value2);
                     }else{
-                         $this->session->set_flashdata('error_message',  'Some thing went worng Try Again!!!!!!');
+                         $this->session->set_flashdata('error_message',  'Some thing went wrong Try Again!!!!!!');
                         redirect('user-technical-evaluator-view-details-technical-bid-new/'.$value1.'/'.$value2);
                     }
                 }else{
-                    $this->session->set_flashdata('error_message',  'Some thing went worng Try Again!!!!!');
+                    $this->session->set_flashdata('error_message',  'Some thing went wrong Try Again!!!!!');
                     redirect('user-technical-evaluator-view-details-technical-bid-new/'.$value1.'/'.$value2); 
                 }
             }else{
-                $this->session->set_flashdata('error_message',  'Some thing went worng Try Again!!!!');
+                $this->session->set_flashdata('error_message',  'Some thing went wrong Try Again!!!!');
                 redirect('user-technical-evaluator-view-details-technical-bid-new/'.$value1.'/'.$value1); 
             }
         }else{ // if resubmission
@@ -231,15 +231,15 @@ public function technical_user_create_new_material($value='',$value1='',$value2=
                          $this->session->set_flashdata('success_message',  'Sucessfully Resubmission Request for bid to vendor is been send ');
                         redirect('user-technical-evaluator-view-details-technical-bid-new/'.$value1.'/'.$value2);
                     }else{
-                         $this->session->set_flashdata('error_message',  'Some thing went worng Try Again!!!');
+                         $this->session->set_flashdata('error_message',  'Some thing went wrong Try Again!!!');
                         redirect('user-technical-evaluator-view-details-technical-bid-new/'.$value1.'/'.$value2);
                     }
                 }else{
-                   $this->session->set_flashdata('error_message',  'Some thing went worng Try Again!!');
+                   $this->session->set_flashdata('error_message',  'Some thing went wrong Try Again!!');
                     redirect('user-technical-evaluator-view-details-technical-bid-new/'.$value1.'/'.$value2);  
                 }
             }else{
-                $this->session->set_flashdata('error_message',  'Some thing went worng Try Again!');
+                $this->session->set_flashdata('error_message',  'Some thing went wrong Try Again!');
                 redirect('user-technical-evaluator-view-details-technical-bid-new/'.$value1.'/'.$value2); 
             }
         }

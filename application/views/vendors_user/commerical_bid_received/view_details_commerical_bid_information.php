@@ -224,51 +224,7 @@ $approval_status=$result_title['new_tech_list'][0]->approval_status;
 								</tr>
 						</thead>
 						<tbody>
-							<?php foreach($get_no_file->result() as $submission){ ?>
-										<tr>
-												<td><strong><?=$submission->date_creation?></strong></td>
-												<td><strong><?php $submitted_status=$submission->submitted_status;
-													if($submitted_status==0){
-														echo  "<p style='color: orange'>Drafted</p>"; 
-													}if($submitted_status==1){
-														echo  "<p style='color: green'>Submitted</p>"; 
-													}
-													if($submitted_status==5){
-														echo  "<p style='color: blue'>Archived</p>"; 
-													}
-												?></strong></td>
-												<td><?php 
-													if(!empty($submission->comment)){
-														echo $submission->comment;
-													}else{
-														echo "--";
-													}
-												?></td>
-												<td>
-													<strong>
-														<?php 
-														if($approval_status==1){
-																if($submitted_status==1){  echo "<b style='color:green'>Approved<?b>"; 
-															}else{
-																echo "<b>--</b>";
-															}
-														
-														}else{
-															$today=date('Y-m-d');
-                												if($date_end<=$today){ 
-															if($submitted_status==1){ ?> <a href="<?=base_url().'seller/vendor-tech-file-new-bid-submission-info/'.$value.'/'.$submission->token_no .'/'.$submission->master_bid_id ?>">View Send </a><?php  }else{?> <a href="<?=base_url().'seller/user-vendor-tech-bid-submission-tokens-info/'.$value.'/'.$submission->token_no .'/'.$submission->master_bid_id ?>">Click View</a><?php }
-															}else{
-																?> <a href="<?=base_url().'seller/vendor-tech-file-new-bid-submission-info/'.$value.'/'.$submission->token_no .'/'.$submission->master_bid_id ?>">View Send </a><?php
-
-															}
-														}
-														?>
-												 	</strong>
-												</td>
-
-										</tr>
-								<?php }?>
-								
+							
 						</tbody>
 					</table>
 				</div>

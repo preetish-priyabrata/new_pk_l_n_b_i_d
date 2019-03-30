@@ -568,7 +568,7 @@ EOT;
                 $date_date_status = array('status' => 1);
                 $date_date_status_vendor = array('status' => 1,'status_active'=>1);
 
-                $this->db->update('master_bid_Com_details_m',$date_date_status,$data_update_id);
+                $this->db->update('master_bid_Com_date_details_m',$date_date_status,$data_update_id);
                 $this->db->update('master_bid_Com_evaluation_m',$update_status_master,$data_update_id);
 
                 $this->db->update('master_bid_Com_vendor_m',$date_date_status_vendor,$data_update_id);

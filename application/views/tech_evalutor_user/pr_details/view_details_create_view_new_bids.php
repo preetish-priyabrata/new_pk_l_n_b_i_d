@@ -11,6 +11,8 @@ $job_code=$Project_slno;
 $data_process = array('pr_no' =>$pr_no);
 $query_process=$this->db->get_where('master_pr_process_detail',$data_process);
 $result_process=$query_process->result();
+
+
 $tech_bid=$result_process[0]->tech_bid;  // bid id information
 $technical_bid_id=$result_process[0]->technical_bid_id;  // technical bid ind information 
 $technical_bid_ref=$result_process[0]->technical_bid_ref; // technical bid referenced infromtion

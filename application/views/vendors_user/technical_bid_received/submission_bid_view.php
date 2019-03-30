@@ -13,20 +13,23 @@ if($result_title['no_new_tech']!=1){
 	redirect('user-vendor-home');
 }
 $pr_no=$result_title['new_tech_list'][0]->pr_no;
-
- $date_end=$result_title['new_tech_list'][0]->date_end;
 ?>
+<input type="hidden" name="value_slno" id="value_slno" value="<?=$value?>">
+										<input type="hidden" name="key_values_slno" id="key_values_slno" value="<?=$key_values_slno?>">
+										<input type="hidden" name="master_bid_id" id="master_bid_id" value="<?=$master_bid_id?>">
+										<input type="hidden" name="Vendor_email_id" id="Vendor_email_id" value="<?=$Vendor_email_id?>">
+										<input type="hidden" name="pr_no" id="pr_no" value="<?=$pr_no?>">
 <!-- begin #content -->
 		<div id="content" class="content">
 			<!-- begin breadcrumb -->
 			<ol class="breadcrumb pull-right">
 				<li class="breadcrumb-item"><a href="javascript:;">Home</a></li>
-		      <li class="breadcrumb-item"><a href="javascript:;">Page Options</a></li>
-				<li class="breadcrumb-item active">Page with Top Menu</li>
+		      <li class="breadcrumb-item"><a href="javascript:;">Technical Bid</a></li>
+				<li class="breadcrumb-item active">Technical Bid View </li>
 			</ol>
 			<!-- end breadcrumb -->
 			<!-- begin page-header -->
-			<h1 class="page-header">Creating New Bid For Technical Submission</h1>
+			<h1 class="page-header">Technical Bid View</h1>
 			<!-- end page-header -->
 			<?php if(!empty($this->session->flashdata('success_message'))){?>
 			<div class="alert alert-success fade show">
@@ -56,45 +59,14 @@ $pr_no=$result_title['new_tech_list'][0]->pr_no;
 						<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
 						<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
 					</div>
-					<h4 class="panel-title">Create New Technical Bid </h4>
+					<h4 class="panel-title">View Technical Bid Details </h4>
 				</div>
 				<div class="panel-body">
-          <h4 class="panel-title ">Title Bid  : <h5><?=$result_title['new_tech_list'][0]->title?></h5></h4>
-          <hr style="height: 2px; background:  green">
-          <div class="alert alert-secondary">
-            <span style="color: red"> *</span> All mandatory fields shall be duly filled up
-        	</div>
-					<form action="<?=base_url()?>seller/pr-vendor-tech-file-new-bid-submission" method="POST" >
-						<div class="row">
-							<div class="col-md-6 col-lg-6">
-							 	<div class="form-group row m-b-15">
-									<label class="col-form-label col-md-3" for="activity_name">File Name <span style="color: red">*</span></label>
-									<div class="col-md-9">
-										<input type="hidden" name="value_slno" id="value_slno" value="<?=$value?>">
-										<input type="hidden" name="key_values_slno" id="key_values_slno" value="<?=$key_values_slno?>">
-										<input type="hidden" name="master_bid_id" id="master_bid_id" value="<?=$master_bid_id?>">
-										<input type="hidden" name="Vendor_email_id" id="Vendor_email_id" value="<?=$Vendor_email_id?>">
-										<input type="hidden" name="pr_no" id="pr_no" value="<?=$pr_no?>">
-										<input class="form-control m-b-5" placeholder="Enter File name" autocomplete="off" name="file_name" id="file_name" type="text" >
-										<small class="f-s-12 text-grey-darker">Here enter File name</small>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-5 col-lg-5">
-							 	<div class="form-group row m-b-15">
-									<label class="col-form-label col-md-3">Attach Files  <span style="color: red">*</span></label>
-									<div class="col-md-9">
-										<input type="file" name="new_file" id="new_file" ><br />
-										<small class="f-s-12 text-grey-darker"> Please Attach Files  </small>
-									</div>
-								</div>
-							</div>
-              				<div class="col-md-1 col-lg-1">
-							 	<div class="form-group row m-b-15">
-									<span class="btn btn-sm btn-info" id="sub">Upload</span>
-								</div>
-							</div>
-						</div>
+					<h4 class="panel-title ">Title Bid  : <b><?=$result_title['new_tech_list'][0]->title?></b></h4>
+					<hr style="height: 2px; background:  green">
+					
+					<form action="#" >
+					
             <div class="row">
             	<div class="col-md-12">
             	<div id="cart-item-files"></div>
@@ -102,14 +74,8 @@ $pr_no=$result_title['new_tech_list'][0]->pr_no;
             </div>
 						<div class="form-group row pull-right">
                 <div class="col-md-12">
-                	<?php 
-                	$today=date('Y-m-d');
-                	if($date_end<=$today){ 
-                		?>
-                    <button type="submit"  name="submission" class="btn btn-sm btn-primary m-r-5" value="save">Save</button>
-                     <button type="submit"  name="submission" class="btn btn-sm btn-lime m-r-5" value="sent">Sent</button>
-                 <?php }?>
-                    <a  href="<?=base_url()?>user-vendor-home" class="btn btn-sm btn-default">Cancel</a>
+                   
+                    <a  href="<?=base_url()?>user-vendor-home" class="btn btn-sm btn-default">Home</a>
                 </div>
             </div>
 
@@ -120,12 +86,12 @@ $pr_no=$result_title['new_tech_list'][0]->pr_no;
 			<!-- end panel -->
 		</div>
 		<!-- end #content -->
-		<script type="text/javascript">
+	<script type="text/javascript">
 	function file_uploaded(){
 		var value_slno =$('#value_slno').val();
 		var value_keys_id=$('#key_values_slno').val();
 		var master_bid_id=$('#master_bid_id').val();
-		var actions_file='files_info_vendors';
+		var actions_file='files_info_vendors_view';
 		var pr_no=$('#pr_no').val();
 		var Vendor_email_id=$('#Vendor_email_id').val();
 		queryString_id = 'actions_file='+actions_file+'&master_bid_id='+master_bid_id+'&value_slno='+value_slno+'&Vendor_email_id='+Vendor_email_id+'&value_keys='+value_keys_id+'&pr_no='+pr_no;	

@@ -553,6 +553,9 @@ $route['commerrical-user-send-approve-nofication']='commericalevalutor/commerric
 $route['commerical-user-send-approve-nofication']='commericalevalutor/commerrical_user_Channel_send_approve_nofication';
 $route['commerrical-user-send-nofication-vendor']='commericalevalutor/commerrical_user_send_approve_nofication_vendor';
 $route['user-commerical-evaluator-bid-complete-list']='commericalevalutor/user_commerical_evaluator_bid_complete_list';
+
+$route['user-commerical-evalutor-pr-create']='commericalevalutor/user_commerical_evalutor_pr_create';
+
 $route['commerrical-user-send-approve-vendor']='commericalevalutor/commerrical_user_send_approve_vendor';
 $route['comm-evalutor-logout-by-pass']='commericalevalutor/comm_evalutor_logout_bypass';
 $route['comm-evalutor-logout']='commericalevalutor/comm_evalutor_logout';
@@ -615,8 +618,10 @@ $route['seller/vendor-file-upload-data-pr']='vendorusernew/vendor_file_upload_da
 $route['seller/vendor-tech-file-new-bid-submission-info/(:any)/(:any)/(:any)']='vendorusernew/vendor_tech_file_new_bid_submission_pr_view/$1/$2/$3'; // is not complted
 $route['seller/user-vendor-tech-bid-submission-tokens-info/(:any)/(:any)/(:any)']='vendorusernew/vendor_tech_bid_submission_tokens_edit/$1/$2/$3';
 $route['seller/pr-vendor-tech-file-new-bid-submission']='vendorusernew/vendor_tech_file_new_bid_submission_pr';
+// commerical vendor
 // 
-
+$route['seller/user-vendor-bid-new-commerical']='vendorusernew/vendor_bid_new_commerical_list';
+$route['seller/user-vendor-bid-view-commerical-details-pr/(:any)/(:any)']='vendorusernew/vendor_bid-view_commerical_details_pr_list/$1/$2';// here infotmation of bid
 
 
 ######################################################################################################################################

@@ -18,6 +18,14 @@ if(empty($Vendor_email_id)){
 						<span>Technical Bid<span class="label label-theme m-l-5">NEW</span></span>
 					</a>
 				</li>
+				<li>
+					<a href="<?=base_url()?>seller/user-vendor-bid-new-commerical">
+						<div class="icon-img">
+							<img src="<?=base_url()?>file_css_admin/ven/hand_paper.png" alt="" />
+						</div>
+						<span>Commerical Bid<span class="label label-theme m-l-5">NEW</span></span>
+					</a>
+				</li>
 
 				<!-- <li>
 					<a href="<?=base_url()?>user-vendor-new-technical">

@@ -55,7 +55,32 @@ class Vendor_modelnew extends CI_Model {
 		}
 
 	}
+######################################################################################################################
+#
+#
+#	Commerical bid information goes here
+#
+#
+#######################################################################################################################
+	/**
+	 * [vendor_new_commerical_bid_list_pr description] commercial inforion of actived going on
+	 * @param  string $value [description]
+	 * @return [type]        [description]
+	 */
+	public function vendor_new_commerical_bid_list_pr($value=''){
+
+		$data=array('vendor_id'=>$value,'status_active'=>1);
+			$query=$this->db->get_where('master_bid_Com_vendor_m',$data);
+    	if($query->num_rows()==0){
+				$data_return = array('no_new_tech' =>2 );
+				return $data_return;
+			}else{
+				$result_data_new_tech=$query->result();
+				$data_return = array('no_new_tech' => 1,'new_tech_list'=>$result_data_new_tech );
+				return $data_return;
+			}
 	
+	}
 		
    
 }
