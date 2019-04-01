@@ -30,13 +30,6 @@ $date_end=$result_title['new_tech_list'][0]->date_end;
 
 
 
-$data_table1= array('Simple_id_slno' =>$Simple_id_slno);
-$query_table1=$this->db->get_where('master_pr_bid_quote_item',$data_table1);
-$result_table1=$query_table1->result();
-
-
-
-
 $case_bid=$mode_bid=$result_title['new_tech_list'][0]->mode_bid;
 $master_bid_id_com=$result_title['new_tech_list'][0]->master_bid_id;
 $data_get_list_commerical = array('master_bid_id_comm' =>$master_bid_id_com ,'mr_no_item'=>$pr_no);

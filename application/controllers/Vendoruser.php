@@ -1392,7 +1392,7 @@ class Vendoruser extends CI_Controller {
                         session_destroy();
                         session_start();
                         $this->session->set_flashdata('success_message', 'Signout from Vendor User Portal');
-                        redirect('vendor');
+                        redirect('seller');
 
                 }else{
 
@@ -1403,13 +1403,13 @@ class Vendoruser extends CI_Controller {
                         session_destroy();
                         session_start();
                         $this->session->set_flashdata('success_message', 'Sign-out from Vendor User Portal');
-                        redirect('vendor');
+                        redirect('seller');
                 }
         # code...
     }
     public function vendor_logout_bypass(){
         $this->session->set_flashdata('error_msg', 'Invalid entry to Vendor User Portal');
-        redirect('vendor');
+        redirect('seller');
 
     }
 

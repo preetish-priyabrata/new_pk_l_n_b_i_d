@@ -34,6 +34,7 @@ $query_data=$this->db->get_where('master_mr_job_details_m',$data_table);
 $result_table=$query_data->result();
 
 $approval_status=$result_title['new_tech_list'][0]->approval_status;
+$status_view=$result_title['new_tech_list'][0]->status_view;
 // $query_item_details_list=$this->design_user->get_design_master_mr_items_material_single($edit_id,$mr_no,$mr_slno); /// item Details
  // $result_file=$this->design_user->get_design_mr_file_list($mr_slno,$mr_no); // file information
 	$date_file_sub = array('bid_id_vendor' => $value );
@@ -70,18 +71,22 @@ $approval_status=$result_title['new_tech_list'][0]->approval_status;
 	// echo $this->db->last_query();
 	$result_material=$query_table_material->result(); 
 	$result_file=$this->design_user->get_design_mr_file_list_m($pr_no,$slno_pr,$job_code);
+
+	$get_bid_submit = array('Bid_vendor_id' =>$vendor_slno_id);
+	$submit_bid=$this->db->get_where('master_pr_bid_qoute',$get_bid_submit)
+
 ?>
 <!-- begin #content -->
 	<div id="content" class="content">
 		<!-- begin breadcrumb -->
 		<ol class="breadcrumb pull-right">
 			<li class="breadcrumb-item"><a href="<?=base_url()?>seller/user-vendor-home">Home</a></li>
-			<li class="breadcrumb-item"><a href="<?=base_url()?>seller/user-vendor-bid-new-technical">New Technical Bid</a></li>
-			<li class="breadcrumb-item active">Technical Bid Information</li>
+			<li class="breadcrumb-item"><a href="<?=base_url()?>seller/user-vendor-bid-new-commerical">New Commerical Bid</a></li>
+			<li class="breadcrumb-item active">Commerical Bid Information</li>
 		</ol>
 		<!-- end breadcrumb -->
 		<!-- begin page-header -->
-		<h1 class="page-header">Technical Bid View Details<small></small></h1>
+		<h1 class="page-header">Commerical Bid View Details<small></small></h1>
 		<!-- end page-header -->
 		<?php if(!empty($this->session->flashdata('success_message'))){?>
 			<div class="alert alert-success fade show">
@@ -234,15 +239,34 @@ $approval_status=$result_title['new_tech_list'][0]->approval_status;
 					<table class="table table-bordered" cellpadding="10" cellspacing="1" width="100%">
 						<thead>
 								<tr>
-										<th><strong>Date  Creation</strong></th>
-										<th><strong>Status</strong></th>
-										<th><strong>Comment</strong></th>										
-										<th><strong>Click View</strong></th>
-
+									<th><strong>Date  Creation</strong></th>										
+									<th><strong>Comment</strong></th>										
+									<th><strong>Click View</strong></th>
 								</tr>
 						</thead>
 						<tbody>
-							
+							<?php 
+								foreach ($submit_bid->result() as $key_bid_information => $value_detail_bid):
+								// print_r($value_detail_bid);
+							?>
+							<tr>
+								<td><?=$value_detail_bid->date_entry?></td>
+								<td>
+									<?php $comment=$value_detail_bid->comment;?>
+									<?php if(!empty($comment)){
+										echo $comment;
+									}else{
+										echo "Not Comment";
+									}
+									?>
+								</td>
+								<td> 
+									<a href="<?=base_url()?>seller/user-vendor-bid-commerical-submission-bid-view/<?=$value?>/<?=$bid_type_id?>/<?=$value_detail_bid->Slno_simple?>" class="btn btn-sm btn-success m-r-5"><i class="fas fa-envelope-open-text"></i>   Click To View </a>
+								</td>
+							</tr>
+							<?php
+								endforeach;
+							?>
 						</tbody>
 					</table>
 				</div>
@@ -256,15 +280,20 @@ $approval_status=$result_title['new_tech_list'][0]->approval_status;
           	 	if($date_end < $today) {
 
           	 	}else{
-	   
+	   		
+          			if($status_view!=7){ 
                 // if(strtotime($today) >= strtotime($date_end)){
 				?>
-				 <a href="<?=base_url()?>seller/user-vendor-bid-commerical-submission-bid/<?=$value?>/<?=$bid_type_id?>" class="btn btn-sm btn-success m-r-5"><i class="fas fa-envelope-open-text"></i>   Click To Submit Bid </a>
-			<?php }
+						 <a href="<?=base_url()?>seller/user-vendor-bid-commerical-submission-bid/<?=$value?>/<?=$bid_type_id?>" class="btn btn-sm btn-success m-r-5"><i class="fas fa-envelope-open-text"></i>   Click To Submit Bid </a>
+			<?php 
+					}else{
+						echo "<a href='#' style='color:green'><strong> BId Is been Submitted By You   </strong></a>  ";
+					}
 				}
+			}
 				?>
               <a href="<?=base_url()?>seller/user-vendor-query-panel/<?=$value?>" class="btn btn-sm btn-warning m-r-5"><i class="fa fa-question-circle" aria-hidden="true"></i>  Query </a>
-              <a  href="<?=base_url()?>user-vendor-home" class="btn btn-sm btn-default">Back</a>
+              <a  href="<?=base_url()?>seller/user-vendor-home" class="btn btn-sm btn-default">Back</a>
           </div>
       </div>
 

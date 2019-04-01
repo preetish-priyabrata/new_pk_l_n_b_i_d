@@ -555,6 +555,7 @@ $route['commerrical-user-send-nofication-vendor']='commericalevalutor/commerrica
 $route['user-commerical-evaluator-bid-complete-list']='commericalevalutor/user_commerical_evaluator_bid_complete_list';
 
 $route['user-commerical-evalutor-pr-create']='commericalevalutor/user_commerical_evalutor_pr_create';
+$route['technical-user-create-new-material/(:any)/(:any)/(:any)/(:any)']='commericalevalutor/technical_user_create_new_material/$1/$2/$3/$4';
 
 $route['commerrical-user-send-approve-vendor']='commericalevalutor/commerrical_user_send_approve_vendor';
 $route['comm-evalutor-logout-by-pass']='commericalevalutor/comm_evalutor_logout_bypass';
@@ -624,6 +625,10 @@ $route['seller/user-vendor-bid-new-commerical']='vendorusernew/vendor_bid_new_co
 $route['seller/user-vendor-bid-view-commerical-details-pr/(:any)/(:any)']='vendorusernew/vendor_bid_view_commerical_details_pr_details/$1/$2';// here infotmation of bid
 
 $route['seller/user-vendor-bid-commerical-submission-bid/(:any)/(:any)']='vendorusernew/vendor_bid_view_commerical_details_pr_details_com/$1/$2';
+
+$route['seller/user-vendor-bid-submission-commerical-save-pr']='vendorusernew/vendor_bid_submission_commerical_save_pr';
+
+$route['seller/user-vendor-bid-commerical-submission-bid-view/(:any)/(:any)/(:any)']='vendorusernew/user_vendor_bid_commerical_submission_bid_view/$1/$2/$3';
 
 
 ######################################################################################################################################

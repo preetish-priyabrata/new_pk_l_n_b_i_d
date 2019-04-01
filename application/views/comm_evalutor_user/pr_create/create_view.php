@@ -130,14 +130,15 @@ if(empty($email_id)){
 					<?php
 					 foreach($query->result() as $row){
 					 	$pr_no=$row->pr_no;
-					 	$data_check=array('pr_no'=>$pr_no,'commerical_user_id'=>$email_id,'approver_user_status'=>1,'design_user_status'=>1,'commerical_user_status'=>2);
+					 	$data_check=array('pr_no'=>$pr_no,'commercial_user_id'=>$email_id,'approver_user_status'=>1,'design_user_status'=>1,'commercial_complete_status'=>2);
 					 	$query_check=$this->db->get_where('master_pr_process_detail',$data_check);
+					 	// echo $this->db->last_query();
 					 	$num_rows_check=$query_check->num_rows();
 					 	if($num_rows_check!=0){
 					 		$result_id=$query_check->result();
 
-					 		$technical_bid_ref=$result_id[0]->technical_bid_ref;
-					 		$technical_bid_id=$result_id[0]->technical_bid_id;
+					 		$commercial_bid_ref=$result_id[0]->commercial_bid_ref;
+					 		$commercial_bid_id=$result_id[0]->commercial_bid_id;
 					 		
 					 		$design_user_status=$result_id[0]->procurement_user_status;
 					 		$url="#";
@@ -161,8 +162,8 @@ if(empty($email_id)){
 		                    <tr>
 		                      <td>'.$row->pr_no.'</td>
 		                      <td>'.$row->item.'</td>
-		                      <td>'.$technical_bid_ref.'</td>
-		                      <td>'.$technical_bid_id.'</td>
+		                      <td>'.$commercial_bid_ref.'</td>
+		                      <td>'.$commercial_bid_id.'</td>
 		                      
 		                      
 		                    

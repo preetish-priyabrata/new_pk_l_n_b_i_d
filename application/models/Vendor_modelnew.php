@@ -93,6 +93,19 @@ class Vendor_modelnew extends CI_Model {
 		}
 		// code...
 	}
+	    public function vendor_new_query_tech_title_commerical_pr($value='',$value2){
+			$data=array('slno_vendor'=>$value,'status_active'=>1,'vendor_id'=>$value2);
+			$query=$this->db->get_where('master_bid_Com_vendor_m',$data);
+    	if($query->num_rows()==0){
+				$data_return = array('no_new_tech' =>2 );
+				return $data_return;
+			}else{
+				$result_data_new_tech=$query->result();
+				$data_return = array('no_new_tech' => 1,'new_tech_list'=>$result_data_new_tech );
+				return $data_return;
+			}
+			// code...
+}
 		
    
 }

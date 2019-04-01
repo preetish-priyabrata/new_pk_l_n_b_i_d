@@ -591,7 +591,7 @@ EOT;
                    # code...
                }
 
-                $date_processing = array('buyer_user_status' => 6,'buyer_date_comm'=>date('Y-m-d'),'commercial_user_id'=>$tech_email_id, 'commercial_user_slno'=>$Technical_ev,'commercial_bid_id'=>$bid_Id,'commercial_bid_ref'=>$bid_ref_no,'commercial_edit_id'=>$edit_type_bid,'commercial_type_bid'=>$bid_method,'commercial_complete_status'=>2,'techno_commercial_status'=>2,'comm_bid'=>$insert_id);
+                $date_processing = array('buyer_user_status' => 6,'buyer_date_comm'=>date('Y-m-d'),'commercial_user_id'=>$tech_email_id, 'commercial_user_slno'=>$Technical_ev,'commercial_bid_id'=>$bid_Id,'commercial_bid_ref'=>$bid_ref_no,'commercial_edit_id'=>$edit_type_bid,'commercial_type_bid'=>$bid_method,'commercial_complete_status'=>2,'techno_commercial_status'=>2,'comm_bid'=>$insert_id,'commercial_user_status'=>2);
                 $process_id = array('pr_no' => $pr_no );
                 $query_process=$this->db->update('master_pr_process_detail',$date_processing,$process_id);
 
