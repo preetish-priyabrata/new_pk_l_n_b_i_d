@@ -19349,3 +19349,1632 @@ INFO - 2019-04-01 19:38:44 --> Helper loaded: string_helper
 INFO - 2019-04-01 19:38:44 --> Helper loaded: ckeditor_helper
 INFO - 2019-04-01 19:38:44 --> Final output sent to browser
 DEBUG - 2019-04-01 19:38:44 --> Total execution time: 0.0846
+INFO - 2019-04-01 19:53:31 --> Config Class Initialized
+INFO - 2019-04-01 19:53:31 --> Hooks Class Initialized
+DEBUG - 2019-04-01 19:53:31 --> UTF-8 Support Enabled
+INFO - 2019-04-01 19:53:31 --> Utf8 Class Initialized
+INFO - 2019-04-01 19:53:31 --> URI Class Initialized
+INFO - 2019-04-01 19:53:31 --> Router Class Initialized
+INFO - 2019-04-01 19:53:31 --> Output Class Initialized
+INFO - 2019-04-01 19:53:31 --> Security Class Initialized
+DEBUG - 2019-04-01 19:53:31 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-04-01 19:53:31 --> Input Class Initialized
+INFO - 2019-04-01 19:53:31 --> Language Class Initialized
+INFO - 2019-04-01 19:53:31 --> Loader Class Initialized
+INFO - 2019-04-01 19:53:31 --> Helper loaded: url_helper
+INFO - 2019-04-01 19:53:31 --> Helper loaded: file_helper
+INFO - 2019-04-01 19:53:31 --> Encrypt Class Initialized
+INFO - 2019-04-01 19:53:31 --> Controller Class Initialized
+INFO - 2019-04-01 19:53:31 --> Database Driver Class Initialized
+INFO - 2019-04-01 19:53:31 --> Model "User_model" initialized
+INFO - 2019-04-01 19:53:31 --> Model "Approver_model" initialized
+INFO - 2019-04-01 19:53:31 --> Model "Design_model" initialized
+INFO - 2019-04-01 19:53:31 --> Model "Procurement_model" initialized
+INFO - 2019-04-01 19:53:31 --> Model "Buyer_model" initialized
+INFO - 2019-04-01 19:53:31 --> Model "Vendor_model" initialized
+DEBUG - 2019-04-01 19:53:31 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-04-01 19:53:31 --> Session: Class initialized using 'files' driver.
+INFO - 2019-04-01 19:53:31 --> User Agent Class Initialized
+DEBUG - 2019-04-01 19:53:31 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-04-01 19:53:31 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-04-01 19:53:31 --> Encryption Class Initialized
+INFO - 2019-04-01 19:53:31 --> Helper loaded: form_helper
+INFO - 2019-04-01 19:53:31 --> Form Validation Class Initialized
+INFO - 2019-04-01 19:53:31 --> Helper loaded: string_helper
+INFO - 2019-04-01 19:53:31 --> Config Class Initialized
+INFO - 2019-04-01 19:53:31 --> Hooks Class Initialized
+DEBUG - 2019-04-01 19:53:31 --> UTF-8 Support Enabled
+INFO - 2019-04-01 19:53:31 --> Utf8 Class Initialized
+INFO - 2019-04-01 19:53:31 --> URI Class Initialized
+INFO - 2019-04-01 19:53:31 --> Router Class Initialized
+INFO - 2019-04-01 19:53:31 --> Output Class Initialized
+INFO - 2019-04-01 19:53:31 --> Security Class Initialized
+DEBUG - 2019-04-01 19:53:31 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-04-01 19:53:31 --> Input Class Initialized
+INFO - 2019-04-01 19:53:31 --> Language Class Initialized
+INFO - 2019-04-01 19:53:31 --> Loader Class Initialized
+INFO - 2019-04-01 19:53:31 --> Helper loaded: url_helper
+INFO - 2019-04-01 19:53:31 --> Helper loaded: file_helper
+INFO - 2019-04-01 19:53:31 --> Encrypt Class Initialized
+INFO - 2019-04-01 19:53:31 --> Controller Class Initialized
+INFO - 2019-04-01 19:53:31 --> Database Driver Class Initialized
+INFO - 2019-04-01 19:53:31 --> Model "User_model" initialized
+INFO - 2019-04-01 19:53:31 --> Model "Approver_model" initialized
+INFO - 2019-04-01 19:53:31 --> Model "Design_model" initialized
+INFO - 2019-04-01 19:53:31 --> Model "Procurement_model" initialized
+INFO - 2019-04-01 19:53:31 --> Model "Buyer_model" initialized
+INFO - 2019-04-01 19:53:31 --> Model "Vendor_model" initialized
+DEBUG - 2019-04-01 19:53:31 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-04-01 19:53:31 --> Session: Class initialized using 'files' driver.
+INFO - 2019-04-01 19:53:31 --> User Agent Class Initialized
+DEBUG - 2019-04-01 19:53:31 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-04-01 19:53:31 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-04-01 19:53:31 --> Encryption Class Initialized
+INFO - 2019-04-01 19:53:31 --> Helper loaded: form_helper
+INFO - 2019-04-01 19:53:31 --> Form Validation Class Initialized
+INFO - 2019-04-01 19:53:31 --> Helper loaded: string_helper
+DEBUG - 2019-04-01 19:53:31 --> Session class already loaded. Second attempt ignored.
+INFO - 2019-04-01 19:53:31 --> File loaded: /var/www/html/m_lnt_bid/application/views/vendors_user/v_login/index.php
+INFO - 2019-04-01 19:53:31 --> Final output sent to browser
+DEBUG - 2019-04-01 19:53:31 --> Total execution time: 0.1566
+INFO - 2019-04-01 19:53:41 --> Config Class Initialized
+INFO - 2019-04-01 19:53:41 --> Hooks Class Initialized
+DEBUG - 2019-04-01 19:53:41 --> UTF-8 Support Enabled
+INFO - 2019-04-01 19:53:41 --> Utf8 Class Initialized
+INFO - 2019-04-01 19:53:41 --> URI Class Initialized
+DEBUG - 2019-04-01 19:53:41 --> No URI present. Default controller set.
+INFO - 2019-04-01 19:53:41 --> Router Class Initialized
+INFO - 2019-04-01 19:53:41 --> Output Class Initialized
+INFO - 2019-04-01 19:53:41 --> Security Class Initialized
+DEBUG - 2019-04-01 19:53:41 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-04-01 19:53:41 --> Input Class Initialized
+INFO - 2019-04-01 19:53:41 --> Language Class Initialized
+INFO - 2019-04-01 19:53:41 --> Loader Class Initialized
+INFO - 2019-04-01 19:53:41 --> Helper loaded: url_helper
+INFO - 2019-04-01 19:53:41 --> Helper loaded: file_helper
+INFO - 2019-04-01 19:53:41 --> Encrypt Class Initialized
+INFO - 2019-04-01 19:53:41 --> Controller Class Initialized
+INFO - 2019-04-01 19:53:41 --> Database Driver Class Initialized
+DEBUG - 2019-04-01 19:53:41 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-04-01 19:53:41 --> Session: Class initialized using 'files' driver.
+INFO - 2019-04-01 19:53:41 --> File loaded: /var/www/html/m_lnt_bid/application/views/login_view/index_view.php
+INFO - 2019-04-01 19:53:41 --> Final output sent to browser
+DEBUG - 2019-04-01 19:53:41 --> Total execution time: 0.0936
+INFO - 2019-04-01 19:53:41 --> Config Class Initialized
+INFO - 2019-04-01 19:53:41 --> Hooks Class Initialized
+DEBUG - 2019-04-01 19:53:41 --> UTF-8 Support Enabled
+INFO - 2019-04-01 19:53:41 --> Utf8 Class Initialized
+INFO - 2019-04-01 19:53:41 --> URI Class Initialized
+INFO - 2019-04-01 19:53:41 --> Config Class Initialized
+INFO - 2019-04-01 19:53:41 --> Hooks Class Initialized
+DEBUG - 2019-04-01 19:53:41 --> UTF-8 Support Enabled
+INFO - 2019-04-01 19:53:41 --> Utf8 Class Initialized
+INFO - 2019-04-01 19:53:41 --> URI Class Initialized
+INFO - 2019-04-01 19:53:41 --> Router Class Initialized
+INFO - 2019-04-01 19:53:41 --> Output Class Initialized
+INFO - 2019-04-01 19:53:41 --> Security Class Initialized
+DEBUG - 2019-04-01 19:53:41 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-04-01 19:53:41 --> Input Class Initialized
+INFO - 2019-04-01 19:53:41 --> Language Class Initialized
+INFO - 2019-04-01 19:53:41 --> Loader Class Initialized
+INFO - 2019-04-01 19:53:41 --> Helper loaded: url_helper
+INFO - 2019-04-01 19:53:41 --> Helper loaded: file_helper
+INFO - 2019-04-01 19:53:41 --> Encrypt Class Initialized
+INFO - 2019-04-01 19:53:41 --> Controller Class Initialized
+INFO - 2019-04-01 19:53:41 --> Database Driver Class Initialized
+INFO - 2019-04-01 19:53:41 --> Config Class Initialized
+INFO - 2019-04-01 19:53:41 --> Hooks Class Initialized
+DEBUG - 2019-04-01 19:53:41 --> UTF-8 Support Enabled
+INFO - 2019-04-01 19:53:41 --> Utf8 Class Initialized
+INFO - 2019-04-01 19:53:41 --> URI Class Initialized
+INFO - 2019-04-01 19:53:41 --> Router Class Initialized
+INFO - 2019-04-01 19:53:41 --> Output Class Initialized
+INFO - 2019-04-01 19:53:41 --> Security Class Initialized
+DEBUG - 2019-04-01 19:53:41 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-04-01 19:53:41 --> Input Class Initialized
+INFO - 2019-04-01 19:53:41 --> Language Class Initialized
+INFO - 2019-04-01 19:53:41 --> Loader Class Initialized
+INFO - 2019-04-01 19:53:41 --> Helper loaded: url_helper
+INFO - 2019-04-01 19:53:41 --> Helper loaded: file_helper
+INFO - 2019-04-01 19:53:41 --> Encrypt Class Initialized
+INFO - 2019-04-01 19:53:41 --> Controller Class Initialized
+INFO - 2019-04-01 19:53:41 --> Database Driver Class Initialized
+INFO - 2019-04-01 19:53:41 --> Router Class Initialized
+INFO - 2019-04-01 19:53:41 --> Output Class Initialized
+INFO - 2019-04-01 19:53:41 --> Security Class Initialized
+DEBUG - 2019-04-01 19:53:41 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-04-01 19:53:41 --> Input Class Initialized
+INFO - 2019-04-01 19:53:41 --> Language Class Initialized
+INFO - 2019-04-01 19:53:41 --> Loader Class Initialized
+INFO - 2019-04-01 19:53:41 --> Helper loaded: url_helper
+INFO - 2019-04-01 19:53:41 --> Helper loaded: file_helper
+INFO - 2019-04-01 19:53:41 --> Encrypt Class Initialized
+INFO - 2019-04-01 19:53:41 --> Controller Class Initialized
+INFO - 2019-04-01 19:53:41 --> Database Driver Class Initialized
+INFO - 2019-04-01 19:53:41 --> User Agent Class Initialized
+INFO - 2019-04-01 19:53:41 --> File loaded: /var/www/html/m_lnt_bid/application/views/errors/Error_404.php
+INFO - 2019-04-01 19:53:41 --> Final output sent to browser
+DEBUG - 2019-04-01 19:53:41 --> Total execution time: 0.2393
+INFO - 2019-04-01 19:53:41 --> User Agent Class Initialized
+INFO - 2019-04-01 19:53:41 --> File loaded: /var/www/html/m_lnt_bid/application/views/errors/Error_404.php
+INFO - 2019-04-01 19:53:41 --> Final output sent to browser
+DEBUG - 2019-04-01 19:53:41 --> Total execution time: 0.2930
+INFO - 2019-04-01 19:53:41 --> User Agent Class Initialized
+INFO - 2019-04-01 19:53:41 --> File loaded: /var/www/html/m_lnt_bid/application/views/errors/Error_404.php
+INFO - 2019-04-01 19:53:41 --> Final output sent to browser
+DEBUG - 2019-04-01 19:53:41 --> Total execution time: 0.3062
+INFO - 2019-04-01 19:53:44 --> Config Class Initialized
+INFO - 2019-04-01 19:53:44 --> Hooks Class Initialized
+DEBUG - 2019-04-01 19:53:44 --> UTF-8 Support Enabled
+INFO - 2019-04-01 19:53:44 --> Utf8 Class Initialized
+INFO - 2019-04-01 19:53:44 --> URI Class Initialized
+DEBUG - 2019-04-01 19:53:44 --> No URI present. Default controller set.
+INFO - 2019-04-01 19:53:44 --> Router Class Initialized
+INFO - 2019-04-01 19:53:44 --> Output Class Initialized
+INFO - 2019-04-01 19:53:44 --> Security Class Initialized
+DEBUG - 2019-04-01 19:53:44 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-04-01 19:53:44 --> Input Class Initialized
+INFO - 2019-04-01 19:53:44 --> Language Class Initialized
+INFO - 2019-04-01 19:53:44 --> Loader Class Initialized
+INFO - 2019-04-01 19:53:44 --> Helper loaded: url_helper
+INFO - 2019-04-01 19:53:44 --> Helper loaded: file_helper
+INFO - 2019-04-01 19:53:44 --> Encrypt Class Initialized
+INFO - 2019-04-01 19:53:44 --> Controller Class Initialized
+INFO - 2019-04-01 19:53:44 --> Database Driver Class Initialized
+DEBUG - 2019-04-01 19:53:44 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-04-01 19:53:44 --> Session: Class initialized using 'files' driver.
+INFO - 2019-04-01 19:53:44 --> File loaded: /var/www/html/m_lnt_bid/application/views/login_view/index_view.php
+INFO - 2019-04-01 19:53:44 --> Final output sent to browser
+DEBUG - 2019-04-01 19:53:44 --> Total execution time: 0.0869
+INFO - 2019-04-01 19:53:55 --> Config Class Initialized
+INFO - 2019-04-01 19:53:55 --> Hooks Class Initialized
+DEBUG - 2019-04-01 19:53:55 --> UTF-8 Support Enabled
+INFO - 2019-04-01 19:53:55 --> Utf8 Class Initialized
+INFO - 2019-04-01 19:53:55 --> URI Class Initialized
+INFO - 2019-04-01 19:53:55 --> Router Class Initialized
+INFO - 2019-04-01 19:53:55 --> Output Class Initialized
+INFO - 2019-04-01 19:53:55 --> Security Class Initialized
+DEBUG - 2019-04-01 19:53:55 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-04-01 19:53:55 --> Input Class Initialized
+INFO - 2019-04-01 19:53:55 --> Language Class Initialized
+INFO - 2019-04-01 19:53:55 --> Loader Class Initialized
+INFO - 2019-04-01 19:53:55 --> Helper loaded: url_helper
+INFO - 2019-04-01 19:53:55 --> Helper loaded: file_helper
+INFO - 2019-04-01 19:53:55 --> Encrypt Class Initialized
+INFO - 2019-04-01 19:53:55 --> Controller Class Initialized
+INFO - 2019-04-01 19:53:55 --> Database Driver Class Initialized
+INFO - 2019-04-01 19:53:55 --> Model "User_model" initialized
+DEBUG - 2019-04-01 19:53:55 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-04-01 19:53:55 --> Session: Class initialized using 'files' driver.
+INFO - 2019-04-01 19:53:55 --> User Agent Class Initialized
+INFO - 2019-04-01 19:53:55 --> Config Class Initialized
+INFO - 2019-04-01 19:53:55 --> Hooks Class Initialized
+DEBUG - 2019-04-01 19:53:55 --> UTF-8 Support Enabled
+INFO - 2019-04-01 19:53:55 --> Utf8 Class Initialized
+INFO - 2019-04-01 19:53:55 --> URI Class Initialized
+INFO - 2019-04-01 19:53:55 --> Router Class Initialized
+INFO - 2019-04-01 19:53:55 --> Output Class Initialized
+INFO - 2019-04-01 19:53:55 --> Security Class Initialized
+DEBUG - 2019-04-01 19:53:55 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-04-01 19:53:55 --> Input Class Initialized
+INFO - 2019-04-01 19:53:55 --> Language Class Initialized
+INFO - 2019-04-01 19:53:55 --> Loader Class Initialized
+INFO - 2019-04-01 19:53:55 --> Helper loaded: url_helper
+INFO - 2019-04-01 19:53:55 --> Helper loaded: file_helper
+INFO - 2019-04-01 19:53:55 --> Encrypt Class Initialized
+INFO - 2019-04-01 19:53:55 --> Controller Class Initialized
+INFO - 2019-04-01 19:53:55 --> Database Driver Class Initialized
+INFO - 2019-04-01 19:53:55 --> Model "User_model" initialized
+DEBUG - 2019-04-01 19:53:55 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-04-01 19:53:55 --> Session: Class initialized using 'files' driver.
+INFO - 2019-04-01 19:53:55 --> User Agent Class Initialized
+DEBUG - 2019-04-01 19:53:55 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-04-01 19:53:55 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-04-01 19:53:55 --> Encryption Class Initialized
+INFO - 2019-04-01 19:53:55 --> Helper loaded: form_helper
+INFO - 2019-04-01 19:53:55 --> Form Validation Class Initialized
+INFO - 2019-04-01 19:53:55 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_header.php
+INFO - 2019-04-01 19:53:55 --> File loaded: /var/www/html/m_lnt_bid/application/views/admin/template/template_top_head.php
+INFO - 2019-04-01 19:53:55 --> File loaded: /var/www/html/m_lnt_bid/application/views/admin/template/template_side_bar.php
+INFO - 2019-04-01 19:53:55 --> File loaded: /var/www/html/m_lnt_bid/application/views/admin/user_dashboard.php
+INFO - 2019-04-01 19:53:55 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_footer.php
+INFO - 2019-04-01 19:53:55 --> Final output sent to browser
+DEBUG - 2019-04-01 19:53:55 --> Total execution time: 0.1725
+INFO - 2019-04-01 19:54:05 --> Config Class Initialized
+INFO - 2019-04-01 19:54:05 --> Hooks Class Initialized
+DEBUG - 2019-04-01 19:54:05 --> UTF-8 Support Enabled
+INFO - 2019-04-01 19:54:05 --> Utf8 Class Initialized
+INFO - 2019-04-01 19:54:05 --> URI Class Initialized
+INFO - 2019-04-01 19:54:05 --> Router Class Initialized
+INFO - 2019-04-01 19:54:05 --> Output Class Initialized
+INFO - 2019-04-01 19:54:05 --> Security Class Initialized
+DEBUG - 2019-04-01 19:54:05 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-04-01 19:54:05 --> Input Class Initialized
+INFO - 2019-04-01 19:54:05 --> Language Class Initialized
+INFO - 2019-04-01 19:54:05 --> Loader Class Initialized
+INFO - 2019-04-01 19:54:05 --> Helper loaded: url_helper
+INFO - 2019-04-01 19:54:05 --> Helper loaded: file_helper
+INFO - 2019-04-01 19:54:05 --> Encrypt Class Initialized
+INFO - 2019-04-01 19:54:05 --> Controller Class Initialized
+INFO - 2019-04-01 19:54:05 --> Database Driver Class Initialized
+INFO - 2019-04-01 19:54:05 --> Model "User_model" initialized
+DEBUG - 2019-04-01 19:54:05 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-04-01 19:54:05 --> Session: Class initialized using 'files' driver.
+INFO - 2019-04-01 19:54:05 --> User Agent Class Initialized
+DEBUG - 2019-04-01 19:54:05 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-04-01 19:54:05 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-04-01 19:54:05 --> Encryption Class Initialized
+INFO - 2019-04-01 19:54:05 --> Helper loaded: form_helper
+INFO - 2019-04-01 19:54:05 --> Form Validation Class Initialized
+INFO - 2019-04-01 19:54:05 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_header.php
+INFO - 2019-04-01 19:54:05 --> File loaded: /var/www/html/m_lnt_bid/application/views/admin/template/template_top_head.php
+INFO - 2019-04-01 19:54:05 --> File loaded: /var/www/html/m_lnt_bid/application/views/admin/template/template_side_bar.php
+INFO - 2019-04-01 19:54:05 --> File loaded: /var/www/html/m_lnt_bid/application/views/admin/user_creation/view_users_list.php
+INFO - 2019-04-01 19:54:05 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_footer.php
+INFO - 2019-04-01 19:54:05 --> Final output sent to browser
+DEBUG - 2019-04-01 19:54:05 --> Total execution time: 0.0996
+INFO - 2019-04-01 19:54:27 --> Config Class Initialized
+INFO - 2019-04-01 19:54:27 --> Hooks Class Initialized
+DEBUG - 2019-04-01 19:54:27 --> UTF-8 Support Enabled
+INFO - 2019-04-01 19:54:27 --> Utf8 Class Initialized
+INFO - 2019-04-01 19:54:27 --> URI Class Initialized
+INFO - 2019-04-01 19:54:27 --> Router Class Initialized
+INFO - 2019-04-01 19:54:27 --> Output Class Initialized
+INFO - 2019-04-01 19:54:27 --> Security Class Initialized
+DEBUG - 2019-04-01 19:54:27 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-04-01 19:54:27 --> Input Class Initialized
+INFO - 2019-04-01 19:54:27 --> Language Class Initialized
+INFO - 2019-04-01 19:54:27 --> Loader Class Initialized
+INFO - 2019-04-01 19:54:27 --> Helper loaded: url_helper
+INFO - 2019-04-01 19:54:27 --> Helper loaded: file_helper
+INFO - 2019-04-01 19:54:27 --> Encrypt Class Initialized
+INFO - 2019-04-01 19:54:27 --> Controller Class Initialized
+INFO - 2019-04-01 19:54:27 --> Database Driver Class Initialized
+INFO - 2019-04-01 19:54:27 --> Model "User_model" initialized
+DEBUG - 2019-04-01 19:54:27 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-04-01 19:54:27 --> Session: Class initialized using 'files' driver.
+INFO - 2019-04-01 19:54:27 --> User Agent Class Initialized
+DEBUG - 2019-04-01 19:54:27 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-04-01 19:54:27 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-04-01 19:54:27 --> Encryption Class Initialized
+INFO - 2019-04-01 19:54:27 --> Helper loaded: form_helper
+INFO - 2019-04-01 19:54:27 --> Form Validation Class Initialized
+INFO - 2019-04-01 19:54:27 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_header.php
+INFO - 2019-04-01 19:54:27 --> File loaded: /var/www/html/m_lnt_bid/application/views/admin/template/template_top_head.php
+INFO - 2019-04-01 19:54:27 --> File loaded: /var/www/html/m_lnt_bid/application/views/admin/template/template_side_bar.php
+INFO - 2019-04-01 19:54:27 --> File loaded: /var/www/html/m_lnt_bid/application/views/admin/user_creation/view_users_list.php
+INFO - 2019-04-01 19:54:27 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_footer.php
+INFO - 2019-04-01 19:54:27 --> Final output sent to browser
+DEBUG - 2019-04-01 19:54:27 --> Total execution time: 0.1109
+INFO - 2019-04-01 19:54:29 --> Config Class Initialized
+INFO - 2019-04-01 19:54:29 --> Hooks Class Initialized
+DEBUG - 2019-04-01 19:54:29 --> UTF-8 Support Enabled
+INFO - 2019-04-01 19:54:29 --> Utf8 Class Initialized
+INFO - 2019-04-01 19:54:29 --> URI Class Initialized
+INFO - 2019-04-01 19:54:29 --> Router Class Initialized
+INFO - 2019-04-01 19:54:29 --> Output Class Initialized
+INFO - 2019-04-01 19:54:29 --> Security Class Initialized
+DEBUG - 2019-04-01 19:54:29 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-04-01 19:54:29 --> Input Class Initialized
+INFO - 2019-04-01 19:54:29 --> Language Class Initialized
+INFO - 2019-04-01 19:54:29 --> Loader Class Initialized
+INFO - 2019-04-01 19:54:29 --> Helper loaded: url_helper
+INFO - 2019-04-01 19:54:29 --> Helper loaded: file_helper
+INFO - 2019-04-01 19:54:29 --> Encrypt Class Initialized
+INFO - 2019-04-01 19:54:29 --> Controller Class Initialized
+INFO - 2019-04-01 19:54:29 --> Database Driver Class Initialized
+INFO - 2019-04-01 19:54:29 --> Model "User_model" initialized
+DEBUG - 2019-04-01 19:54:29 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-04-01 19:54:29 --> Session: Class initialized using 'files' driver.
+INFO - 2019-04-01 19:54:29 --> User Agent Class Initialized
+DEBUG - 2019-04-01 19:54:29 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-04-01 19:54:29 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-04-01 19:54:29 --> Encryption Class Initialized
+INFO - 2019-04-01 19:54:29 --> Helper loaded: form_helper
+INFO - 2019-04-01 19:54:29 --> Form Validation Class Initialized
+INFO - 2019-04-01 19:54:29 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_header.php
+INFO - 2019-04-01 19:54:29 --> File loaded: /var/www/html/m_lnt_bid/application/views/admin/template/template_top_head.php
+INFO - 2019-04-01 19:54:29 --> File loaded: /var/www/html/m_lnt_bid/application/views/admin/template/template_side_bar.php
+INFO - 2019-04-01 19:54:29 --> File loaded: /var/www/html/m_lnt_bid/application/views/admin/project/view_project_list.php
+INFO - 2019-04-01 19:54:29 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_footer.php
+INFO - 2019-04-01 19:54:29 --> Final output sent to browser
+DEBUG - 2019-04-01 19:54:29 --> Total execution time: 0.0978
+INFO - 2019-04-01 19:54:59 --> Config Class Initialized
+INFO - 2019-04-01 19:54:59 --> Hooks Class Initialized
+DEBUG - 2019-04-01 19:54:59 --> UTF-8 Support Enabled
+INFO - 2019-04-01 19:54:59 --> Utf8 Class Initialized
+INFO - 2019-04-01 19:54:59 --> URI Class Initialized
+INFO - 2019-04-01 19:54:59 --> Router Class Initialized
+INFO - 2019-04-01 19:54:59 --> Output Class Initialized
+INFO - 2019-04-01 19:54:59 --> Security Class Initialized
+DEBUG - 2019-04-01 19:54:59 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-04-01 19:54:59 --> Input Class Initialized
+INFO - 2019-04-01 19:54:59 --> Language Class Initialized
+INFO - 2019-04-01 19:54:59 --> Loader Class Initialized
+INFO - 2019-04-01 19:54:59 --> Helper loaded: url_helper
+INFO - 2019-04-01 19:54:59 --> Helper loaded: file_helper
+INFO - 2019-04-01 19:54:59 --> Encrypt Class Initialized
+INFO - 2019-04-01 19:54:59 --> Controller Class Initialized
+INFO - 2019-04-01 19:54:59 --> Database Driver Class Initialized
+INFO - 2019-04-01 19:54:59 --> Model "User_model" initialized
+DEBUG - 2019-04-01 19:54:59 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-04-01 19:54:59 --> Session: Class initialized using 'files' driver.
+INFO - 2019-04-01 19:54:59 --> User Agent Class Initialized
+DEBUG - 2019-04-01 19:54:59 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-04-01 19:54:59 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-04-01 19:54:59 --> Encryption Class Initialized
+INFO - 2019-04-01 19:54:59 --> Helper loaded: form_helper
+INFO - 2019-04-01 19:54:59 --> Form Validation Class Initialized
+INFO - 2019-04-01 19:54:59 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_header.php
+INFO - 2019-04-01 19:54:59 --> File loaded: /var/www/html/m_lnt_bid/application/views/admin/template/template_top_head.php
+INFO - 2019-04-01 19:54:59 --> File loaded: /var/www/html/m_lnt_bid/application/views/admin/template/template_side_bar.php
+INFO - 2019-04-01 19:54:59 --> File loaded: /var/www/html/m_lnt_bid/application/views/admin/project/create_admin_project.php
+INFO - 2019-04-01 19:54:59 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_footer.php
+INFO - 2019-04-01 19:54:59 --> Final output sent to browser
+DEBUG - 2019-04-01 19:54:59 --> Total execution time: 0.1072
+INFO - 2019-04-01 19:55:19 --> Config Class Initialized
+INFO - 2019-04-01 19:55:19 --> Hooks Class Initialized
+DEBUG - 2019-04-01 19:55:19 --> UTF-8 Support Enabled
+INFO - 2019-04-01 19:55:19 --> Utf8 Class Initialized
+INFO - 2019-04-01 19:55:19 --> URI Class Initialized
+INFO - 2019-04-01 19:55:19 --> Router Class Initialized
+INFO - 2019-04-01 19:55:19 --> Output Class Initialized
+INFO - 2019-04-01 19:55:19 --> Security Class Initialized
+DEBUG - 2019-04-01 19:55:19 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-04-01 19:55:19 --> Input Class Initialized
+INFO - 2019-04-01 19:55:19 --> Language Class Initialized
+INFO - 2019-04-01 19:55:19 --> Loader Class Initialized
+INFO - 2019-04-01 19:55:19 --> Helper loaded: url_helper
+INFO - 2019-04-01 19:55:19 --> Helper loaded: file_helper
+INFO - 2019-04-01 19:55:19 --> Encrypt Class Initialized
+INFO - 2019-04-01 19:55:19 --> Controller Class Initialized
+INFO - 2019-04-01 19:55:19 --> Database Driver Class Initialized
+INFO - 2019-04-01 19:55:19 --> Model "User_model" initialized
+DEBUG - 2019-04-01 19:55:19 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-04-01 19:55:19 --> Session: Class initialized using 'files' driver.
+INFO - 2019-04-01 19:55:19 --> User Agent Class Initialized
+DEBUG - 2019-04-01 19:55:19 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-04-01 19:55:19 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-04-01 19:55:19 --> Encryption Class Initialized
+INFO - 2019-04-01 19:55:19 --> Helper loaded: form_helper
+INFO - 2019-04-01 19:55:19 --> Form Validation Class Initialized
+INFO - 2019-04-01 19:55:20 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_header.php
+INFO - 2019-04-01 19:55:20 --> File loaded: /var/www/html/m_lnt_bid/application/views/admin/template/template_top_head.php
+INFO - 2019-04-01 19:55:20 --> File loaded: /var/www/html/m_lnt_bid/application/views/admin/template/template_side_bar.php
+INFO - 2019-04-01 19:55:20 --> File loaded: /var/www/html/m_lnt_bid/application/views/admin/project/view_project_list.php
+INFO - 2019-04-01 19:55:20 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_footer.php
+INFO - 2019-04-01 19:55:20 --> Final output sent to browser
+DEBUG - 2019-04-01 19:55:20 --> Total execution time: 0.0960
+INFO - 2019-04-01 19:57:07 --> Config Class Initialized
+INFO - 2019-04-01 19:57:07 --> Hooks Class Initialized
+DEBUG - 2019-04-01 19:57:07 --> UTF-8 Support Enabled
+INFO - 2019-04-01 19:57:07 --> Utf8 Class Initialized
+INFO - 2019-04-01 19:57:07 --> URI Class Initialized
+INFO - 2019-04-01 19:57:07 --> Router Class Initialized
+INFO - 2019-04-01 19:57:07 --> Output Class Initialized
+INFO - 2019-04-01 19:57:07 --> Security Class Initialized
+DEBUG - 2019-04-01 19:57:07 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-04-01 19:57:07 --> Input Class Initialized
+INFO - 2019-04-01 19:57:07 --> Language Class Initialized
+INFO - 2019-04-01 19:57:07 --> Loader Class Initialized
+INFO - 2019-04-01 19:57:07 --> Helper loaded: url_helper
+INFO - 2019-04-01 19:57:07 --> Helper loaded: file_helper
+INFO - 2019-04-01 19:57:07 --> Encrypt Class Initialized
+INFO - 2019-04-01 19:57:07 --> Controller Class Initialized
+INFO - 2019-04-01 19:57:07 --> Database Driver Class Initialized
+INFO - 2019-04-01 19:57:07 --> Model "User_model" initialized
+DEBUG - 2019-04-01 19:57:07 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-04-01 19:57:07 --> Session: Class initialized using 'files' driver.
+INFO - 2019-04-01 19:57:07 --> User Agent Class Initialized
+DEBUG - 2019-04-01 19:57:07 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-04-01 19:57:07 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-04-01 19:57:07 --> Encryption Class Initialized
+INFO - 2019-04-01 19:57:07 --> Helper loaded: form_helper
+INFO - 2019-04-01 19:57:07 --> Form Validation Class Initialized
+INFO - 2019-04-01 19:57:07 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_header.php
+INFO - 2019-04-01 19:57:07 --> File loaded: /var/www/html/m_lnt_bid/application/views/admin/template/template_top_head.php
+INFO - 2019-04-01 19:57:07 --> File loaded: /var/www/html/m_lnt_bid/application/views/admin/template/template_side_bar.php
+INFO - 2019-04-01 19:57:07 --> File loaded: /var/www/html/m_lnt_bid/application/views/admin/project/view_details_project.php
+INFO - 2019-04-01 19:57:07 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_footer.php
+INFO - 2019-04-01 19:57:07 --> Final output sent to browser
+DEBUG - 2019-04-01 19:57:07 --> Total execution time: 0.1169
+INFO - 2019-04-01 19:57:09 --> Config Class Initialized
+INFO - 2019-04-01 19:57:09 --> Hooks Class Initialized
+DEBUG - 2019-04-01 19:57:09 --> UTF-8 Support Enabled
+INFO - 2019-04-01 19:57:09 --> Utf8 Class Initialized
+INFO - 2019-04-01 19:57:09 --> URI Class Initialized
+INFO - 2019-04-01 19:57:09 --> Router Class Initialized
+INFO - 2019-04-01 19:57:09 --> Output Class Initialized
+INFO - 2019-04-01 19:57:09 --> Security Class Initialized
+DEBUG - 2019-04-01 19:57:09 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-04-01 19:57:09 --> Input Class Initialized
+INFO - 2019-04-01 19:57:09 --> Language Class Initialized
+INFO - 2019-04-01 19:57:09 --> Loader Class Initialized
+INFO - 2019-04-01 19:57:09 --> Helper loaded: url_helper
+INFO - 2019-04-01 19:57:09 --> Helper loaded: file_helper
+INFO - 2019-04-01 19:57:09 --> Encrypt Class Initialized
+INFO - 2019-04-01 19:57:09 --> Controller Class Initialized
+INFO - 2019-04-01 19:57:09 --> Database Driver Class Initialized
+INFO - 2019-04-01 19:57:09 --> Model "User_model" initialized
+DEBUG - 2019-04-01 19:57:09 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-04-01 19:57:09 --> Session: Class initialized using 'files' driver.
+INFO - 2019-04-01 19:57:09 --> User Agent Class Initialized
+DEBUG - 2019-04-01 19:57:09 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-04-01 19:57:09 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-04-01 19:57:09 --> Encryption Class Initialized
+INFO - 2019-04-01 19:57:09 --> Helper loaded: form_helper
+INFO - 2019-04-01 19:57:09 --> Form Validation Class Initialized
+INFO - 2019-04-01 19:57:09 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_header.php
+INFO - 2019-04-01 19:57:09 --> File loaded: /var/www/html/m_lnt_bid/application/views/admin/template/template_top_head.php
+INFO - 2019-04-01 19:57:09 --> File loaded: /var/www/html/m_lnt_bid/application/views/admin/template/template_side_bar.php
+INFO - 2019-04-01 19:57:09 --> File loaded: /var/www/html/m_lnt_bid/application/views/admin/project/view_project_list.php
+INFO - 2019-04-01 19:57:09 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_footer.php
+INFO - 2019-04-01 19:57:09 --> Final output sent to browser
+DEBUG - 2019-04-01 19:57:09 --> Total execution time: 0.1134
+INFO - 2019-04-01 19:57:15 --> Config Class Initialized
+INFO - 2019-04-01 19:57:15 --> Hooks Class Initialized
+DEBUG - 2019-04-01 19:57:15 --> UTF-8 Support Enabled
+INFO - 2019-04-01 19:57:15 --> Utf8 Class Initialized
+INFO - 2019-04-01 19:57:15 --> URI Class Initialized
+INFO - 2019-04-01 19:57:15 --> Router Class Initialized
+INFO - 2019-04-01 19:57:15 --> Output Class Initialized
+INFO - 2019-04-01 19:57:15 --> Security Class Initialized
+DEBUG - 2019-04-01 19:57:15 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-04-01 19:57:15 --> Input Class Initialized
+INFO - 2019-04-01 19:57:15 --> Language Class Initialized
+INFO - 2019-04-01 19:57:15 --> Loader Class Initialized
+INFO - 2019-04-01 19:57:15 --> Helper loaded: url_helper
+INFO - 2019-04-01 19:57:15 --> Helper loaded: file_helper
+INFO - 2019-04-01 19:57:15 --> Encrypt Class Initialized
+INFO - 2019-04-01 19:57:15 --> Controller Class Initialized
+INFO - 2019-04-01 19:57:15 --> Database Driver Class Initialized
+INFO - 2019-04-01 19:57:15 --> Model "User_model" initialized
+DEBUG - 2019-04-01 19:57:15 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-04-01 19:57:15 --> Session: Class initialized using 'files' driver.
+INFO - 2019-04-01 19:57:15 --> User Agent Class Initialized
+DEBUG - 2019-04-01 19:57:15 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-04-01 19:57:15 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-04-01 19:57:15 --> Encryption Class Initialized
+INFO - 2019-04-01 19:57:15 --> Helper loaded: form_helper
+INFO - 2019-04-01 19:57:15 --> Form Validation Class Initialized
+INFO - 2019-04-01 19:57:15 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_header.php
+INFO - 2019-04-01 19:57:15 --> File loaded: /var/www/html/m_lnt_bid/application/views/admin/template/template_top_head.php
+INFO - 2019-04-01 19:57:15 --> File loaded: /var/www/html/m_lnt_bid/application/views/admin/template/template_side_bar.php
+INFO - 2019-04-01 19:57:15 --> File loaded: /var/www/html/m_lnt_bid/application/views/admin/category/view_category_list.php
+INFO - 2019-04-01 19:57:15 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_footer.php
+INFO - 2019-04-01 19:57:15 --> Final output sent to browser
+DEBUG - 2019-04-01 19:57:15 --> Total execution time: 0.1027
+INFO - 2019-04-01 19:57:18 --> Config Class Initialized
+INFO - 2019-04-01 19:57:18 --> Hooks Class Initialized
+DEBUG - 2019-04-01 19:57:18 --> UTF-8 Support Enabled
+INFO - 2019-04-01 19:57:18 --> Utf8 Class Initialized
+INFO - 2019-04-01 19:57:18 --> URI Class Initialized
+INFO - 2019-04-01 19:57:18 --> Router Class Initialized
+INFO - 2019-04-01 19:57:18 --> Output Class Initialized
+INFO - 2019-04-01 19:57:18 --> Security Class Initialized
+DEBUG - 2019-04-01 19:57:18 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-04-01 19:57:18 --> Input Class Initialized
+INFO - 2019-04-01 19:57:18 --> Language Class Initialized
+INFO - 2019-04-01 19:57:18 --> Loader Class Initialized
+INFO - 2019-04-01 19:57:18 --> Helper loaded: url_helper
+INFO - 2019-04-01 19:57:18 --> Helper loaded: file_helper
+INFO - 2019-04-01 19:57:18 --> Encrypt Class Initialized
+INFO - 2019-04-01 19:57:18 --> Controller Class Initialized
+INFO - 2019-04-01 19:57:18 --> Database Driver Class Initialized
+INFO - 2019-04-01 19:57:18 --> Model "User_model" initialized
+DEBUG - 2019-04-01 19:57:18 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-04-01 19:57:18 --> Session: Class initialized using 'files' driver.
+INFO - 2019-04-01 19:57:18 --> User Agent Class Initialized
+DEBUG - 2019-04-01 19:57:18 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-04-01 19:57:18 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-04-01 19:57:18 --> Encryption Class Initialized
+INFO - 2019-04-01 19:57:18 --> Helper loaded: form_helper
+INFO - 2019-04-01 19:57:18 --> Form Validation Class Initialized
+INFO - 2019-04-01 19:57:18 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_header.php
+INFO - 2019-04-01 19:57:18 --> File loaded: /var/www/html/m_lnt_bid/application/views/admin/template/template_top_head.php
+INFO - 2019-04-01 19:57:18 --> File loaded: /var/www/html/m_lnt_bid/application/views/admin/template/template_side_bar.php
+INFO - 2019-04-01 19:57:18 --> File loaded: /var/www/html/m_lnt_bid/application/views/admin/user_dashboard.php
+INFO - 2019-04-01 19:57:18 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_footer.php
+INFO - 2019-04-01 19:57:18 --> Final output sent to browser
+DEBUG - 2019-04-01 19:57:18 --> Total execution time: 0.1086
+INFO - 2019-04-01 19:57:36 --> Config Class Initialized
+INFO - 2019-04-01 19:57:36 --> Hooks Class Initialized
+DEBUG - 2019-04-01 19:57:36 --> UTF-8 Support Enabled
+INFO - 2019-04-01 19:57:36 --> Utf8 Class Initialized
+INFO - 2019-04-01 19:57:36 --> URI Class Initialized
+INFO - 2019-04-01 19:57:36 --> Router Class Initialized
+INFO - 2019-04-01 19:57:36 --> Output Class Initialized
+INFO - 2019-04-01 19:57:36 --> Security Class Initialized
+DEBUG - 2019-04-01 19:57:36 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-04-01 19:57:36 --> Input Class Initialized
+INFO - 2019-04-01 19:57:36 --> Language Class Initialized
+INFO - 2019-04-01 19:57:36 --> Loader Class Initialized
+INFO - 2019-04-01 19:57:36 --> Helper loaded: url_helper
+INFO - 2019-04-01 19:57:36 --> Helper loaded: file_helper
+INFO - 2019-04-01 19:57:36 --> Encrypt Class Initialized
+INFO - 2019-04-01 19:57:36 --> Controller Class Initialized
+INFO - 2019-04-01 19:57:36 --> Database Driver Class Initialized
+INFO - 2019-04-01 19:57:36 --> Model "User_model" initialized
+DEBUG - 2019-04-01 19:57:36 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-04-01 19:57:36 --> Session: Class initialized using 'files' driver.
+INFO - 2019-04-01 19:57:36 --> User Agent Class Initialized
+DEBUG - 2019-04-01 19:57:36 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-04-01 19:57:36 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-04-01 19:57:36 --> Encryption Class Initialized
+INFO - 2019-04-01 19:57:36 --> Helper loaded: form_helper
+INFO - 2019-04-01 19:57:36 --> Form Validation Class Initialized
+INFO - 2019-04-01 19:57:36 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_header.php
+INFO - 2019-04-01 19:57:36 --> File loaded: /var/www/html/m_lnt_bid/application/views/admin/template/template_top_head.php
+INFO - 2019-04-01 19:57:36 --> File loaded: /var/www/html/m_lnt_bid/application/views/admin/template/template_side_bar.php
+INFO - 2019-04-01 19:57:36 --> File loaded: /var/www/html/m_lnt_bid/application/views/admin/category/view_category_list.php
+INFO - 2019-04-01 19:57:36 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_footer.php
+INFO - 2019-04-01 19:57:36 --> Final output sent to browser
+DEBUG - 2019-04-01 19:57:36 --> Total execution time: 0.1019
+INFO - 2019-04-01 19:57:45 --> Config Class Initialized
+INFO - 2019-04-01 19:57:45 --> Hooks Class Initialized
+DEBUG - 2019-04-01 19:57:45 --> UTF-8 Support Enabled
+INFO - 2019-04-01 19:57:45 --> Utf8 Class Initialized
+INFO - 2019-04-01 19:57:45 --> URI Class Initialized
+INFO - 2019-04-01 19:57:45 --> Router Class Initialized
+INFO - 2019-04-01 19:57:45 --> Output Class Initialized
+INFO - 2019-04-01 19:57:45 --> Security Class Initialized
+DEBUG - 2019-04-01 19:57:45 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-04-01 19:57:45 --> Input Class Initialized
+INFO - 2019-04-01 19:57:45 --> Language Class Initialized
+INFO - 2019-04-01 19:57:45 --> Loader Class Initialized
+INFO - 2019-04-01 19:57:45 --> Helper loaded: url_helper
+INFO - 2019-04-01 19:57:45 --> Helper loaded: file_helper
+INFO - 2019-04-01 19:57:45 --> Encrypt Class Initialized
+INFO - 2019-04-01 19:57:45 --> Controller Class Initialized
+INFO - 2019-04-01 19:57:45 --> Database Driver Class Initialized
+INFO - 2019-04-01 19:57:45 --> Model "User_model" initialized
+DEBUG - 2019-04-01 19:57:45 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-04-01 19:57:45 --> Session: Class initialized using 'files' driver.
+INFO - 2019-04-01 19:57:45 --> User Agent Class Initialized
+DEBUG - 2019-04-01 19:57:45 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-04-01 19:57:45 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-04-01 19:57:45 --> Encryption Class Initialized
+INFO - 2019-04-01 19:57:45 --> Helper loaded: form_helper
+INFO - 2019-04-01 19:57:45 --> Form Validation Class Initialized
+INFO - 2019-04-01 19:57:45 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_header.php
+INFO - 2019-04-01 19:57:45 --> File loaded: /var/www/html/m_lnt_bid/application/views/admin/template/template_top_head.php
+INFO - 2019-04-01 19:57:45 --> File loaded: /var/www/html/m_lnt_bid/application/views/admin/template/template_side_bar.php
+INFO - 2019-04-01 19:57:45 --> File loaded: /var/www/html/m_lnt_bid/application/views/admin/new_material_with_category/view_list_category.php
+INFO - 2019-04-01 19:57:45 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_footer.php
+INFO - 2019-04-01 19:57:45 --> Final output sent to browser
+DEBUG - 2019-04-01 19:57:45 --> Total execution time: 0.1146
+INFO - 2019-04-01 19:57:49 --> Config Class Initialized
+INFO - 2019-04-01 19:57:49 --> Hooks Class Initialized
+DEBUG - 2019-04-01 19:57:49 --> UTF-8 Support Enabled
+INFO - 2019-04-01 19:57:49 --> Utf8 Class Initialized
+INFO - 2019-04-01 19:57:49 --> URI Class Initialized
+INFO - 2019-04-01 19:57:49 --> Router Class Initialized
+INFO - 2019-04-01 19:57:49 --> Output Class Initialized
+INFO - 2019-04-01 19:57:49 --> Security Class Initialized
+DEBUG - 2019-04-01 19:57:49 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-04-01 19:57:49 --> Input Class Initialized
+INFO - 2019-04-01 19:57:49 --> Language Class Initialized
+INFO - 2019-04-01 19:57:49 --> Loader Class Initialized
+INFO - 2019-04-01 19:57:49 --> Helper loaded: url_helper
+INFO - 2019-04-01 19:57:49 --> Helper loaded: file_helper
+INFO - 2019-04-01 19:57:49 --> Encrypt Class Initialized
+INFO - 2019-04-01 19:57:49 --> Controller Class Initialized
+INFO - 2019-04-01 19:57:49 --> Database Driver Class Initialized
+INFO - 2019-04-01 19:57:49 --> Model "User_model" initialized
+DEBUG - 2019-04-01 19:57:49 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-04-01 19:57:49 --> Session: Class initialized using 'files' driver.
+INFO - 2019-04-01 19:57:49 --> User Agent Class Initialized
+DEBUG - 2019-04-01 19:57:49 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-04-01 19:57:49 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-04-01 19:57:49 --> Encryption Class Initialized
+INFO - 2019-04-01 19:57:49 --> Helper loaded: form_helper
+INFO - 2019-04-01 19:57:49 --> Form Validation Class Initialized
+INFO - 2019-04-01 19:57:49 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_header.php
+INFO - 2019-04-01 19:57:49 --> File loaded: /var/www/html/m_lnt_bid/application/views/admin/template/template_top_head.php
+INFO - 2019-04-01 19:57:49 --> File loaded: /var/www/html/m_lnt_bid/application/views/admin/template/template_side_bar.php
+INFO - 2019-04-01 19:57:49 --> File loaded: /var/www/html/m_lnt_bid/application/views/admin/user_dashboard.php
+INFO - 2019-04-01 19:57:49 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_footer.php
+INFO - 2019-04-01 19:57:49 --> Final output sent to browser
+DEBUG - 2019-04-01 19:57:49 --> Total execution time: 0.1177
+INFO - 2019-04-01 19:57:53 --> Config Class Initialized
+INFO - 2019-04-01 19:57:53 --> Hooks Class Initialized
+DEBUG - 2019-04-01 19:57:53 --> UTF-8 Support Enabled
+INFO - 2019-04-01 19:57:53 --> Utf8 Class Initialized
+INFO - 2019-04-01 19:57:53 --> URI Class Initialized
+INFO - 2019-04-01 19:57:53 --> Router Class Initialized
+INFO - 2019-04-01 19:57:53 --> Output Class Initialized
+INFO - 2019-04-01 19:57:53 --> Security Class Initialized
+DEBUG - 2019-04-01 19:57:53 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-04-01 19:57:53 --> Input Class Initialized
+INFO - 2019-04-01 19:57:53 --> Language Class Initialized
+INFO - 2019-04-01 19:57:53 --> Loader Class Initialized
+INFO - 2019-04-01 19:57:53 --> Helper loaded: url_helper
+INFO - 2019-04-01 19:57:53 --> Helper loaded: file_helper
+INFO - 2019-04-01 19:57:53 --> Encrypt Class Initialized
+INFO - 2019-04-01 19:57:53 --> Controller Class Initialized
+INFO - 2019-04-01 19:57:53 --> Database Driver Class Initialized
+INFO - 2019-04-01 19:57:53 --> Model "User_model" initialized
+DEBUG - 2019-04-01 19:57:53 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-04-01 19:57:53 --> Session: Class initialized using 'files' driver.
+INFO - 2019-04-01 19:57:53 --> User Agent Class Initialized
+DEBUG - 2019-04-01 19:57:53 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-04-01 19:57:53 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-04-01 19:57:53 --> Encryption Class Initialized
+INFO - 2019-04-01 19:57:53 --> Helper loaded: form_helper
+INFO - 2019-04-01 19:57:53 --> Form Validation Class Initialized
+INFO - 2019-04-01 19:57:53 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_header.php
+INFO - 2019-04-01 19:57:53 --> File loaded: /var/www/html/m_lnt_bid/application/views/admin/template/template_top_head.php
+INFO - 2019-04-01 19:57:53 --> File loaded: /var/www/html/m_lnt_bid/application/views/admin/template/template_side_bar.php
+INFO - 2019-04-01 19:57:53 --> File loaded: /var/www/html/m_lnt_bid/application/views/admin/new_material_with_category/view_material_catergory_list.php
+INFO - 2019-04-01 19:57:53 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_footer.php
+INFO - 2019-04-01 19:57:53 --> Final output sent to browser
+DEBUG - 2019-04-01 19:57:53 --> Total execution time: 0.1035
+INFO - 2019-04-01 19:57:58 --> Config Class Initialized
+INFO - 2019-04-01 19:57:58 --> Hooks Class Initialized
+DEBUG - 2019-04-01 19:57:58 --> UTF-8 Support Enabled
+INFO - 2019-04-01 19:57:58 --> Utf8 Class Initialized
+INFO - 2019-04-01 19:57:58 --> URI Class Initialized
+INFO - 2019-04-01 19:57:58 --> Router Class Initialized
+INFO - 2019-04-01 19:57:58 --> Output Class Initialized
+INFO - 2019-04-01 19:57:58 --> Security Class Initialized
+DEBUG - 2019-04-01 19:57:58 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-04-01 19:57:58 --> Input Class Initialized
+INFO - 2019-04-01 19:57:58 --> Language Class Initialized
+INFO - 2019-04-01 19:57:58 --> Loader Class Initialized
+INFO - 2019-04-01 19:57:58 --> Helper loaded: url_helper
+INFO - 2019-04-01 19:57:58 --> Helper loaded: file_helper
+INFO - 2019-04-01 19:57:58 --> Encrypt Class Initialized
+INFO - 2019-04-01 19:57:58 --> Controller Class Initialized
+INFO - 2019-04-01 19:57:58 --> Database Driver Class Initialized
+INFO - 2019-04-01 19:57:58 --> Model "User_model" initialized
+DEBUG - 2019-04-01 19:57:58 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-04-01 19:57:58 --> Session: Class initialized using 'files' driver.
+INFO - 2019-04-01 19:57:58 --> User Agent Class Initialized
+DEBUG - 2019-04-01 19:57:58 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-04-01 19:57:58 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-04-01 19:57:58 --> Encryption Class Initialized
+INFO - 2019-04-01 19:57:58 --> Helper loaded: form_helper
+INFO - 2019-04-01 19:57:58 --> Form Validation Class Initialized
+INFO - 2019-04-01 19:57:58 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_header.php
+INFO - 2019-04-01 19:57:58 --> File loaded: /var/www/html/m_lnt_bid/application/views/admin/template/template_top_head.php
+INFO - 2019-04-01 19:57:58 --> File loaded: /var/www/html/m_lnt_bid/application/views/admin/template/template_side_bar.php
+INFO - 2019-04-01 19:57:58 --> File loaded: /var/www/html/m_lnt_bid/application/views/admin/user_dashboard.php
+INFO - 2019-04-01 19:57:58 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_footer.php
+INFO - 2019-04-01 19:57:58 --> Final output sent to browser
+DEBUG - 2019-04-01 19:57:58 --> Total execution time: 0.1555
+INFO - 2019-04-01 19:58:48 --> Config Class Initialized
+INFO - 2019-04-01 19:58:48 --> Hooks Class Initialized
+DEBUG - 2019-04-01 19:58:48 --> UTF-8 Support Enabled
+INFO - 2019-04-01 19:58:48 --> Utf8 Class Initialized
+INFO - 2019-04-01 19:58:48 --> URI Class Initialized
+INFO - 2019-04-01 19:58:48 --> Router Class Initialized
+INFO - 2019-04-01 19:58:48 --> Output Class Initialized
+INFO - 2019-04-01 19:58:48 --> Security Class Initialized
+DEBUG - 2019-04-01 19:58:48 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-04-01 19:58:48 --> Input Class Initialized
+INFO - 2019-04-01 19:58:48 --> Language Class Initialized
+INFO - 2019-04-01 19:58:48 --> Loader Class Initialized
+INFO - 2019-04-01 19:58:48 --> Helper loaded: url_helper
+INFO - 2019-04-01 19:58:48 --> Helper loaded: file_helper
+INFO - 2019-04-01 19:58:48 --> Encrypt Class Initialized
+INFO - 2019-04-01 19:58:48 --> Controller Class Initialized
+INFO - 2019-04-01 19:58:48 --> Database Driver Class Initialized
+INFO - 2019-04-01 19:58:48 --> Model "User_model" initialized
+DEBUG - 2019-04-01 19:58:48 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-04-01 19:58:48 --> Session: Class initialized using 'files' driver.
+INFO - 2019-04-01 19:58:48 --> User Agent Class Initialized
+DEBUG - 2019-04-01 19:58:48 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-04-01 19:58:48 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-04-01 19:58:48 --> Encryption Class Initialized
+INFO - 2019-04-01 19:58:48 --> Helper loaded: form_helper
+INFO - 2019-04-01 19:58:48 --> Form Validation Class Initialized
+INFO - 2019-04-01 19:58:48 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_header.php
+INFO - 2019-04-01 19:58:48 --> File loaded: /var/www/html/m_lnt_bid/application/views/admin/template/template_top_head.php
+INFO - 2019-04-01 19:58:48 --> File loaded: /var/www/html/m_lnt_bid/application/views/admin/template/template_side_bar.php
+INFO - 2019-04-01 19:58:48 --> File loaded: /var/www/html/m_lnt_bid/application/views/admin/category/view_category_list.php
+INFO - 2019-04-01 19:58:48 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_footer.php
+INFO - 2019-04-01 19:58:48 --> Final output sent to browser
+DEBUG - 2019-04-01 19:58:48 --> Total execution time: 0.1195
+INFO - 2019-04-01 19:58:50 --> Config Class Initialized
+INFO - 2019-04-01 19:58:50 --> Hooks Class Initialized
+DEBUG - 2019-04-01 19:58:50 --> UTF-8 Support Enabled
+INFO - 2019-04-01 19:58:50 --> Utf8 Class Initialized
+INFO - 2019-04-01 19:58:50 --> URI Class Initialized
+INFO - 2019-04-01 19:58:50 --> Router Class Initialized
+INFO - 2019-04-01 19:58:50 --> Output Class Initialized
+INFO - 2019-04-01 19:58:50 --> Security Class Initialized
+DEBUG - 2019-04-01 19:58:50 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-04-01 19:58:50 --> Input Class Initialized
+INFO - 2019-04-01 19:58:50 --> Language Class Initialized
+INFO - 2019-04-01 19:58:50 --> Loader Class Initialized
+INFO - 2019-04-01 19:58:50 --> Helper loaded: url_helper
+INFO - 2019-04-01 19:58:50 --> Helper loaded: file_helper
+INFO - 2019-04-01 19:58:50 --> Encrypt Class Initialized
+INFO - 2019-04-01 19:58:50 --> Controller Class Initialized
+INFO - 2019-04-01 19:58:50 --> Database Driver Class Initialized
+INFO - 2019-04-01 19:58:50 --> Model "User_model" initialized
+DEBUG - 2019-04-01 19:58:50 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-04-01 19:58:50 --> Session: Class initialized using 'files' driver.
+INFO - 2019-04-01 19:58:50 --> User Agent Class Initialized
+DEBUG - 2019-04-01 19:58:50 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-04-01 19:58:50 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-04-01 19:58:50 --> Encryption Class Initialized
+INFO - 2019-04-01 19:58:50 --> Helper loaded: form_helper
+INFO - 2019-04-01 19:58:50 --> Form Validation Class Initialized
+INFO - 2019-04-01 19:58:51 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_header.php
+INFO - 2019-04-01 19:58:51 --> File loaded: /var/www/html/m_lnt_bid/application/views/admin/template/template_top_head.php
+INFO - 2019-04-01 19:58:51 --> File loaded: /var/www/html/m_lnt_bid/application/views/admin/template/template_side_bar.php
+INFO - 2019-04-01 19:58:51 --> File loaded: /var/www/html/m_lnt_bid/application/views/admin/user_dashboard.php
+INFO - 2019-04-01 19:58:51 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_footer.php
+INFO - 2019-04-01 19:58:51 --> Final output sent to browser
+DEBUG - 2019-04-01 19:58:51 --> Total execution time: 0.1049
+INFO - 2019-04-01 19:59:00 --> Config Class Initialized
+INFO - 2019-04-01 19:59:00 --> Hooks Class Initialized
+DEBUG - 2019-04-01 19:59:00 --> UTF-8 Support Enabled
+INFO - 2019-04-01 19:59:00 --> Utf8 Class Initialized
+INFO - 2019-04-01 19:59:00 --> URI Class Initialized
+INFO - 2019-04-01 19:59:00 --> Router Class Initialized
+INFO - 2019-04-01 19:59:00 --> Output Class Initialized
+INFO - 2019-04-01 19:59:00 --> Security Class Initialized
+DEBUG - 2019-04-01 19:59:00 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-04-01 19:59:00 --> Input Class Initialized
+INFO - 2019-04-01 19:59:00 --> Language Class Initialized
+INFO - 2019-04-01 19:59:00 --> Loader Class Initialized
+INFO - 2019-04-01 19:59:00 --> Helper loaded: url_helper
+INFO - 2019-04-01 19:59:00 --> Helper loaded: file_helper
+INFO - 2019-04-01 19:59:00 --> Encrypt Class Initialized
+INFO - 2019-04-01 19:59:00 --> Controller Class Initialized
+INFO - 2019-04-01 19:59:00 --> Database Driver Class Initialized
+INFO - 2019-04-01 19:59:00 --> Model "User_model" initialized
+DEBUG - 2019-04-01 19:59:00 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-04-01 19:59:00 --> Session: Class initialized using 'files' driver.
+INFO - 2019-04-01 19:59:00 --> User Agent Class Initialized
+DEBUG - 2019-04-01 19:59:00 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-04-01 19:59:00 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-04-01 19:59:00 --> Encryption Class Initialized
+INFO - 2019-04-01 19:59:00 --> Helper loaded: form_helper
+INFO - 2019-04-01 19:59:00 --> Form Validation Class Initialized
+INFO - 2019-04-01 19:59:00 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_header.php
+INFO - 2019-04-01 19:59:00 --> File loaded: /var/www/html/m_lnt_bid/application/views/admin/template/template_top_head.php
+INFO - 2019-04-01 19:59:00 --> File loaded: /var/www/html/m_lnt_bid/application/views/admin/template/template_side_bar.php
+INFO - 2019-04-01 19:59:00 --> File loaded: /var/www/html/m_lnt_bid/application/views/admin/new_material_with_category/view_list_category.php
+INFO - 2019-04-01 19:59:00 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_footer.php
+INFO - 2019-04-01 19:59:00 --> Final output sent to browser
+DEBUG - 2019-04-01 19:59:00 --> Total execution time: 0.1162
+INFO - 2019-04-01 19:59:02 --> Config Class Initialized
+INFO - 2019-04-01 19:59:02 --> Hooks Class Initialized
+DEBUG - 2019-04-01 19:59:02 --> UTF-8 Support Enabled
+INFO - 2019-04-01 19:59:02 --> Utf8 Class Initialized
+INFO - 2019-04-01 19:59:02 --> URI Class Initialized
+INFO - 2019-04-01 19:59:02 --> Router Class Initialized
+INFO - 2019-04-01 19:59:02 --> Output Class Initialized
+INFO - 2019-04-01 19:59:02 --> Security Class Initialized
+DEBUG - 2019-04-01 19:59:02 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-04-01 19:59:02 --> Input Class Initialized
+INFO - 2019-04-01 19:59:02 --> Language Class Initialized
+INFO - 2019-04-01 19:59:02 --> Loader Class Initialized
+INFO - 2019-04-01 19:59:02 --> Helper loaded: url_helper
+INFO - 2019-04-01 19:59:02 --> Helper loaded: file_helper
+INFO - 2019-04-01 19:59:02 --> Encrypt Class Initialized
+INFO - 2019-04-01 19:59:02 --> Controller Class Initialized
+INFO - 2019-04-01 19:59:02 --> Database Driver Class Initialized
+INFO - 2019-04-01 19:59:02 --> Model "User_model" initialized
+DEBUG - 2019-04-01 19:59:02 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-04-01 19:59:02 --> Session: Class initialized using 'files' driver.
+INFO - 2019-04-01 19:59:02 --> User Agent Class Initialized
+DEBUG - 2019-04-01 19:59:02 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-04-01 19:59:02 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-04-01 19:59:02 --> Encryption Class Initialized
+INFO - 2019-04-01 19:59:02 --> Helper loaded: form_helper
+INFO - 2019-04-01 19:59:02 --> Form Validation Class Initialized
+INFO - 2019-04-01 19:59:03 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_header.php
+INFO - 2019-04-01 19:59:03 --> File loaded: /var/www/html/m_lnt_bid/application/views/admin/template/template_top_head.php
+INFO - 2019-04-01 19:59:03 --> File loaded: /var/www/html/m_lnt_bid/application/views/admin/template/template_side_bar.php
+INFO - 2019-04-01 19:59:03 --> File loaded: /var/www/html/m_lnt_bid/application/views/admin/user_dashboard.php
+INFO - 2019-04-01 19:59:03 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_footer.php
+INFO - 2019-04-01 19:59:03 --> Final output sent to browser
+DEBUG - 2019-04-01 19:59:03 --> Total execution time: 0.0883
+INFO - 2019-04-01 19:59:24 --> Config Class Initialized
+INFO - 2019-04-01 19:59:24 --> Hooks Class Initialized
+DEBUG - 2019-04-01 19:59:24 --> UTF-8 Support Enabled
+INFO - 2019-04-01 19:59:24 --> Utf8 Class Initialized
+INFO - 2019-04-01 19:59:24 --> URI Class Initialized
+INFO - 2019-04-01 19:59:24 --> Router Class Initialized
+INFO - 2019-04-01 19:59:24 --> Output Class Initialized
+INFO - 2019-04-01 19:59:24 --> Security Class Initialized
+DEBUG - 2019-04-01 19:59:24 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-04-01 19:59:24 --> Input Class Initialized
+INFO - 2019-04-01 19:59:24 --> Language Class Initialized
+INFO - 2019-04-01 19:59:24 --> Loader Class Initialized
+INFO - 2019-04-01 19:59:24 --> Helper loaded: url_helper
+INFO - 2019-04-01 19:59:24 --> Helper loaded: file_helper
+INFO - 2019-04-01 19:59:24 --> Encrypt Class Initialized
+INFO - 2019-04-01 19:59:24 --> Controller Class Initialized
+INFO - 2019-04-01 19:59:24 --> Database Driver Class Initialized
+INFO - 2019-04-01 19:59:24 --> Model "User_model" initialized
+DEBUG - 2019-04-01 19:59:24 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-04-01 19:59:24 --> Session: Class initialized using 'files' driver.
+INFO - 2019-04-01 19:59:24 --> User Agent Class Initialized
+DEBUG - 2019-04-01 19:59:24 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-04-01 19:59:24 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-04-01 19:59:24 --> Encryption Class Initialized
+INFO - 2019-04-01 19:59:24 --> Helper loaded: form_helper
+INFO - 2019-04-01 19:59:24 --> Form Validation Class Initialized
+INFO - 2019-04-01 19:59:24 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_header.php
+INFO - 2019-04-01 19:59:24 --> File loaded: /var/www/html/m_lnt_bid/application/views/admin/template/template_top_head.php
+INFO - 2019-04-01 19:59:24 --> File loaded: /var/www/html/m_lnt_bid/application/views/admin/template/template_side_bar.php
+INFO - 2019-04-01 19:59:24 --> File loaded: /var/www/html/m_lnt_bid/application/views/admin/project/view_project_list.php
+INFO - 2019-04-01 19:59:24 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_footer.php
+INFO - 2019-04-01 19:59:24 --> Final output sent to browser
+DEBUG - 2019-04-01 19:59:24 --> Total execution time: 0.1110
+INFO - 2019-04-01 19:59:35 --> Config Class Initialized
+INFO - 2019-04-01 19:59:35 --> Hooks Class Initialized
+DEBUG - 2019-04-01 19:59:35 --> UTF-8 Support Enabled
+INFO - 2019-04-01 19:59:35 --> Utf8 Class Initialized
+INFO - 2019-04-01 19:59:35 --> URI Class Initialized
+INFO - 2019-04-01 19:59:35 --> Router Class Initialized
+INFO - 2019-04-01 19:59:35 --> Output Class Initialized
+INFO - 2019-04-01 19:59:35 --> Security Class Initialized
+DEBUG - 2019-04-01 19:59:35 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-04-01 19:59:35 --> Input Class Initialized
+INFO - 2019-04-01 19:59:35 --> Language Class Initialized
+INFO - 2019-04-01 19:59:35 --> Loader Class Initialized
+INFO - 2019-04-01 19:59:35 --> Helper loaded: url_helper
+INFO - 2019-04-01 19:59:35 --> Helper loaded: file_helper
+INFO - 2019-04-01 19:59:35 --> Encrypt Class Initialized
+INFO - 2019-04-01 19:59:35 --> Controller Class Initialized
+INFO - 2019-04-01 19:59:35 --> Database Driver Class Initialized
+INFO - 2019-04-01 19:59:35 --> Model "User_model" initialized
+DEBUG - 2019-04-01 19:59:35 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-04-01 19:59:35 --> Session: Class initialized using 'files' driver.
+INFO - 2019-04-01 19:59:35 --> User Agent Class Initialized
+DEBUG - 2019-04-01 19:59:35 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-04-01 19:59:35 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-04-01 19:59:35 --> Encryption Class Initialized
+INFO - 2019-04-01 19:59:35 --> Helper loaded: form_helper
+INFO - 2019-04-01 19:59:35 --> Form Validation Class Initialized
+INFO - 2019-04-01 19:59:35 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_header.php
+INFO - 2019-04-01 19:59:35 --> File loaded: /var/www/html/m_lnt_bid/application/views/admin/template/template_top_head.php
+INFO - 2019-04-01 19:59:35 --> File loaded: /var/www/html/m_lnt_bid/application/views/admin/template/template_side_bar.php
+INFO - 2019-04-01 19:59:35 --> File loaded: /var/www/html/m_lnt_bid/application/views/admin/project/create_admin_project.php
+INFO - 2019-04-01 19:59:35 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_footer.php
+INFO - 2019-04-01 19:59:35 --> Final output sent to browser
+DEBUG - 2019-04-01 19:59:35 --> Total execution time: 0.1279
+INFO - 2019-04-01 19:59:39 --> Config Class Initialized
+INFO - 2019-04-01 19:59:39 --> Hooks Class Initialized
+DEBUG - 2019-04-01 19:59:39 --> UTF-8 Support Enabled
+INFO - 2019-04-01 19:59:39 --> Utf8 Class Initialized
+INFO - 2019-04-01 19:59:39 --> URI Class Initialized
+INFO - 2019-04-01 19:59:39 --> Router Class Initialized
+INFO - 2019-04-01 19:59:39 --> Output Class Initialized
+INFO - 2019-04-01 19:59:39 --> Security Class Initialized
+DEBUG - 2019-04-01 19:59:39 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-04-01 19:59:39 --> Input Class Initialized
+INFO - 2019-04-01 19:59:39 --> Language Class Initialized
+INFO - 2019-04-01 19:59:39 --> Loader Class Initialized
+INFO - 2019-04-01 19:59:39 --> Helper loaded: url_helper
+INFO - 2019-04-01 19:59:39 --> Helper loaded: file_helper
+INFO - 2019-04-01 19:59:39 --> Encrypt Class Initialized
+INFO - 2019-04-01 19:59:39 --> Controller Class Initialized
+INFO - 2019-04-01 19:59:39 --> Database Driver Class Initialized
+INFO - 2019-04-01 19:59:39 --> Model "User_model" initialized
+DEBUG - 2019-04-01 19:59:39 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-04-01 19:59:39 --> Session: Class initialized using 'files' driver.
+INFO - 2019-04-01 19:59:39 --> User Agent Class Initialized
+DEBUG - 2019-04-01 19:59:39 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-04-01 19:59:39 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-04-01 19:59:39 --> Encryption Class Initialized
+INFO - 2019-04-01 19:59:39 --> Helper loaded: form_helper
+INFO - 2019-04-01 19:59:39 --> Form Validation Class Initialized
+INFO - 2019-04-01 19:59:39 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_header.php
+INFO - 2019-04-01 19:59:39 --> File loaded: /var/www/html/m_lnt_bid/application/views/admin/template/template_top_head.php
+INFO - 2019-04-01 19:59:39 --> File loaded: /var/www/html/m_lnt_bid/application/views/admin/template/template_side_bar.php
+INFO - 2019-04-01 19:59:39 --> File loaded: /var/www/html/m_lnt_bid/application/views/admin/project/view_project_list.php
+INFO - 2019-04-01 19:59:39 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_footer.php
+INFO - 2019-04-01 19:59:39 --> Final output sent to browser
+DEBUG - 2019-04-01 19:59:39 --> Total execution time: 0.1142
+INFO - 2019-04-01 20:01:46 --> Config Class Initialized
+INFO - 2019-04-01 20:01:46 --> Hooks Class Initialized
+DEBUG - 2019-04-01 20:01:46 --> UTF-8 Support Enabled
+INFO - 2019-04-01 20:01:46 --> Utf8 Class Initialized
+INFO - 2019-04-01 20:01:46 --> URI Class Initialized
+INFO - 2019-04-01 20:01:46 --> Router Class Initialized
+INFO - 2019-04-01 20:01:46 --> Output Class Initialized
+INFO - 2019-04-01 20:01:46 --> Security Class Initialized
+DEBUG - 2019-04-01 20:01:46 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-04-01 20:01:46 --> Input Class Initialized
+INFO - 2019-04-01 20:01:46 --> Language Class Initialized
+INFO - 2019-04-01 20:01:46 --> Loader Class Initialized
+INFO - 2019-04-01 20:01:46 --> Helper loaded: url_helper
+INFO - 2019-04-01 20:01:46 --> Helper loaded: file_helper
+INFO - 2019-04-01 20:01:46 --> Encrypt Class Initialized
+INFO - 2019-04-01 20:01:46 --> Controller Class Initialized
+INFO - 2019-04-01 20:01:46 --> Database Driver Class Initialized
+INFO - 2019-04-01 20:01:46 --> Model "User_model" initialized
+DEBUG - 2019-04-01 20:01:46 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-04-01 20:01:46 --> Session: Class initialized using 'files' driver.
+INFO - 2019-04-01 20:01:46 --> User Agent Class Initialized
+DEBUG - 2019-04-01 20:01:46 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-04-01 20:01:46 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-04-01 20:01:46 --> Encryption Class Initialized
+INFO - 2019-04-01 20:01:46 --> Helper loaded: form_helper
+INFO - 2019-04-01 20:01:46 --> Form Validation Class Initialized
+INFO - 2019-04-01 20:01:46 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_header.php
+INFO - 2019-04-01 20:01:46 --> File loaded: /var/www/html/m_lnt_bid/application/views/admin/template/template_top_head.php
+INFO - 2019-04-01 20:01:46 --> File loaded: /var/www/html/m_lnt_bid/application/views/admin/template/template_side_bar.php
+INFO - 2019-04-01 20:01:46 --> File loaded: /var/www/html/m_lnt_bid/application/views/admin/user_creation/view_users_list.php
+INFO - 2019-04-01 20:01:46 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_footer.php
+INFO - 2019-04-01 20:01:46 --> Final output sent to browser
+DEBUG - 2019-04-01 20:01:46 --> Total execution time: 0.1257
+INFO - 2019-04-01 20:01:51 --> Config Class Initialized
+INFO - 2019-04-01 20:01:51 --> Hooks Class Initialized
+DEBUG - 2019-04-01 20:01:51 --> UTF-8 Support Enabled
+INFO - 2019-04-01 20:01:51 --> Utf8 Class Initialized
+INFO - 2019-04-01 20:01:51 --> URI Class Initialized
+INFO - 2019-04-01 20:01:51 --> Router Class Initialized
+INFO - 2019-04-01 20:01:51 --> Output Class Initialized
+INFO - 2019-04-01 20:01:51 --> Security Class Initialized
+DEBUG - 2019-04-01 20:01:51 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-04-01 20:01:51 --> Input Class Initialized
+INFO - 2019-04-01 20:01:51 --> Language Class Initialized
+INFO - 2019-04-01 20:01:51 --> Loader Class Initialized
+INFO - 2019-04-01 20:01:51 --> Helper loaded: url_helper
+INFO - 2019-04-01 20:01:51 --> Helper loaded: file_helper
+INFO - 2019-04-01 20:01:51 --> Encrypt Class Initialized
+INFO - 2019-04-01 20:01:51 --> Controller Class Initialized
+INFO - 2019-04-01 20:01:51 --> Database Driver Class Initialized
+INFO - 2019-04-01 20:01:51 --> Model "User_model" initialized
+DEBUG - 2019-04-01 20:01:51 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-04-01 20:01:51 --> Session: Class initialized using 'files' driver.
+INFO - 2019-04-01 20:01:51 --> User Agent Class Initialized
+DEBUG - 2019-04-01 20:01:51 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-04-01 20:01:51 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-04-01 20:01:51 --> Encryption Class Initialized
+INFO - 2019-04-01 20:01:51 --> Helper loaded: form_helper
+INFO - 2019-04-01 20:01:51 --> Form Validation Class Initialized
+INFO - 2019-04-01 20:01:51 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_header.php
+INFO - 2019-04-01 20:01:51 --> File loaded: /var/www/html/m_lnt_bid/application/views/admin/template/template_top_head.php
+INFO - 2019-04-01 20:01:51 --> File loaded: /var/www/html/m_lnt_bid/application/views/admin/template/template_side_bar.php
+INFO - 2019-04-01 20:01:51 --> File loaded: /var/www/html/m_lnt_bid/application/views/admin/user_creation/create_admin_user.php
+INFO - 2019-04-01 20:01:51 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_footer.php
+INFO - 2019-04-01 20:01:51 --> Final output sent to browser
+DEBUG - 2019-04-01 20:01:51 --> Total execution time: 0.0972
+INFO - 2019-04-01 20:13:47 --> Config Class Initialized
+INFO - 2019-04-01 20:13:47 --> Hooks Class Initialized
+DEBUG - 2019-04-01 20:13:47 --> UTF-8 Support Enabled
+INFO - 2019-04-01 20:13:47 --> Utf8 Class Initialized
+INFO - 2019-04-01 20:13:47 --> URI Class Initialized
+INFO - 2019-04-01 20:13:47 --> Router Class Initialized
+INFO - 2019-04-01 20:13:47 --> Output Class Initialized
+INFO - 2019-04-01 20:13:47 --> Security Class Initialized
+DEBUG - 2019-04-01 20:13:47 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-04-01 20:13:47 --> Input Class Initialized
+INFO - 2019-04-01 20:13:47 --> Language Class Initialized
+INFO - 2019-04-01 20:13:47 --> Loader Class Initialized
+INFO - 2019-04-01 20:13:47 --> Helper loaded: url_helper
+INFO - 2019-04-01 20:13:47 --> Helper loaded: file_helper
+INFO - 2019-04-01 20:13:47 --> Encrypt Class Initialized
+INFO - 2019-04-01 20:13:47 --> Controller Class Initialized
+INFO - 2019-04-01 20:13:47 --> Database Driver Class Initialized
+INFO - 2019-04-01 20:13:47 --> Model "User_model" initialized
+DEBUG - 2019-04-01 20:13:47 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-04-01 20:13:47 --> Session: Class initialized using 'files' driver.
+INFO - 2019-04-01 20:13:47 --> User Agent Class Initialized
+DEBUG - 2019-04-01 20:13:47 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-04-01 20:13:47 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-04-01 20:13:47 --> Encryption Class Initialized
+INFO - 2019-04-01 20:13:47 --> Helper loaded: form_helper
+INFO - 2019-04-01 20:13:47 --> Form Validation Class Initialized
+INFO - 2019-04-01 20:13:47 --> Config Class Initialized
+INFO - 2019-04-01 20:13:47 --> Hooks Class Initialized
+DEBUG - 2019-04-01 20:13:47 --> UTF-8 Support Enabled
+INFO - 2019-04-01 20:13:47 --> Utf8 Class Initialized
+INFO - 2019-04-01 20:13:47 --> URI Class Initialized
+INFO - 2019-04-01 20:13:47 --> Router Class Initialized
+INFO - 2019-04-01 20:13:47 --> Output Class Initialized
+INFO - 2019-04-01 20:13:47 --> Security Class Initialized
+DEBUG - 2019-04-01 20:13:47 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-04-01 20:13:47 --> Input Class Initialized
+INFO - 2019-04-01 20:13:47 --> Language Class Initialized
+INFO - 2019-04-01 20:13:47 --> Loader Class Initialized
+INFO - 2019-04-01 20:13:47 --> Helper loaded: url_helper
+INFO - 2019-04-01 20:13:47 --> Helper loaded: file_helper
+INFO - 2019-04-01 20:13:47 --> Encrypt Class Initialized
+INFO - 2019-04-01 20:13:47 --> Controller Class Initialized
+INFO - 2019-04-01 20:13:47 --> Database Driver Class Initialized
+DEBUG - 2019-04-01 20:13:48 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-04-01 20:13:48 --> Session: Class initialized using 'files' driver.
+INFO - 2019-04-01 20:13:48 --> File loaded: /var/www/html/m_lnt_bid/application/views/login_view/index_view.php
+INFO - 2019-04-01 20:13:48 --> Final output sent to browser
+DEBUG - 2019-04-01 20:13:48 --> Total execution time: 0.0954
+INFO - 2019-04-01 20:13:48 --> Config Class Initialized
+INFO - 2019-04-01 20:13:48 --> Hooks Class Initialized
+DEBUG - 2019-04-01 20:13:48 --> UTF-8 Support Enabled
+INFO - 2019-04-01 20:13:48 --> Utf8 Class Initialized
+INFO - 2019-04-01 20:13:48 --> URI Class Initialized
+INFO - 2019-04-01 20:13:48 --> Router Class Initialized
+INFO - 2019-04-01 20:13:48 --> Output Class Initialized
+INFO - 2019-04-01 20:13:48 --> Security Class Initialized
+DEBUG - 2019-04-01 20:13:48 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-04-01 20:13:48 --> Input Class Initialized
+INFO - 2019-04-01 20:13:48 --> Language Class Initialized
+INFO - 2019-04-01 20:13:48 --> Loader Class Initialized
+INFO - 2019-04-01 20:13:48 --> Helper loaded: url_helper
+INFO - 2019-04-01 20:13:48 --> Helper loaded: file_helper
+INFO - 2019-04-01 20:13:48 --> Encrypt Class Initialized
+INFO - 2019-04-01 20:13:48 --> Controller Class Initialized
+INFO - 2019-04-01 20:13:48 --> Database Driver Class Initialized
+INFO - 2019-04-01 20:13:48 --> Config Class Initialized
+INFO - 2019-04-01 20:13:48 --> Hooks Class Initialized
+DEBUG - 2019-04-01 20:13:48 --> UTF-8 Support Enabled
+INFO - 2019-04-01 20:13:48 --> Utf8 Class Initialized
+INFO - 2019-04-01 20:13:48 --> URI Class Initialized
+INFO - 2019-04-01 20:13:48 --> Router Class Initialized
+INFO - 2019-04-01 20:13:48 --> Output Class Initialized
+INFO - 2019-04-01 20:13:48 --> Security Class Initialized
+DEBUG - 2019-04-01 20:13:48 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-04-01 20:13:48 --> Input Class Initialized
+INFO - 2019-04-01 20:13:48 --> Language Class Initialized
+INFO - 2019-04-01 20:13:48 --> Loader Class Initialized
+INFO - 2019-04-01 20:13:48 --> Helper loaded: url_helper
+INFO - 2019-04-01 20:13:48 --> Helper loaded: file_helper
+INFO - 2019-04-01 20:13:48 --> Encrypt Class Initialized
+INFO - 2019-04-01 20:13:48 --> Controller Class Initialized
+INFO - 2019-04-01 20:13:48 --> Database Driver Class Initialized
+INFO - 2019-04-01 20:13:48 --> Config Class Initialized
+INFO - 2019-04-01 20:13:48 --> Hooks Class Initialized
+DEBUG - 2019-04-01 20:13:48 --> UTF-8 Support Enabled
+INFO - 2019-04-01 20:13:48 --> Utf8 Class Initialized
+INFO - 2019-04-01 20:13:48 --> URI Class Initialized
+INFO - 2019-04-01 20:13:48 --> Router Class Initialized
+INFO - 2019-04-01 20:13:48 --> Output Class Initialized
+INFO - 2019-04-01 20:13:48 --> Security Class Initialized
+DEBUG - 2019-04-01 20:13:48 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-04-01 20:13:48 --> Input Class Initialized
+INFO - 2019-04-01 20:13:48 --> Language Class Initialized
+INFO - 2019-04-01 20:13:48 --> Loader Class Initialized
+INFO - 2019-04-01 20:13:48 --> Helper loaded: url_helper
+INFO - 2019-04-01 20:13:48 --> Helper loaded: file_helper
+INFO - 2019-04-01 20:13:48 --> Encrypt Class Initialized
+INFO - 2019-04-01 20:13:48 --> Controller Class Initialized
+INFO - 2019-04-01 20:13:48 --> Database Driver Class Initialized
+INFO - 2019-04-01 20:13:48 --> User Agent Class Initialized
+INFO - 2019-04-01 20:13:48 --> File loaded: /var/www/html/m_lnt_bid/application/views/errors/Error_404.php
+INFO - 2019-04-01 20:13:48 --> Final output sent to browser
+DEBUG - 2019-04-01 20:13:48 --> Total execution time: 0.1445
+INFO - 2019-04-01 20:13:48 --> User Agent Class Initialized
+INFO - 2019-04-01 20:13:48 --> File loaded: /var/www/html/m_lnt_bid/application/views/errors/Error_404.php
+INFO - 2019-04-01 20:13:48 --> Final output sent to browser
+DEBUG - 2019-04-01 20:13:48 --> Total execution time: 0.1759
+INFO - 2019-04-01 20:13:48 --> User Agent Class Initialized
+INFO - 2019-04-01 20:13:48 --> File loaded: /var/www/html/m_lnt_bid/application/views/errors/Error_404.php
+INFO - 2019-04-01 20:13:48 --> Final output sent to browser
+DEBUG - 2019-04-01 20:13:48 --> Total execution time: 0.1800
+INFO - 2019-04-01 20:14:04 --> Config Class Initialized
+INFO - 2019-04-01 20:14:04 --> Hooks Class Initialized
+DEBUG - 2019-04-01 20:14:04 --> UTF-8 Support Enabled
+INFO - 2019-04-01 20:14:04 --> Utf8 Class Initialized
+INFO - 2019-04-01 20:14:04 --> URI Class Initialized
+INFO - 2019-04-01 20:14:04 --> Router Class Initialized
+INFO - 2019-04-01 20:14:04 --> Output Class Initialized
+INFO - 2019-04-01 20:14:04 --> Security Class Initialized
+DEBUG - 2019-04-01 20:14:04 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-04-01 20:14:04 --> Input Class Initialized
+INFO - 2019-04-01 20:14:04 --> Language Class Initialized
+INFO - 2019-04-01 20:14:04 --> Loader Class Initialized
+INFO - 2019-04-01 20:14:04 --> Helper loaded: url_helper
+INFO - 2019-04-01 20:14:04 --> Helper loaded: file_helper
+INFO - 2019-04-01 20:14:04 --> Encrypt Class Initialized
+INFO - 2019-04-01 20:14:04 --> Controller Class Initialized
+INFO - 2019-04-01 20:14:04 --> Database Driver Class Initialized
+INFO - 2019-04-01 20:14:04 --> Model "User_model" initialized
+DEBUG - 2019-04-01 20:14:04 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-04-01 20:14:04 --> Session: Class initialized using 'files' driver.
+INFO - 2019-04-01 20:14:04 --> User Agent Class Initialized
+INFO - 2019-04-01 20:14:04 --> Config Class Initialized
+INFO - 2019-04-01 20:14:04 --> Hooks Class Initialized
+DEBUG - 2019-04-01 20:14:04 --> UTF-8 Support Enabled
+INFO - 2019-04-01 20:14:04 --> Utf8 Class Initialized
+INFO - 2019-04-01 20:14:04 --> URI Class Initialized
+INFO - 2019-04-01 20:14:04 --> Router Class Initialized
+INFO - 2019-04-01 20:14:04 --> Output Class Initialized
+INFO - 2019-04-01 20:14:04 --> Security Class Initialized
+DEBUG - 2019-04-01 20:14:04 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-04-01 20:14:04 --> Input Class Initialized
+INFO - 2019-04-01 20:14:04 --> Language Class Initialized
+INFO - 2019-04-01 20:14:04 --> Loader Class Initialized
+INFO - 2019-04-01 20:14:04 --> Helper loaded: url_helper
+INFO - 2019-04-01 20:14:04 --> Helper loaded: file_helper
+INFO - 2019-04-01 20:14:04 --> Encrypt Class Initialized
+INFO - 2019-04-01 20:14:04 --> Controller Class Initialized
+INFO - 2019-04-01 20:14:04 --> Database Driver Class Initialized
+INFO - 2019-04-01 20:14:04 --> Model "User_model" initialized
+INFO - 2019-04-01 20:14:04 --> Model "Approver_model" initialized
+INFO - 2019-04-01 20:14:04 --> Model "Design_model" initialized
+INFO - 2019-04-01 20:14:04 --> Model "Procurement_model" initialized
+INFO - 2019-04-01 20:14:04 --> Model "Buyer_model" initialized
+INFO - 2019-04-01 20:14:04 --> Model "Vendor_model" initialized
+INFO - 2019-04-01 20:14:04 --> Model "Technicalevalutor_model" initialized
+INFO - 2019-04-01 20:14:04 --> Model "Commericalevaluator_model" initialized
+DEBUG - 2019-04-01 20:14:04 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-04-01 20:14:04 --> Session: Class initialized using 'files' driver.
+INFO - 2019-04-01 20:14:04 --> User Agent Class Initialized
+DEBUG - 2019-04-01 20:14:04 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-04-01 20:14:04 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-04-01 20:14:04 --> Encryption Class Initialized
+INFO - 2019-04-01 20:14:04 --> Helper loaded: form_helper
+INFO - 2019-04-01 20:14:04 --> Form Validation Class Initialized
+INFO - 2019-04-01 20:14:04 --> Helper loaded: string_helper
+INFO - 2019-04-01 20:14:04 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_header.php
+INFO - 2019-04-01 20:14:04 --> File loaded: /var/www/html/m_lnt_bid/application/views/comm_evalutor_user/template/template_top_head.php
+INFO - 2019-04-01 20:14:04 --> File loaded: /var/www/html/m_lnt_bid/application/views/comm_evalutor_user/template/template_side_bar.php
+INFO - 2019-04-01 20:14:04 --> File loaded: /var/www/html/m_lnt_bid/application/views/comm_evalutor_user/user_dashboard.php
+INFO - 2019-04-01 20:14:04 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_footer.php
+INFO - 2019-04-01 20:14:04 --> Final output sent to browser
+DEBUG - 2019-04-01 20:14:04 --> Total execution time: 0.1045
+INFO - 2019-04-01 20:14:07 --> Config Class Initialized
+INFO - 2019-04-01 20:14:07 --> Hooks Class Initialized
+DEBUG - 2019-04-01 20:14:07 --> UTF-8 Support Enabled
+INFO - 2019-04-01 20:14:07 --> Utf8 Class Initialized
+INFO - 2019-04-01 20:14:07 --> URI Class Initialized
+INFO - 2019-04-01 20:14:07 --> Router Class Initialized
+INFO - 2019-04-01 20:14:07 --> Output Class Initialized
+INFO - 2019-04-01 20:14:07 --> Security Class Initialized
+DEBUG - 2019-04-01 20:14:07 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-04-01 20:14:07 --> Input Class Initialized
+INFO - 2019-04-01 20:14:07 --> Language Class Initialized
+INFO - 2019-04-01 20:14:07 --> Loader Class Initialized
+INFO - 2019-04-01 20:14:07 --> Helper loaded: url_helper
+INFO - 2019-04-01 20:14:07 --> Helper loaded: file_helper
+INFO - 2019-04-01 20:14:07 --> Encrypt Class Initialized
+INFO - 2019-04-01 20:14:07 --> Controller Class Initialized
+INFO - 2019-04-01 20:14:07 --> Database Driver Class Initialized
+INFO - 2019-04-01 20:14:07 --> Model "User_model" initialized
+INFO - 2019-04-01 20:14:07 --> Model "Approver_model" initialized
+INFO - 2019-04-01 20:14:07 --> Model "Design_model" initialized
+INFO - 2019-04-01 20:14:07 --> Model "Procurement_model" initialized
+INFO - 2019-04-01 20:14:07 --> Model "Buyer_model" initialized
+INFO - 2019-04-01 20:14:07 --> Model "Vendor_model" initialized
+INFO - 2019-04-01 20:14:07 --> Model "Technicalevalutor_model" initialized
+INFO - 2019-04-01 20:14:07 --> Model "Commericalevaluator_model" initialized
+DEBUG - 2019-04-01 20:14:07 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-04-01 20:14:07 --> Session: Class initialized using 'files' driver.
+INFO - 2019-04-01 20:14:07 --> User Agent Class Initialized
+DEBUG - 2019-04-01 20:14:07 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-04-01 20:14:07 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-04-01 20:14:07 --> Encryption Class Initialized
+INFO - 2019-04-01 20:14:07 --> Helper loaded: form_helper
+INFO - 2019-04-01 20:14:07 --> Form Validation Class Initialized
+INFO - 2019-04-01 20:14:07 --> Helper loaded: string_helper
+INFO - 2019-04-01 20:14:07 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_header.php
+INFO - 2019-04-01 20:14:07 --> File loaded: /var/www/html/m_lnt_bid/application/views/comm_evalutor_user/template/template_top_head.php
+INFO - 2019-04-01 20:14:07 --> File loaded: /var/www/html/m_lnt_bid/application/views/comm_evalutor_user/template/template_side_bar.php
+INFO - 2019-04-01 20:14:07 --> File loaded: /var/www/html/m_lnt_bid/application/views/comm_evalutor_user/pr_create/create_view.php
+INFO - 2019-04-01 20:14:07 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_footer.php
+INFO - 2019-04-01 20:14:07 --> Final output sent to browser
+DEBUG - 2019-04-01 20:14:07 --> Total execution time: 0.0861
+INFO - 2019-04-01 20:14:10 --> Config Class Initialized
+INFO - 2019-04-01 20:14:10 --> Hooks Class Initialized
+DEBUG - 2019-04-01 20:14:10 --> UTF-8 Support Enabled
+INFO - 2019-04-01 20:14:10 --> Utf8 Class Initialized
+INFO - 2019-04-01 20:14:10 --> URI Class Initialized
+INFO - 2019-04-01 20:14:10 --> Router Class Initialized
+INFO - 2019-04-01 20:14:10 --> Output Class Initialized
+INFO - 2019-04-01 20:14:10 --> Security Class Initialized
+DEBUG - 2019-04-01 20:14:10 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-04-01 20:14:10 --> Input Class Initialized
+INFO - 2019-04-01 20:14:10 --> Language Class Initialized
+INFO - 2019-04-01 20:14:10 --> Loader Class Initialized
+INFO - 2019-04-01 20:14:10 --> Helper loaded: url_helper
+INFO - 2019-04-01 20:14:10 --> Helper loaded: file_helper
+INFO - 2019-04-01 20:14:10 --> Encrypt Class Initialized
+INFO - 2019-04-01 20:14:10 --> Controller Class Initialized
+INFO - 2019-04-01 20:14:10 --> Database Driver Class Initialized
+INFO - 2019-04-01 20:14:10 --> Model "User_model" initialized
+INFO - 2019-04-01 20:14:10 --> Model "Approver_model" initialized
+INFO - 2019-04-01 20:14:10 --> Model "Design_model" initialized
+INFO - 2019-04-01 20:14:10 --> Model "Procurement_model" initialized
+INFO - 2019-04-01 20:14:10 --> Model "Buyer_model" initialized
+INFO - 2019-04-01 20:14:10 --> Model "Vendor_model" initialized
+INFO - 2019-04-01 20:14:10 --> Model "Technicalevalutor_model" initialized
+INFO - 2019-04-01 20:14:10 --> Model "Commericalevaluator_model" initialized
+DEBUG - 2019-04-01 20:14:10 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-04-01 20:14:10 --> Session: Class initialized using 'files' driver.
+INFO - 2019-04-01 20:14:10 --> User Agent Class Initialized
+DEBUG - 2019-04-01 20:14:10 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-04-01 20:14:10 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-04-01 20:14:10 --> Encryption Class Initialized
+INFO - 2019-04-01 20:14:10 --> Helper loaded: form_helper
+INFO - 2019-04-01 20:14:10 --> Form Validation Class Initialized
+INFO - 2019-04-01 20:14:10 --> Helper loaded: string_helper
+INFO - 2019-04-01 20:14:11 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_header.php
+INFO - 2019-04-01 20:14:11 --> File loaded: /var/www/html/m_lnt_bid/application/views/comm_evalutor_user/template/template_top_head.php
+INFO - 2019-04-01 20:14:11 --> File loaded: /var/www/html/m_lnt_bid/application/views/comm_evalutor_user/template/template_side_bar.php
+INFO - 2019-04-01 20:14:11 --> File loaded: /var/www/html/m_lnt_bid/application/views/comm_evalutor_user/pr_create/create_view.php
+INFO - 2019-04-01 20:14:11 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_footer.php
+INFO - 2019-04-01 20:14:11 --> Final output sent to browser
+DEBUG - 2019-04-01 20:14:11 --> Total execution time: 0.0982
+INFO - 2019-04-01 20:14:14 --> Config Class Initialized
+INFO - 2019-04-01 20:14:14 --> Hooks Class Initialized
+DEBUG - 2019-04-01 20:14:14 --> UTF-8 Support Enabled
+INFO - 2019-04-01 20:14:14 --> Utf8 Class Initialized
+INFO - 2019-04-01 20:14:14 --> URI Class Initialized
+INFO - 2019-04-01 20:14:14 --> Router Class Initialized
+INFO - 2019-04-01 20:14:14 --> Output Class Initialized
+INFO - 2019-04-01 20:14:14 --> Security Class Initialized
+DEBUG - 2019-04-01 20:14:14 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-04-01 20:14:14 --> Input Class Initialized
+INFO - 2019-04-01 20:14:14 --> Language Class Initialized
+INFO - 2019-04-01 20:14:14 --> Loader Class Initialized
+INFO - 2019-04-01 20:14:14 --> Helper loaded: url_helper
+INFO - 2019-04-01 20:14:14 --> Helper loaded: file_helper
+INFO - 2019-04-01 20:14:14 --> Encrypt Class Initialized
+INFO - 2019-04-01 20:14:14 --> Controller Class Initialized
+INFO - 2019-04-01 20:14:14 --> Database Driver Class Initialized
+INFO - 2019-04-01 20:14:14 --> Model "User_model" initialized
+INFO - 2019-04-01 20:14:14 --> Model "Approver_model" initialized
+INFO - 2019-04-01 20:14:14 --> Model "Design_model" initialized
+INFO - 2019-04-01 20:14:14 --> Model "Procurement_model" initialized
+INFO - 2019-04-01 20:14:14 --> Model "Buyer_model" initialized
+INFO - 2019-04-01 20:14:14 --> Model "Vendor_model" initialized
+INFO - 2019-04-01 20:14:14 --> Model "Technicalevalutor_model" initialized
+INFO - 2019-04-01 20:14:14 --> Model "Commericalevaluator_model" initialized
+DEBUG - 2019-04-01 20:14:14 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-04-01 20:14:14 --> Session: Class initialized using 'files' driver.
+INFO - 2019-04-01 20:14:14 --> User Agent Class Initialized
+DEBUG - 2019-04-01 20:14:14 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-04-01 20:14:14 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-04-01 20:14:14 --> Encryption Class Initialized
+INFO - 2019-04-01 20:14:14 --> Helper loaded: form_helper
+INFO - 2019-04-01 20:14:14 --> Form Validation Class Initialized
+INFO - 2019-04-01 20:14:14 --> Helper loaded: string_helper
+INFO - 2019-04-01 20:14:14 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_header.php
+INFO - 2019-04-01 20:14:14 --> File loaded: /var/www/html/m_lnt_bid/application/views/comm_evalutor_user/template/template_top_head.php
+INFO - 2019-04-01 20:14:14 --> File loaded: /var/www/html/m_lnt_bid/application/views/comm_evalutor_user/template/template_side_bar.php
+ERROR - 2019-04-01 20:14:14 --> Severity: Notice --> Undefined offset: 0 /var/www/html/m_lnt_bid/application/views/comm_evalutor_user/pr_details/view_details_create_view_new_bids.php 410
+ERROR - 2019-04-01 20:14:14 --> Severity: Notice --> Trying to get property 'mode_bid' of non-object /var/www/html/m_lnt_bid/application/views/comm_evalutor_user/pr_details/view_details_create_view_new_bids.php 410
+INFO - 2019-04-01 20:14:14 --> File loaded: /var/www/html/m_lnt_bid/application/views/comm_evalutor_user/pr_details/view_details_create_view_new_bids.php
+INFO - 2019-04-01 20:14:14 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_footer.php
+INFO - 2019-04-01 20:14:14 --> Final output sent to browser
+DEBUG - 2019-04-01 20:14:14 --> Total execution time: 0.0897
+INFO - 2019-04-01 20:14:14 --> Config Class Initialized
+INFO - 2019-04-01 20:14:14 --> Hooks Class Initialized
+INFO - 2019-04-01 20:14:14 --> Config Class Initialized
+DEBUG - 2019-04-01 20:14:14 --> UTF-8 Support Enabled
+INFO - 2019-04-01 20:14:14 --> Hooks Class Initialized
+INFO - 2019-04-01 20:14:14 --> Utf8 Class Initialized
+DEBUG - 2019-04-01 20:14:14 --> UTF-8 Support Enabled
+INFO - 2019-04-01 20:14:14 --> Utf8 Class Initialized
+INFO - 2019-04-01 20:14:14 --> URI Class Initialized
+INFO - 2019-04-01 20:14:14 --> URI Class Initialized
+INFO - 2019-04-01 20:14:14 --> Router Class Initialized
+INFO - 2019-04-01 20:14:14 --> Output Class Initialized
+INFO - 2019-04-01 20:14:14 --> Security Class Initialized
+DEBUG - 2019-04-01 20:14:14 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-04-01 20:14:14 --> Input Class Initialized
+INFO - 2019-04-01 20:14:14 --> Language Class Initialized
+INFO - 2019-04-01 20:14:14 --> Loader Class Initialized
+INFO - 2019-04-01 20:14:14 --> Helper loaded: url_helper
+INFO - 2019-04-01 20:14:14 --> Helper loaded: file_helper
+INFO - 2019-04-01 20:14:14 --> Encrypt Class Initialized
+INFO - 2019-04-01 20:14:14 --> Controller Class Initialized
+INFO - 2019-04-01 20:14:14 --> Database Driver Class Initialized
+INFO - 2019-04-01 20:14:14 --> Router Class Initialized
+INFO - 2019-04-01 20:14:14 --> Output Class Initialized
+INFO - 2019-04-01 20:14:14 --> Security Class Initialized
+DEBUG - 2019-04-01 20:14:14 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-04-01 20:14:14 --> Input Class Initialized
+INFO - 2019-04-01 20:14:14 --> Language Class Initialized
+INFO - 2019-04-01 20:14:14 --> Loader Class Initialized
+INFO - 2019-04-01 20:14:14 --> Helper loaded: url_helper
+INFO - 2019-04-01 20:14:14 --> Helper loaded: file_helper
+INFO - 2019-04-01 20:14:14 --> Encrypt Class Initialized
+INFO - 2019-04-01 20:14:14 --> Controller Class Initialized
+INFO - 2019-04-01 20:14:14 --> Database Driver Class Initialized
+INFO - 2019-04-01 20:14:15 --> User Agent Class Initialized
+INFO - 2019-04-01 20:14:15 --> File loaded: /var/www/html/m_lnt_bid/application/views/errors/Error_404.php
+INFO - 2019-04-01 20:14:15 --> Final output sent to browser
+DEBUG - 2019-04-01 20:14:15 --> Total execution time: 0.1200
+INFO - 2019-04-01 20:14:15 --> User Agent Class Initialized
+INFO - 2019-04-01 20:14:15 --> File loaded: /var/www/html/m_lnt_bid/application/views/errors/Error_404.php
+INFO - 2019-04-01 20:14:15 --> Final output sent to browser
+DEBUG - 2019-04-01 20:14:15 --> Total execution time: 0.1533
+INFO - 2019-04-01 20:14:15 --> Config Class Initialized
+INFO - 2019-04-01 20:14:15 --> Hooks Class Initialized
+DEBUG - 2019-04-01 20:14:15 --> UTF-8 Support Enabled
+INFO - 2019-04-01 20:14:15 --> Utf8 Class Initialized
+INFO - 2019-04-01 20:14:15 --> URI Class Initialized
+INFO - 2019-04-01 20:14:15 --> Router Class Initialized
+INFO - 2019-04-01 20:14:15 --> Output Class Initialized
+INFO - 2019-04-01 20:14:15 --> Security Class Initialized
+DEBUG - 2019-04-01 20:14:15 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-04-01 20:14:15 --> Input Class Initialized
+INFO - 2019-04-01 20:14:15 --> Language Class Initialized
+INFO - 2019-04-01 20:14:15 --> Loader Class Initialized
+INFO - 2019-04-01 20:14:15 --> Helper loaded: url_helper
+INFO - 2019-04-01 20:14:15 --> Helper loaded: file_helper
+INFO - 2019-04-01 20:14:15 --> Encrypt Class Initialized
+INFO - 2019-04-01 20:14:15 --> Controller Class Initialized
+INFO - 2019-04-01 20:14:15 --> Database Driver Class Initialized
+INFO - 2019-04-01 20:14:15 --> Model "User_model" initialized
+INFO - 2019-04-01 20:14:15 --> Model "Approver_model" initialized
+INFO - 2019-04-01 20:14:15 --> Model "Design_model" initialized
+INFO - 2019-04-01 20:14:15 --> Model "Procurement_model" initialized
+INFO - 2019-04-01 20:14:15 --> Model "Buyer_model" initialized
+INFO - 2019-04-01 20:14:15 --> Model "Technicalevalutor_model" initialized
+DEBUG - 2019-04-01 20:14:15 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-04-01 20:14:15 --> Session: Class initialized using 'files' driver.
+INFO - 2019-04-01 20:14:15 --> User Agent Class Initialized
+DEBUG - 2019-04-01 20:14:15 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-04-01 20:14:15 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-04-01 20:14:15 --> Encryption Class Initialized
+INFO - 2019-04-01 20:14:15 --> Helper loaded: form_helper
+INFO - 2019-04-01 20:14:15 --> Form Validation Class Initialized
+DEBUG - 2019-04-01 20:14:15 --> Session class already loaded. Second attempt ignored.
+INFO - 2019-04-01 20:14:15 --> Cart Class Initialized
+INFO - 2019-04-01 20:14:15 --> Helper loaded: string_helper
+INFO - 2019-04-01 20:14:15 --> Helper loaded: ckeditor_helper
+INFO - 2019-04-01 20:14:15 --> Final output sent to browser
+DEBUG - 2019-04-01 20:14:15 --> Total execution time: 0.0824
+INFO - 2019-04-01 20:14:42 --> Config Class Initialized
+INFO - 2019-04-01 20:14:42 --> Hooks Class Initialized
+DEBUG - 2019-04-01 20:14:42 --> UTF-8 Support Enabled
+INFO - 2019-04-01 20:14:42 --> Utf8 Class Initialized
+INFO - 2019-04-01 20:14:42 --> URI Class Initialized
+INFO - 2019-04-01 20:14:42 --> Router Class Initialized
+INFO - 2019-04-01 20:14:42 --> Output Class Initialized
+INFO - 2019-04-01 20:14:42 --> Security Class Initialized
+DEBUG - 2019-04-01 20:14:42 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-04-01 20:14:42 --> Input Class Initialized
+INFO - 2019-04-01 20:14:42 --> Language Class Initialized
+INFO - 2019-04-01 20:14:42 --> Loader Class Initialized
+INFO - 2019-04-01 20:14:42 --> Helper loaded: url_helper
+INFO - 2019-04-01 20:14:42 --> Helper loaded: file_helper
+INFO - 2019-04-01 20:14:42 --> Encrypt Class Initialized
+INFO - 2019-04-01 20:14:42 --> Controller Class Initialized
+INFO - 2019-04-01 20:14:42 --> Database Driver Class Initialized
+INFO - 2019-04-01 20:14:42 --> Model "User_model" initialized
+INFO - 2019-04-01 20:14:42 --> Model "Approver_model" initialized
+INFO - 2019-04-01 20:14:42 --> Model "Design_model" initialized
+INFO - 2019-04-01 20:14:42 --> Model "Procurement_model" initialized
+INFO - 2019-04-01 20:14:42 --> Model "Buyer_model" initialized
+INFO - 2019-04-01 20:14:42 --> Model "Vendor_model" initialized
+INFO - 2019-04-01 20:14:42 --> Model "Technicalevalutor_model" initialized
+INFO - 2019-04-01 20:14:42 --> Model "Commericalevaluator_model" initialized
+DEBUG - 2019-04-01 20:14:42 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-04-01 20:14:42 --> Session: Class initialized using 'files' driver.
+INFO - 2019-04-01 20:14:42 --> User Agent Class Initialized
+DEBUG - 2019-04-01 20:14:42 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-04-01 20:14:42 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-04-01 20:14:42 --> Encryption Class Initialized
+INFO - 2019-04-01 20:14:42 --> Helper loaded: form_helper
+INFO - 2019-04-01 20:14:42 --> Form Validation Class Initialized
+INFO - 2019-04-01 20:14:42 --> Helper loaded: string_helper
+INFO - 2019-04-01 20:14:42 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_header.php
+INFO - 2019-04-01 20:14:42 --> File loaded: /var/www/html/m_lnt_bid/application/views/comm_evalutor_user/template/template_top_head.php
+INFO - 2019-04-01 20:14:42 --> File loaded: /var/www/html/m_lnt_bid/application/views/comm_evalutor_user/template/template_side_bar.php
+ERROR - 2019-04-01 20:14:42 --> Severity: Notice --> Undefined offset: 0 /var/www/html/m_lnt_bid/application/views/comm_evalutor_user/pr_details/view_details_create_view_new_bids.php 410
+ERROR - 2019-04-01 20:14:42 --> Severity: Notice --> Trying to get property 'mode_bid' of non-object /var/www/html/m_lnt_bid/application/views/comm_evalutor_user/pr_details/view_details_create_view_new_bids.php 410
+INFO - 2019-04-01 20:14:42 --> File loaded: /var/www/html/m_lnt_bid/application/views/comm_evalutor_user/pr_details/view_details_create_view_new_bids.php
+INFO - 2019-04-01 20:14:42 --> File loaded: /var/www/html/m_lnt_bid/application/views/template/template_footer.php
+INFO - 2019-04-01 20:14:42 --> Final output sent to browser
+DEBUG - 2019-04-01 20:14:42 --> Total execution time: 0.0967
+INFO - 2019-04-01 20:14:43 --> Config Class Initialized
+INFO - 2019-04-01 20:14:43 --> Hooks Class Initialized
+INFO - 2019-04-01 20:14:43 --> Config Class Initialized
+DEBUG - 2019-04-01 20:14:43 --> UTF-8 Support Enabled
+INFO - 2019-04-01 20:14:43 --> Hooks Class Initialized
+INFO - 2019-04-01 20:14:43 --> Utf8 Class Initialized
+DEBUG - 2019-04-01 20:14:43 --> UTF-8 Support Enabled
+INFO - 2019-04-01 20:14:43 --> URI Class Initialized
+INFO - 2019-04-01 20:14:43 --> Utf8 Class Initialized
+INFO - 2019-04-01 20:14:43 --> URI Class Initialized
+INFO - 2019-04-01 20:14:43 --> Router Class Initialized
+INFO - 2019-04-01 20:14:43 --> Router Class Initialized
+INFO - 2019-04-01 20:14:43 --> Output Class Initialized
+INFO - 2019-04-01 20:14:43 --> Output Class Initialized
+INFO - 2019-04-01 20:14:43 --> Security Class Initialized
+INFO - 2019-04-01 20:14:43 --> Security Class Initialized
+DEBUG - 2019-04-01 20:14:43 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2019-04-01 20:14:43 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-04-01 20:14:43 --> Input Class Initialized
+INFO - 2019-04-01 20:14:43 --> Input Class Initialized
+INFO - 2019-04-01 20:14:43 --> Language Class Initialized
+INFO - 2019-04-01 20:14:43 --> Language Class Initialized
+INFO - 2019-04-01 20:14:43 --> Loader Class Initialized
+INFO - 2019-04-01 20:14:43 --> Loader Class Initialized
+INFO - 2019-04-01 20:14:43 --> Helper loaded: url_helper
+INFO - 2019-04-01 20:14:43 --> Helper loaded: url_helper
+INFO - 2019-04-01 20:14:43 --> Helper loaded: file_helper
+INFO - 2019-04-01 20:14:43 --> Helper loaded: file_helper
+INFO - 2019-04-01 20:14:43 --> Encrypt Class Initialized
+INFO - 2019-04-01 20:14:43 --> Controller Class Initialized
+INFO - 2019-04-01 20:14:43 --> Encrypt Class Initialized
+INFO - 2019-04-01 20:14:43 --> Controller Class Initialized
+INFO - 2019-04-01 20:14:43 --> Database Driver Class Initialized
+INFO - 2019-04-01 20:14:43 --> Database Driver Class Initialized
+INFO - 2019-04-01 20:14:43 --> User Agent Class Initialized
+INFO - 2019-04-01 20:14:43 --> File loaded: /var/www/html/m_lnt_bid/application/views/errors/Error_404.php
+INFO - 2019-04-01 20:14:43 --> Final output sent to browser
+DEBUG - 2019-04-01 20:14:43 --> Total execution time: 0.1211
+INFO - 2019-04-01 20:14:43 --> User Agent Class Initialized
+INFO - 2019-04-01 20:14:43 --> File loaded: /var/www/html/m_lnt_bid/application/views/errors/Error_404.php
+INFO - 2019-04-01 20:14:43 --> Final output sent to browser
+DEBUG - 2019-04-01 20:14:43 --> Total execution time: 0.1567
+INFO - 2019-04-01 20:14:43 --> Config Class Initialized
+INFO - 2019-04-01 20:14:43 --> Hooks Class Initialized
+DEBUG - 2019-04-01 20:14:43 --> UTF-8 Support Enabled
+INFO - 2019-04-01 20:14:43 --> Utf8 Class Initialized
+INFO - 2019-04-01 20:14:43 --> URI Class Initialized
+INFO - 2019-04-01 20:14:43 --> Router Class Initialized
+INFO - 2019-04-01 20:14:43 --> Output Class Initialized
+INFO - 2019-04-01 20:14:43 --> Security Class Initialized
+DEBUG - 2019-04-01 20:14:43 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-04-01 20:14:43 --> Input Class Initialized
+INFO - 2019-04-01 20:14:43 --> Language Class Initialized
+INFO - 2019-04-01 20:14:43 --> Loader Class Initialized
+INFO - 2019-04-01 20:14:43 --> Helper loaded: url_helper
+INFO - 2019-04-01 20:14:43 --> Helper loaded: file_helper
+INFO - 2019-04-01 20:14:43 --> Encrypt Class Initialized
+INFO - 2019-04-01 20:14:43 --> Controller Class Initialized
+INFO - 2019-04-01 20:14:43 --> Database Driver Class Initialized
+INFO - 2019-04-01 20:14:43 --> User Agent Class Initialized
+INFO - 2019-04-01 20:14:43 --> File loaded: /var/www/html/m_lnt_bid/application/views/errors/Error_404.php
+INFO - 2019-04-01 20:14:43 --> Final output sent to browser
+DEBUG - 2019-04-01 20:14:43 --> Total execution time: 0.0957
+INFO - 2019-04-01 20:14:43 --> Config Class Initialized
+INFO - 2019-04-01 20:14:43 --> Hooks Class Initialized
+DEBUG - 2019-04-01 20:14:43 --> UTF-8 Support Enabled
+INFO - 2019-04-01 20:14:43 --> Utf8 Class Initialized
+INFO - 2019-04-01 20:14:43 --> URI Class Initialized
+INFO - 2019-04-01 20:14:43 --> Router Class Initialized
+INFO - 2019-04-01 20:14:43 --> Output Class Initialized
+INFO - 2019-04-01 20:14:43 --> Security Class Initialized
+DEBUG - 2019-04-01 20:14:43 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-04-01 20:14:43 --> Input Class Initialized
+INFO - 2019-04-01 20:14:43 --> Language Class Initialized
+INFO - 2019-04-01 20:14:43 --> Loader Class Initialized
+INFO - 2019-04-01 20:14:43 --> Helper loaded: url_helper
+INFO - 2019-04-01 20:14:43 --> Helper loaded: file_helper
+INFO - 2019-04-01 20:14:43 --> Encrypt Class Initialized
+INFO - 2019-04-01 20:14:43 --> Controller Class Initialized
+INFO - 2019-04-01 20:14:43 --> Database Driver Class Initialized
+INFO - 2019-04-01 20:14:43 --> Model "User_model" initialized
+INFO - 2019-04-01 20:14:43 --> Model "Approver_model" initialized
+INFO - 2019-04-01 20:14:43 --> Model "Design_model" initialized
+INFO - 2019-04-01 20:14:43 --> Model "Procurement_model" initialized
+INFO - 2019-04-01 20:14:43 --> Model "Buyer_model" initialized
+INFO - 2019-04-01 20:14:43 --> Model "Technicalevalutor_model" initialized
+DEBUG - 2019-04-01 20:14:43 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-04-01 20:14:43 --> Session: Class initialized using 'files' driver.
+INFO - 2019-04-01 20:14:43 --> User Agent Class Initialized
+DEBUG - 2019-04-01 20:14:43 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-04-01 20:14:43 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-04-01 20:14:43 --> Encryption Class Initialized
+INFO - 2019-04-01 20:14:43 --> Helper loaded: form_helper
+INFO - 2019-04-01 20:14:43 --> Form Validation Class Initialized
+DEBUG - 2019-04-01 20:14:43 --> Session class already loaded. Second attempt ignored.
+INFO - 2019-04-01 20:14:43 --> Cart Class Initialized
+INFO - 2019-04-01 20:14:43 --> Helper loaded: string_helper
+INFO - 2019-04-01 20:14:43 --> Helper loaded: ckeditor_helper
+INFO - 2019-04-01 20:14:43 --> Final output sent to browser
+DEBUG - 2019-04-01 20:14:43 --> Total execution time: 0.0960
+INFO - 2019-04-01 20:14:46 --> Config Class Initialized
+INFO - 2019-04-01 20:14:46 --> Hooks Class Initialized
+DEBUG - 2019-04-01 20:14:46 --> UTF-8 Support Enabled
+INFO - 2019-04-01 20:14:46 --> Utf8 Class Initialized
+INFO - 2019-04-01 20:14:46 --> URI Class Initialized
+INFO - 2019-04-01 20:14:46 --> Router Class Initialized
+INFO - 2019-04-01 20:14:46 --> Output Class Initialized
+INFO - 2019-04-01 20:14:46 --> Security Class Initialized
+DEBUG - 2019-04-01 20:14:46 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-04-01 20:14:46 --> Input Class Initialized
+INFO - 2019-04-01 20:14:46 --> Language Class Initialized
+INFO - 2019-04-01 20:14:46 --> Loader Class Initialized
+INFO - 2019-04-01 20:14:46 --> Helper loaded: url_helper
+INFO - 2019-04-01 20:14:46 --> Helper loaded: file_helper
+INFO - 2019-04-01 20:14:46 --> Encrypt Class Initialized
+INFO - 2019-04-01 20:14:46 --> Controller Class Initialized
+INFO - 2019-04-01 20:14:46 --> Database Driver Class Initialized
+INFO - 2019-04-01 20:14:46 --> Model "User_model" initialized
+INFO - 2019-04-01 20:14:46 --> Model "Approver_model" initialized
+INFO - 2019-04-01 20:14:46 --> Model "Design_model" initialized
+INFO - 2019-04-01 20:14:46 --> Model "Procurement_model" initialized
+INFO - 2019-04-01 20:14:46 --> Model "Buyer_model" initialized
+INFO - 2019-04-01 20:14:46 --> Model "Vendor_model" initialized
+INFO - 2019-04-01 20:14:46 --> Model "Technicalevalutor_model" initialized
+INFO - 2019-04-01 20:14:46 --> Model "Commericalevaluator_model" initialized
+DEBUG - 2019-04-01 20:14:46 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-04-01 20:14:46 --> Session: Class initialized using 'files' driver.
+INFO - 2019-04-01 20:14:46 --> User Agent Class Initialized
+DEBUG - 2019-04-01 20:14:46 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2019-04-01 20:14:46 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2019-04-01 20:14:46 --> Encryption Class Initialized
+INFO - 2019-04-01 20:14:46 --> Helper loaded: form_helper
+INFO - 2019-04-01 20:14:46 --> Form Validation Class Initialized
+INFO - 2019-04-01 20:14:46 --> Helper loaded: string_helper
+INFO - 2019-04-01 20:14:46 --> Config Class Initialized
+INFO - 2019-04-01 20:14:46 --> Hooks Class Initialized
+DEBUG - 2019-04-01 20:14:46 --> UTF-8 Support Enabled
+INFO - 2019-04-01 20:14:46 --> Utf8 Class Initialized
+INFO - 2019-04-01 20:14:46 --> URI Class Initialized
+INFO - 2019-04-01 20:14:46 --> Router Class Initialized
+INFO - 2019-04-01 20:14:46 --> Output Class Initialized
+INFO - 2019-04-01 20:14:46 --> Security Class Initialized
+DEBUG - 2019-04-01 20:14:46 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-04-01 20:14:46 --> Input Class Initialized
+INFO - 2019-04-01 20:14:46 --> Language Class Initialized
+INFO - 2019-04-01 20:14:46 --> Loader Class Initialized
+INFO - 2019-04-01 20:14:46 --> Helper loaded: url_helper
+INFO - 2019-04-01 20:14:46 --> Helper loaded: file_helper
+INFO - 2019-04-01 20:14:46 --> Encrypt Class Initialized
+INFO - 2019-04-01 20:14:46 --> Controller Class Initialized
+INFO - 2019-04-01 20:14:46 --> Database Driver Class Initialized
+DEBUG - 2019-04-01 20:14:46 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2019-04-01 20:14:46 --> Session: Class initialized using 'files' driver.
+INFO - 2019-04-01 20:14:46 --> File loaded: /var/www/html/m_lnt_bid/application/views/login_view/index_view.php
+INFO - 2019-04-01 20:14:46 --> Final output sent to browser
+DEBUG - 2019-04-01 20:14:46 --> Total execution time: 0.0954
+INFO - 2019-04-01 20:14:46 --> Config Class Initialized
+INFO - 2019-04-01 20:14:46 --> Config Class Initialized
+INFO - 2019-04-01 20:14:46 --> Hooks Class Initialized
+DEBUG - 2019-04-01 20:14:46 --> UTF-8 Support Enabled
+INFO - 2019-04-01 20:14:46 --> Utf8 Class Initialized
+INFO - 2019-04-01 20:14:46 --> URI Class Initialized
+INFO - 2019-04-01 20:14:46 --> Router Class Initialized
+INFO - 2019-04-01 20:14:46 --> Output Class Initialized
+INFO - 2019-04-01 20:14:46 --> Security Class Initialized
+DEBUG - 2019-04-01 20:14:46 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-04-01 20:14:46 --> Input Class Initialized
+INFO - 2019-04-01 20:14:46 --> Language Class Initialized
+INFO - 2019-04-01 20:14:46 --> Loader Class Initialized
+INFO - 2019-04-01 20:14:46 --> Helper loaded: url_helper
+INFO - 2019-04-01 20:14:46 --> Helper loaded: file_helper
+INFO - 2019-04-01 20:14:46 --> Encrypt Class Initialized
+INFO - 2019-04-01 20:14:46 --> Controller Class Initialized
+INFO - 2019-04-01 20:14:46 --> Database Driver Class Initialized
+INFO - 2019-04-01 20:14:46 --> Hooks Class Initialized
+DEBUG - 2019-04-01 20:14:46 --> UTF-8 Support Enabled
+INFO - 2019-04-01 20:14:46 --> Utf8 Class Initialized
+INFO - 2019-04-01 20:14:46 --> URI Class Initialized
+INFO - 2019-04-01 20:14:46 --> Router Class Initialized
+INFO - 2019-04-01 20:14:46 --> Output Class Initialized
+INFO - 2019-04-01 20:14:46 --> Security Class Initialized
+DEBUG - 2019-04-01 20:14:46 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-04-01 20:14:46 --> Input Class Initialized
+INFO - 2019-04-01 20:14:46 --> Language Class Initialized
+INFO - 2019-04-01 20:14:46 --> Loader Class Initialized
+INFO - 2019-04-01 20:14:46 --> Helper loaded: url_helper
+INFO - 2019-04-01 20:14:46 --> Helper loaded: file_helper
+INFO - 2019-04-01 20:14:46 --> Encrypt Class Initialized
+INFO - 2019-04-01 20:14:46 --> Controller Class Initialized
+INFO - 2019-04-01 20:14:46 --> Database Driver Class Initialized
+INFO - 2019-04-01 20:14:46 --> Config Class Initialized
+INFO - 2019-04-01 20:14:46 --> Hooks Class Initialized
+DEBUG - 2019-04-01 20:14:46 --> UTF-8 Support Enabled
+INFO - 2019-04-01 20:14:46 --> Utf8 Class Initialized
+INFO - 2019-04-01 20:14:46 --> URI Class Initialized
+INFO - 2019-04-01 20:14:46 --> Router Class Initialized
+INFO - 2019-04-01 20:14:46 --> Output Class Initialized
+INFO - 2019-04-01 20:14:46 --> Security Class Initialized
+DEBUG - 2019-04-01 20:14:46 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-04-01 20:14:46 --> Input Class Initialized
+INFO - 2019-04-01 20:14:46 --> Language Class Initialized
+INFO - 2019-04-01 20:14:46 --> Loader Class Initialized
+INFO - 2019-04-01 20:14:46 --> Helper loaded: url_helper
+INFO - 2019-04-01 20:14:46 --> Helper loaded: file_helper
+INFO - 2019-04-01 20:14:46 --> Encrypt Class Initialized
+INFO - 2019-04-01 20:14:46 --> Controller Class Initialized
+INFO - 2019-04-01 20:14:46 --> Database Driver Class Initialized
+INFO - 2019-04-01 20:14:46 --> User Agent Class Initialized
+INFO - 2019-04-01 20:14:46 --> File loaded: /var/www/html/m_lnt_bid/application/views/errors/Error_404.php
+INFO - 2019-04-01 20:14:46 --> Final output sent to browser
+DEBUG - 2019-04-01 20:14:46 --> Total execution time: 0.1441
+INFO - 2019-04-01 20:14:46 --> User Agent Class Initialized
+INFO - 2019-04-01 20:14:46 --> File loaded: /var/www/html/m_lnt_bid/application/views/errors/Error_404.php
+INFO - 2019-04-01 20:14:46 --> Final output sent to browser
+DEBUG - 2019-04-01 20:14:46 --> Total execution time: 0.1944
+INFO - 2019-04-01 20:14:46 --> User Agent Class Initialized
+INFO - 2019-04-01 20:14:46 --> File loaded: /var/www/html/m_lnt_bid/application/views/errors/Error_404.php
+INFO - 2019-04-01 20:14:46 --> Final output sent to browser
+DEBUG - 2019-04-01 20:14:46 --> Total execution time: 0.1873

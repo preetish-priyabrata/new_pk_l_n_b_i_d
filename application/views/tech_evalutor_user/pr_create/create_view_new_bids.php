@@ -138,18 +138,19 @@ if(empty($email_id)){
 
 					 		$technical_bid_ref=$result_id[0]->technical_bid_ref;
 					 		$technical_bid_id=$result_id[0]->technical_bid_id;
+					 		$tech_bid=$result_id[0]->tech_bid;
 					 		
 					 		$design_user_status=$result_id[0]->procurement_user_status;
 					 		$url="#";
 					 		switch ($design_user_status) {
 					 			case '1': // completed
 					 				$status_detai="Forward";
-					 					$url='<a href="'.base_url().'technical-user-create-new-material/'.$row->pr_no.'/'.$row->slno.'/'.$row->job_code.'/3" > Click to View </a>';
+					 					$url='<a href="'.base_url().'technical-user-bid-pr-new-material/'.$row->pr_no.'/'.$row->slno.'/'.$row->job_code.'/3/'.$tech_bid.'" > Click to View </a>';
 					 				break;
 					 			case '2': //drafted
 					 					$status_detai="Not Forward";
 					 					$url='#';
-					 						$url='<a href="'.base_url().'technical-user-create-new-material/'.$row->pr_no.'/'.$row->slno.'/'.$row->job_code.'/3" > Click to View/ forward </a>';
+					 						$url='<a href="'.base_url().'technical-user-bid-pr-new-material/'.$row->pr_no.'/'.$row->slno.'/'.$row->job_code.'/3/'. $tech_bid.'" > Click to View/ forward </a>';
 					 				break;
 					 			
 					 			

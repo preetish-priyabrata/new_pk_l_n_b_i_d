@@ -67,7 +67,7 @@ if(empty($email_id)){
 					                <th>User Email Id</th>
 					                <th>Mobile No </th>
 					                <th>Designation</th>
-					                <th>Password</th>
+					               <!--  <th>Password</th> -->
 					                <th>Status</th>
 					                <th>User Role</th>
 					                <th>Action</th>
@@ -95,7 +95,7 @@ if(empty($email_id)){
 							                <td><?=$value->email_id?></td>
 							                <td><?=$value->user_mobile?></td>
 							                <td><?=$value->user_degination?></td>
-							                <td><?=$value->Password?></td>
+							                <!-- <td><?=$value->Password?></td> -->
 							                <td><?php $Status=$value->Status;
 							                if($Status==1){
 							                	echo "Active User";

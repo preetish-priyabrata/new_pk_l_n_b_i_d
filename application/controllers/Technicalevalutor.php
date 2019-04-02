@@ -162,9 +162,9 @@ class Technicalevalutor extends CI_Controller {
 
 
 
-public function technical_user_create_new_material($value='',$value1='',$value2='',$value3=''){ // will show mr in mr received
-        $scripts='<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script><script src=" https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script> <script src="'.base_url().'file_css_admin/own_js.js"></script>';
-            $data=array('title' =>"Buyer List Of Mr Received",'script_js'=>$scripts,'menu_status'=>'1','sub_menu'=>'1','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','Pr_no'=>$value,'Pr_no_slno'=>$value1,'Project_slno'=>$value2,'edit_type'=>$value3);
+public function technical_user_bid_pr_new_material($value='',$value1='',$value2='',$value3='',$value4=''){ // will show mr in mr received
+        $scripts='';
+            $data=array('title' =>"Bid Detail Information",'script_js'=>$scripts,'menu_status'=>'1','sub_menu'=>'1','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','Pr_no'=>$value,'Pr_no_slno'=>$value1,'Project_slno'=>$value2,'edit_type'=>$value3,'bid_id'=>$value4);
             $this->load->view('template/template_header',$data);
             $this->load->view('tech_evalutor_user/template/template_top_head');
             $this->load->view('tech_evalutor_user/template/template_side_bar',$data);
@@ -247,7 +247,22 @@ public function technical_user_create_new_material($value='',$value1='',$value2=
         // 
     }
 
+    public function technical_view_vendor_sumission_info_pr($slno_vendor='',$master_bid_id='',$bid_id='',$pr_no=''){
+        $date_file_sub = array('bid_id_vendor' => $slno_vendor ); 
+        $get_no_file=$this->db->get_where('master_vendor_tech_token_bid_c',$date_file_sub);
+   
+        $row_vendor=$get_no_file->result() ;
+        $submission=$row_vendor[0];
+    // <a href="<?=base_url().'seller/vendor-tech-file-new-bid-submission-info/'.$value.'/'.$submission->token_no .'/'.$submission->master_bid_id 
 
+        $scripts='';
+            $data=array('title' =>"Bid Detail Information",'script_js'=>$scripts,'menu_status'=>'1','sub_menu'=>'1','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','Pr_no'=>$pr_no,'master_bid_id'=>$master_bid_id,'slno_vendor'=>$slno_vendor,'bid_id'=>$bid_id,'tech_master_bid_id'=>$submission->master_bid_id ,'token_no'=>$submission->token_no );
+            $this->load->view('template/template_header',$data);
+            $this->load->view('tech_evalutor_user/template/template_top_head');
+            $this->load->view('tech_evalutor_user/template/template_side_bar',$data);
+            $this->load->view('tech_evalutor_user/pr_details/tech_vendor_approve_reject',$data);
+            $this->load->view('template/template_footer',$data);
+    }
 
 
 

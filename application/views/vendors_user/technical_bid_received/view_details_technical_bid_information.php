@@ -52,6 +52,8 @@ $approval_status=$result_title['new_tech_list'][0]->approval_status;
 	// echo $this->db->last_query();
 	$result_material=$query_table_material->result(); 
 	$result_file=$this->design_user->get_design_mr_file_list_m($pr_no,$slno_pr,$job_code);
+
+	$status_view=$result_title['new_tech_list'][0]->status_view;
 ?>
 <!-- begin #content -->
 	<div id="content" class="content">
@@ -255,12 +257,13 @@ $approval_status=$result_title['new_tech_list'][0]->approval_status;
 														
 														}else{
 
-															$new_date_end=$date_end.' 19:00:00';         	 	
-                											if(strtotime($date1) >= strtotime($date_end)){
-																if($submitted_status==1){ ?> <a href="<?=base_url().'seller/vendor-tech-file-new-bid-submission-info/'.$value.'/'.$submission->token_no .'/'.$submission->master_bid_id ?>">View Send </a><?php  }else{?> <a href="<?=base_url().'seller/user-vendor-tech-bid-submission-tokens-info/'.$value.'/'.$submission->token_no .'/'.$submission->master_bid_id ?>">Click View</a><?php }
-                											
+															$today=date('Y-m-d');
+          	 												if($date_end < $today) {
+																
+                											?> <a href="<?=base_url().'seller/vendor-tech-file-new-bid-submission-info/'.$value.'/'.$submission->token_no .'/'.$submission->master_bid_id ?>">View Send </a><?php
 															}else{
-																?> <a href="<?=base_url().'seller/vendor-tech-file-new-bid-submission-info/'.$value.'/'.$submission->token_no .'/'.$submission->master_bid_id ?>">View Send </a><?php
+																if($submitted_status==1){ ?> <a href="<?=base_url().'seller/vendor-tech-file-new-bid-submission-info/'.$value.'/'.$submission->token_no .'/'.$submission->master_bid_id ?>">View Send </a><?php  }else{?> <a href="<?=base_url().'seller/user-vendor-tech-bid-submission-tokens-info/'.$value.'/'.$submission->token_no .'/'.$submission->master_bid_id ?>">Click View</a><?php }
+																
 
 															}
 														}
@@ -284,9 +287,15 @@ $approval_status=$result_title['new_tech_list'][0]->approval_status;
           	 	if($date_end < $today) {
 
           	 	}else{
+          	 			if($status_view!=8){ 
+
+
 				?>
 				 <a href="<?=base_url()?>seller/user-vendor-bid-submission-bid/<?=$value?>" class="btn btn-sm btn-success m-r-5"><i class="fas fa-envelope-open-text"></i>   Click To Submit Bid </a>
-			<?php }
+			<?php }else{
+
+			}
+					}
 				}
 				?>
               <a href="<?=base_url()?>seller/user-vendor-query-panel/<?=$value?>" class="btn btn-sm btn-warning m-r-5"><i class="fa fa-question-circle" aria-hidden="true"></i>  Query </a>

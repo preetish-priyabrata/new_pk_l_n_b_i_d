@@ -525,7 +525,13 @@ $route['user-technical-evaluator-view-details-technical-bid-new/(:any)/(:any)']=
 $route['technical-evalutor-get-approved-reject/(:any)/(:any)/(:any)']='technicalevalutor/technical_evalutor_get_approved_reject/$1/$2/$3';
 $route['technical-evalutor-get-approved-reject-save']='technicalevalutor/technical_evalutor_get_approved_reject_save';
 $route['user-technical-evalutor-pr-receive']='technicalevalutor/user_technical_evalutor_pr_receive';
-$route['technical-user-create-new-material/(:any)/(:any)/(:any)/(:any)']='technicalevalutor/technical_user_create_new_material/$1/$2/$3/$4';
+// $route['technical-user-bid-new-pr/(:any)/(:any)/(:any)/(:any)']='technicalevalutor/technical_user_create_new_material/$1/$2/$3/$4';
+$route['technical-user-bid-pr-new-material/(:any)/(:any)/(:any)/(:any)/(:any)']='technicalevalutor/technical_user_bid_pr_new_material/$1/$2/$3/$4/$5';
+
+$route['technical-view-vendor-sumission-info-pr/(:any)/(:any)/(:any)/(:any)']='technicalevalutor/technical_view_vendor_sumission_info_pr/$1/$2/$3/$4';
+
+$router['technical-evalutor-get-approved-reject-save-pr']='technicalevalutor/technical_evalutor_get_approved_reject_save_pr';
+
 //$route['user-technical-evalutor-pr-create-save']='technicalevalutor/technical_evalutor_pr_create_save';
 $route['user-technical-evaluator-bid-old-list']='technicalevalutor/technical_evaluator_bid_old_list';
 $route['tech-evalutor-logout-by-pass']='technicalevalutor/tech_evalutor_logout_bypass';
@@ -629,7 +635,7 @@ $route['seller/user-vendor-bid-commerical-submission-bid/(:any)/(:any)']='vendor
 $route['seller/user-vendor-bid-submission-commerical-save-pr']='vendorusernew/vendor_bid_submission_commerical_save_pr';
 
 $route['seller/user-vendor-bid-commerical-submission-bid-view/(:any)/(:any)/(:any)']='vendorusernew/user_vendor_bid_commerical_submission_bid_view/$1/$2/$3';
-
+$route['seller/user-vendor-bid-query-view/(:any)']='vendoruser/user_vendor_bid_query_view/$1';
 
 ######################################################################################################################################
 #

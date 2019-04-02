@@ -28,6 +28,19 @@ $slno_pr=$result_process[0]->pr_no_slno;
 $job_code=$result_process[0]->project_slno;
 $date_end=$result_title['new_tech_list'][0]->date_end;
 
+$data_table1 = array('Simple_id_slno' =>$Simple_id_slno);
+$query_table1=$this->db->get_where('master_pr_bid_qoute_item',$data_table1);
+$result_table1=$query_table1->result();
+
+
+
+
+
+
+
+//$data_table1 = array('simple_id_slno_misc' =>$simple_id_slno_misc);
+//$query_table1=$this->db->get_where('master_pr_bid_qoute_item_misc',$data_table1);
+//$result_table1=$query_table1->result();
 
 
 $case_bid=$mode_bid=$result_title['new_tech_list'][0]->mode_bid;
@@ -74,7 +87,7 @@ $data_get_list_commerical = array('master_bid_id_comm' =>$master_bid_id_com ,'mr
 				<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
 				<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
 			</div>
-			<h4 class="panel-title">Panel Title here</h4>
+			<h4 class="panel-title">Submission of Commercial Bid</h4>
 		</div>
 		<div class="panel-body">
 			<form action="<?=base_url()?>seller/user-vendor-bid-submission-commerical-save-pr" method="POST">
@@ -201,19 +214,19 @@ $data_get_list_commerical = array('master_bid_id_comm' =>$master_bid_id_com ,'mr
 							</tr>
 							<tr>
 								<td colspan="5">Delivery Basis</td>
-								<td ><input type="text" autocomplete="off"  class="form-control" id="delivery_basis" name="delivery_basis"  required="" /></td>
+								<td ><input type="text" autocomplete="off"  class="form-control" id="delivery_basis" name="delivery_basis" "required="" /></td>
 							</tr>
 							<tr>
 								<td colspan="5">Guarantee / Warranty</td>
-								<td ><input type="text" autocomplete="off" class="form-control" id="gaurantee_warranty" name="gaurantee_warranty"  required="" /></td>
+								<td ><input type="text" autocomplete="off" class="form-control" id="gaurantee_warranty" name="gaurantee_warranty" required="" /></td>
 							</tr>
 							<tr>
 								<td colspan="5">Delivery Schedule</td>
-								<td ><input type="text" autocomplete="off" class="form-control" id="delivery_schedule" name="delivery_schedule" required="" /></td>
+								<td ><input type="text" autocomplete="off" class="form-control" id="delivery_schedule" name="delivery_schedule" required=""/></td>
 							</tr>
 							<tr>
 								<td colspan="5">Payment Terms</td>
-								<td ><input type="text" autocomplete="off" class="form-control" id="payment_terms" name="payment_terms" required=""  /></td>
+								<td ><input type="text" autocomplete="off" class="form-control" id="payment_terms" name="payment_terms" required="" /></td>
 							</tr>
 							<tr>
 								<td colspan="5">Validity of Offer</td>
@@ -221,7 +234,7 @@ $data_get_list_commerical = array('master_bid_id_comm' =>$master_bid_id_com ,'mr
 							</tr>
 							<tr>
 								<td colspan="5">Security BG</td>
-								<td ><input type="text" autocomplete="off" class="form-control" id="security_BG" name="security_BG"  required="" /></td>
+								<td ><input type="text" autocomplete="off" class="form-control" id="security_BG" name="security_BG" required="" /></td>
 							</tr>
 							<tr>
 								<td colspan="5">Liquidity Damage</td>

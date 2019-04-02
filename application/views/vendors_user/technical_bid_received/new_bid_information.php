@@ -111,7 +111,7 @@ $result_new_bid=$this->vendor_db_usersnew->vendor_new_technical_bid_list_pr($Ven
 													     	<td><?php echo $key_technical->date_start;?></td>
 													     	<td><?php echo $key_technical->date_end;?></td>
 																<td><a href="<?=base_url()?>seller/user-vendor-bid-view-technical-details-pr/<?=$key_technical->slno_vendor?>/<?=$status_view?>" class="btn btn-sm btn-success">View</a></td>
-																<td><a href="<?=base_url()?>user-vendor-query-panel/<?=$key_technical->slno_vendor?>" class="btn btn-sm btn-warning">Query</a></td>
+																<td><a href="<?=base_url()?>seller/user-vendor-bid-query-view/<?=$key_technical->slno_vendor?>" class="btn btn-sm btn-warning">Query</a></td>
 													  </tr>
   												<?php }
 												}

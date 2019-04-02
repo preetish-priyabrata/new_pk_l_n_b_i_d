@@ -104,7 +104,9 @@ $pr_no=$result_title['new_tech_list'][0]->pr_no;
                 <div class="col-md-12">
                 	<?php 
                 	$today=date('Y-m-d');
-                	if(strtotime($today) >= strtotime($date_end)){
+                	if($date_end < $today) {
+
+          	 	}else{
                 		?>
                     <button type="submit"  name="submission" class="btn btn-sm btn-primary m-r-5" value="save">Save</button>
                      <button type="submit"  name="submission" class="btn btn-sm btn-lime m-r-5" value="sent">Sent</button>
