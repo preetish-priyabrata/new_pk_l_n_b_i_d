@@ -401,7 +401,7 @@ $route['procurement-new-pr-schedule-complete']='procurementuser/procurement_new_
 $route['procurement-add-new-pr-save']='procurementuser/procurement_add_new_pr_save';
 $route['procurement-new-pr-complete-requisition/(:any)/(:any)/(:any)/(:any)']='procurementuser/procurement_new_pr_complete_requisition/$1/$2/$3/$4';
 
-
+$route['procurement-view-vendors']='procurementuser/procurement_view_vendors';
 
 #############################################################################################################################################
 #

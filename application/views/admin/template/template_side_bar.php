@@ -118,7 +118,7 @@
 						    
 						</ul>
 					</li>
-					<li class="has-sub <?php if($menu_status==8){echo 'active';}?>">
+					<!-- <li class="has-sub <?php if($menu_status==8){echo 'active';}?>">
 						<a href="javascript:;">
 					        <b class="caret"></b>
 						    <i class="fas fa-puzzle-piece"></i>
@@ -128,7 +128,7 @@
 						    <li class="<?php if($sub_menu==8){ echo 'active'; }?>"><a href="<?=base_url()?>admin-view-vendors" >Create & View Vendor</a></li>
 						    
 						</ul>
-					</li>
+					</li> -->
 					<li class="has-sub <?php if($menu_status==9){echo 'active';}?>">
 						<a href="javascript:;">
 					        <b class="caret"></b>
