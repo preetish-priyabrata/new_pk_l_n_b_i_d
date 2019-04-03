@@ -201,7 +201,7 @@ $job_code=$job_code; //Project_Slno
 									<label class="col-form-label col-md-3" for="job_code">Attach Files <span style="color: red">*</span></label>
 									<div class="col-md-9">
 										<input class="form-control m-b-5" placeholder="Enter  File Title Name" name="job_files_name" id="job_files_name" type="text"  >
-										<input class=" m-b-5" placeholder="Enter Activity name" name="job_files" id="job_files" type="file"  >	<span class="btn btn-sm btn-info" id="sub">Upload</span>	<br>								
+										<input class=" m-b-5" placeholder="Enter Activity name" name="job_files" id="job_files" type="file"  >	<button type="button" class="btn btn-sm btn-info" id="sub">Upload</button>	<br>								
 										<small class="f-s-12 text-grey-darker">Job Attachment</small>
 									</div>
 								</div>
@@ -362,7 +362,7 @@ function set_ccategory(){
 	    }
  }
 
- 	function cartAction(action,item_codes_order,value='') {
+ 	function cartAction(action,item_codes_order,value) {
 
 var queryString = "";
 	if(action != "") {
@@ -410,6 +410,7 @@ var queryString = "";
  $(document).ready(function (e) {
    		file_uploaded();
         $('#sub').on('click', function () {
+        	// alert('he');
         	var actions_file='files_uploaded_details';
         	var pr_no = $('#pr_no').val();
 			var slno_pr = $('#slno_pr').val();

@@ -110,6 +110,17 @@ $route['admin-assign-user-project/(:any)/(:any)/(:any)/(:any)']="adminuser/admin
 $route['admin-add-assign-userto_project']='adminuser/admin_add_assign_userto_project';
 $route['admin-edit-user-project/(:any)/(:any)/(:any)']='adminuser/admin_edit_user_project/$1/$2/$3';// not completed
 
+######################################################################################################################
+                    #          Admin(create , view) Dept
+####################################################################################################################
+$route['admin-view-dept']='adminuser/view_dept';
+
+
+
+
+
+
+###################################################################################################################
 #################################################################################################################################
 #
 #								ADMIN(SECTION CREATE VIEW ACTIVE INACTIVE EDIT DELETE)
@@ -345,6 +356,22 @@ $route['design-user-new-resubmission-cart']='designusernew/design_user_new_resub
 //  statsu of PR Schedule information
 $route['design-project-pr-schedule-status']='designusernew/design_project_pr_schedule_status';
 
+###############################################################################################################################
+#
+#
+#Ne Category Lis t in design user
+#
+#
+#############################################################################################################################
+$route['design-view-new-category-list']='designusernew/design_view_new_category_list'; 
+$route['design-view-new-material-list']='designusernew/design_view_new_material_list';
+
+$route['design-excel-upload/entry']='designusernew/design_add_new_category_material'; // here upload new material category list
+
+$route['design-new-material-catergory/(:any)']='designusernew/design_new_category_material/$1'; // here it create new category and material list
+
+$route['design-view-material-more/(:any)']='designusernew/adesign_view_material_details_list/$1'; // single category material list
+
 #####################################################################################################################################
 #
 #								Approver Section Is starting
@@ -536,7 +563,7 @@ $router['technical-evalutor-get-approved-reject-save-pr']='technicalevalutor/tec
 $route['user-technical-evaluator-bid-old-list']='technicalevalutor/technical_evaluator_bid_old_list';
 $route['tech-evalutor-logout-by-pass']='technicalevalutor/tech_evalutor_logout_bypass';
 $route['tech-evalutor-logout']='technicalevalutor/tech_evalutor_logout';
-
+$route['user-technical-evaluator-view-details-technical-bid-new-complete-view-pr/(:any)/(:any)/(:any)/(:any)/(:any)']='technicalevalutor/technical_evaluator_view_details_technical_bid_new_complete_view_pr/$1/$2/$3/$4/$5';
 
 #################################################################################################################################
 #
@@ -652,6 +679,7 @@ $route['bu-logout-by-pass']='buuser/bu_logout_bypass';
 $route['design-logout']='designuser/design_logout';
 $route['design-logout-by-pass']='designuser/design_logout_bypass';
 $route['design-logout-pass']='designuser/design_logout';
+$route['design-logout-by-pass_new']='designusernew/design_logout_ids';
 
 $route['approve-logout']='approveruser/approver_logout';
 $route['approve-logout-by-pass']='approveruser/approver_logout_bypass';

@@ -28,19 +28,13 @@ $slno_pr=$result_process[0]->pr_no_slno;
 $job_code=$result_process[0]->project_slno;
 $date_end=$result_title['new_tech_list'][0]->date_end;
 
-$data_table1 = array('Simple_id_slno' =>$Simple_id_slno);
+
+
+
+
+$data_table1 = array('Bid_master_id_com' =>$Bid_master_id_com);
 $query_table1=$this->db->get_where('master_pr_bid_qoute_item',$data_table1);
 $result_table1=$query_table1->result();
-
-
-
-
-
-
-
-//$data_table1 = array('simple_id_slno_misc' =>$simple_id_slno_misc);
-//$query_table1=$this->db->get_where('master_pr_bid_qoute_item_misc',$data_table1);
-//$result_table1=$query_table1->result();
 
 
 $case_bid=$mode_bid=$result_title['new_tech_list'][0]->mode_bid;

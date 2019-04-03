@@ -4,9 +4,8 @@ if(empty($email_id)){
 	
 	redirect('tech-evalutor-logout-by-pass');
 }
+// 'Pr_no'=>$pr_no,'technical_bid_ref'=>$technical_bid_ref,'technical_bid_id'=>$technical_bid_id,'id'=>$id,'bid_id'=>$tech_bid);
 $pr_no=$Pr_no;
-$slno_pr=$Pr_no_slno;
-$job_code=$Project_slno;
 
 $data_process = array('pr_no' =>$pr_no);
 $query_process=$this->db->get_where('master_pr_process_detail',$data_process);
@@ -18,6 +17,8 @@ $technical_bid_id=$result_process[0]->technical_bid_id;  // technical bid ind in
 $technical_bid_ref=$result_process[0]->technical_bid_ref; // technical bid referenced infromtion
 $technical_edit_id=$result_process[0]->technical_edit_id; // no of time bid is been edit infromation
 
+$slno_pr=$$result_process[0]->technical_edit_id;
+$job_code=$$result_process[0]->technical_bid_ref;
 
 
 
@@ -705,11 +706,12 @@ $result_table=$query_data->result();
 															<th width="40%">Detail</th>
 															<th>Approver</th>
 															<th>Submission</th>
-															<th>Action</th>
+
 														</tr>
 													</thead>
 													<tbody>
 														<?php 
+														$check_approve=0;
 														foreach ($vendor_selected_id->result() as $key_vendor => $value_vendor) {
 															// print_r($value_vendor);
 															$vendor_id=$value_vendor->vendor_id;
@@ -766,19 +768,17 @@ $result_table=$query_data->result();
 
 																?>
 															</td>
-															<td>
+															
 																
 															<?php 
 
 																if($value_vendor->status_view==7){
 																	if(($value_vendor->submission_status==1) && ($value_vendor->approval_status==1)){
-																		echo "--";
-																	}else{
-																		echo "<a href='".base_url()."technical-view-vendor-sumission-info-pr/".$value_vendor->slno_vendor."/".$value_vendor->master_bid_id."/".$bid_id."/".$pr_no."' class='btn-sm btn btn-info'> Click to View</a>";
+																		$check_approve=$check_approve+1;
 																	}
 																}
 																?>
-															</td>
+														
 															
 														</tr>
 													<?php }?>
@@ -793,8 +793,14 @@ $result_table=$query_data->result();
 							    </div>
 							    <div class="form-group row pull-right">
                             <div class="col-md-12">
-                              
-                               <a  href="<?=base_url()?>user-technical-evalutor-pr-receive" class="btn btn-sm btn-default">Back</a> 
+                                <!--<button type="submit" class="btn btn-sm btn-primary m-r-5" >Next</button>-->
+			                    <?php
+									if($access==0){
+									 if($count_completed!=0){?>
+									
+									<a href="<?=base_url()?>user-technical-evaluator-view-details-technical-bid-new-complete-view/<?=$Slno_bid?>/<?=$category?>/1" class="btn btn-sm btn-primary m-r-5"  title="Click Here Approved Vendors Bid Sent information of approved vendors"> Complete Evalution </a>
+								<?php } }?>
+                               <a  href="<?=base_url()?>user-technical-evalutor-home" class="btn btn-sm btn-default">Back</a> 
                             </div>
                         </div>
 							</div>

@@ -263,7 +263,18 @@ public function technical_user_bid_pr_new_material($value='',$value1='',$value2=
             $this->load->view('tech_evalutor_user/pr_details/tech_vendor_approve_reject',$data);
             $this->load->view('template/template_footer',$data);
     }
-
+    public function technical_evaluator_view_details_technical_bid_new_complete_view_pr($pr_no='',$technical_bid_ref='',$technical_bid_id='',$tech_bid='',$id=''){
+        if($id==1){ // will view list of itme
+             $scripts='';
+            $data=array('title' =>"Bid Detail Information",'script_js'=>$scripts,'menu_status'=>'1','sub_menu'=>'1','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','Pr_no'=>$pr_no,'technical_bid_ref'=>$technical_bid_ref,'technical_bid_id'=>$technical_bid_id,'id'=>$id,'bid_id'=>$tech_bid);
+            $this->load->view('template/template_header',$data);
+            $this->load->view('tech_evalutor_user/template/template_top_head');
+            $this->load->view('tech_evalutor_user/template/template_side_bar',$data);
+            $this->load->view('tech_evalutor_user/pr_details/view_details_create_view_new_bids_pr',$data);
+            $this->load->view('template/template_footer',$data);
+        }
+        # code...
+    }
 
 
 

@@ -145,12 +145,12 @@ if(empty($email_id)){
 					 		switch ($design_user_status) {
 					 			case '1': // completed
 					 				$status_detai="Forward";
-					 					$url='<a href="'.base_url().'technical-user-bid-pr-new-material/'.$row->pr_no.'/'.$row->slno.'/'.$row->job_code.'/3/'.$tech_bid.'" > Click to View </a>';
+					 					$url='<a href="'.base_url().'technical-user-bid-pr-new-material/'.$row->pr_no.'/'.$row->slno.'/'.$row->job_code.'/3/'.$tech_bid.'" class="btn-success btn-sm" > Click to View </a>';
 					 				break;
 					 			case '2': //drafted
 					 					$status_detai="Not Forward";
 					 					$url='#';
-					 						$url='<a href="'.base_url().'technical-user-bid-pr-new-material/'.$row->pr_no.'/'.$row->slno.'/'.$row->job_code.'/3/'. $tech_bid.'" > Click to View/ forward </a>';
+					 						$url='<a href="'.base_url().'technical-user-bid-pr-new-material/'.$row->pr_no.'/'.$row->slno.'/'.$row->job_code.'/3/'. $tech_bid.'" class="btn-success btn-sm" > Click to View/ forward </a>';
 					 				break;
 					 			
 					 			
@@ -167,7 +167,7 @@ if(empty($email_id)){
 		                      
 		                      
 		                    
-		                      <td>'.$url.'</td>
+		                      <td>'.$url.' || <a href="'.base_url().'user-technical-evaluator-view-details-technical-bid-new-complete-view-pr/'.$row->pr_no.'/'.$technical_bid_ref.'/'.$technical_bid_id.'/'.$tech_bid.'/1" class="btn btn-sm btn-lime" title="Click Here Closed Bid Sent information of approved vendors" >Submit Approvals</a></td>
 		                    </tr>
 		                    ';
 		                }

@@ -113,7 +113,7 @@ if($result_file['no_bid_vendors']==2){
 	                        </tbody>
 	                    </table>						
 					</div>
-					<form method="POST" action="<?=base_url()?>technical-evalutor-get-approved-reject-save">
+					<form method="POST" action="<?=base_url()?>technical-evalutor-get-approved-reject-save-pr">
 						<div class="row">
 							<div class="col-lg-12">
 

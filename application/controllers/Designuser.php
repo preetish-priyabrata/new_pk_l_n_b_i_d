@@ -24,7 +24,7 @@ class Designuser extends CI_Controller {
          $email_id=$this->session->userdata('design_email_id');
         if(empty($email_id)){
             
-            redirect('design-logout-by-pass');
+            redirect('design-logout-by-pass_new');exit;
         }
 
     }
@@ -33,7 +33,7 @@ class Designuser extends CI_Controller {
         $email_id=$this->session->userdata('design_email_id');
         if(empty($email_id)){
             
-            redirect('design-logout-by-pass');
+            redirect('design-logout-by-pass_new');exit;
         }
          $scripts='';
             $data=array('title' =>"Design User Dashboard",'script_js'=>$scripts,'menu_status'=>'','sub_menu'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'');
@@ -48,7 +48,7 @@ class Designuser extends CI_Controller {
         $email_id=$this->session->userdata('design_email_id');
         if(empty($email_id)){
             
-            redirect('design-logout-by-pass');
+            redirect('design-logout-by-pass_new');exit;
         }
         $scripts='<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script><script src=" https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script> <script src="'.base_url().'file_css_admin/own_js.js"></script>';
 
@@ -64,7 +64,7 @@ class Designuser extends CI_Controller {
         $email_id=$this->session->userdata('design_email_id');
         if(empty($email_id)){
             
-            redirect('design-logout-by-pass');
+            redirect('design-logout-by-pass_new');exit;
         }
          $scripts='<script src="'.base_url().'file_css_admin/own_js_date_picker.js"></script>';
 
@@ -82,7 +82,7 @@ class Designuser extends CI_Controller {
         $email_id=$this->session->userdata('design_email_id');
         if(empty($email_id)){
             
-            redirect('design-logout-by-pass');
+            redirect('design-logout-by-pass_new');exit;
         }
 
         print_r($this->input->post());
@@ -92,7 +92,7 @@ class Designuser extends CI_Controller {
         $email_id=$this->session->userdata('design_email_id');
         if(empty($email_id)){
             
-            redirect('design-logout-by-pass');
+            redirect('design-logout-by-pass_new');exit;
         }
         $scripts='<script src="'.base_url().'file_css_admin/own_js_date_picker.js"></script>';
 
@@ -111,7 +111,7 @@ class Designuser extends CI_Controller {
         $email_id=$this->session->userdata('design_email_id');
         if(empty($email_id)){
             
-            redirect('design-logout-by-pass');
+            redirect('design-logout-by-pass_new');exit;
         }
         $scripts='<script src="'.base_url().'file_css_admin/own_js_date_picker.js"></script>';
 
@@ -130,7 +130,7 @@ class Designuser extends CI_Controller {
         $email_id=$this->session->userdata('design_email_id');
         if(empty($email_id)){
             
-            redirect('design-logout-by-pass');
+            redirect('design-logout-by-pass_new');exit;
         }
         // print_r($this->input->post());
         //Array ( [material_category] => Electrical equipment [uom] => No [technical_parameters] => MOC=CRCA,Terminals=40,thickness=2mm,Application=outdoor [material_name] => Junction Box [material_id] => ee02 )
@@ -160,7 +160,7 @@ class Designuser extends CI_Controller {
         $email_id=$this->session->userdata('design_email_id');
         if(empty($email_id)){
             
-            redirect('design-logout-by-pass');
+            redirect('design-logout-by-pass_new');exit;
         }
         // print_r($this->input->post());
         // Array ( [Mr_no] => 2018-10-03-utBS7 [job_code] => 1 [tech_evalution] => 1 [required_date] => 2019-03-31 [approver_id] => 18 [materials_id] => 1 [mr_date_of_creation] => 2018-10-03 ) 
@@ -250,7 +250,7 @@ class Designuser extends CI_Controller {
 
         }else{
             $this->session->set_flashdata('error_msg', 'Invalid entry to Design User panel');
-            redirect('design-logout-by-pass'); 
+            redirect('design-logout-by-pass_new');exit; 
         }
     }
 
@@ -258,7 +258,7 @@ class Designuser extends CI_Controller {
         $email_id=$this->session->userdata('design_email_id');
         if(empty($email_id)){
             
-            redirect('design-logout-by-pass');
+            redirect('design-logout-by-pass_new');exit;
         }
          $_SESSION["cart_item"]="";
          $_SESSION['cart_item_tech']="";
@@ -278,7 +278,7 @@ class Designuser extends CI_Controller {
         $email_id=$this->session->userdata('design_email_id');
         if(empty($email_id)){
             
-            redirect('design-logout-by-pass');
+            redirect('design-logout-by-pass_new');exit;
         }
          $_SESSION["cart_item"]="";
          $_SESSION['cart_item_tech']="";
@@ -297,7 +297,7 @@ class Designuser extends CI_Controller {
         $email_id=$this->session->userdata('design_email_id');
         if(empty($email_id)){
             
-            redirect('design-logout-by-pass');
+            redirect('design-logout-by-pass_new');exit;
         }
         $_SESSION["cart_item"]="";
         $_SESSION['cart_item_tech'] = array();;
@@ -316,7 +316,7 @@ class Designuser extends CI_Controller {
         $email_id=$this->session->userdata('design_email_id');
         if(empty($email_id)){
             
-            redirect('design-logout-by-pass');
+            redirect('design-logout-by-pass_new');exit;
         }
          $_SESSION["cart_item"]="";
          $_SESSION['cart_item_tech']="";
@@ -336,7 +336,7 @@ class Designuser extends CI_Controller {
         $email_id=$this->session->userdata('design_email_id');
         if(empty($email_id)){
             
-            redirect('design-logout-by-pass');
+            redirect('design-logout-by-pass_new');exit;
         }
          $_SESSION["cart_item"]="";
          $_SESSION['cart_item_tech']="";
@@ -355,7 +355,7 @@ class Designuser extends CI_Controller {
         $email_id=$this->session->userdata('design_email_id');
         if(empty($email_id)){
             
-            redirect('design-logout-by-pass');
+            redirect('design-logout-by-pass_new');exit;
         }
         $_SESSION["cart_item"]="";
         $_SESSION['cart_item_tech'] = array();;
@@ -409,7 +409,7 @@ class Designuser extends CI_Controller {
         $email_id=$this->session->userdata('design_email_id');
         if(empty($email_id)){
             
-            redirect('design-logout-by-pass');
+            redirect('design-logout-by-pass_new');exit;
         } 
         
         $code=$this->input->post('code');
@@ -740,7 +740,7 @@ class Designuser extends CI_Controller {
         $email_id=$this->session->userdata('design_email_id');
         if(empty($email_id)){
             
-            redirect('design-logout-by-pass');
+            redirect('design-logout-by-pass_new');exit;
         }
          
         $actions_file=$this->input->post('actions_file');
@@ -1345,7 +1345,7 @@ class Designuser extends CI_Controller {
         $email_id=$this->session->userdata('design_email_id');
         if(empty($email_id)){
             
-            redirect('design-logout-by-pass');
+            redirect('design-logout-by-pass_new');exit;
         }
         // print_r($this->input->post());
         // exit();
@@ -1988,7 +1988,7 @@ class Designuser extends CI_Controller {
         $email_id=$this->session->userdata('design_email_id');
         if(empty($email_id)){
             
-            redirect('design-logout-by-pass');
+            redirect('design-logout-by-pass_new');exit;
         }
         $scripts='<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script><script src=" https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script> <script src="'.base_url().'file_css_admin/own_js.js"></script>';
 
@@ -2004,7 +2004,7 @@ class Designuser extends CI_Controller {
         $email_id=$this->session->userdata('design_email_id');
         if(empty($email_id)){
             
-            redirect('design-logout-by-pass');
+            redirect('design-logout-by-pass_new');exit;
         }
         $scripts='<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script><script src=" https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script> <script src="'.base_url().'file_css_admin/own_js.js"></script>';
 
@@ -2020,7 +2020,7 @@ class Designuser extends CI_Controller {
         $email_id=$this->session->userdata('design_email_id');
         if(empty($email_id)){
             
-            redirect('design-logout-by-pass');
+            redirect('design-logout-by-pass_new');exit;
         }
         $actions_file=$this->input->post('actions_file');
         $Mr_no=$this->input->post('Mr_no');
@@ -2144,7 +2144,7 @@ class Designuser extends CI_Controller {
        $email_id=$this->session->userdata('design_email_id');
         if(empty($email_id)){
             
-            redirect('design-logout-by-pass');
+            redirect('design-logout-by-pass_new');exit;
         }
         
         $send_button=$this->input->post('send_button'); // this important to find whether tosend or save inforamtion to edit
@@ -2448,7 +2448,7 @@ class Designuser extends CI_Controller {
         $email_id=$this->session->userdata('design_email_id');
         if(empty($email_id)){
             
-            redirect('design-logout-by-pass');
+            redirect('design-logout-by-pass_new');exit;
         }
         $scripts='<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script><script src=" https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script> <script src="'.base_url().'file_css_admin/own_js.js"></script>';
 
@@ -2473,7 +2473,7 @@ class Designuser extends CI_Controller {
         $email_id=$this->session->userdata('design_email_id');
         if(empty($email_id)){
             
-            redirect('design-logout-by-pass');
+            redirect('design-logout-by-pass_new');exit;
         }
          $_SESSION["cart_item"]="";
          $_SESSION['cart_item_tech']="";
@@ -2493,7 +2493,7 @@ class Designuser extends CI_Controller {
         $email_id=$this->session->userdata('design_email_id');
         if(empty($email_id)){
             
-            redirect('design-logout-by-pass');
+            redirect('design-logout-by-pass_new');exit;
         }
          $_SESSION["cart_item"]="";
          $_SESSION['cart_item_tech']="";
@@ -2512,7 +2512,7 @@ class Designuser extends CI_Controller {
         $email_id=$this->session->userdata('design_email_id');
         if(empty($email_id)){
             
-            redirect('design-logout-by-pass');
+            redirect('design-logout-by-pass_new');exit;
         }
         $_SESSION["cart_item"]="";
         $_SESSION['cart_item_tech'] = array();;
@@ -2534,7 +2534,7 @@ class Designuser extends CI_Controller {
             $email_id=$this->session->userdata('design_email_id');
         if(empty($email_id)){
             
-            redirect('design-logout-by-pass');
+            redirect('design-logout-by-pass_new');exit;
         }
           $scripts='<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script><script src=" https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script> <script src="'.base_url().'file_css_admin/own_js.js"></script>';
 
@@ -2552,7 +2552,7 @@ class Designuser extends CI_Controller {
         $email_id=$this->session->userdata('design_email_id');
         if(empty($email_id)){
             
-            redirect('design-logout-by-pass');
+            redirect('design-logout-by-pass_new');exit;
         }
         switch ($value1) {
                 case '1':
@@ -2586,7 +2586,7 @@ class Designuser extends CI_Controller {
         $email_id=$this->session->userdata('design_email_id');
         if(empty($email_id)){
             
-            redirect('design-logout-by-pass');
+            redirect('design-logout-by-pass_new');exit;
         }
         $send_button=$this->input->post('send_button'); // this important to find whether tosend or save inforamtion to edit
         $Mr_no=$this->input->post('Mr_no');
@@ -2916,6 +2916,7 @@ class Designuser extends CI_Controller {
      public function design_logout_bypass(){
           $session_id=session_id();
          session_destroy();
+         $this->load->library('session');
         session_start();   
         $this->session->set_flashdata('error_msg', 'Invalid entry to Design User panel');
         redirect('home');     

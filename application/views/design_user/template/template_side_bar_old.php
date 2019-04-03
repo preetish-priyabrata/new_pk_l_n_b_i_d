@@ -29,18 +29,20 @@
 				<!-- begin sidebar nav -->
 				<ul class="nav">
 					<li class="nav-header">Navigation</li>
-					<li class="has-sub <?php if($menu_status==12){echo 'active';}?>">
+					<!-- <li class="has-sub <?php if($menu_status==1){echo 'active';}?>">
 						<a href="javascript:;">
 					        <b class="caret"></b>
-						    <i class="fas fa-puzzle-piece"></i>
-						    <span>Category & Material Setting  </span>
+						    <i class="fas fa-atlas"></i>
+						    <span>Material Requisition</span>
 					    </a>
 						<ul class="sub-menu">
-							<li class="<?php if($sub_menu==121){ echo 'active'; }?>"><a href="<?=base_url()?>design-view-new-category-list" >View Category List</a></li>
-						    <li class="<?php if($sub_menu==122){ echo 'active'; }?>"><a href="<?=base_url()?>design-view-new-material-list" >Create & View Material List</a></li>
+						    <li class="<?php if($sub_menu==1){ echo 'active'; }?>"><a href="<?=base_url()?>design-new-mr-order" >Create  Material Requisition </a></li>
+						    <li class="<?php if($sub_menu==2){ echo 'active'; }?>"><a href="<?=base_url()?>design-user-mr-drafted-list" >Draft Material Requisition List</a></li>
+						     <li class="<?php if($sub_menu==3){ echo 'active'; }?>"><a href="<?=base_url()?>design-resubmission-mr-order" >Resubmission Material Requisition List </a></li>
+						     <li class="<?php if($sub_menu==4){ echo 'active'; }?>"><a href="<?=base_url()?>design-submitted-mr-order" >Submission Material Requisition List </a></li>
 						    
 						</ul>
-					</li>
+					</li>	 -->
 					<li class="has-sub <?php if($menu_status==2){echo 'active';}?>">
 						<a href="javascript:;">
 					        <b class="caret"></b>

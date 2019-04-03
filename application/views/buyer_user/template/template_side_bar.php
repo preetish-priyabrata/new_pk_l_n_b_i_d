@@ -29,61 +29,18 @@
 				<!-- begin sidebar nav -->
 				<ul class="nav">
 					<li class="nav-header">Navigation</li>
-					<!-- <li class="has-sub <?php if($menu_status==1){echo 'active';}?>">
+					<li class="has-sub <?php if($menu_status==8){echo 'active';}?>">
 						<a href="javascript:;">
 					        <b class="caret"></b>
-						    <i class="fas fa-atlas"></i>
-						    <span>MR Received</span>
+						    <i class="fas fa-puzzle-piece"></i>
+						    <span>Vendor </span>
 					    </a>
 						<ul class="sub-menu">
-						    <li class="<?php if($sub_menu==1){ echo 'active'; }?>"><a href="<?=base_url()?>buyer-mr-received" >Received MR </a></li>
-
-						 
-						</ul>
-						
-					</li>
-					<li class="has-sub <?php if($menu_status==2){echo 'active';}?>">
-						<a href="javascript:;">
-					        <b class="caret"></b>
-						    <i class="fas fa-atlas"></i>
-						    <span>Bid Information</span>
-					    </a>
-						<ul class="sub-menu">
-
-						    <li class="<?php if($sub_menu==2){ echo 'active'; }?>"><a href="<?=base_url()?>buyer-drafted-bid" >Save Bid Information of Technical</a></li>
-						     <li class="<?php if($sub_menu==5){ echo 'active'; }?>"><a href="<?=base_url()?>buyer-drafted-bid-commerical" >Save Bid Information of Commercial</a></li>
-
+						    <li class="<?php if($sub_menu==8){ echo 'active'; }?>"><a href="<?=base_url()?>procurement-view-vendors" >Create & View Vendor</a></li>
+						    
 						</ul>
 					</li>
-					<li class="has-sub <?php if($menu_status==3){echo 'active';}?>">
-						<a href="javascript:;">
-					        <b class="caret"></b>
-						    <i class="fas fa-atlas"></i>
-						    <span>Send Bid Information</span>
-					    </a>
-						<ul class="sub-menu">
 
-						    <li class="<?php if($sub_menu==3){ echo 'active'; }?>"><a href="<?=base_url()?>buyer-send-bid-tech" >Send Bid Information of Technical</a></li>
-						    <li class="<?php if($sub_menu==4){ echo 'active'; }?>"><a href="<?=base_url()?>buyer-send-bid-commerical" >Send Bid Information of Commercial Simple / Closed</a></li>
-						     <li class="<?php if($sub_menu==6){ echo 'active'; }?>"><a href="<?=base_url()?>buyer-send-bid-commerical-rank-order" >Send Bid Information of Commercial Rank order</a></li>
-						   
-						</ul>
-					</li>
-					<li class="has-sub <?php if($menu_status==4){echo 'active';}?>">
-						<a href="javascript:;">
-					        <b class="caret"></b>
-						    <i class="fas fa-atlas"></i>
-						    <span>Completed Bid Information</span>
-					    </a>
-						<ul class="sub-menu">
-
-						    <li class="<?php if($sub_menu==7){ echo 'active'; }?>"><a href="<?=base_url()?>buyer-send-bid-tech" >Send Bid Information of Technical</a></li>
-						    <li class="<?php if($sub_menu==8){ echo 'active'; }?>"><a href="<?=base_url()?>buyer-send-bid-commerical-history" >Completed Bid Information of Commercial Simple / Closed</a></li>
-						     <li class="<?php if($sub_menu==9){ echo 'active'; }?>"><a href="<?=base_url()?>buyer-send-bid-commerical-rank-order" >Send Bid Information of Commercial Rank order</a></li>
-						  
-						</ul>
-					</li>
- -->
  					<li class="has-sub <?php if($menu_status==10){echo 'active';}?>">
 						<a href="javascript:;">
 					        <b class="caret"></b>

@@ -2,7 +2,7 @@
 $created_session_id=$this->session->userdata('session_id');
 if(empty($created_session_id)){
 	
-	redirect('design-logout-by-pass');
+	redirect('design-logout-by-pass_new');
 }
 ?>
 <style type="text/css">

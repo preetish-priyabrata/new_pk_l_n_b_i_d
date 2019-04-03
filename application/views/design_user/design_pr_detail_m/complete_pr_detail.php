@@ -7,7 +7,7 @@ if(empty($email_id)){
 $pr_no=$Pr_no;
 $slno_pr=$Pr_no_slno;
 $job_code=$Project_slno; 
-$data_table=array('pr_no'=>$pr_no,'mr_forword_status'=>0);
+$data_table=array('pr_no'=>$pr_no);
 $query_data=$this->db->get_where('master_mr_job_details_m',$data_table);
 if($query_data->num_rows()!=1){
 	$this->session->set_flashdata('error_message', ' Something went wrong ');
@@ -39,7 +39,7 @@ $result_table=$query_data->result();
 			<!-- begin breadcrumb -->
 			<ol class="breadcrumb pull-right">
 				<li class="breadcrumb-item active"><a href="<?=base_url()?>user-design-home" class="fa fa-home ">Home</a></li>
-				<li class="breadcrumb-item"><a href="javascript:;">Material Requisition</a></li>
+				<li class="breadcrumb-item"><a href="javascript:;">Project Requisition</a></li>
 				<li class="breadcrumb-item active">Details of complete PR</li>
 			</ol>
 			<!-- end breadcrumb -->

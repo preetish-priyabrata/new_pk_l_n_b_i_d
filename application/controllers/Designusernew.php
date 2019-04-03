@@ -1,6 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
+require 'vendor/autoload.php';
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 class Designusernew extends CI_Controller {
     public function __construct(){
             parent::__construct();
@@ -24,7 +26,7 @@ class Designusernew extends CI_Controller {
          $email_id=$this->session->userdata('design_email_id');
         if(empty($email_id)){
             
-            redirect('design-logout-by-pass');
+            // redirect('design-logout-by-pass');
         }
 
     }
@@ -38,6 +40,7 @@ class Designusernew extends CI_Controller {
         if(empty($email_id)){
             
             redirect('design-logout-by-pass');
+            exit;
         }
           $scripts='<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script><script src=" https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script> <script src="'.base_url().'file_css_admin/own_js.js"></script>';
 
@@ -867,4 +870,209 @@ $id++;
       $this->load->view('template/template_footer',$data);
     }
 
+    public function design_logout_ids($value=''){
+       $session_id=session_id();
+         session_destroy();
+         // $this->load->library('session');
+        session_start();   
+        $this->session->set_flashdata('error_msg', 'Invalid entry to Design User panel');
+        redirect('home');     
+      # code...
+    }
+    public function design_view_new_category_list($value=''){
+
+      $scripts='<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script><script src=" https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script> <script src="'.base_url().'file_css_admin/own_js.js"></script>';
+
+            $data=array('title' =>"View Category List",'script_js'=>$scripts ,'menu_status'=>'12','sub_menu'=>'121','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'');  
+            $this->load->view('template/template_header',$data);
+            $this->load->view('design_user/template/template_top_head');
+            $this->load->view('design_user/template/template_side_bar',$data);
+            $this->load->view('design_user/new_material_with_category/view_list_category');
+            $this->load->view('template/template_footer',$data);
+      // 'adminuser/admin_view_new_category_list';
+      # code...
+    }
+
+    public function design_view_new_material_list($value=''){
+
+       $scripts='<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script><script src=" https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script> <script src="'.base_url().'file_css_admin/own_js.js"></script>';
+
+            $data=array('title' =>"View Material List",'script_js'=>$scripts ,'menu_status'=>'12','sub_menu'=>'122','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'');  
+            $this->load->view('template/template_header',$data);
+            $this->load->view('design_user/template/template_top_head');
+            $this->load->view('design_user/template/template_side_bar',$data);
+            $this->load->view('design_user/new_material_with_category/view_material_catergory_list');
+            $this->load->view('template/template_footer',$data);
+      // 'adminuser/admin_view_new_material_list';
+      # code...
+    }
+
+    public function design_add_new_category_material($value=''){
+      // admin_add_new_category_material
+
+ $email_id=$this->session->userdata('design_email_id');
+        if(empty($email_id)){
+          
+          redirect('bu-logout-by-pass');
+        }
+        $date =date('Y-m-d');
+        $table="master_category_item";    
+        $actions_file=$this->input->post('actions_file');        
+        switch ($actions_file) {
+            case 'design_files_uploaded_details':
+                if(isset($_FILES["file"]["name"])){
+                    $file_name=$_FILES["file"]["name"];
+                    $file_stored_name=date('Y-m-d')."-".date('His')."-".$_FILES["file"]["name"];
+                    $path = $_FILES["file"]["tmp_name"];
+          // 
+                    if ($_FILES["file"]["error"] > 0) {
+                        echo "3";
+                        exit();
+                    } else {
+                        if(move_uploaded_file($_FILES["file"]["tmp_name"], 'upload_files/material_admin/' . $file_stored_name)){
+                            $data_array = array('file_name'=>$file_stored_name, 'upload_by'=>$email_id);
+                            $query_files=$this->db->insert('master_material_category_file',$data_array);
+                            $path_excel="upload_files/material_admin/".$file_stored_name;
+                            $arr_file = explode('.', $_FILES['file']['name']);
+                            $extension =strtolower(end($arr_file));
+                            switch ($extension) {
+                                case 'xls':
+                                 $inputFileType = 'Xls';
+                                break;
+                                case 'xlsx':
+                                 $inputFileType = 'Xlsx';
+                                break;                  
+                                case 'xml':
+                                 $inputFileType = 'Xml';
+                                break;
+                                case 'ods':
+                                 $inputFileType = 'Ods';
+                                break;
+                                case 'slk':
+                                 $inputFileType = 'Slk';
+                                break;                  
+                                case 'gnumeric':
+                                 $inputFileType = 'Gnumeric';
+                                break;
+                                case 'csv':
+                                 $inputFileType = 'Csv';
+                                break;
+
+                                default:
+                                # code...
+                                break;
+                            }
+
+                            $objReader = \PhpOffice\PhpSpreadsheet\IOFactory::createReader($inputFileType);
+                            $objReader->setReadDataOnly(true);
+                            //FileName and Sheet Name
+                            $objPHPExcel = $objReader->load($path_excel);
+               
+                            foreach($objPHPExcel->getWorksheetIterator() as $worksheet){
+                                $highestRow = $worksheet->getHighestRow();
+                                $highestColumn = $worksheet->getHighestColumn();
+                                for($row=2; $row<=$highestRow; $row++){                    
+                                    $category_name = $worksheet->getCellByColumnAndRow(1, $row)->getValue();
+                                    $material_item_name = $worksheet->getCellByColumnAndRow(2, $row)->getValue();
+                                    $material_item_id = $worksheet->getCellByColumnAndRow(3, $row)->getValue();
+                                    $uom = $worksheet->getCellByColumnAndRow(4, $row)->getValue();
+                                    $technical_details = $worksheet->getCellByColumnAndRow(5, $row)->getValue();
+                                    $qty = $worksheet->getCellByColumnAndRow(6, $row)->getValue();
+                                    $orginal_schedule = $worksheet->getCellByColumnAndRow(7, $row)->getValue();
+                                    // Checking of data duplicate 
+                                    if(!empty($category_name)){
+                                        $data_check = array('material_item_id' => $material_item_id);
+                                        $query=$this->db->get_where($table,$data_check);
+                                        $num=$query->num_rows();
+                                        if($num==0){
+                                            // `category_name`, `material_item_name`, `technical_details`, `uom`, `status`, `entry_id`, `date`,material_item_id
+                                            $data = array('category_name'=>$category_name,'material_item_name'=>$material_item_name,'material_item_id'=>  $material_item_id,'uom'=>$uom,'technical_details'=> $technical_details,'entry_id'=>$email_id,'date'=>$date,'status'=>1);
+                            
+                                            $query_ENTRY=$this->db->insert($table, $data);
+                                        }
+                                    }
+                                }
+                            } 
+                            echo "1"; 
+                            exit();            
+                        }else{
+                           echo "1"; 
+                          exit(); 
+                        }
+                       
+                    }
+                }        
+            break;
+            case 'design_Views':
+                $data_check = array('date' => $date);
+                $query=$this->db->get_where($table,$data_check);
+                    // echo  $this->db->last_query();
+                $output = '
+                  <h3 align="center">Total Data - '.$query->num_rows().'</h3>
+                  <table class="table table-striped table-bordered">
+                    <tr>
+                      <th>Category</th>
+                      <th>Material Name</th>
+                      <th>Material Id</th>
+                      <th>UOM</th>
+                      <th>Technical Parameters</th>                     
+                    </tr>
+                ';
+                foreach($query->result() as $row){
+                    $output .= '
+                    <tr>
+                      <td>'.$row->category_name.'</td>
+                      <td>'.$row->material_item_name.'</td>
+                      <td>'.$row->material_item_id.'</td>
+                      <td>'.$row->uom.'</td>
+                      <td>'.$row->technical_details.'</td>
+                     
+                    </tr>
+                    ';
+                }
+                $output .= '</table>';
+                echo $output;
+                exit();         
+            break;  
+            
+            default:
+       
+            break;
+        }
+            # code...
+
+
+      # code...
+    }
+    public function design_new_category_material($value=''){
+
+      $scripts='';
+            $data=array('title' =>"Create Material",'script_js'=>$scripts,'menu_status'=>'12','sub_menu'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','value'=>$value);
+            $this->load->view('template/template_header',$data);
+            $this->load->view('design_user/template/template_top_head');
+             $this->load->view('design_user/template/template_side_bar',$data);
+            $this->load->view('design_user/new_material_with_category/create_new_material_category',$data);
+            // $this->load->view('admin/entry_pr_schedule/pr_schedule',$data);
+
+            $this->load->view('template/template_footer',$data);
+      // admin_new_category_material
+      # code...
+    }
+
+    public function adesign_view_material_details_list($value=''){
+      if(!empty($value)){
+                 $scripts='<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script><script src=" https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script> <script src="'.base_url().'file_css_admin/own_js.js"></script>';
+                  $data=array('title' =>"View Material List",'script_js'=>$scripts ,'menu_status'=>'12','sub_menu'=>'122','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','value'=>$value);  
+                $this->load->view('template/template_header',$data);
+                $this->load->view('design_user/template/template_top_head');
+                $this->load->view('design_user/template/template_side_bar',$data);
+                $this->load->view('design_user/new_material_with_category/view_material_catergory_list_details',$data);
+                $this->load->view('template/template_footer',$data);
+            }else{
+                redirect('design-user-view-new-material-list');
+            }
+      // admin_view_material_details_list
+      # code...
+    }
+    
 }
