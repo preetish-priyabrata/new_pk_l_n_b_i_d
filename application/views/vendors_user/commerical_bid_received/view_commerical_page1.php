@@ -5,12 +5,14 @@ if(empty($Vendor_email_id)){
 	redirect('vendor-logout-pass');
 }
 
+// vendor_slno_id'=>$vendor_slno_id,'type_bid'=>$bid_type_id,'Slno_simple'=>$Slno_simple
+$vendor_slno_id=$vendor_slno_id; // vendor Bid Slno 
+$bid_type_id=$type_bid; // type of bid close or open
+$Slno_simple=$Slno_simple;
 
-$value=$vendor_slno_id; // vendor Bid Slno 
-$value1=$type_bid; // type of bid close or open
 
 
-$result_title=$this->vendor_db_usersnew->vendor_new_query_tech_title_commerical_pr($value,$Vendor_email_id);
+$result_title=$this->vendor_db_usersnew->vendor_new_query_tech_title_commerical_pr($vendor_slno_id,$Vendor_email_id);
 // print_r($result_title);
 if($result_title['no_new_tech']!=1){
 	$this->session->set_flashdata('error_message', 'Unable find Bid');
@@ -29,18 +31,24 @@ $job_code=$result_process[0]->project_slno;
 $date_end=$result_title['new_tech_list'][0]->date_end;
 
 
-
-
-
-$data_table1 = array('Bid_master_id_com' =>$Bid_master_id_com);
-$query_table1=$this->db->get_where('master_pr_bid_qoute_item',$data_table1);
-$result_table1=$query_table1->result();
-
-
 $case_bid=$mode_bid=$result_title['new_tech_list'][0]->mode_bid;
 $master_bid_id_com=$result_title['new_tech_list'][0]->master_bid_id;
 $data_get_list_commerical = array('master_bid_id_comm' =>$master_bid_id_com ,'mr_no_item'=>$pr_no);
  $query_get_list=$this->db->get_where('master_mr_material_item_comm_m',$data_get_list_commerical);
+
+
+$data_table1 = array('Vendor_id' =>$Vendor_id);
+$query_table1=$this->db->get_where('master_pr_bid_quote',$data_table1);
+$result_table1=$query_table1->result();
+
+
+
+
+// 
+$get_data_item = array('Simple_id_slno' => $Slno_simple,'bid_slno'=> $vendor_slno_id, 'Vendor_id'=>$Vendor_email_id);
+$item_infroamtion=$this->db->get_where('master_pr_bid_qoute_item',$get_data_item);
+
+
 ?>
 <!-- begin #content -->
 <div id="content" class="content">
@@ -86,11 +94,11 @@ $data_get_list_commerical = array('master_bid_id_comm' =>$master_bid_id_com ,'mr
 		<div class="panel-body">
 			<form action="<?=base_url()?>seller/user-vendor-bid-submission-commerical-save-pr" method="POST">
 				<input type="hidden" name="master_bid_id" value="<?=$master_bid_id_com?>">
-				<input type="hidden" name="vendor_bid_id" value="<?=$value?>">
+				<input type="hidden" name="vendor_bid_id" value="<?=$vendor_slno_id?>">
 				<input type="hidden" name="vendor_id" value="<?=$Vendor_email_id?>">
 				<input type="hidden" name="mode_bid" value="<?=$mode_bid?>">
 				<input type="hidden" name="mode_bid_id" value="<?=$type_bid?>">
-				<input type="hidden" name="Category" value="<?=$value1?>">
+				<input type="hidden" name="Category" value="<?=$type_bid?>">
 				<input type="hidden" name="bid_ref" value="<?=$result_title['new_tech_list'][0]->bid_ref?>	">
 			<div class="row">
 				<div class="col-md-6 col-lg-6">
@@ -165,74 +173,71 @@ $data_get_list_commerical = array('master_bid_id_comm' =>$master_bid_id_com ,'mr
 						<tbody>							
 							<?php 
 							$x=0;
-                    		foreach ($query_get_list->result() as $key_value) {
+                    		foreach ($item_infroamtion->result() as $key_value) :
                     			$x++;
-                    		
-                    		?>
-                    		<input type="hidden" readonly class="form-control-plaintext" name="slno_mat[<?=$key_value->slno_item_mr?>]" value="<?=$key_value->slno_item_mr?>">
-                    		<tr>
-                               <td><input type="text" readonly class="form-control-plaintext" name="item_name[<?=$key_value->slno_item_mr?>]" value="<?=$key_value->material_name?>">
-							   <input type="hidden" readonly class="form-control-plaintext" name="Resubmission_count_id[<?=$key_value->slno_item_mr?>]" value="<?=$key_value->Resubmission_count_id?>">
-							    <input type="hidden" readonly class="form-control-plaintext" name="item_id[<?=$key_value->slno_item_mr?>]" value="<?=$key_value->material_id?>">
-							    <input type="hidden" readonly class="form-control-plaintext" name="edit_id[<?=$key_value->slno_item_mr?>]" value="<?=$key_value->edit_id?>">
-							</td>
-							   <td><input type="text" id="qty<?=$x?>" readonly class="form-control-plaintext" name="item_qnt[<?=$key_value->slno_item_mr?>]" value="<?=$key_value->material_quantity?>"></td>
-							   <td><input type="text" readonly class="form-control-plaintext" name="item_uom[<?=$key_value->slno_item_mr?>]" value="<?=$key_value->material_unit?>"></td>
-							   <td width="30%">
-									<input type="hidden" readonly class="form-control-plaintext" name="parameter_tech[<?=$key_value->slno_item_mr?>]" value="<?=$key_value->parameter_tech?>">
-									<?=$key_value->parameter_tech?>
-							    </td>
-							   <td> <input type="text" autocomplete="off" id="cost<?=$x?>"  onkeyup="fix_cala(<?=$x?>)" name="cost[<?=$key_value->slno_item_mr?>]" required /> </td>
-                    			<td> <input type="text" readonly class="form-control-plaintext" id="price<?=$x?>" name="price[<?=$key_value->slno_item_mr?>]"   value='0'/> </td>
+                    			
+                    			
+                    			
+                    			
+                    			
+                    			
+echo <<<EOD
+	<tr>
+		<td>{$key_value->Item_name}</td>
+		<td>{$key_value->Quantity}</td>
+		<td>{$key_value->Uom_unit}</td>
+		<td>{$key_value->parameter_tech}</td>
+		<td>{$key_value->Unit_price}</td>
+		<td>{$key_value->Total_unitprice}</td>
+	</tr>
 
-                            </tr>
-
-                    		<?php
-                    		}
+EOD;
+                    	endforeach;
                     		?>
+
                     			<tr>
 								<td colspan="5">Sub total</td>
 								<td ><input type="text" readonly="readonly" class="form-control" id="total" name="sub_total" /></td>
 							</tr>
 							<tr>
 								<td colspan="5">Total Tax</td>
-								<td ><input type="text" autocomplete="off"  class="form-control" id="total_tax" onkeyup="fix_cala('tax')" name="total_tax"  value="0.00" /></td>
+								<td ><input type="text"  class="form-control" id="total_tax" onkeyup="fix_cala('tax')" name="total_tax"  value="0.00" /></td>
 							</tr>
 							<tr>
 								<td colspan="5">Total Landed Cost </td>
-								<td ><input type="text" autocomplete="off" readonly="readonly" class="form-control" id="total_landed" name="total_landed"  value="0.00" /></td>
+								<td ><input type="text"  readonly="readonly" class="form-control" id="total_landed" name="total_landed"  value="0.00" /></td>
 							</tr>
 							<tr>
 								<td colspan="5">User Assumption Charges </td>
-								<td ><input type="text" autocomplete="off" class="form-control" id="user_assmption" name="user_assumption" value="0.00" /></td>
+								<td ><input type="text" class="form-control" id="user_assmption" name="user_assumption" value="0.00" /></td>
 							</tr>
 							<tr>
 								<td colspan="5">Delivery Basis</td>
-								<td ><input type="text" autocomplete="off"  class="form-control" id="delivery_basis" name="delivery_basis" "required="" /></td>
+								<td ><input type="text" class="form-control" id="delivery_basis" name="delivery_basis" required="" /></td>
 							</tr>
 							<tr>
 								<td colspan="5">Guarantee / Warranty</td>
-								<td ><input type="text" autocomplete="off" class="form-control" id="gaurantee_warranty" name="gaurantee_warranty" required="" /></td>
+								<td ><input type="text"  class="form-control" id="gaurantee_warranty" name="gaurantee_warranty" required="" /></td>
 							</tr>
 							<tr>
 								<td colspan="5">Delivery Schedule</td>
-								<td ><input type="text" autocomplete="off" class="form-control" id="delivery_schedule" name="delivery_schedule" required=""/></td>
+								<td ><input type="text"  class="form-control" id="delivery_schedule" name="delivery_schedule" required=""/></td>
 							</tr>
 							<tr>
 								<td colspan="5">Payment Terms</td>
-								<td ><input type="text" autocomplete="off" class="form-control" id="payment_terms" name="payment_terms" required="" /></td>
+								<td ><input type="text" class="form-control" id="payment_terms" name="payment_terms" required="" /></td>
 							</tr>
 							<tr>
 								<td colspan="5">Validity of Offer</td>
-								<td ><input type="text" autocomplete="off" class="form-control" id="validity_of_offer" name="validity_of_offer"  autocomplete="off"9 required="" /></td>
+								<td ><input type="text"  class="form-control" id="validity_of_offer" name="validity_of_offer"  required="" /></td>
 							</tr>
 							<tr>
 								<td colspan="5">Security BG</td>
-								<td ><input type="text" autocomplete="off" class="form-control" id="security_BG" name="security_BG" required="" /></td>
+								<td ><input type="text" class="form-control" id="security_BG" name="security_BG" required="" /></td>
 							</tr>
 							<tr>
 								<td colspan="5">Liquidity Damage</td>
-								<td ><input type="text" autocomplete="off" class="form-control" id="liquidity_damage" name="liquidity_damage" required="" /></td>
+								<td ><input type="text" class="form-control" id="liquidity_damage" name="liquidity_damage" <?=$result_table1[0]->Vendor_id?> required="" /></td>
 							</tr>
 							<tr>
 								<td colspan="5">Remarks</td>
@@ -242,6 +247,8 @@ $data_get_list_commerical = array('master_bid_id_comm' =>$master_bid_id_com ,'mr
 					</table>
 				</div>
 			</div>
+
+
 			<div class="form-group row pull-right">
                 <div class="col-md-12">
                 <?php 	$today=date('Y-m-d');
@@ -296,3 +303,16 @@ $data_get_list_commerical = array('master_bid_id_comm' =>$master_bid_id_com ,'mr
 		$('#to_sub').hide();
 	});
 </script>
+
+
+
+
+
+
+
+	 
+
+
+
+
+

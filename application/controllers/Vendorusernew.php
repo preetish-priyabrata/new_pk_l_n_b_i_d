@@ -71,6 +71,7 @@ class Vendorusernew extends CI_Controller {
 
        # code...
    }
+   
    public function vendor_bid_new_technical_submission_pr($value='',$value1='',$value2=''){
         $scripts='';
            $data=array('title' =>"Vendor Bid Submission",'script_js'=>$scripts ,'menu_status'=>'','sub_menu'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','value'=>$value,'token'=>$value1,'master_bid_id'=>$value2);
@@ -442,9 +443,9 @@ class Vendorusernew extends CI_Controller {
                 redirect('seller/user-vendor-home');
       
   }
-  public function user_vendor_bid_commerical_submission_bid_view($value='',$value1='',$value2=''){
+  public function user_vendor_bid_commerical_submission_bid_view($vendor_slno_id='',$bid_type_id='',$Slno_simple=''){
      $scripts='';
-      $data=array('title' =>"Commerical Bid Information which will have detail",'script_js'=>$scripts ,'menu_status'=>'','sub_menu'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','vendor_slno_id'=>$value,'type_bid'=>$value1,'filter'=>$value2);
+      $data=array('title' =>"Commerical Bid Information which will have detail",'script_js'=>$scripts ,'menu_status'=>'','sub_menu'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','vendor_slno_id'=>$vendor_slno_id,'type_bid'=>$bid_type_id,'Slno_simple'=>$Slno_simple);
       $page='vendors_user/commerical_bid_received/view_commerical_page1';
       $this->load->view('vendors_user/vendor_template/v_template_header',$data);
       $this->load->view('vendors_user/vendor_template/v_template_top_head',$data);

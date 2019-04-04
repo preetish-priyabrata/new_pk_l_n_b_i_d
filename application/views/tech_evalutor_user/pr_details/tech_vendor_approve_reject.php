@@ -113,7 +113,7 @@ if($result_file['no_bid_vendors']==2){
 	                        </tbody>
 	                    </table>						
 					</div>
-					<form method="POST" action="<?=base_url()?>technical-evalutor-get-approved-reject-save-pr">
+					<form method="POST" action="<?=base_url()?>technical-evalutor-get-appr-rej-save-pr">
 						<div class="row">
 							<div class="col-lg-12">
 
@@ -123,6 +123,13 @@ if($result_file['no_bid_vendors']==2){
 								<input type="hidden" name="Slno_token" value="<?=$tech_master_bid_id?>">
 								<input type="hidden" name="token_no" value="<?=$token_no?>">
 								<input type="hidden" name="vendor_id" value="<?=$result_file['bid_vendors_list_file'][0]->vendor_id?>">
+								<input type="hidden" name="slno_vendor_url" value="<?=$slno_vendor?>">
+								<input type="hidden" name="pr_no" value="<?=$pr_no?>">
+								<input type="hidden" name="master_bid_id_url" value="<?=$master_bid_id?>">
+								
+								<input type="hidden" name="tech_master_bid_idurl" value="<?=$tech_master_bid_id?>">
+								<input type="hidden" name="token_no_url" value="<?=$token_no?>">
+								<input type="hidden" name="bid_id" value="<?=$bid_id?>">
 								
 
 

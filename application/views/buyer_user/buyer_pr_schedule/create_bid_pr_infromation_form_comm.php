@@ -66,6 +66,17 @@ $result_table=$query_data->result();
 			}
 			 // print_r($this->session->userdata());
 			 ?>
+			 <?php if(!empty($this->session->flashdata('error_message'))){?>
+			<div class="alert alert-danger fade show">
+			  <span class="close" data-dismiss="alert">×</span>
+			  <strong>Error!</strong>
+			  <?=$this->session->flashdata('error_message')?> 
+			  <!-- <a href="#" class="alert-link">an example link</a>.  -->
+			</div>
+			<?php 
+			}
+			 // print_r($this->session->userdata());
+			 ?>
 
 			<!-- begin panel -->
 			<div class="panel panel-inverse">

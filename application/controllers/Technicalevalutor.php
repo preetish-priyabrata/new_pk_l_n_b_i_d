@@ -263,6 +263,97 @@ public function technical_user_bid_pr_new_material($value='',$value1='',$value2=
             $this->load->view('tech_evalutor_user/pr_details/tech_vendor_approve_reject',$data);
             $this->load->view('template/template_footer',$data);
     }
+    public function technical_appro_reject_save_pr($value=''){
+        $slno_vendor=$this->input->post("slno_vendor");
+        $master_bid_id=$this->input->post("master_bid_id");
+        $Slno_token=$this->input->post("Slno_token");
+        $token_no=$this->input->post("token_no");
+        $vendor_id=$this->input->post("vendor_id");
+        $switcher_checkbox_1=$this->input->post("switcher_checkbox_1");
+        $comment=$this->input->post("comment");
+        $slno_vendor_url=$this->input->post('slno_vendor_url');
+        $pr_no=$this->input->post('pr_no');
+        $master_bid_id_url=$this->input->post('master_bid_id_url');
+        $tech_master_bid_idurl=$this->input->post('tech_master_bid_idurl');
+        $token_no_url=$this->input->post('token_no_url');
+        $bid_id=$this->input->post('bid_id');
+
+        $data_process = array('pr_no' =>$pr_no);
+        $query_process=$this->db->get_where('master_pr_process_detail',$data_process);
+        $result_process=$query_process->result();
+        $technical_bid_id=$result_process[0]->technical_bid_id;  // technical bid ind information 
+        $technical_bid_ref=$result_process[0]->technical_bid_ref; // technical bid referenced infromtion
+        $technical_edit_id=$result_process[0]->technical_edit_id; // no of time bid is been edit infromation
+        $slno_pr=$result_process[0]->pr_no_slno;
+        $job_code=$result_process[0]->project_slno;
+        $tech_bid=$result_process[0]->tech_bid;  // bid id information
+
+        $data_id = array('slno_vendor' => $slno_vendor );
+
+        $url='technical-user-bid-pr-new-material/'.$pr_no.'/'.$slno_pr.'/'.$job_code.'/3/'. $tech_bid;
+        if(($this->input->post('switcher_checkbox_1'))){ /// if approved
+            $array_resubission = array('approval_status' => 1, 'submission_status'=>1,'comment'=>$comment,'view_status_approve'=>1,'status_view'=>'7');
+            
+            $check_id=$this->db->get_where('master_bid_vendor_m',$data_id);
+            if($check_id->num_rows()==1){
+                $query_upade=$this->db->update('master_bid_vendor_m',$array_resubission,$data_id);
+                if($query_upade){
+                     $data_token_comment = array('comment' => $comment);
+                    $update_id = array('token_no' => $token_no);
+                    $updae_token_tab=$this->db->update('master_vendor_tech_token_bid_c',$data_token_comment,$update_id);
+                    if($updae_token_tab){
+                         $data_inserted = array('master_bid'=>$tech_bid, 'vendor_bid_id'=>$slno_vendor, 'comment'=>$comment, 'status'=>'P', 'active_status'=>1, 'token_no'=>$token_no, 'token_id'=>$Slno_token);
+                            $data_inserted=$this->db->insert('master_tech_bid_comment',$data_inserted);
+                            $this->session->set_flashdata('success_message',  'Sucessfully Approval Of Technical bid ');
+                            redirect($url); 
+                    }else{
+                        $this->session->set_flashdata('error_message',  'Some thing went wrong Try Again!!!!!');
+                        redirect($url); 
+                    }
+                
+                }else{                
+                $this->session->set_flashdata('error_message',  'Some thing went wrong Try Again!!!!');
+                redirect($url); 
+                }
+            }else{ // if user is not found 
+                  $this->session->set_flashdata('error_message',  'Some thing went wrong Try Again!!!!');
+                redirect($url); 
+            }
+          }else{
+            $array_resubission = array('submission_status'=>'0','comment'=>$comment,'status_view'=>'8');
+            $query_upade=$this->db->update('master_bid_vendor_m',$array_resubission,$data_id);
+            // echo $this->db->last_query();
+            // exit;
+            if($query_upade){
+                $data_token_comment = array('comment' => $comment);
+                $update_id = array('Slno_token' => $Slno_token);
+                $updae_token_tab=$this->db->update('master_vendor_tech_token_bid_c',$data_token_comment,$update_id);
+                if($updae_token_tab){
+                    $data_inserted = array('master_bid'=>$tech_bid, 'vendor_bid_id'=>$slno_vendor, 'comment'=>$comment, 'status'=>'N', 'active_status'=>3, 'token_no'=>$token_no, 'token_id'=>$Slno_token);
+                    $data_inserted=$this->db->insert('master_tech_bid_comment',$data_inserted);
+                    if($data_inserted){
+                         $this->session->set_flashdata('success_message',  'Sucessfully Resubmission Request for bid to vendor is been send ');
+                        redirect($url); 
+                    }else{
+                         $this->session->set_flashdata('error_message',  'Some thing went wrong Try Again!!!');
+                       redirect($url); 
+                    }
+                }else{
+                   $this->session->set_flashdata('error_message',  'Some thing went wrong Try Again!!');
+                    redirect($url); 
+                }
+            }else{
+                $this->session->set_flashdata('error_message',  'Some thing went wrong Try Again!');
+               redirect($url); 
+            }
+
+          }
+
+        // Array ( [slno_vendor] => 3 [master_bid_id] => 1 [Slno_token] => 1 [token_no] => eEPklcrI [vendor_id] => ven121@gmail.com [slno_vendor_url] => 3 [pr_no] => O18191-950-E-K-30108-001 [master_bid_id_url] => 1 [tech_master_bid_idurl] => 1 [token_no_url] => eEPklcrI [bid_id] => 1 [switcher_checkbox_1] => 1 [comment] => ) 
+        // Array ( [slno_vendor] => 3 [master_bid_id] => 1 [Slno_token] => 1 [token_no] => eEPklcrI [vendor_id] => ven121@gmail.com [switcher_checkbox_1] => 1 [comment] => ) 
+       
+        # code...
+    }
     public function technical_evaluator_view_details_technical_bid_new_complete_view_pr($pr_no='',$technical_bid_ref='',$technical_bid_id='',$tech_bid='',$id=''){
         if($id==1){ // will view list of itme
              $scripts='';
@@ -272,9 +363,18 @@ public function technical_user_bid_pr_new_material($value='',$value1='',$value2=
             $this->load->view('tech_evalutor_user/template/template_side_bar',$data);
             $this->load->view('tech_evalutor_user/pr_details/view_details_create_view_new_bids_pr',$data);
             $this->load->view('template/template_footer',$data);
+        }else if($id==2){ // here  technical user will submit
+              print_r($this->input->post());
+
+        }else if($id==3){
+
+        }else{
+
         }
         # code...
     }
+   
+    
 
 
 

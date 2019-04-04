@@ -740,12 +740,12 @@ $result_table=$query_data->result();
 																																										}
 																			}
 																		}else{
-																			echo "Not submitteed";
+																			echo "Not submitted";
 																		}
 																	}else if($value_vendor->status_view==8){
-																		echo "<span class='text-warning'>Resunmisstion</span>";
+																		echo "<span class='text-warning'>Resubmission</span>";
 																	}else{
-																		echo "Not submitteed";
+																		echo "Not submitted";
 																	}
 
 																?>
@@ -756,12 +756,12 @@ $result_table=$query_data->result();
 																		if($value_vendor->submission_status==1){
 																			echo "<span class='text-center text-success'>Submission Of Technical</span>";
 																		}else{
-																			echo "Not submitteed";
+																			echo "Not submitted";
 																		}
 																	}else if($value_vendor->status_view==8){
-																		echo "<span class='text-warning'>Resunmisstion</span>";
+																		echo "<span class='text-warning'>Resubmission</span>";
 																	}else{
-																		echo "Not submitteed";
+																		echo "Not submitted";
 																	}
 
 																?>

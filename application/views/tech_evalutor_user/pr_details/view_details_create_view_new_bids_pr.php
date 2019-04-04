@@ -6,6 +6,8 @@ if(empty($email_id)){
 }
 // 'Pr_no'=>$pr_no,'technical_bid_ref'=>$technical_bid_ref,'technical_bid_id'=>$technical_bid_id,'id'=>$id,'bid_id'=>$tech_bid);
 $pr_no=$Pr_no;
+$access=$id;
+$bid_id=$bid_id;
 
 $data_process = array('pr_no' =>$pr_no);
 $query_process=$this->db->get_where('master_pr_process_detail',$data_process);
@@ -13,12 +15,16 @@ $result_process=$query_process->result();
 
 
 $tech_bid=$result_process[0]->tech_bid;  // bid id information
+if($bid_id!=$tech_bid){
+	$this->session->set_flashdata('error_message', ' Something went wrong ');
+	redirect('user-technical-evalutor-home');
+	exit();
+}
 $technical_bid_id=$result_process[0]->technical_bid_id;  // technical bid ind information 
 $technical_bid_ref=$result_process[0]->technical_bid_ref; // technical bid referenced infromtion
 $technical_edit_id=$result_process[0]->technical_edit_id; // no of time bid is been edit infromation
-
-$slno_pr=$$result_process[0]->technical_edit_id;
-$job_code=$$result_process[0]->technical_bid_ref;
+$slno_pr=$result_process[0]->pr_no_slno;
+$job_code=$result_process[0]->project_slno;
 
 
 
@@ -57,7 +63,7 @@ $data_table=array('pr_no'=>$pr_no,'mr_forword_status'=>1);
 $query_data=$this->db->get_where('master_mr_job_details_m',$data_table);
 if($query_data->num_rows()!=1){
 	$this->session->set_flashdata('error_message', ' Something went wrong ');
-	// redirect('user-procurement-home');
+	// redirect('user-technical-evalutor-home');
 	// exit();
 }
 
@@ -77,6 +83,9 @@ $result_table=$query_data->result();
     
     $data_array_procurement=$this->approver_user->get_approver_procurement_list();
 	   $result_file=$this->design_user->get_design_mr_file_list_m($pr_no,$slno_pr,$job_code);
+
+
+	   $url='<a href="'.base_url().'technical-user-bid-pr-new-material/'.$pr_no.'/'.$slno_pr.'/'.$job_code.'/3/'. $tech_bid.'" class="btn btn-success btn-sm" title="Click Here to Approve vendor Verifying"> Click Approve Vendor </a>';
 ?>
 
 <link href="../assets/plugins/bootstrap-datepicker/css/bootstrap-datepicker.css" rel="stylesheet" />
@@ -742,12 +751,12 @@ $result_table=$query_data->result();
 																																										}
 																			}
 																		}else{
-																			echo "Not submitteed";
+																			echo "Not submitted";
 																		}
 																	}else if($value_vendor->status_view==8){
-																		echo "<span class='text-warning'>Resunmisstion</span>";
+																		echo "<span class='text-warning'>Resubmission</span>";
 																	}else{
-																		echo "Not submitteed";
+																		echo "Not submitted";
 																	}
 
 																?>
@@ -758,12 +767,12 @@ $result_table=$query_data->result();
 																		if($value_vendor->submission_status==1){
 																			echo "<span class='text-center text-success'>Submission Of Technical</span>";
 																		}else{
-																			echo "Not submitteed";
+																			echo "Not submitted";
 																		}
 																	}else if($value_vendor->status_view==8){
-																		echo "<span class='text-warning'>Resunmisstion</span>";
+																		echo "<span class='text-warning'>Resubmission</span>";
 																	}else{
-																		echo "Not submitteed";
+																		echo "Not submitted";
 																	}
 
 																?>
@@ -791,15 +800,21 @@ $result_table=$query_data->result();
 
 							      	</div>
 							    </div>
+							    <br>
+							    <br>
 							    <div class="form-group row pull-right">
                             <div class="col-md-12">
                                 <!--<button type="submit" class="btn btn-sm btn-primary m-r-5" >Next</button>-->
 			                    <?php
-									if($access==0){
-									 if($count_completed!=0){?>
+									if($access==1){
+									 if($check_approve!=0){
+
+									echo '<a href="'.base_url().'user-technical-evaluator-view-details-technical-bid-new-complete-view-pr/'.$pr_no.'/'.$technical_bid_ref.'/'.$technical_bid_id.'/'.$tech_bid.'/2" class="btn btn-sm btn-lime" title="Click Here Closed Bid Sent information of approved vendors" >Submit Approvals</a>   ';
 									
-									<a href="<?=base_url()?>user-technical-evaluator-view-details-technical-bid-new-complete-view/<?=$Slno_bid?>/<?=$category?>/1" class="btn btn-sm btn-primary m-r-5"  title="Click Here Approved Vendors Bid Sent information of approved vendors"> Complete Evalution </a>
-								<?php } }?>
+								 } } 
+									echo $url;
+								?>
+
                                <a  href="<?=base_url()?>user-technical-evalutor-home" class="btn btn-sm btn-default">Back</a> 
                             </div>
                         </div>

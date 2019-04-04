@@ -36,7 +36,7 @@
 						    <span>Vendor </span>
 					    </a>
 						<ul class="sub-menu">
-						    <li class="<?php if($sub_menu==8){ echo 'active'; }?>"><a href="<?=base_url()?>procurement-view-vendors" >Create & View Vendor</a></li>
+						    <li class="<?php if($sub_menu==8){ echo 'active'; }?>"><a href="<?=base_url()?>buyer-view-vendors" >Create & View Vendor</a></li>
 						    
 						</ul>
 					</li>

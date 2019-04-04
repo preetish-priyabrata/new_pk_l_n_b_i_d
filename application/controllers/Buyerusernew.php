@@ -610,5 +610,218 @@ EOT;
 
         # code...
     }
+    public function buyer_view_vendors($value=''){
+      $scripts='<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script><script src=" https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script> <script src="'.base_url().'file_css_admin/own_js.js"></script>';
 
+           $data=array('title' =>"View Vendors List",'script_js'=>$scripts ,'menu_status'=>'8','sub_menu'=>'8','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'');  
+
+            $this->load->view('template/template_header',$data);
+            $this->load->view('buyer_user/template/template_top_head');
+            $this->load->view('buyer_user/template/template_side_bar',$data);
+            $this->load->view('buyer_user/vendor/view_vendor_list');
+            $this->load->view('template/template_footer',$data);
+      # code...
+    }
+    public function buyer_new_vendors($value=''){
+        $scripts='';
+
+            $data=array('title' =>"Create New Vendors ",'script_js'=>$scripts ,'menu_status'=>'','sub_menu'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'');  
+
+            $this->load->view('template/template_header',$data);
+            $this->load->view('buyer_user/template/template_top_head');
+            $this->load->view('buyer_user/template/template_side_bar',$data);
+            $this->load->view('buyer_user/vendor/create_new_vendor');
+            $this->load->view('template/template_footer',$data); 
+    }
+    public function buyer_new_vendors_save($value=''){
+        $data_brower['browser'] = $this->agent->browser();
+        $data_brower['browserVersion'] = $this->agent->version();
+        $data_brower['platform'] = $this->agent->platform();
+        $data_brower['full_user_agent_string'] = $_SERVER['HTTP_USER_AGENT'];
+        $ip = $this->input->ip_address();       
+        $date_nrowser_json=json_encode($data_brower);
+        $date_entry=date('Y-m-d');
+        $time_entry=date('H:i:s');
+
+        $Vendor_name=trim($this->input->post('Vendor_name'));
+        $Vendor_email_id=trim($this->input->post('Vendor_email_id'));
+        $Organisation_address=trim($this->input->post('Organisation_address'));
+        $Mobile_no=trim($this->input->post('Mobile_no'));
+        $Password=trim($this->input->post('Password'));
+        $Vendor_desc=trim($this->input->post('Vendor_desc'));
+        // $vendor_operational=($this->input->post('vendor_operational'));
+        $Organisation_name=trim($this->input->post('Organisation_name'));
+        $hash=md5($Password);
+          $table_insert="master_vendor_detail";
+        $date_insert_check = array( 'Vendor_email_id'=>$Vendor_email_id);
+        $check_exe=$this->db->get_where($table_insert,$date_insert_check);
+        if($check_exe->num_rows()==0){
+            $date_insert = array('Vendor_name'=>$Vendor_name, 'Vendor_email_id'=>$Vendor_email_id, 'Mobile_no'=>$Mobile_no, 'Organisation_name'=>$Organisation_name, 'Password'=>$Password, 'Password_hash'=>$hash, 'Status'=>1, 'Date_entry'=>$date_entry, 'Time_entry'=>$time_entry, 'Vendor_desc'=>$Vendor_desc, 'Organisation_address'=>$Organisation_address);
+            
+          
+            $entry_project = $this->user->common_insert_id($table_insert,$date_insert);
+            $last_id=$entry_project;
+
+            $date_insert_json=json_encode($date_insert);
+            $table_log='pms_log_entries';
+            $log_entry= array('Form_name'=>"Vendors Entery Form", 'Data_entry'=>$date_insert_json, 'status'=>1, 'Date'=>$date_entry, 'Time'=>$time_entry, 'Location_Id'=>$ip, 'browser_information'=>$date_nrowser_json);
+            $result_log_entry = $this->user->common_insert($table_log,$log_entry);
+
+            $this->session->set_flashdata('success_message', 'Information Has been updated successfully');
+            // After that you need to used redirect home
+            redirect('buyer-view-vendors');
+
+        }else{
+             $this->session->set_flashdata('error_message', 'vendor email id already exist " '.$Vendor_email_id .' "');
+            // After that you need to used redirect home
+            redirect('buyer-add-vendors');
+            // error_message
+        }
+    }
+    public function buyer_view_vendors_info($value1='',$value2=''){
+           $keys_id="preetishwebvendors";
+            $value1_convered = strtr($value1,array('.' => '+', '-' => '=', '~' => '/'));
+            
+            $value1_convered_id=$this->encrypt->decode($value1_convered,$keys_id);
+            if($value1_convered_id==$value2){
+                $scripts='';
+
+               $data=array('title' =>"View Vendor details Information ",'script_js'=>$scripts ,'menu_status'=>'','sub_menu'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','Slno_vendor'=>$value1,'token'=>$value2);  
+
+                $this->load->view('template/template_header',$data);
+                $this->load->view('buyer_user/template/template_top_head');
+                $this->load->view('buyer_user/template/template_side_bar',$data);
+                $this->load->view('buyer_user/vendor/view_vendor_deatils',$data);
+                $this->load->view('template/template_footer',$data);
+            }else{
+                $this->session->set_flashdata('error_message', 'Some thing went Wrong');
+                // After that you need to used redirect function instead of load view such as                 
+                redirect('user-buyer-home'); 
+            }
+        # code...
+    }
+    public function buyer_change_vendor_status($value1,$value2,$value){
+
+        $keys_id="preetishwebvendors";
+        $value1_convered = strtr($value1,array('.' => '+', '-' => '=', '~' => '/'));
+        
+        $value1_convered_id=$this->encrypt->decode($value1_convered,$keys_id);
+        if($value1_convered_id==$value2){
+            $data = array('Slno_vendor' =>$value1_convered_id);
+            $table='master_vendor_detail';
+            $query=$this->db->get_where($table,$data);
+            $data_db=$query->result(); // here fetch information 
+            $row = $data_db[0]; 
+            if($value==1){
+
+                $data_id = array('Slno_vendor' =>$value1_convered_id);
+                $date_change= array('status' =>'2' );
+                $table="master_vendor_detail";
+                $result_history = $this->user->common_update($table,$date_change,$data_id);
+                $this->session->set_flashdata('success_message', $row->Vendor_name.' successfully Inactivated ');
+                // After that you need to used redirect home
+                redirect('buyer-view-vendors');
+
+            }else if($value==2){
+                $data_id = array('Slno_vendor' =>$value1_convered_id);
+                $date_change= array('status' =>'1' );
+                $table="master_vendor_detail";
+                $result_history = $this->user->common_update($table,$date_change,$data_id);
+                $this->session->set_flashdata('success_message', $row->Vendor_name.' successfully Activated ');
+                // After that you need to used redirect home
+                  redirect('buyer-view-vendors');
+
+             }else if($value==3){
+                $data_id = array('Slno_vendor' =>$value1_convered_id);
+                $date_change= array('status' =>'3' );
+                $table="master_vendor_detail";
+                $result_history = $this->user->common_update($table,$date_change,$data_id);
+                $this->session->set_flashdata('success_message', $row->Vendor_name.' successfully Deleted ');
+                // After that you need to used redirect home
+                   redirect('buyer-view-vendors');
+
+            }else{
+                $this->session->set_flashdata('error_message', 'Some thing went Wrong');
+                // After that you need to used redirect function instead of load view such as                 
+                redirect('user-buyer-home'); 
+            }
+
+        }else{
+            $this->session->set_flashdata('error_message', 'Some thing went Wrong');
+            // After that you need to used redirect function instead of load view such as                 
+            redirect('user-buyer-home'); 
+        }       
+    }
+    public function buyer_buyer_edit_vendor_details($value1,$value2){
+            $keys_id="preetishwebvendors";
+            $value1_convered = strtr($value1,array('.' => '+', '-' => '=', '~' => '/'));
+            
+            $value1_convered_id=$this->encrypt->decode($value1_convered,$keys_id);
+            if($value1_convered_id==$value2){
+                  $scripts='';
+
+               $data=array('title' =>"View Vendor details Information ",'script_js'=>$scripts ,'menu_status'=>'','sub_menu'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','Slno_vendor'=>$value1,'token'=>$value2);  
+                $this->load->view('template/template_header',$data);
+                $this->load->view('buyer_user/template/template_top_head');
+                $this->load->view('buyer_user/template/template_side_bar',$data);
+                $this->load->view('buyer_user/vendor/edit_vendor_details',$data);
+                $this->load->view('template/template_footer',$data);
+            }else{
+                $this->session->set_flashdata('error_message', 'Some thing went Wrong');
+                // After that you need to used redirect function instead of load view such as                 
+                redirect('user-buyer-home'); 
+            }
+    }
+    public function buyer_edit_vendor_save($value=''){
+        $value1=$this->input->post('value1');
+        $value2=$this->input->post('value2');
+        $vendor_operational=$this->input->post('vendor_operational');
+        
+        $keys_id="preetishwebvendors";
+        $value1_convered = strtr($value1,array('.' => '+', '-' => '=', '~' => '/'));
+        
+        $value1_convered_id=$this->encrypt->decode($value1_convered,$keys_id);
+        if($value1_convered_id==$value2){
+            
+
+            $Vendor_name=$this->input->post('Vendor_name');
+            $Vendor_email_id=$this->input->post('Vendor_email_id');
+            $Organisation_name=$this->input->post('Organisation_name');
+            $Organisation_address=$this->input->post('Organisation_address');
+            $Mobile_no=$this->input->post('Mobile_no');
+            $Vendor_desc=$this->input->post('Vendor_desc');
+            
+            $data_brower['browser'] = $this->agent->browser();
+            $data_brower['browserVersion'] = $this->agent->version();
+            $data_brower['platform'] = $this->agent->platform();
+            $data_brower['full_user_agent_string'] = $_SERVER['HTTP_USER_AGENT'];
+            $ip = $this->input->ip_address();       
+            $date_nrowser_json=json_encode($data_brower);
+            $date_entry=date('Y-m-d');
+            $time_entry=date('H:i:s');
+
+            
+            $date_insert = array('Vendor_name'=>$Vendor_name, 'Mobile_no'=>$Mobile_no, 'Organisation_name'=>$Organisation_name, 'Status'=>1, 'Date_entry'=>$date_entry, 'Time_entry'=>$time_entry, 'Vendor_desc'=>$Vendor_desc, 'Organisation_address'=>$Organisation_address);
+            
+            $table_insert="master_vendor_detail";
+            $dataid = array('Slno_vendor' => $value1_convered_id );
+            $entry_project = $this->user->common_update($table_insert,$date_insert,$dataid);
+            $last_id=$entry_project;
+            $data_update = array('update_data' =>$date_insert ,'id'=>$dataid );
+            $date_insert_json=json_encode($data_update);
+            $table_log='pms_log_entries';
+            $log_entry= array('Form_name'=>"Vendors update Form", 'Data_entry'=>$date_insert_json, 'status'=>1, 'Date'=>$date_entry, 'Time'=>$time_entry, 'Location_Id'=>$ip, 'browser_information'=>$date_nrowser_json);
+            $result_log_entry = $this->user->common_insert($table_log,$log_entry);
+
+            $this->session->set_flashdata('success_message', 'Information Has been updated successfully');
+            // After that you need to used redirect home
+            redirect('buyer-view-vendors');
+
+        }else{
+             $this->session->set_flashdata('error_message', 'Some thing went Wrong');
+            // After that you need to used redirect function instead of load view such as                 
+            redirect('user-buyer-home');  
+        }
+        # code...
+    }
 }
