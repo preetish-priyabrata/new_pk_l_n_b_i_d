@@ -225,19 +225,19 @@ EOD;
 							</tr>
 							<tr>
 								<td colspan="5">Payment Terms</td>
-								<td ><input type="text" class="form-control" id="payment_terms" name="payment_terms" required="" /></td>
+								<td ><input type="text" class="form-control" id="payment_terms" name="payment_terms"  <?=$result_table1[0]->payment_terms?> required="" /></td>
 							</tr>
 							<tr>
 								<td colspan="5">Validity of Offer</td>
-								<td ><input type="text"  class="form-control" id="validity_of_offer" name="validity_of_offer"  required="" /></td>
+								<td ><input type="text"  class="form-control" id="validity_of_offer" name="validity_of_offer"  <?=$result_table1[0]->validity_offer?>required="" /></td>
 							</tr>
 							<tr>
 								<td colspan="5">Security BG</td>
-								<td ><input type="text" class="form-control" id="security_BG" name="security_BG" required="" /></td>
+								<td ><input type="text" class="form-control" id="security_BG" name="security_BG" <?=$result_table1[0]->security_BG?> required="" /></td>
 							</tr>
 							<tr>
 								<td colspan="5">Liquidity Damage</td>
-								<td ><input type="text" class="form-control" id="liquidity_damage" name="liquidity_damage" <?=$result_table1[0]->Vendor_id?> required="" /></td>
+								<td ><input type="text" class="form-control" id="liquidity_damage" name="liquidity_damage" <?=$result_table1[0]->liquidity_damage?> required="" /></td>
 							</tr>
 							<tr>
 								<td colspan="5">Remarks</td>
