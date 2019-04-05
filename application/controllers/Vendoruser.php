@@ -11,6 +11,7 @@ class Vendoruser extends CI_Controller {
             $this->load->model('procurement_model', 'procurement_user');
             $this->load->model('buyer_model','buyer_user');
             $this->load->model('vendor_model','vendor_db_users');
+            $this->load->model('vendor_modelnew','vendor_db_usersnew');
             // imedate database link
             $this->load->database();
 
@@ -222,6 +223,33 @@ class Vendoruser extends CI_Controller {
 
 
     }
+    public function user_vendor_bid_query_view_save($value=''){
+      $Vendor_email_id=$this->session->userdata('Vendor_email_id');
+if(empty($Vendor_email_id)){
+
+  redirect('vendor-logout-pass');
+}
+
+     print_r($this->input->post());
+
+     // Array ( [query_slno] => 16 [bid_slno] => 4 [pr_no] => O900-102-A-C-40101-003 [pr_no_slno] => 16 [slno_vendor] => 16 [query_details] => WHAT SHOULD BE THE EARLIEST DATE OF SUBMISSION? )
+    $query_slno=$this->input->post('query_slno');
+    $bid_slno=$this->input->post('bid_slno');
+    $pr_no=$this->input->post('pr_no');
+    $pr_no_slno=$this->input->post('pr_no_slno');
+    $slno_vendor=$this->input->post('slno_vendor');
+    $query_details=$this->input->post('query_details');
+
+    // `bid_slno`, `Vendor_id`, `query_details`, `response_detail`, `date_query`, `pr_no`, `pr_slno`, `vendor_bid_id`
+
+   $data_insert_array = array('bid_slno' =>$query_slno ,'Vendor_id'=>$Vendor_email_id ,'query_details' =>$query_details ,'pr_no' =>$pr_no ,'pr_slno' =>$pr_no_slno );
+   $this->db->insert('master_bid_query_comm_m',$data_insert_array);
+    $this->session->set_flashdata('success_message', 'your query is been submitted');
+                // After that you need to used redirect function instead of load view such as
+                redirect("user-vendor-home");
+
+  }
+     
      
     public function vendor_query_panel_commerical($value=''){
 

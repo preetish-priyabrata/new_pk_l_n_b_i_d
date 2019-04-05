@@ -811,8 +811,11 @@ $result_table=$query_data->result();
 
 									echo '<a href="'.base_url().'user-technical-evaluator-view-details-technical-bid-new-complete-view-pr/'.$pr_no.'/'.$technical_bid_ref.'/'.$technical_bid_id.'/'.$tech_bid.'/2" class="btn btn-sm btn-lime" title="Click Here Closed Bid Sent information of approved vendors" >Submit Approvals</a>   ';
 									
-								 } } 
-									echo $url;
+								 } 
+								 echo $url;
+
+								} 
+									
 								?>
 
                                <a  href="<?=base_url()?>user-technical-evalutor-home" class="btn btn-sm btn-default">Back</a> 

@@ -1,8 +1,8 @@
 <?php 
-$email_id=$this->session->userdata('commerical_email_id');
+$email_id=$this->session->userdata('technical_email_id');
 if(empty($email_id)){
 	
-	redirect('commerical-evalutor-logout-by-pass');
+	redirect('tech-evalutor-logout-by-pass');
 }
 	
 	$query_design = $this->db->get('master_project');
@@ -19,11 +19,11 @@ if(empty($email_id)){
 			<ol class="breadcrumb pull-right">
 				<li class="breadcrumb-item active"><a href="#" class="fa fa-home ">Home</a></li>
 				<!-- <li class="breadcrumb-item"><a href="javascript:;">Page Options</a></li> -->
-				<li class="breadcrumb-item active">View New Bids</li>
+				<li class="breadcrumb-item active"> View History Bids </li>
 			</ol>
 			<!-- end breadcrumb -->
 			<!-- begin page-header -->
-			<h1 class="page-header">View New Bids
+			<h1 class="page-header"> View History Bids 
 			 <!-- <small>header small text goes here...</small> -->
 			</h1>
 			<!-- end page-header -->
@@ -54,7 +54,7 @@ if(empty($email_id)){
 						<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
 						<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
 					</div>
-					<h4 class="panel-title"> Detail View of New Bids </h4>
+					<h4 class="panel-title"> Detail View of History Bids </h4>
 				</div>	
 				<div class="panel-body">
 					<form action="" method="POST" enctype="multipart/form-data"	>
@@ -130,47 +130,46 @@ if(empty($email_id)){
 					<?php
 					 foreach($query->result() as $row){
 					 	$pr_no=$row->pr_no;
-					 	$data_check=array('pr_no'=>$pr_no,'commercial_user_id'=>$email_id,'approver_user_status'=>1,'design_user_status'=>1,'commercial_complete_status'=>2);
+					 	$data_check=array('pr_no'=>$pr_no,'technical_user_id'=>$email_id,'approver_user_status'=>1,'design_user_status'=>1,'technical_user_status'=>1);
 					 	$query_check=$this->db->get_where('master_pr_process_detail',$data_check);
-					 	// echo $this->db->last_query();
 					 	$num_rows_check=$query_check->num_rows();
 					 	if($num_rows_check!=0){
 					 		$result_id=$query_check->result();
 
-					 		$commercial_bid_ref=$result_id[0]->commercial_bid_ref;
-					 		$commercial_bid_id=$result_id[0]->commercial_bid_id;
+					 		$technical_bid_ref=$result_id[0]->technical_bid_ref;
+					 		$technical_bid_id=$result_id[0]->technical_bid_id;
+					 		$tech_bid=$result_id[0]->tech_bid;
 					 		
-					 		$design_user_status=$result_id[0]->commercial_complete_status;
-					 		$comm_bid=$result_id[0]->comm_bid;
-
+					 		$design_user_status=$result_id[0]->procurement_user_status;
+					 		$url="#";
 					 		switch ($design_user_status) {
-					 			case '1':
-					 				
+					 			case '1': // completed
+					 				$status_detai="Forward";
+					 					// $url='<a href="'.base_url().'technical-user-bid-pr-new-material/'.$row->pr_no.'/'.$row->slno.'/'.$row->job_code.'/3/'.$tech_bid.'" class="btn-success btn-sm" > Click to View </a>';
 					 				break;
-					 			case '2':
-					 				$url='#';
-					 						$url='<a href="'.base_url().'commerical-user-received-pr-info/'.$row->pr_no.'/'.$row->slno.'/'.$row->job_code.'/2/'.$comm_bid.'" > Click to View/ forward </a>';
+					 			case '2': //drafted
+					 					$status_detai="Not Forward";
+					 					// $url='#';
+					 						$url='<a href="'.base_url().'technical-user-bid-pr-new-material/'.$row->pr_no.'/'.$row->slno.'/'.$row->job_code.'/3/'. $tech_bid.'" class="btn-success btn-sm" > Click to View/ forward </a>';
 					 				break;
+					 			
 					 			
 					 			default:
 					 				# code...
 					 				break;
 					 		}
-					 		$commercial_type_bid=$result_id[0]->commercial_type_bid;
-					 		if($commercial_type_bid!='Rank Order Bid'){
-			                    echo '
-			                    <tr>
-			                      <td>'.$row->pr_no.'</td>
-			                      <td>'.$row->item.'</td>
-			                      <td>'.$commercial_bid_ref.'</td>
-			                      <td>'.$commercial_bid_id.'</td>
-			                      
-			                      
-			                    
-			                      <td>'.$url.'</td>
-			                    </tr>
-			                    ';
-		                	}
+		                    echo '
+		                    <tr>
+		                      <td>'.$row->pr_no.'</td>
+		                      <td>'.$row->item.'</td>
+		                      <td>'.$technical_bid_ref.'</td>
+		                      <td>'.$technical_bid_id.'</td>
+		                      
+		                      
+		                    
+		                      <td> <a href="'.base_url().'user-technical-evaluator-view-details-technical-bid-new-complete-view-pr/'.$row->pr_no.'/'.$technical_bid_ref.'/'.$technical_bid_id.'/'.$tech_bid.'/3" class="btn btn-sm btn-lime" title="Click Here Closed Bid Sent information of approved vendors" >Click To View</a></td>
+		                    </tr>
+		                    ';
 		                }
 		            }
 					?>

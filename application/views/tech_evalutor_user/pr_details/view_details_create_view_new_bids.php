@@ -17,8 +17,9 @@ $tech_bid=$result_process[0]->tech_bid;  // bid id information
 $technical_bid_id=$result_process[0]->technical_bid_id;  // technical bid ind information 
 $technical_bid_ref=$result_process[0]->technical_bid_ref; // technical bid referenced infromtion
 $technical_edit_id=$result_process[0]->technical_edit_id; // no of time bid is been edit infromation
-
-
+$technical_user_slno=$result_process[0]->technical_user_slno;
+// `technical_user_slno`, `technical_user_id`
+$technical_user_id=$result_process[0]->technical_user_id;
 
 
 
@@ -280,24 +281,26 @@ $result_table=$query_data->result();
 									</div>
 								</div>
 								<div class="form-group row m-b-15">
-													<label class="col-form-label col-md-3" for="Technical_ev" >Commercial Evaluator Name </label>
+													<label class="col-form-label col-md-3" for="Technical_ev" >Technical  Evaluator Name </label>
 													<div class="col-md-9">
 														<?php
-														$data_array_approver=$this->buyer_user->get_user_generic_list('1','0','0','10','','');	
+														$data_array_approver_tech=$this->buyer_user->get_user_generic_list('1','0','0','9','','');	
 															
 														?>
 														
 														<select name="Technical_ev"  class="form-control m-b-5" id="Technical_ev" required="" >
 															<?php 
-															if($data_array_approver['no_user']==2){?>
-																<option value="">--No Commercial Evaluator Is found--</option>
+															if($data_array_approver_tech['no_user']==2){?>
+																<option value="">--No Technical Evaluator Is found--</option>
 																<?php
-															}else if($data_array_approver['no_user']==1){
+															}else if($data_array_approver_tech['no_user']==1){
 																?>
 																
 															<?php
-																foreach ($data_array_approver['user_approver'] as $key_approver) {
-																	echo "<option value='".$key_approver->slno."'>".$key_approver->Username." [ ".$key_approver->email_id." ]</option>";
+																foreach ($data_array_approver_tech['user_approver'] as $key_approver) {
+																	if($technical_user_id==$key_approver->email_id){
+																		echo "<option value='".$key_approver->slno."'>".$key_approver->Username." [ ".$key_approver->email_id." ]</option>";
+																	}
 																}
 															
 																

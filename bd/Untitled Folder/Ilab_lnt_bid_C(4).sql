@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Apr 04, 2019 at 08:08 PM
+-- Generation Time: Apr 05, 2019 at 08:53 PM
 -- Server version: 5.7.25-0ubuntu0.18.04.2
 -- PHP Version: 7.2.15-0ubuntu0.18.04.2
 
@@ -1101,27 +1101,31 @@ CREATE TABLE `Ilab_master_bid_query` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Ilab_master_bid_query_commerical`
+-- Table structure for table `Ilab_master_bid_query_comm_m`
 --
 
-CREATE TABLE `Ilab_master_bid_query_commerical` (
+CREATE TABLE `Ilab_master_bid_query_comm_m` (
   `Slno_query` int(11) NOT NULL,
   `bid_slno` int(11) NOT NULL,
   `Vendor_id` varchar(255) NOT NULL,
   `query_details` text,
   `response_detail` text,
   `responser_id` varchar(255) DEFAULT NULL,
-  `date_query` date NOT NULL,
-  `date_respond` date DEFAULT NULL,
-  `status_responds` int(11) NOT NULL DEFAULT '0' COMMENT '0-not responded 1-responded'
+  `date_query` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `date_respond` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `status_responds` int(11) NOT NULL DEFAULT '0' COMMENT '0-not responded 1-responded',
+  `pr_no` varchar(255) NOT NULL,
+  `pr_slno` varchar(255) NOT NULL,
+  `vendor_bid_id` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `Ilab_master_bid_query_commerical`
+-- Dumping data for table `Ilab_master_bid_query_comm_m`
 --
 
-INSERT INTO `Ilab_master_bid_query_commerical` (`Slno_query`, `bid_slno`, `Vendor_id`, `query_details`, `response_detail`, `responser_id`, `date_query`, `date_respond`, `status_responds`) VALUES
-(1, 1, 'ven121@gmail.com', 'ttyg', NULL, NULL, '2019-01-28', NULL, 0);
+INSERT INTO `Ilab_master_bid_query_comm_m` (`Slno_query`, `bid_slno`, `Vendor_id`, `query_details`, `response_detail`, `responser_id`, `date_query`, `date_respond`, `status_responds`, `pr_no`, `pr_slno`, `vendor_bid_id`) VALUES
+(1, 16, 'ven121@gmail.com', 'WHAT SHOULD BE THE EARLIEST DATE OF SUBMISSION?', NULL, NULL, '2019-04-05 14:15:32', '2019-04-05 14:17:16', 0, 'O900-102-A-C-40101-003', '16', ''),
+(2, 16, 'ven121@gmail.com', 'hello', NULL, NULL, '2019-04-05 14:52:03', NULL, 0, 'O900-102-A-C-40101-003', '16', '');
 
 -- --------------------------------------------------------
 
@@ -1640,11 +1644,11 @@ CREATE TABLE `Ilab_master_bid_vendor_m` (
 --
 
 INSERT INTO `Ilab_master_bid_vendor_m` (`slno_vendor`, `edit_id_bid`, `vendor_id`, `slno_vendor_id_master`, `status`, `approval_status`, `submission_status`, `submission_count`, `title`, `description`, `date_start`, `date_end`, `query_end_date`, `master_bid_id`, `view_status_approve`, `bid_ref`, `bid_id`, `category`, `mode_bid`, `technical_bid_type`, `pr_slno`, `pr_no`, `job_code`, `edit_id`, `material_category_name`, `date_entry`, `date_update`, `status_active`, `status_view`, `comment`) VALUES
-(1, 1, 'vender2@ilab.com', 1, 1, NULL, '0', '0', 'Test bid summary', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has su', '2019-03-25', '2019-03-30', '2019-03-28', 1, 0, 'bid 1', 'bid 001', '', 'Simple Bid', '1', 8, 'O18191-950-E-K-30108-001', '1', 1, '', '2019-03-27 07:17:17', '2019-03-29 08:22:09', 1, 5, NULL),
-(2, 1, 'vender@ilab.com', 2, 1, NULL, '0', '0', 'Test bid summary', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has su', '2019-03-25', '2019-03-30', '2019-03-28', 1, 0, 'bid 1', 'bid 001', '', 'Simple Bid', '1', 8, 'O18191-950-E-K-30108-001', '1', 1, '', '2019-03-27 07:17:17', '2019-03-29 08:22:09', 1, 5, NULL),
-(3, 1, 'ven121@gmail.com', 4, 1, '1', '1', '0', 'Test bid summary', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has su', '2019-03-25', '2019-03-30', '2019-03-28', 1, 1, 'bid 1', 'bid 001', '', 'Simple Bid', '1', 8, 'O18191-950-E-K-30108-001', '1', 1, '', '2019-03-27 07:17:17', '2019-04-04 13:31:39', 1, 7, ''),
-(4, 1, 'ven66@gmail.com', 13, 1, NULL, '0', '0', 'Test bid summary', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has su', '2019-03-25', '2019-03-30', '2019-03-28', 1, 0, 'bid 1', 'bid 001', '', 'Simple Bid', '1', 8, 'O18191-950-E-K-30108-001', '1', 1, '', '2019-03-27 07:17:17', '2019-03-29 08:22:09', 1, 5, NULL),
-(5, 1, 'ven90@gmail.com', 12, 1, NULL, '0', '0', 'Test bid summary', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has su', '2019-03-25', '2019-03-30', '2019-03-28', 1, 0, 'bid 1', 'bid 001', '', 'Simple Bid', '1', 8, 'O18191-950-E-K-30108-001', '1', 1, '', '2019-03-27 07:17:17', '2019-03-29 08:22:09', 1, 5, NULL),
+(1, 1, 'vender2@ilab.com', 1, 1, NULL, '0', '0', 'Test bid summary', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has su', '2019-03-25', '2019-03-30', '2019-03-28', 1, 0, 'bid 1', 'bid 001', '', 'Simple Bid', '1', 8, 'O18191-950-E-K-30108-001', '1', 1, '', '2019-03-27 07:17:17', '2019-04-05 13:27:03', 2, 5, NULL),
+(2, 1, 'vender@ilab.com', 2, 1, NULL, '0', '0', 'Test bid summary', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has su', '2019-03-25', '2019-03-30', '2019-03-28', 1, 0, 'bid 1', 'bid 001', '', 'Simple Bid', '1', 8, 'O18191-950-E-K-30108-001', '1', 1, '', '2019-03-27 07:17:17', '2019-04-05 13:27:03', 2, 5, NULL),
+(3, 1, 'ven121@gmail.com', 4, 1, '1', '1', '0', 'Test bid summary', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has su', '2019-03-25', '2019-03-30', '2019-03-28', 1, 1, 'bid 1', 'bid 001', '', 'Simple Bid', '1', 8, 'O18191-950-E-K-30108-001', '1', 1, '', '2019-03-27 07:17:17', '2019-04-05 13:27:03', 2, 7, ''),
+(4, 1, 'ven66@gmail.com', 13, 1, NULL, '0', '0', 'Test bid summary', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has su', '2019-03-25', '2019-03-30', '2019-03-28', 1, 0, 'bid 1', 'bid 001', '', 'Simple Bid', '1', 8, 'O18191-950-E-K-30108-001', '1', 1, '', '2019-03-27 07:17:17', '2019-04-05 13:27:03', 2, 5, NULL),
+(5, 1, 'ven90@gmail.com', 12, 1, NULL, '0', '0', 'Test bid summary', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has su', '2019-03-25', '2019-03-30', '2019-03-28', 1, 0, 'bid 1', 'bid 001', '', 'Simple Bid', '1', 8, 'O18191-950-E-K-30108-001', '1', 1, '', '2019-03-27 07:17:17', '2019-04-05 13:27:03', 2, 5, NULL),
 (6, 1, 'vender2@ilab.com', 1, 1, NULL, '0', '0', 'ttyi', 'silica (SiO2) in vitreous, or glass, form (i.e., its molecules are disordered and random, without crystalline structure). It has very low thermal expansion, is very hard, and resists high temperatures (1000–1500 °C). It is also the most resistant against ', '2019-04-16', '2019-04-26', '2019-04-24', 2, 0, '1221200', '9909123', '', 'Simple Bid', '1', 13, 'O18191-950-E-K-30113-001', '1', 1, '', '2019-03-29 09:43:57', '2019-03-29 09:43:58', 1, 5, NULL),
 (7, 1, 'vender@ilab.com', 2, 1, NULL, '0', '0', 'ttyi', 'silica (SiO2) in vitreous, or glass, form (i.e., its molecules are disordered and random, without crystalline structure). It has very low thermal expansion, is very hard, and resists high temperatures (1000–1500 °C). It is also the most resistant against ', '2019-04-16', '2019-04-26', '2019-04-24', 2, 0, '1221200', '9909123', '', 'Simple Bid', '1', 13, 'O18191-950-E-K-30113-001', '1', 1, '', '2019-03-29 09:43:57', '2019-03-29 09:43:58', 1, 5, NULL),
 (8, 1, 'ven121@gmail.com', 4, 1, NULL, '1', '0', 'ttyi', 'silica (SiO2) in vitreous, or glass, form (i.e., its molecules are disordered and random, without crystalline structure). It has very low thermal expansion, is very hard, and resists high temperatures (1000–1500 °C). It is also the most resistant against ', '2019-04-16', '2019-04-26', '2019-04-24', 2, 0, '1221200', '9909123', '', 'Simple Bid', '1', 13, 'O18191-950-E-K-30113-001', '1', 1, '', '2019-03-29 09:43:57', '2019-04-04 12:50:47', 1, 7, NULL),
@@ -3852,7 +3856,7 @@ INSERT INTO `Ilab_master_pr_process_detail` (`slno`, `pr_no`, `project_slno`, `p
 (5, 'O18191-950-E-K-30105-001', '1', 'project 1', '5', 'design2@ilab.com', '10', 1, '2019-03-29', 'siprah@gmail.com', '18', 1, '2019-03-30', 2, 'pro@ilab.com', '13', 2, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, '0', '0', 0, 2, 1, NULL, NULL, NULL, NULL, NULL, '0', '0', 0, 0, NULL, 0, 0, 2, NULL, 0, NULL, NULL),
 (6, 'O18191-950-E-K-30107-001', '1', 'project 1', '7', 'design2@ilab.com', '10', 3, '2019-03-18', 'siprah@gmail.com', '18', 2, NULL, 2, NULL, NULL, 2, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, '0', '0', 0, 2, 0, NULL, NULL, NULL, NULL, NULL, '0', '0', 0, 0, NULL, 0, 0, 2, NULL, 0, NULL, NULL),
 (7, 'O18191-950-E-K-30106-001', '1', 'project 1', '6', 'design2@ilab.com', '10', 3, '2019-03-21', 'siprah@gmail.com', '18', 2, NULL, 1, NULL, NULL, 0, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, '0', '0', 0, 2, 0, NULL, NULL, NULL, NULL, NULL, '0', '0', 0, 0, NULL, 0, 0, 2, NULL, 0, NULL, NULL),
-(8, 'O18191-950-E-K-30108-001', '1', 'project 1', '8', 'design2@ilab.com', '10', 1, '2019-03-21', 'siprah@gmail.com', '18', 1, '2019-03-21', 1, 'pro@ilab.com', '13', 1, '2019-03-21', 'buy1@ilab.com', '15', 3, NULL, '2019-03-27', NULL, NULL, '19', 'abc@ilab.com', 'bid 001', 'bid 1', '1', 'Simple Bid', 0, 2, 2, NULL, NULL, NULL, 'bid 001', 'bid 1', '0', '0', 0, 0, NULL, 0, 0, 2, NULL, 3, 1, NULL),
+(8, 'O18191-950-E-K-30108-001', '1', 'project 1', '8', 'design2@ilab.com', '10', 1, '2019-03-21', 'siprah@gmail.com', '18', 1, '2019-03-21', 1, 'pro@ilab.com', '13', 1, '2019-03-21', 'buy1@ilab.com', '15', 2, NULL, '2019-03-27', NULL, NULL, '19', 'abc@ilab.com', 'bid 001', 'bid 1', '1', 'Simple Bid', 1, 2, 1, '2019-04-05', NULL, NULL, 'bid 001', 'bid 1', '0', '0', 0, 0, NULL, 0, 0, 2, NULL, 3, 1, NULL),
 (9, 'O18191-950-E-K-30109-001', '1', 'project 1', '9', 'design2@ilab.com', '10', 3, '2019-03-23', 'siprah@gmail.com', '18', 2, NULL, 1, NULL, NULL, 0, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, '0', '0', 0, 2, 0, NULL, NULL, NULL, NULL, NULL, '0', '0', 0, 0, NULL, 0, 0, 2, NULL, 0, NULL, NULL),
 (10, 'O18191-950-E-K-30110-001', '1', 'project 1', '10', 'design2@ilab.com', '10', 1, '2019-03-28', 'siprah@gmail.com', '18', 1, '2019-03-29', 1, 'pro@ilab.com', '13', 2, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '0', NULL, 0, 2, 0, NULL, NULL, NULL, NULL, NULL, '0', NULL, 0, 0, NULL, 0, 0, 2, NULL, 0, NULL, NULL),
 (11, 'O18191-950-E-K-30111-001', '1', 'project 1', '11', 'design2@ilab.com', '10', 1, '2019-03-28', 'siprah@gmail.com', '18', 1, '2019-03-28', 1, 'pro@ilab.com', '13', 1, '2019-03-29', 'buy1@ilab.com', '15', 3, NULL, '2019-03-30', NULL, NULL, '19', 'abc@ilab.com', '7779', '68009', '1', 'Simple Bid', 0, 2, 2, NULL, NULL, NULL, '7779', '68009', '0', NULL, 0, 0, NULL, 0, 0, 2, NULL, 3, 4, NULL),
@@ -5167,7 +5171,15 @@ INSERT INTO `Ilab_master_session_history` (`slno_history`, `user_id`, `username`
 (684, 'abc@ilab.com', 'Technical User', 9, '{\"browser\":\"Firefox\",\"browserVersion\":\"66.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko\\/20100101 Firefox\\/66.0\"}', '192.168.0.3', '2019-04-04', '16:28:07', 1, NULL, NULL, '0gtgjuo2n25oq690g815maae8jho02kk'),
 (685, 'abc@ilab.com', 'Technical User', 9, '{\"browser\":\"Firefox\",\"browserVersion\":\"66.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko\\/20100101 Firefox\\/66.0\"}', '192.168.0.3', '2019-04-04', '16:59:37', 1, NULL, NULL, '5qpgl7vlm3mea80t6f5d017cimr1pb3v'),
 (686, 'abc@ilab.com', 'Technical User', 9, '{\"browser\":\"Firefox\",\"browserVersion\":\"66.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko\\/20100101 Firefox\\/66.0\"}', '192.168.0.3', '2019-04-04', '18:29:11', 1, NULL, NULL, 'rfr85hj0oe80lv7m7js2f36ikdamukip'),
-(687, 'abc@ilab.com', 'Technical User', 9, '{\"browser\":\"Firefox\",\"browserVersion\":\"66.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko\\/20100101 Firefox\\/66.0\"}', '192.168.0.3', '2019-04-04', '19:01:13', 1, NULL, NULL, 'lo5jrsmbi8d513udiouokcchl1mati4h');
+(687, 'abc@ilab.com', 'Technical User', 9, '{\"browser\":\"Firefox\",\"browserVersion\":\"66.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko\\/20100101 Firefox\\/66.0\"}', '192.168.0.3', '2019-04-04', '19:01:13', 1, NULL, NULL, 'lo5jrsmbi8d513udiouokcchl1mati4h'),
+(688, 'abc@ilab.com', 'Technical User', 9, '{\"browser\":\"Firefox\",\"browserVersion\":\"66.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko\\/20100101 Firefox\\/66.0\"}', '192.168.0.3', '2019-04-05', '17:13:53', 1, NULL, NULL, '12j7mguf3klhjbiv7mp8qed2vbie0sjf');
+INSERT INTO `Ilab_master_session_history` (`slno_history`, `user_id`, `username`, `user_role`, `browser_detail`, `ip`, `entry_date`, `entry_time`, `status`, `logout_time`, `logout_date`, `session_id`) VALUES
+(689, 'buy1@ilab.com', 'buyer 1', 7, '{\"browser\":\"Firefox\",\"browserVersion\":\"66.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko\\/20100101 Firefox\\/66.0\"}', '192.168.0.3', '2019-04-05', '18:24:21', 1, NULL, NULL, '9laspe6hg7rtrhtkj8res2o0v51gelue'),
+(690, 'abc@ilab.com', 'Technical User', 9, '{\"browser\":\"Firefox\",\"browserVersion\":\"66.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko\\/20100101 Firefox\\/66.0\"}', '192.168.0.3', '2019-04-05', '18:36:28', 1, NULL, NULL, 'j7oq0h2sgl9j5og2t4jku2svr895t62q'),
+(691, 'abc@ilab.com', 'Technical User', 9, '{\"browser\":\"Firefox\",\"browserVersion\":\"66.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko\\/20100101 Firefox\\/66.0\"}', '192.168.0.3', '2019-04-05', '19:36:47', 1, NULL, NULL, '5drk0bpa0su4ooup17tj1qiv5ltq3okc'),
+(692, 'commerical@ilab.com', 'user3', 10, '{\"browser\":\"Firefox\",\"browserVersion\":\"66.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko\\/20100101 Firefox\\/66.0\"}', '192.168.0.3', '2019-04-05', '19:38:10', 1, NULL, NULL, 'qgks561iis1t7sgh3su6cl13c5ahbc6n'),
+(693, 'commerical@ilab.com', 'user3', 10, '{\"browser\":\"Firefox\",\"browserVersion\":\"66.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko\\/20100101 Firefox\\/66.0\"}', '192.168.0.3', '2019-04-05', '19:51:39', 1, NULL, NULL, '8u8659ar66480o079dtpfbl2b4rklajp'),
+(694, 'commerical@ilab.com', 'user3', 10, '{\"browser\":\"Firefox\",\"browserVersion\":\"66.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko\\/20100101 Firefox\\/66.0\"}', '192.168.0.3', '2019-04-05', '20:00:00', 1, NULL, NULL, 'nhe1p59tqapvu4cega7mtrlo8hbnaemj');
 
 -- --------------------------------------------------------
 
@@ -5293,7 +5305,9 @@ INSERT INTO `Ilab_master_session_history_vendors` (`slno_history`, `user_id`, `u
 (96, 'ven121@gmail.com', 'INFOLEX METAMORF ', 4, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.6', '2019-04-04', '13:44:25', 2, '13:45:07', '2019-04-04', '5b294lets45j61k4vl50fudg9hld8ums'),
 (97, 'ven121@gmail.com', 'INFOLEX METAMORF ', 4, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.6', '2019-04-04', '15:18:24', 1, NULL, NULL, 'lrnvood3ep6f6jla0ljo9krjg9jvp9i1'),
 (98, 'ven121@gmail.com', 'INFOLEX METAMORF ', 4, '{\"browser\":\"Firefox\",\"browserVersion\":\"66.0\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko\\/20100101 Firefox\\/66.0\"}', '192.168.0.3', '2019-04-04', '15:40:39', 1, NULL, NULL, 'ovgdb4n9d01ljlpjjgkaipgdd34ed3gs'),
-(99, 'ven121@gmail.com', 'INFOLEX METAMORF ', 4, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.6', '2019-04-04', '17:40:21', 1, NULL, NULL, '7n22a97pus9pfea75gscs3gb8ek6mgud');
+(99, 'ven121@gmail.com', 'INFOLEX METAMORF ', 4, '{\"browser\":\"Chrome\",\"browserVersion\":\"72.0.3626.121\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/72.0.3626.121 Safari\\/537.36\"}', '192.168.0.6', '2019-04-04', '17:40:21', 1, NULL, NULL, '7n22a97pus9pfea75gscs3gb8ek6mgud'),
+(100, 'ven121@gmail.com', 'INFOLEX METAMORF ', 4, '{\"browser\":\"Chrome\",\"browserVersion\":\"73.0.3683.86\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/73.0.3683.86 Safari\\/537.36\"}', '192.168.0.6', '2019-04-05', '10:31:49', 2, '10:33:41', '2019-04-05', 'eflt3id4b1ufb527ihnuac135qg2lhlj'),
+(101, 'ven121@gmail.com', 'INFOLEX METAMORF ', 4, '{\"browser\":\"Chrome\",\"browserVersion\":\"73.0.3683.103\",\"platform\":\"Linux\",\"full_user_agent_string\":\"Mozilla\\/5.0 (X11; Linux x86_64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/73.0.3683.103 Safari\\/537.36\"}', '192.168.0.6', '2019-04-05', '16:38:05', 1, NULL, NULL, '6bsoepvl037gfrdlbg9f9qi17jqlj4u0');
 
 -- --------------------------------------------------------
 
@@ -7252,9 +7266,9 @@ ALTER TABLE `Ilab_master_bid_query`
   ADD PRIMARY KEY (`Slno_query`);
 
 --
--- Indexes for table `Ilab_master_bid_query_commerical`
+-- Indexes for table `Ilab_master_bid_query_comm_m`
 --
-ALTER TABLE `Ilab_master_bid_query_commerical`
+ALTER TABLE `Ilab_master_bid_query_comm_m`
   ADD PRIMARY KEY (`Slno_query`);
 
 --
@@ -8012,10 +8026,10 @@ ALTER TABLE `Ilab_master_bid_otp_commerical`
 ALTER TABLE `Ilab_master_bid_query`
   MODIFY `Slno_query` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `Ilab_master_bid_query_commerical`
+-- AUTO_INCREMENT for table `Ilab_master_bid_query_comm_m`
 --
-ALTER TABLE `Ilab_master_bid_query_commerical`
-  MODIFY `Slno_query` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+ALTER TABLE `Ilab_master_bid_query_comm_m`
+  MODIFY `Slno_query` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `Ilab_master_bid_technicalevaluation`
 --
@@ -8355,12 +8369,12 @@ ALTER TABLE `Ilab_master_rankorder_item_total_temp`
 -- AUTO_INCREMENT for table `Ilab_master_session_history`
 --
 ALTER TABLE `Ilab_master_session_history`
-  MODIFY `slno_history` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=688;
+  MODIFY `slno_history` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=695;
 --
 -- AUTO_INCREMENT for table `Ilab_master_session_history_vendors`
 --
 ALTER TABLE `Ilab_master_session_history_vendors`
-  MODIFY `slno_history` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100;
+  MODIFY `slno_history` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=102;
 --
 -- AUTO_INCREMENT for table `Ilab_master_simple_bid`
 --

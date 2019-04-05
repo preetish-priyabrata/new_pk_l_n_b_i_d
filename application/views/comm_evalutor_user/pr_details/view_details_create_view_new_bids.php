@@ -4,39 +4,49 @@ if(empty($email_id)){
 	
 	redirect('commerical-evalutor-logout-by-pass');
 }
-$pr_no=$Pr_no;
+
+// 'pr_no'=>$pr_no,'Pr_no_slno'=>$slno,'Project_slno'=>$job_code,'edit_type'=>$id,'comm_bid'=>$comm_bid);
+$pr_no=$pr_no;
 $slno_pr=$Pr_no_slno;
 $job_code=$Project_slno;
+$edit_type=$edit_type;
+$comm_bid=$comm_bid;
+// `commercial_user_id`, `commercial_user_slno`, `commercial_bid_id`, `commercial_bid_ref`, `commercial_edit_id`, `commercial_type_bid`, `commercial_complete_status`, `commercial_user_status`, `commercial_bid_master_slno`, `commercial_resubmit_status`, `commercial_resubmit_count`, `commercial_amendment_status`, `commercial_date`
 
-$data_process = array('pr_no' =>$pr_no);
+$data_process = array('pr_no' =>$pr_no,'commercial_user_id'=>$email_id);
 $query_process=$this->db->get_where('master_pr_process_detail',$data_process);
 $result_process=$query_process->result();
 
 
-$tech_bid=$result_process[0]->tech_bid;  // bid id information
-$technical_bid_id=$result_process[0]->technical_bid_id;  // technical bid ind information 
-$technical_bid_ref=$result_process[0]->technical_bid_ref; // technical bid referenced infromtion
-$technical_edit_id=$result_process[0]->technical_edit_id; // no of time bid is been edit infromation
+$comm_bid_db=$result_process[0]->comm_bid;  // bid id information
+$commercial_bid_id=$result_process[0]->commercial_bid_id;  // technical bid ind information 
+$commercial_bid_ref=$result_process[0]->commercial_bid_ref; // technical bid referenced infromtion
+$commercial_edit_id=$result_process[0]->commercial_edit_id; // no of time bid is been edit infromation
+$commercial_resubmit_count=$result_process[0]->commercial_resubmit_count;
+
+$technical_user_slno=$result_process[0]->technical_user_slno;
+// `technical_user_slno`, `technical_user_id`
+$technical_user_id=$result_process[0]->technical_user_id;
 
 
 
 
 
-$data_array = array('edit_id_bid' =>$technical_edit_id,'bid_id'=>$technical_bid_id,'bid_ref'=> $technical_bid_ref,'pr_no'=>$pr_no,'master_bid_id'=>$tech_bid);
+$data_array = array('edit_id_bid' =>$commercial_edit_id,'bid_id'=>$commercial_bid_id,'bid_ref'=> $commercial_bid_ref,'pr_no'=>$pr_no,'master_bid_id'=>$comm_bid,'commercial_resubmit_count'=>$commercial_resubmit_count);
 
-$vendor_selected_id=$this->db->get_where('master_bid_vendor_m',$data_array);
+$vendor_selected_id=$this->db->get_where('master_bid_Com_vendor_m',$data_array);
 
 $data_table1= array('pr_no' =>$pr_no);
-$query_table1=$this->db->get_where('master_bid_date_details_m',$data_table1);
+$query_table1=$this->db->get_where('master_bid_Com_date_details_m',$data_table1);
 $result_table1=$query_table1->result();
 
 $data_table2 = array('pr_no' =>$pr_no);
-$query_table2=$this->db->get_where('master_bid_details_m',$data_table2);
+$query_table2=$this->db->get_where('master_bid_Com_details_m',$data_table2);
 $result_table2=$query_table2->result();
 
 
 $data_table3 = array('pr_no' =>$pr_no);
-$query_table3=$this->db->get_where('master_bid_m',$data_table3);
+$query_table3=$this->db->get_where('master_bid_Com_m',$data_table3);
 $result_table3=$query_table3->result();
 
 $data_table4 = array('pr_no' =>$pr_no);
@@ -123,7 +133,7 @@ $result_table=$query_data->result();
 					<div class="alert alert-secondary">
                         		<span style="color: red"> *</span> All mandatory fields shall be duly filled up 
                         	</div>
-					<form action="<?=base_url()?>procurement-add-new-pr-save" method="POST" >
+					<form action="#" method="POST" >
 						<div class="row">
 							<div class="col-md-6 col-lg-6">
 								<div class="form-group row m-b-15">
@@ -138,7 +148,7 @@ $result_table=$query_data->result();
 										<input type="hidden" readonly="" name="job_code" id="job_code" value="<?=$job_code?>">
 										<input class="form-control m-b-5"  name="pr_no_type" id="pr_no_type" type="hidden" value="new_pr_creater" required="" readonly>
 										<input class="form-control m-b-5"  name="edit_type" id="edit_type" type="hidden" value="<?=$edit_id=$result_table[0]->edit_id?>"required="" readonly>
-										<input type="hidden"  name="tech_evalution"  value="<?=$result_table[0]->techinal_evalution?>">
+										<input type="hidden"  name="tech_evalution"  value="<?=$techinal_evalution=$result_table[0]->techinal_evalution?>">
 										<small class="f-s-12 text-grey-darker">PR No.</small>
 									</div>
 								</div>
@@ -279,25 +289,60 @@ $result_table=$query_data->result();
 										<small class="f-s-12 text-grey-darker">Select Buyer </small>
 									</div>
 								</div>
+								<?php if($techinal_evalution==1){ ?>
 								<div class="form-group row m-b-15">
-													<label class="col-form-label col-md-3" for="Technical_ev" >Commercial Evaluator Name <span style="color: red">*</span></label>
+													<label class="col-form-label col-md-3" for="Technical_ev" >Technical  Evaluator Name </label>
 													<div class="col-md-9">
 														<?php
-														$data_array_approver=$this->buyer_user->get_user_generic_list('1','0','0','10','','');	
+														$data_array_approver_tech=$this->buyer_user->get_user_generic_list('1','0','0','9','','');	
 															
 														?>
 														
 														<select name="Technical_ev"  class="form-control m-b-5" id="Technical_ev" required="" >
 															<?php 
-															if($data_array_approver['no_user']==2){?>
-																<option value="">--No Commercial Evaluator Is found--</option>
+															if($data_array_approver_tech['no_user']==2){?>
+																<option value="">--No Technical Evaluator Is found--</option>
 																<?php
-															}else if($data_array_approver['no_user']==1){
+															}else if($data_array_approver_tech['no_user']==1){
 																?>
 																
 															<?php
-																foreach ($data_array_approver['user_approver'] as $key_approver) {
+																foreach ($data_array_approver_tech['user_approver'] as $key_approver) {
+																	if($technical_user_id==$key_approver->email_id){
+																		echo "<option value='".$key_approver->slno."'>".$key_approver->Username." [ ".$key_approver->email_id." ]</option>";
+																	}
+																}
+															
+																
+															}	
+															?>										
+															
+														</select>
+														<small class="f-s-12 text-grey-darker">Select Commerical Evaluator </small>
+													</div>
+												</div>
+											<?php }?>
+								<div class="form-group row m-b-15">
+													<label class="col-form-label col-md-3" for="Technical_ev" >Commercial Evaluator Name <span style="color: red">*</span></label>
+													<div class="col-md-9">
+														<?php
+														$data_array_approver_comm=$this->buyer_user->get_user_generic_list('1','0','0','10','','');	
+															
+														?>
+														
+														<select name="Technical_ev"  class="form-control m-b-5" id="Technical_ev" required="" >
+															<?php 
+															if($data_array_approver_comm['no_user']==2){?>
+																<option value="">--No Commercial Evaluator Is found--</option>
+																<?php
+															}else if($data_array_approver_comm['no_user']==1){
+																?>
+																
+															<?php
+																foreach ($data_array_approver_comm['user_approver'] as $key_approver) {
+																	if($result_process[0]->commercial_user_id==$key_approver->email_id){
 																	echo "<option value='".$key_approver->slno."'>".$key_approver->Username." [ ".$key_approver->email_id." ]</option>";
+																	}
 																}
 															
 																
@@ -322,38 +367,7 @@ $result_table=$query_data->result();
              
 
 						 </div>
-						 <div class="row">
-							<div class="col-lg-12">
-								<div id="cart-item-files"></div>
-							</div>
-						</div>
 						 
-						 <div class="row">
-							<div class="col-lg-12">
-								<div id="cart-item-files"></div>
-
-								<table class="table table-bordered">
-									<thead>									
-			                            <tr>
-			                                <th><strong>File Title Name</strong></th>
-			                                <th><strong>Click View</strong></th>                                
-			                              
-			                            </tr>
-			                        </thead>
-						            <tbody>
-			                            <?php foreach($result_file['files_list'] as $key_files){ ?>
-			                                <tr>
-			                                    <td><strong><?=$key_files->file_title?></strong></td>
-			                                    <td><strong><a target="_blank" href="<?=base_url()?>upload_files/design_upload/<?=$key_files->attach_name?>">Click View</a> </strong></td>                                
-			                                  
-			                                </tr> 
-
-
-			                            <?php }?>
-									</tbody>
-									</table>
-							</div>
-						</div>
 						<?php
 						$data_material = array('mr_no_item' => $pr_no, 'edit_id'=>$edit_id);
 						$table_material="master_mr_material_item_m";
@@ -363,11 +377,6 @@ $result_table=$query_data->result();
 						?>
 						 <br>
 						<hr>
-						<div class="row">
-							<div class="col-lg-12">
-								
-							</div>
-						</div>
 						<div class="row">
 					<div class="col-md-12 col-lg-12">
 						<div id="accordion">
@@ -396,30 +405,30 @@ $result_table=$query_data->result();
 												</div>
 
 												<div class="form-group row m-b-15">
-													<label class="col-form-label col-md-3" for="bid_ref_no">Bid Ref No. <span style="color: red">*</span></label>
+													<label class="col-form-label col-md-3" for="bid_ref_no">Bid Ref No. </label>
 													<div class="col-md-9">
-														<input class="form-control m-b-5" onkeyup="get_bid_ref(1)" placeholder="Enter Bid Ref No" name="bid_ref_no" id="bid_ref_no" type="text" required="" >
+														<?=$result_table3[0]->bid_ref?>
 														<span id="job_code_error1"></span><br>	
 														
 													</div>
 												</div>
 
 												<div class="form-group row m-b-15">
-													<label class="col-form-label col-md-3" for="bid_method">Mode Of Selection <span style="color: red">*</span></label>
+													<label class="col-form-label col-md-3" for="bid_method">Mode Of Selection </label>
 													<div class="col-md-9">
 												  		<select class="form-control" id="bid_method"  name="bid_method" required=""value="<?=$result_table3[0]->mode_bid?>">
 												  			
 												    		
 												    		<?php 
-															if($result_table5[0]->technical_type_bid=='Closed Bid'){?>
+															if($result_table5[0]->commercial_type_bid=='Closed Bid'){?>
 												    	    <option value="Closed Bid">Closed Bid </option>
 												    	 <?php }?>
 												    	    <?php 
-															if($result_table5[0]->technical_type_bid=='Rank Order Bid'){?>
+															if($result_table5[0]->commercial_type_bid=='Rank Order Bid'){?>
 												    		<option value="Rank Order Bid">Rank Order Bid </option>
 												    	 <?php }?>
                                                             <?php 
-															if($result_table5[0]->technical_type_bid=='Simple Bid'){?>
+															if($result_table5[0]->commercial_type_bid=='Simple Bid'){?>
 												    		<option value="Simple Bid">Simple Bid </option>
 												    	 <?php }?>
 												  		</select>
@@ -435,25 +444,27 @@ $result_table=$query_data->result();
 												<!-- part B Start -->
 
 												<div class="form-group row m-b-15">
-													<label class="col-form-label col-md-3" for="date_publish">Bid Publish Date <span style="color: red">*</span></label>
+													<label class="col-form-label col-md-3" for="date_publish">Bid Publish Date </label>
 													<div class="col-md-9">
-														<input class="form-control m-b-5 datepickers" placeholder="Enter Activity name" name="date_publish" id="date_publish" type="text" required="" >
+														<?=$result_table3[0]->date_publish?>
+														
 													</div>
 												</div>
 
 												<div class="form-group row m-b-15">
-													<label class="col-form-label col-md-3" for="bid_Id">Bid Id <span style="color: red">*</span></label>
+													<label class="col-form-label col-md-3" for="bid_Id">Bid Id </label>
 													<div class="col-md-9">
-														<input class="form-control m-b-5" placeholder="Enter Bid Id " onkeyup="get_bid_ref(2)" name="bid_Id" id="bid_Id" type="text" required="" >
+														<?=$result_table3[0]->bid_id?>
 														<span id="job_code_error2"></span><br>	
 														
 													</div>
 												</div>
 
 												<div class="form-group row m-b-15">
-													<label class="col-form-label col-md-3" for="date_closing">Date Of Closing <span style="color: red">*</span></label>
+													<label class="col-form-label col-md-3" for="date_closing">Date Of Closing </label>
 													<div class="col-md-9">
-														<input class="form-control m-b-5 datepickers" placeholder="Enter Date Of Closing" name="date_closing" id="date_closing" type="text" required="" >
+														<?=$result_table3[0]->date_closing?>
+														
 													</div>
 												</div>
 
@@ -484,17 +495,18 @@ $result_table=$query_data->result();
 												<!-- part c start -->
 
 												<div class="form-group row m-b-15">
-													<label class="col-form-label col-md-3" for="bid_title">Bid Title  <span style="color: red">*</span></label>
+													<label class="col-form-label col-md-3" for="bid_title">Bid Title  </label>
 													<div class="col-md-9">
-														<input class="form-control m-b-5" placeholder="Enter Bid Title" name="bid_title" id="bid_title" type="text" required="">
+														<?=$result_table2[0]->Title_bid?>
 														
 													</div>
 												</div>
 
 												<div class="form-group row m-b-15">
-													<label class="col-form-label col-md-3" for="bid_period_work">Period Of Work  <span style="color: red">*</span></label>
+													<label class="col-form-label col-md-3" for="bid_period_work">Period Of Work  </label>
 													<div class="col-md-9">
-														<input class="form-control m-b-5" placeholder="Enter Period Of Work" name="bid_period_work" id="bid_period_work" type="text" required="">
+														<?=$result_table2[0]->period_work_detail?>
+														
 													</div>
 												</div>
 
@@ -506,19 +518,19 @@ $result_table=$query_data->result();
 												<!-- part d start -->
 
 												<div class="form-group row m-b-15">
-													<label class="col-form-label col-md-3">Work Description  <span style="color: red">*</span></label>
+													<label class="col-form-label col-md-3">Work Description  </label>
 													<div class="col-md-9">
 														
-														<textarea class="form-control" rows="3" name="bid_work_description" required=""></textarea>
-														<small class="f-s-12 text-grey-darker"> Please enter Work Description  </small>
+														<?=$result_table2[0]->work_detail_bid?>
 														
 													</div>
 												</div>
 
 												<div class="form-group row m-b-15">
-													<label class="col-form-label col-md-3" for="bid_location_work">Location Of Work  <span style="color: red">*</span></label>
+													<label class="col-form-label col-md-3" for="bid_location_work">Location Of Work  </label>
 													<div class="col-md-9">
-														<input class="form-control m-b-5" placeholder="Enter Location Of Work" name="bid_location_work" id="bid_location_work" type="text" required="">
+														<?=$result_table2[0]->location_detail?>
+														
 													</div>
 												</div>
 
@@ -583,18 +595,18 @@ $result_table=$query_data->result();
 												<!-- part e start -->
 
 												<div class="form-group row m-b-15">
-													<label class="col-form-label col-md-3" for="date_start_bid">Bid Start Date <span style="color: red">*</span></label>
+													<label class="col-form-label col-md-3" for="date_start_bid">Bid Start Date </label>
 													<div class="col-md-9">
 
-														<input class="form-control m-b-5 datepickers" placeholder="EnterBid Start Date" name="date_start_bid" id="date_start_bid" type="text" required="" >
+														<?=$result_table1[0]->bid_start_date?>
 														
 													</div>
 												</div>
 
 												<div class="form-group row m-b-15">
-													<label class="col-form-label col-md-3" for="date_clearfication_bid">Bid Clarification Date <span style="color: red">*</span></label>
+													<label class="col-form-label col-md-3" for="date_clearfication_bid">Bid Clarification Date </label>
 													<div class="col-md-9">
-														<input class="form-control m-b-5 datepickers" placeholder="EnterBid Clearfication Date" name="date_clearfication_bid" id="date_clearfication_bid" type="text" required="" >
+														<?=$result_table1[0]->bid_query_closed_date?>
 														
 													</div>
 												</div>
@@ -605,18 +617,17 @@ $result_table=$query_data->result();
 											<div class="col-md-6 col-lg-6">
 												<!-- part f start -->
 												<div class="form-group row m-b-15">
-													<label class="col-form-label col-md-3" for="date_closed_bid">Bid Closed Date <span style="color: red">*</span></label>
+													<label class="col-form-label col-md-3" for="date_closed_bid">Bid Closed Date </label>
 													<div class="col-md-9">
-														<input class="form-control m-b-5 datepickers" placeholder="EnterBid Closed Date" name="date_closed_bid" id="date_closed_bid" type="text" required="" >
+														<?=$result_table1[0]->bid_closed_date?>
 														
 													</div>
 												</div>
 
 												<div class="form-group row m-b-15">
-													<label class="col-form-label col-md-3">Detail Description  <span style="color: red">*</span></label>
+													<label class="col-form-label col-md-3">Detail Description  </label>
 													<div class="col-md-9">
-														<textarea class="form-control" rows="3" name="bid_detail_description" required=""></textarea>
-														<small class="f-s-12 text-grey-darker"> Please enter Detail Description  </small>
+														<span><?=$result_table1[0]->bid_detail_description?></span>
 														
 													</div>
 												</div>
@@ -643,21 +654,9 @@ $result_table=$query_data->result();
 										<hr style="background: lightblue">
 										<!-- row Start -->
 										<div class="row">
-											<!-- part g -->
-											<div class="col-md-6 col-lg-6">
 
-												<!-- part g start -->
-												
-												<div class="row">
-													<div class="col-lg-12">
-														<div id="cart-item-files"></div>
-													</div>
-												</div>
-												<!-- part g end -->
-											</div>
-											<!-- part g end here -->
 											<!-- part h -->
-											<div class="col-md-6 col-lg-6">
+											<div class="col-md-12 col-lg-12">
 												<!-- part h start -->
 												<div class="row">
 													<div class="col-lg-12">
@@ -709,7 +708,7 @@ $result_table=$query_data->result();
                                               	 	<div class="row">
 													<div class="col-lg-12">
 														<div class="form-group row m-b-15">
-															<label class="col-form-label col-md-3">Terms and Conditions <span style="color: red">*</span></label>
+															<!-- <label class="col-form-label col-md-3">Terms and Conditions </label> -->
 															<?=$result_table4[0]->t_c_detail?>
 														    
 													        </div>
@@ -730,7 +729,7 @@ $result_table=$query_data->result();
 							 <div class="card">
 							    <div class="card-header text-center">
 							      	<a class="collapsed card-link" data-toggle="collapse" href="#collapseFive">
-							       		 Commercial Evaluator / Vendor Selection
+							       		  Vendor Selection
 							      	</a>
 							    </div>
 							    <div id="collapseFive" class="collapse" data-parent="#accordion">
@@ -739,18 +738,19 @@ $result_table=$query_data->result();
 										<hr style="background: lightblue">
 										<!-- row Start -->
 										<div class="row">
-											<table class="table table-bordered">
+											<table class="table table-bordered" width="100%">
 													<thead>
 														<tr>
-															<th>Organisation Name</th>
-															<th>Detail</th>
+															<th width="10%">Organisation Name</th>
+															<th width="40%">Detail</th>
 															<th>Approver</th>
 															<th>Submission</th>
-															<th>Action</th>
+
 														</tr>
 													</thead>
 													<tbody>
 														<?php 
+														$check_approve=0;
 														foreach ($vendor_selected_id->result() as $key_vendor => $value_vendor) {
 															// print_r($value_vendor);
 															$vendor_id=$value_vendor->vendor_id;
@@ -760,13 +760,12 @@ $result_table=$query_data->result();
 															$value_id_vender=$query_vendor_result[0];
 														?>
 														<tr>
-															 <td><?=$value_id_vender->Organisation_name?></td>
-						                                    <td><p>Vendor Name :    <?=$value_id_vender->Vendor_name?></p>
+															 <td width="10%"><?=$value_id_vender->Organisation_name?></td>
+						                                    <td width="40%"><p>Vendor Name :    <?=$value_id_vender->Vendor_name?></p>
 						                                        <p>Organisation Name : <?=$value_id_vender->Organisation_name?></p>
 						                                        <p>Vendor Mobile : <?=$value_id_vender->Mobile_no?></p>
 						                                        <p>Vendor Address : <?=$value_id_vender->Organisation_address?></p>
 						                                    </td>
-															<td></td>
 															<td></td>
 															<td></td>
 															
@@ -781,12 +780,14 @@ $result_table=$query_data->result();
 
 							      	</div>
 							    </div>
+							    <br>
+							    <br>
 							    <div class="form-group row pull-right">
                             <div class="col-md-12">
                                 <!--<button type="submit" class="btn btn-sm btn-primary m-r-5" >Next</button>-->
-                                <input type="submit" name="submission" value="Save" class="btn btn-success btn-sm"> 
-                               <input type="submit" name="submission" value="Sent" class="btn btn-info btn-sm">
-                               <a  href="<?=base_url()?>technical-user-create-new-material class="btn btn-sm btn-default">Back</a> 
+			                   
+
+                               <a  href="<?=base_url()?>user-commerical-evalutor-home" class="btn btn-sm btn-default">Back</a> 
                             </div>
                         </div>
 							</div>
@@ -801,153 +802,3 @@ $result_table=$query_data->result();
 				</div>
 			</div>
 
-	<script type="text/javascript">
-
-function get_vender() {
-	var employee_name=$('#employee_name').val();
-	if(employee_name!=""){
-		queryString_id ='employee_name='+ employee_name;
-
-		jQuery.ajax({
-			url: "<?php echo base_url(); ?>buyer-vendor-search-informations",
-			data:queryString_id,
-			type: "POST",
-			success:function(data){
-				$("#result_vendor").html(data);
-			}
-		});
-	}
-
-}
-$(document).ready(function(){
-	$('#spl').hide();
-	get_vender();
-		// $('.add_cart').click(function(){
-		$(document).on('click','.add_cart',function(){
-			  // var productId = $(this).attr('data-productId');
-			var product_id    = $(this).data("productid");
-			// alert(product_id);
-			// var Organisation_names  = $(this).data("Organisationname");
-			var product_price = $(this).data("productprice");
-			// var quantity   	  = $('#' + product_id).val();
-			$.ajax({
-				url : "<?=base_url()?>buyer-vendor-cart",
-				method : "POST",
-				data : {product_id: product_id, Organisation_names: product_price },
-				success: function(data){
-					$('#detail_cart_vendor').html(data);
-					get_vender();
-				}
-			});
-		});
-
-		
-		$('#detail_cart_vendor').load("<?=base_url()?>buyer-vendor-cart-show");
-
-		
-		$(document).on('click','.romove_cart',function(){
-			var row_id=$(this).attr("id"); 
-			$.ajax({
-				url : "<?=base_url()?>buyer-vendor-cart-delete-cart",
-				method : "POST",
-				data : {row_id : row_id},
-				success :function(data){
-					$('#detail_cart_vendor').html(data);
-					get_vender();
-				}
-			});
-		});
-	});
-	function get_bid_ref(id) {
-		if(id==1){
-			var job_code=document.getElementById('bid_ref_no').value;
-			var pass1 = document.getElementById('bid_ref_no');
-			var message = document.getElementById('job_code_error1');
-			
-			var goodColor = "#0C6";
-			var badColor = "#FF9B37";    				
-			var results;
-			if(job_code!=""){
-				$.ajax({
-			  		url:'<?=base_url()?>get-buyer-bid-check-pr',
-			    	method: 'post',
-			    	data: {field_id:'3',job_codes:job_code},
-			    	// dataType: 'json',
-			    	success: function(response){
-			    		if(response==1){
-							pass1.style.backgroundColor = goodColor;
-					        message.style.color = goodColor;
-					        message.innerHTML = "valid Bid Ref code";
-					        $('#spl').show();
-					        results=1;
-					        return 1;
-					    }else{
-					    	pass1.style.backgroundColor = badColor;
-							message.style.color = badColor;
-							message.innerHTML = "invalid Bid Ref code";
-							results=2;
-							// $('#bid_ref_no').val('');
-							$('#spl').hide();
-							return false;
-					    }
-				    }
-				});
-
-			}else{
-				pass1.style.backgroundColor = badColor;
-				message.style.color = badColor;
-				message.innerHTML = "Should not left blank";
-				return false;
-			}
-
-		}else if(id==2){
-			var bid_Id=document.getElementById('bid_Id').value;
-			var pass1 = document.getElementById('bid_Id');
-			var message = document.getElementById('job_code_error2');
-					
-   			var goodColor = "#0C6";
-    		var badColor = "#FF9B37";				
-			if(bid_Id!=""){
-				 $.ajax({
-					url:'<?=base_url()?>get-buyer-bid-check-pr',
-					method: 'post',
-					data: {field_id:'4',job_codes:bid_Id},
-					    // dataType: 'json',
-					success: function(response){						   
-					    if(response==1){
-							pass1.style.backgroundColor = goodColor;
-					        message.style.color = goodColor;
-					        message.innerHTML = "valid Bid id code";
-					        $('#spl').show();
-					        // return 	get_bid_ref(true);						       
-					        // return "preetish";
-
-						        
-						}else if(response==2){
-							pass1.style.backgroundColor = badColor;
-					        message.style.color = badColor;
-					        message.innerHTML = "invalid Bid id code";									      
-					        // $('#bid_Id').val('');
-					        $('#spl').hide();
-					         return false;							         
-					         
-						}
-
-					}
-				});
-
-			}else{
-				pass1.style.backgroundColor = badColor;
-				message.style.color = badColor;
-				message.innerHTML = "Should not left blank";
-				 return false;
-			}
-
-		}
-	}
-
-</script>
-				
-
-
-				

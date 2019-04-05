@@ -364,16 +364,72 @@ public function technical_user_bid_pr_new_material($value='',$value1='',$value2=
             $this->load->view('tech_evalutor_user/pr_details/view_details_create_view_new_bids_pr',$data);
             $this->load->view('template/template_footer',$data);
         }else if($id==2){ // here  technical user will submit
-              print_r($this->input->post());
+            $email_id=$this->session->userdata('technical_email_id');
+            if(empty($email_id)){
+                
+                redirect('tech-evalutor-logout-by-pass');
+            }
+    
+            // echo "O18191-950-E-K-30108-001/bid 1/bid 001/1/1 <br>";
+            // $pr_no."<br>";
 
+            $data_process = array('pr_no' =>$pr_no);
+            $query_process=$this->db->get_where('master_pr_process_detail',$data_process);
+            $result_process=$query_process->result();
+
+
+            $technical_bid_id_db=$result_process[0]->technical_bid_id;  // technical bid ind information 
+            $technical_bid_ref_db=$result_process[0]->technical_bid_ref; // technical bid referenced infromtion
+            $technical_edit_id=$result_process[0]->technical_edit_id; // no of time bid is been edit infromation
+            $slno_pr=$result_process[0]->pr_no_slno;
+            $job_code=$result_process[0]->project_slno;
+            $tech_bid_db=$result_process[0]->tech_bid;  // bid id information
+
+            $technical_bid_ref_url=urldecode($technical_bid_ref);
+            $technical_bid_id_url=urldecode($technical_bid_id);
+            $tech_bid_url=$tech_bid;
+            if($tech_bid_url==$tech_bid_db){
+
+                $update_id = array('technical_complete_status' =>1 , 'buyer_user_status'=>2,'technical_user_status'=>1,'technical_date'=>date('Y-m-d'),'techno_commercial_status'=>4);
+                $data_id = array('technical_user_id' =>$email_id , 'pr_no' =>$pr_no);
+
+                $query_upadte_id_process=$this->db->update('master_pr_process_detail',$update_id,$data_id);
+                $vendor_update_status = array('status_active' =>2 );
+                $id_vendor = array('master_bid_id' => $tech_bid_url );
+
+                $master_bid_vendor=$this->db->update('master_bid_vendor_m',$vendor_update_status,$id_vendor);
+                $this->session->set_flashdata('success_message',  'successfull Bid Complted  bid ref np is '.$technical_bid_ref_url);
+                redirect('user-technical-evalutor-home');
+
+            }else{
+                $this->session->set_flashdata('error_message',  'Some thing went wrong Try Again!!');
+                redirect('user-technical-evalutor-home');
+            }
+            
         }else if($id==3){
-
+            $scripts='';
+            $data=array('title' =>"Bid Detail Information",'script_js'=>$scripts,'menu_status'=>'1','sub_menu'=>'1','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','Pr_no'=>$pr_no,'technical_bid_ref'=>$technical_bid_ref,'technical_bid_id'=>$technical_bid_id,'id'=>$id,'bid_id'=>$tech_bid);
+            $this->load->view('template/template_header',$data);
+            $this->load->view('tech_evalutor_user/template/template_top_head');
+            $this->load->view('tech_evalutor_user/template/template_side_bar',$data);
+            $this->load->view('tech_evalutor_user/pr_details/view_details_create_view_new_bids_pr',$data);
+            $this->load->view('template/template_footer',$data);
         }else{
-
+             $this->session->set_flashdata('error_message',  'Some thing went wrong Try Again!!');
+                redirect('user-technical-evalutor-home');
         }
         # code...
     }
-   
+   public function technical_evaluator_bid_old_list_pr_info($value=''){
+         $scripts='<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script><script src=" https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script> <script src="'.base_url().'file_css_admin/own_js.js"></script>';
+            $data=array('title' =>"Buyer List Of Mr Received",'script_js'=>$scripts,'menu_status'=>'1','sub_menu'=>'2','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'');
+            $this->load->view('template/template_header',$data);
+            $this->load->view('tech_evalutor_user/template/template_top_head');
+            $this->load->view('tech_evalutor_user/template/template_side_bar',$data);
+            $this->load->view('tech_evalutor_user/pr_completed/create_view_new_bids',$data);
+            $this->load->view('template/template_footer',$data);
+       # code...
+   }
     
 
 

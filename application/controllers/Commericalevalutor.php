@@ -341,26 +341,8 @@ class Commericalevalutor extends CI_Controller {
         }
 
     }
-    public function user_commerical_evalutor_pr_create($value=''){ // will show mr in mr received
-        $scripts='<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script><script src=" https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script> <script src="'.base_url().'file_css_admin/own_js.js"></script>';
-            $data=array('title' =>"Buyer List Of Mr Received",'script_js'=>$scripts,'menu_status'=>'1','sub_menu'=>'1','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'');
-            $this->load->view('template/template_header',$data);
-            $this->load->view('comm_evalutor_user/template/template_top_head');
-            $this->load->view('comm_evalutor_user/template/template_side_bar',$data);
-            $this->load->view('comm_evalutor_user/pr_create/create_view',$data);
-            $this->load->view('template/template_footer',$data);
-       # code...
-   }
-   public function technical_user_create_new_material($value='',$value1='',$value2='',$value3=''){ // will show mr in mr received
-        $scripts='<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script><script src=" https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script> <script src="'.base_url().'file_css_admin/own_js.js"></script>';
-            $data=array('title' =>"Buyer List Of Mr Received",'script_js'=>$scripts,'menu_status'=>'1','sub_menu'=>'1','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','Pr_no'=>$value,'Pr_no_slno'=>$value1,'Project_slno'=>$value2,'edit_type'=>$value3);
-            $this->load->view('template/template_header',$data);
-            $this->load->view('comm_evalutor_user/template/template_top_head');
-            $this->load->view('comm_evalutor_user/template/template_side_bar',$data);
-            $this->load->view('comm_evalutor_user/pr_details/view_details_create_view_new_bids',$data);
-            $this->load->view('template/template_footer',$data);
-       # code...
-   }
+   
+
     public function commerrical_user_Channel_send_approve_nofication(){
         // Array ( [type_bid] => 2 [master_bid_id] => 1 [category_id] => 1 [bid_name] => Closed Bid [buyer_bid] => 2 [last_otp_id] => 11 [end_dete_submitio] => 01/29/2019 9:53 PM [Message] => As you are aware there were many questions on handing exception with the latest changes with POM in Selenium C# 3.14 and above, I have created separate Lecture to address this issue with custom extension of [Vendor_email_id] => Array ( [0] => vender@ilab.com [1] => ven121@gmail.com ) [slno_vendor] => Array ( [0] => 1 [1] => 3 ) )
         $type_bid=$this->input->post('type_bid');
