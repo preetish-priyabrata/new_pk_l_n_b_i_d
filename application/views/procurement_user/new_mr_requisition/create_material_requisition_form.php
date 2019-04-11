@@ -132,6 +132,13 @@ $result_table=$query_data->result();
 										<small class="f-s-12 text-grey-darker">Please enter Date Required</small>
 									</div>
 								</div>
+								<div class="form-group row m-b-15">
+									<label class="col-form-label col-md-3" for="remark_buyer">Remark For Buyer <span style="color: red">*</span></label>
+									<div class="col-md-9">
+										<textarea class="form-control m-b-5 " placeholder="Enter Remark For Buyer " name="remark_buyer" id="remark_buyer" type="text" required="" ></textarea>
+										<small class="f-s-12 text-grey-darker">Please enter Remark For Buyer is Required</small>
+									</div>
+								</div>
 								
 							</div>
 							

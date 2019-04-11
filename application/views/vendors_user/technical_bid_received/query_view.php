@@ -5,11 +5,12 @@ if(empty($Vendor_email_id)){
 	redirect('vendor-logout-pass');
 }
 $value=$value;
-$result_title=$this->vendor_db_users->vendor_new_query_tech_title_commerical($value,$Vendor_email_id);
+$result_title=$this->vendor_db_usersnew->vendor_new_query_tech_title_pr($value,$Vendor_email_id);
 if($result_title['no_new_tech']!=1){
 	// $this->session->set_flashdata('error_message', 'Unable find Bid');
 	// redirect('user-vendor-home');
 }
+
 ?>
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.5.2/css/buttons.dataTables.min.css">
@@ -57,11 +58,11 @@ if($result_title['no_new_tech']!=1){
 					<h4 class="panel-title">Query Panel</h4>
 				</div>
 				<div class="panel-body">
-						<form  action="<?=base_url()?>user-vendor-bid-query-view" method="post">
+						<form  action="<?=base_url()?>seller/user-vendor-bid-query-view-save-tech" method="post">
 	            <div class="row">
 								<div class="col-md-12 col-lg-12">
 
-									<h4 class="panel-title ">Title Bid  : </h4>
+									<h4 class="panel-title ">Title Bid  : <?=$result_title['new_tech_list'][0]->title?></h4>
 									
 									<hr style="height: 2px; background:  green">
 								</div>
@@ -77,8 +78,10 @@ if($result_title['no_new_tech']!=1){
 								</div>
 						 		<div class="col-lg-9">
 									<input type="hidden" name='query_slno' value="<?=$value?>">
-									<input type="hidden" name="bid_id" 	>
-
+									<input type="hidden" name="bid_slno" 	value="<?=$result_title['new_tech_list'][0]->master_bid_id?>">
+									<input type="hidden" name="pr_no" 	value="<?=$result_title['new_tech_list'][0]->pr_no?>">
+									<input type="hidden" name="pr_no_slno" 	value="<?=$result_title['new_tech_list'][0]->pr_slno?>">
+									<input type="hidden" name="slno_vendor" 	value="<?=$result_title['new_tech_list'][0]->slno_vendor?>">
 									<textarea class="form-control" rows="3" name="query_details" ></textarea>
 								</div>
 								<div class="col-lg-1">
@@ -90,7 +93,10 @@ if($result_title['no_new_tech']!=1){
 				</div>
 				<!-- Query Block End  -->
 				
-					
+					<?php
+				 	$result_query=$this->db->get_where('master_bid_query_tech_m',array('bid_slno'=>$value,'Vendor_id'=>$Vendor_email_id));
+					// print_r($result_query);
+				?>
 				
 				<!-- Query table WILL SHOW  -->
 				<div class="panel panel-inverse">
@@ -116,7 +122,33 @@ if($result_title['no_new_tech']!=1){
 										 </tr>
 								 </thead>
 								 <tbody>
-									
+									<?php
+									 $x=0;
+									 		
+												foreach ($result_query->result() as $key_query) {
+													$x++;
+
+													?>
+													<tr>
+														<td><?=$x?></td>
+														<td><?=$key_query->query_details?></td>
+														<td><?=$key_query->date_query?></td>
+														<?php if($key_query->status_responds==1){?>
+														<td><?=$key_query->response_detail?></td>
+														<td><?=$key_query->date_respond?></td>
+													<?php }else{
+														?>
+														<td>--</td>
+														<td>--</td>
+														<?php } 	?>
+													
+													</tr>
+													<?php
+
+												}
+
+											
+									  ?>
 
 								 </tbody>
 

@@ -78,10 +78,16 @@ class Designusernew extends CI_Controller {
                       <th>UOM</th>
                       <th>Quantity</th>
                       <th>Original Schedule</th>
+                       <th>Remark</th>
                       <th>Action</th>
                     </tr>
                 ';
                 foreach($query->result() as $row){
+                   if(!empty($row->remark_design)){
+                        $remark=$row->remark_design;
+                    }else{
+                        $remark="No Remark Received";
+                    }
                     $output .= '
                     <tr>
                       <td>'.$row->discipline.'</td>
@@ -91,7 +97,10 @@ class Designusernew extends CI_Controller {
                       <td>'.$row->UOM.'</td>
                       <td>'.$row->quantity.'</td>
                       <td>'.$row->original_schedule.'</td> 
-                      <td><a href="'.base_url().'design-mr-new-create/'.$row->pr_no.'/'.$row->slno.'/'.$row->job_code.'" target="_blank"> Click to Generated PR </a></td>
+                       <td>'.$remark.'</td>
+                      <td><a href="'.base_url().'design-mr-new-create/'.$row->pr_no.'/'.$row->slno.'/'.$row->job_code.'" target="_blank"> Click to Generated PR </a>||
+
+                      </td>
                     </tr>
                     ';
                 }
@@ -478,6 +487,7 @@ $id++;
       $item_uom=$this->input->post('item_uom');
       $quantitys=$this->input->post('quantitys');
       $submission=$this->input->post('submission');
+      $Remark=$this->input->post('Remark');
 
       $date_submition=$date_entry=date('Y-m-d');
       $time_submition=$time_entry=date('H:i:s');
@@ -555,7 +565,7 @@ $id++;
                     $design_slno=$design_id_details['user_approver'][0]->slno;
                   $design_email=$design_id_details['user_approver'][0]->email_id;   
                 // 'slno'=>$data_id
-                $date_process = array('pr_no' => $pr_no,'project_slno'=> $job_code_id_slno , 'pr_no_slno'=>$slno_pr ,'design_user_id'=>$design_email ,'design_user_id_slno'=> $design_slno,'design_user_status'=>3 ,'design_date'=>$date_entry , 'approver_user_id'=> $approver_email,'approver_user_slno'=>$approver_slno ,'approver_user_status'=>2 ,'type_bidding_technical'=>$tech_evalution ,'project_name'=>$Project_Name);
+                $date_process = array('pr_no' => $pr_no,'project_slno'=> $job_code_id_slno , 'pr_no_slno'=>$slno_pr ,'design_user_id'=>$design_email ,'design_user_id_slno'=> $design_slno,'design_user_status'=>3 ,'design_date'=>$date_entry , 'approver_user_id'=> $approver_email,'approver_user_slno'=>$approver_slno ,'approver_user_status'=>2 ,'type_bidding_technical'=>$tech_evalution ,'project_name'=>$Project_Name,'design_user_remark'=>$Remark);
                 $this->db->insert('master_pr_process_detail',$date_process);
                 // echo  $this->db->last_query();
 
@@ -587,7 +597,7 @@ $id++;
                 $data_send = array('status'=>'5','edit_id'=>$edit_type_id,'date_required'=>$required_date,'approver_id_slno'=>$approver_id, 'approver_id'=>$approver_email_id, 'approver_name'=>$approver_name);
                 $query_details=$this->design_user->master_mr_job_details_value($data_send,$id);
 
-                $date_process = array('pr_no' => $pr_no,'project_slno'=> $job_code_id_slno , 'pr_no_slno'=>$slno_pr ,'design_user_id'=>$design_email ,'design_user_id_slno'=> $design_slno,'design_user_status'=>2 ,'design_date'=>$date_entry , 'approver_user_id'=> $approver_email,'approver_user_slno'=>$approver_slno ,'approver_user_status'=>0 ,'type_bidding_technical'=>$tech_evalution  ,'project_name'=>$Project_Name);
+                $date_process = array('pr_no' => $pr_no,'project_slno'=> $job_code_id_slno , 'pr_no_slno'=>$slno_pr ,'design_user_id'=>$design_email ,'design_user_id_slno'=> $design_slno,'design_user_status'=>2 ,'design_date'=>$date_entry , 'approver_user_id'=> $approver_email,'approver_user_slno'=>$approver_slno ,'approver_user_status'=>0 ,'type_bidding_technical'=>$tech_evalution  ,'project_name'=>$Project_Name,'design_user_remark'=>$Remark);
                 $this->db->insert('master_pr_process_detail',$date_process);
 
                 $data_pr_update_id = array('slno' => $slno_pr );

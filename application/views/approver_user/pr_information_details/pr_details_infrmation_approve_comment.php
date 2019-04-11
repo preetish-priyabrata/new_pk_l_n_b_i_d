@@ -133,6 +133,13 @@ $result_table=$query_data->result();
 									</div>
 								</div>
 								<div class="form-group row m-b-15">
+									<label class="col-form-label col-md-3">Remark<span style="color: red">*</span></label>
+									<div class="col-md-9">
+										<textarea class="form-control" rows="3" name="Remark" id="remark" required=""></textarea>
+										<small class="f-s-12 text-grey-darker"> Please enter Remark To Procurement </small>
+									</div>
+								</div>
+								<div class="form-group row m-b-15">
 									<label class="col-form-label col-md-3" for="job_code">Action 
 										<span style="color: red">*</span></label>
 									<div class="col-md-9">
@@ -344,15 +351,17 @@ $result_table=$query_data->result();
 			});
 
 			if(textboxes.length == emptytextboxes.length){
-			   alert('atleast one of the Comment should be filled');  
+			   alert('Comment should be filled');  
 			   return false;
-			}  
+			} 
+			$('#remark').prop('required',false); 
         	$('#Procurement').prop('required',false);
    			// $('#Procurement').removeAttr('required');​​​​​
     		return true;
           
 
         }else{
+        	$('#remark').prop('required',true);
         	$('#Procurement').prop('required',true);
         	 return true;
         }	    

@@ -123,7 +123,8 @@ if(empty($email_id)){
                       <th>Item</th>
                       <th>UOM</th>
                       <th>Quantity</th>
-                      <th>Original Schedule</th>                      
+                      <th>Original Schedule</th>  
+                      <th>procurement Remark</th>                    
                       <th>Status</th>
                       <th>Action</th>
                       
@@ -142,6 +143,11 @@ if(empty($email_id)){
 					 		$design_user_status=$result_id[0]->buyer_user_status;
 					 		$technical_complete_status=$result_id[0]->technical_complete_status;
 					 		$url="#";
+					 		if(!empty($result_id[0]->buyer_user_remark)){
+					 			$buyer_user_remark=$result_id[0]->buyer_user_remark;
+					 		}else{
+					 			$buyer_user_remark="No Remark Received From procurement User";
+					 		}
 					 		$status_detai="Not Forward";
 					 		if($tech==1){
 					 			if($technical_complete_status==0){
@@ -186,7 +192,7 @@ if(empty($email_id)){
 		                      <td>'.$row->UOM.'</td>
 		                      <td>'.$row->quantity.'</td>
 		                      <td>'.$row->original_schedule.'</td> 
-		                      
+		                      <td>'.$buyer_user_remark.'</td>
 		                      <td>'.$status_detai.'</td>
 		                      <td>'.$url.'</td>
 		                    </tr>

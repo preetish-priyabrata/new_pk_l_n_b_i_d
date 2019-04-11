@@ -376,25 +376,32 @@ class Buuser extends CI_Controller {
                       <th>Quantity</th>
                       <th>Original Schedule</th>
                       <th>PR Revised Schedule</th>
-                     
+                      <th>Remark</th>
                       <th>Action</th>
                     </tr>
                     </thead>
                     <tbody>
                 ';
                 foreach($query->result() as $row){
+                    if(!empty($row->remark_design)){
+                        $remark=$row->remark_design;
+                    }else{
+                        $remark= '<a href="'.base_url().'bu-mr-new-remark-create/'.$row->pr_no.'/'.$row->slno.'/'.$row->job_code.'" > Remark  </a>';
+                    }
                     $output .= '
                     <tr>
-                      <td>'.$row->discipline.'</td>
-                      <td>'.$row->pr_no.'</td>
-                      <td>'.$row->area.'</td>
-                      <td>'.$row->item.'</td>
-                      <td>'.$row->UOM.'</td>
-                      <td>'.$row->quantity.'</td>
-                      <td>'.$row->original_schedule.'</td>
-                      <td>'.$row->revised_schedule.'</td>
+                        <td>'.$row->discipline.'</td>
+                        <td>'.$row->pr_no.'</td>
+                        <td>'.$row->area.'</td>
+                        <td>'.$row->item.'</td>
+                        <td>'.$row->UOM.'</td>
+                        <td>'.$row->quantity.'</td>
+                        <td>'.$row->original_schedule.'</td>
+                        <td>'.$row->revised_schedule.'</td>
+                        <td>'.$remark.'</td>
                       
-                       <td><a href="'.base_url().'bu-mr-new-create/'.$row->pr_no.'/'.$row->slno.'/'.$row->job_code.'" target="_blank"> Create Tracking Tool  </a></td>
+                       <td><a href="'.base_url().'bu-mr-new-create/'.$row->pr_no.'/'.$row->slno.'/'.$row->job_code.'" target="_blank"> Create Tracking Tool  </a>
+                      </td>
                     </tr>
                     ';
                 }
@@ -424,17 +431,25 @@ class Buuser extends CI_Controller {
                      
                        <th>PR Revised Schedule</th>
                       <th>Bu PR Revised Schedule</th>
+                       <th>Remark</th>
                       <th>Drafted </th>
                       <th>Submitted </th>
+                      
                     </tr>
                     </thead>
                     <tbody>
                 ';
                 foreach($query->result() as $row){
+                    if(!empty($row->remark_design)){
+                        $remark=$row->remark_design;
+                    }else{
+                        $remark='<a href="'.base_url().'bu-mr-new-remark-create/'.$row->pr_no.'/'.$row->slno.'/'.$row->job_code.'" > Remark  </a>';
+                    }
                     $slno=$row->slno;
                     $data_check_drafted = array('project_slno' => $job_code,'Status'=>'2','pr_no_slno' =>$row->slno);
 
                     $query_drafted=$this->db->get_where('master_tracking_tools_m',$data_check_drafted);
+
                     if($query_drafted->num_rows()!=0){
                         $result_drafted=$query_drafted->result();
                         $drafted='<a href="'.base_url().'bu-mr-drafted/'.$row->pr_no.'/'.$row->slno.'/'.$row->job_code.'/'.$result_drafted[0]->Slno_tracking.'" target="_blank"> Click Drafted  </a>';
@@ -460,8 +475,10 @@ class Buuser extends CI_Controller {
                       <td>'.$row->original_schedule.'</td>
                       <td>'.$row->revised_schedule.'</td>
                       <td>'.$row->bu_revised_schedule.'</td>
+                       <td>'.$remark.'</td>
                       <td>'.$drafted.'</td>
-                      <td>'.$submited.'</td>
+                      <td>'.$submited.' </td>
+                    
                     </tr>
                     ';
                 }
@@ -782,6 +799,36 @@ class Buuser extends CI_Controller {
             redirect('user-bu-home');  
         }
        # code...
+   }
+   public function bu_mr_new_remark_create($pr_no='',$slno='',$job_code){
+           $scripts='</script> <script src="'.base_url().'file_css_admin/own_js_date_picker.js"></script>';
+            $data=array('title' =>"Bu Remark PR  ".$pr_no,'script_js'=>$scripts,'menu_status'=>'','sub_menu'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','get_pr_no'=>$pr_no,'slno'=>$slno,'job_code'=>$job_code);
+            $this->load->view('template/template_header',$data);
+            $this->load->view('bu_user/template/template_top_head');
+            $this->load->view('bu_user/template/template_side_bar',$data);
+            $this->load->view('bu_user/bu_remark/index',$data);
+            $this->load->view('template/template_footer',$data);
+   }
+   public function bu_mr_new_remark_create_save($value=''){
+       $email_id=$this->session->userdata('bu_email_id');
+        if(empty($email_id)){            
+            redirect('bu-logout-by-pass');
+        }
+        $get_pr_no=$this->input->post('get_pr_no');
+        $slno=$this->input->post('slno');
+        $job_code=$this->input->post('job_code');
+        $Remark=$this->input->post('Remark');
+
+        $data_insert = array('pr_no' => $get_pr_no, 'slno_pr'=>$slno,'job_code'=>$job_code,'Comment_remark'=>$Remark,'email_id'=>$email_id);
+        $query=$this->db->insert('master_bu_remark_pr',$data_insert);
+
+        $remark_design_update = array('remark_design' => $Remark );
+        $data_check = array('job_code' => $job_code,'pr_no'=>$get_pr_no);
+        $query_update=$this->db->update('master_pr_schedule',$remark_design_update,$data_check);
+
+        $this->session->set_flashdata('success_message', ' Ssuccessfully Tracking Tool Is Update  Saved ');
+        redirect('user-bu-home');
+      
    }
     
 

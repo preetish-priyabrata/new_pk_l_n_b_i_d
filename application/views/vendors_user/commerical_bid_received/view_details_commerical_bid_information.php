@@ -292,7 +292,7 @@ $status_view=$result_title['new_tech_list'][0]->status_view;
 				}
 			}
 				?>
-              <a href="<?=base_url()?>seller/user-vendor-query-panel/<?=$value?>" class="btn btn-sm btn-warning m-r-5"><i class="fa fa-question-circle" aria-hidden="true"></i>  Query </a>
+              <a href="<?=base_url()?>seller/user-vendor-commerical-query-panel/<?=$value?>" class="btn btn-sm btn-warning m-r-5"><i class="fa fa-question-circle" aria-hidden="true"></i>  Query </a>
               <a  href="<?=base_url()?>seller/user-vendor-home" class="btn btn-sm btn-default">Back</a>
           </div>
       </div>

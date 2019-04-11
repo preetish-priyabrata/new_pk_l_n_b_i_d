@@ -48,7 +48,7 @@ if(empty($email_id)){
 				<div class="panel-body">
 					
 					<div class="pull-right">
-						<a href="<?=base_url()?>admin-new-material-catergory/1" class="btn btn-info fa fa-puzzle-piece " role="button" title="Here new Category is been created">Add New Material & Category</a>
+						<a href="<?=base_url()?>design-new-material-catergory/1" class="btn btn-info fa fa-puzzle-piece " role="button" title="Here new Category is been created">Add New Material & Category</a>
 					</div>
 					<br>
 					<br>

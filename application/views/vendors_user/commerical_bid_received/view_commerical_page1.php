@@ -36,17 +36,19 @@ $master_bid_id_com=$result_title['new_tech_list'][0]->master_bid_id;
 $data_get_list_commerical = array('master_bid_id_comm' =>$master_bid_id_com ,'mr_no_item'=>$pr_no);
  $query_get_list=$this->db->get_where('master_mr_material_item_comm_m',$data_get_list_commerical);
 
-
-$data_table1 = array('Vendor_id' =>$Vendor_id);
-$query_table1=$this->db->get_where('master_pr_bid_quote',$data_table1);
-$result_table1=$query_table1->result();
-
-
-
-
 // 
 $get_data_item = array('Simple_id_slno' => $Slno_simple,'bid_slno'=> $vendor_slno_id, 'Vendor_id'=>$Vendor_email_id);
 $item_infroamtion=$this->db->get_where('master_pr_bid_qoute_item',$get_data_item);
+$data_table1 = array('simple_id_slno_total' => $Slno_simple,'vendor_Bid_slno'=> $vendor_slno_id, 'Vendor_id'=>$Vendor_email_id);
+
+$query_table1=$this->db->get_where('master_pr_bid_qoute_item_total',$data_table1);
+$result_table1=$query_table1->result();
+//print_r($result_table1);
+$data_table2 = array('simple_id_slno_misc' => $Slno_simple,'Bid_slno'=> $vendor_slno_id, 'Vendor_id'=>$Vendor_email_id);
+
+$query_table2=$this->db->get_where('master_pr_bid_qoute_item_misc',$data_table2);
+$result_table2=$query_table2->result();
+//print_r($result_table2);
 
 
 ?>
@@ -197,51 +199,93 @@ EOD;
 
                     			<tr>
 								<td colspan="5">Sub total</td>
-								<td ><input type="text" readonly="readonly" class="form-control" id="total" name="sub_total" /></td>
+								<td ><input type="text" readonly="readonly" class="form-control" id="total" name="sub_total" required=""value="<?=$result_table1[0]->sub_total?>" </td>
 							</tr>
 							<tr>
 								<td colspan="5">Total Tax</td>
-								<td ><input type="text"  class="form-control" id="total_tax" onkeyup="fix_cala('tax')" name="total_tax"  value="0.00" /></td>
+								<td ><input type="text"  class="form-control" id="total_tax" onkeyup="fix_cala('tax')" name="total_tax"  value="<?=$result_table1[0]->total_tax?>"  </td>
 							</tr>
 							<tr>
 								<td colspan="5">Total Landed Cost </td>
-								<td ><input type="text"  readonly="readonly" class="form-control" id="total_landed" name="total_landed"  value="0.00" /></td>
+								<td ><input type="text"  readonly="readonly" class="form-control" id="total_landed" name="total_landed"  value="<?=$result_table1[0]->total_price?>"  /></td>
 							</tr>
 							<tr>
 								<td colspan="5">User Assumption Charges </td>
-								<td ><input type="text" class="form-control" id="user_assmption" name="user_assumption" value="0.00" /></td>
+								<td ><input type="text" class="form-control" id="user_assmption" name="user_assumption" value="<?=$result_table1[0]->user_assumption_charge?>"/></td>
 							</tr>
 							<tr>
 								<td colspan="5">Delivery Basis</td>
-								<td ><input type="text" class="form-control" id="delivery_basis" name="delivery_basis" required="" /></td>
+								<td ><input type="text" class="form-control" id="delivery_basis" name="delivery_basis"  value="<?=$result_table2[0]->field_value?>"required="" /></td>
 							</tr>
 							<tr>
 								<td colspan="5">Guarantee / Warranty</td>
-								<td ><input type="text"  class="form-control" id="gaurantee_warranty" name="gaurantee_warranty" required="" /></td>
+								<?php if($result_table2[1]->field_name=='gaurantee warranty'){
+
+									$gaurantee_warranty=$result_table2[1]->field_value;
+								}else{
+										$gaurantee_warranty="";
+								}?>
+								<td ><input type="text"  class="form-control" id="gaurantee_warranty" name="gaurantee_warranty" value="<?=$gaurantee_warranty?>"required="" /></td>
 							</tr>
 							<tr>
 								<td colspan="5">Delivery Schedule</td>
-								<td ><input type="text"  class="form-control" id="delivery_schedule" name="delivery_schedule" required=""/></td>
+								<?php if($result_table2[2]->field_name=='delivery schedule'){
+
+									$delivery_schedule=$result_table2[2]->field_value;
+								}else{
+										$delivery_schedule="";
+								}?>
+								<td ><input type="text"  class="form-control" id="delivery_schedule" name="delivery_schedule" value="<?=$delivery_schedule?>"required="" /></td>
 							</tr>
 							<tr>
 								<td colspan="5">Payment Terms</td>
-								<td ><input type="text" class="form-control" id="payment_terms" name="payment_terms"  <?=$result_table1[0]->payment_terms?> required="" /></td>
+								<?php if($result_table2[3]->field_name=='payment terms'){
+
+									$payment_terms=$result_table2[3]->field_value;
+								}else{
+										$payment_terms="";
+								}?>
+								<td ><input type="text" class="form-control" id="payment_terms" name="payment_terms"  value="<?=$payment_terms?>" required="" /></td>
 							</tr>
 							<tr>
 								<td colspan="5">Validity of Offer</td>
-								<td ><input type="text"  class="form-control" id="validity_of_offer" name="validity_of_offer"  <?=$result_table1[0]->validity_offer?>required="" /></td>
+								<?php if($result_table2[4]->field_name=='validity of offer'){
+
+									$validity_of_offer=$result_table2[4]->field_value;
+								}else{
+										$validity_of_offer="";
+								}?>
+								<td ><input type="text"  class="form-control" id="validity_of_offer" name="validity_of_offer" value="<?=$validity_of_offer?>" required="" /></td>
 							</tr>
 							<tr>
 								<td colspan="5">Security BG</td>
-								<td ><input type="text" class="form-control" id="security_BG" name="security_BG" <?=$result_table1[0]->security_BG?> required="" /></td>
+								<?php if($result_table2[5]->field_name=='security BG'){
+
+									$security_BG=$result_table2[5]->field_value;
+								}else{
+										$security_BG="";
+								}?>
+								<td ><input type="text" class="form-control" id="security_BG" name="security_BG" value="<?=$security_BG?>" required="" /></td>
 							</tr>
 							<tr>
 								<td colspan="5">Liquidity Damage</td>
-								<td ><input type="text" class="form-control" id="liquidity_damage" name="liquidity_damage" <?=$result_table1[0]->liquidity_damage?> required="" /></td>
+								<?php if($result_table2[6]->field_name=='liquidity damage'){
+
+									$liquidity_damage=$result_table2[6]->field_value;
+								}else{
+										$liquidity_damage="";
+								}?>
+								<td ><input type="text" class="form-control" id="liquidity_damage" name="liquidity_damage" value="<?=$liquidity_damage?>" required="" /></td>
 							</tr>
 							<tr>
 								<td colspan="5">Remarks</td>
-								<td ><textarea  class="form-control" id="remarks" name="remarks" required="" /></textarea></td>
+								<?php if($result_table2[7]->field_name=='remarks'){
+
+									$remarks=$result_table2[7]->field_value;
+								}else{
+										$remarks="";
+								}?>
+								<td ><textarea  class="form-control" id="remarks" name="remarks"  required="" /><?=$remarks?>"</textarea></td>
 							</tr>
 						</tbody>
 					</table>
@@ -296,7 +340,7 @@ EOD;
 		$('#to_cal').hide();             
 	}   
 	function fix_cala(id){
-		$('#to_sub').hide();
+		 $('#to_sub').hide();
 		$('#to_cal').show();
 	}
 	$(document).ready(function(){

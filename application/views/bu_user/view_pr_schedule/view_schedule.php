@@ -101,6 +101,15 @@ $this->db->select('*');
 <script type="text/javascript">
 
 function load_data(){
+	var d = new Date();
+
+var month = d.getMonth()+1;
+var day = d.getDate();
+
+var output = d.getFullYear() + '-' +
+    ((''+month).length<2 ? '0' : '') + month + '-' +
+    ((''+day).length<2 ? '0' : '') + day;
+
 	var date = new Date();
 	var actions_file='bu_Views_total';
     var Mr_no = $('#job_code').val();
@@ -119,14 +128,14 @@ function load_data(){
 					    buttons: [
 					        {
 					            extend: 'copyHtml5',
-					             title: 'Receive Material Requisition - '+date,
+					             title: ' PR Schedule List on  - '+date,
 					            exportOptions: {
 					                columns: [ 0, ':visible' ]
 					            }
 					        },
 					        {
 					            extend: 'excelHtml5',
-					            title: 'Receive Material Requisition - '+date,
+					            title: 'PR Schedule List on  - '+output,
 					            exportOptions: {
 					                columns: ':visible'
 					            }
@@ -134,7 +143,7 @@ function load_data(){
 					        {
 					            extend: 'pdfHtml5',
 					            orientation:'landscape',
-					            title: 'Receive Material Requisition - '+date,
+					            title: 'PR Schedule List on - '+output,
 					            exportOptions: {
 					                columns: ':visible'
 					            },

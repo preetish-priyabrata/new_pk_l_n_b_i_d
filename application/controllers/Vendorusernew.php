@@ -453,4 +453,19 @@ class Vendorusernew extends CI_Controller {
       $this->load->view($page,$data);
       $this->load->view('vendors_user/vendor_template/v_template_top_footer',$data); 
   }
-}
+
+public function vendor_commerical_query_panel($value=''){
+
+     $scripts='<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script><script src=" https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script> <script src="'.base_url().'file_css_admin/own_js.js"></script>';
+            $data=array('title' =>"Vendor Dashboard",'script_js'=>$scripts ,'menu_status'=>'','sub_menu'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','value'=>$value);
+            $this->load->view('vendors_user/vendor_template/v_template_header',$data);
+            $this->load->view('vendors_user/vendor_template/v_template_top_head',$data);
+            $this->load->view('vendors_user/vendor_template/v_template_top_menu',$data);
+
+            $this->load->view('vendors_user/commerical_bid_received/query_panel_commercial',$data);
+            $this->load->view('vendors_user/vendor_template/v_template_top_footer',$data);
+
+
+
+    }
+  }

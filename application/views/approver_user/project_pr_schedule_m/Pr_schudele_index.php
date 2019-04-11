@@ -128,6 +128,7 @@ if(empty($email_id)){
                       <th>Quantity</th>
                       <th>Original Schedule</th>                      
                       <th>Status</th>
+                      <th>Remark</th>
                       <th>Action</th>
                       
                     </tr>
@@ -142,6 +143,11 @@ if(empty($email_id)){
 					 	if($num_rows_check!=0){
 					 		$result_id=$query_check->result();
 					 		
+					 		if(!empty($result_id[0]->design_user_remark)){
+		                        $remark=$result_id[0]->design_user_remark;
+		                    }else{
+		                        $remark= 'No Remarks';
+		                    }
 					 		$design_user_status=$result_id[0]->design_user_status;
 					 		$url="#";
 					 		switch ($design_user_status) {
@@ -156,7 +162,7 @@ if(empty($email_id)){
 					 				break;
 					 			case '3': //waiting for approval
 					 				$status_detai="waiting for approval";
-					 					$url='<a href="'.base_url().'approver-mr-view-pr/'.$row->pr_no.'/'.$row->slno.'/'.$row->job_code.'/3" target="_blank"> Click to View </a>';
+					 					$url='<a href="'.base_url().'approver-mr-view-pr/'.$row->pr_no.'/'.$row->slno.'/'.$row->job_code.'/3" > Click to View </a>';
 					 				break;
 					 			case '4': // resubmission
 					 				$status_detai="Resubmission";
@@ -178,6 +184,7 @@ if(empty($email_id)){
 		                      <td>'.$row->original_schedule.'</td> 
 		                      
 		                      <td>'.$status_detai.'</td>
+		                      <td>'.$remark.'</td>
 		                      <td>'.$url.'</td>
 		                    </tr>
 		                    ';

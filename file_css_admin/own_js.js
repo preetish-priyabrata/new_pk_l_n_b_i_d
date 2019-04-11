@@ -37,6 +37,34 @@ $(document).ready(function() {
 	        'colvis'
 	    ]
 	} );
+	$('#table1').DataTable( {
+		scrollX : true,
+		// "scrollY": 200,
+		 // "scrollX": true,
+	    dom: 'Bfrtip',
+	    buttons: [
+	        {
+	            extend: 'copyHtml5',
+	            exportOptions: {
+	                columns: [ 0, ':visible' ]
+	            }
+	        },
+	        {
+	            extend: 'excelHtml5',
+	            exportOptions: {
+	                columns: ':visible'
+	            }
+	        },
+	        {
+	            extend: 'pdfHtml5',
+	            exportOptions: {
+	            	columns: ':visible'
+	                // columns: [ 0, 1, 2, 5 ]
+	            }
+	        },
+	        'colvis'
+	    ]
+	} );
 	$('#example_buyer').DataTable( {
 		scrollX: true,
 	    dom: 'Bfrtip',

@@ -149,7 +149,7 @@ if(empty($email_id)){
 					 				break;
 					 			case '2':
 					 				$url='#';
-					 						$url='<a href="'.base_url().'commerical-user-received-pr-info/'.$row->pr_no.'/'.$row->slno.'/'.$row->job_code.'/2/'.$comm_bid.'" > Click to View/ forward </a>';
+					 						$url='<a href="'.base_url().'commerical-user-received-pr-info/'.$row->pr_no.'/'.$row->slno.'/'.$row->job_code.'/2/'.$comm_bid.'" > Click to View</a>';
 					 				break;
 					 			
 					 			default:

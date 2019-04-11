@@ -277,6 +277,8 @@ EOT;
     }
 
 
+
+
     public function Buyer_add_new_pr_save(){
 
 
@@ -822,6 +824,221 @@ EOT;
             // After that you need to used redirect function instead of load view such as                 
             redirect('user-buyer-home');  
         }
+        # code...
+    }
+    public function buyer_pr_technical_ongoing($value=''){
+       $scripts='<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script><script src=" https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script> <script src="'.base_url().'file_css_admin/own_js.js"></script>';
+
+           $data=array('title' =>"List Ongoing PR Bids",'script_js'=>$scripts ,'menu_status'=>'3','sub_menu'=>'3','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'');  
+
+            $this->load->view('template/template_header',$data);
+            $this->load->view('buyer_user/template/template_top_head');
+            $this->load->view('buyer_user/template/template_side_bar',$data);
+            $this->load->view('buyer_user/buyer_pr_ongoing/send_tech_pr_schedule');
+            $this->load->view('template/template_footer',$data);
+    }
+     public function buyer_technical_query($value=''){
+       $scripts='<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script><script src=" https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script> <script src="'.base_url().'file_css_admin/own_js.js"></script>';
+
+           $data=array('title' =>"List Ongoing PR Bids",'script_js'=>$scripts ,'menu_status'=>'3','sub_menu'=>'3','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','pr'=>$value);  
+
+            $this->load->view('template/template_header',$data);
+            $this->load->view('buyer_user/template/template_top_head');
+            $this->load->view('buyer_user/template/template_side_bar',$data);
+            $this->load->view('buyer_user/buyer_pr_ongoing/Query_panel_tech',$data);
+            $this->load->view('template/template_footer',$data);
+    }
+   public function buyer_technical_query_view($value='',$values=''){
+       $scripts='<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script><script src=" https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script> <script src="'.base_url().'file_css_admin/own_js.js"></script>';
+
+           $data=array('title' =>"List Ongoing PR Bids",'script_js'=>$scripts ,'menu_status'=>'3','sub_menu'=>'3','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','Slno_query'=>$value,'pr_no'=>$values);  
+
+            $this->load->view('template/template_header',$data);
+            $this->load->view('buyer_user/template/template_top_head');
+            $this->load->view('buyer_user/template/template_side_bar',$data);
+            $this->load->view('buyer_user/buyer_pr_ongoing/query_panel_view',$data);
+            $this->load->view('template/template_footer',$data);
+    }
+     public function buyer_technical_query_view_save($value=''){
+        $email_id=$this->session->userdata('buy_email_id');
+        if(empty($email_id)){
+
+            redirect('vendor-logout-pass');
+        }
+               print_r($this->input->post());
+       // Array ( [pr_no] => O18191-950-E-K-30113-001 [Slno_query] => 3 [query_details] => date is 24 april 2019 will be the final submission date )
+       $pr_no=$this->input->post('pr_no');
+       $Slno_query=$this->input->post('Slno_query');
+       $query_details=$this->input->post('query_details');
+       
+        $data_updated_info=array('response_detail'=>$query_details,'responser_id'=>$email_id,'status_responds'=>1);
+        $data_updated_id=array('Slno_query'=>$Slno_query);
+        $query_update=$this->db->update('master_bid_query_tech_m',$data_updated_info,$data_updated_id);
+         $this->session->set_flashdata('success_message', 'Successfully notification is been replied ');
+            // After that you need to used redirect home
+            redirect('buyer-technical-query/'.$pr_no);
+
+
+    }
+    public function buyer_commercial_query($value=''){
+       $scripts='<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script><script src=" https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script> <script src="'.base_url().'file_css_admin/own_js.js"></script>';
+
+           $data=array('title' =>"List Ongoing PR Bids",'script_js'=>$scripts ,'menu_status'=>'3','sub_menu'=>'3','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','pr'=>$value);  
+
+            $this->load->view('template/template_header',$data);
+            $this->load->view('buyer_user/template/template_top_head');
+            $this->load->view('buyer_user/template/template_side_bar',$data);
+            $this->load->view('buyer_user/buyer_pr_ongoing/Query_panel_comm',$data);
+            $this->load->view('template/template_footer',$data);
+    }
+    public function buyer_commercial_query_view($value='',$values=''){
+       $scripts='<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script><script src=" https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script> <script src="'.base_url().'file_css_admin/own_js.js"></script>';
+
+           $data=array('title' =>"List Ongoing PR Bids",'script_js'=>$scripts ,'menu_status'=>'3','sub_menu'=>'3','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','Slno_query'=>$value,'pr_no'=>$values);  
+
+            $this->load->view('template/template_header',$data);
+            $this->load->view('buyer_user/template/template_top_head');
+            $this->load->view('buyer_user/template/template_side_bar',$data);
+            $this->load->view('buyer_user/buyer_pr_ongoing/query_panel_view_comm',$data);
+            $this->load->view('template/template_footer',$data);
+    }
+    public function buyer_commercial_query_view_save($value=''){
+        $email_id=$this->session->userdata('buy_email_id');
+        if(empty($email_id)){
+
+            redirect('vendor-logout-pass');
+        }
+               
+       // Array ( [pr_no] => O18191-950-E-K-30113-001 [Slno_query] => 3 [query_details] => date is 24 april 2019 will be the final submission date )
+       $pr_no=$this->input->post('pr_no');
+       $Slno_query=$this->input->post('Slno_query');
+       $query_details=$this->input->post('query_details');
+       
+        $data_updated_info=array('response_detail'=>$query_details,'responser_id'=>$email_id,'status_responds'=>1);
+        $data_updated_id=array('Slno_query'=>$Slno_query);
+        $query_update=$this->db->update('master_bid_query_comm_m',$data_updated_info,$data_updated_id);
+         $this->session->set_flashdata('success_message', 'Successfully notification is been replied ');
+            // After that you need to used redirect home
+            redirect('buyer-commercial-query/'.$pr_no);
+
+
+    }
+   
+    public function buyer_technical_ongoing_bid_pr_info_details($pr_no='',$technical_bid_ref='',$technical_bid_id='',$tech_bid='',$id=''){
+         $scripts='';
+            $data=array('title' =>"Bid Detail Information",'script_js'=>$scripts,'menu_status'=>'1','sub_menu'=>'1','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','Pr_no'=>$pr_no,'technical_bid_ref'=>$technical_bid_ref,'technical_bid_id'=>$technical_bid_id,'id'=>$id,'bid_id'=>$tech_bid);
+            $this->load->view('template/template_header',$data);
+            $this->load->view('buyer_user/template/template_top_head');
+            $this->load->view('buyer_user/template/template_side_bar',$data);
+            $this->load->view('buyer_user/buyer_pr_ongoing/tech_pr_bid_information_ongoing',$data);
+            $this->load->view('template/template_footer',$data);
+        # code...
+    }
+    public function buyer_technical_ongoing_bid_pr_notification_vendor($pr_no='',$technical_bid_ref='',$technical_bid_id='',$tech_bid='',$technical_edit_id=''){
+        $scripts='';
+            $data=array('title' =>"Bid Detail Information",'script_js'=>$scripts,'menu_status'=>'1','sub_menu'=>'1','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','Pr_no'=>$pr_no,'technical_bid_ref'=>$technical_bid_ref,'technical_bid_id'=>$technical_bid_id,'technical_edit_id'=>$technical_edit_id,'bid_id'=>$tech_bid);
+            $this->load->view('template/template_header',$data);
+            $this->load->view('buyer_user/template/template_top_head');
+            $this->load->view('buyer_user/template/template_side_bar',$data);
+            $this->load->view('buyer_user/buyer_pr_ongoing/Notification_tech',$data);
+            $this->load->view('template/template_footer',$data);
+        # code...
+    }
+    public function buyer_notification_tech_save_info($value=''){
+        // Array ( [Pr_no] => O18191-950-E-K-30111-001 [technical_bid_ref] => 68009 [technical_bid_id] => 7779 [technical_edit_id] => 1 [bid_id] => 4 [Technical_notification_] => For 50 years, WWF has been protecting the future of nature. The world's leading conservation organization, WWF works in 100 countries and is supported by 1.2 million members in the United States and close to 5 million globally. ) 
+        $technical_edit_id=$this->input->post('technical_edit_id');
+        $technical_bid_id=$this->input->post('technical_bid_id');
+        $technical_bid_ref=$this->input->post('technical_bid_ref');
+        $pr_no=$this->input->post('Pr_no');
+        $tech_bid=$this->input->post('bid_id');
+        $Technical_notification_=$this->input->post('Technical_notification_');
+        // print_r($this->input->post());
+        $data_array = array('edit_id_bid' =>$technical_edit_id,'bid_id'=>$technical_bid_id,'bid_ref'=> $technical_bid_ref,'pr_no'=>$pr_no,'master_bid_id'=>$tech_bid);
+
+        $vendor_selected_id=$this->db->get_where('master_bid_vendor_m',$data_array);
+
+        foreach ($vendor_selected_id->result() as $key_vendor => $value_vendor) {
+            $slno_vendor_id_master=$value_vendor->slno_vendor_id_master;
+            $vendor_id=$value_vendor->vendor_id;
+            $date_entry = array('vendor_id_bid' =>$slno_vendor_id_master ,'vendor_id' =>$vendor_id,'message'=>$Technical_notification_);
+            $this->db->insert('master_vendor_notifications',$date_entry);
+            // `vendor_id_bid`, `vendor_id`, `message`
+
+
+        }
+        $this->session->set_flashdata('success_message', 'Notification For Techncial is been send');
+            // After that you need to used redirect home
+        redirect('user-buyer-home');
+        # code...
+    }
+    public function buyer_pr_commercial_closed_simple_ongoing($value=''){
+        $scripts='<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script><script src=" https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script> <script src="'.base_url().'file_css_admin/own_js.js"></script>';
+
+           $data=array('title' =>"List Ongoing PR Bids",'script_js'=>$scripts ,'menu_status'=>'3','sub_menu'=>'34','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'');  
+
+            $this->load->view('template/template_header',$data);
+            $this->load->view('buyer_user/template/template_top_head');
+            $this->load->view('buyer_user/template/template_side_bar',$data);
+            $this->load->view('buyer_user/buyer_pr_ongoing/send_comm_pr_schedule_c_s');
+            $this->load->view('template/template_footer',$data);
+    }
+    public function buyer_s_c_Commerical_ongoing_bid_pr_info_details($pr_no='',$pr_slno='',$project_job_code='',$id='',$comm_bid=''){
+        $scripts='';
+            $data=array('title' =>"Bid Detail Information",'script_js'=>$scripts,'menu_status'=>'1','sub_menu'=>'1','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','Pr_no'=>$pr_no,'pr_slno'=>$pr_slno,'project_job_code'=>$project_job_code,'id'=>$id,'comm_bid_id'=>$comm_bid);
+            $this->load->view('template/template_header',$data);
+            $this->load->view('buyer_user/template/template_top_head');
+            $this->load->view('buyer_user/template/template_side_bar',$data);
+            $this->load->view('buyer_user/buyer_pr_ongoing/view_ongoing_c_s_bidcommercial_information',$data);
+            $this->load->view('template/template_footer',$data);
+       
+    }
+    public function buyer_commerical_c_s_r_ongoing_bid_pr_notification_vendor($pr_no='',$commercial_bid_ref='',$commercial_bid_id='',$comm_bid_db='',$commercial_edit_id='',$commercial_resubmit_count=''){
+
+        $scripts='';
+            $data=array('title' =>"Bid Detail Information",'script_js'=>$scripts,'menu_status'=>'1','sub_menu'=>'1','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','pr_no'=>$pr_no,'commercial_bid_ref'=>$commercial_bid_ref,'commercial_bid_id'=>$commercial_bid_id,'commercial_edit_id'=>$commercial_edit_id,'comm_bid_db'=>$comm_bid_db,'commercial_resubmit_count'=>$commercial_resubmit_count);
+            $this->load->view('template/template_header',$data);
+            $this->load->view('buyer_user/template/template_top_head');
+            $this->load->view('buyer_user/template/template_side_bar',$data);
+            $this->load->view('buyer_user/buyer_pr_ongoing/Notification_comm',$data);
+            $this->load->view('template/template_footer',$data);
+    
+        # code...
+    }
+    public function buyer_notification_comm_save_info($value=''){
+        // print_r($this->input->post());
+        $Pr_no=$this->input->post('Pr_no');
+        $commercial_bid_ref=$this->input->post('commercial_bid_ref');
+        $commercial_bid_id=$this->input->post('commercial_bid_id');
+        $commercial_edit_id=$this->input->post('commercial_edit_id');
+        $comm_bid_db=$this->input->post('comm_bid_db');
+        $commercial_resubmit_count=$this->input->post('commercial_resubmit_count');
+        $Technical_notification_=$this->input->post('Technical_notification_');
+
+        $data_array = array('edit_id_bid' =>$commercial_edit_id,'bid_id'=>$commercial_bid_id,'bid_ref'=> $commercial_bid_ref,'pr_no'=>$Pr_no,'master_bid_id'=>$comm_bid_db,'commercial_resubmit_count'=>$commercial_resubmit_count);
+
+        $vendor_selected_id=$this->db->get_where('master_bid_Com_vendor_m',$data_array);
+        foreach ($vendor_selected_id->result() as $key_vendor => $value_vendor) {
+            $slno_vendor_id_master=$value_vendor->slno_vendor_id_master;
+                $vendor_id=$value_vendor->vendor_id;
+                $date_entry = array('vendor_id_bid' =>$slno_vendor_id_master ,'vendor_id' =>$vendor_id,'message'=>$Technical_notification_);
+                $this->db->insert('master_vendor_notifications',$date_entry);
+            // `vendor_id_bid`, `vendor_id`, `message`
+        }
+        $this->session->set_flashdata('success_message', 'Notification For Commercial is been sendTo Vendor');
+            // After that you need to used redirect home
+        redirect('user-buyer-home');
+     
+    }
+    public function buyer_pr_technical_completed($value=''){
+          $scripts='<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script><script src=" https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script> <script src="'.base_url().'file_css_admin/own_js.js"></script>';
+
+           $data=array('title' =>"List Ongoing PR Bids",'script_js'=>$scripts ,'menu_status'=>'4','sub_menu'=>'4','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'');  
+
+            $this->load->view('template/template_header',$data);
+            $this->load->view('buyer_user/template/template_top_head');
+            $this->load->view('buyer_user/template/template_side_bar',$data);
+            $this->load->view('buyer_user/buyer_pr_complete/send_tech_pr_schedule');
+            $this->load->view('template/template_footer',$data);
         # code...
     }
 }

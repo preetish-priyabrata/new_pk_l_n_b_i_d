@@ -51,54 +51,6 @@
 						    <!-- <li><a href="index_v2.html">Dashboard v2</a></li> -->
 						</ul>
 					</li>				
-					<li class="nav-header"> General Setting</li>
-					
-					<li class="has-sub <?php if($menu_status==5){echo 'active';}?>">
-						<a href="javascript:;">
-					        <b class="caret"></b>
-						    <i class="fas fa-puzzle-piece"></i>
-						    <span>Category</span>
-					    </a>
-						<ul class="sub-menu">
-						    <li class="<?php if($sub_menu==5){ echo 'active'; }?>"><a href="<?=base_url()?>admin-view-category" >View Category</a></li>
-						    
-						</ul>
-					</li>
-					<li class="has-sub <?php if($menu_status==6){echo 'active';}?>">
-						<a href="javascript:;">
-					        <b class="caret"></b>
-						    <i class="fas fa-puzzle-piece"></i>
-						    <span>Other Charges</span>
-					    </a>
-						<ul class="sub-menu">
-						    <li class="<?php if($sub_menu==6){ echo 'active'; }?>"><a href="<?=base_url()?>admin-view-other-charges" >Create & View Other Charges</a></li>
-						    
-						</ul>
-					</li>				
-					<li class="has-sub <?php if($menu_status==10){echo 'active';}?>">
-						<a href="javascript:;">
-					        <b class="caret"></b>
-						    <i class="fas fa-puzzle-piece"></i>
-						    <span>Vehicle  </span>
-					    </a>
-						<ul class="sub-menu">
-							<li class="<?php if($sub_menu==11){ echo 'active'; }?>"><a href="<?=base_url()?>admin-view-Vehicle-type-details" >Create & View Vehicle Type</a></li>
-							<li class="<?php if($sub_menu==12){ echo 'active'; }?>"><a href="<?=base_url()?>admin-view-Vehicle-capacity-details" >Create & View Vehicle Capacity</a></li>
-						    <li class="<?php if($sub_menu==10){ echo 'active'; }?>"><a href="<?=base_url()?>admin-view-Vehicle-details" >Create & View Vehicle</a></li>
-						    
-						</ul>
-					</li>
-					<li class="has-sub <?php if($menu_status==11){echo 'active';}?>">
-						<a href="javascript:;">
-					        <b class="caret"></b>
-						    <i class="fas fa-puzzle-piece"></i>
-						    <span>Location  </span>
-					    </a>
-						<ul class="sub-menu">
-						    <li class="<?php if($sub_menu==111){ echo 'active'; }?>"><a href="<?=base_url()?>admin-view-location-details" >Create & View Location</a></li>
-						    
-						</ul>
-					</li>
 					
 
 					

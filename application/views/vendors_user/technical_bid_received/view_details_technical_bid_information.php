@@ -298,7 +298,7 @@ $approval_status=$result_title['new_tech_list'][0]->approval_status;
 					}
 				}
 				?>
-              <a href="<?=base_url()?>seller/user-vendor-query-panel/<?=$value?>" class="btn btn-sm btn-warning m-r-5"><i class="fa fa-question-circle" aria-hidden="true"></i>  Query </a>
+              <a href="<?=base_url()?>seller/user-vendor-bid-query-view/<?=$value?>" class="btn btn-sm btn-warning m-r-5"><i class="fa fa-question-circle" aria-hidden="true"></i>  Query </a>
               <a  href="<?=base_url()?>user-vendor-home" class="btn btn-sm btn-default">Back</a>
           </div>
       </div>

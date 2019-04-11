@@ -117,7 +117,7 @@ if(empty($email_id)){
 				</div>
 				<div class="panel-body">
 
-					<table id="example" class="display" style="width:100%">
+					<table id="table1" class="table" style="width:100%">
 						<thead>
                     <tr>
                       <th>Discipline</th>
@@ -126,7 +126,8 @@ if(empty($email_id)){
                       <th>Item</th>
                       <th>UOM</th>
                       <th>Quantity</th>
-                      <th>Original Schedule</th>                      
+                      <th>Original Schedule</th> 
+                      <th>Remark To Buyer</th>                     
                       <th>Status</th>
                       <th>Action</th>
                       
@@ -141,6 +142,12 @@ if(empty($email_id)){
 					 	$num_rows_check=$query_check->num_rows();
 					 	if($num_rows_check!=0){
 					 		$result_id=$query_check->result();
+					 		$result_id=$query_check->result();
+					 		if(!empty($result_id[0]->procurement_user_remark)){
+		                        $remark=$result_id[0]->procurement_user_remark;
+		                    }else{
+		                        $remark= 'No Remarks';
+		                    }
 					 		
 					 		$design_user_status=$result_id[0]->procurement_user_status;
 					 		$url="#";
@@ -169,7 +176,7 @@ if(empty($email_id)){
 		                      <td>'.$row->UOM.'</td>
 		                      <td>'.$row->quantity.'</td>
 		                      <td>'.$row->original_schedule.'</td> 
-		                      
+		                      <td>'.$remark.'</td>
 		                      <td>'.$status_detai.'</td>
 		                      <td>'.$url.'</td>
 		                    </tr>

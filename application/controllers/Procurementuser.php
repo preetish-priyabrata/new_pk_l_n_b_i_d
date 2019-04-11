@@ -324,18 +324,20 @@ class Procurementuser extends CI_Controller {
     public function procurement_add_new_pr_save($value=''){
       // print_r($this->input->post());
       // Array ( [pr_no] => O18191-950-E-K-30102-001 [slno_pr] => 2 [job_code] => 1 [pr_no_type] => new_pr_creater [edit_type] => 1 [tech_evalution] => 2 [required_date] => 2019-03-28 [approver_id] => 18 [Procurement] => 13 [buyer_id] => 15 [materials_id] => semiconductors [mr_date_of_creation] => 2019-03-16 [submission] => Sent )
+      $remark_buyer=$this->input->post('remark_buyer');
       $pr_no=$this->input->post('pr_no');
       $slno_pr=$this->input->post('slno_pr');
       $job_code=$this->input->post('job_code');
       $tech_evalution=$this->input->post('tech_evalution');
       $buyer_id=$this->input->post('buyer_id');
       $date_system=date('Y-m-d');
+      
         $data_array_buyer=$this->procurement_user->get_procurement_buyer_list($buyer_id);
         if($data_array_buyer['no_user']==1){
             $buyer_id_email_id =$data_array_buyer['user_buyer_list'][0]->email_id;
             $buyer_name=$data_array_buyer['user_buyer_list'][0]->Username;
 
-             $data_forword=array('procurement_user_status'=>1,'procurement_date'=>$date_system,'buyer_user_id'=>$buyer_id_email_id,'buyer_user_slno'=>$buyer_id,'buyer_user_status'=>2);
+             $data_forword=array('procurement_user_status'=>1,'procurement_date'=>$date_system,'buyer_user_id'=>$buyer_id_email_id,'buyer_user_slno'=>$buyer_id,'buyer_user_status'=>2,'procurement_user_remark'=>$remark_buyer);
             $data_id = array('pr_no' =>$pr_no ,'pr_no_slno'=>$slno_pr );
             $update=$this->db->update('master_pr_process_detail',$data_forword,$data_id);
             if($update){

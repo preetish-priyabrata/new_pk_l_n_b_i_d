@@ -126,7 +126,8 @@ if(empty($email_id)){
                       <th>Item</th>
                       <th>UOM</th>
                       <th>Quantity</th>
-                      <th>Original Schedule</th>                      
+                      <th>Original Schedule</th>
+                      <th>Remark to Procurement</th>                      
                       <th>Status</th>
                       <th>Action</th>
                       
@@ -141,13 +142,17 @@ if(empty($email_id)){
 					 	$num_rows_check=$query_check->num_rows();
 					 	if($num_rows_check!=0){
 					 		$result_id=$query_check->result();
-					 		
+					 		if(!empty($result_id[0]->approver_user_remark)){
+		                        $remark=$result_id[0]->approver_user_remark;
+		                    }else{
+		                        $remark= 'No Remarks';
+		                    }
 					 		$design_user_status=$result_id[0]->design_user_status;
 					 		$url="#";
 					 		switch ($design_user_status) {
 					 			case '1': // completed
 					 				$status_detai="Approved";
-					 				$url='<a href="'.base_url().'approved-mr-view-pr/'.$row->pr_no.'/'.$row->slno.'/'.$row->job_code.'/1" target="_blank"> Click to View </a>';
+					 				$url='<a href="'.base_url().'approved-mr-view-pr/'.$row->pr_no.'/'.$row->slno.'/'.$row->job_code.'/1"> Click to View </a>';
 					 				break;
 					 			case '2': //drafted
 					 					$status_detai="Drafted";
@@ -176,7 +181,7 @@ if(empty($email_id)){
 		                      <td>'.$row->UOM.'</td>
 		                      <td>'.$row->quantity.'</td>
 		                      <td>'.$row->original_schedule.'</td> 
-		                      
+		                       <td>'.$remark.'</td>
 		                      <td>'.$status_detai.'</td>
 		                      <td>'.$url.'</td>
 		                    </tr>

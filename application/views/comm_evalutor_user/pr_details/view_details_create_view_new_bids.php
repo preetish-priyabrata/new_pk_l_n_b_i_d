@@ -27,9 +27,8 @@ $commercial_resubmit_count=$result_process[0]->commercial_resubmit_count;
 $technical_user_slno=$result_process[0]->technical_user_slno;
 // `technical_user_slno`, `technical_user_id`
 $technical_user_id=$result_process[0]->technical_user_id;
-
-
-
+$commercial_type_bid=$result_process[0]->commercial_type_bid;
+$url='<a href="'.base_url().'Commercila-otp-c-s-r-ongoing-bid-pr-notification-vendor/'.$pr_no.'/'.$commercial_bid_ref.'/'.$commercial_bid_id.'/'.$comm_bid_db.'/'.$commercial_edit_id.'/'.$commercial_resubmit_count.'/'.$commercial_type_bid.'" class="btn btn-sm btn-lime" title="Click Generate otp for Comparative Statement" >Generate OTP</a>';
 
 
 $data_array = array('edit_id_bid' =>$commercial_edit_id,'bid_id'=>$commercial_bid_id,'bid_ref'=> $commercial_bid_ref,'pr_no'=>$pr_no,'master_bid_id'=>$comm_bid,'commercial_resubmit_count'=>$commercial_resubmit_count);
@@ -743,7 +742,7 @@ $result_table=$query_data->result();
 														<tr>
 															<th width="10%">Organisation Name</th>
 															<th width="40%">Detail</th>
-															<th>Approver</th>
+															
 															<th>Submission</th>
 
 														</tr>
@@ -766,8 +765,16 @@ $result_table=$query_data->result();
 						                                        <p>Vendor Mobile : <?=$value_id_vender->Mobile_no?></p>
 						                                        <p>Vendor Address : <?=$value_id_vender->Organisation_address?></p>
 						                                    </td>
-															<td></td>
-															<td></td>
+															
+															<td><?php 
+																if ($value_vendor->submission_status==1) {
+																	$check_approve=$check_approve+1;
+																	echo "<p style='color:green'>Submited</p>";
+																}else{
+																	echo "Not Submited";
+																}
+
+															?></td>
 															
 														</tr>
 													<?php }?>
@@ -786,7 +793,12 @@ $result_table=$query_data->result();
                             <div class="col-md-12">
                                 <!--<button type="submit" class="btn btn-sm btn-primary m-r-5" >Next</button>-->
 			                   
+                                <?php 
+                                	if($check_approve!=0){
+                                		echo $url;
+                                	}
 
+                                ?>
                                <a  href="<?=base_url()?>user-commerical-evalutor-home" class="btn btn-sm btn-default">Back</a> 
                             </div>
                         </div>

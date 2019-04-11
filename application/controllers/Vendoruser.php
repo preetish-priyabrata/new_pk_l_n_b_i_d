@@ -250,6 +250,38 @@ if(empty($Vendor_email_id)){
 
   }
      
+
+  public function user_vendor_bid_query_view_save_tech($value=''){
+   $Vendor_email_id=$this->session->userdata('Vendor_email_id');
+if(empty($Vendor_email_id)){
+
+  redirect('vendor-logout-pass');
+}
+
+     print_r($this->input->post());
+    //
+
+     //Array ( [query_slno] => 8 [bid_slno] => 2 [pr_no] => O18191-950-E-K-30113-001 [pr_no_slno] => 13 [slno_vendor] => 8 [query_details] => what is the response date of bid ? )
+     $query_slno=$this->input->post('query_slno');
+     $bid_slno=$this->input->post('bid_slno');
+     $pr_no=$this->input->post('pr_no');
+     $pr_no_slno=$this->input->post('pr_no_slno');
+     $slno_vendor=$this->input->post('slno_vendor');
+     $query_details=$this->input->post('query_details');
+      $data_insert_array = array('bid_slno' =>$query_slno ,'Vendor_id'=>$Vendor_email_id ,'query_details' =>$query_details ,'pr_no' =>$pr_no ,'pr_slno' =>$pr_no_slno );
+   $this->db->insert('master_bid_query_tech_m',$data_insert_array);
+    $this->session->set_flashdata('success_message', 'your query is been submitted');
+                // After that you need to used redirect function instead of load view such as
+                redirect("user-vendor-home");
+
+
+    
+
+
+    }
+
+
+
      
     public function vendor_query_panel_commerical($value=''){
 
@@ -434,9 +466,6 @@ if(empty($Vendor_email_id)){
 
 
    
-
-
-
 
 
     public function vendor_bid_query_tech($value=''){

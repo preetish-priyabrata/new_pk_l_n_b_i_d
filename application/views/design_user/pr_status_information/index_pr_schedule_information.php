@@ -117,7 +117,7 @@ if(empty($email_id)){
 				</div>
 				<div class="panel-body">
 
-					<table id="example" class="display" style="width:100%">
+					<table id="table1" class="table" style="width:100%">
 						<thead>
                     <tr>
                       <th>Discipline</th>
@@ -126,6 +126,7 @@ if(empty($email_id)){
                       <th>Original Schedule</th>
                       <th>Revised Schedule</th>
                       <th>Status</th>
+                      <th>Remark To Approver</th>
                       <th>Action</th>
                       
                     </tr>
@@ -139,6 +140,11 @@ if(empty($email_id)){
 					 	$num_rows_check=$query_check->num_rows();
 					 	if($num_rows_check!=0){
 					 		$result_id=$query_check->result();
+					 		if(!empty($result_id[0]->design_user_remark)){
+		                        $remark=$result_id[0]->design_user_remark;
+		                    }else{
+		                        $remark= 'No Remarks';
+		                    }
 					 		
 					 		$design_user_status=$result_id[0]->design_user_status;
 					 		switch ($design_user_status) {
@@ -172,6 +178,7 @@ if(empty($email_id)){
 		                      <td>'.$row->original_schedule.'</td> 
 		                      <td>'.$row->revised_schedule.'</td> 
 		                      <td>'.$status_detai.'</td>
+		                       <td>'.$remark.'</td>
 		                      <td>'.$url.'</td>
 		                    </tr>
 		                    ';
