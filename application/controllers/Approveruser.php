@@ -1334,8 +1334,8 @@ class Approveruser extends CI_Controller {
         }
         $Remark=$this->input->post('Remark');
         if($type_action==1){ // Send information to Procurement officer
-            $data_forword=array('design_user_status'=>1,'approver_user_status'=>1,'approver_date'=>$date_system,'procurement_user_id'=>$Procurement_id,'procurement_user_id_slno'=>$Procurement,'procurement_user_status'=>2);
-            $data_id = array('pr_no' =>$pr_no ,'pr_no_slno'=>$slno_pr ,'approver_user_remark'=>$Remark);
+            $data_forword=array('design_user_status'=>1,'approver_user_status'=>1,'approver_date'=>$date_system,'procurement_user_id'=>$Procurement_id,'procurement_user_id_slno'=>$Procurement,'procurement_user_status'=>2,'approver_user_remark'=>$Remark);
+            $data_id = array('pr_no' =>$pr_no ,'pr_no_slno'=>$slno_pr );
             $update=$this->db->update('master_pr_process_detail',$data_forword,$data_id);
             if($update){
                 $id_array_mr=array('pr_no' =>$pr_no); // mr slno which will able to update

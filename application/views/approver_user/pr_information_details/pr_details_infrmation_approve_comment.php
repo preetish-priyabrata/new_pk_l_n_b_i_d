@@ -10,6 +10,7 @@ $job_code=$Project_slno;
 // 
 $data_table=array('pr_no'=>$pr_no,'mr_forword_status'=>0);
 $query_data=$this->db->get_where('master_mr_job_details_m',$data_table);
+// echo  $this->db->last_query();
 if($query_data->num_rows()!=1){
 	$this->session->set_flashdata('error_message', ' Something went wrong ');
 	redirect('user-approver-home');
