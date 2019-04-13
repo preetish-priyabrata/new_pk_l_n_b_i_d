@@ -83,7 +83,7 @@ $values=$pr;
 											 <th>Slno .</th>
 											 <th>Query</th>
 											 <th>Query Date</th>
-											 <th>Action</th>
+											 
 										 </tr>
 								 </thead>
 								 <tbody>
@@ -99,8 +99,8 @@ $values=$pr;
 														<td><?=$x?></td>
 														<td><?=$key_query->query_details?></td>
 														<td><?=$key_query->date_query?></td>
-														<!--<td><a href="base_url()?>buyer_technical_query/query_panel_view/<?=$key_query->status_responds?>">Click to view</td>-->
-														<td><a target="_blank" href="<?=base_url()?>buyer-technical-query-view/<?=$key_query->Slno_query?>/<?=$values?>">Click View</a></td>
+														
+														
 													
 													</tr>
 													<?php

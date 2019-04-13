@@ -1393,16 +1393,7 @@ if(empty($Vendor_email_id)){
 
      
     }
-  public function vendor_new_notification_list($value=''){
-
-    $scripts='';
-     $data=array('title' =>"Vendor Notification",'script_js'=>$scripts ,'menu_status'=>'','sub_menu'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'');
-     $this->load->view('vendors_user/vendor_template/v_template_header',$data);
-     $this->load->view('vendors_user/vendor_template/v_template_top_head',$data);
-     $this->load->view('vendors_user/vendor_template/v_template_top_menu',$data);
-     $this->load->view('vendors_user/vendor_notification/view_notification_list',$data);
-     $this->load->view('vendors_user/vendor_template/v_template_top_footer',$data);
-  }
+ 
   public function vendor_view_detail_noticfaction($value,$value1){
    
     if(($value1!="") && ($value!="")){

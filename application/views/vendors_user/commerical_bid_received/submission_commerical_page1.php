@@ -23,10 +23,18 @@ $pr_no=$result_title['new_tech_list'][0]->pr_no;
 $data_process = array('pr_no' =>$pr_no);
 $query_process=$this->db->get_where('master_pr_process_detail',$data_process);
 $result_process=$query_process->result();
-
+$comm_bid=$result_process[0]->comm_bid;  // bid id information
 $slno_pr=$result_process[0]->pr_no_slno;
 $job_code=$result_process[0]->project_slno;
 $date_end=$result_title['new_tech_list'][0]->date_end;
+
+$data_table6 = array('pr_no' =>$pr_no,'commercial_bid_id'=>$comm_bid);
+$query_table6=$this->db->get_where('master_technical_commercial_terms_conditions',$data_table6);
+$result_table6=$query_table6->result();
+
+
+$slno=$result_table6[0]->slno;
+$file_name=$result_table6[0]->file_name;
 
 
 
@@ -84,7 +92,7 @@ $data_get_list_commerical = array('master_bid_id_comm' =>$master_bid_id_com ,'mr
 			<h4 class="panel-title">Panel Title here</h4>
 		</div>
 		<div class="panel-body">
-			<form action="<?=base_url()?>seller/user-vendor-bid-submission-commerical-save-pr" method="POST">
+			<form action="<?=base_url()?>seller/user-vendor-bid-submission-commerical-save-pr" method="POST"  onsubmit="if(document.getElementById('agree').checked) { return true; } else { alert('Please indicate that you have read and agree to the Terms and Conditions and Privacy Policy'); return false; }">
 				<input type="hidden" name="master_bid_id" value="<?=$master_bid_id_com?>">
 				<input type="hidden" name="vendor_bid_id" value="<?=$value?>">
 				<input type="hidden" name="vendor_id" value="<?=$Vendor_email_id?>">
@@ -242,6 +250,20 @@ $data_get_list_commerical = array('master_bid_id_comm' =>$master_bid_id_com ,'mr
 					</table>
 				</div>
 			</div>
+			<!-- <div class="row"> -->
+			<div class="form-group row text-center">
+				 <div class="col-md-12">
+			<div>
+			  <label for="myCheckbox"><input id="myCheckbox" name="i_accept" type="checkbox"/>I Agree
+			  <!--  class="btn btn-primary"-->
+			  <a href="#" data-toggle="modal" data-target="#exampleModal<?=$slno?>">Click To View</a>
+			</label>
+
+			 </div>
+			</div>
+			</div><br>
+			<br>
+		<!-- </div> -->
 			<div class="form-group row pull-right">
                 <div class="col-md-12">
                 <?php 	$today=date('Y-m-d');
@@ -250,7 +272,7 @@ $data_get_list_commerical = array('master_bid_id_comm' =>$master_bid_id_com ,'mr
           	 	}else{
           	 		?>
                 	<input type="button" value="Total" id="to_cal" onclick="totalIt()" />
-                    <button type="submit" id="to_sub" class="btn btn-sm btn-primary m-r-5">Sent</button>
+                    <button type="submit" id="to_sub" class="btn btn-sm btn-primary m-r-5" disabled>Sent</button>
               <?php  }  ?>
                     <a  href="<?=base_url()?>seller/user-vendor-home" class="btn btn-sm btn-default">Cancel</a> 
                 </div>
@@ -258,6 +280,130 @@ $data_get_list_commerical = array('master_bid_id_comm' =>$master_bid_id_com ,'mr
 		</form>
 		</div>
 	</div>
+</div>
+<!-- Modal -->
+<div class="modal fade bd-example-modal-lg" id="exampleModal<?=$slno?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Term And Condition</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      	<?php 
+      	// print_r(pathinfo(base_url().'upload_files/term_condition/'.$file_name));
+      		$file_name_FORMATION=(pathinfo(base_url().'upload_files/term_condition/'.$file_name));
+      		if($file_name_FORMATION['extension']=='png' or $file_name_FORMATION['extension']=='jpg' or $file_name_FORMATION['extension']=='jpge'){
+      			?>
+      			<img src="<?=base_url()?>upload_files/term_condition/<?=$file_name?>"   style="width:400; height:500px;"  >
+      			<?php 
+      		}else if($file_name_FORMATION['extension']=='xlsx' or $file_name_FORMATION['extension']=='xls'){
+      			$path_excel="upload_files/term_condition/".$file_name;
+                            // $arr_file = explode('.', $_FILES['file']['name']);
+                            $extension =strtolower(($file_name_FORMATION['extension']));
+                            switch ($extension) {
+                                case 'xls':
+                                 $inputFileType = 'Xls';
+                                break;
+                                case 'xlsx':
+                                 $inputFileType = 'Xlsx';
+                                break;                  
+                                case 'xml':
+                                 $inputFileType = 'Xml';
+                                break;
+                                case 'ods':
+                                 $inputFileType = 'Ods';
+                                break;
+                                case 'slk':
+                                 $inputFileType = 'Slk';
+                                break;                  
+                                case 'gnumeric':
+                                 $inputFileType = 'Gnumeric';
+                                break;
+                                case 'csv':
+                                 $inputFileType = 'Csv';
+                                break;
+
+                                default:
+                                # code...
+                                break;
+                            }
+                            ?>
+                            <div class="table-responsive">
+                            <table class="table table-bordered">
+                            <?php 
+
+                              $objReader = \PhpOffice\PhpSpreadsheet\IOFactory::createReader($inputFileType);
+                            $objReader->setReadDataOnly(true);
+                            //FileName and Sheet Name
+                            $objPHPExcel = $objReader->load($path_excel);
+                            foreach($objPHPExcel->getWorksheetIterator() as $worksheet){
+                                $highestRow = $worksheet->getHighestRow();
+                                $highestColumn = $worksheet->getHighestColumn();
+                                
+                                $columnLoopLimiter = $highestColumn;
+								++$columnLoopLimiter;
+								
+								$headings = $worksheet->rangeToArray('A1:' . $highestColumn . 1, NULL, TRUE, FALSE, TRUE)[1];
+
+                               
+                                 for($row=2; $row<=$highestRow; $row++){
+                                 	echo "<tr>";
+                                 	  $rowData = $worksheet->rangeToArray('A' . $row . ':' . $highestColumn . $row, NULL, TRUE, FALSE, TRUE);
+    								echo "<td>",$rowData[$row]['A'],"<td>";       
+    								// echo "</td>"   ;                   
+                                 	for($col='B'; $col<=$columnLoopLimiter; $col++){
+                                 		if (!empty($rowData[$row][$col])) {
+                                 			
+                                 		 echo "<td>",$headings[$col], '', $rowData[$row][$col], "</td>";
+                                 		
+                                 		}
+                                 	}
+                                 	// echo "<br>";
+                                 	 echo "</tr>"   ; 
+                                 }
+                                // print_r($highestColumn);
+
+                            }
+                         
+
+                                // for($row=1; $row<=$highestRow; $row++){
+
+
+                                // }
+?>
+   </table>
+   </div>
+<?php 
+      		}else if($file_name_FORMATION['extension']=='docx' or $file_name_FORMATION['extension']=='doc'){
+      			?>
+<iframe src="https://docs.google.com/viewerng/viewer?url=<?=base_url()?>upload_files/term_condition/<?=$file_name?>&hl=en&embedded=true"  width='100%' height='100%'  style="width:400; height:500px;"  frameborder='0'></iframe>
+      			<?php
+
+      		}else if($file_name_FORMATION['extension']=='pdf'){
+      			?>
+					<iframe src="<?=base_url()?>upload_files/term_condition/<?=$file_name?>"  width='100%' height='100%'  style="width:400; height:500px;"  frameborder='0'></iframe>
+
+      			<?php
+      		}else{
+      			?>
+<iframe src="https://docs.google.com/viewerng/viewer?url=<?=base_url()?>upload_files/term_condition/<?=$file_name?>&hl=en&embedded=true"  width='100%' height='100%'  style="width:400; height:500px;"  frameborder='0'></iframe>
+
+      			<?php
+      		}
+
+      	?>
+   
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+       <!--  <button type="button" class="btn btn-primary">Save changes</button> -->
+      </div>
+    </div>
+  </div>
 </div>
 <script type="text/javascript">
 	 function calc(idx) {
@@ -294,5 +440,10 @@ $data_get_list_commerical = array('master_bid_id_comm' =>$master_bid_id_com ,'mr
 	}
 	$(document).ready(function(){
 		$('#to_sub').hide();
+	});
+	$(document).ready(function () {
+	  $('#myCheckbox').click(function () {
+	    $('#to_sub').prop("disabled", !$("#myCheckbox").prop("checked")); 
+	  })
 	});
 </script>

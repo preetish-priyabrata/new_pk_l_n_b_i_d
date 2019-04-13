@@ -26,6 +26,25 @@ if(empty($Vendor_email_id)){
 						<span>Commerical Bid<span class="label label-theme m-l-5">NEW</span></span>
 					</a>
 				</li>
+				<li>
+					<a href="<?=base_url()?>seller/user-vendor-new-auction-list-pr">
+						<div class="icon-img">
+							<i class="fas fa-gavel" style="font-size: 19px; color: #64f664;"></i>
+							
+							<!-- <img src="<?=base_url()?>file_css_admin/assets/img/logo/logo-bs4.png" alt="" /> -->
+						</div>
+						<span>Auction Biding<span class="label label-theme m-l-5">NEW</span></span>
+					</a>
+				</li>
+				<li>
+					<a href="<?=base_url()?>seller/user-vendor-new-notification-list">
+						<div class="icon-img">
+							<i class="far fa-bell" style="font-size: 19px; color: red;"></i>
+							
+						</div>
+						<span>Notification <span id="Notification"></span> </span>
+					</a>
+				</li>
 
 				<!-- <li>
 					<a href="<?=base_url()?>user-vendor-new-technical">

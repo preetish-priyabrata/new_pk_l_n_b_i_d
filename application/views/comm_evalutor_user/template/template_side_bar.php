@@ -33,13 +33,26 @@
 						<a href="javascript:;">
 					        <b class="caret"></b>
 						    <i class="fas fa-atlas"></i>
-						    <span>Bid Information </span>
+						    <span>Bid Received Information </span>
 					    </a>
 						<ul class="sub-menu">
 						    <!--<li class="<?php if($sub_menu==1){ echo 'active'; }?>"><a href="<?=base_url()?>user-commerical-evaluator-bid-new-list" >Commerical Bid Active Bid  </a></li>
 						    <li class="<?php if($sub_menu==3){ echo 'active'; }?>"><a href="<?=base_url()?>user-commerical-evaluator-bid-complete-list" >History Of Commerical completed Bid </a></li>-->
-						    <li class="<?php if($sub_menu==3){ echo 'active'; }?>"><a href="<?=base_url()?>user-commerical-evalutor-pr-create" > View Receive Bid List  </a></li>
-						     <li class="<?php if($sub_menu==4){ echo 'active'; }?>"><a href="<?=base_url()?>user-commerical-evalutor-pr-view-list" > View Receive Bid List  </a></li>
+						    <li class="<?php if($sub_menu==3){ echo 'active'; }?>"><a href="<?=base_url()?>user-commerical-evalutor-pr-create" > View Receive (Closed & Simple) Bid List  </a></li>
+						     <li class="<?php if($sub_menu==4){ echo 'active'; }?>"><a href="<?=base_url()?>user-commerical-evalutor-pr-create-rank" > View Receive (Rank) Bid List Rank  </a></li>
+
+						</ul>
+					</li>
+					<li class="has-sub <?php if($menu_status==2){echo 'active';}?>">
+						<a href="javascript:;">
+					        <b class="caret"></b>
+						    <i class="fas fa-atlas"></i>
+						    <span>Bid Completed Information </span>
+					    </a>
+						<ul class="sub-menu">
+						   
+						    <li class="<?php if($sub_menu==24){ echo 'active'; }?>"><a href="<?=base_url()?>user-commerical-evalutor-pr-view-list" > View Completed Bid List  </a></li>
+						   
 
 						</ul>
 					</li>

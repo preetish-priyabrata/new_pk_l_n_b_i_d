@@ -295,14 +295,7 @@ EOD;
 
 			<div class="form-group row pull-right">
                 <div class="col-md-12">
-                <?php 	$today=date('Y-m-d');
-          	 	if($date_end < $today) {
-
-          	 	}else{
-          	 		?>
-                	<input type="button" value="Total" id="to_cal" onclick="totalIt()" />
-                    <button type="submit" id="to_sub" class="btn btn-sm btn-primary m-r-5">Sent</button>
-              <?php  }  ?>
+                
                     <a  href="<?=base_url()?>seller/user-vendor-home" class="btn btn-sm btn-default">Cancel</a> 
                 </div>
             </div>

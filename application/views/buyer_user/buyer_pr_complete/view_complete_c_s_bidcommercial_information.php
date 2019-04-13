@@ -4,55 +4,52 @@ if(empty($email_id)){
 	
 	redirect('buy-logout-by-pass');
 }
-// 'Pr_no'=>$pr_no,'technical_bid_ref'=>$technical_bid_ref,'technical_bid_id'=>$technical_bid_id,'id'=>$id,'bid_id'=>$tech_bid);
+
+// ,'Pr_no'=>$pr_no,'pr_slno'=>$pr_slno,'project_job_code'=>$project_job_code,'id'=>$id,'comm_bid_id'=>$comm_bid);
 $pr_no=$Pr_no;
-$access=$id;
-$bid_id=$bid_id;
-
-
-
+$slno_pr=$pr_slno;
+$job_code=$project_job_code;
+$edit_type=$id;
+$comm_bid_id=$comm_bid_id;
 
 $data_process = array('pr_no' =>$pr_no);
 $query_process=$this->db->get_where('master_pr_process_detail',$data_process);
 $result_process=$query_process->result();
 
 
-$tech_bid=$result_process[0]->tech_bid;  // bid id information
-if($bid_id!=$tech_bid){
-	$this->session->set_flashdata('error_message', ' Something went wrong ');
-	redirect('user-technical-evalutor-home');
-	exit();
-}
-$technical_bid_id=$result_process[0]->technical_bid_id;  // technical bid ind information 
-$technical_bid_ref=$result_process[0]->technical_bid_ref; // technical bid referenced infromtion
-$technical_edit_id=$result_process[0]->technical_edit_id; // no of time bid is been edit infromation
-$slno_pr=$result_process[0]->pr_no_slno;
-$job_code=$result_process[0]->project_slno;
+$comm_bid_db=$result_process[0]->comm_bid;  // bid id information
+$commercial_bid_id=$result_process[0]->commercial_bid_id;  // technical bid ind information 
+$commercial_bid_ref=$result_process[0]->commercial_bid_ref; // technical bid referenced infromtion
+$commercial_edit_id=$result_process[0]->commercial_edit_id; // no of time bid is been edit infromation
+$commercial_resubmit_count=$result_process[0]->commercial_resubmit_count;
 
+$technical_user_slno=$result_process[0]->technical_user_slno;
+// `technical_user_slno`, `technical_user_id`
 $technical_user_id=$result_process[0]->technical_user_id;
 
+ $url='<a href="'.base_url().'buyer-commerical-c-s-r-ongoing-bid-pr-notification-vendor/'.$pr_no.'/'.$commercial_bid_ref.'/'.$commercial_bid_id.'/'.$comm_bid_db.'/'.$commercial_edit_id.'/'.$commercial_resubmit_count.'" class="btn btn-sm btn-lime" title="Click Here Closed Bid Sent information of approved vendors" >Send Notification To vendor </a>';
 
 
 
-$data_array = array('edit_id_bid' =>$technical_edit_id,'bid_id'=>$technical_bid_id,'bid_ref'=> $technical_bid_ref,'pr_no'=>$pr_no,'master_bid_id'=>$tech_bid);
+$data_array = array('edit_id_bid' =>$commercial_edit_id,'bid_id'=>$commercial_bid_id,'bid_ref'=> $commercial_bid_ref,'pr_no'=>$pr_no,'master_bid_id'=>$comm_bid_db,'commercial_resubmit_count'=>$commercial_resubmit_count);
 
-$vendor_selected_id=$this->db->get_where('master_bid_vendor_m',$data_array);
+$vendor_selected_id=$this->db->get_where('master_bid_Com_vendor_m',$data_array);
 
-$data_table1 = array('pr_no' =>$pr_no);
-$query_table1=$this->db->get_where('master_bid_date_details_m',$data_table1);
+$data_table1= array('pr_no' =>$pr_no);
+$query_table1=$this->db->get_where('master_bid_Com_date_details_m',$data_table1);
 $result_table1=$query_table1->result();
 
 $data_table2 = array('pr_no' =>$pr_no);
-$query_table2=$this->db->get_where('master_bid_details_m',$data_table2);
+$query_table2=$this->db->get_where('master_bid_Com_details_m',$data_table2);
 $result_table2=$query_table2->result();
 
 
 $data_table3 = array('pr_no' =>$pr_no);
-$query_table3=$this->db->get_where('master_bid_m',$data_table3);
+$query_table3=$this->db->get_where('master_bid_Com_m',$data_table3);
 $result_table3=$query_table3->result();
 
 $data_table4 = array('pr_no' =>$pr_no);
-$query_table4=$this->db->get_where('master_bid_t_c_tech_m',$data_table4);
+$query_table4=$this->db->get_where('master_bid_t_c_comm_m',$data_table4);
 $result_table4=$query_table4->result();
 
 $data_table5 = array('pr_no' =>$pr_no);
@@ -68,7 +65,7 @@ $data_table=array('pr_no'=>$pr_no,'mr_forword_status'=>1);
 $query_data=$this->db->get_where('master_mr_job_details_m',$data_table);
 if($query_data->num_rows()!=1){
 	$this->session->set_flashdata('error_message', ' Something went wrong ');
-	// redirect('user-technical-evalutor-home');
+	// redirect('user-procurement-home');
 	// exit();
 }
 
@@ -88,11 +85,6 @@ $result_table=$query_data->result();
     
     $data_array_procurement=$this->approver_user->get_approver_procurement_list();
 	   $result_file=$this->design_user->get_design_mr_file_list_m($pr_no,$slno_pr,$job_code);
-
-
-	   
-
-	   $url='<a href="'.base_url().'buyer-technical-ongoing-bid-pr-notification-vendor/'.$pr_no.'/'.$technical_bid_ref.'/'.$technical_bid_id.'/'.$tech_bid.'/'.$technical_edit_id.'" class="btn btn-sm btn-lime" title="Click Here Closed Bid Sent information of approved vendors" >Send Notification To vendor </a>';
 ?>
 
 <link href="../assets/plugins/bootstrap-datepicker/css/bootstrap-datepicker.css" rel="stylesheet" />
@@ -140,11 +132,11 @@ $result_table=$query_data->result();
 					<div class="alert alert-secondary">
                         		<span style="color: red"> *</span> All mandatory fields shall be duly filled up 
                         	</div>
-					<form action="<?=base_url()?>procurement-add-new-pr-save" method="POST" >
+					<form action="#" method="POST" >
 						<div class="row">
 							<div class="col-md-6 col-lg-6">
 								<div class="form-group row m-b-15">
-									<label class="col-form-label col-md-3" for="activity_name">PR No. </label>
+									<label class="col-form-label col-md-3" for="activity_name">PR No. <span style="color: red">*</span></label>
 									<div class="col-md-9">
 										<?php
 										$get_mr_id=$this->design_user->get_design_mr_no();	
@@ -155,12 +147,12 @@ $result_table=$query_data->result();
 										<input type="hidden" readonly="" name="job_code" id="job_code" value="<?=$job_code?>">
 										<input class="form-control m-b-5"  name="pr_no_type" id="pr_no_type" type="hidden" value="new_pr_creater" required="" readonly>
 										<input class="form-control m-b-5"  name="edit_type" id="edit_type" type="hidden" value="<?=$edit_id=$result_table[0]->edit_id?>"required="" readonly>
-										<input type="hidden"  name="tech_evalution"  value="<?=$result_table[0]->techinal_evalution?>">
+										<input type="hidden"  name="tech_evalution"  value="<?=$techinal_evalution=$result_table[0]->techinal_evalution?>">
 										<small class="f-s-12 text-grey-darker">PR No.</small>
 									</div>
 								</div>
 							 	<div class="form-group row m-b-15">
-									<label class="col-form-label col-md-3" for="job_code">Job Code </label>
+									<label class="col-form-label col-md-3" for="job_code">Job Code <span style="color: red">*</span></label>
 									<div class="col-md-9">
 										<!-- <input class="form-control m-b-5" placeholder="Enter Activity name" name="activity_name" id="activity_name" type="text" required=""> -->
 										<select name="job_code" class="form-control m-b-5" id="job_code">
@@ -191,7 +183,7 @@ $result_table=$query_data->result();
 								</div>
 
 								<div class="form-group row m-b-15">
-									<label class="col-form-label col-md-3" for="required_date">Date Required </label>
+									<label class="col-form-label col-md-3" for="required_date">Date Required <span style="color: red">*</span></label>
 									<div class="col-md-9">
 										<input class="form-control m-b-5 datepickers" placeholder="Enter Date Required " name="required_date" id="required_date" type="text" required=""value="<?=$result_table[0]->date_required?>" readonly>
 										<small class="f-s-12 text-grey-darker">Please enter Date Required</small>
@@ -204,7 +196,7 @@ $result_table=$query_data->result();
 							
 							<div class="col-md-6 col-lg-6">
 								<div class="form-group row m-b-15">
-									<label class="col-form-label col-md-3" for="approver_id">Approver Name </label>
+									<label class="col-form-label col-md-3" for="approver_id">Approver Name <span style="color: red">*</span></label>
 									<div class="col-md-9">
 																	
 											<?php
@@ -240,7 +232,7 @@ $result_table=$query_data->result();
 								</div>
 								<div class="form-group row m-b-15">
 									<label class="col-form-label col-md-3" for="Procurement">Procurement Name 
-										
+										<span style="color: red">*</span>
 									</label>
 									<div class="col-md-9">																						
 											
@@ -265,7 +257,7 @@ $result_table=$query_data->result();
 									</div>
 								</div>
 								<div class="form-group row m-b-15">
-									<label class="col-form-label col-md-3" for="buyer_id">Buyer Name </label>
+									<label class="col-form-label col-md-3" for="buyer_id">Buyer Name <span style="color: red">*</span></label>
 									<div class="col-md-9">
 										<?php
 										$data_array_buyer=$this->procurement_user->get_procurement_buyer_list();	
@@ -296,24 +288,25 @@ $result_table=$query_data->result();
 										<small class="f-s-12 text-grey-darker">Select Buyer </small>
 									</div>
 								</div>
+								<?php if($techinal_evalution==1){ ?>
 								<div class="form-group row m-b-15">
-													<label class="col-form-label col-md-3" for="Technical_ev" >Commercial Evaluator Name </label>
+													<label class="col-form-label col-md-3" for="Technical_ev" >Technical  Evaluator Name </label>
 													<div class="col-md-9">
 														<?php
-														$data_array_approver=$this->buyer_user->get_user_generic_list('1','0','0','9','','');	
+														$data_array_approver_tech=$this->buyer_user->get_user_generic_list('1','0','0','9','','');	
 															
 														?>
 														
 														<select name="Technical_ev"  class="form-control m-b-5" id="Technical_ev" required="" >
 															<?php 
-															if($data_array_approver['no_user']==2){?>
+															if($data_array_approver_tech['no_user']==2){?>
 																<option value="">--No Technical Evaluator Is found--</option>
 																<?php
-															}else if($data_array_approver['no_user']==1){
+															}else if($data_array_approver_tech['no_user']==1){
 																?>
 																
 															<?php
-																foreach ($data_array_approver['user_approver'] as $key_approver) {
+																foreach ($data_array_approver_tech['user_approver'] as $key_approver) {
 																	if($technical_user_id==$key_approver->email_id){
 																		echo "<option value='".$key_approver->slno."'>".$key_approver->Username." [ ".$key_approver->email_id." ]</option>";
 																	}
@@ -327,9 +320,41 @@ $result_table=$query_data->result();
 														<small class="f-s-12 text-grey-darker">Select Commerical Evaluator </small>
 													</div>
 												</div>
+											<?php }?>
+								<div class="form-group row m-b-15">
+													<label class="col-form-label col-md-3" for="Technical_ev" >Commercial Evaluator Name <span style="color: red">*</span></label>
+													<div class="col-md-9">
+														<?php
+														$data_array_approver_comm=$this->buyer_user->get_user_generic_list('1','0','0','10','','');	
+															
+														?>
+														
+														<select name="Technical_ev"  class="form-control m-b-5" id="Technical_ev" required="" >
+															<?php 
+															if($data_array_approver_comm['no_user']==2){?>
+																<option value="">--No Commercial Evaluator Is found--</option>
+																<?php
+															}else if($data_array_approver_comm['no_user']==1){
+																?>
+																
+															<?php
+																foreach ($data_array_approver_comm['user_approver'] as $key_approver) {
+																	if($result_process[0]->commercial_user_id==$key_approver->email_id){
+																	echo "<option value='".$key_approver->slno."'>".$key_approver->Username." [ ".$key_approver->email_id." ]</option>";
+																	}
+																}
+															
+																
+															}	
+															?>										
+															
+														</select>
+														<small class="f-s-12 text-grey-darker">Select Commerical Evaluator </small>
+													</div>
+												</div>
 								
 								<div class="form-group row m-b-15">
-									<label class="col-form-label col-md-3" for="mr_date_of_creation">Date Of Creating</label>
+									<label class="col-form-label col-md-3" for="mr_date_of_creation">Date Of Creating<span style="color: red">*</span></label>
 									<div class="col-md-9">
 										<input class="form-control m-b-5" name="mr_date_of_creation" value="<?=$result_table[0]->date_creation?>"  id="mr_date_of_creation" type="text" required="" readonly>
 										<small class="f-s-12 text-grey-darker">Date Of Creating MR</small>
@@ -351,11 +376,6 @@ $result_table=$query_data->result();
 						?>
 						 <br>
 						<hr>
-						<div class="row">
-							<div class="col-lg-12">
-								
-							</div>
-						</div>
 						<div class="row">
 					<div class="col-md-12 col-lg-12">
 						<div id="accordion">
@@ -399,15 +419,15 @@ $result_table=$query_data->result();
 												  			
 												    		
 												    		<?php 
-															if($result_table5[0]->technical_type_bid=='Closed Bid'){?>
+															if($result_table5[0]->commercial_type_bid=='Closed Bid'){?>
 												    	    <option value="Closed Bid">Closed Bid </option>
 												    	 <?php }?>
 												    	    <?php 
-															if($result_table5[0]->technical_type_bid=='Rank Order Bid'){?>
+															if($result_table5[0]->commercial_type_bid=='Rank Order Bid'){?>
 												    		<option value="Rank Order Bid">Rank Order Bid </option>
 												    	 <?php }?>
                                                             <?php 
-															if($result_table5[0]->technical_type_bid=='Simple Bid'){?>
+															if($result_table5[0]->commercial_type_bid=='Simple Bid'){?>
 												    		<option value="Simple Bid">Simple Bid </option>
 												    	 <?php }?>
 												  		</select>
@@ -722,7 +742,7 @@ $result_table=$query_data->result();
 														<tr>
 															<th width="10%">Organisation Name</th>
 															<th width="40%">Detail</th>
-															<th>Approver</th>
+														
 															<th>Submission</th>
 
 														</tr>
@@ -745,58 +765,8 @@ $result_table=$query_data->result();
 						                                        <p>Vendor Mobile : <?=$value_id_vender->Mobile_no?></p>
 						                                        <p>Vendor Address : <?=$value_id_vender->Organisation_address?></p>
 						                                    </td>
-															<td>
-																<?php 
-																	if($value_vendor->status_view==7){
-																		if($value_vendor->submission_status==1){
-																			if($value_vendor->approval_status==1){
-																				echo "<span class='text-center text-success'>Approved</span>";
-																			}else{
-																				if(empty($value_vendor->approval_status)){
-																						echo "<span class='text-center text-warning'>Wiaitng For Approval</span>";
-
-																				}else{
-																					echo "<span class='text-center text-dange'>Rejected</span>";
-																																										}
-																			}
-																		}else{
-																			echo "Not submitted";
-																		}
-																	}else if($value_vendor->status_view==8){
-																		echo "<span class='text-warning'>Resubmission</span>";
-																	}else{
-																		echo "Not submitted";
-																	}
-
-																?>
-															</td>
-															<td>
-																<?php 
-																	if($value_vendor->status_view==7){
-																		if($value_vendor->submission_status==1){
-																			echo "<span class='text-center text-success'>Submission Of Technical</span>";
-																		}else{
-																			echo "Not submitted";
-																		}
-																	}else if($value_vendor->status_view==8){
-																		echo "<span class='text-warning'>Resubmission</span>";
-																	}else{
-																		echo "Not submitted";
-																	}
-
-																?>
-															</td>
+															<td></td>
 															
-																
-															<?php 
-
-																if($value_vendor->status_view==7){
-																	if(($value_vendor->submission_status==1) && ($value_vendor->approval_status==1)){
-																		$check_approve=$check_approve+1;
-																	}
-																}
-																?>
-														
 															
 														</tr>
 													<?php }?>
@@ -814,12 +784,9 @@ $result_table=$query_data->result();
 							    <div class="form-group row pull-right">
                             <div class="col-md-12">
                                 <!--<button type="submit" class="btn btn-sm btn-primary m-r-5" >Next</button>-->
-			                    <?php
-								echo $url;
-									
-								?>
-
-                               <a  href="<?=base_url()?>user-buyer-home" class="btn btn-sm btn-default">Back</a> 
+			                   
+                              
+                               <a  href="<?=base_url()?>user-commerical-evalutor-home" class="btn btn-sm btn-default">Back</a> 
                             </div>
                         </div>
 							</div>

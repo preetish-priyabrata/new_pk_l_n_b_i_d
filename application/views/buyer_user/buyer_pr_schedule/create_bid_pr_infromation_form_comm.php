@@ -94,7 +94,7 @@ $result_table=$query_data->result();
 					<div class="alert alert-secondary">
                         		<span style="color: red"> *</span> All mandatory fields shall be duly filled up 
                         	</div>
-					<form action="<?=base_url()?>buyer-add-new-pr-comm-save" method="POST" >
+					<form action="<?=base_url()?>buyer-add-new-pr-comm-save" method="POST" enctype='multipart/form-data'>
 						<div class="row">
 							<div class="col-md-6 col-lg-6">
 								<div class="form-group row m-b-15">
@@ -166,8 +166,15 @@ $result_table=$query_data->result();
 								<div class="form-group row m-b-15">
 									<label class="col-form-label col-md-3" for="Ace_value_detail">ACE Value<span style="color: red">*</span></label>
 									<div class="col-md-9">
-										<input class="form-control m-b-5 " placeholder="Enter ACE Value Required " name="Ace_value_detail" id="Ace_value_detail" type="text" required=""value="" >
-										<small class="f-s-12 text-grey-darker">Please enter ACE Value Required</small>
+										<input class="form-control m-b-5 " placeholder="Enter ACE Value  " name="Ace_value_detail" id="Ace_value_detail" type="text" value="0" >
+										<small class="f-s-12 text-grey-darker">Please enter ACE Value (optional)</small>
+									</div>
+								</div>
+								<div class="form-group row m-b-15">
+									<label class="col-form-label col-md-3" for="terms_condition_file">Terms and Conditions<span style="color: red">*</span></label>
+									<div class="col-md-9">
+										<input name="terms_condition_file" id="terms_condition_file" type="file" required="">
+										<small class="f-s-12 text-grey-darker">Please  Upload Files Of Terms and Conditions</small>
 									</div>
 								</div>
 								
@@ -629,15 +636,16 @@ $result_table=$query_data->result();
 							</div>
 
 
+							<!-- Part Accordion 5 Start -->
 							<div class="card">
 								<div class="card-header text-center">
 									<a class="collapsed card-link" data-toggle="collapse" href="#collapsesix">
-										Terms and Conditions
+										Remark To Vendors
 									</a>
 								</div>
 								<div id="collapsesix" class="collapse" data-parent="#accordion">
 									<div class="card-body">
-										<h5 class="text-left">Terms and Conditions</h5>
+										<h5 class="text-left">Remark To Vendor</h5>
 										<hr style="background: lightblue">
 										<!-- row Start -->
 										<div class="row">
@@ -651,9 +659,11 @@ $result_table=$query_data->result();
 													<div class="col-lg-12">
 												    
 												<div class="form-group row m-b-15">
-													<label class="col-form-label col-md-3">Terms and Conditions <span style="color: red">*</span></label>
+													<label class="col-form-label col-md-3">Remark To Vendor <span style="color: red">*</span></label>
 													<div class="col-md-9">
-															<?php echo $this->ckeditor->editor("terms_condition","default textarea value"); ?>
+														<textarea class="form-control" rows="3" name="terms_condition" required=""></textarea>
+														<!-- <?php echo $this->ckeditor->editor("terms_condition","default textarea value"); ?> -->
+														
 														
 													</div>
 												</div>		
@@ -671,7 +681,7 @@ $result_table=$query_data->result();
 									</div>
 								</div>
 							</div>
-							<!-- part Accordion 4 End -->
+							<!-- part Accordion 5 End -->
 
 							 <div class="card">
 							    <div class="card-header text-center">
@@ -729,7 +739,7 @@ $result_table=$query_data->result();
                             <div class="col-md-12">
                            		<span id="spl"> 
 	                               
-	                               <input type="submit" name="submission" value="Save" class="btn btn-success btn-sm">
+	                               <!-- <input type="submit" name="submission" value="Save" class="btn btn-success btn-sm"> -->
 	                               <input type="submit" name="submission" value="Sent" class="btn btn-info btn-sm">
                            		</span>
                                <a  href="<?=base_url()?>buyer-pr-receive" class="btn btn-sm btn-primary">Back</a> 

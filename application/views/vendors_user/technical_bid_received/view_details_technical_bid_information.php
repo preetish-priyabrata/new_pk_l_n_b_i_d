@@ -38,6 +38,11 @@ $approval_status=$result_title['new_tech_list'][0]->approval_status;
  // $result_file=$this->design_user->get_design_mr_file_list($mr_slno,$mr_no); // file information
 	$date_file_sub = array('bid_id_vendor' => $value );
  	$get_no_file=$this->db->get_where('master_vendor_tech_token_bid_c',$date_file_sub);
+
+ $data_table4 = array('pr_no' =>$pr_no);
+$query_table4=$this->db->get_where('master_bid_t_c_tech_m',$data_table4);
+$result_table4=$query_table4->result();
+
 ?>
 	<input type="hidden" readonly="" name="slno_pr" id="slno_pr"  value="<?=$slno_pr?>">
 	<input type="hidden" readonly="" name="job_code" id="job_code" value="<?=$job_code?>">
@@ -211,6 +216,20 @@ $approval_status=$result_title['new_tech_list'][0]->approval_status;
 					</table>
 				</div>
 			</div>
+			<div class="row">
+				<div class="col-md-12 col-lg-12">
+					<h5 class="text-center">Remarks</h5>
+					<hr style="height: 3px;background: #0257ab;margin-top: 1.5rem; margin-bottom: 1.5rem"/>
+					<?=$result_table4[0]->t_c_detail?>
+				</div>
+			</div>
+					
+		    	           
+
+						
+					
+				
+			
 			<div class="row">				
 				<div class="col-md-12 col-lg-12">
 					<h5 class="text-center">Submission Created</h5>

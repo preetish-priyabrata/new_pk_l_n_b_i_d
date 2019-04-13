@@ -60,22 +60,23 @@
 					    </a>
 						<ul class="sub-menu">
 						    <li class="<?php if($sub_menu==3){ echo 'active'; }?>"><a href="<?=base_url()?>buyer-pr-technical-ongoing" >On-going Technical Bid</a></li>		
-						     <li class="<?php if($sub_menu==34){ echo 'active'; }?>"><a href="<?=base_url()?>buyer-pr-commercial-closed-simple-ongoing" >On-going Commercial (Closed & Simple) Bid</a></li>						 
+						     <li class="<?php if($sub_menu==34){ echo 'active'; }?>"><a href="<?=base_url()?>buyer-pr-commercial-closed-simple-ongoing" >On-going Commercial (Closed & Simple) Bid</a></li>
+						       <li class="<?php if($sub_menu==344){ echo 'active'; }?>"><a href="<?=base_url()?>buyer-pr-commercial-ranking-ongoing" >On-going Commercial (Ranking) Bid</a></li>	
 						</ul>
 						
 					</li>
-					<!-- <li class="has-sub <?php if($menu_status==4){echo 'active';}?>">
+					<li class="has-sub <?php if($menu_status==4){echo 'active';}?>">
 						<a href="javascript:;">
 					        <b class="caret"></b>
 						    <i class="fas fa-atlas"></i>
 						    <span>Completed Bid </span>
 					    </a>
 						<ul class="sub-menu">
-						    <li class="<?php if($sub_menu==4){ echo 'active'; }?>"><a href="<?=base_url()?>buyer-pr-technical-completed" >On-going Technical Bid</a></li>		
-						     <li class="<?php if($sub_menu==44){ echo 'active'; }?>"><a href="<?=base_url()?>buyer-pr-commercial-closed-simple-completed" >On-going Commercial (Closed & Simple) Bid</a></li>						 
+						    <li class="<?php if($sub_menu==4){ echo 'active'; }?>"><a href="<?=base_url()?>buyer-pr-technical-completed" >View Completed Technical Bid</a></li>		
+						     <li class="<?php if($sub_menu==44){ echo 'active'; }?>"><a href="<?=base_url()?>buyer-pr-commercial-closed-simple-completed" >View Completed Commercial (Closed / Simple /Rank ) Bid</a></li>						 
 						</ul>
 						
-					</li> -->
+					</li>
 
 
 

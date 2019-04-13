@@ -138,7 +138,7 @@ if(empty($email_id)){
 								<?php
 								 foreach($query->result() as $row){
 								 	$pr_no=$row->pr_no;
-								 	$data_check=array('pr_no'=>$pr_no,'buyer_user_id'=>$email_id,'approver_user_status'=>1,'design_user_status'=>1,'procurement_user_status'=>1,'buyer_user_status'=>6);
+								 	$data_check=array('pr_no'=>$pr_no,'buyer_user_id'=>$email_id,'approver_user_status'=>1,'design_user_status'=>1,'procurement_user_status'=>1,'commercial_complete_status'=>2);
 								 	$query_check=$this->db->get_where('master_pr_process_detail',$data_check);
 								 	$num_rows_check=$query_check->num_rows();
 								 	if($num_rows_check!=0){
@@ -161,7 +161,8 @@ if(empty($email_id)){
 								 		$comm_bid=$result_id[0]->comm_bid;
 								 		$status_detai="Ongoing";
 								 		if($tech==1){
-								 			$url="--";
+								 			$word="Commerical";
+								 			$url='<a href="'.base_url().'buyer-s-c-Commerical-ongoing-bid-pr-info-details/'.$row->pr_no.'/'.$row->slno.'/'.$row->job_code.'/2/'.$comm_bid.'" > Click to View '.$word.' </a>';	
 								 		}else{
 								 			$word="Commerical";
 								 			$url='<a href="'.base_url().'buyer-s-c-Commerical-ongoing-bid-pr-info-details/'.$row->pr_no.'/'.$row->slno.'/'.$row->job_code.'/2/'.$comm_bid.'" > Click to View '.$word.' </a>';	

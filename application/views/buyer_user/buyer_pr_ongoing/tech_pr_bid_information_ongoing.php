@@ -59,6 +59,9 @@ $data_table5 = array('pr_no' =>$pr_no);
 $query_table5=$this->db->get_where('master_pr_process_detail',$data_table5);
 $result_table5=$query_table5->result();
 
+$data_table6 = array('pr_no' =>$pr_no,'technical_bid_id'=>$tech_bid);
+$query_table6=$this->db->get_where('master_technical_commercial_terms_conditions',$data_table6);
+$result_table6=$query_table6->result();
 
 
 
@@ -197,8 +200,18 @@ $result_table=$query_data->result();
 										<small class="f-s-12 text-grey-darker">Please enter Date Required</small>
 									</div>
 								</div>
-								
-								
+								<div class="form-group row m-b-15">
+									<label class="col-form-label col-md-3" for="required_date"> Terms & Conditions </label>
+									<div class="col-md-9">
+										
+								     
+								                                   <a target="_blank" href="<?=base_url()?>upload_files/term_condition/<?=$result_table6[0]->file_name?>"> Click to View </a>                              
+								                           
+									</div>
+								</div>
+
+
+
 								
 							</div>
 							
@@ -675,12 +688,12 @@ $result_table=$query_data->result();
                             <div class="card">
 								<div class="card-header text-center">
 									<a class="collapsed card-link" data-toggle="collapse" href="#collapsesix">
-										Terms and Conditions
+										Remarks to vendor
 									</a>
 								</div>
                                    <div id="collapsesix" class="collapse" data-parent="#accordion">
 									<div class="card-body">
-										<h5 class="text-left">Terms and Conditions</h5>
+										<h5 class="text-left"> Remarks to vendor </h5>
 										<hr style="background: lightblue">
                                               <div class="row">
                                               	 <div class="col-md-12 col-lg-12">

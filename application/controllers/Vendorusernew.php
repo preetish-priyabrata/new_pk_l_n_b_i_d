@@ -1,6 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
+require 'vendor/autoload.php';
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 class Vendorusernew extends CI_Controller {
     public function __construct(){
             parent::__construct();
@@ -26,7 +28,16 @@ class Vendorusernew extends CI_Controller {
 
 
     }
+     public function vendor_new_notification_list($value=''){
 
+    $scripts='';
+     $data=array('title' =>"Vendor Notification",'script_js'=>$scripts ,'menu_status'=>'','sub_menu'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'');
+     $this->load->view('vendors_user/vendor_template/v_template_header',$data);
+     $this->load->view('vendors_user/vendor_template/v_template_top_head',$data);
+     $this->load->view('vendors_user/vendor_template/v_template_top_menu',$data);
+     $this->load->view('vendors_user/vendor_notification/view_notification_list',$data);
+     $this->load->view('vendors_user/vendor_template/v_template_top_footer',$data);
+  }
    public function vendor_bid_new_technical_list($value=''){
       $scripts='<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script><script src=" https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script> <script src="'.base_url().'file_css_admin/own_js.js"></script>';
         $data=array('title' =>"Vendor Dashboard",'script_js'=>$scripts ,'menu_status'=>'','sub_menu'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'');
@@ -468,4 +479,36 @@ public function vendor_commerical_query_panel($value=''){
 
 
     }
+     public function vendor_new_auction_list_pr($value=''){
+       $scripts='<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script><script src=" https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script> <script src="'.base_url().'file_css_admin/own_js.js"></script>';
+        $data=array('title' =>"Vendor Notification",'script_js'=>$scripts ,'menu_status'=>'','sub_menu'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','slno_approve'=>$value);
+         $this->load->view('vendors_user/vendor_template/v_template_header',$data);
+         $this->load->view('vendors_user/vendor_template/v_template_top_head',$data);
+         $this->load->view('vendors_user/vendor_template/v_template_top_menu',$data);
+         $this->load->view('vendors_user/vendor_bid_details_rank/vendor_bid_details_list',$data);
+         $this->load->view('vendors_user/vendor_template/v_template_top_footer',$data);
+    }
+    public function vendor_rank_bid_order_pr($pr_slno='',$vendor_id_bid='',$master_bid_id='',$slno_approve=''){
+    if(($pr_slno!="") && ($vendor_id_bid!="") &&($master_bid_id!="")&&($slno_approve!="")){
+      // if($value==3){
+      //    $page="vendors_user/RANK_ENTRY/rank_page2_logistic";
+      // }else if(($value==2) || ($value==1)){
+      //   $page="vendors_user/RANK_ENTRY/rank_page1_mo_sci";
+      // }else{
+      //   $this->session->set_flashdata('error_message', 'something went worng');
+      //   redirect('user-vendor-home'); 
+      // }
+        $PAGE="vendors_user/vendor_bid_details_rank/submission_commerical_page1";
+       $scripts='<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.4/vue.min.js"></script> <script src="'.base_url().'file_css_admin/clocl.js"></script><script type="text/javascript"  src="'.base_url().'file_css_admin/counter/jquery.countdownTimer.js"></script>';
+      $data=array('title' =>"Vendor Notification",'script_js'=>$scripts ,'menu_status'=>'','sub_menu'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','pr_slno'=>$pr_slno,'vendor_id_bid'=>$vendor_id_bid,'master_bid_id'=>$master_bid_id,'slno_approve'=>$slno_approve);
+      $this->load->view('vendors_user/vendor_template/v_template_header',$data);
+       $this->load->view('vendors_user/vendor_template/v_template_top_head',$data);
+       $this->load->view('vendors_user/vendor_template/v_template_top_menu',$data);
+       $this->load->view($PAGE,$data);
+       $this->load->view('vendors_user/vendor_template/v_template_top_footer',$data);
+    }else{
+      $this->session->set_flashdata('error_message', 'something went worng');
+      redirect('user-vendor-home'); 
+    }
+  }
   }

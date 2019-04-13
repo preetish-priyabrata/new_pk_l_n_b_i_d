@@ -13,6 +13,13 @@ $quety_on_going_comm=$this->db->get_where('master_bid_Com_vendor_m',$data_view);
 $data_view_new= array('vendor_id' => $Vendor_email_id,'status'=>1,'status_view'=>5,'status_active'=>1);
 $quety_on_goin_new=$this->db->get_where('master_bid_vendor_m',$data_view_new);
 
+$data_get_id = array('vendor_id' => $Vendor_email_id ,'view_status'=>0);
+$this->db->order_by('date_entry', "desc");
+$query_notification=$this->db->get_where('master_vendor_notifications',$data_get_id);
+
+$data_auction=array('vendor_id'=>$Vendor_email_id,'status'=>1);
+$query_auction=$this->db->get_where('master_bid_invi_rank_approvals_pr',$data_auction);
+
 ?>
 <!-- begin #content -->
 		<div id="content" class="content">
@@ -100,6 +107,43 @@ $quety_on_goin_new=$this->db->get_where('master_bid_vendor_m',$data_view_new);
 						</div>
 						<div class="stats-link">
 							<a href="<?=base_url()?>seller/user-vendor-bid-new-commerical">View Detail 
+
+								<i class="fa fa-arrow-alt-circle-right"></i>
+							</a>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-lg-3 col-md-6">
+					<div class="widget widget-stats bg-teal">
+						<div class="stats-icon">
+							<i class="fas fa-bell"></i>
+							<!-- <i class="fa fa-desktop"></i> -->
+						</div>
+						<div class="stats-info">
+							<h4>Notification Not Viewed </h4>
+							<p><?=$query_notification->num_rows()?></p>	
+						</div>
+						<div class="stats-link">
+							<a href="<?=base_url()?>seller/user-vendor-new-notification-list">View Detail 
+
+								<i class="fa fa-arrow-alt-circle-right"></i>
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<div class="widget widget-stats bg-orange">
+						<div class="stats-icon">
+							<i class="fas fa-gavel"></i>
+							<!-- <i class="fa fa-desktop"></i> -->
+						</div>
+						<div class="stats-info">
+							<h4>On Going Rank Order Auction </h4>
+							<p><?=$query_auction->num_rows()?></p>	
+						</div>
+						<div class="stats-link">
+							<a href="<?=base_url()?>seller/user-vendor-new-auction-list-pr">View Detail 
 
 								<i class="fa fa-arrow-alt-circle-right"></i>
 							</a>

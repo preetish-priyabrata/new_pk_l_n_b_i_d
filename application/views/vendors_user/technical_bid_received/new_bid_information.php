@@ -122,8 +122,9 @@ $result_new_bid=$this->vendor_db_usersnew->vendor_new_technical_bid_list_pr($Ven
     </div>
   </div>
 <!-- </div> -->
-
+<a  href="<?=base_url()?>user-vendor-home" class="btn btn-sm btn-link">Back</a>
 </div>
+
 </div>
 <script type="text/javascript">
 	$(document).ready( function () { 

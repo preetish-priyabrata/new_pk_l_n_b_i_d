@@ -23,11 +23,11 @@ if(empty($email_id)){
 			<ol class="breadcrumb pull-right">
 				<li class="breadcrumb-item active"><a href="#" class="fa fa-home ">Home</a></li>
 				<!-- <li class="breadcrumb-item"><a href="javascript:;">Page Options</a></li> -->
-				<li class="breadcrumb-item active">PR Schedule Ongoing Bid  For(Simple & Closed) Bid</li>
+				<li class="breadcrumb-item active">PR Schedule Ongoing Bid  For(Simple / Closed /Rank ) Bid</li>
 			</ol>
 			<!-- end breadcrumb -->
 			<!-- begin page-header -->
-			<h1 class="page-header">Project PR Schedule Ongoing Bid <br> For(Simple & Closed) Bid
+			<h1 class="page-header">Project PR Schedule Ongoing Bid <br> For(Simple / Closed /Rank) Bid
 			 <!-- <small>header small text goes here...</small> -->
 			</h1>
 			<!-- end page-header -->
@@ -58,7 +58,7 @@ if(empty($email_id)){
 						<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
 						<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
 					</div>
-					<h4 class="panel-title"> PR Schedule Ongoing Bid For(Simple & Closed) Bid </h4>
+					<h4 class="panel-title"> PR Schedule Ongoing Bid For(Simple / Closed /Rank) Bid </h4>
 				</div>	
 				<div class="panel-body">
 					<form action="" method="POST" enctype="multipart/form-data"	>
@@ -138,7 +138,7 @@ if(empty($email_id)){
 								<?php
 								 foreach($query->result() as $row){
 								 	$pr_no=$row->pr_no;
-								 	$data_check=array('pr_no'=>$pr_no,'buyer_user_id'=>$email_id,'approver_user_status'=>1,'design_user_status'=>1,'procurement_user_status'=>1,'buyer_user_status'=>6);
+								 	$data_check=array('pr_no'=>$pr_no,'buyer_user_id'=>$email_id,'approver_user_status'=>1,'design_user_status'=>1,'procurement_user_status'=>1,'commercial_complete_status'=>1);
 								 	$query_check=$this->db->get_where('master_pr_process_detail',$data_check);
 								 	$num_rows_check=$query_check->num_rows();
 								 	if($num_rows_check!=0){
@@ -157,17 +157,36 @@ if(empty($email_id)){
 								 		}else{
 								 			$commercial_user_remark="No Remark Send To Commercial community User";
 								 		}
-								 		$query_bid='<a href="'.base_url().'buyer-commercial-query/'.$row->pr_no.'" class="btn btn-sm btn-lime" title="" >View Query</a>';
+								 		$query_bid='<a href="'.base_url().'buyer-commercial-query-completed/'.$row->pr_no.'" class="btn btn-sm btn-lime" title="" >View Query</a>';
 								 		$comm_bid=$result_id[0]->comm_bid;
-								 		$status_detai="Ongoing";
-								 		if($tech==1){
-								 			$url="--";
-								 		}else{
-								 			$word="Commerical";
-								 			$url='<a href="'.base_url().'buyer-s-c-Commerical-ongoing-bid-pr-info-details/'.$row->pr_no.'/'.$row->slno.'/'.$row->job_code.'/2/'.$comm_bid.'" > Click to View '.$word.' </a>';	
-								 		}
+								 		$status_detai="Completed";
+								 		$url='<a href="'.base_url().'buyer-s-c-Commerical-completed-bid-pr-info-details/'.$row->pr_no.'/'.$row->slno.'/'.$row->job_code.'/2/'.$comm_bid.'" > Click to View '.$word.' </a>';
+								 		$commercial_bid_ref=$result_id[0]->commercial_bid_ref;
+								 		$commercial_bid_id=$result_id[0]->commercial_bid_id;
+								 		
+								 		$design_user_status=$result_id[0]->commercial_complete_status;
+								 		$comm_bid_db=$comm_bid=$result_id[0]->comm_bid;
+								 		$commercial_edit_id=$result_id[0]->commercial_edit_id;
+								 		$commercial_resubmit_count=$result_id[0]->commercial_resubmit_count;
 								 		$commercial_type_bid=$result_id[0]->commercial_type_bid;
-								 		if($commercial_type_bid!='Rank Order Bid'){
+
+								 		switch ($commercial_type_bid) {
+								            case 'Closed Bid':
+								                $last_otp_id=$type_bid='2';
+								                break;
+								            case 'Simple Bid':
+								                 $last_otp_id=$type_bid='1';
+								                break;
+								            case 'Rank Order Bid':
+								                 $last_otp_id=$type_bid='3';
+								                break;
+								        }
+								 		// $type_bid='',$last_insert_id='',$pr_no='',$commercial_bid_ref='',$commercial_bid_id='',$comm_bid_db='',$commercial_edit_id='',$commercial_resubmit_count='',$commercial_type_bid=''){
+								 		
+								 		$url_buyer_commplete='<a href="'.base_url().'buyer-otp-verification-success-view-pr/'.$type_bid.'/'.$last_otp_id.'/'.$pr_no.'/'.$commercial_bid_ref.'/'.$commercial_bid_id.'/'.$comm_bid_db.'/'.$commercial_edit_id.'/'.$commercial_resubmit_count.'/'.$commercial_type_bid.'"
+								 			>Click to view</a>';
+								 		$commercial_type_bid=$result_id[0]->commercial_type_bid;
+								 		// if($commercial_type_bid!='Rank Order Bid'){
 						                    echo '
 						                    <tr>
 						                      <td>'.$row->discipline.'</td>
@@ -179,10 +198,10 @@ if(empty($email_id)){
 						                       <td>'.$buyer_user_remark.'</td>
 						                      <td>'.$commercial_user_remark.'</td>
 						                      <td>'.$status_detai.'</td>
-						                      <td>'.$url.'||'.$query_bid.'</td>
+						                      <td>'.$url.'||'.$query_bid.'||'.$url_buyer_commplete.'</td>
 						                    </tr>
 						                    ';
-						                }
+						                // }
 					                }
 					            }
 								?>

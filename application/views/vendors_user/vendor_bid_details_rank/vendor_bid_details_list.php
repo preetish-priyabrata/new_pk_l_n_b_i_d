@@ -4,7 +4,7 @@ if(empty($Vendor_email_id)){
 
 	redirect('vendor-logout-pass');
 }
-$result_new_bid=$this->vendor_db_users->vendor_new_commerical_rank_bid($Vendor_email_id);
+$result_new_bid=$this->vendor_db_usersnew->vendor_new_commerical_rank_bid_pr($Vendor_email_id);
 ?>
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.5.2/css/buttons.dataTables.min.css">
@@ -72,7 +72,7 @@ $result_new_bid=$this->vendor_db_users->vendor_new_commerical_rank_bid($Vendor_e
 					        		if($result_new_bid['no_new_tech']==1){
 					        			foreach ($result_new_bid['new_tech_list'] as $bid_rank_ids) {
 					        				$slno_approve=$bid_rank_ids->slno_approve;
-					        				$category=$bid_rank_ids->category;
+					        				$pr_slno=$bid_rank_ids->pr_slno;
 					        				$vendor_id_bid=$bid_rank_ids->vendor_id_bid;
 					        				$master_bid_id=$bid_rank_ids->master_bid_id;
 					        				$start=strtotime($bid_rank_ids->start_date);
@@ -92,7 +92,7 @@ $result_new_bid=$this->vendor_db_users->vendor_new_commerical_rank_bid($Vendor_e
 						        					if ($today > $start && $today < $end_date){
 						        						if ($today < $end_date){
 													  		?>
-													  			<a href="<?=base_url()?>vendor-rank-bid-order/<?=$category?>/<?=$vendor_id_bid?>/<?=$master_bid_id?>/<?=$slno_approve?>" class="btn btn-info btn-sm">Go To Bid</a>
+													  			<a href="<?=base_url()?>seller/vendor-rank-bid-order-pr/<?=$pr_slno?>/<?=$vendor_id_bid?>/<?=$master_bid_id?>/<?=$slno_approve?>" class="btn btn-info btn-sm">Go To Bid</a>
 													  		<?php
 						        						
 													  	}else{
@@ -124,7 +124,9 @@ $result_new_bid=$this->vendor_db_users->vendor_new_commerical_rank_bid($Vendor_e
 					    </div>
     				</div>
   				</div>
-			</div>
+  				<a  href="<?=base_url()?>user-vendor-home" class="btn btn-sm btn-link">Back</a>
+       		</div>
+
 		</div>
 
 <script type="text/javascript">

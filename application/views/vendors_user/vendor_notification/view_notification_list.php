@@ -87,6 +87,7 @@ if(empty($Vendor_email_id)){
 					    </table>
 				</div>
 			</div>
+			<a  href="<?=base_url()?>user-vendor-home" class="btn btn-sm btn-link">Back</a>
 			<!-- end panel -->
 		</div>
 		<!-- end #content -->

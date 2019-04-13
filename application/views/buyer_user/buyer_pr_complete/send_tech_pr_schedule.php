@@ -171,20 +171,21 @@ if(empty($email_id)){
 								 		$technical_bid_ref=$result_id[0]->technical_bid_ref;
 								 		$technical_bid_id=$result_id[0]->technical_bid_id;
 								 		$tech_bid=$result_id[0]->tech_bid;
-								 		$query_bid='<a href="'.base_url().'buyer-technical-query/'.$row->pr_no.'" class="btn btn-sm btn-lime" title="" >View Query</a>';
-								 		$status_detai="On Going Bid Information";
-								 		if($tech==1){
-								 			if($technical_complete_status==0){
-								 				$word="Techno";
-									 			$url='<a href="'.base_url().'buyer-technical-ongoing-bid-pr-info-details/'.$row->pr_no.'/'.$technical_bid_ref.'/'.$technical_bid_id.'/'.$tech_bid.'/5" class="btn btn-sm btn-lime" title="Click Here Closed Bid Sent information of approved vendors" >Click To View Bid</a>';
-									 		}elseif($technical_complete_status==1){
-									 			$word="Techno/Commerical";
-									 			$url='<a href="'.base_url().'buyer-user-create-new-pr/'.$row->pr_no.'/'.$row->slno.'/'.$row->job_code.'/'.$tech.'" > Click to View '.$word.' </a>';	
-									 		}
-								 		}else{
-								 			$word="Commerical";
-								 			$url='<a href="'.base_url().'buyer-user-create-new-pr/'.$row->pr_no.'/'.$row->slno.'/'.$row->job_code.'/'.$tech.'" > Click to View '.$word.' </a>';	
-								 		}
+								 		$query_bid='<a href="'.base_url().'buyer-technical-query-completed/'.$row->pr_no.'" class="btn btn-sm btn-lime" title="" >View Query</a>';
+								 		$status_detai="Completed Bid";
+								 		$url='<a href="'.base_url().'buyer-technical-completed-bid-pr-info-details/'.$row->pr_no.'/'.$technical_bid_ref.'/'.$technical_bid_id.'/'.$tech_bid.'/5" class="btn btn-sm btn-lime" title="Click Here Closed Bid Sent information of approved vendors" >Click To View Bid</a>';
+								 		// if($tech==1){
+								 		// 	if($technical_complete_status==0){
+								 		// 		$word="Techno";
+									 	// 		$url='<a href="'.base_url().'buyer-technical-ongoing-bid-pr-info-details/'.$row->pr_no.'/'.$technical_bid_ref.'/'.$technical_bid_id.'/'.$tech_bid.'/5" class="btn btn-sm btn-lime" title="Click Here Closed Bid Sent information of approved vendors" >Click To View Bid</a>';
+									 	// 	}elseif($technical_complete_status==1){
+									 	// 		$word="Techno/Commerical";
+									 	// 		$url='<a href="'.base_url().'buyer-user-create-new-pr/'.$row->pr_no.'/'.$row->slno.'/'.$row->job_code.'/'.$tech.'" > Click to View '.$word.' </a>';	
+									 	// 	}
+								 		// }else{
+								 		// 	$word="Commerical";
+								 		// 	$url='<a href="'.base_url().'buyer-user-create-new-pr/'.$row->pr_no.'/'.$row->slno.'/'.$row->job_code.'/'.$tech.'" > Click to View '.$word.' </a>';	
+								 		// }
 								 		
 					                    echo '
 					                    <tr>

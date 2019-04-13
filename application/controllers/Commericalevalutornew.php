@@ -37,6 +37,16 @@ class Commericalevalutornew extends CI_Controller {
             $this->load->view('template/template_footer',$data);
        # code...
    }
+   public function user_commerical_evalutor_pr_create_rank($value=''){ // will show mr in mr received
+        $scripts='<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script><script src=" https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script> <script src="'.base_url().'file_css_admin/own_js.js"></script>';
+            $data=array('title' =>"Bid Received List",'script_js'=>$scripts,'menu_status'=>'1','sub_menu'=>'1','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'');
+            $this->load->view('template/template_header',$data);
+            $this->load->view('comm_evalutor_user/template/template_top_head');
+            $this->load->view('comm_evalutor_user/template/template_side_bar',$data);
+            $this->load->view('comm_evalutor_user/pr_create_rank/create_view',$data);
+            $this->load->view('template/template_footer',$data);
+       # code...
+   }
    public function commerical_user_received_pr_info($pr_no='',$slno='',$job_code='',$id='',$comm_bid=''){
        $scripts='';
             $data=array('title' =>"Commerical Bid Information ",'script_js'=>$scripts,'menu_status'=>'1','sub_menu'=>'1','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','pr_no'=>$pr_no,'Pr_no_slno'=>$slno,'Project_slno'=>$job_code,'edit_type'=>$id,'comm_bid'=>$comm_bid);
@@ -380,7 +390,7 @@ $vendor_apporved=$this->input->post('vendor_apporved');
 
      public function user_commerical_evalutor_pr_view_list($value=''){ // will show mr in mr received
         $scripts='<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script><script src=" https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script> <script src="'.base_url().'file_css_admin/own_js.js"></script>';
-            $data=array('title' =>"Bid Received List",'script_js'=>$scripts,'menu_status'=>'1','sub_menu'=>'1','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'');
+            $data=array('title' =>"Bid Received List",'script_js'=>$scripts,'menu_status'=>'2','sub_menu'=>'24','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'');
             $this->load->view('template/template_header',$data);
             $this->load->view('comm_evalutor_user/template/template_top_head');
             $this->load->view('comm_evalutor_user/template/template_side_bar',$data);

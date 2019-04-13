@@ -150,13 +150,15 @@ if(empty($email_id)){
 					 		}
 					 		$status_detai="Not Forward";
 					 		if($tech==1){
-					 			if($technical_complete_status==0){
-					 				$word="Techno";
-						 			$url='<a href="'.base_url().'buyer-user-create-new-pr/'.$row->pr_no.'/'.$row->slno.'/'.$row->job_code.'/'.$tech.'" > Click to View '.$word.' </a>';
-						 		}elseif($technical_complete_status==1){
-						 			$word="Techno/Commerical";
-						 			$url='<a href="'.base_url().'buyer-user-create-new-pr/'.$row->pr_no.'/'.$row->slno.'/'.$row->job_code.'/'.$tech.'" > Click to View '.$word.' </a>';	
-						 		}
+					 			$word="Techno/Commerical";
+					 			$url='<a href="'.base_url().'buyer-user-create-new-pr-tech-comm/'.$row->pr_no.'/'.$row->slno.'/'.$row->job_code.'/'.$tech.'" > Click to View '.$word.' </a>';
+					 			// if($technical_complete_status==0){
+					 			// 	$word="Techno";
+						 		// 	$url='<a href="'.base_url().'buyer-user-create-new-pr/'.$row->pr_no.'/'.$row->slno.'/'.$row->job_code.'/'.$tech.'" > Click to View '.$word.' </a>';
+						 		// }elseif($technical_complete_status==1){
+						 		// 	$word="Techno/Commerical";
+						 		// 	$url='<a href="'.base_url().'buyer-user-create-new-pr/'.$row->pr_no.'/'.$row->slno.'/'.$row->job_code.'/'.$tech.'" > Click to View '.$word.' </a>';	
+						 		// }
 					 		}else{
 					 			$word="Commerical";
 					 			$url='<a href="'.base_url().'buyer-user-create-new-pr/'.$row->pr_no.'/'.$row->slno.'/'.$row->job_code.'/'.$tech.'" > Click to View '.$word.' </a>';	

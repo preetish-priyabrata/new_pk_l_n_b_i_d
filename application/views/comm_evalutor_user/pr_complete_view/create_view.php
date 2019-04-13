@@ -162,7 +162,7 @@ if(empty($email_id)){
 					 		$url='<a href="'.base_url().'commerical-otp-verification-success-view-pr/'.$type_bid.'/'.$last_otp_id.'/'.$pr_no.'/'.$commercial_bid_ref.'/'.$commercial_bid_id.'/'.$comm_bid_db.'/'.$commercial_edit_id.'/'.$commercial_resubmit_count.'/'.$commercial_type_bid.'"
 					 			>Click to view</a>';
 					 		$commercial_type_bid=$result_id[0]->commercial_type_bid;
-					 		if($commercial_type_bid!='Rank Order Bid'){
+					 		// if($commercial_type_bid!='Rank Order Bid'){
 			                    echo '
 			                    <tr>
 			                      <td>'.$row->pr_no.'</td>
@@ -175,7 +175,7 @@ if(empty($email_id)){
 			                      <td>'.$url.'</td>
 			                    </tr>
 			                    ';
-		                	}
+		                	// }
 		                }
 		            }
 					?>
