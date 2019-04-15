@@ -6,6 +6,7 @@ if(empty($Vendor_email_id)){
 	
 	redirect('vendor-logout-pass');
 }
+$url='seller/vendor-rank-bid-order-pr/'.$pr_slno.'/'.$vendor_id_bid.'/'.$master_bid_id.'/'.$slno_approve;
 // 'pr_slno'=>$pr_slno,'vendor_id_bid'=>$vendor_id_bid,'master_bid_id'=>$master_bid_id,'slno_approve'=>$slno_approve);
 // $category=$value;
 // $vendor_id_bid=$value1;
@@ -18,10 +19,11 @@ $slno_approve=$slno_approve;
 // $value3=$value3; //type of bid close or open
 $result_new_bid=$this->vendor_db_usersnew->vendor_new_commerical_rank_bid_id_pr($Vendor_email_id,$slno_approve);
 if($result_new_bid['no_new_tech']==2){
-	// redirect('user-vendor-home');
+	redirect('user-vendor-home');
 }
-print_r($result_new_bid);
+// print_r($result_new_bid);
 $bid_rank_ids=$result_new_bid['new_tech_list'][0];
+echo $no_of_times=$bid_rank_ids->no_of_times+1;
 
 $slno_approve_got=$bid_rank_ids->slno_approve;
 // $category_got=$bid_rank_ids->category;
@@ -51,7 +53,9 @@ if ($today > $start && $today < $end_date){
 }
 
 
-$rank=$this->vendor_db_usersnew->vendor_new_commerical_rank_calculation_pr($master_bid_id,$Vendor_email_id);
+// $rank=$this->vendor_db_usersnew->vendor_new_commerical_rank_calculation_pr($master_bid_id,$Vendor_email_id);
+$data_id=array('master_bid_id_com'=>$master_bid_id,'Vendor_id'=>$Vendor_email_id);
+$query_rode=$this->db->get_where('master_pr_bid_qoute_item_total',$data_id);
 
 
 // $result_title=$this->vendor_db_users->vendor_new_query_tech_title_commerical($vendor_id_bid,$Vendor_email_id);
@@ -246,10 +250,26 @@ p {
 						<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
 						<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
 					</div>
-					<h4 class="panel-title">Panel Title here</h4>
+					<h4 class="panel-title">Rank Order Biding</h4>
 				</div>
 				<div class="panel-body">
-						<form action="<?=base_url()?>user-vendor-bid-submission-commerical-save" method="POST">
+					<?php if($query_rode->num_rows()< $no_of_times ){
+						?>
+						<form action="<?=base_url()?>seller/user-vendor-bid-submission-commerical-save-pr-rank" method="POST"  method="POST" onsubmit="if(document.getElementById('agree').checked) { return true; } else { alert('Please indicate that you have read and agree to the Terms and Conditions and Privacy Policy'); return false; }">
+					<?php }else{
+						?>
+						<form action="#">
+							<?php 
+
+					}?>
+				<input type="hidden" name="master_bid_id" value="<?=$master_bid_id_com?>">
+				<input type="hidden" name="vendor_bid_id" value="<?=$value?>">
+				<input type="hidden" name="vendor_id" value="<?=$Vendor_email_id?>">
+				<input type="hidden" name="mode_bid" value="<?=$mode_bid?>">
+				<input type="hidden" name="mode_bid_id" value="<?=$type_bid?>">
+				<input type="hidden" name="Category" value="<?=$value1?>">
+				<input type="hidden" name="bid_ref" value="<?=$result_title['new_tech_list'][0]->bid_ref?>">
+				<input type="hidden" name="url" value="<?=$url?>">
 					<div class="row">
 						<div class="col-lg-8 col-md-8">
 								<?php 
@@ -260,10 +280,25 @@ p {
 							      <div >
 							        <div class="col-xs-6 col-md-12 text-center">
 							          <div class="circle-badge" style="background:#1ACAC0">
-							            <strong>Rank <i id="ranks"><?=$rank['rank']?></i></strong>
+							            <strong>Rank <i id="ranks"></i></strong>
 							          </div>
 							          <div>
-							            <strong >Your Current Price :- <i id="price"> <?=$rank['sub_total']?></i></strong>
+							            <strong >Your Current Price :- <i id="price"></i></strong>
+							          </div>
+							          <div>
+							         
+							          </div>
+							        </div>
+
+							      </div>
+							       <div >
+							        <div class="col-xs-6 col-md-12 text-center">
+							          <div class="circle-badge" style="background:green">
+							            <strong><small>No Of Bid Left </small> : <?php 
+							            				echo $no_of_times-$query_rode->num_rows()?></strong>
+							          </div>
+							          <div>
+							           
 							          </div>
 							          <div>
 							         
@@ -348,7 +383,9 @@ p {
 									<input type="hidden" readonly class="form-control-plaintext" name="parameter_tech[<?=$key_value->slno_item_mr?>]" value="<?=$key_value->parameter_tech?>">
 									<?=$key_value->parameter_tech?>
 							    </td>
-							   <td> <input type="text" autocomplete="off" id="cost<?=$x?>"  onkeyup="fix_cala(<?=$x?>)" name="cost[<?=$key_value->slno_item_mr?>]" required /> </td>
+							   <td> <input type="number" autocomplete="off" id="cost<?=$x?>"  onkeyup="fix_cala(<?=$x?>)" name="cost[<?=$key_value->slno_item_mr?>]" required  min="0" step="0.01" title="Currency" pattern="^\d+(?:\.\d{1,2})?$" onblur="
+this.parentNode.parentNode.style.backgroundColor=/^\d+(?:\.\d{1,2})?$/.test(this.value)?'inherit':'red'
+"> </td>
                     			<td> <input type="text" readonly class="form-control-plaintext" id="price<?=$x?>" name="price[<?=$key_value->slno_item_mr?>]"   value='0'/> </td>
 
                             </tr>
@@ -362,7 +399,9 @@ p {
 							</tr>
 							<tr>
 								<td colspan="5">Total Tax</td>
-								<td ><input type="text" autocomplete="off"  class="form-control" id="total_tax" onkeyup="fix_cala('tax')" name="total_tax"  value="0.00" /></td>
+								<td ><input type="text" autocomplete="off"  class="form-control" id="total_tax" onkeyup="fix_cala('tax')" name="total_tax"  value="0.00"  min="0" step="0.01" title="Currency" pattern="^\d+(?:\.\d{1,2})?$" onblur="
+this.parentNode.parentNode.style.backgroundColor=/^\d+(?:\.\d{1,2})?$/.test(this.value)?'inherit':'red'
+"></td>
 							</tr>
 							<tr>
 								<td colspan="5">Total Landed Cost </td>
@@ -370,7 +409,9 @@ p {
 							</tr>
 							<tr>
 								<td colspan="5">User Assumption Charges </td>
-								<td ><input type="text" autocomplete="off" class="form-control" id="user_assmption" name="user_assumption" value="0.00" /></td>
+								<td ><input type="text" autocomplete="off" class="form-control" id="user_assmption" name="user_assumption" value="0.00"  min="0"step="0.01" title="Currency" pattern="^\d+(?:\.\d{1,2})?$" onblur="
+this.parentNode.parentNode.style.backgroundColor=/^\d+(?:\.\d{1,2})?$/.test(this.value)?'inherit':'red'
+"></td>
 							</tr>
 							<tr>
 								<td colspan="5">Delivery Basis</td>
@@ -424,14 +465,16 @@ p {
 		<!-- </div> -->
 			<div class="form-group row pull-right">
                 <div class="col-md-12">
-                <?php 	$today=date('Y-m-d');
-          	 	if($date_end < $today) {
-
-          	 	}else{
-          	 		?>
+                	<?php
+                	
+                	 if($query_rode->num_rows()< $no_of_times){
+						?>
+              
                 	<input type="button" value="Total" id="to_cal" onclick="totalIt()" />
-                    <button type="submit" id="to_sub" class="btn btn-sm btn-primary m-r-5" disabled>Sent</button>
-              <?php  }  ?>
+                    <button type="submit" id="to_sub" class="btn btn-sm btn-primary m-r-5" disabled>Send</button>
+              <?php  } else{
+              	echo "<p style='color :red'> You Have Exceed No of biding</p> <br>";
+              } ?>
                     <a  href="<?=base_url()?>seller/user-vendor-home" class="btn btn-sm btn-default">Cancel</a> 
                 </div>
             </div>
@@ -603,7 +646,25 @@ p {
 	  $('#myCheckbox').click(function () {
 	    $('#to_sub').prop("disabled", !$("#myCheckbox").prop("checked")); 
 	  })
+	  var validateSession = setInterval(get_paids, 1000);
 	});
+	function get_paids() {
+		<?php 
+
+		$ranks=$this->vendor_db_usersnew->vendor_new_commerical_rank_calculation_pr($master_bid_id,$Vendor_email_id);
+		?>
+
+		console.log('<?=$ranks['rank']?>');
+		console.log('<?=$ranks['sub_total']?>');
+		var ranks_no= '<?=$ranks['rank']?>';
+		var ranks_no_price= '<?=$ranks['sub_total']?>';
+		
+		 document.getElementById("ranks").innerHTML =ranks_no ; 
+	
+		document.getElementById("price").innerHTML=ranks_no_price;
+		// window.location.reload();
+		// body...
+	}
 </script>
 
  <script>

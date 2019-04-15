@@ -190,7 +190,9 @@ $data_get_list_commerical = array('master_bid_id_comm' =>$master_bid_id_com ,'mr
 									<input type="hidden" readonly class="form-control-plaintext" name="parameter_tech[<?=$key_value->slno_item_mr?>]" value="<?=$key_value->parameter_tech?>">
 									<?=$key_value->parameter_tech?>
 							    </td>
-							   <td> <input type="text" autocomplete="off" id="cost<?=$x?>"  onkeyup="fix_cala(<?=$x?>)" name="cost[<?=$key_value->slno_item_mr?>]" required /> </td>
+							   <td> <input type="number" autocomplete="off" id="cost<?=$x?>"  onkeyup="fix_cala(<?=$x?>)" name="cost[<?=$key_value->slno_item_mr?>]" min="0"step="0.01" title="Currency INR" pattern="^\d+(?:\.\d{1,2})?$" onblur="
+this.parentNode.parentNode.style.backgroundColor=/^\d+(?:\.\d{1,2})?$/.test(this.value)?'inherit':'red'
+" required /> </td>
                     			<td> <input type="text" readonly class="form-control-plaintext" id="price<?=$x?>" name="price[<?=$key_value->slno_item_mr?>]"   value='0'/> </td>
 
                             </tr>
@@ -200,11 +202,13 @@ $data_get_list_commerical = array('master_bid_id_comm' =>$master_bid_id_com ,'mr
                     		?>
                     			<tr>
 								<td colspan="5">Sub total</td>
-								<td ><input type="text" readonly="readonly" class="form-control" id="total" name="sub_total" /></td>
+								<td ><input type="number" readonly="readonly" class="form-control" id="total" name="sub_total" /></td>
 							</tr>
 							<tr>
 								<td colspan="5">Total Tax</td>
-								<td ><input type="text" autocomplete="off"  class="form-control" id="total_tax" onkeyup="fix_cala('tax')" name="total_tax"  value="0.00" /></td>
+								<td ><input type="number" autocomplete="off"  class="form-control" id="total_tax" onkeyup="fix_cala('tax')" name="total_tax"  value="0.00"  min="1"step="0.01" title="Currency INR" pattern="^\d+(?:\.\d{1,2})?$" onblur="
+this.parentNode.parentNode.style.backgroundColor=/^\d+(?:\.\d{1,2})?$/.test(this.value)?'inherit':'red'
+"></td>
 							</tr>
 							<tr>
 								<td colspan="5">Total Landed Cost </td>
@@ -212,7 +216,9 @@ $data_get_list_commerical = array('master_bid_id_comm' =>$master_bid_id_com ,'mr
 							</tr>
 							<tr>
 								<td colspan="5">User Assumption Charges </td>
-								<td ><input type="text" autocomplete="off" class="form-control" id="user_assmption" name="user_assumption" value="0.00" /></td>
+								<td ><input type="number" autocomplete="off" class="form-control" id="user_assmption" name="user_assumption" value="0.00"  min="0" step="0.01" title="Currency INR" pattern="^\d+(?:\.\d{1,2})?$" onblur="
+this.parentNode.parentNode.style.backgroundColor=/^\d+(?:\.\d{1,2})?$/.test(this.value)?'inherit':'red'
+"></td>
 							</tr>
 							<tr>
 								<td colspan="5">Delivery Basis</td>
@@ -272,7 +278,7 @@ $data_get_list_commerical = array('master_bid_id_comm' =>$master_bid_id_com ,'mr
           	 	}else{
           	 		?>
                 	<input type="button" value="Total" id="to_cal" onclick="totalIt()" />
-                    <button type="submit" id="to_sub" class="btn btn-sm btn-primary m-r-5" disabled>Sent</button>
+                    <button type="submit" id="to_sub" class="btn btn-sm btn-primary m-r-5" disabled>Send</button>
               <?php  }  ?>
                     <a  href="<?=base_url()?>seller/user-vendor-home" class="btn btn-sm btn-default">Cancel</a> 
                 </div>

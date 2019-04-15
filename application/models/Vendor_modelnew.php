@@ -133,9 +133,11 @@ public function vendor_new_commerical_rank_bid_pr($value=''){
 		
 		public function vendor_new_commerical_rank_calculation_pr($value='',$value1){
     		$get_rank=array();
+    		$id=0;
 			$data=array('master_bid_id_com'=>$value);
 			// $this->db->order_by('sub_total', "asc");
 			$this->db->order_by('sub_total', 'ASC');
+			$this->db->where("sub_total !=",$id);
 			// $this->db->order_by('date', "asc");			
 			$query=$this->db->get_where('master_pr_bid_qoute_item_total',$data);
 			// echo $this->db->last_query();
@@ -143,7 +145,7 @@ public function vendor_new_commerical_rank_bid_pr($value=''){
 			$data_id=array('master_bid_id_com'=>$value,'Vendor_id'=>$value1);
 			$this->db->order_by('sub_total', 'ASC');
 			$this->db->order_by('Slno_simple_item_total', "desc");
-			
+			$this->db->where("sub_total !=",$id);
 			$query_rode=$this->db->get_where('master_pr_bid_qoute_item_total',$data_id);
 			// echo $this->db->last_query();
 			$resutt=$query_rode->result();

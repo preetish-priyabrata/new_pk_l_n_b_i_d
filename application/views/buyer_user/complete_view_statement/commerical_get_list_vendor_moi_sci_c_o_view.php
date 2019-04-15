@@ -985,7 +985,7 @@ td {
 			    <div class="form-group row push-right float-right">
                     <div class="col-md-12">
                     	
-						<a  href="<?=base_url()?>user-commerical-evalutor-home" class="btn btn-sm btn-info">Home</a>
+						<a  href="<?=base_url()?>user-buyer-home" class="btn btn-sm btn-info">Home</a>
                     </div>
                 </div>
 			    

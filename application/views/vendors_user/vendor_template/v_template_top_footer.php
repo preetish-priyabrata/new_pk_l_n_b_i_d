@@ -32,7 +32,7 @@ if(empty($Vendor_email_id)){
 			App.init();
 			
 		});
-		var validateSession = setInterval(get_paid, 1000);
+		var validateSession = setInterval(get_paid, 40000);
 			function get_paid() {
 				document.getElementById("Notification").innerHTML='';
 				var not_fics='<?php echo $this->vendor_db_users->vendor_notification($Vendor_email_id)?>';

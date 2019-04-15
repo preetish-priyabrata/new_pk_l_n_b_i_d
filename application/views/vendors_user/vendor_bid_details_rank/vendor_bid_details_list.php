@@ -83,32 +83,15 @@ $result_new_bid=$this->vendor_db_usersnew->vendor_new_commerical_rank_bid_pr($Ve
 					        				<tr>
 					        				<td><?=$x?></td>
 					        				<td><?=$bid_rank_ids->bid_ref?></td>
-					        				<td><?=$bid_rank_ids->start_date?></td>
+					        				<td><?=$start_date=$bid_rank_ids->start_date?></td>
 					        				<td><?=$date=$bid_rank_ids->end_date?>
 					        					<input type="hidden" name="date_end" id="date_end<?=$x?>" value="<?php echo ($date);?>"  readonly class="form-control-plaintext">
+					        					<input type="hidden" name="start_date" id="start_date<?=$x?>" value="<?php echo ($start_date);?>"  readonly class="form-control-plaintext">
 					        				</td>
 					        				<td><p id="demo<?=$x?>"></p></td>
-					        				<td><?php 
-						        					if ($today > $start && $today < $end_date){
-						        						if ($today < $end_date){
-													  		?>
-													  			<a href="<?=base_url()?>seller/vendor-rank-bid-order-pr/<?=$pr_slno?>/<?=$vendor_id_bid?>/<?=$master_bid_id?>/<?=$slno_approve?>" class="btn btn-info btn-sm">Go To Bid</a>
-													  		<?php
-						        						
-													  	}else{
-													  		echo "<p style='color:red'>Exipred1</p>";
-													  	}
-													}else{
-														if($today > $end_date){
-															echo "<p style='color:red'>Exipred</p>";
-															
-														}else{
-															echo "<p style='color:green'>Not Started</p>";
-														}  
-													}
-												?>
-													
-												</td>
+					        				<td>
+													<span id="bid<?=$x?>"></span>
+											</td>
 					        				<?php
 					        				# code...
 					        			}
@@ -139,13 +122,14 @@ $( document ).ready(function() {
 	for (var i=1;i<=<?=$x?>;i++) {
 		 var fiveMinutes =$('#date_end'+i).val(),
 	        display = document.querySelector('#demo'+i);
-	    startTimer(fiveMinutes, display,i);
+	         var fiveMinutes_new =$('#start_date'+i).val();
+	    startTimer(fiveMinutes, display,i,fiveMinutes_new);
 	    // alert(fiveMinutes);
 	}
 	
 
 });
-function startTimer(duration, display,id) {
+function startTimer(duration, display,id,durations) {
 	var countDownDate =  new Date(duration).getTime();
 	// alert(duration);
     // Update the count down every 1 second
@@ -156,7 +140,9 @@ function startTimer(duration, display,id) {
 
 	  // Find the distance between now and the count down date
 	  var distance = new Date(duration).getTime() - now;
-	  // alert(distance);
+
+	   var distance_new = new Date(durations).getTime() - now;
+	  // alert(distance_new);
 	  // Time calculations for days, hours, minutes and seconds
 	  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
 	  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -169,14 +155,24 @@ function startTimer(duration, display,id) {
 
 	  // If the count down is finished, write some text
 	  if (distance < 0) {
-
+	  	// alert('now3');
 	    clearInterval(x);
-	    document.getElementById("viewer_id"+id).style.display = "none"; 
-	    document.getElementById("viewer_id"+id).removeAttribute("href");
+	    // document.getElementById("viewer_id"+id).style.display = "none"; 
+	    // document.getElementById("viewer_id"+id).removeAttribute("href");
 	    // $("#viewer_id"+id)hide();
 	    document.getElementById("demo"+id).innerHTML = "EXPIRED";
 	    document.getElementById("demo"+id).style.color = "red"; 
 
+	  }
+	  if (distance_new < 0) {
+	  	if (distance >0 ) {
+	  		document.getElementById("bid"+id).innerHTML='<a href="<?=base_url()?>seller/vendor-rank-bid-order-pr/<?=$pr_slno?>/<?=$vendor_id_bid?>/<?=$master_bid_id?>/<?=$slno_approve?>" class="btn btn-info btn-sm">Go To Bid</a>';
+	  	}else if (distance <0 ) {
+	  		document.getElementById("bid"+id).innerHTML='<p style="color:red">EXPIRED</p> ';
+	  	}
+	  	
+	  }else{
+	  	document.getElementById("bid"+id).innerHTML='<p style="color:red">Not Started</p> ';
 	  }
 	}, 1000);
 }

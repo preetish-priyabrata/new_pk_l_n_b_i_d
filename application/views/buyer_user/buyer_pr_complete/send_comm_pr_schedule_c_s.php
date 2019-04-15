@@ -160,7 +160,7 @@ if(empty($email_id)){
 								 		$query_bid='<a href="'.base_url().'buyer-commercial-query-completed/'.$row->pr_no.'" class="btn btn-sm btn-lime" title="" >View Query</a>';
 								 		$comm_bid=$result_id[0]->comm_bid;
 								 		$status_detai="Completed";
-								 		$url='<a href="'.base_url().'buyer-s-c-Commerical-completed-bid-pr-info-details/'.$row->pr_no.'/'.$row->slno.'/'.$row->job_code.'/2/'.$comm_bid.'" > Click to View '.$word.' </a>';
+								 		$url='<a href="'.base_url().'buyer-s-c-Commerical-completed-bid-pr-info-details/'.$row->pr_no.'/'.$row->slno.'/'.$row->job_code.'/2/'.$comm_bid.'" > Click to View Comparative Statement </a>';
 								 		$commercial_bid_ref=$result_id[0]->commercial_bid_ref;
 								 		$commercial_bid_id=$result_id[0]->commercial_bid_id;
 								 		
@@ -184,7 +184,7 @@ if(empty($email_id)){
 								 		// $type_bid='',$last_insert_id='',$pr_no='',$commercial_bid_ref='',$commercial_bid_id='',$comm_bid_db='',$commercial_edit_id='',$commercial_resubmit_count='',$commercial_type_bid=''){
 								 		
 								 		$url_buyer_commplete='<a href="'.base_url().'buyer-otp-verification-success-view-pr/'.$type_bid.'/'.$last_otp_id.'/'.$pr_no.'/'.$commercial_bid_ref.'/'.$commercial_bid_id.'/'.$comm_bid_db.'/'.$commercial_edit_id.'/'.$commercial_resubmit_count.'/'.$commercial_type_bid.'"
-								 			>Click to view</a>';
+								 			>Click to view bid Information</a>';
 								 		$commercial_type_bid=$result_id[0]->commercial_type_bid;
 								 		// if($commercial_type_bid!='Rank Order Bid'){
 						                    echo '

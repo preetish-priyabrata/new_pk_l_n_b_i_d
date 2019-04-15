@@ -454,6 +454,118 @@ class Vendorusernew extends CI_Controller {
                 redirect('seller/user-vendor-home');
       
   }
+
+  public function vendor_bid_submission_commerical_save_pr_rank($value=''){
+    // print_r($this->input->post());
+    // Array ( [master_bid_id] => 2 [vendor_bid_id] => 4 [vendor_id] => ven250@ilab.com [mode_bid] => Rank Order Bid [mode_bid_id] => 3 [Category] => 3 [bid_ref] => 7704 [url] => seller/vendor-rank-bid-order-prO18191-950-E-K-30112-001/4/2/1 [slno_mat] => Array ( [9] => 9 [10] => 10 [11] => 11 [12] => 12 ) [item_name] => Array ( [9] => electric bulb 100watt [10] => candle flame bulb 60 watt [11] => electric bulb 60 watt [12] => led bulb 100 watt ) [Resubmission_count_id] => Array ( [9] => 0 [10] => 0 [11] => 0 [12] => 0 ) [item_id] => Array ( [9] => 4410 [10] => 4411 [11] => 4424 [12] => 4425 ) [edit_id] => Array ( [9] => 1 [10] => 1 [11] => 1 [12] => 1 ) [item_qnt] => Array ( [9] => 1 [10] => 1 [11] => 1 [12] => 1 ) [item_uom] => Array ( [9] => 1 set [10] => 1 set [11] => 1 set [12] => 1 set ) [parameter_tech] => Array ( [9] => To improve the efficiency of the lamp, the filament usually consists of multiple coils of coiled fine wire, also known as a 'coiled coil'. Light bulbs using coiled coil filaments are sometimes referred to as 'double-coil bulbs'. For a 60-watt 120-volt lamp, the uncoiled length of the tungsten filament is usually 22.8 inches (580 mm) [10] => ?35 mm (~?11/8 [11] => For a 60-watt 120-volt lamp, the uncoiled length of the tungsten filament is usually 22.8 inches (580 mm) [12] => For a 100-watt 120-volt lamp, the uncoiled length of the tungsten filament is usually 22.8 inches (580 mm) ) [cost] => Array ( [9] => 160 [10] => 229 [11] => 335 [12] => 211 ) [price] => Array ( [9] => 160.00 [10] => 229.00 [11] => 335.00 [12] => 211.00 ) [sub_total] => 935.00 [total_tax] => 90.00 [total_landed] => 1025.00 [user_assumption] => 50.00 [delivery_basis] => 6 months [gaurantee_warranty] => 1 yr [delivery_schedule] => 30 days [payment_terms] => with gst18% [validity_of_offer] => till 60 days [security_BG] => 6 months [liquidity_damage] => till 6 months [remarks] => checked [i_accept] => on )
+    // 
+    $url=$this->input->post('url');
+
+    $mode_bid_id=$this->input->post('mode_bid_id'); // here will check if it close ranhk or simple
+      $Category=$this->input->post('Category');
+
+      $master_bid_id=$this->input->post('master_bid_id');
+      $vendor_bid_id=$this->input->post('vendor_bid_id');
+      $vendor_id=$this->input->post('vendor_id');
+      $mode_bid=$this->input->post('mode_bid');
+
+      $sub_total=$this->input->post('sub_total');
+      $total_tax=$this->input->post('total_tax');
+      $total_landed=$this->input->post('total_landed');
+      $user_assumption=$this->input->post('user_assumption');
+      
+      $delivery_basis=$this->input->post('delivery_basis');
+      $gaurantee_warranty=$this->input->post('gaurantee_warranty');
+      $delivery_schedule=$this->input->post('delivery_schedule');
+      $payment_terms=$this->input->post('payment_terms');
+      $validity_of_offer=$this->input->post('validity_of_offer');
+      $security_BG=$this->input->post('security_BG');
+      $liquidity_damage=$this->input->post('liquidity_damage');
+      $remarks=$this->input->post('remarks');
+     
+      $bid_ref=$this->input->post('bid_ref');
+
+
+      $slno_mat=$this->input->post('slno_mat');
+      $item_name=$this->input->post('item_name');
+      $item_id=$this->input->post('item_id');
+      $item_qnt=$this->input->post('item_qnt');
+      $item_uom=$this->input->post('item_uom');
+      $cost=$this->input->post('cost');
+      $price=$this->input->post('price');
+      $Resubmission_count_id=$this->input->post('Resubmission_count_id');
+      $edit_id=$this->input->post('edit_id');
+      $parameter_tech=$this->input->post('parameter_tech');
+      $get_secher_value = array('slno_vendor' =>$vendor_bid_id );
+      $get_bid_vendor=$this->db->get_where('master_bid_Com_vendor_m',$get_secher_value);
+      $result_vendors=$get_bid_vendor->result();
+      $commercial_resubmit_count=$result_vendors[0]->commercial_resubmit_count;
+      $pr_no=$result_vendors[0]->pr_no;
+       // basic information
+    
+             $basic_insert = array('Bid_master_id_comm'=>$master_bid_id, 'Bid_ref_no'=>$bid_ref, 'Bid_vendor_id'=>$vendor_bid_id, 'Vendor_id'=>$vendor_id, 'type_of_bid'=>$mode_bid, 'type_bid_id'=>$mode_bid_id,'commercial_resubmit_count'=>$commercial_resubmit_count,'pr_no'=>$pr_no);
+              $query_insert=$this->db->insert('master_pr_bid_qoute',$basic_insert);
+              $last_bid_insert=$this->db->insert_id();
+
+
+        
+            foreach ($slno_mat as $key_id => $value_ids) {
+              $slno_mat_single=$slno_mat[$key_id];
+              $item_name_single=$item_name[$key_id];
+              $item_id_single=$item_id[$key_id];
+              $item_qnt_single=$item_qnt[$key_id];
+              $item_uom_single=$item_uom[$key_id];
+              $cost_single=$cost[$key_id];
+              $price_single=$price[$key_id];
+              $parameter_tech_single=$parameter_tech[$key_id];
+              $Resubmission_count_id_single=$Resubmission_count_id[$key_id];
+
+              $get_mater_mater_id=$this->db->get_where('master_mr_material_item_comm_m',array('slno_item_mr' =>  $slno_mat_single));
+
+              $get_item_information=$get_mater_mater_id->result();
+              $Category_material=$get_item_information[0]->Category_material;
+              $material_item_id=$get_item_information[0]->material_item_id;
+
+              $item_data = array('Simple_id_slno'=>$last_bid_insert, 'Bid_master_id_com'=>$master_bid_id, 'Item_name'=>$item_name_single, 'Item_id'=>$item_id_single, 'Quantity'=>$item_qnt_single, 'Uom_unit'=>$item_uom_single, 'Unit_price'=>$cost_single, 'Total_unitprice'=>$price_single, 'Comm_item_slno'=>$slno_mat_single,  'bid_slno'=>$vendor_bid_id, 'Vendor_id'=>$vendor_id,'parameter_tech'=>$parameter_tech_single,'master_item_slno_material'=>$material_item_id,'Category_material'=>$Category_material,'pr_no'=>$pr_no,'Resubmission_count_id'=>$Resubmission_count_id_single);
+              
+               $query_vendor_insert=$this->db->insert('master_pr_bid_qoute_item',$item_data);
+
+            }           
+              // MISC INFORMATIO STORED ACCOIND TO BASIC INFORMATION
+              $misc_insert1= array('commercial_resubmit_count'=>$commercial_resubmit_count,'pr_no'=>$pr_no,'master_bid_id_com'=>$master_bid_id, 'simple_id_slno_misc'=>$last_bid_insert, 'Bid_slno'=>$vendor_bid_id, 'Vendor_id'=>$vendor_id,'field_name'=>'delivery basis','field_value'=>$delivery_basis);
+              $misc_insert2 = array('commercial_resubmit_count'=>$commercial_resubmit_count,'pr_no'=>$pr_no,'master_bid_id_com'=>$master_bid_id, 'simple_id_slno_misc'=>$last_bid_insert, 'Bid_slno'=>$vendor_bid_id, 'Vendor_id'=>$vendor_id,'field_name'=>'gaurantee warranty','field_value'=>$gaurantee_warranty);
+              $misc_insert3 = array('commercial_resubmit_count'=>$commercial_resubmit_count,'pr_no'=>$pr_no,'master_bid_id_com'=>$master_bid_id, 'simple_id_slno_misc'=>$last_bid_insert, 'Bid_slno'=>$vendor_bid_id, 'Vendor_id'=>$vendor_id,'field_name'=>'delivery schedule','field_value'=>$delivery_schedule);
+              $misc_insert4 = array('commercial_resubmit_count'=>$commercial_resubmit_count,'pr_no'=>$pr_no,'master_bid_id_com'=>$master_bid_id, 'simple_id_slno_misc'=>$last_bid_insert, 'Bid_slno'=>$vendor_bid_id, 'Vendor_id'=>$vendor_id,'field_name'=>'payment terms','field_value'=>$payment_terms);
+              $misc_insert5 = array('commercial_resubmit_count'=>$commercial_resubmit_count,'pr_no'=>$pr_no,'master_bid_id_com'=>$master_bid_id, 'simple_id_slno_misc'=>$last_bid_insert, 'Bid_slno'=>$vendor_bid_id, 'Vendor_id'=>$vendor_id,'field_name'=>'validity of offer','field_value'=>$validity_of_offer);
+              $misc_insert6 = array('commercial_resubmit_count'=>$commercial_resubmit_count,'pr_no'=>$pr_no,'master_bid_id_com'=>$master_bid_id, 'simple_id_slno_misc'=>$last_bid_insert, 'Bid_slno'=>$vendor_bid_id, 'Vendor_id'=>$vendor_id,'field_name'=>'security BG','field_value'=>$security_BG);
+              $misc_insert7= array('commercial_resubmit_count'=>$commercial_resubmit_count,'pr_no'=>$pr_no,'master_bid_id_com'=>$master_bid_id, 'simple_id_slno_misc'=>$last_bid_insert, 'Bid_slno'=>$vendor_bid_id, 'Vendor_id'=>$vendor_id,'field_name'=>'liquidity damage','field_value'=>$liquidity_damage);
+              $misc_insert8 = array('commercial_resubmit_count'=>$commercial_resubmit_count,'pr_no'=>$pr_no,'master_bid_id_com'=>$master_bid_id, 'simple_id_slno_misc'=>$last_bid_insert, 'Bid_slno'=>$vendor_bid_id, 'Vendor_id'=>$vendor_id,'field_name'=>'remarks','field_value'=>$remarks);
+              // $query_vendor_insert=$this->db->insert('master_closed_bid_logistics',$vechile_insert);
+              $query_vendor_insert=$this->db->insert('master_pr_bid_qoute_item_misc',$misc_insert1);
+               $query_vendor_insert=$this->db->insert('master_pr_bid_qoute_item_misc',$misc_insert2);
+               $query_vendor_insert=$this->db->insert('master_pr_bid_qoute_item_misc',$misc_insert3);
+               $query_vendor_insert=$this->db->insert('master_pr_bid_qoute_item_misc',$misc_insert4);
+               $query_vendor_insert=$this->db->insert('master_pr_bid_qoute_item_misc',$misc_insert5);
+               $query_vendor_insert=$this->db->insert('master_pr_bid_qoute_item_misc',$misc_insert6);
+               $query_vendor_insert=$this->db->insert('master_pr_bid_qoute_item_misc',$misc_insert7);
+               $query_vendor_insert=$this->db->insert('master_pr_bid_qoute_item_misc',$misc_insert8);  
+
+               
+               // TOTOAL PRICE ACCORDING TO BASIC INFORMATION
+               $total_query = array('master_bid_id_com'=>$master_bid_id, 'simple_id_slno_total'=>$last_bid_insert, 'sub_total'=>$sub_total, 'total_tax'=>$total_tax, 'total_price'=>$total_landed, 'user_assumption_charge'=>$user_assumption, 'vendor_Bid_slno'=>$vendor_bid_id, 'Vendor_id'=>$vendor_id ,'commercial_resubmit_count'=>$commercial_resubmit_count,'pr_no'=>$pr_no);
+               $query_total_insert=$this->db->insert('master_pr_bid_qoute_item_total',$total_query);
+
+               $data_update = array('status_view'=>7,'submission_status'=>'1','submission_count'=>1);
+               $data_update_id = array('slno_vendor' => $vendor_bid_id );  
+                $query_update_exe=$this->db->update('master_bid_Com_vendor_m',$data_update,$data_update_id);  
+
+                 $this->session->set_flashdata('success_message', 'successfully Bid Is Submitted');
+
+                redirect($url);
+   
+
+  
+  }
   public function user_vendor_bid_commerical_submission_bid_view($vendor_slno_id='',$bid_type_id='',$Slno_simple=''){
      $scripts='';
       $data=array('title' =>"Commerical Bid Information which will have detail",'script_js'=>$scripts ,'menu_status'=>'','sub_menu'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','vendor_slno_id'=>$vendor_slno_id,'type_bid'=>$bid_type_id,'Slno_simple'=>$Slno_simple);

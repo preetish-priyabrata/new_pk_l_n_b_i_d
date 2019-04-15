@@ -10,7 +10,7 @@
 	<meta content="" name="author" />
 	
 	<!-- ================== BEGIN BASE CSS STYLE ================== -->
-	<link href="../../../../fonts.googleapis.com/cssff98.css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
 	<link href="<?=base_url()?>file_css_admin/assets/plugins/jquery-ui/jquery-ui.min.css" rel="stylesheet" />
 	<link href="<?=base_url()?>file_css_admin/assets/plugins/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet" />
 	<link href="<?=base_url()?>file_css_admin/assets/plugins/font-awesome/5.0/css/fontawesome-all.min.css" rel="stylesheet" />

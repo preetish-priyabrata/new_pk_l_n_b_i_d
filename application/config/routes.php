@@ -750,6 +750,10 @@ $route['seller/user-vendor-bid-query-view-save-tech']='vendoruser/user_vendor_bi
 $route['seller/user-vendor-new-auction-list-pr']='vendorusernew/vendor_new_auction_list_pr';
 $route['seller/vendor-rank-bid-order-pr/(:any)/(:any)/(:any)/(:any)']='vendorusernew/vendor_rank_bid_order_pr/$1/$2/$3/$4';
 $route['seller/user-vendor-new-notification-list']='vendorusernew/vendor_new_notification_list';
+
+$route['seller/user-vendor-bid-submission-commerical-save-pr-rank']='vendorusernew/vendor_bid_submission_commerical_save_pr_rank';
+
+// seller/user-vendor-bid-submission-commerical-save-pr-rank"
 //$route['seller/user-vendor-bid-query-view-comm/(:any)']='vendoruser/user_vendor_bid_query_view_comm/$1';
 
 

@@ -182,7 +182,7 @@ $vendor_selected_id=$this->db->get_where('master_bid_Com_vendor_m',$data_array);
 						</div>
 						<div class="row">
 							<div class="col-lg-6">
-								<h4 class="text-center"> Not Submited Bid</h4>
+								<h4 class="text-center">  Submited Bid</h4>
 								<hr style="border: 1px solid lightblue">
 								<table class="table table-bordered" width="100%">
 									<thead>
