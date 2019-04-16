@@ -107,9 +107,11 @@ if(empty($email_id)){
 												  <a href="#" class="btn btn-purple dropdown-toggle"
 												    data-toggle="dropdown"></a>
 												  <ul class="dropdown-menu pull-right">											  	
-												  	<li><a   <?php echo "href='buyer-view-vendor-info/".$user_id."/".$slno_id."'";?> >view & Edit </a></li>
-												  	<li class="divider"></li>
-												  	<li><a <?php echo "href='buyer-change-vendor-status/".$user_id."/".$slno_id."/3' ";?> onclick="return confirm('Are you sure you want to delete this vendor?');">Delete</a></li>
+														<li><a   <?php echo "href='buyer-view-vendor-info/".$user_id."/".$slno_id."'";?> >view & Edit </a></li>
+														<li class="divider"></li>
+														<li><a   <?php echo "href='buyer-view-vendor-info-change-reset/".$user_id."/".$slno_id."'";?> >Reset Password </a></li>
+														<li class="divider"></li>
+														<li><a <?php echo "href='buyer-change-vendor-status/".$user_id."/".$slno_id."/3' ";?> onclick="return confirm('Are you sure you want to delete this vendor?');">Delete</a></li>
 												  </ul>
 												</div>
 												<?php }?>

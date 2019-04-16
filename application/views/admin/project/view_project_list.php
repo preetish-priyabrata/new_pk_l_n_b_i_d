@@ -87,7 +87,9 @@ if(empty($email_id)){
 							                <th>Project Name</th>
 							                <th>Job Code </th>
 							                <th>Customer</th>
-							                 <th>Starting Date</th>
+															<th>Starting Date</th>
+															<th>Ending Date</th>
+															<th>Desc</th>
 							                <th>Status</th>              
 							                <th>Action</th>
 							            </tr>
@@ -96,9 +98,9 @@ if(empty($email_id)){
 							        		<?php 
 							        		$x=0;
 							        		// status=> 3 for delete project
-							        		// $data = array('status !=' => '3' );
+							        		$data = array('status !=' => '3' );
 							        		$table='master_project';
-							        		$query=$this->db->get($table);
+							        		$query=$this->db->get_where($table,$data);
 							        		foreach ($query->result() as $value) {
 							        			$slno_id=$value->Project_Slno;
 							        			$keys_id="preetishwebproject";
@@ -115,14 +117,15 @@ if(empty($email_id)){
 									                <td><?=$value->job_Code?></td>
 									                <td><?=$value->Customer_Name?></td>
 									                <td><?=$value->Date_Start?></td>
-									               
+																	<td><?=$value->date_end?></td>
+																	<td><?=$value->project_Description?></td>
 									                <td><?php $Status=$value->status;
 									                if($Status==1){
-									                	echo "Active User";
+									                	echo "Active Project";
 									                }else if($Status==2){
-									                	echo "In-active User";
+									                	echo "In-active Project";
 									                }elseif ($Status==3) {
-									                	echo "Deleted User";
+									                	echo "Project Is closed";
 									                }else{
 									                	echo "--";
 									                }
@@ -138,8 +141,8 @@ if(empty($email_id)){
 														  	<li><a href="admin-project-view-details/<?=$user_id?>/<?=$slno_id?>" > view & Edit </a></li>
 														  	
 														  	<li class="divider"></li>
-														  	<li><a href="user-admin-home" >close</a></li>
-														  	<li><a href="">Delete</a></li>
+														  	<li><a href="admin-project-view-details-close/<?=$user_id?>/<?=$slno_id?>" >close</a></li>
+														  	<!-- <li><a href="">Delete</a></li> -->
 														  </ul>
 														</div>
 									                	<!-- <a href="user-admin-home" class="btn btn-xs btn-success fa fa-angle-left"   role="button"><i class=""></i> Reset Password</a> <br>

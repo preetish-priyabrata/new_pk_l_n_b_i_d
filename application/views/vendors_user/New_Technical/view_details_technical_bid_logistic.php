@@ -61,7 +61,7 @@ $result_vechile=$this->design_user->get_design_master_mr_vechile_single($edit_id
 					<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
 					<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
 				</div>
-				<h4 class="panel-title">Panel Title here</h4>
+				<h4 class="panel-title">View Details of Technical Bid</h4>
 			</div>
 			<div class="panel-body">
 				<div class="row">

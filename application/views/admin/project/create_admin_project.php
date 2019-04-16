@@ -69,7 +69,15 @@ if(empty($email_id)){
 								<div class="form-group row m-b-15">
 									<label class="col-form-label col-md-3">Date Of Start <span style="color: red">*</span></label>
 									<div class="col-md-9">						
-										<input type="text" class="form-control m-b-5" required="" name="datepicker" placeholder="" id="datepicker">
+										<input type="text" class="form-control m-b-5 datepickers" required="" name="datepicker" placeholder="" id="datepicker">
+              							
+										<small class="f-s-12 text-grey-darker">Select Date Please</small>
+									</div>
+								</div>
+								<div class="form-group row m-b-15">
+									<label class="col-form-label col-md-3">Date Of End <span style="color: red">*</span></label>
+									<div class="col-md-9">						
+										<input type="text" class="form-control m-b-5 datepickers" required="" name="datepicker_end" placeholder="" id="datepicker_end">
               							
 										<small class="f-s-12 text-grey-darker">Select Date Please</small>
 									</div>

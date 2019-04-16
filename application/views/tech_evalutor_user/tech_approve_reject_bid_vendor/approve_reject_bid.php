@@ -130,7 +130,7 @@ $bid_list=$result_drafted['bid_list'][0];
 						</div>
 						<div class="form-group row pull-right">
                             <div class="col-md-12">
-                                <button type="submit" class="btn btn-sm btn-primary m-r-5">Submited</button>
+                                <button type="submit" class="btn btn-sm btn-primary m-r-5">Submitted</button>
                                 <a  href="<?=base_url()?>user-technical-evalutor-home" class="btn btn-sm btn-default">Cancel</a> 
                             </div>
                         </div>

@@ -96,9 +96,9 @@ if(empty($email_id)){
 							        		<?php 
 							        		$x=0;
 							        		// status=> 3 for delete project
-							        		// $data = array('status !=' => '3' );
+							        		$data = array('status' => '3' );
 							        		$table='master_project';
-							        		$query=$this->db->get($table);
+							        		$query=$this->db->get_where($table,$data);
 							        		foreach ($query->result() as $value) {
 							        			$slno_id=$value->Project_Slno;
 							        			$keys_id="preetishwebproject";
@@ -118,11 +118,11 @@ if(empty($email_id)){
 									               
 									                <td><?php $Status=$value->status;
 									                if($Status==1){
-									                	echo "Active User";
+									                	echo "Active Project";
 									                }else if($Status==2){
-									                	echo "In-active User";
+									                	echo "In-active Project";
 									                }elseif ($Status==3) {
-									                	echo "Deleted User";
+									                	echo "Project Is closed";
 									                }else{
 									                	echo "--";
 									                }

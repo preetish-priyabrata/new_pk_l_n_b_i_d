@@ -58,7 +58,7 @@ $mode_bid=$result_title['new_tech_list'][0]->mode_bid;
 				<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
 				<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
 			</div>
-			<h4 class="panel-title">Panel Title here</h4>
+			<h4 class="panel-title">Bid Submission of Logistics for Commercial Bid</h4>
 		</div>
 		<div class="panel-body">
 			<form action="<?=base_url()?>user-vendor-bid-submission-commerical-save" method="POST">

@@ -104,10 +104,12 @@ $route['admin-add-project']='adminuser/admin_add_projects';
 $route['get-check-job-code-information']='adminuser/ajax_job_code';
 $route['admin-add-project-save']='adminuser/admin_add_project_save';
 $route['admin-project-view-details/(:any)/(:any)']="adminuser/admin_view_project_details/$1/$2";
+$route['admin-project-view-details-close/(:any)/(:any)']="adminuser/admin_view_project_details_close/$1/$2";
 $route['admin-project-view-details-complete/(:any)/(:any)']="adminuser/admin_view_project_details_comp/$1/$2";
 $route['remove-users-delete-project/(:any)/(:any)/(:any)/(:any)']="adminuser/admin_remove_users_delete_project/$1/$2/$3/$4";
 $route['admin-assign-user-project/(:any)/(:any)/(:any)/(:any)']="adminuser/admin_add_assign_user_project/$1/$2/$3/$4";
 $route['admin-add-assign-userto_project']='adminuser/admin_add_assign_userto_project';
+$route['admin-add-assign-user-to-project-save']='adminuser/admin_add_assign_user_to_project_save';
 $route['admin-edit-user-project/(:any)/(:any)/(:any)']='adminuser/admin_edit_user_project/$1/$2/$3';// not completed
 
 ######################################################################################################################
@@ -468,6 +470,7 @@ $route['bu-view-tracking-tool-m/(:any)/(:any)/(:any)/(:any)']='buuser/bu_view_tr
 
 $route['bu-mr-new-remark-create/(:any)/(:any)/(:any)']='buuser/bu_mr_new_remark_create/$1/$2/$3';
 $route['bu-mr-new-remark-create-save']='buuser/bu_mr_new_remark_create_save';
+$route['bu-view-project-old-remark']='buuser/bu_view_project_old_remark';
 
 // search bu user pr 
 $route['bu-search-pr-no']='buuser/bu_search_pr_no';
@@ -552,6 +555,7 @@ $route['buyer-view-vendors']='buyerusernew/buyer_view_vendors';
 $route['buyer-add-vendors']='buyerusernew/buyer_new_vendors';
 $route['buyer-add-vendors-save']='buyerusernew/buyer_new_vendors_save';
 $route['buyer-view-vendor-info/(:any)/(:any)']='buyerusernew/buyer_view_vendors_info/$1/$2';
+$route['buyer-view-vendor-info-change-reset/(:any)/(:any)']='buyerusernew/buyer_view_vendors_info_change_reset/$1/$2';
 $route['buyer-change-vendor-status/(:any)/(:any)/(:any)']='buyerusernew/buyer_change_vendor_status/$1/$2/$3';
 $route['buyer-edit-vendor-details/(:any)/(:any)']='buyerusernew/buyer_buyer_edit_vendor_details/$1/$2';
 $route['buyer-assign-vendor-operation/(:any)/(:any)']='buyerusernew/buyer_assign_vendor_operation/$1/$2';

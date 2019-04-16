@@ -221,7 +221,7 @@ class Adminuser extends CI_Controller {
             
         }
         public function admin_add_projects(){
-            $scripts='<script src="'.base_url().'file_css_admin/own_js.js"></script>';
+            $scripts='<script src="'.base_url().'file_css_admin/own_js_date_picker.js"></script>';
             $data=array('title' =>"Admin Add New Users",'script_js'=>$scripts,'menu_status'=>'2','sub_menu'=>'','sub_menu'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'');
             $this->load->view('template/template_header',$data);
             $this->load->view('admin/template/template_top_head');
@@ -276,6 +276,7 @@ class Adminuser extends CI_Controller {
             $buyers_user=($this->input->post('buyers_user'));
             $date_entry=date('Y-m-d');
             $time_entry=date('H:i:s');
+            $datepicker_end=$this->input->post('datepicker_end');
             if(!empty($Project_name) && !empty($job_code) &&  !empty($datepicker) && !empty($Customer_name) && !empty($Customer_Mobile_No) && !empty($Project_Description)){
                 // `Project_Name`, `job_Code`, `Date_Start`, `Customer_Name`, `Customer_Mobile_No`, `project_Description`, `status`, `Date_Entry`, `Time_Entry`
                 // 
@@ -283,7 +284,7 @@ class Adminuser extends CI_Controller {
                     $table='master_project';
                     $query=$this->db->get_where($table,$data_check);
                     if ($query->num_rows() == 0) {
-                        $data_project = array('Project_Name'=>$Project_name, 'job_Code'=>$job_code, 'Date_Start'=>$datepicker, 'Customer_Name'=>$Customer_name, 'Customer_Mobile_No'=>$Customer_Mobile_No, 'project_Description'=>$Project_Description, 'status'=>'1', 'Date_Entry'=>$date_entry, 'Time_Entry'=>$time_entry);
+                        $data_project = array('Project_Name'=>$Project_name,'date_end'=>$datepicker_end, 'job_Code'=>$job_code, 'Date_Start'=>$datepicker, 'Customer_Name'=>$Customer_name, 'Customer_Mobile_No'=>$Customer_Mobile_No, 'project_Description'=>$Project_Description, 'status'=>'1', 'Date_Entry'=>$date_entry, 'Time_Entry'=>$time_entry);
                         $entry_project = $this->user->common_insert_id($table,$data_project);
 
                         if($entry_project!=0){
@@ -431,6 +432,26 @@ class Adminuser extends CI_Controller {
             # code...
             # code...
         }
+        public function admin_view_project_details_close($value1,$value2){
+            $keys_id="preetishwebproject";
+            $value1_convered = strtr($value1,array('.' => '+', '-' => '=', '~' => '/'));
+            $value1_convered_id=$this->encrypt->decode($value1_convered,$keys_id);
+            if($value1_convered_id==$value2){
+                $update_id=array('Project_Slno'=>$value1_convered_id);
+                $data_update=array('status'=>3);
+                $table='master_project';
+                $this->db->update($table,$data_update,$update_id);
+                $this->session->set_flashdata('success_message', 'SuccessFully Project Closed');
+                // After that you need to used redirect function instead of load view such as               
+                redirect('user-admin-home');  
+
+            }else{
+                $this->session->set_flashdata('error_message', 'Some thing went Wrong');
+                // After that you need to used redirect function instead of load view such as                 
+                redirect('user-admin-home');
+            }
+        
+        }  
         public function admin_view_project_details_comp($value1,$value2){
             $keys_id="preetishwebproject";
             $value1_convered = strtr($value1,array('.' => '+', '-' => '=', '~' => '/'));            
@@ -622,13 +643,13 @@ class Adminuser extends CI_Controller {
             
            $value1_convered_id=$this->encrypt->decode($value1_convered,$keys_id);
            if($value1_convered_id==$value2){
-            $scripts='';
+            $scripts='<script src="'.base_url().'file_css_admin/own_js_date_picker.js"></script>';
             
                 $data=array('title' =>"Admin Assign User to Project",'script_js'=>$scripts,'menu_status'=>'','sub_menu'=>'','sub_menu'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','project_slno'=>$value1,'token'=>$value2,'job_Code'=>$value);
                 $this->load->view('template/template_header',$data);
                 $this->load->view('admin/template/template_top_head');
                 $this->load->view('admin/template/template_side_bar',$data);
-                $this->load->view('admin/project/add_assign_user_to_project',$data);
+                $this->load->view('admin/project/project_edit_form',$data);
                 $this->load->view('template/template_footer',$data);
 
             }else{
@@ -791,6 +812,25 @@ class Adminuser extends CI_Controller {
                 redirect('user-admin-home'); 
             }
           
+        }
+        public function admin_add_assign_user_to_project_save(){
+
+            // Array ( [value1] => iP2bbXgf48pTJddYG7XbUQcNkNftEuMSUF4PYkrVyev8BEPRbzZqJNvoJcKyg89vHz2uLeMijyBdqkerC87t8A-- [value2] => 1 [job_Code] => Ilab%200123 [Project_name] => project management ilabs [job_code] => Ilab 0123 [datepicker] => 2019-04-01 [datepicker_end] => 2019-06-18 [Customer_name] => sipra [Project_Description] => Project descriptions provide the following details to the applicants: the problem the project will address, a set of goals for the project, the overall objectives for the project, as well as a project plan that describes the activities the members will undertake. ) 
+           $Project_name=$this->input->post('Project_name');
+           $job_code=$this->input->post('job_code');
+           $datepicker=$this->input->post('datepicker');
+           $datepicker_end=$this->input->post('datepicker_end');
+           $Project_Description=$this->input->post('Project_Description');
+           $Customer_name=$this->input->post('Customer_name');
+           $project_slno=$this->input->post('value2');
+           $data_update_id=array('Project_Slno'=>$project_slno);
+           $data_project = array('Project_Name'=>$Project_name,'date_end'=>$datepicker_end, 'job_Code'=>$job_code, 'Date_Start'=>$datepicker, 'Customer_Name'=>$Customer_name, 'project_Description'=>$Project_Description, 'status'=>'1');
+           $this->db->update('master_project',$data_project,$data_update_id);
+
+        $this->session->set_flashdata('success_message', $job_code.' Job Code Successfully Updated ');
+                    // After that you need to used redirect home
+        redirect('user-admin-home');
+            
         }
         public function admin_edit_section_save(){
             // print_r($this->input->post());

@@ -819,16 +819,25 @@ class Buuser extends CI_Controller {
         $job_code=$this->input->post('job_code');
         $Remark=$this->input->post('Remark');
 
-        $data_insert = array('pr_no' => $get_pr_no, 'slno_pr'=>$slno,'job_code'=>$job_code,'Comment_remark'=>$Remark,'email_id'=>$email_id);
+        $data_insert = array('pr_no' => $get_pr_no, 'slno_pr'=>$slno,'job_code'=>$job_code,'Comment_remark'=>$Remark,'email_id'=>$email_id,'level_user'=>1 ,'type_remark'=>'R','to_level_user'=>2);
         $query=$this->db->insert('master_bu_remark_pr',$data_insert);
 
-        $remark_design_update = array('remark_design' => $Remark );
+        $remark_design_update = array('remark_design' => $Remark,'remark_entry_id'=>$email_id,'entry_date_remark'=>date('Y-m-d') );
         $data_check = array('job_code' => $job_code,'pr_no'=>$get_pr_no);
         $query_update=$this->db->update('master_pr_schedule',$remark_design_update,$data_check);
 
         $this->session->set_flashdata('success_message', ' Ssuccessfully Tracking Tool Is Update  Saved ');
         redirect('user-bu-home');
       
+   }
+   public function bu_view_project_old_remark(){
+    $scripts='<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script><script src=" https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script> <script src="'.base_url().'file_css_admin/own_js.js"></script>';
+    $data=array('title' =>"Pr Schedule Remark History",'script_js'=>$scripts,'menu_status'=>'5','sub_menu'=>'56','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'');
+    $this->load->view('template/template_header',$data);
+    $this->load->view('bu_user/template/template_top_head');
+    $this->load->view('bu_user/template/template_side_bar',$data);
+    $this->load->view('bu_user/remark_history/remark_index',$data);
+    $this->load->view('template/template_footer',$data);
    }
     
 

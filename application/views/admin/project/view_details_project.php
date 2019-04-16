@@ -130,6 +130,14 @@ if($value1_convered_id==$value2){
 											
 											</div>
 										</div>
+										<div class="form-group row m-b-15">
+											<label class="col-form-label col-md-3">Date Of End </label>
+											<div class="col-md-9">						
+												<input type="text" class="form-control m-b-5" value="<?=$row->date_end?>" disabled="">
+		              							
+											
+											</div>
+										</div>
 									</div>
 									<div class="col-md-6 col-lg-6">
 									 	<div class="form-group row m-b-15">

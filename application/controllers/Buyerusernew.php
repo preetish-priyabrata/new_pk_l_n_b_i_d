@@ -973,6 +973,46 @@ EOT;
             // error_message
         }
     }
+    public function buyer_view_vendors_info_change_reset($value1='',$value2=''){
+        $keys_id="preetishwebvendors";
+            $value1_convered = strtr($value1,array('.' => '+', '-' => '=', '~' => '/'));
+            
+            $value1_convered_id=$this->encrypt->decode($value1_convered,$keys_id);
+            if($value1_convered_id==$value2){
+                $this->load->helper('string');
+                $table_insert="master_vendor_detail";
+                $update_id=array('Slno_vendor'=>$value1_convered_id);
+                $get_email_info=$this->db->get_where($table_insert,$update_id);
+                $result_email=$get_email_info->result();
+                $Vendor_email_id=$result_email[0]->Vendor_email_id;
+                $Password=trim(random_string('alnum', 16));
+                $hash=md5($Password);
+                $data_update=array('Password'=>$Password, 'Password_hash'=>$hash);
+                $this->db->update($table_insert,$data_update,$update_id);
+
+                $this->load->library('email');
+
+                $this->email->from('contact@innovadorslab.co.in', 'Innovadors Lab ');
+                $this->email->to($Vendor_email_id);
+                // $this->email->cc('');
+                $this->email->bcc('ppriyabrata8888@gmail.com');
+
+                $this->email->subject('Reset Password For Vendor');
+                $this->email->message('Here Is reset Password :'.$Password.' for Vendor Portal ');
+
+                $this->email->send();
+
+                $this->session->set_flashdata('success_message', 'Vendor Password Has been Reset And send to mail Please Check Mail');
+                // After that you need to used redirect home
+                redirect('buyer-view-vendors');
+
+            }else{
+                $this->session->set_flashdata('error_message', 'Some thing went Wrong');
+                // After that you need to used redirect function instead of load view such as                 
+                redirect('user-buyer-home'); 
+            }
+
+    }
     public function buyer_view_vendors_info($value1='',$value2=''){
            $keys_id="preetishwebvendors";
             $value1_convered = strtr($value1,array('.' => '+', '-' => '=', '~' => '/'));
@@ -1421,7 +1461,7 @@ EOT;
           $job_code=$this->input->post('job_code');
           $comm_bid=$this->input->post('comm_bid');
 
-        $url_auction='buyer-rank-start-Commerical-ongoing-bid-pr-info-details/'.$pr_no.'/'.$slno.'/'.$ob_code.'/2/'.$comm_bid;  
+        $url_auction='buyer-rank-start-Commerical-ongoing-bid-pr-info-details/'.$pr_no.'/'.$slno.'/'.$job_code.'/2/'.$comm_bid;  
 
         $data_process = array('pr_no' =>$pr_no);
         $query_process=$this->db->get_where('master_pr_process_detail',$data_process);
