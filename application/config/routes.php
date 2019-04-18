@@ -359,7 +359,11 @@ $route['design-user-new-resubmission-cart']='designusernew/design_user_new_resub
 $route['design-project-pr-schedule-status']='designusernew/design_project_pr_schedule_status';
 
 // $route['design-mr-new-remark-create/(:any)/(:any)/(:any)']='designusernew/design_mr_new_remark_create';
+//  remark design user
 
+$route['design-view-project-old-remark']='designusernew/design_view_project_old_remark';
+
+$route['design-pr-remark-history/(:any)/(:any)/(:any)/(:any)']='designusernew/design_pr_remark_history/$1/$2/$3/$4';
 ###############################################################################################################################
 #
 #
@@ -408,6 +412,12 @@ $route['approved-project-pr']='approveruser/approved_project_pr';
 $route['approved-mr-view-pr/(:any)/(:any)/(:any)/(:any)']='approveruser/approved_mr_view_pr/$1/$2/$3/$4';
 $route['approver-comment-project-pr']='approveruser/approver_comment_project_pr';
 $route['approved-mr-view-comment-pr/(:any)/(:any)/(:any)/(:any)']='approveruser/approved_mr_view_comment_pr/$1/$2/$3/$4';
+
+$route['approver-view-project-old-remark']='approveruser/approver_view_project_old_remark';
+
+$route['approver-pr-remark-history/(:any)/(:any)/(:any)/(:any)']='approveruser/approver_pr_remark_history/$1/$2/$3/$4';
+
+// approver-view-project-old-remark
 ###########################################################################################################################################
 #
 #						Procurment User
@@ -433,6 +443,10 @@ $route['procurement-add-new-pr-save']='procurementuser/procurement_add_new_pr_sa
 $route['procurement-new-pr-complete-requisition/(:any)/(:any)/(:any)/(:any)']='procurementuser/procurement_new_pr_complete_requisition/$1/$2/$3/$4';
 
 $route['procurement-view-vendors']='procurementuser/procurement_view_vendors';
+$route['proc-view-project-old-remark']='procurementuser/proc_view_project_old_remark';
+
+$route['proc-pr-remark-history/(:any)/(:any)/(:any)/(:any)']='procurementuser/proc_pr_remark_history/$1/$2/$3/$4';
+// proc-view-project-old-remark
 
 #############################################################################################################################################
 #
@@ -470,10 +484,12 @@ $route['bu-view-tracking-tool-m/(:any)/(:any)/(:any)/(:any)']='buuser/bu_view_tr
 
 $route['bu-mr-new-remark-create/(:any)/(:any)/(:any)']='buuser/bu_mr_new_remark_create/$1/$2/$3';
 $route['bu-mr-new-remark-create-save']='buuser/bu_mr_new_remark_create_save';
-$route['bu-view-project-old-remark']='buuser/bu_view_project_old_remark';
+
 
 // search bu user pr 
 $route['bu-search-pr-no']='buuser/bu_search_pr_no';
+$route['bu-view-project-old-remark']='buuser/bu_view_project_old_remark';
+$route['bu-pr-remark-history/(:any)/(:any)/(:any)/(:any)']='buuser/bu_pr_remark_history/$1/$2/$3/$4';
 ###########################################################################################################################################
 #
 #                                          Buyer Section
@@ -596,6 +612,9 @@ $route['buyer-commercial-query-completed/(:any)']='buyerusernew/buyer_commercial
 
 $route['buyer-otp-verification-success-view-pr/(:any)/(:any)/(:any)/(:any)/(:any)/(:any)/(:any)/(:any)/(:any)']='buyerusernew/buyer_otp_verification_success_view_pr/$1/$2/$3/$4/$5/$6/$7/$8/$9';
 
+$route['buyer-view-project-old-remark']='buyerusernew/buyer_view_project_old_remark';
+
+$route['buyer-pr-remark-history/(:any)/(:any)/(:any)/(:any)']='buyerusernew/buyer_pr_remark_history/$1/$2/$3/$4';
 // buyer-s-c-Commerical-completed-bid-pr-info-details
 
 // buyer-technical-query-completed
@@ -625,7 +644,8 @@ $route['tech-evalutor-logout']='technicalevalutor/tech_evalutor_logout';
 $route['user-technical-evaluator-view-details-technical-bid-new-complete-view-pr/(:any)/(:any)/(:any)/(:any)/(:any)']='technicalevalutor/technical_evaluator_view_details_technical_bid_new_complete_view_pr/$1/$2/$3/$4/$5';
 $route['technical-evalutor-get-appr-rej-save-pr']='technicalevalutor/technical_appro_reject_save_pr';
 $route['user-technical-evaluator-bid-old-list-pr']='technicalevalutor/technical_evaluator_bid_old_list_pr_info';
-
+$route['tech-view-project-old-remark']='technicalevalutor/tech_view_project_old_remark';
+$route['tech-pr-remark-history/(:any)/(:any)/(:any)/(:any)']='technicalevalutor/tech_pr_remark_history/$1/$2/$3/$4';
 #################################################################################################################################
 #
 #Commercial Evaluator section
@@ -674,6 +694,8 @@ $route['commerical-user-send-approve-nofication-pr']='commericalevalutornew/comm
 $route['commerical-otp-verification-success-view-pr/(:any)/(:any)/(:any)/(:any)/(:any)/(:any)/(:any)/(:any)/(:any)']='commericalevalutornew/commerical_otp_verification_success_view_pr/$1/$2/$3/$4/$5/$6/$7/$8/$9';
 
 $route['user-commerical-evalutor-pr-view-list']='commericalevalutornew/user_commerical_evalutor_pr_view_list';
+$route['comm-view-project-old-remark']='commericalevalutornew/comm_view_project_old_remark';
+$route['comm-pr-remark-history/(:any)/(:any)/(:any)/(:any)']='commericalevalutornew/comm_pr_remark_history/$1/$2/$3/$4';
 
 $route['comm-evalutor-logout-by-pass']='commericalevalutor/comm_evalutor_logout_bypass';
 $route['comm-evalutor-logout']='commericalevalutor/comm_evalutor_logout';

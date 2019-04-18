@@ -10,8 +10,12 @@
 	$query_design = $this->db->get();
 
 ?>
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.5.2/css/buttons.dataTables.min.css">
+<link rel="stylesheet" type="text/css" href="<?=base_url()?>file_css_admin/DataTables/datatables.min.css"/>
+<!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.5.2/css/buttons.dataTables.min.css"> -->
+<!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.5.2/css/buttons.dataTables.min.css"> -->
+
 <div class="sidebar-bg"></div>
 		<!-- end #sidebar -->
 		
@@ -70,7 +74,7 @@
 								 	<div class="form-group row m-b-15">
 										<label class="col-form-label col-md-3" for="Date_creation"> Project <span style="color: red">*</span></label>
 										<div class="col-md-9">
-											<select class="form-control" onchange="load_data()" name="job_code" id="job_code" required="">
+											<select class="form-control" name="job_code" id="job_code" required="">
 												<option value="">--Select Project---</option>
 												<?php
 													foreach ($query_design->result() as $key_job_code) {
@@ -120,8 +124,7 @@
 						<thead>
                     <tr>
                       <th>Discipline</th>
-                      <th>PR No</th>
-                      
+                      <th>PR No</th>                      
                       <th>Action</th>
                       
                     </tr>
@@ -130,7 +133,7 @@
 					<?php
 					 foreach($query->result() as $row){
 					 	$pr_no=$row->pr_no;
-                        $url='<a href="'.base_url().'pr-remark-history/'.$row->pr_no.'/'.$row->slno.'/'.$row->job_code.'/1"> Click View Remark</a>';
+                        $url='<a href="'.base_url().'bu-pr-remark-history/'.$row->pr_no.'/'.$row->slno.'/'.$row->job_code.'/1"> Click View Remark</a>';
 		                    echo '
 		                    <tr>
 		                      <td>'.$row->discipline.'</td>
@@ -144,11 +147,24 @@
 				</tbody>
 				</table>
 					<!-- table -->
-
+					<div class="form-group row pull-right">
+                            <div class="col-md-12">
+                             
+                                <a  href="<?=base_url()?>user-bu-home" class="btn btn-sm btn-default btn-success">Back</a> 
+                            </div>
+                        </div>
 				</div>
 			</div>
 		<?php }?>
-						
-					        		        
-					    
+		</div>
+	<script>
+		$(document).ready(function() {
+    $('#table1').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf'
+        ]
+    } );
+} );
+		</script>
 					

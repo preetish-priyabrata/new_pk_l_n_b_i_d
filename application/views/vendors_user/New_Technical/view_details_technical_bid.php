@@ -256,7 +256,7 @@ $query_item_details_list=$this->design_user->get_design_master_mr_items_material
           		echo "<p style='color:green'><strong> BId Is been Approved </strong></p>";
           	 }else{
 				?>
-				 <a href="<?=base_url()?>user-vendor-bid-submission/<?=$value?>" class="btn btn-sm btn-success m-r-5"><i class="fas fa-envelope-open-text"></i>   Click To Submit Bid </a>
+				 <a href="<?=base_url()?>user-vendor-bid-submission/<?=$value?>" class="btn btn-sm btn-success m-r-5"><i class="fas fa-envelope-open-text"></i>  Click To Submit Bid </a>
 			<?php }
 				?>
               <a href="<?=base_url()?>user-vendor-query-panel/<?=$value?>" class="btn btn-sm btn-warning m-r-5"><i class="fa fa-question-circle" aria-hidden="true"></i>  Query </a>

@@ -347,7 +347,7 @@ $result_table=$query_data->result();
                             <div class="col-md-12">
                                <!--  <button type="submit" class="btn btn-sm btn-primary m-r-5" >Next</button> -->
                                <!-- <input type="submit" name="submission" value="Save" class="btn btn-success btn-sm"> -->
-                               <input type="submit" name="submission" value="Sent" class="btn btn-info btn-sm">
+                               <input type="submit" name="submission" value="Send" class="btn btn-info btn-sm">
                                <a  href="<?=base_url()?>procurement-new-pr-receive" class="btn btn-sm btn-danger">Back</a> 
                             </div>
                         </div>

@@ -338,7 +338,7 @@ $mr_slno=$bid_list->mr_slno;
 											</div>
 
 											<div class="form-group row m-b-15">
-												<label class="col-form-label col-md-3" for="date_clearfication_bid">Bid Clearfication Date</label>
+												<label class="col-form-label col-md-3" for="date_clearfication_bid">Bid Clarification Date</label>
 												<div class="col-md-9">
 													<input class="form-control-plaintext m-b-5 datepickers" placeholder="EnterBid Clearfication Date" name="date_clearfication_bid" id="date_clearfication_bid" type="text" required="" value="<?=$value_bid_dates->bid_query_closed_date?>">
 

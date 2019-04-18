@@ -40,7 +40,7 @@ $result_table=$query_data->result();
 			<ol class="breadcrumb pull-right">
 				<li class="breadcrumb-item active"><a href="<?=base_url()?>user-design-home" class="fa fa-home ">Home</a></li>
 				<li class="breadcrumb-item"><a href="javascript:;">Material Requisition</a></li>
-				<li class="breadcrumb-item active"> New Material Requisition</li>
+				<li class="breadcrumb-item active"> New Material Requisition </li>
 			</ol>
 			<!-- end breadcrumb -->
 			<!-- begin page-header -->

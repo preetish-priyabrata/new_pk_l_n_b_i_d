@@ -21,7 +21,7 @@
 						<ul class="nav nav-profile">
                             <li><a href="javascript:;"><i class="fa fa-key"></i> Change Password</a></li>
                             <li><a href="<?=base_url()?>tech-evalutor-logout"><i class="fa fa-sign-out-alt"></i> Logout</a></li>
-                            <!-- <li><a href="javascript:;"><i class="fa fa-question-circle"></i> Helps</a></li> -->
+                          
                         </ul>
 					</li>
 				</ul>
@@ -39,6 +39,18 @@
 						    <li class="<?php if($sub_menu==1){ echo 'active'; }?>"><a href="<?=base_url()?>user-technical-evalutor-pr-receive" >View New Bids  Receive List</a></li>
 						   <li class="<?php if($sub_menu==2){ echo 'active'; }?>"><a href="<?=base_url()?>user-technical-evaluator-bid-old-list-pr" >History Of Technical Bid</a></li>
 
+						</ul>
+					</li>
+					<li class="has-sub <?php if($menu_status==5){echo 'active';}?>">
+						<a href="javascript:;">
+					        <b class="caret"></b>
+						    <i class="fas fa-atlas"></i>
+						    <span>PR Remark Details</span>
+					    </a>
+						<ul class="sub-menu">
+							 <li class="<?php if($sub_menu==56){ echo 'active'; }?>"><a href="<?=base_url()?>tech-view-project-old-remark" >View Project PR Remark </a></li>
+						
+						  
 						</ul>
 					</li>
 

@@ -322,6 +322,11 @@ class Procurementuser extends CI_Controller {
 
     }
     public function procurement_add_new_pr_save($value=''){
+        $email_id=$this->session->userdata('procurement_email_id');
+        if(empty($email_id)){
+            
+            redirect('procurement-logout-by-pass');
+        }
       // print_r($this->input->post());
       // Array ( [pr_no] => O18191-950-E-K-30102-001 [slno_pr] => 2 [job_code] => 1 [pr_no_type] => new_pr_creater [edit_type] => 1 [tech_evalution] => 2 [required_date] => 2019-03-28 [approver_id] => 18 [Procurement] => 13 [buyer_id] => 15 [materials_id] => semiconductors [mr_date_of_creation] => 2019-03-16 [submission] => Sent )
       $remark_buyer=$this->input->post('remark_buyer');
@@ -340,6 +345,8 @@ class Procurementuser extends CI_Controller {
              $data_forword=array('procurement_user_status'=>1,'procurement_date'=>$date_system,'buyer_user_id'=>$buyer_id_email_id,'buyer_user_slno'=>$buyer_id,'buyer_user_status'=>2,'procurement_user_remark'=>$remark_buyer);
             $data_id = array('pr_no' =>$pr_no ,'pr_no_slno'=>$slno_pr );
             $update=$this->db->update('master_pr_process_detail',$data_forword,$data_id);
+            $data_insert = array('pr_no' => $pr_no, 'slno_pr'=>$slno_pr,'job_code'=>$job_code,'Comment_remark'=>$remark_buyer,'email_id'=>$email_id,'level_user'=>4 ,'type_remark'=>'R','to_level_user'=>5);
+            $query=$this->db->insert('master_bu_remark_pr',$data_insert);
             if($update){
               $this->session->set_flashdata('success_message', 'Information Has been successfully Send To Busyer :- '.$buyer_name);
                              // After that you need to used r
@@ -355,6 +362,28 @@ class Procurementuser extends CI_Controller {
             redirect('user-procurement-home');
         }
     }
+
+    public function proc_view_project_old_remark(){
+        $scripts='<script type="text/javascript" src="'.base_url().'file_css_admin/DataTables/datatables.min.js"></script><script src="'.base_url().'file_css_admin/own_js.js"></script>';
+       
+        $data=array('title' =>"Pr Schedule Remark History",'script_js'=>$scripts,'menu_status'=>'5','sub_menu'=>'56','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'');
+        $this->load->view('template/template_header',$data);
+        $this->load->view('procurement_user/template/template_top_head');
+        $this->load->view('procurement_user/template/template_side_bar',$data);
+        $this->load->view('procurement_user/remark_history/remark_index',$data);
+        $this->load->view('template/template_footer',$data);
+       }
+       public function proc_pr_remark_history($pr_no='',$slno='',$job_code='',$id=''){
+        $scripts='<script type="text/javascript" src="'.base_url().'file_css_admin/DataTables/datatables.min.js"></script><script src="'.base_url().'file_css_admin/own_js.js"></script>';
+       
+        $data=array('title' =>"Pr Schedule Remark History",'script_js'=>$scripts,'menu_status'=>'5','sub_menu'=>'56','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','pr_no'=>$pr_no,'slno'=>$slno,'job_code'=>$job_code,'id'=>$id);
+        $this->load->view('template/template_header',$data);
+        $this->load->view('procurement_user/template/template_top_head');
+        $this->load->view('procurement_user/template/template_side_bar',$data);
+        $this->load->view('procurement_user/remark_history/remark_index_detail',$data);
+        $this->load->view('template/template_footer',$data);
+    
+       }
 
 
 

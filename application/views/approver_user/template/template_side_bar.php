@@ -21,7 +21,7 @@
 						<ul class="nav nav-profile">
                             <li><a href="javascript:;"><i class="fa fa-key"></i> Change Password</a></li>
                             <li><a href="<?=base_url()?>approve-logout"><i class="fa fa-sign-out-alt"></i> Logout</a></li>
-                            <!-- <li><a href="javascript:;"><i class="fa fa-question-circle"></i> Helps</a></li> -->
+                        
                         </ul>
 					</li>
 				</ul>
@@ -39,11 +39,19 @@
 							<li class="<?php if($sub_menu==5){ echo 'active'; }?>"><a href="<?=base_url()?>approver-project-pr"> Project PR Received</a></li>
 							<li class="<?php if($sub_menu==5){ echo 'active'; }?>"><a href="<?=base_url()?>approved-project-pr"> Project PR Approved </a></li>
 							<li class="<?php if($sub_menu==5){ echo 'active'; }?>"><a href="<?=base_url()?>approver-comment-project-pr"> Project PR Comment </a></li>
-						   <!--  <li class="<?php if($sub_menu==1){ echo 'active'; }?>"><a href="<?=base_url()?>approver-new-mr-receive" >Receive Material Requisition </a></li>
-						    <li class="<?php if($sub_menu==2){ echo 'active'; }?>"><a href="<?=base_url()?>approver-new-mr-conform" >Approved Material Requisition List</a></li>
-						     <li class="<?php if($sub_menu==3){ echo 'active'; }?>"><a href="<?=base_url()?>approver-resubmission-mr-order" >Resubmission Material Requisition List </a></li> -->
-						    <!--  <li class="<?php if($sub_menu==4){ echo 'active'; }?>"><a href="<?=base_url()?>design-submitted-mr-order" >Submission Material Requisition List </a></li> -->
-						    <!-- <li><a href="index_v2.html">Dashboard v2</a></li> -->
+						  
+						</ul>
+					</li>
+					<li class="has-sub <?php if($menu_status==5){echo 'active';}?>">
+						<a href="javascript:;">
+					        <b class="caret"></b>
+						    <i class="fas fa-atlas"></i>
+						    <span>PR Remark Details</span>
+					    </a>
+						<ul class="sub-menu">
+							 <li class="<?php if($sub_menu==56){ echo 'active'; }?>"><a href="<?=base_url()?>approver-view-project-old-remark" >View Project PR Remark </a></li>
+						
+						  
 						</ul>
 					</li>
 					

@@ -134,7 +134,7 @@ $file_name=$result_table6[0]->file_name;
           	 	}else{
                 		?>
                     <button type="submit"  name="submission" class="btn btn-sm btn-primary m-r-5" value="save">Save</button>
-                     <button type="submit" disabled  name="submission" id="to_sub" class="btn btn-sm btn-lime m-r-5" value="sent">Sent</button>
+                     <button type="submit" disabled  name="submission" id="to_sub" class="btn btn-sm btn-lime m-r-5" value="sent">Send</button>
                  <?php }?>
                     <a  href="<?=base_url()?>user-vendor-home" class="btn btn-sm btn-default">Cancel</a>
                 </div>

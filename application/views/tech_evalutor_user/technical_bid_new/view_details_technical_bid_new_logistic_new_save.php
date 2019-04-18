@@ -149,7 +149,7 @@ $mr_slno=$bid_list->mr_slno;
 												<label class="col-form-label col-md-3" for="bid_method">Mode Of Selection</label>
 												<div class="col-md-9">
 											  		<select disabled class="form-control-plaintext" id="bid_method"  name="bid_method">
-											    		<option value="">--Please Select Mod Of Selection--</option>
+											    		<option value="">--Please Select Mode Of Selection--</option>
 											    		<option value="Closed Bid" <?php if($bid_list->mode_bid=="Closed Bid"){ echo "selected"; }?>>Closed Bid </option>
 											    		<option value="Rank Order Bid" <?php if($bid_list->mode_bid=="Rank Order Bid"){ echo "selected"; }?>>Rank Order Bid </option>
 											    		<option value="Simple Bid" <?php if($bid_list->mode_bid=="Simple Bid"){ echo "selected"; }?>>Simple Bid </option>

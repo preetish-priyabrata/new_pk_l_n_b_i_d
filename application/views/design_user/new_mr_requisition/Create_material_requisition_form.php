@@ -270,6 +270,7 @@ $job_code=$job_code; //Project_Slno
                                <!--  <button type="submit" class="btn btn-sm btn-primary m-r-5" >Next</button> -->
                                <!-- <input type="submit" name="submission" value="Save" class="btn btn-success btn-sm"> -->
                                <input type="submit" name="submission" value="Sent" class="btn btn-info btn-sm">
+                              
                                <a  href="<?=base_url()?>user-design-home" class="btn btn-sm btn-danger">Cancel</a> 
                             </div>
                         </div>

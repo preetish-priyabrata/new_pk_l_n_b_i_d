@@ -167,7 +167,7 @@ if(empty($email_id)){
 		                      
 		                      
 		                    
-		                      <td>'.$url.' || <a href="'.base_url().'user-technical-evaluator-view-details-technical-bid-new-complete-view-pr/'.$row->pr_no.'/'.$technical_bid_ref.'/'.$technical_bid_id.'/'.$tech_bid.'/1" class="btn btn-sm btn-lime" title="Click Here Closed Bid Sent information of approved vendors" >Submit Approvals</a></td>
+		                      <td>'.$url.' || <a href="'.base_url().'user-technical-evaluator-view-details-technical-bid-new-complete-view-pr/'.$row->pr_no.'/'.$technical_bid_ref.'/'.$technical_bid_id.'/'.$tech_bid.'/1" class="btn btn-sm btn-lime" title="Click Here Closed Bid Send information of approved vendors" >Submit Approvals</a></td>
 		                    </tr>
 		                    ';
 		                }

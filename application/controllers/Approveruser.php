@@ -1337,6 +1337,8 @@ class Approveruser extends CI_Controller {
             $data_forword=array('design_user_status'=>1,'approver_user_status'=>1,'approver_date'=>$date_system,'procurement_user_id'=>$Procurement_id,'procurement_user_id_slno'=>$Procurement,'procurement_user_status'=>2,'approver_user_remark'=>$Remark);
             $data_id = array('pr_no' =>$pr_no ,'pr_no_slno'=>$slno_pr );
             $update=$this->db->update('master_pr_process_detail',$data_forword,$data_id);
+            $data_insert = array('pr_no' => $pr_no, 'slno_pr'=>$slno_pr,'job_code'=>$job_code,'Comment_remark'=>$Remark,'email_id'=>$email_id,'level_user'=>3 ,'type_remark'=>'R','to_level_user'=>4);
+            $query=$this->db->insert('master_bu_remark_pr',$data_insert);
             if($update){
                 $id_array_mr=array('pr_no' =>$pr_no); // mr slno which will able to update
                 $data_mr = array('mr_forword_status' =>1 , 'mr_forword_date'=>$date); // mr data to be update
@@ -1367,6 +1369,8 @@ class Approveruser extends CI_Controller {
                 $data_forword=array('design_user_status'=>4,'approver_user_status'=>0,'approver_date'=>$date_system);
                 $data_id = array('pr_no' =>$pr_no ,'pr_no_slno'=>$slno_pr );
                 $update=$this->db->update('master_pr_process_detail',$data_forword,$data_id);
+                $data_insert = array('pr_no' => $pr_no, 'slno_pr'=>$slno_pr,'job_code'=>$job_code,'Comment_remark'=>$comment,'email_id'=>$email_id,'level_user'=>3 ,'type_remark'=>'C','to_level_user'=>2);
+                $query=$this->db->insert('master_bu_remark_pr',$data_insert);
 
                 $data_mr = array('resubmit_count' =>$total_id , 'status_resubmit'=>1); // mr data to be update
                 $this->db->update('master_mr_job_details_m',$data_mr,$id_array_mr);
@@ -1431,5 +1435,26 @@ class Approveruser extends CI_Controller {
             $this->load->view('approver_user/project_pr_schedule_m/Pr_schudele_comment_index',$data);
             $this->load->view('template/template_footer',$data);
     }
+    public function approver_view_project_old_remark(){
+        $scripts='<script type="text/javascript" src="'.base_url().'file_css_admin/DataTables/datatables.min.js"></script><script src="'.base_url().'file_css_admin/own_js.js"></script>';
+       
+        $data=array('title' =>"Pr Schedule Remark History",'script_js'=>$scripts,'menu_status'=>'5','sub_menu'=>'56','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'');
+        $this->load->view('template/template_header',$data);
+        $this->load->view('approver_user/template/template_top_head');
+        $this->load->view('approver_user/template/template_side_bar',$data);
+        $this->load->view('approver_user/remark_history/remark_index',$data);
+        $this->load->view('template/template_footer',$data);
+       }
+       public function approver_pr_remark_history($pr_no='',$slno='',$job_code='',$id=''){
+        $scripts='<script type="text/javascript" src="'.base_url().'file_css_admin/DataTables/datatables.min.js"></script><script src="'.base_url().'file_css_admin/own_js.js"></script>';
+       
+        $data=array('title' =>"Pr Schedule Remark History",'script_js'=>$scripts,'menu_status'=>'5','sub_menu'=>'56','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','pr_no'=>$pr_no,'slno'=>$slno,'job_code'=>$job_code,'id'=>$id);
+        $this->load->view('template/template_header',$data);
+        $this->load->view('approver_user/template/template_top_head');
+        $this->load->view('approver_user/template/template_side_bar',$data);
+        $this->load->view('approver_user/remark_history/remark_index_detail',$data);
+        $this->load->view('template/template_footer',$data);
+    
+       }
 
 }

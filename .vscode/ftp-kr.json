@@ -1,0 +1,16 @@
+{
+    "host": "innovadorslab.co.in",
+    "username": "innovadorslab",
+    "password": "Innovadors@218",
+    "remotePath": "/public_html/m_lnt_bid",
+    "protocol": "ftp",
+    "port": 0,
+    "fileNameEncoding": "utf8",
+    "autoUpload": true,
+    "autoDelete": false,
+    "autoDownload": false,
+    "ignore": [
+        ".git",
+        "/.vscode"
+    ]
+}

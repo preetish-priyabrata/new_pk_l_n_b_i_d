@@ -145,6 +145,13 @@ $result_table=$query_data->result();
 										<small class="f-s-12 text-grey-darker">Please enter Date Required</small>
 									</div>
 								</div>
+								<div class="form-group row m-b-15">
+									<label class="col-form-label col-md-3">Remark<span style="color: red">*</span></label>
+									<div class="col-md-9">
+										<textarea class="form-control" rows="3" name="Remark" required=""></textarea>
+										<small class="f-s-12 text-grey-darker"> Please enter Remark To Approver </small>
+									</div>
+								</div>
 							</div>
 							<div class="col-md-6 col-lg-6">
 								<div class="form-group row m-b-15">
@@ -278,7 +285,8 @@ $result_table=$query_data->result();
                             <div class="col-md-12">
                                <!--  <button type="submit" class="btn btn-sm btn-primary m-r-5" >Next</button> -->
                                <!-- <input type="submit" name="submission" value="Save" class="btn btn-success btn-sm"> -->
-                               <input type="submit" name="submission" value="Sent" class="btn btn-info btn-sm">
+                               <!--<input type="submit" name="submission" value="Send" class="btn btn-info btn-sm">-->
+                                <input type="submit" name="submission" value="Send" class="btn btn-info btn-sm">
                                <a  href="<?=base_url()?>user-design-home" class="btn btn-sm btn-danger">Cancel</a> 
                             </div>
                         </div>

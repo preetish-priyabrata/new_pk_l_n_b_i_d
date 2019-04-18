@@ -288,7 +288,7 @@ $data_get_list_commerical = array('master_bid_id_comm' =>$master_bid_id_com ,'mr
           	 	}else{
           	 		?>
                 	<input type="button" value="Total" id="to_cal" onclick="totalIt()" />
-                    <button type="submit" id="to_sub" class="btn btn-sm btn-primary m-r-5" disabled>Sent</button>
+                    <button type="submit" id="to_sub" class="btn btn-sm btn-primary m-r-5" disabled>Send</button>
               <?php  }  ?>
                     <a  href="<?=base_url()?>seller/user-vendor-home" class="btn btn-sm btn-default">Cancel</a> 
                 </div>

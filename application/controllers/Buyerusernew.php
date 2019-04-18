@@ -313,7 +313,7 @@ class Buyerusernew extends CI_Controller {
             redirect('user-buyer-home');
             exit();
 
-        }else if($submission=='Sent'){
+        }else if($submission=='Send'){
                 $data_master_bid = array('pr_slno'=>$slno_pr, 'pr_no'=>$pr_no, 'edit_id'=>$edit_type_bid);
                 $update_status_master = array('status_bid'=>'1');
                 $this->db->update('master_bid_m',$update_status_master,$data_master_bid);
@@ -668,7 +668,7 @@ EOT;
                 redirect('user-buyer-home');
                 exit();
 
-            }else if($submission=='Sent'){
+            }else if($submission=='Send'){
                 $data_master_bid = array('pr_slno'=>$slno_pr, 'pr_no'=>$pr_no, 'edit_id'=>$edit_type_bid);
                 $update_status_master = array('status_bid'=>'1');
                 $this->db->update('master_bid_m',$update_status_master,$data_master_bid);
@@ -855,7 +855,7 @@ EOT;
                 redirect('user-buyer-home');
                 exit();
 
-            }else if($submission=='Sent'){
+            }else if($submission=='Send'){
                 $data_master_bid = array('pr_slno'=>$slno_pr, 'pr_no'=>$pr_no, 'edit_id'=>$edit_type_bid);
                 $update_status_master = array('status_bid'=>'1');
                 $this->db->update('master_bid_Com_m',$update_status_master,$data_master_bid);
@@ -1541,4 +1541,25 @@ EOT;
         $data=array('title' =>"New Bid List",'script_js'=>$scripts,'menu_status'=>'2','sub_menu'=>'2','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','type_bid'=>$type_bid,'last_otp_id'=>$last_insert_id,'pr_no'=>$pr_no,'commercial_bid_ref'=>$commercial_bid_ref,'commercial_bid_id'=>$commercial_bid_id,'comm_bid_db'=>$comm_bid_db,'commercial_edit_id'=>$commercial_edit_id,'commercial_resubmit_count'=>$commercial_resubmit_count,'commercial_type_bid'=>$value3);
         $this->load->view('buyer_user/complete_view_statement/commerical_get_list_vendor_moi_sci_c_o_view',$data);
     }
+    public function buyer_view_project_old_remark(){
+        $scripts='<script type="text/javascript" src="'.base_url().'file_css_admin/DataTables/datatables.min.js"></script><script src="'.base_url().'file_css_admin/own_js.js"></script>';
+       
+        $data=array('title' =>"Pr Schedule Remark History",'script_js'=>$scripts,'menu_status'=>'5','sub_menu'=>'56','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'');
+        $this->load->view('template/template_header',$data);
+        $this->load->view('buyer_user/template/template_top_head');
+        $this->load->view('buyer_user/template/template_side_bar',$data);
+        $this->load->view('buyer_user/remark_history/remark_index',$data);
+        $this->load->view('template/template_footer',$data);
+       }
+       public function buyer_pr_remark_history($pr_no='',$slno='',$job_code='',$id=''){
+        $scripts='<script type="text/javascript" src="'.base_url().'file_css_admin/DataTables/datatables.min.js"></script><script src="'.base_url().'file_css_admin/own_js.js"></script>';
+       
+        $data=array('title' =>"Pr Schedule Remark History",'script_js'=>$scripts,'menu_status'=>'5','sub_menu'=>'56','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','pr_no'=>$pr_no,'slno'=>$slno,'job_code'=>$job_code,'id'=>$id);
+        $this->load->view('template/template_header',$data);
+        $this->load->view('buyer_user/template/template_top_head');
+        $this->load->view('buyer_user/template/template_side_bar',$data);
+        $this->load->view('buyer_user/remark_history/remark_index_detail',$data);
+        $this->load->view('template/template_footer',$data);
+    
+       }
 }

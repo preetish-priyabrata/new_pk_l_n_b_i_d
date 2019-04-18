@@ -491,6 +491,8 @@ $id++;
 
       $date_submition=$date_entry=date('Y-m-d');
       $time_submition=$time_entry=date('H:i:s');
+     
+     
       #######################################################################
       $resut=$this->design_user->get_design_mr_file_list_check_m($pr_no,$slno_pr,$job_code);
       if($resut['no_files']==2){ // here its check where appliaction having file uploaded or not
@@ -547,7 +549,7 @@ $id++;
 
               }
               $data_infromation = array('id_master' =>$last_id, 'id_clone'=>$last_id_clone,'date_entry'=>$date_entry);
-            if($submission=='Sent'){
+            if($submission=='Send'){
               
               $id= array('slno_mr' =>$last_id );
                 // `status`,`edit_id`,`date_submition`, `time_submition`
@@ -567,6 +569,8 @@ $id++;
                 // 'slno'=>$data_id
                 $date_process = array('pr_no' => $pr_no,'project_slno'=> $job_code_id_slno , 'pr_no_slno'=>$slno_pr ,'design_user_id'=>$design_email ,'design_user_id_slno'=> $design_slno,'design_user_status'=>3 ,'design_date'=>$date_entry , 'approver_user_id'=> $approver_email,'approver_user_slno'=>$approver_slno ,'approver_user_status'=>2 ,'type_bidding_technical'=>$tech_evalution ,'project_name'=>$Project_Name,'design_user_remark'=>$Remark);
                 $this->db->insert('master_pr_process_detail',$date_process);
+                $data_insert = array('pr_no' => $pr_no, 'slno_pr'=>$slno_pr,'job_code'=>$job_code,'Comment_remark'=>$Remark,'email_id'=>$email_id,'level_user'=>2 ,'type_remark'=>'R','to_level_user'=>3);
+                $query=$this->db->insert('master_bu_remark_pr',$data_insert);
                 // echo  $this->db->last_query();
 
                 $data_pr_update_id = array('slno' => $slno_pr );
@@ -599,7 +603,8 @@ $id++;
 
                 $date_process = array('pr_no' => $pr_no,'project_slno'=> $job_code_id_slno , 'pr_no_slno'=>$slno_pr ,'design_user_id'=>$design_email ,'design_user_id_slno'=> $design_slno,'design_user_status'=>2 ,'design_date'=>$date_entry , 'approver_user_id'=> $approver_email,'approver_user_slno'=>$approver_slno ,'approver_user_status'=>0 ,'type_bidding_technical'=>$tech_evalution  ,'project_name'=>$Project_Name,'design_user_remark'=>$Remark);
                 $this->db->insert('master_pr_process_detail',$date_process);
-
+                $data_insert = array('pr_no' => $pr_no, 'slno_pr'=>$slno_pr,'job_code'=>$job_code,'Comment_remark'=>$Remark,'email_id'=>$email_id,'level_user'=>2 ,'type_remark'=>'R','to_level_user'=>3);
+                $query=$this->db->insert('master_bu_remark_pr',$data_insert);
                 $data_pr_update_id = array('slno' => $slno_pr );
                 $pr_get_information=$this->db->get_where('master_pr_schedule',$data_pr_update_id);
                 $result_id=$pr_get_information->result();
@@ -660,7 +665,7 @@ $id++;
 
               }
               $data_infromation = array('id_master' =>$last_id, 'id_clone'=>$last_id_clone,'date_entry'=>$date_entry);
-            if($submission=='Sent'){
+            if($submission=='Send'){
               
               
                 // `status`,`edit_id`,`date_submition`, `time_submition`
@@ -679,8 +684,10 @@ $id++;
                   $design_email=$design_id_details['user_approver'][0]->email_id;   
                 // 'slno'=>$data_id
                 $date_process_id = array('pr_no' => $pr_no);
-                $date_process = array('project_slno'=> $job_code_id_slno , 'pr_no_slno'=>$slno_pr ,'design_user_id'=>$design_email ,'design_user_id_slno'=> $design_slno,'design_user_status'=>3 ,'design_date'=>$date_entry , 'approver_user_id'=> $approver_email,'approver_user_slno'=>$approver_slno ,'approver_user_status'=>2 ,'technical_user_status'=>$tech_evalution ,'project_name'=>$Project_Name);
+                $date_process = array('project_slno'=> $job_code_id_slno , 'pr_no_slno'=>$slno_pr ,'design_user_id'=>$design_email ,'design_user_id_slno'=> $design_slno,'design_user_status'=>3 ,'design_date'=>$date_entry , 'approver_user_id'=> $approver_email,'approver_user_slno'=>$approver_slno ,'approver_user_status'=>2 ,'technical_user_status'=>$tech_evalution ,'project_name'=>$Project_Name,'design_user_remark'=>$Remark);
                 $this->db->update('master_pr_process_detail',$date_process,$date_process_id);
+                $data_insert = array('pr_no' => $pr_no, 'slno_pr'=>$slno_pr,'job_code'=>$job_code,'Comment_remark'=>$Remark,'email_id'=>$email_id,'level_user'=>2 ,'type_remark'=>'R','to_level_user'=>3);
+                $query=$this->db->insert('master_bu_remark_pr',$data_insert);
                 // echo  $this->db->last_query();
 
                 $data_pr_update_id = array('slno' => $slno_pr );
@@ -717,9 +724,12 @@ $id++;
                 $query_details=$this->design_user->master_mr_job_details_value($data_send,$id);
 
                  $date_process_id = array('pr_no' => $pr_no);
-                $date_process = array('project_slno'=> $job_code_id_slno , 'pr_no_slno'=>$slno_pr ,'design_user_id'=>$design_email ,'design_user_id_slno'=> $design_slno,'design_user_status'=>2 ,'design_date'=>$date_entry , 'approver_user_id'=> $approver_email,'approver_user_slno'=>$approver_slno ,'approver_user_status'=>0 ,'technical_user_status'=>$tech_evalution ,'project_name'=>$Project_Name);
+                $date_process = array('project_slno'=> $job_code_id_slno , 'pr_no_slno'=>$slno_pr ,'design_user_id'=>$design_email ,'design_user_id_slno'=> $design_slno,'design_user_status'=>2 ,'design_date'=>$date_entry , 'approver_user_id'=> $approver_email,'approver_user_slno'=>$approver_slno ,'approver_user_status'=>0 ,'technical_user_status'=>$tech_evalution ,'project_name'=>$Project_Name,'design_user_remark'=>$Remark);
                 $this->db->update('master_pr_process_detail',$date_process,$date_process_id);
 
+                $data_insert = array('pr_no' => $pr_no, 'slno_pr'=>$slno_pr,'job_code'=>$job_code,'Comment_remark'=>$Remark,'email_id'=>$email_id,'level_user'=>2 ,'type_remark'=>'R','to_level_user'=>3);
+                $query=$this->db->insert('master_bu_remark_pr',$data_insert);
+                
                 $data_pr_update_id = array('slno' => $slno_pr );
                 $pr_get_information=$this->db->get_where('master_pr_schedule',$data_pr_update_id);
                 $result_id=$pr_get_information->result();
@@ -1084,5 +1094,26 @@ $id++;
       // admin_view_material_details_list
       # code...
     }
+    public function design_view_project_old_remark(){
+      $scripts='<script type="text/javascript" src="'.base_url().'file_css_admin/DataTables/datatables.min.js"></script><script src="'.base_url().'file_css_admin/own_js.js"></script>';
+     
+      $data=array('title' =>"Pr Schedule Remark History",'script_js'=>$scripts,'menu_status'=>'5','sub_menu'=>'56','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'');
+      $this->load->view('template/template_header',$data);
+      $this->load->view('design_user/template/template_top_head');
+      $this->load->view('design_user/template/template_side_bar',$data);
+      $this->load->view('design_user/remark_history/remark_index',$data);
+      $this->load->view('template/template_footer',$data);
+     }
+     public function design_pr_remark_history($pr_no='',$slno='',$job_code='',$id=''){
+      $scripts='<script type="text/javascript" src="'.base_url().'file_css_admin/DataTables/datatables.min.js"></script><script src="'.base_url().'file_css_admin/own_js.js"></script>';
+     
+      $data=array('title' =>"Pr Schedule Remark History",'script_js'=>$scripts,'menu_status'=>'5','sub_menu'=>'56','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','pr_no'=>$pr_no,'slno'=>$slno,'job_code'=>$job_code,'id'=>$id);
+      $this->load->view('template/template_header',$data);
+      $this->load->view('design_user/template/template_top_head');
+      $this->load->view('design_user/template/template_side_bar',$data);
+      $this->load->view('design_user/remark_history/remark_index_detail',$data);
+      $this->load->view('template/template_footer',$data);
+  
+     }
     
 }

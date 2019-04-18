@@ -117,5 +117,11 @@ $(document).ready(function() {
     	});
   } );
 $(document).ready(function() {
-    $('table.display').DataTable();
+	$('table.display').DataTable();
+	$('#table12').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ]
+    } );
 } );

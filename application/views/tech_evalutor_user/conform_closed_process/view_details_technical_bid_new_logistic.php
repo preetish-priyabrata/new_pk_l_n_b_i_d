@@ -539,7 +539,7 @@ $mr_slno=$bid_list->mr_slno;
 						if($access==0){
 						 if($count_completed!=0){?>
 						
-						<a href="<?=base_url()?>user-technical-evaluator-view-details-technical-bid-new-complete-view/<?=$Slno_bid?>/<?=$category?>/1" class="btn btn-sm btn-primary m-r-5"  title="Click Here Approved Vendors Bid Sent information of approved vendors"> Complete Evalution </a>
+						<a href="<?=base_url()?>user-technical-evaluator-view-details-technical-bid-new-complete-view/<?=$Slno_bid?>/<?=$category?>/1" class="btn btn-sm btn-primary m-r-5"  title="Click Here Approved Vendors Bid Send information of approved vendors"> Complete Evalution </a>
 					<?php } }?>
 					<!-- <button type="submit" class="btn btn-sm btn-primary m-r-5">Save</button> -->
 					<a  href="user-admin-home" class="btn btn-sm btn-default">Cancel</a> 

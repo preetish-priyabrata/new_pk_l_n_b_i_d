@@ -430,6 +430,27 @@ public function technical_user_bid_pr_new_material($value='',$value1='',$value2=
             $this->load->view('template/template_footer',$data);
        # code...
    }
+   public function tech_view_project_old_remark(){
+    $scripts='<script type="text/javascript" src="'.base_url().'file_css_admin/DataTables/datatables.min.js"></script><script src="'.base_url().'file_css_admin/own_js.js"></script>';
+   
+    $data=array('title' =>"Pr Schedule Remark History",'script_js'=>$scripts,'menu_status'=>'5','sub_menu'=>'56','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'');
+    $this->load->view('template/template_header',$data);
+    $this->load->view('tech_evalutor_user/template/template_top_head');
+    $this->load->view('tech_evalutor_user/template/template_side_bar',$data);
+    $this->load->view('tech_evalutor_user/remark_history/remark_index',$data);
+    $this->load->view('template/template_footer',$data);
+   }
+   public function tech_pr_remark_history($pr_no='',$slno='',$job_code='',$id=''){
+    $scripts='<script type="text/javascript" src="'.base_url().'file_css_admin/DataTables/datatables.min.js"></script><script src="'.base_url().'file_css_admin/own_js.js"></script>';
+   
+    $data=array('title' =>"Pr Schedule Remark History",'script_js'=>$scripts,'menu_status'=>'5','sub_menu'=>'56','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','pr_no'=>$pr_no,'slno'=>$slno,'job_code'=>$job_code,'id'=>$id);
+    $this->load->view('template/template_header',$data);
+    $this->load->view('tech_evalutor_user/template/template_top_head');
+    $this->load->view('tech_evalutor_user/template/template_side_bar',$data);
+    $this->load->view('tech_evalutor_user/remark_history/remark_index_detail',$data);
+    $this->load->view('template/template_footer',$data);
+
+   }
     
 
 
