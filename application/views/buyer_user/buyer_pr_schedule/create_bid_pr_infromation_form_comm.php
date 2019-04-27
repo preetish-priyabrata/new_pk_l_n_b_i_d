@@ -36,10 +36,11 @@ $result_table=$query_data->result();
     
     $data_array_procurement=$this->approver_user->get_approver_procurement_list();
 	   $result_file=$this->design_user->get_design_mr_file_list_m($pr_no,$slno_pr,$job_code);
+	   $url_remark='<a target="_blank" class="btn btn-sm btn-success" href="'.base_url().'buyer-pr-remark-history/'.$pr_no.'/'.$slno_pr.'/'.$job_code.'/1"> Click View Remark</a>';
 ?>
-
-<link href="../assets/plugins/bootstrap-datepicker/css/bootstrap-datepicker.css" rel="stylesheet" />
-    <link href="../assets/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/css/bootstrap-multiselect.css">
+<link href="<?=base_url()?>file_css_admin/assets/plugins/bootstrap-datepicker/css/bootstrap-datepicker.css" rel="stylesheet" />
+    <link href="<?=base_url()?>file_css_admin/assets/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.css" rel="stylesheet" />
 <div class="sidebar-bg"></div>
 		<!-- end #sidebar -->
 		
@@ -90,11 +91,17 @@ $result_table=$query_data->result();
 					<h4 class="panel-title"> Create Bid For PR </h4>
 				</div>
 				<div class="panel-body">
-					
+					<div class="row pull-right">
+						<div class="col-md-12">        
+							<?=$url_remark?>
+						</div>
+					</div>
+					<br>
+					<br>
 					<div class="alert alert-secondary">
                         		<span style="color: red"> *</span> All mandatory fields shall be duly filled up 
                         	</div>
-					<form action="<?=base_url()?>buyer-add-new-pr-comm-save" method="POST" enctype='multipart/form-data'>
+					<form action="<?=base_url()?>buyer-add-new-pr-comm-arr-save" method="POST" enctype='multipart/form-data'>
 						<div class="row">
 							<div class="col-md-6 col-lg-6">
 								<div class="form-group row m-b-15">
@@ -282,14 +289,14 @@ $result_table=$query_data->result();
 															
 														?>
 														
-														<select name="Technical_ev"  class="form-control m-b-5" id="Technical_ev" required="" >
+														<select name="Commerical"  class="form-control m-b-5" id="Commerical" required="" multiple>
 															<?php 
 															if($data_array_approver['no_user']==2){?>
 																<option value="">--No Commercial Evaluator Is found--</option>
 																<?php
 															}else if($data_array_approver['no_user']==1){
 																?>
-																<option value="">--Select Commercial Evaluator--</option>
+																<!-- <option value="">--Select Commercial Evaluator--</option> -->
 															<?php
 																foreach ($data_array_approver['user_approver'] as $key_approver) {
 																	echo "<option value='".$key_approver->slno."'>".$key_approver->Username." [ ".$key_approver->email_id." ]</option>";
@@ -493,7 +500,7 @@ $result_table=$query_data->result();
 															<th>UOM</th>
 															<th>Technical Parameter</th>
 															<th>Qnty</th>
-															<th>Unit Value</th>
+															<th>suggested Price</th>
 														</tr>
 													</thead>
 													<tbody>
@@ -751,6 +758,8 @@ $result_table=$query_data->result();
 					
 				</div>
 			</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.js"></script>
+
 <script type="text/javascript">
 
 function get_vender() {
@@ -895,7 +904,11 @@ $(document).ready(function(){
 
 		}
 	}
-
+	$(document).ready(function() {
+		$('#Commerical').multiselect({
+			nonSelectedText: 'Select Commercial Approver'
+		});
+	});
 </script>
 				
 

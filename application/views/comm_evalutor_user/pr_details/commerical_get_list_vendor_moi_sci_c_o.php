@@ -93,116 +93,104 @@ $query_get_list=$result_table12=$query_table1->result();
 		/* display this row with flex and use wrap (= respect columns' widths) */
 
 		.row-flex {
-		  display: flex;
-		  flex-wrap: wrap;
+			display: flex;
+			flex-wrap: wrap;
 		}
 
 
 		/* vertical spacing between columns */
 
 		[class*="col-"] {
-		  /*margin-bottom: 30px;*/
-		  margin-bottom: 2px;
-		  
+			/*margin-bottom: 30px;*/
+			margin-bottom: 2px;
 		}
 		#bordes{
 			border: 1px solid red;
 		}
 
 		.content {
-		  height: 100%;
-		  padding: 20px 20px 10px;
-		  /*color: #fff;*/
+			height: 100%;
+			padding: 20px 20px 10px;
 		}
 		.no-gutters {
-		  margin-right: 0;
-		  margin-left: 0;
-
-		  > .col,
-		  > [class*="col-"] {
-		    padding-right: 0;
-		    padding-left: 0;
-		  }
+			margin-right: 0;
+			margin-left: 0;
 		}
+		 .col,[class*="col-"] {
+					padding-right: 0;
+					padding-left: 0;
+		}
+		
 		table {
-  border: 1px solid #ccc;
-  border-collapse: collapse;
-  /*table-layout: fixed;*/
-  width: 100%;
-}
-table tr {
-  border: 1px solid #ddd;
-  padding: .35em;
-}
-table tr:nth-child(even) {
-  background: #f8f8f8;  
-}
-table th,
-table td {
-  padding: .625em;
-  text-align: left;
-}
-table th {
-  background: #999;
-  color: #fff;
-  font-size: .85em;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-}
-table td {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-table tr td:last-child{
-	/*padding: .625em;*/
-    background: #ccc;
-    /*last-child*/
-    /*nth-child*/
-}
+			border: 1px solid #ccc;
+			border-collapse: collapse;
+			/*table-layout: fixed;*/
+			width: 100%;
+		}
+		table tr {
+			border: 1px solid #ddd;
+			padding: .35em;
+		}
+		table tr:nth-child(even) {
+			background: #f8f8f8;  
+		}
+		table th,
+		table td {
+			padding: .625em;
+			text-align: left;
+		}
+		table th {
+			background: #999;
+			color: #fff;
+			font-size: .85em;
+			letter-spacing: .1em;
+			text-transform: uppercase;
+		}
+		table td {
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+		table tr td:last-child{
+			/*padding: .625em;*/
+				background: #ccc;
+				/*last-child*/
+				/*nth-child*/
+		}
 
 	</style>
 	<body >
-		<?php if(!empty($this->session->flashdata('success_message'))){?>
-			<div class="alert alert-success fade show">
-			  <span class="close" data-dismiss="alert">×</span>
-			  <strong>Success!</strong>
-			  <?=$this->session->flashdata('success_message')?> 
-			  <!-- <a href="#" class="alert-link">an example link</a>.  -->
-			</div>
+		<?php 
+			if(!empty($this->session->flashdata('success_message'))){?>
+				<div class="alert alert-success fade show">
+					<span class="close" data-dismiss="alert">×</span>
+					<strong>Success!</strong>
+						<?=$this->session->flashdata('success_message')?> 
+				</div>
 			<?php 
-			} if(!empty($this->session->flashdata('error_message'))){?>
-			<div class="alert alert-danger fade show">
-			  <span class="close" data-dismiss="alert">×</span>
-			  <strong>Error !</strong>
-			  <?=$this->session->flashdata('error_message')?> 
-			  <!-- <a href="#" class="alert-link">an example link</a>.  -->
-			</div>
+			} 
+			if(!empty($this->session->flashdata('error_message'))){?>
+				<div class="alert alert-danger fade show">
+					<span class="close" data-dismiss="alert">×</span>
+					<strong>Error !</strong>
+					<?=$this->session->flashdata('error_message')?> 
+				</div>
 			<?php 
 			}
-			 // print_r($this->session->userdata());
-			 ?>
+			?>
 		<form action="<?=base_url()?>commerrical-user-send-approve-nofication-pr" method="POST"  id="bid_tech" name="bid_tech" class="bid_tech">
 		<div class="container-fluid">
 			<div class="row ">
 				<div class="jumbotron text-center" style="margin-bottom:0 ; width: 100%; padding: 1em">
 					<h1>LARSEN & TOUBRO LIMITED</h1>
-				  	<p>Center Procurement Dept , MMH SBG , <br>
-				  	Godrej Waterside Tower -2 , 11th Floor , DP-5  <br>
-				  	Sector V , Salt Lake  City . Kolkata :- 700091</p>
-				  	<br>
-				  	<b>[ COMPARATIVE STATEMENT ]</b> 
-
+					<p>Center Procurement Dept , MMH SBG , <br>
+						Godrej Waterside Tower -2 , 11th Floor , DP-5  <br>
+						Sector V , Salt Lake  City . Kolkata :- 700091</p>
+					<br>
+					<b>[ COMPARATIVE STATEMENT ]</b>
 				</div>
 			</div>
 			<hr>
-		<!-- 	<input type="hidden" name="type_bid" value="<?=$type_bid?>">
-			<input type="hidden" name="master_bid_id" value="<?=$master_bid_id?>">
-			<input type="hidden" name="category_id" value="<?=$category_id?>">
-			<input type="hidden" name="bid_name" value="<?=$bid_name?>">
-			<input type="hidden" name="buyer_bid" value="<?=$buyer_bid?>">
-			<input type="hidden" name="last_otp_id" value="<?=$last_otp_id?>"> -->
-
 				<input type="hidden" name="type_bid" value="<?=$type_bid?>">
 				<input type="hidden" name="last_otp_id" value="<?=$last_otp_id?>">
 				<input type="hidden" name="pr_no" value="<?=$pr_no?>">
@@ -213,481 +201,539 @@ table tr td:last-child{
 				<input type="hidden" name="commercial_resubmit_count" value="<?=$commercial_resubmit_count?>">
 				<input type="hidden" name="commercial_type_bid" value="<?=$commercial_type_bid?>">
 				<div class="row row-flex no-gutters">
-			      <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12" >
-			        <div class="content colour-1">
-						<div class="form-group row m-b-15">
-									<label class="col-form-label col-md-3" for="Project_Name">Project</label>
-									<div class="col-md-9">
-										<input readonly  class="form-control-plaintext" placeholder="Enter Activity name" name="Project_Name" id="Project_Name" type="text" value="<?=$row_job_code->Project_Name?>" required="">
-										
-									</div>
+					<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12" >
+						<div class="content colour-1">
+							<div class="form-group row m-b-15">
+								<label class="col-form-label col-md-3" for="Project_Name">Project</label>
+								<div class="col-md-9">
+									<input readonly  class="form-control-plaintext" placeholder="Enter Activity name" name="Project_Name" id="Project_Name" type="text" value="<?=$row_job_code->Project_Name?>" required="">[<?=$row_job_code->job_Code?>]
 								</div>
-								<div class="form-group row m-b-15">
-									<label class="col-form-label col-3" for="activity_name">PR Nos</label>
-									<div class="col-9">
-										<input readonly  class="form-control-plaintext" placeholder="Enter Activity name" name="activity_name" id="activity_name" value="<?=$pr_no?>" type="text" required="">
-										
-									</div>
+							</div>
+							<div class="form-group row m-b-15">
+								<label class="col-form-label col-3" for="activity_name">PR Nos</label>
+								<div class="col-9">
+									<input readonly  class="form-control-plaintext" placeholder="Enter Activity name" name="activity_name" id="activity_name" value="<?=$pr_no?>" type="text" required="">
 								</div>
-								<div class="form-group row m-b-15">
-									<label class="col-form-label col-md-3" for="location_detail">Location</label>
-									<div class="col-md-9">
-										<input readonly  class="form-control-plaintext" placeholder="Enter Activity name" name="location_detail" id="location_detail" type="text" required="" value="<?=$result_table2[0]->location_detail?>">
-										
-									</div>
+							</div>
+							<div class="form-group row m-b-15">
+								<label class="col-form-label col-md-3" for="location_detail">Location</label>
+								<div class="col-md-9">
+									<input readonly  class="form-control-plaintext" placeholder="Enter Activity name" name="location_detail" id="location_detail" type="text" required="" value="<?=$result_table2[0]->location_detail?>">
 								</div>
-								<div class="form-group row m-b-15">
-									<label class="col-form-label col-md-3" for="bid_id">Bid No</label>
-									<div class="col-md-9">
-										<input readonly  class="form-control-plaintext" placeholder="Enter Activity name" name="bid_id" id="bid_id" type="text" value="<?=$commercial_bid_id?>" required="">
-										
-									</div>
+							</div>
+							<div class="form-group row m-b-15">
+								<label class="col-form-label col-md-3" for="bid_id">Bid No</label>
+								<div class="col-md-9">
+									<input readonly  class="form-control-plaintext" placeholder="Enter Activity name" name="bid_id" id="bid_id" type="text" value="<?=$commercial_bid_id?>" required="">
 								</div>
-								<div class="form-group row m-b-15">
-									<label class="col-form-label col-md-3" for="bid_start_date">Open Date</label>
-									<div class="col-md-9">
-										<input readonly  class="form-control-plaintext" placeholder="Enter Activity name" name="bid_start_date" id="bid_start_date" value="<?=$result_table1[0]->bid_start_date?>" type="text" required="">
-										
-									</div>
+							</div>
+							<div class="form-group row m-b-15">
+								<label class="col-form-label col-md-3" for="bid_start_date">Open Date</label>
+								<div class="col-md-9">
+									<input readonly  class="form-control-plaintext" placeholder="Enter Activity name" name="bid_start_date" id="bid_start_date" value="<?=$result_table1[0]->bid_start_date?>" type="text" required="">
 								</div>
-								<div class="form-group row m-b-15">
-									<label class="col-form-label col-md-3" for="bid_closed_date">Closed Date</label>
-									<div class="col-md-9">
-										<input readonly  class="form-control-plaintext" placeholder="Enter Activity name" name="bid_closed_date" id="bid_closed_date" type="text" value="<?=$result_table1[0]->bid_closed_date?>" required="">
-										
-									</div>
+							</div>
+							<div class="form-group row m-b-15">
+								<label class="col-form-label col-md-3" for="bid_closed_date">Closed Date</label>
+								<div class="col-md-9">
+									<input readonly  class="form-control-plaintext" placeholder="Enter Activity name" name="bid_closed_date" id="bid_closed_date" type="text" value="<?=$result_table1[0]->bid_closed_date?>" required="">
 								</div>
-								<div class="form-group row m-b-15">
-									<label class="col-form-label col-md-3" for="mode_bid">Bid Type</label>
-									<div class="col-md-9">
+							</div>
+							<div class="form-group row m-b-15">
+								<label class="col-form-label col-md-3" for="mode_bid">Bid Type</label>
+								<div class="col-md-9">
 									<input readonly  class="form-control-plaintext" placeholder="Enter Activity name" name="mode_bid" id="mode_bid" type="text" value="<?=$result_table3[0]->mode_bid?>" required="">
-										
-									</div>
 								</div>
-								<div class="form-group row m-b-15">
-									<label class="col-form-label col-md-3" for="mode_bid">ACE Value</label>
-									<div class="col-md-9">
+							</div>
+							<div class="form-group row m-b-15">
+								<label class="col-form-label col-md-3" for="mode_bid">ACE Value</label>
+								<div class="col-md-9">
 									<input readonly  class="form-control-plaintext" placeholder="Enter Activity name" name="mode_bid" id="mode_bid" type="text" value="<?=$result_table3[0]->Ace_value_detail?>" required="">
-										
-									</div>
 								</div>
-					        </div>
-					      </div>
-					      <div class="col-md-3 col-lg-3 col-sm-6 col-xs-12" >
-					        <div class="content colour-2">
-					        	<div class="row">
-					        		<div class="col-lg-12">
-						          		<h5>Bid Creation</h5>
-						          		<div class="form-group row m-b-15">
-											<label class="col-form-label col-md-3" for="time_date_creation">Date & Time</label>
-											<div class="col-md-9">
-												<input readonly  class="form-control-plaintext" placeholder="Enter Activity name" name="time_date_creation" id="time_date_creation" type="text" value="<?=$row_mr_no->time_date_creation?>" required="">
-
-											</div>
-										</div>
-										<div class="form-group row m-b-15">
-											<label class="col-form-label col-md-3" for="creators_id">Name</label>
-											<div class="col-md-9">
-											<input readonly  class="form-control-plaintext" placeholder="Enter Activity name" name="creators_id" id="creators_id" type="text" value="<?=$row_mr_no->creators_id?>" required="">
-
-											</div>
-										</div>
-									</div>
-					          	</div>
-					        				          
-					        </div>
-					      </div>
-					      <div class="col-md-3 col-lg-3 col-sm-6 col-xs-12">
-					        <div class="content colour-3">
-					          	<h3>Currency</h3>
-					          	<table class="table table-bordered">
-								    <thead>
-									    <tr>
-									    	<th>SRL</th>
-									        <th>Currency</th>
-									        <th>Rate</th>
-									    </tr>
-								    </thead>
-								    <tbody>
-								      	<tr>
-									        <td>1</td>
-									        <td>INR</td>
-									        <td>1.00</td>
-								      	</tr>
-								    </tbody>
-								</table>
-					        </div>
-					      </div>
-					  </div>
+							</div>
+						</div>
+					</div>
 					
-
-					 <div class="w-100"></div>
-
-			    <!-- here table of comparasation -->
-			    <div class="row">
-			    	<div class="table-responsive">
-			    	<?php
-			    	// print_r($final_id_vendor);
-			    	// print_r(array_count_values($array_vedeor_id));
-			    	$times_repeat=array_count_values($array_vedeor_id);
-			    	?>
-			    	<table class="table table-bordered" border="1" cellpadding="10" cellspacing="1" width="100%">
-                        <thead>
-                            <tr>   
-                            	<th  scope="row">#</th>                         	
-                                <th><strong>Name</strong></th>                             
-                                <th><strong>UOM</strong></th>
-                               	<th><strong>Quantity</strong></th>
-                               	<th><strong>Select Vendor</strong></th>
-                                <?php 
-						 			foreach ($final_id_vendor as $key_ven_id =>$userid_ven) {
-						 				$id_count=$times_repeat[$userid_ven];
-						 				echo '<th ><p class="text-center">'.$userid_ven.'</p>'
-						 				?>
-
-						 						<table class="table-bordered" cellpadding="10" cellspacing="1" width="100%">
-						 							<tr>
-						 								<th width="25%"  scope="row">Currency</th>
-						 								<th>
-						 									<table class="table-bordered" cellpadding="10" cellspacing="1" width="100%">
-						 									<thead>
-									 							<tr>
-									 								<th width="25%" colspan = "3"  scope="row"><p class="text-center"> Quoted Price(INR)</p></th>
-									 								<?php 
-								 										if($id_count!=1){
-								 										for ($i=1; $i <$id_count ; $i++) {
-								 											?>
-									 								 <th width="25%" colspan = "3"  scope="row"><p class="text-center"> Negotiated Price <?=$i?> (INR)</p></th>
-									 								<?php }}?>
-									 							</tr>
-									 						</thead>
-								 							<tbody>
-								 								<tr>
-								 									<th width="25%"  scope="row">Unit Rate</th>
-										 							<th width="25%">Converted Rate</th>
-										 							<th width="25%">Total Price</th>
-										 					<?php 
-											 					if($id_count!=1){
-											 							for ($i=1; $i <$id_count ; $i++) { 
-											 				?>
-						 									
-							 									<th width="25%"  scope="row"> Unit Rate</th>
-									 							<th width="25%">Converted Rate</th>
-									 							<th width="25%">Total Price</th>
-															
-											 				<?php }
-											 			}
-											 				?>
-										 						</tr>
-										 					
-								 							</tbody>
-								 						</table>
-						 				
-						 					
-						 							</th>	
-						 						</tr>
-						 						
-
-						 					</table>
-						 					<?php
-						 				
-						 				
-						 			}
+					<div class="col-md-3 col-lg-3 col-sm-6 col-xs-12">
+						<div class="content colour-3">
+							<h3>Currency</h3>
+							<table class="table table-bordered">
+								<thead>
+									<tr>
+										<th>SRL</th>
+										<th>Currency</th>
+										<th>Rate</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>1</td>
+										<td>INR</td>
+										<td>1.00</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+				<div class="w-100"></div>
+				<!-- here table of comparasation -->
+				<div class="row">
+					<div class="table-responsive">
+						<?php
+							$times_repeat=array_count_values($array_vedeor_id);
+						?>
+						<table class="table table-bordered" border="1" cellpadding="10" cellspacing="1" width="100%">
+              <thead>
+                <tr>
+									<th  scope="row">#</th>                         	
+                  <th><strong>Name</strong></th>                             
+                  <th><strong>UOM</strong></th>
+                  <th><strong>Quantity</strong></th>
+                  <th><strong>Select Vendor</strong></th>
+                  <?php 
+											foreach ($final_id_vendor as $key_ven_id =>$userid_ven) {
+												$id_count=$times_repeat[$userid_ven];
+												$this->db->where('Vendor_email_id',$userid_ven);
+												$query_vendor=$this->db->get('master_vendor_detail');
+												$query_vendor_result=$query_vendor->result();
+												$value_id_vender=$query_vendor_result[0];
+												echo '<th ><p class="text-center">'.$value_id_vender->Organisation_name.'</p>'
+									?>
+												<table class="table-bordered" cellpadding="10" cellspacing="1" width="100%">
+													<tr>
+														<th width="25%"  scope="row">Currency</th>
+														<th>
+															<table class="table-bordered" cellpadding="10" cellspacing="1" width="100%">
+																<thead>
+																	<tr>
+																		<th width="25%" colspan = "3"  scope="row"><p class="text-center"> Quoted Price(INR)</p></th>
+																		<?php 
+																			if($id_count!=1){
+																				for ($i=1; $i <$id_count ; $i++) {
+																		?>
+																					<th width="25%" colspan = "3"  scope="row"><p class="text-center"> Negotiated Price <?=$i?> (INR)</p></th>
+																		<?php
+																				}
+																			}
+																		?>
+																	</tr>
+																</thead>
+																<tbody>
+																	<tr>
+																		<th width="25%"  scope="row">Unit Rate</th>
+																		<th width="25%">Converted Rate</th>
+																		<th width="25%">Total Price</th>
+																		<?php 
+																			if($id_count!=1){
+																				for ($i=1; $i <$id_count ; $i++) { 
+																		?>
+																					<th width="25%"  scope="row"> Unit Rate</th>
+																					<th width="25%">Converted Rate</th>
+																					<th width="25%">Total Price</th>
+																		<?php 
+																				}
+																			}
+																		?>
+																	</tr>
+																</tbody>
+															</table>
+														</th>
+													</tr>
+												</table>
+										<?php
+											}
+										?>
+								</tr>
+              </thead>
+              <tbody>
+							<?php
+								$x=0;
+                foreach ($query_table12->result() as $key_value){
+									$slno_mat=$key_value->slno_item_mr;
+									$x++;
+							?>
+									<input type="hidden" name="slno_mat_mateial[]" value="<?=$slno_mat?>">
+                  <tr>
+									</tr>
+									<tr>
+										<td><?=$x?></td>
+										<td><?=$key_value->material_name?></td>
+										<td><?=$key_value->material_unit?></td>
+										<td><?=$key_value->material_quantity?></td>
+										<td>
+											<select class="form-control" name="vendor_apporved[<?=$slno_mat?>]">
+											<?php 
+												foreach ($final_id_vendor as $key_ven_id =>$userid_ven) {
+													$this->db->where('Vendor_email_id',$userid_ven);
+													$query_vendor=$this->db->get('master_vendor_detail');
+													$query_vendor_result=$query_vendor->result();
+													$value_id_vender=$query_vendor_result[0];
+													echo "<option value=".$userid_ven.">".$value_id_vender->Organisation_name."</option>";
+												}
+											?>
+											</select>
+										</td>
+										<?php 
+											foreach ($final_id_vendor as $key_ven_id =>$userid_ven) {
+												$id_count=$times_repeat[$userid_ven];
+												$date_im = array('Vendor_id' => $userid_ven,'Bid_master_id_com'=> $comm_bid_db,'comm_item_slno'=>$slno_mat);
+												$data_ve_item=$this->db->get_where('master_pr_bid_qoute_item',$date_im);
+										?>
+												<td>
+													<table class="table table-bordered" cellpadding="10" cellspacing="1" width="100%">
+														<tr>
+															<th width="25%">INR</th>
+															<th>
+																<table class="table-bordered" cellpadding="10" cellspacing="1" width="100%">
+																	<tbody>
+																		<?php 
+																			foreach ($data_ve_item->result() as $key_item => $value_item) {
+																				echo "<th width='25%'>".$value_item->Unit_price."</th>";
+																				echo "<th width='25%'>".$value_item->Unit_price."</th>";
+																				echo "<th width='25%'>".$value_item->Total_unitprice."</th>";
+																			}
+																		?>
+																	</tbody>
+																</table>
+															</th>
+														</tr>
+													</table>
+												</td>
+										<?php
+											}
+										?>
+									</tr>
+							<?php
+								}
+							?>
+							<tr>
+								<th></th>
+								<th colspan="4"><strong>Sub total (A)</strong></th>
+								<?php
+									foreach ($final_id_vendor as $key_ven_id =>$userid_ven) {
+										$id_count=$times_repeat[$userid_ven];
+										$date_Short = array('Vendor_id' => $userid_ven,'master_bid_id_com'=> $Slno_bid);
+										$data_Short=$this->db->get_where('master_pr_bid_qoute_item_total',$date_Short);
 								?>
-
-                            </tr>
-                        </thead>
-                        <tbody>
-                        	<!-- stdClass Object ( [slno_mat] => 1 [slno_mr_id] => 362 [item_name] => material item 1 [item_id] => mat001 [item_uom] => nos [tech_name] => ["No Parameter Found"] [item_qnt] => 15 [unit_price] => 2500 [master_bid_id] => 1 ) stdClass Object ( [slno_mat] => 2 [slno_mr_id] => 363 [item_name] => material item 17 [item_id] => mat0087 [item_uom] => nos [tech_name] => ["technical 1667"] [item_qnt] => 25 [unit_price] => 230 [master_bid_id] => 1 ) stdClass Object ( [slno_mat] => 3 [slno_mr_id] => 364 [item_name] => material item 19 [item_id] => mat0018 [item_uom] => nos [tech_name] => ["ABCD 3333"] [item_qnt] => 70 [unit_price] => 405 [master_bid_id] => 1 ) stdClass Object ( [slno_mat] => 4 [slno_mr_id] => 365 [item_name] => material item 22 [item_id] => mat00910 [item_uom] => nos [tech_name] => ["No Parameter Found"] [item_qnt] => 100 [unit_price] => 885 [master_bid_id] => 1 )  -->
-                        	<?php 
-                        	$x=0;
-                        		foreach ($query_table12->result() as $key_value) {
-                        			// print_r($key_value);
-                        			$slno_mat=$key_value->slno_item_mr;
-                        		$x++;
-                        		?>
-                        		<input type="hidden" name="slno_mat_mateial[]" value="<?=$slno_mat?>">
-                        		<tr>
-                        		</tr>
-                        		<tr>
-                        			<td><?=$x?></td>
-                                   <td><?=$key_value->material_name?></td>								  
-								   <td><?=$key_value->material_unit?></td>
-								   <td><?=$key_value->material_quantity?></td>		  
-								   <td>
-								 		<select class="form-control" name="vendor_apporved[<?=$slno_mat?>]">
-								 			<?php 
-								 			foreach ($final_id_vendor as $key_ven_id =>$userid_ven) {
-								 				echo "<option value=".$userid_ven.">".$userid_ven."</option>";
-								 			}
-								 			?>
-								 		</select>
-								 	</td>
-								 	 <?php 
-						 			foreach ($final_id_vendor as $key_ven_id =>$userid_ven) {
-						 				$id_count=$times_repeat[$userid_ven];
-						 				$date_im = array('Vendor_id' => $userid_ven,'Bid_master_id_com'=> $comm_bid_db,'comm_item_slno'=>$slno_mat);
-						 				$data_ve_item=$this->db->get_where('master_pr_bid_qoute_item',$date_im);
-						 				?>
-						 				<td>
-
-						 						<table class="table table-bordered" cellpadding="10" cellspacing="1" width="100%">
-						 							<tr>
-						 								<th width="25%">INR</th>
-						 								<th>
-						 									<table class="table-bordered" cellpadding="10" cellspacing="1" width="100%">
-						 									
-								 							<tbody>
-								 							<?php 
-								 							// stdClass Object ( [Slno_closed_item] => 5 [closed_id_slno] => 2 [Bid_master_id_com] => 1 [Item_name] => material item 1 [Quantity] => 15 [Uom_unit] => nos [Unit_price] => 2840 [Total_unitprice] => 42600.00 [date_entry] => 2019-01-08 17:53:15 [comm_item_slno] => 1 [Mr_item_slno] => [Item_id] => mat001 [Bid_slno] => 1 [Vendor_id] => vender@ilab.com ) 
-								 							foreach ($data_ve_item->result() as $key_item => $value_item) {
-								 								echo "<th width='25%'>".$value_item->Unit_price."</th>";
-								 								echo "<th width='25%'>".$value_item->Unit_price."</th>";
-								 								echo "<th width='25%'>".$value_item->Total_unitprice."</th>";
-								 								
-								 							}
-
-								 							?>
-										 						
-										 					
-								 							</tbody>
-								 						</table>
-						 				
-						 					
-						 							</th>	
-						 						</tr>
-						 						
-
-						 					</table>
-						 				</td>
-						 		<?php				
-						 			}
+										<th>
+											<table class="table-bordered" cellpadding="10" cellspacing="1" width="100%">
+												<tr>
+													<th width="25%"></th>
+													<!-- this will be inr blank -->
+													<?php
+														foreach ($data_Short->result() as $key_short => $value_short) {
+													?>
+															<th width="25%"></th>
+															<th width="25%"></th>
+															<th width="25%"><?=$value_short->sub_total?></th>
+											<?php 
+														}
+											?></tr>
+											</table>
+										</th>
+								<?php
+									}
 								?>
-
-                                </tr>
-
-                        		<?php
-                        		}
-                        		?>
-                        	<tr>   
-		                    		<th></th>                         	
-			                        <th colspan="4"><strong>Sub Total</strong></th> 
-			                       <?php 
-								 			foreach ($final_id_vendor as $key_ven_id =>$userid_ven) {
-								 				$id_count=$times_repeat[$userid_ven];
-								 				$date_Short = array('Vendor_id' => $userid_ven,'master_bid_id_com'=> $Slno_bid);
-						 						$data_Short=$this->db->get_where('master_pr_bid_qoute_item_total',$date_Short);
-								 				?>
-								 				<th>
-								 					<table class="table-bordered" cellpadding="10" cellspacing="1" width="100%">
-								 							<tr>
-								 								<th width="25%"></th> 
-								 								<!-- this will be inr blank -->
-								 								<?php
-								 								 foreach ($data_Short->result() as $key_short => $value_short) {
-								 								 ?>
-								 								<th width="25%"></th> 
-								 								<th width="25%"></th> 
-								 								<th width="25%"><?=$value_short->sub_total?></th> 
-
-								 							<?php }?>
-								 							</tr>
-								 						
-
-								 					</table>
-								 				</th>
-								 					<?php
-								 				
-								 				
-								 			}
+							</tr>
+							<!-- Packing and Forwarding (P&F) Charges (B) -->
+							<tr>
+								<th></th>
+								<th colspan="4"><strong>Packing and Forwarding (P&F) Charges (B)</strong></th>
+								<?php 
+										foreach ($final_id_vendor as $key_ven_id =>$userid_ven) {
+											$id_count=$times_repeat[$userid_ven];
+											$date_package = array('Vendor_id' => $userid_ven,'master_bid_id_com'=> $Slno_bid);
+											$data_package=$this->db->get_where('master_pr_bid_qoute_item_total',$date_package);
+								?>		
+								<th>
+											<table class="table-bordered" cellpadding="10" cellspacing="1" width="100%">
+												<tr>
+													<th width="25%"></th>
+													<!-- this will be inr blank -->
+													<?php
+														foreach ($data_package->result() as $key_package => $value_package) {
+													?>
+															<th width="25%"></th>
+															<th width="25%"></th>
+															<th width="25%">
+																<?php
+																	$package=$value_package->package;
+																	if(!empty($package)){
+																			echo $package;
+																		}else{
+																			echo 0;
+																		}
+																?>
+															</th>
+												<?php 
+														}
+												?>
+												</tr>
+											</table>
+										</th>
+									<?php
+										}
+									?>
+								</tr>
+									<!-- end  Packing and Forwarding (P&F) Charges (B) -->
+									<!-- Transportation Charges (C) -->
+								<tr>
+									<th></th>
+									<th colspan="4"><strong>Transportation Charges (C)</strong></th>
+								<?php 
+										foreach ($final_id_vendor as $key_ven_id =>$userid_ven) {
+											$id_count=$times_repeat[$userid_ven];
+											$date_Trans = array('Vendor_id' => $userid_ven,'master_bid_id_com'=> $Slno_bid);
+											$data_Trans=$this->db->get_where('master_pr_bid_qoute_item_total',$date_Trans);
+								?>
+									<th>
+											<table class="table-bordered" cellpadding="10" cellspacing="1" width="100%">
+												<tr>
+													<th width="25%"></th><!-- this will be inr blank -->
+													<?php
+														foreach ($data_Trans->result() as $key_Trans => $value_Trans) {
+													?>
+															<th width="25%"></th>
+															<th width="25%"></th>
+															<th width="25%">
+																<?php
+																		$Trans=$value_Trans->Trans;
+																		if(!empty($Trans)){
+																			echo $Trans;
+																		}else{
+																			echo 0;
+																		}
+																?>
+															</th>
+											<?php 
+														}
+											?>
+												</tr>
+											</table>
+									</th>
+									<?php
+										}
+									?>
+								</tr>
+								<!-- end  Transportation Charges (C) -->
+								<tr>
+									<th></th>
+									<th colspan="4"><strong>Total Item Value (A+B+C)</strong></th>
+									<?php 
+										foreach ($final_id_vendor as $key_ven_id =>$userid_ven) {
+											$id_count=$times_repeat[$userid_ven];
+											$date_total= array('Vendor_id' => $userid_ven,'master_bid_id_com'=> $Slno_bid);
+											$data_total=$this->db->get_where('master_pr_bid_qoute_item_total',$date_total);
+									?>
+									<th>
+											<table class="table-bordered" cellpadding="10" cellspacing="1" width="100%">
+												<tr>
+													<th width="25%"></th>
+													<!-- this will be inr blank -->
+													<?php
+														foreach ($data_total->result() as $key_total => $value_total) {
+													?>
+															<th width="25%"></th>
+															<th width="25%"></th>
+															<th width="25%"><?=$value_total->total_price?></th>
+											<?php 
+														}
+											?>
+												</tr>
+											</table>
+										</th>
+									<?php
+										}
+									?>
+								</tr>
+								
+									<!-- cgst -->
+									<tr>
+										<th></th>
+										<th colspan="4"><strong>GST (IGST / CGST + SGST)</strong></th>
+										<?php
+											foreach ($final_id_vendor as $key_ven_id =>$userid_ven) {
+												$id_count=$times_repeat[$userid_ven];
+												$date_CGST= array('Vendor_id' => $userid_ven,'master_bid_id_com'=> $Slno_bid);
+												$data_CGST=$this->db->get_where('master_pr_bid_qoute_item_total',$date_CGST);
 										?>
-		                           
-			                       
-			                    </tr>
-
-			                    <!-- tax total -->
-			                    <tr>   
-		                    		<th></th>                         	
-			                        <th colspan="4"><strong>Total Taxes</strong></th> 
-			                       <?php 
-								 			foreach ($final_id_vendor as $key_ven_id =>$userid_ven) {
-								 				$id_count=$times_repeat[$userid_ven];
-								 				$date_tax= array('Vendor_id' => $userid_ven,'master_bid_id_com'=> $Slno_bid);
-						 						$data_tax=$this->db->get_where('master_pr_bid_qoute_item_total',$date_tax);
-								 				?>
-								 				<th>
-								 					<table class="table-bordered" cellpadding="10" cellspacing="1" width="100%">
-								 							<tr>
-								 								<th width="25%"></th> 
-								 								<!-- this will be inr blank -->
-								 								<?php
-								 								 foreach ($data_tax->result() as $key_tax => $value_tax) {
-								 								 ?>
-								 								<th width="25%"></th> 
-								 								<th width="25%"></th> 
-								 								<th width="25%"><?=$value_tax->total_tax?></th> 
-
-								 							<?php }?>
-								 							</tr>
-								 						
-
-								 					</table>
-								 				</th>
-								 					<?php
-								 				
-								 				
-								 			}
+										<th>
+											<table class="table-bordered" cellpadding="10" cellspacing="1" width="100%">
+												<tr>
+													<th width="25%"></th>
+													<!-- this will be inr blank -->
+													<?php
+														foreach ($data_CGST->result() as $key_CGST => $value_CGST) {
+													?>
+															<th width="25%"><?=$CGST_percent=$value_CGST->CGST_percent?>%</th>
+															<th width="25%"></th>
+															<th width="25%">
+																<?php 
+																	$CGST_value=$value_CGST->CGST_value;
+																	if(!empty($CGST_value)){
+																		echo $CGST_value;
+																	}else{
+																		echo "--";
+																	}
+																?>
+															</th>
+											<?php }?>
+												</tr>
+											</table>
+										</th>
+									<?php }?>
+								</tr>
+								<!-- end Cgst -->
+								<!-- Total Item Value with GST -->
+									<tr>
+										<th></th>
+										<th colspan="4"><strong>Total Item Value with GST</strong></th>
+										<?php 
+												foreach ($final_id_vendor as $key_ven_id =>$userid_ven) {
+													$id_count=$times_repeat[$userid_ven];
+													$date_total_gst_value= array('Vendor_id' => $userid_ven,'master_bid_id_com'=> $Slno_bid);
+													$data_total_gst_value=$this->db->get_where('master_pr_bid_qoute_item_total',$date_total_gst_value);
 										?>
-			                       
-			                    </tr>
-			                    <!-- total price -->
-			                    <tr>   
-		                    		<th></th>                         	
-			                        <th colspan="4"><strong>Total Landed Cost</strong></th> 
-			                        <?php 
-								 			foreach ($final_id_vendor as $key_ven_id =>$userid_ven) {
-								 				$id_count=$times_repeat[$userid_ven];
-								 				$date_total= array('Vendor_id' => $userid_ven,'master_bid_id_com'=> $Slno_bid);
-						 						$data_total=$this->db->get_where('master_pr_bid_qoute_item_total',$date_total);
-								 				?>
-								 				<th>
-								 					<table class="table-bordered" cellpadding="10" cellspacing="1" width="100%">
-								 							<tr>
-								 								<th width="25%"></th> 
-								 								<!-- this will be inr blank -->
-								 								<?php
-								 								 foreach ($data_total->result() as $key_total => $value_total) {
-								 								 ?>
-									 								<th width="25%"></th> 
-									 								<th width="25%"></th> 
-									 								<th width="25%"><?=$value_total->total_price?></th> 
-
-								 								<?php }?>
-								 							</tr>
-								 						
-
-								 					</table>
-								 				</th>
-								 					<?php
-								 				
-								 				
-								 			}
-										?>
-		                           
-			                       
-			                    </tr>
-
-			                    <!-- User Assumption Charges -->
-			                     <tr>   
-		                    		<th></th>                         	
-			                        <th colspan="4"><strong>User Assumption Charges</strong></th> 
-			                        <?php 
-								 			foreach ($final_id_vendor as $key_ven_id =>$userid_ven) {
-								 				$id_count=$times_repeat[$userid_ven];
-								 				$date_user_assumption_charge= array('Vendor_id' => $userid_ven,'master_bid_id_com'=> $Slno_bid);
-						 						$data_user_assumption_charge=$this->db->get_where('master_pr_bid_qoute_item_total',$date_user_assumption_charge);
-								 				?>
-								 				<th>
-								 					<table class="table-bordered" cellpadding="10" cellspacing="1" width="100%">
-								 							<tr>
-								 								<th width="25%"></th> 
-								 								<!-- this will be inr blank -->
-								 								<?php
-								 								 foreach ($data_user_assumption_charge->result() as $key_user_assumption_charge => $value_user_assumption_charge) {
-								 								 ?>
-									 								<th width="25%"></th> 
-									 								<th width="25%"></th> 
-									 								<th width="25%"><?=$value_user_assumption_charge->user_assumption_charge?></th> 
-
-								 								<?php }?>
-								 							</tr>
-								 						
-
-								 					</table>
-								 				</th>
-								 					<?php
-								 				
-								 				
-								 			}
-										?>
-		                           
-			                       
-			                    </tr>
-			                    <!-- Delivery Basis -->
-			                    <tr>   
-		                    		<th></th>                         	
-			                        <th colspan="4"><strong>Delivery Basis</strong></th> 
-			                        <?php 
-								 			foreach ($final_id_vendor as $key_ven_id =>$userid_ven) {
-								 				$id_count=$times_repeat[$userid_ven];
-								 				$date_delivery_basis= array('Vendor_id' => $userid_ven,'master_bid_id_com'=> $Slno_bid,'field_name'=>'delivery basis');
-						 						$data_delivery_basis=$this->db->get_where('master_pr_bid_qoute_item_misc',$date_delivery_basis);
-								 				// 
-								 				
-								 				?>
-								 				<th>
-								 					<table class="table-bordered" cellpadding="10" cellspacing="1" width="100%">
-								 							<tr>
-								 								<th width="25%"></th> 
-								 								<!-- this will be inr blank -->
-								 								<?php 
-								 								foreach ($data_delivery_basis->result() as $key_delivery_basis => $value_delivery_basis) {
-
-								 									?>
-								 								<th width="25%"></th> 
-								 								<th width="25%"></th> 
-								 								<th width="25%"><?=$value_delivery_basis->field_value?></th> 
-								 							<?php }?>
-								 							</tr>
-								 						
-
-								 					</table>
-								 				</th>
-								 					<?php
-								 				
-								 				
-								 			}
-										?>
-		                           
-			                       
-			                    </tr>
-			                    <!-- Gurantee /Warranty -->
-			                    <tr>   
-		                    		<th></th>                         	
-			                        <th colspan="4"><strong> Gurantee / Warranty</strong></th> 
-			                        <?php 
-								 			foreach ($final_id_vendor as $key_ven_id =>$userid_ven) {
-								 				$id_count=$times_repeat[$userid_ven];
-								 				$date_gaurantee= array('Vendor_id' => $userid_ven,'master_bid_id_com'=> $Slno_bid,'field_name'=>'gaurantee warranty');
-						 						$data_gaurantee=$this->db->get_where('master_pr_bid_qoute_item_misc',$date_gaurantee);
-								 				// 
-								 				
-								 				?>
-								 				<th>
-								 					<table class="table-bordered" cellpadding="10" cellspacing="1" width="100%">
-								 							<tr>
-								 								<th width="25%"></th> 
-								 								<!-- this will be inr blank -->
-								 								<?php 
-								 								foreach ($data_gaurantee->result() as $key_gaurantee => $value_gaurantee) {
-
-								 									?>
-								 								<th width="25%"></th> 
-								 								<th width="25%"></th> 
-								 								<th width="25%"><?=$value_gaurantee->field_value?></th> 
-								 							<?php }?>
-								 							</tr>
-
-								 					</table>
-								 				</th>
-								 					<?php
-								 				
-								 				
-								 			}
-										?>
-		                           
-			                       
-			                    </tr>
+										<th>
+													<table class="table-bordered" cellpadding="10" cellspacing="1" width="100%">
+														<tr>
+															<th width="25%"></th>
+															<!-- this will be inr blank -->
+															<?php
+																	foreach ($data_total_gst_value->result() as $key_total_gst => $value_total_gst) {
+															?>
+																		<th width="25%"></th>
+																		<th width="25%"></th>
+																		<th width="25%">
+																			<?php 
+																					$total_gst_value=$value_total_gst->total_gst_value;
+																					if(!empty($total_gst_value)){
+																						echo $total_gst_value;
+																					}else{
+																						echo "--";
+																					}
+																			?>
+																		</th>
+														<?php }?>
+														</tr>
+													</table>
+												</th>
+												<?php
+												}
+												?>
+											</tr>
+											<!-- end Total Item Value with GST -->
+											<!-- User Assumption Charges -->
+											<tr>
+												<th></th>
+												<th colspan="4"><strong>User Assumption Charges</strong></th>
+												<?php
+														foreach ($final_id_vendor as $key_ven_id =>$userid_ven) {
+															$id_count=$times_repeat[$userid_ven];
+															$date_user_assumption_charge= array('Vendor_id' => $userid_ven,'master_bid_id_com'=> $Slno_bid);
+															$data_user_assumption_charge=$this->db->get_where('master_pr_bid_qoute_item_total',$date_user_assumption_charge);
+												?>
+												<th>
+															<table class="table-bordered" cellpadding="10" cellspacing="1" width="100%">
+																<tr>
+																	<th width="25%"></th>
+																	<!-- this will be inr blank -->
+																	<?php
+																			foreach ($data_user_assumption_charge->result() as $key_user_assumption_charge => $value_user_assumption_charge) {
+																	?>
+																				<th width="25%"></th>
+																				<th width="25%"></th>
+																				<th width="25%"><?=$value_user_assumption_charge->user_assumption_charge?></th>
+																<?php }?>
+																</tr>
+															</table>
+														</th>
+												<?php }?>
+											</tr>
+											<!-- Price Basis -->
+											<tr>
+												<th></th>
+												<th colspan="4"><strong>Price Basis</strong></th>
+												<?php 
+														foreach ($final_id_vendor as $key_ven_id =>$userid_ven) {
+															$id_count=$times_repeat[$userid_ven];
+															$date_price_basis= array('Vendor_id' => $userid_ven,'master_bid_id_com'=> $Slno_bid,'field_name'=>'price_basis');
+															$data_price_basis=$this->db->get_where('master_pr_bid_qoute_item_misc',$date_price_basis);
+												?>
+												<th>
+															<table class="table-bordered" cellpadding="10" cellspacing="1" width="100%">
+																<tr>
+																	<th width="25%"></th>
+																	<!-- this will be inr blank -->
+																	<?php 
+																			foreach ($data_price_basis->result() as $key_price_basis => $value_price_basis) {
+																	?>
+																				<th width="25%"></th>
+																				<th width="25%"></th>
+																				<th width="25%"><?=$value_price_basis->field_value?></th>
+																<?php }?>
+																</tr>
+															</table>
+												</th>
+												<?php	}?>  
+											</tr>
+											<!-- Place Of Delivery -->
+											<tr>
+												<th></th>
+												<th colspan="4"><strong>Place Of Delivery</strong></th>
+												<?php 
+														foreach ($final_id_vendor as $key_ven_id =>$userid_ven) {
+															$id_count=$times_repeat[$userid_ven];
+															$date_place_delivery= array('Vendor_id' => $userid_ven,'master_bid_id_com'=> $Slno_bid,'field_name'=>'place_delivery');
+															$data_place_delivery=$this->db->get_where('master_pr_bid_qoute_item_misc',$date_place_delivery);
+												?>
+												<th>
+															<table class="table-bordered" cellpadding="10" cellspacing="1" width="100%">
+																<tr>
+																	<th width="25%"></th>
+																	<!-- this will be inr blank -->
+																	<?php 
+																			foreach ($data_place_delivery->result() as $key_place_delivery => $value_place_delivery) {
+																	?>
+																				<th width="25%"></th>
+																				<th width="25%"></th>
+																				<th width="25%"><?=$value_place_delivery->field_value?></th>
+																<?php }?>
+																</tr>
+															</table>
+												</th>
+												<?php	}?>  
+											</tr>
+											<!-- Place Of Delivery -->
+											<tr>
+												<th></th>
+												<th colspan="4"><strong>Place Of Dispatch</strong></th>
+												<?php 
+														foreach ($final_id_vendor as $key_ven_id =>$userid_ven) {
+															$id_count=$times_repeat[$userid_ven];
+															$date_place_delivery= array('Vendor_id' => $userid_ven,'master_bid_id_com'=> $Slno_bid,'field_name'=>'delivery basis');
+															$data_place_delivery=$this->db->get_where('master_pr_bid_qoute_item_misc',$date_place_delivery);
+												?>
+												<th>
+															<table class="table-bordered" cellpadding="10" cellspacing="1" width="100%">
+																<tr>
+																	<th width="25%"></th>
+																	<!-- this will be inr blank -->
+																	<?php 
+																			foreach ($data_place_delivery->result() as $key_place_delivery => $value_place_delivery) {
+																	?>
+																				<th width="25%"></th>
+																				<th width="25%"></th>
+																				<th width="25%"><?=$value_place_delivery->field_value?></th>
+																<?php }?>
+																</tr>
+															</table>
+												</th>
+												<?php	}?>  
+											</tr>
+										
+											
 			                    <!-- Delivery Schedule -->
 			                    <tr>   
 		                    		<th></th>                         	
@@ -727,82 +773,7 @@ table tr td:last-child{
 		                           
 			                       
 			                    </tr>
-			                    <!-- Payment Terms -->
-			                    <tr>   
-		                    		<th></th>                         	
-			                        <th colspan="4"><strong> Payment Terms </strong></th> 
-			                       	<?php 
-								 			foreach ($final_id_vendor as $key_ven_id =>$userid_ven) {
-								 				$id_count=$times_repeat[$userid_ven];
-								 				$date_payment= array('Vendor_id' => $userid_ven,'master_bid_id_com'=> $Slno_bid,'field_name'=>'payment terms');
-						 						$data_payment=$this->db->get_where('master_pr_bid_qoute_item_misc',$date_payment);
-								 				// 
-								 				
-								 				?>
-								 				<th>
-								 					<table class="table-bordered" cellpadding="10" cellspacing="1" width="100%">
-								 							<tr>
-								 								<th width="25%"></th> 
-								 								<!-- this will be inr blank -->
-								 								<?php 
-								 								foreach ($data_payment->result() as $key_payment => $value_payment) {
-
-								 									?>
-								 								<th width="25%"></th> 
-								 								<th width="25%"></th> 
-								 								<th width="25%"><?=$value_payment->field_value?></th> 
-								 							<?php }?>
-								 							</tr>
-
-
-								 					</table>
-								 				</th>
-								 					<?php
-								 				
-								 				
-								 			}
-										?>
-		                           
-			                       
-			                    </tr>
-			                    <!-- Validity Of Offer -->
-			                     <tr>   
-		                    		<th></th>                         	
-			                        <th colspan="4"><strong>Validity Of Offer</strong></th> 
-			                        <?php 
-								 			foreach ($final_id_vendor as $key_ven_id =>$userid_ven) {
-								 				$id_count=$times_repeat[$userid_ven];
-								 				$date_validity= array('Vendor_id' => $userid_ven,'master_bid_id_com'=> $Slno_bid,'field_name'=>'validity of offer');
-						 						$data_validity=$this->db->get_where('master_pr_bid_qoute_item_misc',$date_validity);
-								 				// 
-								 				
-								 				?>
-								 				<th>
-								 					<table class="table-bordered" cellpadding="10" cellspacing="1" width="100%">
-								 							<tr>
-								 								<th width="25%"></th> 
-								 								<!-- this will be inr blank -->
-								 								<?php 
-								 								foreach ($data_validity->result() as $key_validity => $value_validity) {
-
-								 									?>
-								 								<th width="25%"></th> 
-								 								<th width="25%"></th> 
-								 								<th width="25%"><?=$value_validity->field_value?></th> 
-								 							<?php }?>
-								 							</tr>
-								 						
-
-								 					</table>
-								 				</th>
-								 					<?php
-								 				
-								 				
-								 			}
-										?>
-		                           
-			                       
-			                    </tr>
+			                   
 			                    <!-- Security BG -->
 			                     <tr>   
 		                    		<th></th>                         	
@@ -839,7 +810,46 @@ table tr td:last-child{
 										?>
 		                           
 			                       
+													</tr>
+													 <!-- Payment Terms -->
+													 <tr>   
+		                    		<th></th>                         	
+			                        <th colspan="4"><strong> Payment Terms </strong></th> 
+			                       	<?php 
+								 			foreach ($final_id_vendor as $key_ven_id =>$userid_ven) {
+								 				$id_count=$times_repeat[$userid_ven];
+								 				$date_payment= array('Vendor_id' => $userid_ven,'master_bid_id_com'=> $Slno_bid,'field_name'=>'payment terms');
+						 						$data_payment=$this->db->get_where('master_pr_bid_qoute_item_misc',$date_payment);
+								 				// 
+								 				
+								 				?>
+								 				<th>
+								 					<table class="table-bordered" cellpadding="10" cellspacing="1" width="100%">
+								 							<tr>
+								 								<th width="25%"></th> 
+								 								<!-- this will be inr blank -->
+								 								<?php 
+								 								foreach ($data_payment->result() as $key_payment => $value_payment) {
+
+								 									?>
+								 								<th width="25%"></th> 
+								 								<th width="25%"></th> 
+								 								<th width="25%"><?=$value_payment->field_value?></th> 
+								 							<?php }?>
+								 							</tr>
+
+
+								 					</table>
+								 				</th>
+								 					<?php
+								 				
+								 				
+								 			}
+										?>
+		                           
+			                       
 			                    </tr>
+			                    
 			                    <!-- Liquidity Damage -->
 			                     <tr>   
 		                    		<th></th>                         	
@@ -868,6 +878,81 @@ table tr td:last-child{
 								 							</tr>
 
 								 						
+
+								 					</table>
+								 				</th>
+								 					<?php
+								 				
+								 				
+								 			}
+										?>
+		                           
+			                       
+													</tr>
+											<!-- Validity Of Offer -->
+											<tr>   
+		                    		<th></th>                         	
+			                        <th colspan="4"><strong>Validity Of Offer</strong></th> 
+			                        <?php 
+								 			foreach ($final_id_vendor as $key_ven_id =>$userid_ven) {
+								 				$id_count=$times_repeat[$userid_ven];
+								 				$date_validity= array('Vendor_id' => $userid_ven,'master_bid_id_com'=> $Slno_bid,'field_name'=>'validity of offer');
+						 						$data_validity=$this->db->get_where('master_pr_bid_qoute_item_misc',$date_validity);
+								 				// 
+								 				
+								 				?>
+								 				<th>
+								 					<table class="table-bordered" cellpadding="10" cellspacing="1" width="100%">
+								 							<tr>
+								 								<th width="25%"></th> 
+								 								<!-- this will be inr blank -->
+								 								<?php 
+								 								foreach ($data_validity->result() as $key_validity => $value_validity) {
+
+								 									?>
+								 								<th width="25%"></th> 
+								 								<th width="25%"></th> 
+								 								<th width="25%"><?=$value_validity->field_value?></th> 
+								 							<?php }?>
+								 							</tr>
+								 						
+
+								 					</table>
+								 				</th>
+								 					<?php
+								 				
+								 				
+								 			}
+										?>
+		                           
+			                       
+			                    </tr>
+													<!-- Guarantee / Warrantee Period -->
+											<tr>   
+		                    		<th></th>                         	
+			                        <th colspan="4"><strong> Guarantee / Warrantee Period</strong></th> 
+			                        <?php 
+								 			foreach ($final_id_vendor as $key_ven_id =>$userid_ven) {
+								 				$id_count=$times_repeat[$userid_ven];
+								 				$date_gaurantee= array('Vendor_id' => $userid_ven,'master_bid_id_com'=> $Slno_bid,'field_name'=>'gaurantee warranty');
+						 						$data_gaurantee=$this->db->get_where('master_pr_bid_qoute_item_misc',$date_gaurantee);
+								 				// 
+								 				
+								 				?>
+								 				<th>
+								 					<table class="table-bordered" cellpadding="10" cellspacing="1" width="100%">
+								 							<tr>
+								 								<th width="25%"></th> 
+								 								<!-- this will be inr blank -->
+								 								<?php 
+								 								foreach ($data_gaurantee->result() as $key_gaurantee => $value_gaurantee) {
+
+								 									?>
+								 								<th width="25%"></th> 
+								 								<th width="25%"></th> 
+								 								<th width="25%"><?=$value_gaurantee->field_value?></th> 
+								 							<?php }?>
+								 							</tr>
 
 								 					</table>
 								 				</th>
@@ -923,6 +1008,10 @@ table tr td:last-child{
 			                        <th colspan="4"><strong>Notification</strong></th> 
 			                        <?php 
 								 			foreach ($final_id_vendor as $key_ven_id =>$userid_ven) {
+												$this->db->where('Vendor_email_id',$userid_ven);
+												$query_vendor=$this->db->get('master_vendor_detail');
+												$query_vendor_result=$query_vendor->result();
+												$value_id_vender=$query_vendor_result[0];
 								 				$id_count=$times_repeat[$userid_ven];
 								 				$date_remarks= array('Vendor_id' => $userid_ven,'master_bid_id_com'=> $Slno_bid,'field_name'=>'remarks');
 						 						$data_remarks=$this->db->get_where('master_pr_bid_qoute_item_misc',$date_remarks);
@@ -932,7 +1021,7 @@ table tr td:last-child{
 								 				<th>
 								 					<select  class="form-control" name="vendor_notification[]">
 								 						<option value="">--Please Select For Notification--</option>
-								 						<option value="<?=$userid_ven?>"><?=$userid_ven?></option>
+								 						<option value="<?=$userid_ven?>"><?=$value_id_vender->Organisation_name?></option>
 								 					</select>
 								 					
 								 				</th>

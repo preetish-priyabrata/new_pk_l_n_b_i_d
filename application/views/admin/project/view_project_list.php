@@ -116,8 +116,8 @@ if(empty($email_id)){
 									                <td><?=$value->Project_Name?></td>
 									                <td><?=$value->job_Code?></td>
 									                <td><?=$value->Customer_Name?></td>
-									                <td><?=$value->Date_Start?></td>
-																	<td><?=$value->date_end?></td>
+									                <td><?=date('d-m-Y',strtotime($value->Date_Start))?></td>
+																	<td><?=date('d-m-Y',strtotime($value->date_end))?></td>
 																	<td><?=$value->project_Description?></td>
 									                <td><?php $Status=$value->status;
 									                if($Status==1){

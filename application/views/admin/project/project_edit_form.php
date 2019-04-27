@@ -133,7 +133,7 @@ if($value1_convered_id==$value2){
 										<div class="form-group row m-b-15">
 											<label class="col-form-label col-md-3">Date Of Start </label>
 											<div class="col-md-9">						
-												<input type="text" class="form-control m-b-5 datepickers" value="<?=$row->Date_Start?>" name="datepicker"  required="">
+												<input type="text" class="form-control m-b-5 datepickers" value="<?=date('d-m-Y',strtotime($row->Date_Start))?>" name="datepicker"  required="">
 		              							
 											
 											</div>
@@ -141,7 +141,7 @@ if($value1_convered_id==$value2){
 										<div class="form-group row m-b-15">
 											<label class="col-form-label col-md-3">Date Of End </label>
 											<div class="col-md-9">						
-												<input type="text" class="form-control m-b-5 datepickers" value="<?=$row->date_end?>" name="datepicker_end" required="">
+												<input type="text" class="form-control m-b-5 datepickers" value="<?=date('d-m-Y',strtotime($row->date_end))?>" name="datepicker_end" required="">
 		              							
 											
 											</div>

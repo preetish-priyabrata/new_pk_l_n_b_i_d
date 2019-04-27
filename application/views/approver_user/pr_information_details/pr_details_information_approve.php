@@ -38,10 +38,10 @@ $result_table=$query_data->result();
 	$query_category = $this->db->get('master_category_item');
 
 	$data_array_procurement=$this->approver_user->get_approver_procurement_list();
-	   $result_file=$this->design_user->get_design_mr_file_list_m($pr_no,$slno_pr,$job_code);
+		$result_file=$this->design_user->get_design_mr_file_list_m($pr_no,$slno_pr,$job_code);
+		$url_remark='<a target="_blank" class="btn btn-sm btn-success" href="'.base_url().'approver-pr-remark-history/'.$pr_no.'/'.$slno_pr.'/'.$job_code.'/1"> Click View Remark</a>';
 ?>
-<link href="../assets/plugins/bootstrap-datepicker/css/bootstrap-datepicker.css" rel="stylesheet" />
-    <link href="../assets/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.css" rel="stylesheet" />
+
 <div class="sidebar-bg"></div>
 		<!-- end #sidebar -->
 		
@@ -82,7 +82,13 @@ $result_table=$query_data->result();
 					<h4 class="panel-title">Approved PR details Information</h4>
 				</div>
 				<div class="panel-body">
-					
+					<div class="row pull-right">
+						<div class="col-md-12">        
+							<?=$url_remark?>
+						</div>
+					</div>
+						<br>
+						<br>
 					
 					<form action="#" >
 						<div class="row">

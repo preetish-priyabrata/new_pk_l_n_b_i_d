@@ -3077,6 +3077,34 @@ class Adminuser extends CI_Controller {
             $this->load->view('admin/change_password');
             $this->load->view('template/template_footer',$data);
         }
+        public function admin_change_password_save(){
+    
+            $email_id=$this->session->userdata('email_id');
+            if(empty($email_id)){
+                
+                redirect('admin-logout-by-pass');
+            }
+            $c_password=$this->input->post('c_password');
+            $new_password=$this->input->post('new_password');
+            $data_check=array('email_id'=>$email_id,'password_hash'=>md5($c_password),'Status'=>1);
+            $query_check=$this->db->get_where('master_admin',$data_check);
+            if($query_check->num_rows()==1){
+                $data_id_update=array('email_id'=>$email_id);
+                $data_update_information=array('password_hash'=>md5($new_password),'Password'=>$new_password);
+                $query_check=$this->db->update('master_admin',$data_update_information,$data_id_update);
+
+                $this->session->set_flashdata('success_message',' password changed successfull');
+                // After that you need to used redirect home
+                redirect('user-admin-home');
+            }else{
+                $this->session->set_flashdata('error_message',' Something went worng');
+                // After that you need to used redirect home
+                redirect('user-admin-home');
+
+            }
+            // email_id,password_hash,Password
+
+        }
 
 
 

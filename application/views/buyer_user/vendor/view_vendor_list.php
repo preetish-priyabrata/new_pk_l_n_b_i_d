@@ -85,7 +85,7 @@ if(empty($email_id)){
 							        		<td><?=$x?></td>
 							                <td><?=$value->Vendor_name?></td>
 							                <td><?=$value->Organisation_name?></td>
-							                <td><?=$value->Vendor_email_id?></td>
+							                <td><?=$value->Vendor_email?>/ user id :- <?=$value->Vendor_email_id?></td>
 							               
 							                <td><?php $Status=$value->Status;
 							                if($Status==1){

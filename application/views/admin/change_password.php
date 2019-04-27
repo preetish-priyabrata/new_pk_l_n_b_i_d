@@ -1,4 +1,10 @@
-
+<?php 
+$email_id=$this->session->userdata('email_id');
+if(empty($email_id)){
+	
+	redirect('admin-logout-by-pass');
+}
+?>
 <style type="text/css">
 	/* Base CSS */
 .alignleft {
@@ -118,12 +124,12 @@ a:hover { text-decoration: none }
 			<!-- begin breadcrumb -->
 			<ol class="breadcrumb pull-right">
 				<li class="breadcrumb-item active"><a href="user-admin-home" class="fa fa-home ">Home</a></li>
-				<li class="breadcrumb-item"><a href="javascript:;">Location</a></li>
-				<li class="breadcrumb-item active">Create News Location</li>
+				
+				<li class="breadcrumb-item active">Change New Password</li>
 			</ol>
 			<!-- end breadcrumb -->
 			<!-- begin page-header -->
-			<h1 class="page-header">Create Location Form </h1>
+			<h1 class="page-header">Change New Password Form</h1>
 			<!-- end page-header -->
 			<?php if(!empty($this->session->flashdata('success_message'))){?>
 			<div class="alert alert-success fade show">
@@ -146,7 +152,7 @@ a:hover { text-decoration: none }
 						<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
 						<a href="user-admin-home" class="btn btn-xs btn-icon btn-circle btn-danger" ><i class="fa fa-times"></i></a>
 					</div>
-					<h4 class="panel-title">Add New Location Information</h4>
+					<h4 class="panel-title">Change New Password</h4>
 				</div>
 				<div class="panel-body">
 					<!-- <div class="container">
@@ -157,26 +163,38 @@ a:hover { text-decoration: none }
 										<h3>Advance Password Validation</h3>
 										<p>Find to All</p>
 									</div> -->
-									<form action="" class="loginForm">
+									<form action="<?=base_url()?>admin-change-password-module-save" class="loginForm" method="post">
 										<div class="form-group row m-b-15">
 											<label class="col-form-label col-md-3" for="Location_name">New Password  <span style="color: red">*</span></label>
 											<div class="col-md-9">
-												<input class="form-control m-b-5" type="password" id="paw" placeholder="New Password">
+												<input class="form-control m-b-5" type="password" id="paw" name="new_password" placeholder="New Password">
 												<small class="f-s-12 text-grey-darker">Here enter New Password</small>
 												<br>
 												<span id="error" style="color:red"></span>
 											</div>
 										</div>
-										<!-- <div class="input-group">
-											<input type="text" id="name" class="form-control" placeholder="Full Name">
-											<input type="password" id="paw" class="form-control" placeholder="Password">
-											<input type="password" id="c_paw" class="form-control" placeholder="Password">
-											<input type="submit" id="submit" class="form-control" value="Submit">
-										</div> -->
+										<div class="form-group row m-b-15">
+											<label class="col-form-label col-md-3" for="Location_name">Current Password  <span style="color: red">*</span></label>
+											<div class="col-md-9">
+												<input class="form-control m-b-5" type="password" id="cpaw" name="c_password" placeholder="Current Password">
+												<small class="f-s-12 text-grey-darker">Here enter Current Password</small>
+												<br>
+												<span id="error" style="color:red"></span>
+											</div>
+										</div>
+
+										<div class="form-group row pull-right">
+											<div class="col-md-12">
+												<button type="submit" class="btn btn-sm btn-primary m-r-5">Save</button>
+												<a  href="user-admin-home" class="btn btn-sm btn-default">Cancel</a> 
+											</div>
+										</div>
+						
+									
 									</form>
 								</div>
 							</div>
-							<div class="col-md-4">
+							<!-- <div class="col-md-4">
 								<div class="aro-pswd_info">
 									<div id="pswd_info">
 										<h4>Password must be requirements</h4>
@@ -189,7 +207,7 @@ a:hover { text-decoration: none }
 										</ul>
 									</div>
 								</div>
-							</div>
+							</div> -->
 						</div>
 					</div>
 				<!-- </div>
@@ -204,6 +222,7 @@ a:hover { text-decoration: none }
 		
 		//validate the length
 		if ( pswd.length < 8 ) {
+			$x++;
 			$('#length').removeClass('valid').addClass('invalid');
 		} else {
 			$('#length').removeClass('invalid').addClass('valid');

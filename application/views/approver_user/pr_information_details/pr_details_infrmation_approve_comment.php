@@ -32,10 +32,10 @@ $result_table=$query_data->result();
 	$query_category = $this->db->get('master_category_item');
 
 	$data_array_procurement=$this->approver_user->get_approver_procurement_list();
-	   $result_file=$this->design_user->get_design_mr_file_list_m($pr_no,$slno_pr,$job_code);
+		$result_file=$this->design_user->get_design_mr_file_list_m($pr_no,$slno_pr,$job_code);
+		$url_remark='<a target="_blank" class="btn btn-sm btn-success" href="'.base_url().'approver-pr-remark-history/'.$pr_no.'/'.$slno_pr.'/'.$job_code.'/1"> Click View Remark</a>';
 ?>
-<link href="../assets/plugins/bootstrap-datepicker/css/bootstrap-datepicker.css" rel="stylesheet" />
-    <link href="../assets/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.css" rel="stylesheet" />
+
 <div class="sidebar-bg"></div>
 		<!-- end #sidebar -->
 		
@@ -76,7 +76,13 @@ $result_table=$query_data->result();
 					<h4 class="panel-title">PR details Information</h4>
 				</div>
 				<div class="panel-body">
-					
+					<div class="row pull-right">
+								<div class="col-md-12">        
+								<?=$url_remark?>
+								</div>
+						</div>
+						<br>
+						<br>
 					<div class="alert alert-secondary">
                         		<span style="color: red"> *</span> All mandatory fields shall be duly filled up 
                         	</div>
@@ -133,7 +139,7 @@ $result_table=$query_data->result();
 										<small class="f-s-12 text-grey-darker">Please enter Date Required</small>
 									</div>
 								</div>
-								<div class="form-group row m-b-15">
+								<div class="form-group row m-b-15" id="remark_ids">
 									<label class="col-form-label col-md-3">Remark<span style="color: red">*</span></label>
 									<div class="col-md-9">
 										<textarea class="form-control" rows="3" name="Remark" id="remark" required=""></textarea>
@@ -250,7 +256,7 @@ $result_table=$query_data->result();
 										<small class="f-s-12 text-grey-darker">Select Procurement </small>
 									</div>
 								</div>
-								<div class="form-group row m-b-15">
+								<div class="form-group row m-b-15" id="comment_view">
 									<label class="col-form-label col-md-3" for="comment">comment 
 										<span style="color: red">*</span>
 									</label>
@@ -345,26 +351,55 @@ $result_table=$query_data->result();
 		var radioValue = $("input[name='type_action']:checked").val();
 		// alert(radioValue);
         if(radioValue==2){
-
-        	var textboxes = $('[id=comment]');
-			var emptytextboxes = textboxes.filter(function(){
-			  return this.value == "";
-			});
-
-			if(textboxes.length == emptytextboxes.length){
-			   alert('Comment should be filled');  
-			   return false;
-			} 
-			$('#remark').prop('required',false); 
-        	$('#Procurement').prop('required',false);
-   			// $('#Procurement').removeAttr('required');​​​​​
-    		return true;
-          
-
-        }else{
-        	$('#remark').prop('required',true);
-        	$('#Procurement').prop('required',true);
-        	 return true;
+					var textboxes = $('[id=comment]');
+					var emptytextboxes = textboxes.filter(function(){
+						return this.value == "";
+					});
+					if(textboxes.length == emptytextboxes.length){
+						alert('Comment should be filled');  
+						return false;
+					} 
+					$('#remark').prop('required',false); 
+					$('#Procurement').prop('required',false);
+						// $('#Procurement').removeAttr('required');​​​​​
+						return true;
+				}else{
+						$('#remark').prop('required',true);
+						$('#Procurement').prop('required',true);
+						return true;
         }	    
 	}
+	$(document).ready(function() {
+		$('#comment_view').hide();
+		$('#remark_ids').hide();
+		$("input:radio[name='type_action']:checked").change(function () {
+			alert();
+			var radioValue = $("input[name='type_action']:checked").val();
+			if(radioValue==2){
+				$('#comment_view').show();
+				$('#remark_ids').hide();
+			}else{
+				$('#comment_view').hide();
+				$('#remark_ids').show();
+			}
+		});
+	});
+	$(document).ready(function() {
+    $('input:radio[name=type_action]').change(function() {
+        if (this.value == 2) {
+					$('#comment_view').show();
+					$('#remark_ids').hide();
+					$('#comment').prop('required',true);
+					$('#remark').prop('required',false); 
+					$('#Procurement').prop('required',false);
+        }else if (this.value == 1) {
+					
+					$('#comment_view').hide();
+					$('#remark_ids').show();
+					$('#comment').prop('required',false);
+					$('#remark').prop('required',true);
+					$('#Procurement').prop('required',true);
+        }
+    });
+});
 </script>

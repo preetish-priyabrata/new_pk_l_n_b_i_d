@@ -38,45 +38,6 @@ if(empty($email_id)){
 			</div>
 			<?php 
 			}
-			//  echo $this->uri->uri_string();
-			//  echo "<br>";
-			//  echo $currentURL = current_url(); //for simple URL
-			// echo "<br>";
-			//  echo $params = $_SERVER['QUERY_STRING']; //for parameters
-			//  echo "<br>";
-			//  echo $fullURL = $currentURL . '?' . $params; //full URL with parameter
-			//  echo "<br>";
-
-			//  //if you want to get parameter from url use:
-			// 	 parse_str($_SERVER['QUERY_STRING'], $_GET);
-			// 	 //then you can use:
-			// 	 if(isset($_GET["par"])){
-			// 	      echo $_GET["par"];
-			// 	 }
-			// 	 //if you want to get current page url use:
-			// 	echo $current_url = current_url();
-			// 	echo "<br>";
-			//  // print_r($this->session->userdata());
-			//  // 
-			//  echo $url= $_SERVER['HTTP_REFERER'];
-			 ?>
-
-			<!-- begin panel -->
-			<!-- <div class="panel panel-inverse">
-				<div class="panel-heading">
-					<div class="panel-heading-btn">
-						<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
-						<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-redo"></i></a>
-						<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
-						<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
-					</div>
-					<h4 class="panel-title">Panel Title here</h4>
-				</div>
-				<div class="panel-body">
-
-					Panel Content Here
-				</div>
-			</div> -->
-			<!-- end panel -->
+			?>
 		</div>
 		<!-- end #content -->

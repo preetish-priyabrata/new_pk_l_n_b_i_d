@@ -342,7 +342,7 @@ $mr_slno=$bid_list->mr_slno;
 						<div class="form-group row m-b-15">
 							<label class="col-form-label col-md-3" for="date_start_bid">Bid Start Date</label>
 							<div class="col-md-9">
-								<input class="form-control-plaintext m-b-5 datepickers" placeholder="EnterBid Start Date" name="date_start_bid" id="date_start_bid" type="text" required="" value="<?=$value_bid_dates->bid_start_date?>">
+								<input class="form-control-plaintext m-b-5 datepickers" placeholder="EnterBid Start Date" name="date_start_bid" id="date_start_bid" type="text" required="" value="<?=date('d-m-Y',strtotime($value_bid_dates->bid_start_date))?>">
 
 							</div>
 						</div>
@@ -363,7 +363,7 @@ $mr_slno=$bid_list->mr_slno;
 						<div class="form-group row m-b-15">
 							<label class="col-form-label col-md-3" for="date_closed_bid">Bid Closed Date</label>
 							<div class="col-md-9">
-								<input class="form-control-plaintext m-b-5 datepickers" placeholder="EnterBid Closed Date" name="date_closed_bid" id="date_closed_bid" type="text" required="" value="<?=$value_bid_dates->bid_closed_date?>">
+								<input class="form-control-plaintext m-b-5 datepickers" placeholder="EnterBid Closed Date" name="date_closed_bid" id="date_closed_bid" type="text" required="" value="<?=date('d-m-Y',strtotime($value_bid_dates->bid_closed_date))?>">
 
 							</div>
 						</div>

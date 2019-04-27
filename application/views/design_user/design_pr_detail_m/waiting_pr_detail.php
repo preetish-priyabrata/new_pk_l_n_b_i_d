@@ -17,8 +17,8 @@ if($query_data->num_rows()!=1){
 $result_table=$query_data->result();
 	$this->db->select('*');
 	$this->db->from('master_project');
-	$this->db->join('assign_project_user', ' (assign_project_user.project_slno = master_project.Project_Slno  AND master_project.status=1 ) ', 'right outer' );					
-	$this->db->where('assign_project_user.email_id', $email_id); 	
+	// $this->db->join('assign_project_user', ' (assign_project_user.project_slno = master_project.Project_Slno  AND master_project.status=1 ) ', 'right outer' );					
+	// $this->db->where('assign_project_user.email_id', $email_id); 	
 	$this->db->where('master_project.Project_Slno', $job_code); 	
 	$query_bu = $this->db->get();
 
@@ -28,6 +28,7 @@ $result_table=$query_data->result();
 	$query_category = $this->db->get('master_category_item');
 
 	$result_file=$this->design_user->get_design_mr_file_list_m($pr_no,$slno_pr,$job_code);
+	$url_remark='<a target="_blank" class="btn btn-sm btn-success" href="'.base_url().'design-pr-remark-history/'.$pr_no.'/'.$slno_pr.'/'.$job_code.'/1"> Click View Remark</a>';
 ?>
 <link href="../assets/plugins/bootstrap-datepicker/css/bootstrap-datepicker.css" rel="stylesheet" />
     <link href="../assets/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.css" rel="stylesheet" />
@@ -71,10 +72,14 @@ $result_table=$query_data->result();
 					<h4 class="panel-title">Waiting PR details Information</h4>
 				</div>
 				<div class="panel-body">
+					<div class="row pull-right">
+							<div class="col-md-12">        
+							<?=$url_remark?>
+							</div>
+					</div>
+					<br>
+					<br>
 					
-					<div class="alert alert-secondary">
-                        		<span style="color: red"> *</span> All mandatory fields shall be duly filled up 
-                        	</div>
 					<form action="#">
 						<div class="row">
 							<div class="col-md-6 col-lg-6">
@@ -452,7 +457,7 @@ var queryString = "";
                     	}else if(response==2){
                     		alert('Same File name is found ');
                     	}else{
-                    		alert('Some thing went worng Please check internet connection ');
+                    		alert('Some thing went wrong Please check internet connection ');
                     	}
                         // $('#msg').html(response); // display success response from the server
                     }

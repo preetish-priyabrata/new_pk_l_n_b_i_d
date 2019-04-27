@@ -91,6 +91,48 @@ class Commericalevalutornew extends CI_Controller {
                     }
        # code...
    }
+   public function Commercila_otp_c_s_r_ongoing_bid_pr_notification_vendor_arra($pr_no='',$commercial_bid_ref='',$commercial_bid_id='',$comm_bid_db='',$commercial_edit_id='',$commercial_resubmit_count='',$commercial_type_bid=''){
+    $commerical_email_id=$this->session->userdata('commerical_email_id');
+    if(empty($commerical_email_id)){
+
+       redirect('comm-evalutor-logout-by-pass');
+   }
+   $value3 = urldecode($commercial_type_bid);
+   switch ($value3) {
+    case 'Closed Bid':
+        $value='2';
+        break;
+    case 'Simple Bid':
+         $value='1';
+        break;
+    case 'Rank Order Bid':
+         $value='3';
+        break;
+}
+ $this->load->helper('string');
+   $data_check=array('pr_no'=>$pr_no,'approver_user_status'=>1,'design_user_status'=>1,'commercial_complete_status'=>2);
+   $query_check=$this->db->get_where('master_pr_process_detail',$data_check);
+   if($query_check->num_rows()!=1){
+    redirect('comm-evalutor-logout-by-pass');
+   }
+   $comm_id=$query_check->result();
+   $comm_list=unserialize($comm_id[0]->commercial_user_id_array);  
+   foreach($comm_list as $key_comm_list =>$value_comm_list):
+    $otp=date('Y-m-d')."-".random_string('alnum', 5);
+    $commerical_email_ids=$value_comm_list;
+        // `master_bid_id`, `bid_ref`, `bid_id`, `re_bid_count_id`, `pr_no`, `type_bid`, `otp`, `bid_name`, `user_id_process`, `status`, `match_status`, `date_entry`, `date_update`, `match_bid_id_user`
+    $bid_serial_insert = array('master_bid_id'=>$comm_bid_db, 'bid_ref'=>$commercial_bid_ref, 'bid_id'=>$commercial_bid_id, 'pr_no'=>$pr_no,  're_bid_count_id'=>$commercial_resubmit_count,'type_bid'=>$value, 'otp'=>$otp, 'bid_name'=>$value3, 'user_id_process'=>$commerical_email_ids, 'status'=>1, 'match_status'=>2);
+    $query_otp_insert=$this->db->insert('master_bid_otp_commerical_m',$bid_serial_insert);
+    $last_insert_id_array[]=$this->db->insert_id();
+   endforeach;
+   $last_insert_id=implode("-",$last_insert_id_array); 
+    if($query_otp_insert){
+        redirect('Commercial-get-otp-arra-commerical/'.$value.'/'.$last_insert_id.'/'.$pr_no.'/'.$commercial_bid_ref.'/'.$commercial_bid_id.'/'.$comm_bid_db.'/'.$commercial_edit_id.'/'.$commercial_resubmit_count.'/'.$commercial_type_bid);
+    }else{
+        $this->session->set_flashdata('error_message', 'Something went wrong ');
+        redirect('user-buyer-home');
+    }
+   }
    public function commerical_otp_verification_pr($value=''){
     
         $commerical_email_id=$this->session->userdata('commerical_email_id');
@@ -141,6 +183,79 @@ class Commericalevalutornew extends CI_Controller {
     
        # code...
    }
+   public function commerical_otp_verification_array_pr($value=''){
+     
+        
+        $commerical_email_id=$this->session->userdata('commerical_email_id');
+        if(empty($commerical_email_id)){
+
+            redirect('comm-evalutor-logout-by-pass');
+        }      
+        $type_bid=$this->input->post('type_bid');
+        $pr_no=$this->input->post('pr_no');
+        $commercial_bid_ref=$this->input->post('commercial_bid_ref');
+        $commercial_bid_id=$this->input->post('commercial_bid_id');
+
+        $comm_bid_db=$this->input->post('comm_bid_db');
+        $commercial_edit_id=$this->input->post('commercial_edit_id');
+        $commercial_resubmit_count=$this->input->post('commercial_resubmit_count');
+        $commercial_type_bid=$this->input->post('commercial_type_bid');
+        $last_otp_id=$this->input->post('last_otp_id');
+        $email_ids=$this->input->post('email_ids');
+        $OTP=$this->input->post('OTP');
+        $count=count($email_ids);
+        $x=0;
+        foreach ($email_ids as $key_otp => $value_otp):
+            $last_otp_ids=$key_otp;
+            $email_ids_single=$value_otp;
+            
+            $get_check = array('slno_comm' =>$last_otp_ids,'status'=>1,'user_id_process'=>$email_ids_single,'match_status'=>2);
+            $query_check=$this->db->get_where('master_bid_otp_commerical_m',$get_check);
+            if($query_check->num_rows() == 0){
+                $this->session->set_flashdata('error_message',  'Something went wrong Try Again!');
+                redirect('user-commerical-evalutor-home');
+
+            }else if($query_check->num_rows() == 1){
+                $fetch_data=$query_check->result();
+                $db_otp=$fetch_data[0]->otp;
+                if($db_otp==$OTP[$key_otp]){
+                    $x++;
+
+                }else{
+                     $this->session->set_flashdata('error_message',  'Entered Otp Is not matching some part of otp is missing ');
+                     redirect('Commercial-get-otp-commerical/'.$type_bid.'/'.$last_otp_id.'/'.$pr_no.'/'.$commercial_bid_ref.'/'.$commercial_bid_id.'/'.$comm_bid_db.'/'.$commercial_edit_id.'/'.$commercial_resubmit_count.'/'.$commercial_type_bid);
+                }
+            }else{
+                $this->session->set_flashdata('error_message',  'Something went wrong Try Again!!');
+                redirect('user-commerical-evalutor-home');
+
+            }
+            # code...
+        endforeach;
+        if($count==$x){
+            foreach ($email_ids as $key_otp => $value_otp):
+                $last_otp_ids_up=$key_otp;
+                $email_ids_single=$value_otp;
+                
+                $get_check_update = array('slno_comm' =>$last_otp_ids_up,'status'=>1,'user_id_process'=>$email_ids_single,'match_status'=>2);
+                $query_check_update=$this->db->get_where('master_bid_otp_commerical_m',$get_check_update);
+                $fetch_data_update=$query_check_update->result();
+                $db_otp=$fetch_data_update[0]->otp;
+                $update_status = array('match_status' => 1 ,'match_bid_id_user'=>$commerical_email_id);   
+                $data_update_id= array('slno_comm' =>$last_otp_ids_up);
+                $query_update_otp=$this->db->update('master_bid_otp_commerical_m',$update_status,$data_update_id);
+            endforeach;
+            $this->session->set_flashdata('success_message',  'Otp Is been match and view commerical Information');
+            redirect('commerical-otp-verification-success-pr/'.$type_bid.'/'.$last_otp_id.'/'.$pr_no.'/'.$commercial_bid_ref.'/'.$commercial_bid_id.'/'.$comm_bid_db.'/'.$commercial_edit_id.'/'.$commercial_resubmit_count.'/'.$commercial_type_bid);
+
+        }else{
+            $this->session->set_flashdata('error_message',  'Something went wrong Try Again!!!!');
+            redirect('user-commerical-evalutor-home');
+        }  
+    }
+
+   # code...
+
    public function get_otp_commerical($type_bid='',$last_insert_id='',$pr_no='',$commercial_bid_ref='',$commercial_bid_id='',$comm_bid_db='',$commercial_edit_id='',$commercial_resubmit_count='',$commercial_type_bid=''){
      $value3 = urldecode($commercial_type_bid);
      $scripts='<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script><script src=" https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script> <script src="'.base_url().'file_css_admin/own_js.js"></script>';
@@ -153,6 +268,19 @@ class Commericalevalutornew extends CI_Controller {
                         $this->load->view('comm_evalutor_user/pr_details/otp',$data);
                         $this->load->view('template/template_footer',$data);
        # code...
+   }
+   public function get_otp_commerical_array($type_bid='',$last_insert_id='',$pr_no='',$commercial_bid_ref='',$commercial_bid_id='',$comm_bid_db='',$commercial_edit_id='',$commercial_resubmit_count='',$commercial_type_bid=''){
+    $value3 = urldecode($commercial_type_bid);
+    $scripts='<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script><script src=" https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script> <script src="'.base_url().'file_css_admin/own_js.js"></script>';
+                       $data=array('title' =>"New Bid List",'script_js'=>$scripts,'menu_status'=>'2','sub_menu'=>'2','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','type_bid'=>$type_bid,'last_otp_id'=>$last_insert_id,'pr_no'=>$pr_no,'commercial_bid_ref'=>$commercial_bid_ref,'commercial_bid_id'=>$commercial_bid_id,'comm_bid_db'=>$comm_bid_db,'commercial_edit_id'=>$commercial_edit_id,'commercial_resubmit_count'=>$commercial_resubmit_count,
+                           'commercial_type_bid'=>$value3);
+
+                       $this->load->view('template/template_header',$data);
+                       $this->load->view('comm_evalutor_user/template/template_top_head');
+                       $this->load->view('comm_evalutor_user/template/template_side_bar',$data);
+                       $this->load->view('comm_evalutor_user/pr_details/otp',$data);
+                       $this->load->view('template/template_footer',$data);
+      # code...
    }
    public function commerical_otp_verification_success_pr($type_bid='',$last_insert_id='',$pr_no='',$commercial_bid_ref='',$commercial_bid_id='',$comm_bid_db='',$commercial_edit_id='',$commercial_resubmit_count='',$commercial_type_bid=''){
       $value3 = urldecode($commercial_type_bid);

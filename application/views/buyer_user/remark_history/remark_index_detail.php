@@ -79,7 +79,7 @@ $query_remark=$this->db->get_where('master_bu_remark_pr',$data_info);
 
                         ?>
                         <tr>
-                            <td><?=$value_information->date_entry?></td>
+                            <td><?=date('d-m-Y',strtotime($value_information->date_entry))?></td>
                             <td>
                                 <?php 
                                     if($value_information->type_remark=='R'){

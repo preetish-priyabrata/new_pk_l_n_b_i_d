@@ -41,18 +41,7 @@
 
 						</ul>
 					</li>
-					<li class="has-sub <?php if($menu_status==5){echo 'active';}?>">
-						<a href="javascript:;">
-					        <b class="caret"></b>
-						    <i class="fas fa-atlas"></i>
-						    <span>PR Remark Details</span>
-					    </a>
-						<ul class="sub-menu">
-							 <li class="<?php if($sub_menu==56){ echo 'active'; }?>"><a href="<?=base_url()?>tech-view-project-old-remark" >View Project PR Remark </a></li>
-						
-						  
-						</ul>
-					</li>
+				
 
 
 

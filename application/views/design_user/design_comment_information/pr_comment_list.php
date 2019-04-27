@@ -190,7 +190,7 @@ if(empty($email_id)){
 		                      <td>'.$row->item.'</td>
 		                      <td>'.$row->UOM.'</td>
 		                      <td>'.$row->quantity.'</td>
-		                      <td>'.$row->original_schedule.'</td> 
+		                      <td>'.date('d-m-Y',strtotime($row->original_schedule)).'</td> 
 		                      <td>'.$result_comm[0]->comment.'</td>
 		                      <td>'.$status_detai.'</td>
 		                      <td>'.$remark.'</td>

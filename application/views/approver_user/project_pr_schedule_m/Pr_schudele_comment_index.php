@@ -71,7 +71,7 @@ if(empty($email_id)){
 								 	<div class="form-group row m-b-15">
 										<label class="col-form-label col-md-3" for="Date_creation"> Project <span style="color: red">*</span></label>
 										<div class="col-md-9">
-											<select class="form-control" onchange="load_data()" name="job_code" id="job_code" required="">
+											<select class="form-control"  name="job_code" id="job_code" required="">
 												<option value="">--Select Project---</option>
 												<?php
 													foreach ($query_design->result() as $key_job_code) {
@@ -183,7 +183,7 @@ if(empty($email_id)){
 		                      <td>'.$row->item.'</td>
 		                      <td>'.$row->UOM.'</td>
 		                      <td>'.$row->quantity.'</td>
-		                      <td>'.$row->original_schedule.'</td> 
+		                      <td>'.date('d-m-Y',strtotime($row->original_schedule)).'</td> 
 		                        <td>'.$result_comm[0]->comment.'</td>
 		                      <td>'.$status_detai.'</td>
 		                      <td>'.$url.'</td>

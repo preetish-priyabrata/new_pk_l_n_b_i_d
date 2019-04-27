@@ -21,7 +21,7 @@ $result_table=$query_data->result();
 	$this->db->from('master_project');
 	// $this->db->join('assign_project_user', ' (assign_project_user.project_slno = master_project.Project_Slno  AND master_project.status=1 ) ', 'right outer' );					
 	// $this->db->where('assign_project_user.email_id', $email_id); 	
-	// $this->db->where('master_project.Project_Slno', $job_code); 	
+	$this->db->where('master_project.Project_Slno', $job_code); 	
 	$query_bu = $this->db->get();
 
 	$this->db->distinct();
@@ -31,6 +31,7 @@ $result_table=$query_data->result();
     
     $data_array_procurement=$this->approver_user->get_approver_procurement_list();
 	   $result_file=$this->design_user->get_design_mr_file_list_m($pr_no,$slno_pr,$job_code);
+	   $url_remark='<a target="_blank" class="btn btn-sm btn-success" href="'.base_url().'proc-pr-remark-history/'.$pr_no.'/'.$slno_pr.'/'.$job_code.'/1"> Click View Remark</a>';
 ?>
 
 <link href="../assets/plugins/bootstrap-datepicker/css/bootstrap-datepicker.css" rel="stylesheet" />
@@ -74,7 +75,13 @@ $result_table=$query_data->result();
 					<h4 class="panel-title">Add New Pr Information</h4>
 				</div>
 				<div class="panel-body">
-					
+					<div class="row pull-right">
+						<div class="col-md-12">        
+							<?=$url_remark?>
+						</div>
+					</div>
+					<br>
+					<br>
 					<div class="alert alert-secondary">
                         		<span style="color: red"> *</span> All mandatory fields shall be duly filled up 
                         	</div>

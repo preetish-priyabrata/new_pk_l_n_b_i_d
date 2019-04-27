@@ -389,7 +389,12 @@ $id++;
                         } else {
                           // `pr_no`, `pr_no_slno`, `file_title`, `edit_id`, `attach_name`, `file_name_actucal`job_code_slno
                             if(move_uploaded_file($_FILES["file"]["tmp_name"], 'upload_files/design_upload/' . $file_stored_name)){
-                                $data_array = array('pr_no'=>$pr_no, 'pr_no_slno'=>$slno_pr, 'attach_name'=>$file_stored_name, 'file_name_actucal'=>$file_name,'job_code_slno'=>$job_code,'edit_id'=>$edit_type,'file_title'=>$job_files_name,'attach_by'=>$email_id);
+                              if(!empty(trim($job_files_name))){
+                                $job_files_name_id=$job_files_name;
+                              }else{
+                                $job_files_name_id=$file_name;
+                              }
+                                $data_array = array('pr_no'=>$pr_no, 'pr_no_slno'=>$slno_pr, 'attach_name'=>$file_stored_name, 'file_name_actucal'=>$file_name,'job_code_slno'=>$job_code,'edit_id'=>$edit_type,'file_title'=>$job_files_name_id,'attach_by'=>$email_id);
                                 $query_files=$this->db->insert('master_mr_file_upload_m',$data_array);
                                 echo '1' ;  
                             }
@@ -491,6 +496,14 @@ $id++;
 
       $date_submition=$date_entry=date('Y-m-d');
       $time_submition=$time_entry=date('H:i:s');
+
+      if($submission=='Send' or $submission=='save'){
+
+
+      }else{
+        $this->session->set_flashdata('error_message', 'Something Went Wrong Please Contact Administrator');
+        redirect('design-mr-new-create/'.$pr_no.'/'.$slno_pr.'/'.$job_code);
+      }
      
      
       #######################################################################

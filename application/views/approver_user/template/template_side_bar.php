@@ -39,21 +39,11 @@
 							<li class="<?php if($sub_menu==5){ echo 'active'; }?>"><a href="<?=base_url()?>approver-project-pr"> Project PR Received</a></li>
 							<li class="<?php if($sub_menu==5){ echo 'active'; }?>"><a href="<?=base_url()?>approved-project-pr"> Project PR Approved </a></li>
 							<li class="<?php if($sub_menu==5){ echo 'active'; }?>"><a href="<?=base_url()?>approver-comment-project-pr"> Project PR Comment </a></li>
+							<li class="<?php if($sub_menu==6){ echo 'active'; }?>"><a href="<?=base_url()?>approver-orginal-project-pr"> Project Orginal PR Schedule </a></li>
 						  
 						</ul>
 					</li>
-					<li class="has-sub <?php if($menu_status==5){echo 'active';}?>">
-						<a href="javascript:;">
-					        <b class="caret"></b>
-						    <i class="fas fa-atlas"></i>
-						    <span>PR Remark Details</span>
-					    </a>
-						<ul class="sub-menu">
-							 <li class="<?php if($sub_menu==56){ echo 'active'; }?>"><a href="<?=base_url()?>approver-view-project-old-remark" >View Project PR Remark </a></li>
-						
-						  
-						</ul>
-					</li>
+					
 					
 					
 					

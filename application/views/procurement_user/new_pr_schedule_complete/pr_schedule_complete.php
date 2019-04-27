@@ -11,8 +11,7 @@ if(empty($email_id)){
 	$query_design = $this->db->get();
 
 ?>
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.5.2/css/buttons.dataTables.min.css">
+<link rel="stylesheet" type="text/css" href="<?=base_url()?>file_css_admin/DataTables/datatables.min.css"/>
 <div class="sidebar-bg"></div>
 		<!-- end #sidebar -->
 		
@@ -71,7 +70,7 @@ if(empty($email_id)){
 								 	<div class="form-group row m-b-15">
 										<label class="col-form-label col-md-3" for="Date_creation"> Project <span style="color: red">*</span></label>
 										<div class="col-md-9">
-											<select class="form-control" onchange="load_data()" name="job_code" id="job_code" required="">
+											<select class="form-control" id="job_code" name="job_code" required="">
 												<option value="">--Select Project---</option>
 												<?php
 													foreach ($query_design->result() as $key_job_code) {
@@ -138,7 +137,8 @@ if(empty($email_id)){
 					 foreach($query->result() as $row){
 					 	$pr_no=$row->pr_no;
 					 	$data_check=array('pr_no'=>$pr_no,'procurement_user_id'=>$email_id,'approver_user_status'=>1,'design_user_status'=>1,'procurement_user_status'=>1);
-					 	$query_check=$this->db->get_where('master_pr_process_detail',$data_check);
+						 $query_check=$this->db->get_where('master_pr_process_detail',$data_check);
+						//  echo $this->db->last_query();
 					 	$num_rows_check=$query_check->num_rows();
 					 	if($num_rows_check!=0){
 					 		$result_id=$query_check->result();
@@ -175,7 +175,7 @@ if(empty($email_id)){
 		                      <td>'.$row->item.'</td>
 		                      <td>'.$row->UOM.'</td>
 		                      <td>'.$row->quantity.'</td>
-		                      <td>'.$row->original_schedule.'</td> 
+		                      <td>'.date('d-m-Y',strtotime($row->original_schedule)).'</td> 
 		                      <td>'.$remark.'</td>
 		                      <td>'.$status_detai.'</td>
 		                      <td>'.$url.'</td>
@@ -191,6 +191,17 @@ if(empty($email_id)){
 				</div>
 			</div>
 		<?php }?>
+
+		<script>
+		$(document).ready(function() {
+    $('#table1').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf'
+        ]
+    } );
+} );
+		</script>
 						
 					        		        
 					    

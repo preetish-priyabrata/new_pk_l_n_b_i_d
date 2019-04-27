@@ -13,6 +13,9 @@ $data_process = array('pr_no' =>$pr_no);
 $query_process=$this->db->get_where('master_pr_process_detail',$data_process);
 $result_process=$query_process->result();
 
+$slno_pr=$result_process[0]->pr_no_slno;
+$job_code=$result_process[0]->project_slno;
+$url_remark='<a class="btn btn-sm btn-success" target="_blank" href="'.base_url().'tech-pr-remark-history/'.$pr_no.'/'.$slno_pr.'/'.$job_code.'/1"> Click View Remark</a>';
 
 $tech_bid=$result_process[0]->tech_bid;  // bid id information
 if($bid_id!=$tech_bid){
@@ -128,12 +131,15 @@ $result_table=$query_data->result();
 					</div>
 					<h4 class="panel-title"> New Bids details </h4>
 				</div>
-				<div class="panel-body">
-					
-					<div class="alert alert-secondary">
-                        		<span style="color: red"> *</span> All mandatory fields shall be duly filled up 
-                        	</div>
-					<form action="<?=base_url()?>procurement-add-new-pr-save" method="POST" >
+				<div class="panel-body">					
+					<div class="row pull-right">
+						<div class="col-md-12">        
+							<?=$url_remark?>
+						</div>
+					</div>
+					<br>
+					<br>
+					<form action="#" method="POST" >
 						<div class="row">
 							<div class="col-md-6 col-lg-6">
 								<div class="form-group row m-b-15">
@@ -186,7 +192,7 @@ $result_table=$query_data->result();
 								<div class="form-group row m-b-15">
 									<label class="col-form-label col-md-3" for="required_date">Date Required </label>
 									<div class="col-md-9">
-										<input class="form-control m-b-5 datepickers" placeholder="Enter Date Required " name="required_date" id="required_date" type="text" required=""value="<?=$result_table[0]->date_required?>" readonly>
+										<input class="form-control m-b-5 datepickers" placeholder="Enter Date Required " name="required_date" id="required_date" type="text" required=""value="<?=date('d-m-Y',strtotime($result_table[0]->date_required))?>" readonly>
 										<small class="f-s-12 text-grey-darker">Please enter Date Required</small>
 									</div>
 								</div>
@@ -568,7 +574,7 @@ $result_table=$query_data->result();
 													<label class="col-form-label col-md-3" for="date_start_bid">Bid Start Date </label>
 													<div class="col-md-9">
 
-														<?=$result_table1[0]->bid_start_date?>
+														<?=date('d-m-Y',strtotime($result_table1[0]->bid_start_date))?>
 														
 													</div>
 												</div>

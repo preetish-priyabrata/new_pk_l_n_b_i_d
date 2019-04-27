@@ -46,58 +46,10 @@ if(empty($email_id)){
 			}
 			 // print_r($this->session->userdata());
 			 ?>
-			<div class="panel panel-inverse">
-				<div class="panel-heading">
-					<div class="panel-heading-btn">
-					<!-- 	<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a> -->
-						<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-redo"></i></a>
-						<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
-						<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
-					</div>
-					<h4 class="panel-title"> Detail View of New Bids </h4>
-				</div>	
-				<div class="panel-body">
-					<form action="" method="POST" enctype="multipart/form-data"	>
-						<div class="alert alert-secondary">
-	                       	<span style="color: red"> *</span>All mandatory fields shall be duly filled up 
-	                    </div>	   
-	                    <div class="card-body">						        	
-							<hr>
-						    <div class="row">
-								<div class="col-md-6 col-lg-6">
-								 	<div class="form-group row m-b-15">
-										<label class="col-form-label col-md-3" for="Date_creation"> Project <span style="color: red">*</span></label>
-										<div class="col-md-9">
-											<select class="form-control" onchange="load_data()" name="job_code" id="job_code" required="">
-												<option value="">--Select Project---</option>
-												<?php
-													foreach ($query_design->result() as $key_job_code) {
-														echo "<option value='".$key_job_code->Project_Slno."'>".$key_job_code->job_Code." [ ".$key_job_code->Project_Name." ]</option>";
-													}
-												?>
-											</select>
-											<small class="f-s-12 text-grey-darker">Please Select Project For Upload PR Schedule </small>
-										</div>
-									</div>
-								</div>
-								<div class="col-md-6 col-lg-6"><!-- part g start -->									
-									<div class="form-group row pull-right">
-					                    <div class="form-group row pull-right">
-					                        <div class="col-md-12">
-					                            <button type="Submit" class="btn btn-sm btn-primary m-r-5" name="send_button" id="sub" value="find">Get Info</button>
-					                            
-					                        </div>
-					                    </div>
-					                </div>
-					            </div>					            
-					        </div>
-					    </div>
-					</form>
-				</div>
-			</div>
+			
 			  <?php 
-			$send_button=$this->input->post('send_button');
-			if($send_button=="find"){
+			// $send_button=$this->input->post('send_button');
+			// if($send_button=="find"){
 				$table="master_pr_schedule"; 
 				$job_code=$this->input->post('job_code');
 				$data_check = array('job_code' => $job_code,'status'=>1, 'mr_status'=>1);
@@ -118,7 +70,7 @@ if(empty($email_id)){
 						<thead>
                     <tr>
                       <th>PR No</th>
-                      <th>Item</th>
+                      <th>Project Name</th>
                       <th>Bid Ref</th>
                       <th>Bid Id</th>
                       <!-- <th>Bid Publish Date</th> -->
@@ -127,61 +79,46 @@ if(empty($email_id)){
                     </tr>
                 </thead>
                 <tbody>
-					<?php
-					 foreach($query->result() as $row){
-					 	$pr_no=$row->pr_no;
-					 	$data_check=array('pr_no'=>$pr_no,'commercial_user_id'=>$email_id,'approver_user_status'=>1,'design_user_status'=>1,'commercial_complete_status'=>2);
-					 	$query_check=$this->db->get_where('master_pr_process_detail',$data_check);
-					 	// echo $this->db->last_query();
-					 	$num_rows_check=$query_check->num_rows();
-					 	if($num_rows_check!=0){
-					 		$result_id=$query_check->result();
+					<?php					
+					 	$data_check=array('approver_user_status'=>1,'design_user_status'=>1,'commercial_complete_status'=>2);
+						$query_check=$this->db->get_where('master_pr_process_detail',$data_check);
+						foreach($query_check->result() as $key_comm_id =>$value_comm_id):
+							$comm_list=unserialize($value_comm_id->commercial_user_id_array);						
+							if (in_array($email_id, $comm_list)){
+								$commercial_type_bid=$value_comm_id->commercial_type_bid;
+					 			if($commercial_type_bid!='Rank Order Bid'){
+									$comm_bid=$value_comm_id->comm_bid;
+									$job_code=$value_comm_id->project_slno;
+									$query_project=$this->db->get_where('master_project',array('Project_Slno'=>$job_code));
+									$result_project=$query_project->result();
+									$project_name=ucwords($result_project[0]->Project_Name);
+									$commercial_bid_ref=$value_comm_id->commercial_bid_ref;
+									$commercial_bid_id=$value_comm_id->commercial_bid_id;
+									$url='<a href="'.base_url().'commerical-user-received-pr-info/'.$value_comm_id->pr_no.'/'.$value_comm_id->pr_no_slno.'/'.$value_comm_id->project_slno.'/2/'.$comm_bid.'" > Click to View</a>';
+									echo '
+									<tr>
+										<td>'.$value_comm_id->pr_no.'</td>
+										<td>'.$project_name.'</td>
+										<td>'.$commercial_bid_ref.'</td>
+										<td>'.$commercial_bid_id.'</td>
+										
+									
+										<td>'.$url.'</td>
+									</tr>
+									';
 
-					 		$commercial_bid_ref=$result_id[0]->commercial_bid_ref;
-					 		$commercial_bid_id=$result_id[0]->commercial_bid_id;
-					 		
-					 		$design_user_status=$result_id[0]->commercial_complete_status;
-					 		$comm_bid=$result_id[0]->comm_bid;
-
-					 		switch ($design_user_status) {
-					 			case '1':
-					 				
-					 				break;
-					 			case '2':
-					 				$url='#';
-					 						$url='<a href="'.base_url().'commerical-user-received-pr-info/'.$row->pr_no.'/'.$row->slno.'/'.$row->job_code.'/2/'.$comm_bid.'" > Click to View</a>';
-					 				break;
-					 			
-					 			default:
-					 				# code...
-					 				break;
-					 		}
-					 		$commercial_type_bid=$result_id[0]->commercial_type_bid;
-					 		if($commercial_type_bid!='Rank Order Bid'){
-			                    echo '
-			                    <tr>
-			                      <td>'.$row->pr_no.'</td>
-			                      <td>'.$row->item.'</td>
-			                      <td>'.$commercial_bid_ref.'</td>
-			                      <td>'.$commercial_bid_id.'</td>
-			                      
-			                      
-			                    
-			                      <td>'.$url.'</td>
-			                    </tr>
-			                    ';
-		                	}
-		                }
-		            }
-					?>
-				</tbody>
+								}
+							}
+						endforeach;
+						?>
+						</tbody>
 				</table>
 					<!-- table -->
 
 				</div>
 			</div>
-		<?php }?>
-						
+					 	
+
 					        		        
 					    
 					

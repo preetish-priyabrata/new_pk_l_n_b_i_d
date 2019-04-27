@@ -141,7 +141,7 @@ if($value1_convered_id==$value2){
 										<div class="form-group row m-b-15">
 											<label class="col-form-label col-md-3">Date Of Start </label>
 											<div class="col-md-9">						
-												<input type="text" class="form-control m-b-5" value="<?=$row->Date_Start?>" disabled="">
+												<input type="text" class="form-control m-b-5" value="<?=date('d-m-Y',strtotime($row->Date_Start))?>" disabled="">
 		              							
 											
 											</div>

@@ -26,7 +26,7 @@ $commercial_resubmit_count=$result_process[0]->commercial_resubmit_count;
 $technical_user_slno=$result_process[0]->technical_user_slno;
 // `technical_user_slno`, `technical_user_id`
 $technical_user_id=$result_process[0]->technical_user_id;
-
+$url_remark='<a target="_blank" class="btn btn-sm btn-success" href="'.base_url().'buyer-pr-remark-history/'.$pr_no.'/'.$slno_pr.'/'.$job_code.'/1"> Click View Remark</a>';
  $url='<a href="'.base_url().'buyer-commerical-c-s-r-ongoing-bid-pr-notification-vendor/'.$pr_no.'/'.$commercial_bid_ref.'/'.$commercial_bid_id.'/'.$comm_bid_db.'/'.$commercial_edit_id.'/'.$commercial_resubmit_count.'" class="btn btn-sm btn-lime" title="Click Here Closed Bid Sent information of approved vendors" >Send Notification To vendor </a>';
 
 
@@ -98,11 +98,11 @@ $result_table=$query_data->result();
 			<ol class="breadcrumb pull-right">
 				<li class="breadcrumb-item active"><a href="<?=base_url()?>user-procurement-home" class="fa fa-home ">Home</a></li>
 				<li class="breadcrumb-item"><a href="javascript:;">PR</a></li>
-				<li class="breadcrumb-item active">New Bid details </li>
+				<li class="breadcrumb-item active">Complete Commercial Bid details </li>
 			</ol>
 			<!-- end breadcrumb -->
 			<!-- begin page-header -->
-			<h1 class="page-header">View details of New Bids</h1>
+			<h1 class="page-header">View details of Complete Commercial Bids</h1>
 			<!-- end page-header -->
 			<?php if(!empty($this->session->flashdata('success_message'))){?>
 			<div class="alert alert-success fade show">
@@ -125,13 +125,17 @@ $result_table=$query_data->result();
 						<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
 						<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
 					</div>
-					<h4 class="panel-title"> New Bids details </h4>
+					<h4 class="panel-title"> Complete Commercial Bids details </h4>
 				</div>
 				<div class="panel-body">
 					
-					<div class="alert alert-secondary">
-                        		<span style="color: red"> *</span> All mandatory fields shall be duly filled up 
-                        	</div>
+				<div class="row pull-right">
+						<div class="col-md-12">        
+						<?=$url_remark?>
+						</div>
+					</div>
+					<br>
+					<br>
 					<form action="#" method="POST" >
 						<div class="row">
 							<div class="col-md-6 col-lg-6">
@@ -185,7 +189,7 @@ $result_table=$query_data->result();
 								<div class="form-group row m-b-15">
 									<label class="col-form-label col-md-3" for="required_date">Date Required <span style="color: red">*</span></label>
 									<div class="col-md-9">
-										<input class="form-control m-b-5 datepickers" placeholder="Enter Date Required " name="required_date" id="required_date" type="text" required=""value="<?=$result_table[0]->date_required?>" readonly>
+										<input class="form-control m-b-5 datepickers" placeholder="Enter Date Required " name="required_date" id="required_date" type="text" required=""value="<?=date('d-m-Y',strtotime($result_table[0]->date_required))?>" readonly>
 										<small class="f-s-12 text-grey-darker">Please enter Date Required</small>
 									</div>
 								</div>
@@ -356,7 +360,7 @@ $result_table=$query_data->result();
 								<div class="form-group row m-b-15">
 									<label class="col-form-label col-md-3" for="mr_date_of_creation">Date Of Creating<span style="color: red">*</span></label>
 									<div class="col-md-9">
-										<input class="form-control m-b-5" name="mr_date_of_creation" value="<?=$result_table[0]->date_creation?>"  id="mr_date_of_creation" type="text" required="" readonly>
+										<input class="form-control m-b-5" name="mr_date_of_creation" value="<?=date('d-m-Y',strtotime($result_table[0]->date_creation))?>"  id="mr_date_of_creation" type="text" required="" readonly>
 										<small class="f-s-12 text-grey-darker">Date Of Creating MR</small>
 									</div>
 								</div>
@@ -398,7 +402,7 @@ $result_table=$query_data->result();
 												<div class="form-group row m-b-15">
 													<label class="col-form-label col-md-3" for="date_create">Date </label>
 													<div class="col-md-9">
-														<input class="form-control m-b-5" placeholder="" name="date_create" id="date_create" type="text" value="<?=date('Y-m-d')?>" required="" readonly style='opacity: 1'>
+														<input class="form-control m-b-5" placeholder="" name="date_create" id="date_create" type="text" value="<?=date('d-m-Y')?>" required="" readonly style='opacity: 1'>
 															<small class="f-s-12 text-grey-darker">---</small>
 													</div>
 												</div>
@@ -445,7 +449,7 @@ $result_table=$query_data->result();
 												<div class="form-group row m-b-15">
 													<label class="col-form-label col-md-3" for="date_publish">Bid Publish Date </label>
 													<div class="col-md-9">
-														<?=$result_table3[0]->date_publish?>
+														<?=date('d-m-Y',strtotime($result_table3[0]->date_publish))?>
 														
 													</div>
 												</div>
@@ -462,7 +466,7 @@ $result_table=$query_data->result();
 												<div class="form-group row m-b-15">
 													<label class="col-form-label col-md-3" for="date_closing">Date Of Closing </label>
 													<div class="col-md-9">
-														<?=$result_table3[0]->date_closing?>
+														<?=date('d-m-Y',strtotime($result_table3[0]->date_closing))?>
 														
 													</div>
 												</div>
@@ -597,7 +601,7 @@ $result_table=$query_data->result();
 													<label class="col-form-label col-md-3" for="date_start_bid">Bid Start Date </label>
 													<div class="col-md-9">
 
-														<?=$result_table1[0]->bid_start_date?>
+														<?=date('d-m-Y',strtotime($result_table1[0]->bid_start_date))?>
 														
 													</div>
 												</div>
@@ -605,7 +609,7 @@ $result_table=$query_data->result();
 												<div class="form-group row m-b-15">
 													<label class="col-form-label col-md-3" for="date_clearfication_bid">Bid Clarification Date </label>
 													<div class="col-md-9">
-														<?=$result_table1[0]->bid_query_closed_date?>
+														<?=date('d-m-Y',strtotime($result_table1[0]->bid_query_closed_date))?>
 														
 													</div>
 												</div>
@@ -618,7 +622,7 @@ $result_table=$query_data->result();
 												<div class="form-group row m-b-15">
 													<label class="col-form-label col-md-3" for="date_closed_bid">Bid Closed Date </label>
 													<div class="col-md-9">
-														<?=$result_table1[0]->bid_closed_date?>
+														<?=date('d-m-Y',strtotime($result_table1[0]->bid_closed_date))?>
 														
 													</div>
 												</div>

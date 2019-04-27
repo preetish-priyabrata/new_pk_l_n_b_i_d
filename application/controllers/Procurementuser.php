@@ -348,7 +348,7 @@ class Procurementuser extends CI_Controller {
             $data_insert = array('pr_no' => $pr_no, 'slno_pr'=>$slno_pr,'job_code'=>$job_code,'Comment_remark'=>$remark_buyer,'email_id'=>$email_id,'level_user'=>4 ,'type_remark'=>'R','to_level_user'=>5);
             $query=$this->db->insert('master_bu_remark_pr',$data_insert);
             if($update){
-              $this->session->set_flashdata('success_message', 'Information Has been successfully Send To Busyer :- '.$buyer_name);
+              $this->session->set_flashdata('success_message', 'Information Has been successfully Send To Buyer :- '.$buyer_name);
                              // After that you need to used r
                redirect('user-procurement-home');
             }else{

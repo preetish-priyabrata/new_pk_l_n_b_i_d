@@ -12,7 +12,7 @@ $job_code=$Project_slno;
 $edit_type=$edit_type;
 $comm_bid=$comm_bid;
 // `commercial_user_id`, `commercial_user_slno`, `commercial_bid_id`, `commercial_bid_ref`, `commercial_edit_id`, `commercial_type_bid`, `commercial_complete_status`, `commercial_user_status`, `commercial_bid_master_slno`, `commercial_resubmit_status`, `commercial_resubmit_count`, `commercial_amendment_status`, `commercial_date`
-
+$url_remark='<a class="btn btn-sm btn-success" target="_blank" href="'.base_url().'comm-pr-remark-history/'.$pr_no.'/'.$slno_pr.'/'.$job_code.'/1"> Click View Remark</a>';
 $data_process = array('pr_no' =>$pr_no,'commercial_user_id'=>$email_id);
 $query_process=$this->db->get_where('master_pr_process_detail',$data_process);
 $result_process=$query_process->result();
@@ -28,7 +28,7 @@ $technical_user_slno=$result_process[0]->technical_user_slno;
 // `technical_user_slno`, `technical_user_id`
 $technical_user_id=$result_process[0]->technical_user_id;
 $commercial_type_bid=$result_process[0]->commercial_type_bid;
-$url='<a href="'.base_url().'Commercila-otp-c-s-r-ongoing-bid-pr-notification-vendor/'.$pr_no.'/'.$commercial_bid_ref.'/'.$commercial_bid_id.'/'.$comm_bid_db.'/'.$commercial_edit_id.'/'.$commercial_resubmit_count.'/'.$commercial_type_bid.'" class="btn btn-sm btn-lime" title="Click Generate otp for Comparative Statement" >Generate OTP</a>';
+$url='<a href="'.base_url().'Commercila-otp-c-s-r-ongoing-bid-pr-notification-arra-vendor/'.$pr_no.'/'.$commercial_bid_ref.'/'.$commercial_bid_id.'/'.$comm_bid_db.'/'.$commercial_edit_id.'/'.$commercial_resubmit_count.'/'.$commercial_type_bid.'" class="btn btn-sm btn-lime" title="Click Generate otp for Comparative Statement" >Generate OTP</a>';
 
 
 $data_array = array('edit_id_bid' =>$commercial_edit_id,'bid_id'=>$commercial_bid_id,'bid_ref'=> $commercial_bid_ref,'pr_no'=>$pr_no,'master_bid_id'=>$comm_bid,'commercial_resubmit_count'=>$commercial_resubmit_count);
@@ -135,9 +135,13 @@ $result_table=$query_data->result();
 				</div>
 				<div class="panel-body">
 					
-					<div class="alert alert-secondary">
-                        		<span style="color: red"> *</span> All mandatory fields shall be duly filled up 
-                        	</div>
+				<div class="row pull-right">
+						<div class="col-md-12">        
+							<?=$url_remark?>
+						</div>
+					</div>
+					<br>
+					<br>
 					<form action="#" method="POST" >
 						<div class="row">
 							<div class="col-md-6 col-lg-6">
@@ -338,30 +342,17 @@ $result_table=$query_data->result();
 													<div class="col-md-9">
 														<?php
 														$data_array_approver_comm=$this->buyer_user->get_user_generic_list('1','0','0','10','','');	
-															
+														$comm_list=unserialize($result_process[0]->commercial_user_id_array);
+														// $result_process[0]->commercial_user_id
+														foreach ($data_array_approver_comm['user_approver'] as $key_approver){
+															if(in_array($key_approver->email_id, $comm_list)){
+																echo "<b>".$key_approver->Username."[".$key_approver->email_id." ]</b><br>";
+															}
+														}
 														?>
 														
-														<select name="Technical_ev"  class="form-control m-b-5" id="Technical_ev" required="" >
-															<?php 
-															if($data_array_approver_comm['no_user']==2){?>
-																<option value="">--No Commercial Evaluator Is found--</option>
-																<?php
-															}else if($data_array_approver_comm['no_user']==1){
-																?>
-																
-															<?php
-																foreach ($data_array_approver_comm['user_approver'] as $key_approver) {
-																	if($result_process[0]->commercial_user_id==$key_approver->email_id){
-																	echo "<option value='".$key_approver->slno."'>".$key_approver->Username." [ ".$key_approver->email_id." ]</option>";
-																	}
-																}
-															
-																
-															}	
-															?>										
-															
-														</select>
-														<small class="f-s-12 text-grey-darker">Select Commerical Evaluator </small>
+														
+														<!-- <small class="f-s-12 text-grey-darker">Select Commerical Evaluator </small> -->
 													</div>
 												</div>
 								
@@ -753,9 +744,9 @@ $result_table=$query_data->result();
 													<thead>
 														<tr>
 															<th width="10%">Organisation Name</th>
-															<th width="40%">Detail</th>
-															
+															<th width="40%">Detail</th>															
 															<th>Submission</th>
+															<th>Upload Doc Files</th>
 
 														</tr>
 													</thead>
@@ -764,6 +755,7 @@ $result_table=$query_data->result();
 														$check_approve=0;
 														foreach ($vendor_selected_id->result() as $key_vendor => $value_vendor) {
 															// print_r($value_vendor);
+															$slno_vendor=$value_vendor->slno_vendor;
 															$vendor_id=$value_vendor->vendor_id;
 															$this->db->where('Vendor_email_id',$vendor_id);
 															$query_vendor=$this->db->get('master_vendor_detail');
@@ -781,13 +773,25 @@ $result_table=$query_data->result();
 															<td><?php 
 																if ($value_vendor->submission_status==1) {
 																	$check_approve=$check_approve+1;
-																	echo "<p style='color:green'>Submited</p>";
+																	echo "<p style='color:green'>Submitted</p>";
 																}else{
-																	echo "Not Submited";
+																	echo "Not Submitted";
 																}
 
 															?></td>
+															<td><?php 
 															
+																	$ven_upload=$this->db->get_where('master_bid_Com_vendor_term_m',array('vendor_id'=>$vendor_id,'pr_no'=>$pr_no));
+																	// echo $this->db->last_query();
+																	if($ven_upload->num_rows()==0){
+																		echo "Not Uploaded";
+																	}else{
+																		foreach($ven_upload->result() as $key_id =>$value_files):
+																			echo '<a target="_blank" href="'.base_url().'upload_files/vendor_term_file/'.$value_files->file_name_stored.'">Click To View</a> Uploaded on '.$value_files->date_upload.'<br>';
+																		endforeach;
+																	}
+
+															?></td>
 														</tr>
 													<?php }?>
 													</tbody>

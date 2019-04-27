@@ -1456,5 +1456,16 @@ class Approveruser extends CI_Controller {
         $this->load->view('template/template_footer',$data);
     
        }
+    public function approver_orginal_project_pr($value=''){
+        $scripts='<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script><script src=" https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script> <script src="'.base_url().'file_css_admin/own_js.js"></script>';
+            $data=array('title' =>'PR Received List Designer User','script_js'=>$scripts ,'menu_status'=>'','sub_menu'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'');
+
+            $this->load->view('template/template_header',$data);
+            $this->load->view('approver_user/template/template_top_head');
+            $this->load->view('approver_user/template/template_side_bar',$data);
+            $this->load->view('approver_user/pr_schedule_m/Pr_schudele_index',$data);
+            $this->load->view('template/template_footer',$data);
+        # code...
+    }
 
 }

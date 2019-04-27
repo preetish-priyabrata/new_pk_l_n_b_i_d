@@ -194,7 +194,7 @@ if(empty($email_id)){
 					                      <td>'.$row->item.'</td>
 					                      <td>'.$row->UOM.'</td>
 					                      <td>'.$row->quantity.'</td>
-					                      <td>'.$row->original_schedule.'</td> 
+					                      <td>'.date('d-m-Y',strtotime($row->original_schedule)).'</td> 
 					                      <td>'.$buyer_user_remark.'</td>
 					                      <td>'.$technical_user_remark.'</td>
 					                      <td>'.$status_detai.'</td>

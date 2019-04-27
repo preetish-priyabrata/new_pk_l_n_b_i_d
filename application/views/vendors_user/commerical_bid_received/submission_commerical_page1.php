@@ -49,6 +49,9 @@ $case_bid=$mode_bid=$result_title['new_tech_list'][0]->mode_bid;
 $master_bid_id_com=$result_title['new_tech_list'][0]->master_bid_id;
 $data_get_list_commerical = array('master_bid_id_comm' =>$master_bid_id_com ,'mr_no_item'=>$pr_no);
  $query_get_list=$this->db->get_where('master_mr_material_item_comm_m',$data_get_list_commerical);
+
+ $gst_query=$this->db->get_where('master_gst',array('status'=>1));
+ $get_result=$gst_query->result();
 ?>
 <!-- begin #content -->
 <div id="content" class="content">
@@ -81,6 +84,17 @@ $data_get_list_commerical = array('master_bid_id_comm' =>$master_bid_id_com ,'mr
 	}
 
 	?>
+	<style>
+/* Hide HTML5 Up and Down arrows. */
+input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+ 
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+		</style>
 	<!-- begin panel -->
 	<div class="panel panel-inverse">
 		<div class="panel-heading">
@@ -92,6 +106,9 @@ $data_get_list_commerical = array('master_bid_id_comm' =>$master_bid_id_com ,'mr
 			<h4 class="panel-title">Panel Title here</h4>
 		</div>
 		<div class="panel-body">
+			<div class="alert alert-secondary">
+				<span style="color: red"> *</span> All mandatory fields shall be duly filled up 
+			</div>
 			<form action="<?=base_url()?>seller/user-vendor-bid-submission-commerical-save-pr" method="POST"  onsubmit="if(document.getElementById('agree').checked) { return true; } else { alert('Please indicate that you have read and agree to the Terms and Conditions and Privacy Policy'); return false; }">
 				<input type="hidden" name="master_bid_id" value="<?=$master_bid_id_com?>">
 				<input type="hidden" name="vendor_bid_id" value="<?=$value?>">
@@ -191,8 +208,7 @@ $data_get_list_commerical = array('master_bid_id_comm' =>$master_bid_id_com ,'mr
 									<?=$key_value->parameter_tech?>
 							    </td>
 							   <td> <input type="number" autocomplete="off" id="cost<?=$x?>"  onkeyup="fix_cala(<?=$x?>)" name="cost[<?=$key_value->slno_item_mr?>]" min="0"step="0.01" title="Currency INR" pattern="^\d+(?:\.\d{1,2})?$" onblur="
-this.parentNode.parentNode.style.backgroundColor=/^\d+(?:\.\d{1,2})?$/.test(this.value)?'inherit':'red'
-" required /> </td>
+this.parentNode.parentNode.style.backgroundColor=/^\d+(?:\.\d{1,2})?$/.test(this.value)?'inherit':'red'" required /> </td>
                     			<td> <input type="text" readonly class="form-control-plaintext" id="price<?=$x?>" name="price[<?=$key_value->slno_item_mr?>]"   value='0'/> </td>
 
                             </tr>
@@ -201,55 +217,85 @@ this.parentNode.parentNode.style.backgroundColor=/^\d+(?:\.\d{1,2})?$/.test(this
                     		}
                     		?>
                     			<tr>
-								<td colspan="5">Sub total</td>
+								<td colspan="5">Sub total (A)  </td>
 								<td ><input type="number" readonly="readonly" class="form-control" id="total" name="sub_total" /></td>
 							</tr>
+						
 							<tr>
-								<td colspan="5">Total Tax</td>
-								<td ><input type="number" autocomplete="off"  class="form-control" id="total_tax" onkeyup="fix_cala('tax')" name="total_tax"  value="0.00"  min="1"step="0.01" title="Currency INR" pattern="^\d+(?:\.\d{1,2})?$" onblur="
+								<td colspan="5">Packing and Forwarding (P&F) Charges (B)</td>
+								<td>		<input type="number" min="0" autocomplete="off"  class="form-control" id="package" onkeyup="fix_cala('tax')" name="package"  value="0.00"  ></td>
+							</tr>
+							<tr>
+								<td colspan="5">	Transportation Charges (C)</td>
+								<td>		<input type="number" min="0" autocomplete="off"  class="form-control" id="Trans" onkeyup="fix_cala('tax1')" name="Trans"  value="0.00"  step="0.01" title="Currency INR" pattern="^\d+(?:\.\d{1,2})?$" onblur="
 this.parentNode.parentNode.style.backgroundColor=/^\d+(?:\.\d{1,2})?$/.test(this.value)?'inherit':'red'
 "></td>
 							</tr>
+						
 							<tr>
-								<td colspan="5">Total Landed Cost </td>
+								<td colspan="5">Total Item Value (A+B+C) </td>
 								<td ><input type="text" autocomplete="off" readonly="readonly" class="form-control" id="total_landed" name="total_landed"  value="0.00" /></td>
 							</tr>
+							
 							<tr>
-								<td colspan="5">User Assumption Charges </td>
+								<td colspan="5">GST Value (IGST / CGST + SGST) <span style="color: red">*</span>  -><div class="text-right"><input type="number" onkeyup="totalIt()" name="GST_percent" id='GST_percent' min="0" step="0.01" title="GST Percentage" pattern="^\d+(?:\.\d{1,2})?$" onblur="
+this.parentNode.parentNode.style.backgroundColor=/^\d+(?:\.\d{1,2})?$/.test(this.value)?'inherit':'red'" value="0"  required />  % <input type="hidden" name="GST" id='GST' ></div>  </td>
+								<td >
+								<input type="text" name="GST_value" id='GST_value' value="0.00" readonly>
+								</td>
+							</tr>
+						
+							<tr >
+								<td colspan="5">Total Item Value with GST </td>
+								<td >
+								<input type="text" name="Total_GST_value" id='Total_GST_value' value="0.00" readonly>
+								</td>
+							</tr>
+						
+							<tr>
+								<td colspan="5">User Assumption Charges <span style="color: red">*</span> </td>
 								<td ><input type="number" autocomplete="off" class="form-control" id="user_assmption" name="user_assumption" value="0.00"  min="0" step="0.01" title="Currency INR" pattern="^\d+(?:\.\d{1,2})?$" onblur="
 this.parentNode.parentNode.style.backgroundColor=/^\d+(?:\.\d{1,2})?$/.test(this.value)?'inherit':'red'
 "></td>
 							</tr>
 							<tr>
-								<td colspan="5">Delivery Basis</td>
+								<td colspan="5">Price Basis <span style="color: red">*</span></td>
+								<td ><input type="text" autocomplete="off"  class="form-control" id="price_basis" name="price_basis"  required="" /></td>
+							</tr>
+							<tr>
+								<td colspan="5">Place Of Delivery <span style="color: red">*</span></td>
+								<td ><input type="text" autocomplete="off"  class="form-control" id="place_delivery" name="place_delivery"  required="" /></td>
+							</tr>
+							<tr>
+								<td colspan="5">Place Of Dispatch <span style="color: red">*</span></td>
 								<td ><input type="text" autocomplete="off"  class="form-control" id="delivery_basis" name="delivery_basis"  required="" /></td>
 							</tr>
 							<tr>
-								<td colspan="5">Guarantee / Warranty</td>
-								<td ><input type="text" autocomplete="off" class="form-control" id="gaurantee_warranty" name="gaurantee_warranty"  required="" /></td>
-							</tr>
-							<tr>
-								<td colspan="5">Delivery Schedule</td>
+								<td colspan="5">Delivery Schedule <span style="color: red">*</span></td>
 								<td ><input type="text" autocomplete="off" class="form-control" id="delivery_schedule" name="delivery_schedule" required="" /></td>
 							</tr>
 							<tr>
-								<td colspan="5">Payment Terms</td>
-								<td ><input type="text" autocomplete="off" class="form-control" id="payment_terms" name="payment_terms" required=""  /></td>
-							</tr>
-							<tr>
-								<td colspan="5">Validity of Offer</td>
-								<td ><input type="text" autocomplete="off" class="form-control" id="validity_of_offer" name="validity_of_offer"  autocomplete="off"9 required="" /></td>
-							</tr>
-							<tr>
-								<td colspan="5">Security BG</td>
+								<td colspan="5">Security BG <span style="color: red">*</span></td>
 								<td ><input type="text" autocomplete="off" class="form-control" id="security_BG" name="security_BG"  required="" /></td>
 							</tr>
 							<tr>
-								<td colspan="5">Liquidity Damage</td>
+								<td colspan="5">Payment Terms <span style="color: red">*</span></td>
+								<td ><input type="text" autocomplete="off" class="form-control" id="payment_terms" name="payment_terms" required=""  /></td>
+							</tr>
+							<tr>
+								<td colspan="5">Liquidated Damage <span style="color: red">*</span></td>
 								<td ><input type="text" autocomplete="off" class="form-control" id="liquidity_damage" name="liquidity_damage" required="" /></td>
 							</tr>
 							<tr>
-								<td colspan="5">Remarks</td>
+								<td colspan="5">Validity of Offer <span style="color: red">*</span></td>
+								<td ><input type="text" autocomplete="off" class="form-control" id="validity_of_offer" name="validity_of_offer"  autocomplete="off"9 required="" /></td>
+							</tr>
+							<tr>
+								<td colspan="5">Guarantee / Warrantee Period <span style="color: red">*</span></td>
+								<td ><input type="text" autocomplete="off" class="form-control" id="gaurantee_warranty" name="gaurantee_warranty"  required="" /></td>
+							</tr>					
+							<tr>
+								<td colspan="5">Remarks <span style="color: red">*</span></td>
 								<td ><textarea  class="form-control" id="remarks" name="remarks" required="" /></textarea></td>
 							</tr>
 						</tbody>
@@ -434,8 +480,20 @@ this.parentNode.parentNode.style.backgroundColor=/^\d+(?:\.\d{1,2})?$/.test(this
 	  
 	  document.getElementById("total").value=isNaN(total)?"0.00":total.toFixed(2);   
 	   var sub_total=$('#total').val();    
-	   var total_tax=$('#total_tax').val();   
-	   var price_total = parseFloat(sub_total)+parseFloat(total_tax); 
+	   var package=$('#package').val();
+		 var Trans=$('#Trans').val(); 
+		 var gst_nuber, price_total_total_gst ; 
+		 var price_total = parseFloat(sub_total)+parseFloat(package)+parseFloat(Trans);
+		 var GST_percent=$('#GST_percent').val(); 
+		 gst_nuber=parseFloat(GST_percent) / 100;
+		 document.getElementById("GST").value=isNaN(gst_nuber)?"0.00":gst_nuber.toFixed(2);
+		 var GST=$('#GST').val(); 
+		 var price_total_GST=(parseFloat(price_total)*parseFloat(GST));
+		 document.getElementById("GST_value").value=isNaN(price_total_GST)?"0.00":price_total_GST.toFixed(2);
+		 
+		 var price_total_total_gst=parseFloat(price_total_GST)+parseFloat(price_total);
+		 document.getElementById("Total_GST_value").value=isNaN(price_total_total_gst)?"0.00":price_total_total_gst.toFixed(2);
+	  //  var price_total = parseFloat(sub_total)+parseFloat(package)+parseFloat(Trans); 
 	   document.getElementById("total_landed").value=isNaN(price_total)?"0.00":price_total.toFixed(2);
 	   	$('#to_sub').show();
 		$('#to_cal').hide();             
@@ -444,12 +502,38 @@ this.parentNode.parentNode.style.backgroundColor=/^\d+(?:\.\d{1,2})?$/.test(this
 		$('#to_sub').hide();
 		$('#to_cal').show();
 	}
+
 	$(document).ready(function(){
+
 		$('#to_sub').hide();
+		// $(".data_IGST").hide();
+		
 	});
 	$(document).ready(function () {
 	  $('#myCheckbox').click(function () {
 	    $('#to_sub').prop("disabled", !$("#myCheckbox").prop("checked")); 
 	  })
 	});
+
+$(document).ready( function($) {
+ 
+    // Disable scroll when focused on a number input.
+    $('form').on('focus', 'input[type=number]', function(e) {
+        $(this).on('wheel', function(e) {
+            e.preventDefault();
+        });
+    });
+ 
+    // Restore scroll on number inputs.
+    $('form').on('blur', 'input[type=number]', function(e) {
+        $(this).off('wheel');
+    });
+ 
+    // Disable up and down keys.
+    $('form').on('keydown', 'input[type=number]', function(e) {
+        if ( e.which == 38 || e.which == 40 )
+            e.preventDefault();
+    });  
+      
+});
 </script>

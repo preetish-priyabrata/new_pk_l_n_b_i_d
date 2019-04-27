@@ -175,8 +175,8 @@ if(empty($email_id)){
 		                      <td>'.$row->discipline.'</td>
 		                      <td>'.$row->pr_no.'</td>
 		                      
-		                      <td>'.$row->original_schedule.'</td> 
-		                      <td>'.$row->revised_schedule.'</td> 
+		                      <td>'.date('d-m-Y',strtotime($row->original_schedule)).'</td> 
+		                      <td>'.date('d-m-Y',strtotime($row->revised_schedule)).'</td> 
 		                      <td>'.$status_detai.'</td>
 		                       <td>'.$remark.'</td>
 		                      <td>'.$url.'</td>

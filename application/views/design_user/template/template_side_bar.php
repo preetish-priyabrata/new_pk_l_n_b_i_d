@@ -41,7 +41,7 @@
 						    
 						</ul>
 					</li>
-					<li class="has-sub <?php if($menu_status==2){echo 'active';}?>">
+					<li class="has-sub <?php if($menu_status==1){echo 'active';}?>">
 						<a href="javascript:;">
 					        <b class="caret"></b>
 						    <i class="fas fa-atlas"></i>
@@ -49,8 +49,7 @@
 					    </a>                          
 					   <ul class="sub-menu">
 					   		  <li class="<?php if($sub_menu==5){ echo 'active'; }?>"><a href="<?=base_url()?>design-project-pr-schedule" >View Project PR Schedule</a></li>
-					   		    <li class="<?php if($sub_menu==5){ echo 'active'; }?>"><a href="<?=base_url()?>design-project-pr-schedule-comment" >View Project PR Schedule Comment </a></li>
-						    <!-- <li class="<?php if($sub_menu==5){ echo 'active'; }?>"><a href="<?=base_url()?>design-pr-schedule" >View PR Schedule</a></li> -->
+					   		    <li class="<?php if($sub_menu==55){ echo 'active'; }?>"><a href="<?=base_url()?>design-project-pr-schedule-comment" >View Project PR Schedule Comment </a></li>						
 						        <li class="<?php if($sub_menu==6){ echo 'active'; }?>"><a href="<?=base_url()?>design-pr-schedule-complete" >View PR Schedule Complete</a></li>
 						</ul> 
 					</li>
@@ -65,18 +64,7 @@
 
 					  	</ul>
 					</li>
-					<li class="has-sub <?php if($menu_status==5){echo 'active';}?>">
-						<a href="javascript:;">
-					        <b class="caret"></b>
-						    <i class="fas fa-atlas"></i>
-						    <span>PR Remark Details</span>
-					    </a>
-						<ul class="sub-menu">
-							 <li class="<?php if($sub_menu==56){ echo 'active'; }?>"><a href="<?=base_url()?>design-view-project-old-remark" >View Project PR Remark </a></li>
-						
-						  
-						</ul>
-					</li>
+					
 					
 					
 					

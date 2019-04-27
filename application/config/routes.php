@@ -417,6 +417,8 @@ $route['approver-view-project-old-remark']='approveruser/approver_view_project_o
 
 $route['approver-pr-remark-history/(:any)/(:any)/(:any)/(:any)']='approveruser/approver_pr_remark_history/$1/$2/$3/$4';
 
+$route['approver-orginal-project-pr']='approveruser/approver_orginal_project_pr';
+
 // approver-view-project-old-remark
 ###########################################################################################################################################
 #
@@ -546,6 +548,8 @@ $route['user-buyer-home']='buyeruser/home';
 $route['buyer-pr-receive']='buyerusernew/buyer_pr_receive';
 $route['buyer-user-create-new-pr-tech-comm/(:any)/(:any)/(:any)/(:any)']='buyerusernew/buyer_user_create_new_pr_tech_comm/$1/$2/$3/$4';
 $route['Buyer-add-new-pr-tech-comm-save']='buyerusernew/Buyer_add_new_pr_tech_comm_save';
+$route['Buyer-add-new-pr-tech-comm-arr-save']='buyerusernew/Buyer_add_new_pr_tech_comm_save_arr';
+
 $route['buyer-user-create-new-pr/(:any)/(:any)/(:any)/(:any)']='buyerusernew/buyer_user_create_new_pr/$1/$2/$3/$4';
 //
 //buyer_user new where it holds vender search information
@@ -560,6 +564,7 @@ $route['Buyer-add-new-pr-save']='buyerusernew/Buyer_add_new_pr_save';
 // here information of commercial bid will phace here
 // 
 $route['buyer-add-new-pr-comm-save']='buyerusernew/buyer_add_new_pr_comm_save';
+$route['buyer-add-new-pr-comm-arr-save']='buyerusernew/buyer_add_new_pr_comm_save_arr';
 
 // ajax checking for pr bid reference and bid id
 
@@ -677,10 +682,16 @@ $route['user-commerical-evalutor-pr-create-rank']='commericalevalutornew/user_co
 $route['commerical-user-received-pr-info/(:any)/(:any)/(:any)/(:any)/(:any)']='commericalevalutornew/commerical_user_received_pr_info/$1/$2/$3/$4/$5';
 
 $route['Commercila-otp-c-s-r-ongoing-bid-pr-notification-vendor/(:any)/(:any)/(:any)/(:any)/(:any)/(:any)/(:any)']='commericalevalutornew/Commercila_otp_c_s_r_ongoing_bid_pr_notification_vendor/$1/$2/$3/$4/$5/$6/$7';
+$route['Commercila-otp-c-s-r-ongoing-bid-pr-notification-arra-vendor/(:any)/(:any)/(:any)/(:any)/(:any)/(:any)/(:any)']='commericalevalutornew/Commercila_otp_c_s_r_ongoing_bid_pr_notification_vendor_arra/$1/$2/$3/$4/$5/$6/$7';
+
+// Commercila-otp-c-s-r-ongoing-bid-pr-notification-arra-vendor
 $route['Commercial-get-otp-commerical/(:any)/(:any)/(:any)/(:any)/(:any)/(:any)/(:any)/(:any)/(:any)']='commericalevalutornew/get_otp_commerical/$1/$2/$3/$4/$5/$6/$7/$8/$9';
+$route['Commercial-get-otp-arra-commerical/(:any)/(:any)/(:any)/(:any)/(:any)/(:any)/(:any)/(:any)/(:any)']='commericalevalutornew/get_otp_commerical_array/$1/$2/$3/$4/$5/$6/$7/$8/$9';
 
 
 $route['commerical-otp-verification-pr']='commericalevalutornew/commerical_otp_verification_pr';
+
+$route['commerical-otp-verification-pr-array']='commericalevalutornew/commerical_otp_verification_array_pr';
 
 $route['commerical-otp-verification-success-pr/(:any)/(:any)/(:any)/(:any)/(:any)/(:any)/(:any)/(:any)/(:any)']='commericalevalutornew/commerical_otp_verification_success_pr/$1/$2/$3/$4/$5/$6/$7/$8/$9';
 
@@ -781,8 +792,8 @@ $route['seller/user-vendor-bid-submission-commerical-save-pr-rank']='vendorusern
 
 // seller/user-vendor-bid-submission-commerical-save-pr-rank"
 //$route['seller/user-vendor-bid-query-view-comm/(:any)']='vendoruser/user_vendor_bid_query_view_comm/$1';
-
-
+$route['seller/user-vendor-commerical-attachment-panel/(:any)']='vendorusernew/vendor_commerical_attachment_panel/$1';
+$route['seller/vendor-bid-term-attach-files']='vendorusernew/vendor_bid_term_attach_files';
 ######################################################################################################################################
 #
 #	Logout Of all section here
@@ -815,3 +826,4 @@ $route['tech-logout']='technicalevalutor/tech_evalutor_logout';
 #
 ######################################################################################################################################
 $route['admin-change-password-module']='adminuser/admin_change_password';
+$route['admin-change-password-module-save']='adminuser/admin_change_password_save';

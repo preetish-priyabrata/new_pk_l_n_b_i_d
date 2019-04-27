@@ -11,8 +11,7 @@ if(empty($email_id)){
 	$query_design = $this->db->get();
 
 ?>
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.5.2/css/buttons.dataTables.min.css">
+<link rel="stylesheet" type="text/css" href="<?=base_url()?>file_css_admin/DataTables/datatables.min.css"/>
 <div class="sidebar-bg"></div>
 		<!-- end #sidebar -->
 		
@@ -181,8 +180,8 @@ if(empty($email_id)){
 		                      <td>'.$row->item.'</td>
 		                      <td>'.$row->UOM.'</td>
 		                      <td>'.$row->quantity.'</td>
-		                      <td>'.$row->original_schedule.'</td> 
-		                      <td>'.$row->revised_schedule.'</td> 
+		                      <td>'.date('d-m-Y',strtotime($row->original_schedule)).'</td> 
+		                      <td>'.date('d-m-Y',strtotime($row->revised_schedule)).'</td> 
 		                      <td>'.$status_detai.'</td>
 		                      <td>'.$remark.'</td>
 		                      <td>'.$url.'</td>
@@ -198,7 +197,16 @@ if(empty($email_id)){
 				</div>
 			</div>
 		<?php }?>
-						
+		<script>
+		$(document).ready(function() {
+    $('#table1').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf'
+        ]
+    } );
+} );
+		</script>						
 					        		        
 					    
 					

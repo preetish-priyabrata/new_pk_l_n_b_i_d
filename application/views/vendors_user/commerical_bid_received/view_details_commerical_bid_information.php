@@ -19,6 +19,8 @@ $edit_id=$result_title['new_tech_list'][0]->edit_id;
 // $mr_slno=$result_title['new_tech_list'][0]->mr_slno;
 $pr_no=$result_title['new_tech_list'][0]->pr_no;
 
+$comm_bid=$result_title['new_tech_list'][0]->master_bid_id;
+$re_count_bid_com=$result_title['new_tech_list'][0]->commercial_resubmit_count;
 
 $data_process = array('pr_no' =>$pr_no);
 $query_process=$this->db->get_where('master_pr_process_detail',$data_process);
@@ -56,7 +58,15 @@ $status_view=$result_title['new_tech_list'][0]->status_view;
  		default:
  			# code...
  			break;
- 	}
+	 }
+	 $data_table4 = array('pr_no' =>$pr_no);
+$query_table4=$this->db->get_where('master_bid_t_c_comm_m ',$data_table4);
+$result_table4=$query_table4->result();
+
+$data_table6 = array('pr_no' =>$pr_no,'commercial_bid_id'=>$comm_bid,'re_count_bid_com'=>$re_count_bid_com);
+$query_table6=$this->db->get_where('master_technical_commercial_terms_conditions',$data_table6);
+
+$result_table6=$query_table6->result();
 ?>
 	<input type="hidden" readonly="" name="slno_pr" id="slno_pr"  value="<?=$slno_pr?>">
 	<input type="hidden" readonly="" name="job_code" id="job_code" value="<?=$job_code?>">
@@ -170,6 +180,14 @@ $status_view=$result_title['new_tech_list'][0]->status_view;
 								<?=$result_title['new_tech_list'][0]->mode_bid?>
 							</div>
 						</div>
+						<div class="form-group row m-b-15">
+							<label class="col-form-label col-md-3" for="Advance_payment_date">Terms And Conditions</label>
+							<div class="col-md-9">
+							<a target="_blank" href="<?=base_url()?>upload_files/term_condition/<?=$result_table6[0]->file_name?>"> Click to View </a>  
+							</div>
+						</div>
+
+					
 					</div>
 				</div>
 				<br />
@@ -232,6 +250,24 @@ $status_view=$result_title['new_tech_list'][0]->status_view;
 					</table>
 				</div>
 			</div>
+			<div class="row">
+				<div class="col-md-12 col-lg-12">
+					<h5 class="text-center">Remarks</h5>
+					<hr style="height: 3px;background: #0257ab;margin-top: 1.5rem; margin-bottom: 1.5rem"/>
+					<?=$result_table4[0]->t_c_detail?>
+				</div>
+			</div>
+			<br>
+			<br>
+			<!-- <div class="row">
+				<div class="col-md-12 col-lg-12">
+					<h5 class="text-center">Term And Conditions</h5>
+					<hr style="height: 3px;background: #0257ab;margin-top: 1.5rem; margin-bottom: 1.5rem"/>
+					
+				</div>
+			</div> -->
+			<br>
+			<br>
 			<div class="row">				
 				<div class="col-md-12 col-lg-12">
 					<h5 class="text-center">Submission Created</h5>

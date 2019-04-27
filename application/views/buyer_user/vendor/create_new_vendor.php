@@ -64,7 +64,7 @@ if(empty($email_id)){
 									<label class="col-form-label col-md-3" for="Vendor_email_id">Vendor email <span style="color: red">*</span></label>
 									<div class="col-md-9">
 										<input class="form-control m-b-5" placeholder="Enter Vendor email" name="Vendor_email_id" id="Vendor_email_id" type="text" required="">
-										<small class="f-s-12 text-grey-darker">Here enter Vendor email</small>
+										<small class="f-s-12 text-grey-darker">Add Multiple Ids separated by commas e.g. abc@gmail.com,xyz@gmail.com</small>
 									</div>
 								</div>
                                 <div class="form-group row m-b-15">
@@ -92,7 +92,7 @@ if(empty($email_id)){
 									<label class="col-form-label col-md-3" for="Mobile_no">Vendor contact <span style="color: red">*</span></label>
 									<div class="col-md-9">
 										<input class="form-control m-b-5" placeholder="Enter Vendor contact" name="Mobile_no" id="Mobile_no" type="text" required="">
-										<small class="f-s-12 text-grey-darker">Here enter Vendor contact</small>
+										<small class="f-s-12 text-grey-darker">Add Multiple Mobile Nos separated by commas e.g 9040xxxxx1,9040xxxxx2</small>
 									</div>
 								</div>
 							 	

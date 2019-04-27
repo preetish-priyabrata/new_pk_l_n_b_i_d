@@ -36,8 +36,10 @@ $result_table=$query_data->result();
     
     $data_array_procurement=$this->approver_user->get_approver_procurement_list();
 	   $result_file=$this->design_user->get_design_mr_file_list_m($pr_no,$slno_pr,$job_code);
+	   $url_remark='<a target="_blank" class="btn btn-sm btn-success" href="'.base_url().'buyer-pr-remark-history/'.$pr_no.'/'.$slno_pr.'/'.$job_code.'/1"> Click View Remark</a>';
+	
 ?>
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/css/bootstrap-multiselect.css">
 <link href="<?=base_url()?>file_css_admin/assets/plugins/bootstrap-datepicker/css/bootstrap-datepicker.css" rel="stylesheet" />
     <link href="<?=base_url()?>file_css_admin/assets/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.css" rel="stylesheet" />
 <div class="sidebar-bg"></div>
@@ -90,11 +92,17 @@ $result_table=$query_data->result();
 					<h4 class="panel-title"> Create Bid For PR </h4>
 				</div>
 				<div class="panel-body">
-					
+					<div class="row pull-right">
+						<div class="col-md-12">        
+						<?=$url_remark?>
+						</div>
+					</div>
+					<br>
+					<br>
 					<div class="alert alert-secondary">
                         		<span style="color: red"> *</span> All mandatory fields shall be duly filled up 
                         	</div>
-					<form action="<?=base_url()?>Buyer-add-new-pr-tech-comm-save" method="POST" enctype='multipart/form-data'>
+					<form action="<?=base_url()?>Buyer-add-new-pr-tech-comm-arr-save" method="POST" enctype='multipart/form-data'>
 						<div class="row">
 							<div class="col-md-6 col-lg-6">
 								<div class="form-group row m-b-15">
@@ -152,7 +160,7 @@ $result_table=$query_data->result();
 								<div class="form-group row m-b-15">
 									<label class="col-form-label col-md-3" for="required_date">Date Required <span style="color: red">*</span></label>
 									<div class="col-md-9">
-										<input class="form-control m-b-5 datepickers" placeholder="Enter Date Required " name="required_date" id="required_date" type="text" required=""value="<?=$result_table[0]->date_required?>" readonly>
+										<input class="form-control m-b-5 datepickers" placeholder="Enter Date Required " name="required_date" id="required_date" type="text" required=""value="<?=date('d-m-Y',strtotime($result_table[0]->date_required))?>" readonly>
 										<small class="f-s-12 text-grey-darker">Please enter Date Required</small>
 									</div>
 								</div>
@@ -271,7 +279,7 @@ $result_table=$query_data->result();
 								<div class="form-group row m-b-15">
 									<label class="col-form-label col-md-3" for="mr_date_of_creation">Date Of Creating<span style="color: red">*</span></label>
 									<div class="col-md-9">
-										<input class="form-control m-b-5" name="mr_date_of_creation" value="<?=$result_table[0]->date_creation?>"  id="mr_date_of_creation" type="text" required="" readonly>
+										<input class="form-control m-b-5" name="mr_date_of_creation" value="<?=date('d-m-Y',strtotime($result_table[0]->date_creation))?>"  id="mr_date_of_creation" type="text" required="" readonly>
 										<small class="f-s-12 text-grey-darker">Date Of Creating MR</small>
 									</div>
 								</div>
@@ -313,14 +321,14 @@ $result_table=$query_data->result();
 															
 														?>
 														
-														<select name="Commerical"  class="form-control m-b-5" id="Commerical" required="" >
+														<select name="Commerical[]"  class="form-control m-b-5" id="Commerical" required="" multiple >
 															<?php 
 															if($data_array_approver['no_user']==2){?>
 																<option value="">--No Commercial Evaluator Is found--</option>
 																<?php
 															}else if($data_array_approver['no_user']==1){
 																?>
-																<option value="">--Select Commercial Evaluator--</option>
+																<!-- <option value="">--Select Commercial Evaluator--</option> -->
 															<?php
 																foreach ($data_array_approver['user_approver'] as $key_approver) {
 																	echo "<option value='".$key_approver->slno."'>".$key_approver->Username." [ ".$key_approver->email_id." ]</option>";
@@ -378,7 +386,7 @@ $result_table=$query_data->result();
 												<div class="form-group row m-b-15">
 													<label class="col-form-label col-md-3" for="date_create">Date </label>
 													<div class="col-md-9">
-														<input class="form-control m-b-5" placeholder="" name="date_create" id="date_create" type="text" value="<?=date('Y-m-d')?>" required="" readonly style='opacity: 1'>
+														<input class="form-control m-b-5" placeholder="" name="date_create" id="date_create" type="text" value="<?=date('d-m-Y')?>" required="" readonly style='opacity: 1'>
 															<small class="f-s-12 text-grey-darker">---</small>
 													</div>
 												</div>
@@ -550,7 +558,7 @@ $result_table=$query_data->result();
 															<th>UOM</th>
 															<th>Technical Parameter</th>
 															<th>Qnty</th>
-															<th>Unit Value</th>
+															<th>suggested Price</th>
 														</tr>
 													</thead>
 													<tbody>
@@ -751,7 +759,7 @@ $result_table=$query_data->result();
 							    </div>
 							    <div id="collapseFive" class="collapse" data-parent="#accordion">
 							      	<div class="card-body">
-							       		<h5 class="text-left">Technical Evaluator / Vendor Selection</h5>
+							       		<h5 class="text-left"> Vendor Selection</h5>
 										<hr style="background: lightblue">
 										<!-- row Start -->
 										<div class="row">
@@ -816,6 +824,7 @@ $result_table=$query_data->result();
 					
 				</div>
 			</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.js"></script>
 <script type="text/javascript">
 
 function get_vender() {
@@ -983,6 +992,10 @@ $(document).ready(function(){
 
 		}
 	}
-
+$(document).ready(function() {
+	$('#Commerical').multiselect({
+		nonSelectedText: 'Select Commercial Approver'
+	});
+});
 </script>
 				

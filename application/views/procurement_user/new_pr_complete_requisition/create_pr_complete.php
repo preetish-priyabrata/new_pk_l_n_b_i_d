@@ -37,6 +37,7 @@ $result_table=$query_data->result();
     
     $data_array_procurement=$this->approver_user->get_approver_procurement_list();
 	   $result_file=$this->design_user->get_design_mr_file_list_m($pr_no,$slno_pr,$job_code);
+	   $url_remark='<a target="_blank" class="btn btn-sm btn-success" href="'.base_url().'proc-pr-remark-history/'.$pr_no.'/'.$slno_pr.'/'.$job_code.'/1"> Click View Remark</a>';
 ?>
 
 <link href="../assets/plugins/bootstrap-datepicker/css/bootstrap-datepicker.css" rel="stylesheet" />
@@ -79,11 +80,14 @@ $result_table=$query_data->result();
 					</div>
 					<h4 class="panel-title"> New Pr Information Details </h4>
 				</div>
-				<div class="panel-body">
-					
-					<div class="alert alert-secondary">
-                        		<span style="color: red"> *</span> All mandatory fields shall be duly filled up 
-                        	</div>
+				<div class="panel-body">					
+					<div class="row pull-right">
+						<div class="col-md-12">        
+							<?=$url_remark?>
+						</div>
+					</div>
+					<br>
+					<br>
 					<form action="<?=base_url()?>procurement-add-new-pr-save" method="POST" >
 						<div class="row">
 							<div class="col-md-6 col-lg-6">
