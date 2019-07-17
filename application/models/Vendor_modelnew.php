@@ -13,6 +13,7 @@ class Vendor_modelnew extends CI_Model {
     
      public function vendor_new_technical_bid_list_pr($value=''){
 			$data=array('vendor_id'=>$value,'status_active'=>1);
+			$this->db->order_by('slno_vendor', 'Desc');
 			$query=$this->db->get_where('master_bid_vendor_m',$data);
     	if($query->num_rows()==0){
 				$data_return = array('no_new_tech' =>2 );
@@ -70,6 +71,7 @@ class Vendor_modelnew extends CI_Model {
 	public function vendor_new_commerical_bid_list_pr($value=''){
 
 		$data=array('vendor_id'=>$value,'status_active'=>1);
+			$this->db->order_by('slno_vendor', 'Desc');
 			$query=$this->db->get_where('master_bid_Com_vendor_m',$data);
     	if($query->num_rows()==0){
 			$data_return = array('no_new_tech' =>2 );
@@ -136,16 +138,19 @@ public function vendor_new_commerical_rank_bid_pr($value=''){
     		$id=0;
 			$data=array('master_bid_id_com'=>$value);
 			// $this->db->order_by('sub_total', "asc");
-			$this->db->order_by('sub_total', 'ASC');
-			$this->db->where("sub_total !=",$id);
+			$this->db->order_by('total_price', 'ASC');
+			// $this->db->order_by('sub_total', 'ASC');
+			$this->db->where("total_price !=",$id);
 			// $this->db->order_by('date', "asc");			
 			$query=$this->db->get_where('master_pr_bid_qoute_item_total',$data);
 			// echo $this->db->last_query();
 			// print_r($query->result());
+			// total_price
 			$data_id=array('master_bid_id_com'=>$value,'Vendor_id'=>$value1);
-			$this->db->order_by('sub_total', 'ASC');
+			$this->db->order_by('total_price', 'ASC');
+			// $this->db->order_by('sub_total', 'ASC');
 			$this->db->order_by('Slno_simple_item_total', "desc");
-			$this->db->where("sub_total !=",$id);
+			$this->db->where("total_price !=",$id);
 			$query_rode=$this->db->get_where('master_pr_bid_qoute_item_total',$data_id);
 			// echo $this->db->last_query();
 			$resutt=$query_rode->result();
@@ -158,7 +163,7 @@ public function vendor_new_commerical_rank_bid_pr($value=''){
 				$x++;
 				if($key_id->Slno_simple_item_total==$id){
 					$rank=$x;
-					$sub_total=$key_id->sub_total;
+					$sub_total=$key_id->total_price;
 				}
 				// $get_rank[] = array('Slno_total' => $key_id->Slno_rankorder_item_total,'date_id'=> $key_id->date, 'sub_total'=>$key_id->sub_total);
 			}

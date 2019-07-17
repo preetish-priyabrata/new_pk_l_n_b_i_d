@@ -118,7 +118,7 @@ $file_name=$result_table6[0]->file_name;
 			<div>
 			  <label for="myCheckbox"><input id="myCheckbox" name="i_accept" type="checkbox"/>I Agree
 			  <!--  class="btn btn-primary"-->
-			  <a href="#" data-toggle="modal" data-target="#exampleModal<?=$slno?>">Click To View</a>
+			  <!-- <a href="#" data-toggle="modal" data-target="#exampleModal<?=$slno?>">Click To View</a> -->
 			</label>
 
 			 </div>
@@ -152,7 +152,7 @@ $file_name=$result_table6[0]->file_name;
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Term And Condition</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Terms And Conditions</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -355,12 +355,12 @@ $file_name=$result_table6[0]->file_name;
                     success: function (response) {
                     	if(response==1){
                     		file_uploaded();
-                    		alert('File Is successfully attached ');
+                    		alert('File is successfully attached ');
                     		 
                     	}else if(response==2){
                     		alert('Same File name is found ');
                     	}else{
-                    		alert('Some thing went worng Please check internet connection ');
+                    		alert('Something went wrong Please check internet connection ');
                     	}
                         
                     }

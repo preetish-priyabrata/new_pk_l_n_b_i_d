@@ -30,7 +30,7 @@ class Vendorusernew extends CI_Controller {
     }
      public function vendor_new_notification_list($value=''){
 
-    $scripts='';
+      $scripts='<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script><script src=" https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script> <script src="'.base_url().'file_css_admin/own_js.js"></script>';
      $data=array('title' =>"Vendor Notification",'script_js'=>$scripts ,'menu_status'=>'','sub_menu'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'');
      $this->load->view('vendors_user/vendor_template/v_template_header',$data);
      $this->load->view('vendors_user/vendor_template/v_template_top_head',$data);
@@ -44,7 +44,6 @@ class Vendorusernew extends CI_Controller {
         $this->load->view('vendors_user/vendor_template/v_template_header',$data);
         $this->load->view('vendors_user/vendor_template/v_template_top_head',$data);
         $this->load->view('vendors_user/vendor_template/v_template_top_menu',$data);
-
         $this->load->view('vendors_user/technical_bid_received/new_bid_information',$data);
         $this->load->view('vendors_user/vendor_template/v_template_top_footer',$data);
    }
@@ -119,7 +118,12 @@ class Vendorusernew extends CI_Controller {
                             echo '2';
                         } else {
                             if(move_uploaded_file($_FILES["file"]["tmp_name"], 'upload_files/vendor_file_tech/' . $file_stored_name)){
-                                $data_array = array('token_id'=>$token, 'master_bid_id'=>$master_bid_id, 'vendor_id'=>$Vendor_email_id, 'file_name'=>$file_name, 'file_attach'=>$file_stored_name, 'status'=>1, 'date_entry'=>$date, 'time_entry'=>$time_entry, 'bid_user_slno'=>$value_slno,'pr_no'=>$pr_no);
+                                if(!empty($file_names)){
+                                  $file_names_up=$file_names;
+                                }else{
+                                  $file_names_up=$file_name;
+                                }
+                                $data_array = array('token_id'=>$token, 'master_bid_id'=>$master_bid_id, 'vendor_id'=>$Vendor_email_id, 'file_name'=>$file_names_up, 'file_attach'=>$file_stored_name, 'status'=>1, 'date_entry'=>$date, 'time_entry'=>$time_entry, 'bid_user_slno'=>$value_slno,'pr_no'=>$pr_no);
                                 $query_files=$this->db->insert('master_vendor_file_token_c',$data_array);
                                 echo '1' ;
                             }
@@ -131,7 +135,7 @@ class Vendorusernew extends CI_Controller {
               $data_array_check = array('token_id'=>$token, 'master_bid_id'=>$master_bid_id, 'vendor_id'=>$Vendor_email_id,  'bid_user_slno'=>$value_slno ,'pr_no'=>$pr_no);
                 $result_file=$this->vendor_db_usersnew->get_vendors_tech_bid_file_list_pr($data_array_check);
                 if($result_file['no_file_vendor']==2){
-                    echo "<p class='text-center' style='color:red'><b>No File Attachment is found for this MR Request no</b></p>";
+                    echo "<p class='text-center' style='color:red'><b>No File Attachment is found </b></p>";
                 }else if($result_file['no_file_vendor']==1){
                     ?>
                       <table class="table table-bordered" cellpadding="10" cellspacing="1" width="100%">
@@ -164,7 +168,7 @@ class Vendorusernew extends CI_Controller {
                 $data_array_check = array('token_id'=>$token, 'master_bid_id'=>$master_bid_id, 'vendor_id'=>$Vendor_email_id,  'bid_user_slno'=>$value_slno,'pr_no'=>$pr_no);
                   $result_file=$this->vendor_db_usersnew->get_vendors_tech_bid_file_list_pr($data_array_check);
                   if($result_file['no_file_vendor']==2){
-                      echo "<p class='text-center' style='color:red'><b>No File Attachment is found for this MR Request no</b></p>";
+                      echo "<p class='text-center' style='color:red'><b>No File Attachment is found </b></p>";
                   }else if($result_file['no_file_vendor']==1){
                       ?>
                         <table class="table table-bordered" cellpadding="10" cellspacing="1" width="100%">
@@ -244,7 +248,7 @@ class Vendorusernew extends CI_Controller {
         $data_array_check = array('token_id'=>$token, 'master_bid_id'=>$master_bid_id, 'vendor_id'=>$Vendor_email_id,  'bid_user_slno'=>$value_slno );
         $result_file=$this->vendor_db_usersnew->get_vendors_tech_bid_file_list_pr($data_array_check);
         if($result_file['no_file_vendor']==2){
-          $this->session->set_flashdata('error_message', 'No File is been Attached to Current bid submission please attach files');
+          $this->session->set_flashdata('error_message', 'No File has been Attached to Current bid submission please attach files');
           redirect('seller/user-vendor-tech-bid-submission-tokens-info/'.$value_slno.'/'.$token .'/'.$master_bid_id );
         }else if($result_file['no_file_vendor']==1){
           $data_values = array('bid_id_vendor' =>$value_slno , 'master_bid_id'=>$master_bid_id,'vendor_id'=>$Vendor_email_id,'submitted_status'=>1);
@@ -257,10 +261,10 @@ class Vendorusernew extends CI_Controller {
               $data_values_vendor = array('slno_vendor' => $value_slno);
               $vendor_sub = array('submission_status' => 1,'status_view'=>7);
               $update_query_vendor=$this->db->update('master_bid_vendor_m',$vendor_sub,$data_values_vendor);
-              $this->session->set_flashdata('success_message', 'successfully Bid is submitted');
+              $this->session->set_flashdata('success_message', 'Successfully bid is submitted');
               redirect('user-vendor-home');
             }else{
-              $this->session->set_flashdata('error_message', 'Some thing Went wrong');
+              $this->session->set_flashdata('error_message', 'Something went wrong');
               redirect('seller/user-vendor-tech-bid-submission-tokens-info/'.$value_slno.'/'.$token .'/'.$master_bid_id );
            }
           }else{
@@ -278,19 +282,19 @@ class Vendorusernew extends CI_Controller {
             $data_values_vendor = array('slno_vendor' => $value_slno);
             $vendor_sub = array('submission_status' => 1,'status_view'=>7);
             $update_query_vendor=$this->db->update('master_bid_vendor_m',$vendor_sub,$data_values_vendor);
-            $this->session->set_flashdata('success_message', 'successfully Bid is submitted');
+            $this->session->set_flashdata('success_message', 'Successfully bid is submitted');
             redirect('user-vendor-home');
           }else{
-               $this->session->set_flashdata('error_message', 'Some thing Went wrong');
+               $this->session->set_flashdata('error_message', 'Something went wrong');
                 redirect('seller/user-vendor-tech-bid-submission-tokens-info/'.$value_slno.'/'.$token .'/'.$master_bid_id );
           }
         }
       }else{
-        $this->session->set_flashdata('error_message', 'No File is been Attached to Current bid submission please attach files');
+        $this->session->set_flashdata('error_message', 'No File has been Attached to Current bid submission please attach files');
         redirect('seller/user-vendor-tech-bid-submission-tokens-info/'.$value_slno.'/'.$token .'/'.$master_bid_id );
       }
     }else{
-        $this->session->set_flashdata('success_message', 'successfully Bid is Drafted');
+        $this->session->set_flashdata('success_message', 'Successfully Bid is drafted');
         redirect('user-vendor-home');
     }
   }
@@ -317,7 +321,6 @@ class Vendorusernew extends CI_Controller {
         $this->load->view('vendors_user/vendor_template/v_template_header',$data);
         $this->load->view('vendors_user/vendor_template/v_template_top_head',$data);
         $this->load->view('vendors_user/vendor_template/v_template_top_menu',$data);
-
         $this->load->view('vendors_user/commerical_bid_received/new_bid_information',$data);
         $this->load->view('vendors_user/vendor_template/v_template_top_footer',$data);
   }
@@ -475,7 +478,7 @@ class Vendorusernew extends CI_Controller {
                $data_update_id = array('slno_vendor' => $vendor_bid_id );  
                 $query_update_exe=$this->db->update('master_bid_Com_vendor_m',$data_update,$data_update_id);  
 
-                 $this->session->set_flashdata('success_message', 'successfully Commerical Bid Is open submitted');
+                 $this->session->set_flashdata('success_message', ' Successfully Commerical Bid is submitted');
 
                 redirect('seller/user-vendor-home');
       
@@ -630,7 +633,7 @@ class Vendorusernew extends CI_Controller {
                $data_update_id = array('slno_vendor' => $vendor_bid_id );  
                 $query_update_exe=$this->db->update('master_bid_Com_vendor_m',$data_update,$data_update_id);  
 
-                 $this->session->set_flashdata('success_message', 'successfully Bid Is Submitted');
+                 $this->session->set_flashdata('success_message', 'Successfully bid is submitted');
 
                 redirect($url);
    
@@ -690,7 +693,7 @@ public function vendor_commerical_query_panel($value=''){
         $this->load->view($PAGE,$data);
         $this->load->view('vendors_user/vendor_template/v_template_top_footer',$data);
       }else{
-        $this->session->set_flashdata('error_message', 'something went worng');
+        $this->session->set_flashdata('error_message', 'Something went wrong');
         redirect('user-vendor-home'); 
       }
     }
@@ -722,7 +725,7 @@ public function vendor_commerical_query_panel($value=''){
       if (isset($_FILES['term_file']) && !empty($_FILES['term_file'])) {
         // $no_files = count($_FILES["file"]['name']);
         $file_name=$_FILES["term_file"]["name"];
-        $file_stored_name=date('Y-m-d')."-".$_FILES["term_file"]["name"];
+        $file_stored_name=date('hisHis').date('Y-m-d')."-".$_FILES["term_file"]["name"];
         // for ($i = 0; $i < $no_files; $i++) {
         if ($_FILES["term_file"]["error"] > 0) {
           $this->session->set_flashdata('error_message', 'Please attach File ');
@@ -736,7 +739,7 @@ public function vendor_commerical_query_panel($value=''){
                     // `comm_vendor_slno`, `bid_ref`, `slno_vendor_id_master`, `bid_id`, `pr_no`, `file_name_stored`, `status_file`, `date_upload`, `vendor_id`, `date_update`
                   $data_array = array('vendor_id'=>$Vendor_email_id, 'file_name'=>$file_name, 'file_name_stored'=>$file_stored_name, 'status_file'=>1,'comm_vendor_slno'=>$comm_vendor_slno,'bid_ref'=>$bid_ref,'slno_vendor_id_master'=>$slno_vendor_id_master,'bid_id'=>$bid_id,'pr_no'=>$pr_no,'commercial_resubmit_count'=>$commercial_resubmit_count ,'master_bid_id'=>$master_bid_id);
                     $query_files=$this->db->insert('master_bid_Com_vendor_term_m ',$data_array);
-                    $this->session->set_flashdata('success_message', 'successfully Uploaded');
+                    $this->session->set_flashdata('success_message', 'Successfully Uploaded');
                     redirect('seller/user-vendor-home');
                 }
             }
@@ -746,5 +749,19 @@ public function vendor_commerical_query_panel($value=''){
         redirect('seller/user-vendor-commerical-attachment-panel/'.$comm_vendor_slno);
       }
 
+    }
+    public function get_user_ranks(){
+
+      // print_r($this->input->post());
+       $bid_id=$this->input->post('bid_id');
+       $project=$this->input->post('project');
+      
+      $ranks=$this->vendor_db_usersnew->vendor_new_commerical_rank_calculation_pr($bid_id,$project);
+      // print_r($ranks);
+      // $rank=$ranks['rank'];
+      // $sub_total=$ranks['sub_total'];
+      // $data = array('rank'=>$rank,'sub_total'=>$sub_total);
+      echo json_encode($ranks);
+     
     }
   }

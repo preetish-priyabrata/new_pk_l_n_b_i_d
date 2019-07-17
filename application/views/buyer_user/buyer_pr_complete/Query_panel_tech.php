@@ -188,7 +188,10 @@ $values=$pr;
 						</div>
 					</div>
 						 		
-						
+						<div class="col-lg-1">
+									
+									 <a  href="<?=base_url()?>user-buyer-home" class="btn btn-sm btn-link">Back</a>
+								</div>
 					</div>
 				</div>
 				<!-- Query Block End  -->

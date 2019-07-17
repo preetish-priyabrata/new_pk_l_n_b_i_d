@@ -51,6 +51,10 @@ $data_table3 = array('pr_no' =>$pr_no);
 $query_table3=$this->db->get_where('master_bid_m',$data_table3);
 $result_table3=$query_table3->result();
 
+$data_table3_com = array('pr_no' =>$pr_no);
+$query_table3_comm=$this->db->get_where('master_bid_Com_m',$data_table3_com);
+$result_table3_comm=$query_table3_comm->result();
+
 $data_table4 = array('pr_no' =>$pr_no);
 $query_table4=$this->db->get_where('master_bid_t_c_tech_m',$data_table4);
 $result_table4=$query_table4->result();
@@ -381,8 +385,7 @@ $result_table=$query_data->result();
 												<div class="form-group row m-b-15">
 													<label class="col-form-label col-md-3" for="date_create">Date </label>
 													<div class="col-md-9">
-														<input class="form-control m-b-5" placeholder="" name="date_create" id="date_create" type="text" value="<?=date('d-m-Y')?>" required="" readonly style='opacity: 1'>
-															<small class="f-s-12 text-grey-darker">---</small>
+													<?=date('d-m-Y',strtotime($result_table3[0]->date_publish))?>
 													</div>
 												</div>
 
@@ -426,10 +429,10 @@ $result_table=$query_data->result();
 												<!-- part B Start -->
 
 												<div class="form-group row m-b-15">
-													<label class="col-form-label col-md-3" for="date_publish">Bid Publish Date </label>
+													<label class="col-form-label col-md-3" for="date_publish">Currency </label>
 													<div class="col-md-9">
-														<?=date('d-m-Y',strtotime($result_table3[0]->date_publish))?>
 														
+														<?=$result_table3_comm[0]->currency_code?>
 													</div>
 												</div>
 

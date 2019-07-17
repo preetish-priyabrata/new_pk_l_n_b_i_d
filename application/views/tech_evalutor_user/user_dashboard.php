@@ -1,9 +1,24 @@
 <?php 
-$technical_email_id=$this->session->userdata('technical_email_id');
+$email_id=$technical_email_id=$this->session->userdata('technical_email_id');
 if(empty($technical_email_id)){
 	
 	redirect('tech-evalutor-logout-by-pass');
 }
+$technical_query=$x=0;
+$data_check=array('approver_user_status'=>1,'design_user_status'=>1,'technical_user_status'=>2,'type_bidding_technical'=>1);
+$this->db->order_by('design_date','Asc');
+$query_check=$this->db->get_where('master_pr_process_detail',$data_check);
+foreach($query_check->result() as $key_comm_id =>$value_comm_id):
+	$pr_no=$value_comm_id->pr_no;
+	$comm_list=(unserialize($value_comm_id->tech_user_id_array));	
+	if(in_array($email_id,$comm_list,TRUE)){
+		
+		$techincal_query_info=$this->db->get_where('master_bid_query_tech_m',array('pr_no'=>$pr_no,'status_responds'=>0));
+		$tech_count=$techincal_query_info->num_rows();
+		$technical_query=$technical_query+$tech_count;	
+		$x++;
+	}
+endforeach;		
 ?>
 
 <div class="sidebar-bg"></div>
@@ -41,22 +56,28 @@ if(empty($technical_email_id)){
 			 // print_r($this->session->userdata());
 			 ?>
 
-			<!-- begin panel -->
-			<!-- <div class="panel panel-inverse">
-				<div class="panel-heading">
-					<div class="panel-heading-btn">
-						<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
-						<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-redo"></i></a>
-						<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
-						<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
+			<div class="row">
+				<div class="col-lg-4">
+					<div class="widget widget-stats bg-gradient-purple m-b-10">
+						<div class="stats-icon stats-icon-lg"><i class="fa fa-archive fa-fw"></i></div>
+						<div class="stats-content">
+							<div class="stats-title">Pending Bid <br>To Be Approved</div>
+							<div class="stats-number"><?=$x?></div>
+							
+						</div>
 					</div>
-					<h4 class="panel-title">Panel Title here</h4>
 				</div>
-				<div class="panel-body">
+				<div class="col-lg-4">
+				<div class="widget widget-stats bg-gradient-lime m-b-10">
+					<div class="stats-icon stats-icon-lg"><i class="fa fa-question-circle fa-fw"></i></div>
+					<div class="stats-content">
+						<div class="stats-title">Pending Technical <br>Query </div>
+						<div class="stats-number"><?=$technical_query?></div>
+						
+					</div>
+				</div>
+			</div>
+			</div>
 
-					Panel Content Here
-				</div>
-			</div> -->
-			<!-- end panel -->
 		</div>
 		<!-- end #content -->

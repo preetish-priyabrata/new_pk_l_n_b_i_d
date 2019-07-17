@@ -57,6 +57,15 @@ $value=$value;
 					<h4 class="panel-title">Upload Material and Category </h4>
 				</div>				
 				<div class="panel-body">
+					<div class="form-group row pull-right">
+			             <div class="form-group row pull-right">
+			                <div class="col-md-12">
+								<a href="<?=base_url()?>design-user-add-new-material" class="btn btn-sm btn-default" onclick="new_material_Popup(this.href,'myWindow','900','600','yes');return false">Add New Single Material</a>
+							</div>
+						</div>
+					</div>
+					<br>
+					<br>
 					<form  method="POST" enctype="multipart/form-data"	>
 						<div class="alert alert-secondary">
 	                       	<span style="color: red"> *</span>All mandatory fields shall be duly filled up 
@@ -72,7 +81,7 @@ $value=$value;
 											<input class=" m-b-5" name="job_files" id="job_files" type="file" required="" required accept=".xls, .xlsx" >	
 											<!-- <span class="btn btn-sm btn-info" > -->
 											<small class="f-s-12 text-grey-darker">
-												<a href="<?=base_url()?>sample/material_information.xlsx">Click To View Samples</a>
+												<a href="<?=base_url()?>sample/Line_Of_ Items.xls">Click To View Samples</a>
 											</small>
 											<!-- </span> -->
 												<br>
@@ -193,4 +202,13 @@ function load_data(){
 			});
 		
 	}
+	var popupWindow = null;
+function new_material_Popup(url,winName,w,h,scroll){
+LeftPosition = (screen.width) ? (screen.width-w)/2 : 0;
+TopPosition = (screen.height) ? (screen.height-h)/2 : 0;
+settings =
+'height='+h+',width='+w+',top='+TopPosition+',left='+LeftPosition+',scrollbars='+scroll+',resizable'
+popupWindow = window.open(url,winName,settings)
+}
+
 </script>

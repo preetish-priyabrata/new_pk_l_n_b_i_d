@@ -4,7 +4,7 @@ if(empty($email_id)){
 	
 	redirect('design-logout-by-pass');
 }
-$value=$value;
+$value=urldecode($value);
 ?>
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.5.2/css/buttons.dataTables.min.css">
@@ -18,7 +18,7 @@ $value=$value;
 			<ol class="breadcrumb pull-right">
 				<li class="breadcrumb-item"><a href="user-admin-home">Home</a></li>
 				<li class="breadcrumb-item"><a href="javascript:;">Category</a></li>
-				<li class="breadcrumb-item active">View Category Lsit</li>
+				<li class="breadcrumb-item active">View Category List</li>
 			</ol>
 			<!-- end breadcrumb -->
 			<!-- begin page-header -->
@@ -49,7 +49,7 @@ $value=$value;
 				<div class="panel-body">
 					
 					<div class="pull-right">
-						<a href="<?=base_url()?>design-new-material-catergory/2" class="btn btn-info fa fa-puzzle-piece " role="button" title="Here new Category is been created">Add New Material & Category</a>
+						<a href="<?=base_url()?>design-new-material-catergory/2" class="btn btn-info fa fa-puzzle-piece " role="button" title="Here new material List is been created">Add New Material List</a>
 					</div>
 					<br>
 					<br>
@@ -62,7 +62,7 @@ $value=$value;
 					                <th>Material Name</th>
 					                <th>Material id</th>	
 					               	<th>UOM</th>	
-					               	<th>Technical Parameter</th>	
+					               	<th>Technical Parameters</th>	
 					               	<th>Status</th>	
 					               	<!-- <th>Action</th>	 -->
 					                				               
@@ -112,7 +112,7 @@ $value=$value;
 					</div>
 					<br>
 					<br>
-					<a href="user-design-home" class="btn btn-xs btn-success fa fa-angle-left"   role="button"><i class=""></i> Back</a>
+					<a href="<?=base_url()?>user-design-home" class="btn btn-xs btn-success fa fa-angle-left"   role="button"><i class=""></i> HOME</a>
 				</div>
 			</div>
 

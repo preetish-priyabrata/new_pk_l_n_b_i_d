@@ -33,12 +33,12 @@ if(empty($email_id)){
 			<!-- begin breadcrumb -->
 			<ol class="breadcrumb pull-right">
 				<li class="breadcrumb-item active"><a href="#" class="fa fa-home ">Home</a></li>
-				<!-- <li class="breadcrumb-item"><a href="javascript:;">Page Options</a></li> -->
-				<li class="breadcrumb-item active">PR Schedule Send Technical</li>
+				<li class="breadcrumb-item"><a href="javascript:;">On-going Bid</a></li>
+				<li class="breadcrumb-item active">On-going Technical Bid</li>
 			</ol>
 			<!-- end breadcrumb -->
 			<!-- begin page-header -->
-			<h1 class="page-header">Project PR Schedule Send Technical
+			<h1 class="page-header">On-going Technical Bid
 			 <!-- <small>header small text goes here...</small> -->
 			</h1>
 			<!-- end page-header -->
@@ -91,7 +91,7 @@ if(empty($email_id)){
 													}
 												?>
 											</select>
-											<small class="f-s-12 text-grey-darker">Please Select Project For Upload PR Schedule Complete</small>
+											<small class="f-s-12 text-grey-darker">Please Select Project </small>
 										</div>
 									</div>
 								</div>
@@ -117,15 +117,18 @@ if(empty($email_id)){
 				$job_code=$this->input->post('job_code');
 				$data_check = array('job_code' => $job_code,'status'=>1, 'mr_status'=>1);
                 $query=$this->db->get_where($table,$data_check);
-                    // echo  $this->db->last_query();
-               
-               
-                // $output .= '</table>';
+								foreach ($query_design->result() as $key_job_code) {
+									if($key_job_code->Project_Slno==$job_code){
+										$project_details_info=$key_job_code->job_Code." [ ".$key_job_code->Project_Name." ]";
+				
+									}
+								}
+				
                
 				?>
 			<div class="panel panel-inverse">
 				<div class="panel-heading">					
-					<h4 class="panel-title"> PR Schedule Complete List</h4>
+				<h4 class="panel-title">Project Name :- <?=$project_details_info?> </h4>
 				</div>
 				<div class="panel-body">
 					<div class="table-responsive-sm">
@@ -133,14 +136,17 @@ if(empty($email_id)){
 							<thead>
 			                    <tr>
 			                      <th>Discipline</th>
-			                      <th>PR No</th>			                      
+			                      <th>PR No</th>
+			                      <th>Comment from Bu User</th>
+
 			                      <th>Item</th>
 			                      <th>UOM</th>
 			                      <th>Quantity</th>
 			                      <th>Original Schedule</th> 
-			                      <th>procurement Remark</th>
-			                      <th>Tecnical community Remark Send</th>                             
-			                      <th>Status</th>
+			                      <th>Procurement Remarks</th>
+			                      <th>Technical community Remarks Send</th>                             
+														<th>Status</th>
+														<th>Pending Query</th>
 			                      <th>Action</th>
 			                      
 			                    </tr>
@@ -148,7 +154,8 @@ if(empty($email_id)){
                 			<tbody>
 								<?php
 								 foreach($query->result() as $row){
-								 	$pr_no=$row->pr_no;
+									 $pr_no=$row->pr_no;
+									 $result_query=$this->db->get_where('master_bid_query_tech_m',array('pr_no'=>$pr_no,'status_responds'=>0));
 								 	$data_check=array('pr_no'=>$pr_no,'buyer_user_id'=>$email_id,'approver_user_status'=>1,'design_user_status'=>1,'procurement_user_status'=>1,'technical_user_status'=>2);
 								 	$query_check=$this->db->get_where('master_pr_process_detail',$data_check);
 								 	$num_rows_check=$query_check->num_rows();
@@ -171,7 +178,7 @@ if(empty($email_id)){
 								 		$technical_bid_ref=$result_id[0]->technical_bid_ref;
 								 		$technical_bid_id=$result_id[0]->technical_bid_id;
 								 		$tech_bid=$result_id[0]->tech_bid;
-								 		$query_bid='<a href="'.base_url().'buyer-technical-query/'.$row->pr_no.'" class="btn btn-sm btn-lime" title="" >View Query</a>';
+								 		$query_bid='<a href="'.base_url().'buyer-technical-query/'.$row->pr_no.'" class="btn btn-sm btn-info" title="" >View Query </a>';
 								 		$status_detai="On Going Bid Information";
 								 		if($tech==1){
 								 			if($technical_complete_status==0){
@@ -190,6 +197,7 @@ if(empty($email_id)){
 					                    <tr>
 					                      <td>'.$row->discipline.'</td>
 					                      <td>'.$row->pr_no.'</td>
+					                      <td>'.$row->comment.'</td>
 					                     
 					                      <td>'.$row->item.'</td>
 					                      <td>'.$row->UOM.'</td>
@@ -197,7 +205,8 @@ if(empty($email_id)){
 					                      <td>'.date('d-m-Y',strtotime($row->original_schedule)).'</td> 
 					                      <td>'.$buyer_user_remark.'</td>
 					                      <td>'.$technical_user_remark.'</td>
-					                      <td>'.$status_detai.'</td>
+																<td>'.$status_detai.'</td>
+																<td>'.$result_query->num_rows().'</td>
 					                      <td>'.$url.' || '.$query_bid.'</td>
 					                    </tr>
 					                    ';

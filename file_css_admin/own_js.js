@@ -125,3 +125,36 @@ $(document).ready(function() {
         ]
     } );
 } );
+$(document).ready(function() {
+    $('#table1bu').DataTable( {
+		"scrollY": 200,
+		"scrollX": true,
+		fixedHeader: {
+            header: true,
+            footer: true
+        },
+		dom: 'Bfrtip',		
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf'
+        ]
+    } );
+   var table_new= $('#table1bu2').removeAttr('width').DataTable( {
+	
+  		columnDefs: [
+  				{ targets: "-1", className: 'dt-body-right' }
+                 // {"className": "dt-right", "targets": "0"}
+
+          ],
+        responsive: true,
+  		scrollY:        "400px",
+    
+        fixedColumns: true,
+		dom: 'Bfrtip',		
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf'
+        ]
+    } );
+   table_new.columns.adjust().draw();
+
+    // "autoWidth": false
+} );

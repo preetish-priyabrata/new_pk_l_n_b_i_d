@@ -58,7 +58,7 @@ $query_remark=$this->db->get_where('master_bu_remark_pr',$data_info);
 						<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
 						<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
 					</div>
-					<h4 class="panel-title">PR Remark History Pr No Is <?=$pr_no?></h4>
+					<h4 class="panel-title">PR Remarks History Pr No Is <?=$pr_no?></h4>
 				</div>
 				<div class="panel-body">
                
@@ -66,7 +66,7 @@ $query_remark=$this->db->get_where('master_bu_remark_pr',$data_info);
                     <thead>
                         <tr>
                             <th>Date On </th>
-                            <th>Remark / Comment</th>
+                            <th>Remarks / Comment</th>
                             <th>Information</th>
                             <th>User Type</th>
                             <th>User Enter Email</th>

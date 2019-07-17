@@ -18,13 +18,13 @@ if(empty($email_id)){
 		<div id="content" class="content">
 			<!-- begin breadcrumb -->
 			<ol class="breadcrumb pull-right">
-				<li class="breadcrumb-item active"><a href="#" class="fa fa-home ">Home</a></li>
+				<li class="breadcrumb-item active"><a href="<?=base_url()?>user-technical-evalutor-home" class="fa fa-home ">Home</a></li>
 				<!-- <li class="breadcrumb-item"><a href="javascript:;">Page Options</a></li> -->
-				<li class="breadcrumb-item active">Detail View of History Bids</li>
+				<li class="breadcrumb-item active">History Of Technical Bid</li>
 			</ol>
 			<!-- end breadcrumb -->
 			<!-- begin page-header -->
-			<h1 class="page-header">Detail View of History Bids
+			<h1 class="page-header">History Of Technical Bid
 			 <!-- <small>header small text goes here...</small> -->
 			</h1>
 			<!-- end page-header -->
@@ -63,18 +63,20 @@ if(empty($email_id)){
 				?>
 			<div class="panel panel-inverse">
 				<div class="panel-heading">					
-					<h4 class="panel-title"> PR Schedule List </h4>
+					<h4 class="panel-title"> History Of Technical Bid List </h4>
 				</div>
 				<div class="panel-body">
 
 					<table id="example" class="display" style="width:100%">
 						<thead>
                     <tr>
-                      <th>PR No</th>
+											<th>PR No</th>
+											<th>Comment from Bu User</th>
+											<th>Item Name</th>
                       <th>Project Name</th>
                       <th>Bid Ref</th>
-                      <th>Bid Id</th>
-                      <!-- <th>Bid Publish Date</th> -->
+                      
+                      <th>Date of PR Release</th>
                       <th>View</th>
                       
                     </tr>
@@ -82,7 +84,8 @@ if(empty($email_id)){
                 <tbody>
 					<?php					
 					 	$data_check=array('approver_user_status'=>1,'design_user_status'=>1,'technical_user_status'=>1,'type_bidding_technical'=>1);
-						$query_check=$this->db->get_where('master_pr_process_detail',$data_check);
+						 $this->db->order_by('design_date','Asc');
+						 $query_check=$this->db->get_where('master_pr_process_detail',$data_check);
 						foreach($query_check->result() as $key_comm_id =>$value_comm_id):
 							$comm_list=unserialize($value_comm_id->tech_user_id_array);						
 							if (in_array($email_id, $comm_list)){
@@ -95,12 +98,24 @@ if(empty($email_id)){
 									$technical_bid_ref=$value_comm_id->technical_bid_ref;
 									$technical_bid_id=$value_comm_id->technical_bid_id;
 									$url='<a href="'.base_url().'technical-user-bid-pr-new-material/'.$value_comm_id->pr_no.'/'.$value_comm_id->pr_no_slno.'/'.$value_comm_id->project_slno.'/2/'.$tech_bid.'" > Click to View</a>';
+									$pr_no=$value_comm_id->pr_no;
+									// $query_pr_item_SLNO=$this->db->get_where('master_pr_schedule',array('pr_no'=>$pr_no));
+									// $result_pr_item=$query_pr_item_SLNO->result();
+									
+									$query_pr_item_SLNO=$this->db->get_where('master_pr_schedule',array('pr_no'=>$pr_no));
+									$result_pr_item=$query_pr_item_SLNO->result();
+									$item_name=$result_pr_item[0]->item;
+									$comment=$result_pr_item[0]->comment;
+									$design_date=date('d-m-Y',strtotime($value_comm_id->design_date));
 									echo '
 									<tr>
 										<td>'.$value_comm_id->pr_no.'</td>
+										<td>'.$comment.'</td>
+										<td>'.$item_name.'</td>
 										<td>'.$project_name.'</td>
 										<td>'.$technical_bid_ref.'</td>
-										<td>'.$technical_bid_id.'</td>
+										
+										<td>'.$design_date.'</td>
 										
 									  <td> <a href="'.base_url().'user-technical-evaluator-view-details-technical-bid-new-complete-view-pr/'.$value_comm_id->pr_no.'/'.$technical_bid_ref.'/'.$technical_bid_id.'/'.$tech_bid.'/3" class="btn btn-sm btn-lime" title="Click Here view Bid completed information of pr" >Click To View</a></td>
 									</tr>

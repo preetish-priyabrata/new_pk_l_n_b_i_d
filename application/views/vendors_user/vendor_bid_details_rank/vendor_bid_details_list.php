@@ -13,7 +13,7 @@ $result_new_bid=$this->vendor_db_usersnew->vendor_new_commerical_rank_bid_pr($Ve
 		<div id="content" class="content">
 			<!-- begin breadcrumb -->
 			<ol class="breadcrumb pull-right">
-				<li class="breadcrumb-item"><a href="javascript:;">Home</a></li>
+				<li class="breadcrumb-item"><a href="<?=base_url()?>seller/user-vendor-home">Home</a></li>
 				<li class="breadcrumb-item"><a href="javascript:;">Auction Bid</a></li>
 				<!-- <li class="breadcrumb-item active">Page with Top Menu</li> -->
 			</ol>
@@ -75,16 +75,18 @@ $result_new_bid=$this->vendor_db_usersnew->vendor_new_commerical_rank_bid_pr($Ve
 					        				$pr_slno=$bid_rank_ids->pr_slno;
 					        				$vendor_id_bid=$bid_rank_ids->vendor_id_bid;
 					        				$master_bid_id=$bid_rank_ids->master_bid_id;
-					        				$start=strtotime($bid_rank_ids->start_date);
-					        				$end_date=strtotime($bid_rank_ids->end_date);
-					        				$today=strtotime(date('Y-m-d H:i:s'));
+					        				$start=($bid_rank_ids->start_date);
+					        				$end_date=($bid_rank_ids->end_date);
+													$today=(date('d-m-Y H:i:s'));
+													$start_date=$bid_rank_ids->start_date;
+													$date=$bid_rank_ids->end_date;
 					        				$x++;
 					        				?>
 					        				<tr>
 					        				<td><?=$x?></td>
 					        				<td><?=$bid_rank_ids->bid_ref?></td>
-					        				<td><?=$start_date=$bid_rank_ids->start_date?></td>
-					        				<td><?=$date=$bid_rank_ids->end_date?>
+					        				<td><?=date('d-m-Y h:i:s A',strtotime($start_date))?></td>
+					        				<td><?=date('d-m-Y h:i:s A',strtotime($date));?>
 					        					<input type="hidden" name="date_end" id="date_end<?=$x?>" value="<?php echo ($date);?>"  readonly class="form-control-plaintext">
 					        					<input type="hidden" name="start_date" id="start_date<?=$x?>" value="<?php echo ($start_date);?>"  readonly class="form-control-plaintext">
 					        				</td>

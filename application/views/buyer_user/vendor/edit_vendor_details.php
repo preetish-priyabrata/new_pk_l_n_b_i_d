@@ -96,13 +96,7 @@ if($value1_convered_id==$value2){
 								<div class="row">
 									<div class="col-mb-6 col-lg-6">
 
-									 	<div class="form-group row m-b-15">
-											<label class="col-form-label col-md-3" for="Vendor_name">Vendor Name <span style="color: red">*</span></label>
-											<div class="col-md-9">
-												<input class="form-control m-b-3" name="Vendor_name" id="Vendor_name" type="text" required="" value="<?=$values->Vendor_name?>">
-												<small class="f-s-12 text-grey-darker"></small>
-											</div>
-										</div>
+									 	
 
 										<div class="form-group row m-b-15">
 											<label class="col-form-label col-md-3" for="Vendor_email_id">Vendor email <span style="color: red">*</span></label>

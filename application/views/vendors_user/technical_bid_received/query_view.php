@@ -132,10 +132,10 @@ if($result_title['no_new_tech']!=1){
 													<tr>
 														<td><?=$x?></td>
 														<td><?=$key_query->query_details?></td>
-														<td><?=$key_query->date_query?></td>
+														<td><?=date('d-m-Y',strtotime($key_query->date_query))?></td>
 														<?php if($key_query->status_responds==1){?>
 														<td><?=$key_query->response_detail?></td>
-														<td><?=$key_query->date_respond?></td>
+														<td><?=date('d-m-Y',strtotime($key_query->date_respond))?></td>
 													<?php }else{
 														?>
 														<td>--</td>
@@ -156,6 +156,6 @@ if($result_title['no_new_tech']!=1){
 
 						</div>
 					</div>
-					<a  href="<?=base_url()?>user-design-home" class="btn btn-sm btn-link">Back</a>
+					<a  href="<?=base_url()?>user-vendor-home" class="btn btn-sm btn-link">Back</a>
 
 				</div>

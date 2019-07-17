@@ -29,7 +29,7 @@ $bid_list=$result_drafted['bid_list'][0];
 		<div id="content" class="content">
 			<!-- begin breadcrumb -->
 			<ol class="breadcrumb pull-right">
-				<li class="breadcrumb-item active"><a href="#" class="fa fa-home ">Home</a></li>
+				<li class="breadcrumb-item active"><a href="<?=base_url()?>user-technical-evalutor-home" class="fa fa-home ">Home</a></li>
 				<!-- li class="breadcrumb-item"><a href="javascript:;">Page Options</a></li>
 				<li class="breadcrumb-item active">Page with Transparent Sidebar</li> -->
 			</ol>
@@ -95,7 +95,7 @@ $bid_list=$result_drafted['bid_list'][0];
 	                        </tbody>
 	                    </table>						
 					</div>
-					<form method="POST" action="<?=base_url()?>technical-evalutor-get-approved-reject-save">
+					<form method="POST" action="<?=base_url()?>technical-evalutor-get-approved-reject-save" enctype="multipart/form-data">
 						<div class="row">
 							<div class="col-lg-12">
 
@@ -119,12 +119,21 @@ $bid_list=$result_drafted['bid_list'][0];
 								</div>							
 									<label class="col-form-label col-md-3 pull-right" for="date_closed_bid">Approve</label>
 								</div>
-									<div class=" form-group row m-b-15">
+								<div id="comms">
+									<div class=" form-group row m-b-15" >
 										<label class="col-form-label col-md-3"> Comment</label>
 										<div class="col-md-9">
 											<textarea class="form-control" name="comment" id="comment" rows="4"></textarea>
 										</div>
 									</div>
+									<div class="form-group row m-b-15" >
+										<label class="col-form-label col-md-3" for="attachment_file">Attach Comment File <span style="color: red">*</span></label>
+										<div class="col-md-9">
+											<input type="file" name="attachment_file" id="attachment_file">
+											
+										</div>
+									</div>
+								</div>
 							</div>
 
 						</div>
@@ -144,11 +153,16 @@ $bid_list=$result_drafted['bid_list'][0];
 
 		<script type="text/javascript">
     	$(document).ready(function(){
+			$('#comms').hide();
     		$("input[type=checkbox]").on("change", function(){
 			    if($(this).is(":not(:checked)")){
-			    	$('#comment').prop('required',true);
+					$('#comms').show();
+					$('#comment').prop('required',true);
+					 $('#attachment_file').prop('required',true);
 			    }else{
-			    	$('#comment').prop('required',false);
+					$('#comms').hide();
+					$('#comment').prop('required',false);
+					$('#attachment_file').prop('required',false);
 			    }
 			});
 	        // $("input[type='checkbox']").click(function(){

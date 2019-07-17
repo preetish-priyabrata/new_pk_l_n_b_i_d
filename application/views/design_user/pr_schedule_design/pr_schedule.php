@@ -140,7 +140,7 @@ if(empty($email_id)){
                       <td>'.$row->UOM.'</td>
                       <td>'.$row->quantity.'</td>
                       <td>'.date('d-m-Y',strtotime($row->original_schedule)).'</td> 
-                      <td><a href="'.base_url().'design-mr-new-create/'.$row->pr_no.'/'.$row->slno.'/'.$row->job_code.'" target="_blank"> Click to Generated PR </a></td>
+                      <td><a href="'.base_url().'design-mr-new-create/'.$row->pr_no.'/'.$row->slno.'/'.$row->job_code.'" target="_blank"> Click to Generate PR </a></td>
                     </tr>
                     ';
                 }

@@ -103,7 +103,7 @@ input[type="number"] {
 				<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
 				<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
 			</div>
-			<h4 class="panel-title">Panel Title here</h4>
+			<h4 class="panel-title">Submission of commercial bid</h4>
 		</div>
 		<div class="panel-body">
 			<form action="<?=base_url()?>seller/user-vendor-bid-submission-commerical-save-pr" method="POST"  onsubmit="if(document.getElementById('agree').checked) { return true; } else { alert('Please indicate that you have read and agree to the Terms and Conditions and Privacy Policy'); return false; }">
@@ -126,7 +126,7 @@ input[type="number"] {
 					<div class="form-group row m-b-15">
 						<label class="col-form-label col-md-3" for="Po_no">Start Date <span style="color: red"></span></label>
 						<div class="col-md-9">
-						<?=$result_title['new_tech_list'][0]->date_start?>	
+						<?=date('d-m-Y',strtotime($result_title['new_tech_list'][0]->date_start))?>	
 						</div>
 					</div>
 					<div class="form-group row m-b-15">
@@ -152,13 +152,13 @@ input[type="number"] {
 					<div class="form-group row m-b-15">
 						<label class="col-form-label col-md-3" for="Po_date"> End Date <span style="color: red"></span></label>
 						<div class="col-md-9">
-						<?=$result_title['new_tech_list'][0]->date_end?>	
+						<?=date('d-m-Y',strtotime($result_title['new_tech_list'][0]->date_end))?>	
 						</div>
 					</div>
 					<div class="form-group row m-b-15">
 						<label class="col-form-label col-md-3" for="Advance_payment_date">Date of Query </label>
 						<div class="col-md-9">
-						<?=$result_title['new_tech_list'][0]->date_end?>	
+						<?=date('d-m-Y',strtotime($result_title['new_tech_list'][0]->date_end))?>	
 						</div>
 					</div>
 					<div class="form-group row m-b-15">
@@ -326,7 +326,7 @@ this.parentNode.parentNode.style.backgroundColor=/^\d+(?:\.\d{1,2})?$/.test(this
 			<div>
 			  <label for="myCheckbox"><input id="myCheckbox" name="i_accept" type="checkbox"/>I Agree
 			  <!--  class="btn btn-primary"-->
-			  <a href="#" data-toggle="modal" data-target="#exampleModal<?=$slno?>">Click To View</a>
+			  <!-- <a href="#" data-toggle="modal" data-target="#exampleModal<?=$slno?>">Click To View</a> -->
 			</label>
 
 			 </div>

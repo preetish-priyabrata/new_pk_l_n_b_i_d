@@ -21,7 +21,7 @@ $list_success_bid=$this->tech_eva_db->technical_evaluator_bid_new_lists($tech_sl
 		<div id="content" class="content">
 			<!-- begin breadcrumb -->
 			<ol class="breadcrumb pull-right">
-				<li class="breadcrumb-item"><a href="<?=base_url()?>user-buyer-home">Home</a></li>
+				<li class="breadcrumb-item"><a href="<?=base_url()?>user-technical-evalutor-home">Home</a></li>
 				<li class="breadcrumb-item"><a href="javascript:;">Technical Bid New</a></li>
 				<li class="breadcrumb-item active">List of Technical Bid New List</li>
 			</ol>

@@ -449,7 +449,7 @@ p {
 			<div>
 			  <label for="myCheckbox"><input id="myCheckbox" name="i_accept" type="checkbox"/>I Agree
 			  <!--  class="btn btn-primary"-->
-			  <a href="#" data-toggle="modal" data-target="#exampleModal<?=$slno?>">Click To View</a>
+			  <!-- <a href="#" data-toggle="modal" data-target="#exampleModal<?=$slno?>">Click To View</a> -->
 			</label>
 
 			 </div>

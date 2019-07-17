@@ -27,7 +27,7 @@ $commercial_resubmit_count=$commercial_resubmit_count;
 			</ol>
 			<!-- end breadcrumb -->
 			<!-- begin page-header -->
-			<h1 class="page-header">Notification Form For Commerical Bid </h1>
+			<h1 class="page-header">Notification Form For Commercial Bid </h1>
 			<!-- end page-header -->
 			<?php if(!empty($this->session->flashdata('success_message'))){?>
 			<div class="alert alert-success fade show">
@@ -50,7 +50,7 @@ $commercial_resubmit_count=$commercial_resubmit_count;
 						<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
 						<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
 					</div>
-					<h4 class="panel-title">Commercial Notification To Vendor For technical bid </h4>
+					<h4 class="panel-title">Commercial Notification To Vendor  </h4>
 				</div>
 				<div class="panel-body">
 					<div class="alert alert-secondary">
@@ -68,10 +68,10 @@ $commercial_resubmit_count=$commercial_resubmit_count;
 						<div class="row">
 							<div class="col-md-12 col-lg-12">
 							 	<div class="form-group row m-b-15">
-									<label class="col-form-label col-md-3" for="Technical_notification ">Commercial notification <span style="color: red">*</span></label>
+									<label class="col-form-label col-md-3" for="Technical_notification ">Commercial Notification <span style="color: red">*</span></label>
 									<div class="col-md-9">
 										<textarea class="form-control" rows="3" name="Technical_notification " required=""></textarea>
-										<small class="f-s-12 text-grey-darker">Here enter Commercial notification</small>
+										<small class="f-s-12 text-grey-darker">Here enter Commercial Notification</small>
 									</div>
 								</div>
 								

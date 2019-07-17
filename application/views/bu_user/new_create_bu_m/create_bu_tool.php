@@ -7,10 +7,19 @@ if(empty($email_id)){
 $pr_no=$pr_no;
 $slno_pr_no=$slno_pr_no;
 $job_code=$job_code;
+
+$this->db->from('master_pr_bid_qoute_item_final_approve');
+$this->db->where('master_pr_bid_qoute_item_final_approve.pr_no', $pr_no);
+// $this->db->where('master_pr_bid_qoute_item_final_approve.pr_no', $Vendor_email_id);
+$this->db->join('master_pr_bid_qoute_item_total', 'master_pr_bid_qoute_item_total.simple_id_slno_total = master_pr_bid_qoute_item_final_approve.Simple_id_slno');
+$get_information=$this->db->get()->result();
+
+
+
 	$this->db->select('*');
 	$this->db->from('master_project');
-	$this->db->join('assign_project_user', ' (assign_project_user.project_slno = master_project.Project_Slno  AND master_project.status=1 ) ', 'right outer' );					
-	$this->db->where('assign_project_user.email_id', $email_id); 	
+	// $this->db->join('assign_project_user', ' (assign_project_user.project_slno = master_project.Project_Slno  AND master_project.status=1 ) ', 'right outer' );					
+	// $this->db->where('assign_project_user.email_id', $email_id); 	
 	$this->db->where('master_project.Project_Slno', $job_code); 	
 	$query_bu = $this->db->get();
 
@@ -80,7 +89,7 @@ $job_code=$job_code;
 					<div class="alert alert-secondary">
                        	<span style="color: red"> *</span> All mandatory fields shall be duly filled up 
                     </div>	
-                    <form action="<?=base_url()?>bu-create-tracking-save_m" method="POST">					
+                    <form action="<?=base_url()?>bu-create-tracking-save_m" method="POST" autocomplete="off">					
 						<div id="accordion">
 						    <div class="card">
 						      <div class="card-header text-center">
@@ -92,55 +101,32 @@ $job_code=$job_code;
 						        <div class="card-body">
 						        	<h4 class="text-center" style="color: lightblue">Section I</h4>
 						        	<hr>
+
 						         	<div class="row">
-										<div class="col-md-6 col-lg-6">
+						         		<div class="col-md-6 col-lg-6">
 										 	<div class="form-group row m-b-15">
-												<label class="col-form-label col-md-3" for="Date_creation"> Create of Date <span style="color: red">*</span></label>
+												<label class="col-form-label col-md-3" for="Date_creation">BU Date of creation PR's</label>
 												<div class="col-md-9">
-													<input class="form-control m-b-5 datepickers" placeholder="Enter Create of Date" name="Date_creation" id="Date_creation" type="text" required="">
-													<small class="f-s-12 text-grey-darker">Here enter Create of Date</small>
+													<input class="form-control m-b-5 datepickers" placeholder="Enter Create of Date" name="Date_creation" id="Date_creation" type="hidden" required="" readonly="" value="<?=date('Y-m-d')?>"><?=date('Y-m-d')?><br>
+													<small class="f-s-12 text-grey-darker">BU Date of creation creation PR's</small>
 												</div>
 											</div>
 											<div class="form-group row m-b-15">
-												<label class="col-form-label col-md-3" for="Po_no"> PO No <span style="color: red">*</span></label>
+												<label class="col-form-label col-md-3" for="pr_item"> PR Name </label>
 												<div class="col-md-9">
-													<input class="form-control m-b-5" placeholder="Enter PO No" name="Po_no" id="Po_no" type="text" required="">
-													<small class="f-s-12 text-grey-darker">Here enter PO No.</small>
+													<input class="form-control m-b-5" placeholder="Enter Drg Approval Date" name="pr_item" id="pr_item" type="text" value="<?=$item_name['item_name']?>" readonly>
+													<small class="f-s-12 text-grey-darker">PR Name</small>
 												</div>
 											</div>
 											<div class="form-group row m-b-15">
-												<label class="col-form-label col-md-3" for="Bg_submission_date"> BG Submission Date </label>
+												<label class="col-form-label col-md-3" for="target_date_ordering">Planned Ordering Date </label>
 												<div class="col-md-9">
-													<input class="form-control m-b-5 datepickers" placeholder="Enter BG Submission Date" name="Bg_submission_date" id="Bg_submission_date" type="text" >
-													<small class="f-s-12 text-grey-darker">Here enter BG Submission Date</small>
+													<input class="form-control m-b-5 datepickers" placeholder="Enter Planned Date of ordering" name="target_date_ordering" id="target_date_ordering" type="hidden" required="" value="<?=$item_name['scheduled_order']?>" readonly >
+													<?=date('d-m-Y',strtotime($item_name['scheduled_order']))?>
+													
 												</div>
 											</div>
-	                                        
-	                                        <div class="form-group row m-b-15">
-												<label class="col-form-label col-md-3" for="Mfg_clear_date"> Mfg Clearance Date <span style="color: red"></span></label>
-												<div class="col-md-9">
-													<input class="form-control m-b-5 datepickers" placeholder="Enter Mfg Clearance Date" name="Mfg_clear_date" id="Mfg_clear_date" type="text" >
-													<small class="f-s-12 text-grey-darker">Here enter Mfg Clearance Date</small>
-												</div>
-											</div>
-											 <div class="form-group row m-b-15">
-												<label class="col-form-label col-md-3" for="Pr_NO"> PR NO <span style="color: red"></span></label>
-												<div class="col-md-9">
-													<input class="form-control m-b-5"  name="Pr_NO" id="Pr_NO" type="text" value="<?=$pr_no?>" readonly >
-													<input class="form-control m-b-5"  name="Pr_NO_slno" id="Pr_NO_slno" type="hidden" value="<?=$slno_pr_no?>" readonly >
-													<small class="f-s-12 text-grey-darker">PR NO</small>
-												</div>
-											</div>
-										</div>
-										<div class="col-md-6 col-lg-6">
-											<div class="form-group row m-b-15">
-												<label class="col-form-label col-md-3" for="Job_code"> Project Name <span style="color: red">*</span></label>
-												<div class="col-md-9">
-													<input class="form-control m-b-5" placeholder="Enter Job Code" name="Job_code" id="Job_code" type="text" required="" value='<?=$key_job_code[0]->job_Code." [ ".$key_job_code[0]->Project_Name." ]";?>' readonly>
-													<input class="form-control m-b-5" placeholder="Enter Job Code" name="Job_code_id" id="Job_code_id" type="hidden" required="" value='<?=$key_job_code[0]->Project_Slno;?>' readonly>
-													<small class="f-s-12 text-grey-darker">Here enterProject Name</small>
-												</div>
-											</div>
+
 											<div class="form-group row m-b-15">
 												<label class="col-form-label col-md-3" for="Po_date"> PO Date <span style="color: red">*</span></label>
 												<div class="col-md-9">
@@ -148,6 +134,15 @@ $job_code=$job_code;
 													<small class="f-s-12 text-grey-darker">Here enter PO Date</small>
 												</div>
 											</div>
+
+											<div class="form-group row m-b-15">
+												<label class="col-form-label col-md-3" for="planned_bg_submission">Planned BG submission date <span style="color: red">*</span></label>
+												<div class="col-md-9">
+													<input class="form-control m-b-5 datepickers" placeholder="Enter Planned BG submission date" name="planned_bg_submission" id="planned_bg_submission" type="text" required="" >
+													<small class="f-s-12 text-grey-darker">Here enter Planned BG submission date Date</small>
+												</div>
+											</div>
+
 											<div class="form-group row m-b-15">
 												<label class="col-form-label col-md-3" for="Advance_payment_date"> Advance Payment Date </label>
 												<div class="col-md-9">
@@ -155,23 +150,106 @@ $job_code=$job_code;
 													<small class="f-s-12 text-grey-darker">Here enter Advance Payment Date</small>
 												</div>
 											</div>
+
 											<div class="form-group row m-b-15">
-												<label class="col-form-label col-md-3" for="Advance_payment_date"> Drg Approval Date </label>
+												<label class="col-form-label col-md-3" for="actual_draw_submission_date">Actual Drawing Submission Date <span style="color: red">*</span></label>
 												<div class="col-md-9">
-													<input class="form-control m-b-5 datepickers" placeholder="Enter Drg Approval Date" name="Advance_payment_date" id="Advance_payment_date" type="text" >
-													<small class="f-s-12 text-grey-darker">Here enter Drg Approval Date</small>
+													<input class="form-control m-b-5 datepickers" placeholder="Enter Actual Drawing Submission Date" name="actual_draw_submission_date" id="actual_draw_submission_date" type="text" required="" >
+													<small class="f-s-12 text-grey-darker">Here enter Actual Drawing Submission Date</small>
+												</div>
+											</div>
+
+											<div class="form-group row m-b-15">
+												<label class="col-form-label col-md-3" for="scheduled_manufacturing_clearance_date">Scheduled Manufacturing Clearance Date<span style="color: red">*</span></label>
+												<div class="col-md-9">
+													<input class="form-control m-b-5 datepickers" placeholder="Enter Scheduled Manufacturing Clearance Date" name="scheduled_manufacturing_clearance_date" id="scheduled_manufacturing_clearance_date" type="text" required="" >
+													<small class="f-s-12 text-grey-darker">Here enter Scheduled Manufacturing Clearance Date</small>
 												</div>
 											</div>
 											<div class="form-group row m-b-15">
-												<label class="col-form-label col-md-3" for="pr_item"> PR ITEM </label>
+												<label class="col-form-label col-md-3" for="remark_manufacturing_clearance">Remark Manufacturing Clearance </label>
 												<div class="col-md-9">
-													<input class="form-control m-b-5" placeholder="Enter Drg Approval Date" name="pr_item" id="pr_item" type="text" value="<?=$item_name['item_name']?>" readonly>
-													<small class="f-s-12 text-grey-darker">PR ITEM</small>
+													<textarea class="form-control m-b-5" name="remark_manufacturing_clearance" id="remark_manufacturing_clearance"></textarea>
+													
+													<small class="f-s-12 text-grey-darker">Here enter Remark Manufacturing Clearance</small>
 												</div>
 											</div>
-										 
-										</div>
-									</div>
+
+
+						         		</div>
+
+
+						         		<div class="col-md-6 col-lg-6">
+											<div class="form-group row m-b-15">
+												<label class="col-form-label col-md-3" for="Job_code"> Project Name <span style="color: red">*</span></label>
+												<div class="col-md-9">
+													<input class="form-control m-b-5" placeholder="Enter Job Code" name="Job_code" id="Job_code" type="text" required="" value='<?=$key_job_code[0]->job_Code." [ ".$key_job_code[0]->Project_Name." ]";?>' readonly>
+													<input class="form-control m-b-5" placeholder="Enter Job Code" name="Job_code_id" id="Job_code_id" type="hidden" required="" value='<?=$key_job_code[0]->Project_Slno;?>' readonly>
+													<small class="f-s-12 text-grey-darker">Here enter Project Name</small>
+												</div>
+											</div>
+						         			<div class="form-group row m-b-15">
+												<label class="col-form-label col-md-3" for="Pr_NO"> PR NO <span style="color: red"></span></label>
+												<div class="col-md-9">
+													<input class="form-control m-b-5"  name="Pr_NO" id="Pr_NO" type="text" value="<?=$pr_no?>" readonly >
+													<input class="form-control m-b-5"  name="Pr_NO_slno" id="Pr_NO_slno" type="hidden" value="<?=$slno_pr_no?>" readonly >
+													<small class="f-s-12 text-grey-darker">PR NO</small>
+												</div>
+											</div>
+											<div class="form-group row m-b-15">
+												<label class="col-form-label col-md-3" for="actual_delivery_date">PO Actual Delivery Date <span style="color: red">*</span></label>
+												<div class="col-md-9">
+													<input class="form-control m-b-5 datepickers" placeholder="Enter Actual Delivery  Date" name="actual_delivery_date" id="actual_delivery_date" type="text" required="" >
+													<small class="f-s-12 text-grey-darker">Here enter Actual Drawing Submission Date</small>
+												</div>
+											</div>
+
+											<div class="form-group row m-b-15">
+												<label class="col-form-label col-md-3" for="Po_no"> PO No <span style="color: red">*</span></label>
+												<div class="col-md-9">
+													<input class="form-control m-b-5" placeholder="Enter PO No" name="Po_no" id="Po_no" type="text" required="" autocomplete="off">
+													<small class="f-s-12 text-grey-darker">Here enter PO No.</small>
+												</div>
+											</div>
+
+											<div class="form-group row m-b-15">
+												<label class="col-form-label col-md-3" for="Bg_submission_date">Actual BG submission date </label>
+												<div class="col-md-9">
+													<input class="form-control m-b-5 datepickers" placeholder="Enter Actual BG submission date" name="Bg_submission_date" id="Bg_submission_date" type="text" >
+													<small class="f-s-12 text-grey-darker">Here enter Actual BG submission date Date</small>
+												</div>
+											</div>
+
+											<div class="form-group row m-b-15">
+												<label class="col-form-label col-md-3" for="Scheduled_draw_submission">Scheduled Drawing Submission Date <span style="color: red">*</span></label>
+												<div class="col-md-9">
+													<input class="form-control m-b-5 datepickers" placeholder="Enter Scheduled Drawing Submission Date" name="Scheduled_draw_submission" id="Scheduled_draw_submission" type="text" required="" >
+													<small class="f-s-12 text-grey-darker">Here enter Scheduled Drawing Submission Date </small>
+												</div>
+											</div>
+
+											<div class="form-group row m-b-15">
+												<label class="col-form-label col-md-3" for="final_drg_no">Final Drg NO <span style="color: red">*</span></label>
+												<div class="col-md-9">
+													<input class="form-control m-b-5 " placeholder="Enter Final Drg NO" name="final_drg_no" id="final_drg_no" type="text" required="" >
+													<small class="f-s-12 text-grey-darker">Here enter Final Drg NO</small>
+												</div>
+											</div>
+
+											<div class="form-group row m-b-15">
+												<label class="col-form-label col-md-3" for="actual_manufacturing_clearance_date">Actual Manufacturing Clearance Date<span style="color: red">*</span></label>
+												<div class="col-md-9">
+													<input class="form-control m-b-5 datepickers" placeholder="Enter Actual Manufacturing Clearance Date" name="actual_manufacturing_clearance_date" id="actual_manufacturing_clearance_date" type="text" required="" >
+													<small class="f-s-12 text-grey-darker">Here enter Actual Manufacturing Clearance Date</small>
+												</div>
+											</div>
+										
+						         			
+
+						         		</div>
+
+						         	</div>
+
 						        </div>
 						      </div>
 						    </div>
@@ -308,16 +386,16 @@ $job_code=$job_code;
 					        		<div class="row">
 											<div class="col-md-6 col-lg-6">
 												<div class="form-group row m-b-15">
-													<label class="col-form-label col-md-3" for="ACE_Basic">ACE (Basic Value)in Rs L</label>
+													<label class="col-form-label col-md-3" for="ACE_Basic">ACE (Basic Value) <span style="color: red">*</span></label>
 													<div class="col-md-9">
-														<input class="form-control m-b-5" placeholder="Enter ACE (Basic Value)" name="ACE_Basic" id="ACE_Basic" type="text" >
-														<small class="f-s-12 text-grey-darker">Here enter ACE (Basic Value) in Rs L</small>
+														<input class="form-control m-b-5" placeholder="Enter ACE (Basic Value)" name="ACE_Basic" id="ACE_Basic" type="text" value="0" required="" onkeydown="calculation_saving()">
+														<small class="f-s-12 text-grey-darker">Here enter ACE (Basic Value) </small>
 													</div>
 												</div>
 												<div class="form-group row m-b-15">
-													<label class="col-form-label col-md-3" for="Order_value">Order Basic Value in Rs L</label>
+													<label class="col-form-label col-md-3" for="Order_value">Order Basic Value  <span style="color: red">*</span></label>
 													<div class="col-md-9">
-														<input class="form-control m-b-5" placeholder="Enter Order Basic Value" name="Order_value" id="Order_value" type="text" >
+														<input class="form-control m-b-5" placeholder="Enter Order Basic Value" name="Order_value" id="Order_value" type="text"  value="<?=$get_information[0]->total_price?>" readonly>
 														<small class="f-s-12 text-grey-darker">Here enter Order Basic Value in Rs L</small>
 													</div>
 												</div>
@@ -325,24 +403,22 @@ $job_code=$job_code;
 											</div>
 											<div class="col-md-6 col-lg-6">
 												<div class="form-group row m-b-15">
-													<label class="col-form-label col-md-3" for="Invoice_value">Invoice Value Gross in RS L</label>
+													<label class="col-form-label col-md-3" for="Invoice_value">Invoice Value Gross </label>
 													<div class="col-md-9">
 														<input class="form-control m-b-5" placeholder="Enter Invoice Value Gross" name="Invoice_value" id="Invoice_value" type="text" >
 														<small class="f-s-12 text-grey-darker">Here enter Invoice Value Gross in RS L</small>
 													</div>
 												</div>
 												<div class="form-group row m-b-15">
-													<label class="col-form-label col-md-3" for="Cost_saving">Cost Saving</label>
+													<label class="col-form-label col-md-3" for="Cost_saving">Cost Saving  <span style="color: red">*</span></label>
 													<div class="col-md-9">
-														<input class="form-control m-b-5" placeholder="Enter Cost Saving" name="Cost_saving" id="Cost_saving" type="text" >
+														<input class="form-control m-b-5" placeholder="Enter Cost Saving" name="Cost_saving" id="Cost_saving" type="text" readonly="" required="">
 														<small class="f-s-12 text-grey-darker">Here enter Cost Saving</small>
 													</div>
 												</div>
 												
 											</div>
 										</div>
-
-
 						        </div>
 						      </div>
 						    </div>
@@ -350,8 +426,8 @@ $job_code=$job_code;
 					
 				  	<div class="form-group row pull-right">
                         <div class="col-md-12">
-                            <button type="submit" class="btn btn-sm btn-primary m-r-5" name="send_button" value="save">Save</button>
-                           	 <button type="submit" class="btn btn-sm btn-info m-r-5" name="send_button" value="send">Send</button>
+                            <!-- <button type="submit" class="btn btn-sm btn-primary m-r-5" name="send_button" value="save">Save as draft</button> -->
+                           	 <button type="submit" class="btn btn-sm btn-info m-r-5" name="send_button" value="send">Submit</button>
                             <a  href="<?=base_url()?>user-bu-home" class="btn btn-sm btn-danger">Cancel</a> 
                         </div>
                     </div>
@@ -362,3 +438,16 @@ $job_code=$job_code;
 			<!-- end panel -->
 		</div>
 		<!-- end #content -->
+		<script type="text/javascript">
+			function calculation_saving() {
+				var ACE_Basic=$('#ACE_Basic').val();
+				var Order_value=$('#Order_value').val();
+				if(ACE_Basic!=""){
+					var saving = ACE_Basic - Order_value;
+					 var ansD = document.getElementById("Cost_saving");
+    				ansD.value = saving;
+					// document.getElementById("Cost_saving").html() = z;
+				}
+				// body...
+			}
+		</script>

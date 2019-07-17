@@ -13,6 +13,8 @@ if(empty($email_id)){
 $pr_no=$Pr_no;
 $slno_pr=$Pr_no_slno;
 $job_code=$Project_slno; //Project_Slno
+$data_process = array('pr_no' => $pr_no);
+$result_table_process=$this->db->get_where('master_pr_process_detail',$data_process)->result();
 
 $data_table=array('pr_no'=>$pr_no,'mr_forword_status'=>0);
 $query_data=$this->db->get_where('master_mr_job_details_m',$data_table);
@@ -56,12 +58,12 @@ $result_table=$query_data->result();
 			<!-- begin breadcrumb -->
 			<ol class="breadcrumb pull-right">
 				<li class="breadcrumb-item active"><a href="<?=base_url()?>user-design-home" class="fa fa-home ">Home</a></li>
-				<li class="breadcrumb-item"><a href="javascript:;">Material Requisition</a></li>
-				<li class="breadcrumb-item active">Create New Material Requisition</li>
+				<li class="breadcrumb-item"><a href="javascript:;">PR</a></li>
+				<li class="breadcrumb-item active">Resubmission of PR Request</li>
 			</ol>
 			<!-- end breadcrumb -->
 			<!-- begin page-header -->
-			<h1 class="page-header">Create New Material Requisition  </h1>
+			<h1 class="page-header">Resubmission of PR Request</h1>
 			<!-- end page-header -->
 			<?php if(!empty($this->session->flashdata('success_message'))){?>
 			<div class="alert alert-success fade show">
@@ -84,7 +86,7 @@ $result_table=$query_data->result();
 						<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
 						<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
 					</div>
-					<h4 class="panel-title">Add New Material Requisition Information</h4>
+					<h4 class="panel-title">Add PR Informations</h4>
 				</div>
 				<div class="panel-body">
 					
@@ -137,19 +139,27 @@ $result_table=$query_data->result();
 									</div>
 								</div>
 
-								<div class="form-group row m-b-15">
+								<input class="form-control m-b-5 datepickers" placeholder="Enter Date Required " name="required_date" id="required_date" type="hidden" required="" value="<?=$result_table[0]->date_required?>">
+								<!-- <div class="form-group row m-b-15">
 									<label class="col-form-label col-md-3" for="required_date">Date Required <span style="color: red">*</span></label>
 									<div class="col-md-9">
 										
-										<input class="form-control m-b-5 datepickers" placeholder="Enter Date Required " name="required_date" id="required_date" type="text" required="" value="<?=$result_table[0]->date_required?>">
+										
 										<small class="f-s-12 text-grey-darker">Please enter Date Required</small>
+									</div>
+								</div> -->
+								<div class="form-group row m-b-15">
+									<label class="col-form-label col-md-3" for="date_clearfication_bid">Planned Technical Date <span style="color: red">*</span></label>
+									<div class="col-md-9">
+										<input class="form-control m-b-5 datepickers" placeholder="Enter Planned Technical Date" name="planned_technical_clearance_date" id="planned_technical_clearance_date" type="text" required="" value="<?=$result_table_process[0]->planned_technical_clearance_date?>">
+										<small class="f-s-12 text-grey-darker">Please Select Planned Technical Date</small>
 									</div>
 								</div>
 								<div class="form-group row m-b-15">
-									<label class="col-form-label col-md-3">Remark<span style="color: red">*</span></label>
+									<label class="col-form-label col-md-3">Remarks<span style="color: red">*</span></label>
 									<div class="col-md-9">
 										<textarea class="form-control" rows="3" name="Remark" required=""></textarea>
-										<small class="f-s-12 text-grey-darker"> Please enter Remark To Approver </small>
+										<small class="f-s-12 text-grey-darker"> Please enter Remarks To Approver </small>
 									</div>
 								</div>
 							</div>
@@ -213,7 +223,7 @@ $result_table=$query_data->result();
 										<input class="form-control-plaintext m-b-5" name="mr_date_of_creation"  id="mr_date_of_creation" type="text" required=""  value="<?=$result_table[0]->date_creation?>">
 
 
-										<small class="f-s-12 text-grey-darker">Date Of Creating MR</small>
+										<small class="f-s-12 text-grey-darker">Date Of Creating PR</small>
 									</div>
 								</div>
 								<div class="form-group row m-b-15">
@@ -221,7 +231,7 @@ $result_table=$query_data->result();
 									<div class="col-md-9">
 										<input class="form-control m-b-5" placeholder="Enter  File Title Name" name="job_files_name" id="job_files_name" type="text"  >
 										<input class=" m-b-5" placeholder="Enter Activity name" name="job_files" id="job_files" type="file"  >	<span class="btn btn-sm btn-info" id="sub">Upload</span>	<br>								
-										<small class="f-s-12 text-grey-darker">Job Attachment</small>
+										<!-- <small class="f-s-12 text-grey-darker">Job Attachment</small> -->
 									</div>
 								</div>
 
@@ -469,7 +479,7 @@ var queryString = "";
                     	}else if(response==2){
                     		alert('Same File name is found ');
                     	}else{
-                    		alert('Some thing went worng Please check internet connection ');
+                    		alert('Something went wrong please check internet connection ');
                     	}
                         // $('#msg').html(response); // display success response from the server
                     }

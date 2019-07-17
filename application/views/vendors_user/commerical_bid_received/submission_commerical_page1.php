@@ -18,7 +18,11 @@ if($result_title['no_new_tech']!=1){
 }
 
 $pr_no=$result_title['new_tech_list'][0]->pr_no;
+$commercial_resubmit_count=$result_title['new_tech_list'][0]->commercial_resubmit_count;
+$master_bid_id=$result_title['new_tech_list'][0]->master_bid_id;
 
+$query_currency=$this->db->get_where('master_bid_Com_m',array('pr_no'=>$pr_no,'commercial_resubmit_count'=>$commercial_resubmit_count,'Slno_bid'=>$master_bid_id));
+$result_currency=$query_currency->result();
 
 $data_process = array('pr_no' =>$pr_no);
 $query_process=$this->db->get_where('master_pr_process_detail',$data_process);
@@ -28,6 +32,7 @@ $slno_pr=$result_process[0]->pr_no_slno;
 $job_code=$result_process[0]->project_slno;
 $date_end=$result_title['new_tech_list'][0]->date_end;
 
+$status_view=$result_title['new_tech_list'][0]->status_view;
 $data_table6 = array('pr_no' =>$pr_no,'commercial_bid_id'=>$comm_bid);
 $query_table6=$this->db->get_where('master_technical_commercial_terms_conditions',$data_table6);
 $result_table6=$query_table6->result();
@@ -103,7 +108,7 @@ input[type="number"] {
 				<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
 				<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
 			</div>
-			<h4 class="panel-title">Panel Title here</h4>
+			<h4 class="panel-title">Commercial bid submission details</h4>
 		</div>
 		<div class="panel-body">
 			<div class="alert alert-secondary">
@@ -129,7 +134,7 @@ input[type="number"] {
 					<div class="form-group row m-b-15">
 						<label class="col-form-label col-md-3" for="Po_no">Start Date <span style="color: red"></span></label>
 						<div class="col-md-9">
-						<?=$result_title['new_tech_list'][0]->date_start?>	
+						<?=date('d-m-Y',strtotime($result_title['new_tech_list'][0]->date_start))?>	
 						</div>
 					</div>
 					<div class="form-group row m-b-15">
@@ -147,21 +152,21 @@ input[type="number"] {
 				</div>
 				<div class="col-md-6 col-lg-6">
 					<div class="form-group row m-b-15">
-						<label class="col-form-label col-md-3" for="Job_code"> Bid Id<span style="color: red"></span></label>
+						<label class="col-form-label col-md-3" for="Job_code"> Currency <span style="color: red"></span></label>
 						<div class="col-md-9">
-						<?=$result_title['new_tech_list'][0]->bid_id?>	
+						<?=$result_currency[0]->currency_code?>	
 						</div>
 					</div>
 					<div class="form-group row m-b-15">
 						<label class="col-form-label col-md-3" for="Po_date"> End Date <span style="color: red"></span></label>
 						<div class="col-md-9">
-						<?=$result_title['new_tech_list'][0]->date_end?>	
+						<?=date('d-m-Y',strtotime($result_title['new_tech_list'][0]->date_end))?>	
 						</div>
 					</div>
 					<div class="form-group row m-b-15">
 						<label class="col-form-label col-md-3" for="Advance_payment_date">Date of Query </label>
 						<div class="col-md-9">
-						<?=$result_title['new_tech_list'][0]->date_end?>	
+						<?=date('d-m-Y',strtotime($result_title['new_tech_list'][0]->date_end))?>	
 						</div>
 					</div>
 					<div class="form-group row m-b-15">
@@ -307,8 +312,8 @@ this.parentNode.parentNode.style.backgroundColor=/^\d+(?:\.\d{1,2})?$/.test(this
 				 <div class="col-md-12">
 			<div>
 			  <label for="myCheckbox"><input id="myCheckbox" name="i_accept" type="checkbox"/>I Agree
-			  <!--  class="btn btn-primary"-->
-			  <a href="#" data-toggle="modal" data-target="#exampleModal<?=$slno?>">Click To View</a>
+			  <!--  class="btn btn-primary
+			  <a href="#" data-toggle="modal" data-target="#exampleModal<?=$slno?>">Click To View</a>"-->
 			</label>
 
 			 </div>
@@ -320,7 +325,13 @@ this.parentNode.parentNode.style.backgroundColor=/^\d+(?:\.\d{1,2})?$/.test(this
                 <div class="col-md-12">
                 <?php 	$today=date('Y-m-d');
           	 	if($date_end < $today) {
-
+          	 	     if($status_view==8){
+          	 	    ?>
+          	 	    
+          	 	        <input type="button" value="Total" id="to_cal" onclick="totalIt()" />
+                    <button type="submit" id="to_sub" class="btn btn-sm btn-primary m-r-5" disabled>Send</button>
+          	 	    <?php }
+        
           	 	}else{
           	 		?>
                 	<input type="button" value="Total" id="to_cal" onclick="totalIt()" />
@@ -338,7 +349,7 @@ this.parentNode.parentNode.style.backgroundColor=/^\d+(?:\.\d{1,2})?$/.test(this
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Term And Condition</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Terms And Conditions</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -470,9 +481,9 @@ this.parentNode.parentNode.style.backgroundColor=/^\d+(?:\.\d{1,2})?$/.test(this
 	}
 
 	function totalIt() {
-	  
+	  var ids_item='<?=$x;?>';
 	  var total=0;
-	  for (var i=1;i<=<?=$x?>;i++) {
+	  for (var i=1;i<=ids_item;i++) {
 	    calc(i);  
 	    var price = parseFloat(document.getElementById("price"+i).value);
 	    total += isNaN(price)?0:price;

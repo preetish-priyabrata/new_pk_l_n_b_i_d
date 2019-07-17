@@ -9,6 +9,14 @@ $Slno_query=$Slno_query;
 $pr_no=$pr_no;
 $result_query1=$this->db->get_where('master_bid_query_tech_m',array('pr_no'=>$pr_no,'Slno_query'=>$Slno_query));
 $result_query=$result_query1->result();
+$vendor_id=$result_query[0]->Vendor_id;
+$this->db->where('Vendor_email_id',$vendor_id);
+$query_vendor=$this->db->get('master_vendor_detail');
+$query_vendor_result=$query_vendor->result();
+$value_id_vender=$query_vendor_result[0];
+
+$project_info=$this->db->get_where('master_pr_process_detail',array('pr_no'=>$pr_no));
+$result_query_project_info=$project_info->result();
 
 
  
@@ -26,7 +34,7 @@ $result_query=$result_query1->result();
 			</ol>
 			<!-- end breadcrumb -->
 			<!-- begin page-header -->
-			<h1 class="page-header">Query Panel View<small></small></h1>
+			<h1 class="page-header">Query Replay <small>Panel</small></h1>
 			<!-- end page-header -->
 			<?php if(!empty($this->session->flashdata('success_message'))){?>
 			<div class="alert alert-success fade show">
@@ -71,14 +79,38 @@ $result_query=$result_query1->result();
 								
 								<div class="col-md-12 col-lg-12">
 
-									<h4 class="panel-title ">Query  : ?=$result_query[0]->query_details?></h4>
+									<h4 class="panel-title ">Query  : <?=$result_query[0]->query_details?></h4>
 									
 									<hr style="height: 2px; background:  green">
 								</div>
 							</div>
 							
-								
+					<div class="row">
+						<div class="col-md-6 col-lg-6">
+							<div class="form-group row m-b-15">
+								<label class="col-form-label col-md-3" for="activity_name">PR No. </label>
+								<div class="col-md-9">
+								<?=$pr_no?>
+								</div>
+							</div>
+							<div class="form-group row m-b-15">
+								<label class="col-form-label col-md-3" for="activity_name">Project Name. </label>
+								<div class="col-md-9">
+								<?=ucwords($result_query_project_info[0]->project_name)?>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6 col-lg-6">
+							<div class="form-group row m-b-15">
+								<label class="col-form-label col-md-3" for="activity_name">Organisation Name. </label>
+								<div class="col-md-9">
+								<p><?=$value_id_vender->Organisation_name?></p>
+								</div>
+							</div>
+						</div>
+					</div>		
 				     <div class="row">
+
 	            	<div class="col-lg-2">
 	              	<div class="form-group row m-b-15">
 			     					<label class="col-form-label col-md-3" for="title">Reply <span style="color: red"></span></label>

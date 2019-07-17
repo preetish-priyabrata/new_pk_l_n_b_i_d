@@ -44,7 +44,7 @@ class Designusernew extends CI_Controller {
         }
           $scripts='<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script><script src=" https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script> <script src="'.base_url().'file_css_admin/own_js.js"></script>';
 
-        $data=array('title' =>"View Project Mr Schedule list",'script_js'=>$scripts ,'menu_status'=>'3','sub_menu'=>'6','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'');  
+        $data=array('title' =>"View Project Mr Schedule list",'script_js'=>$scripts ,'menu_status'=>'1','sub_menu'=>'5','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'');  
 
             $this->load->view('template/template_header',$data);
             $this->load->view('design_user/template/template_top_head');
@@ -156,7 +156,7 @@ class Designusernew extends CI_Controller {
                   <table class="table table-striped table-bordered">
                     <tr>
                         <th>Name</th>                        
-                        <th>Technical Parameter </th>
+                        <th>Technical Parameters </th>
                         <th>UOM</th>
                          <th>Quantity</th>
                         <th>Action</th> 
@@ -269,7 +269,7 @@ EOT;
                   <thead>
                       <tr>
                           <th><strong>Name</strong></th>
-                          <th><strong>Technical Paramete</strong></th>
+                          <th><strong>Technical Parameter</strong></th>
                           <th><strong>UOM</strong></th>
                           <th><strong>Quantity</strong></th>           
                           <th><strong>Action</strong></th>
@@ -325,7 +325,7 @@ $id++;
                   <thead>
                       <tr>
                           <th><strong>Name</strong></th>
-                          <th><strong>Technical Paramete</strong></th>
+                          <th><strong>Technical Parameter</strong></th>
                           <th><strong>UOM</strong></th>
                           <th><strong>Quantity</strong></th>           
                           <th><strong>Action</strong></th>
@@ -405,14 +405,14 @@ $id++;
              case 'files_info':
                 $result_file=$this->design_user->get_design_mr_file_list_m($pr_no,$slno_pr,$job_code);
                 if($result_file['no_files']==2){
-                    echo "<p class='text-center' style='color:red'><b>No File Attachment is found for this MR Request no</b></p>";
+                    echo "<p class='text-center' style='color:red'><b>No File Attachment is found</b></p>";
                 }else if($result_file['no_files']==1){
                     ?>
                       <table class="table table-bordered" cellpadding="10" cellspacing="1" width="100%">
                         <thead>
                             <tr>
                                 <th><strong>File Title Name</strong></th>
-                                <th><strong>Click View</strong></th>                                
+                                <th><strong>Click to View</strong></th>                                
                                 <th><strong>Action</strong></th>
                             </tr>
                         </thead>
@@ -420,7 +420,7 @@ $id++;
                             <?php foreach($result_file['files_list'] as $key_files){ ?>
                                 <tr>
                                     <td><strong><?=$key_files->file_title?></strong></td>
-                                    <td><strong><a target="_blank" href="<?=base_url()?>upload_files/design_upload/<?=$key_files->attach_name?>">Click View</a> </strong></td>                                
+                                    <td><strong><a target="_blank" href="<?=base_url()?>upload_files/design_upload/<?=$key_files->attach_name?>">Click to View</a> </strong></td>                                
                                     <td><strong><span onclick="file_delete(<?=$key_files->slno_file?>)" class="btn btn-sm btn-danger">Delete File</span></strong></td>
                                 </tr> 
 
@@ -473,6 +473,7 @@ $id++;
       }
       //  if session of user is expired
       
+
       $pr_no=$this->input->post('pr_no');
       $slno_pr=$this->input->post('slno_pr');
       $job_code=$this->input->post('job_code');
@@ -480,6 +481,7 @@ $id++;
       $edit_type=$this->input->post('edit_type');
       $tech_evalution=$this->input->post('tech_evalution');
       $required_date=$this->input->post('required_date');
+      $Revised_required_date=$this->input->post('Revised_required_date');
       $approver_id=$this->input->post('approver_id');
       $material_category_name=$materials_id=$this->input->post('materials_id');
       $mr_date_of_creation=$this->input->post('mr_date_of_creation');
@@ -493,6 +495,7 @@ $id++;
       $quantitys=$this->input->post('quantitys');
       $submission=$this->input->post('submission');
       $Remark=$this->input->post('Remark');
+      $planned_technical_clearance_date=$this->input->post('planned_technical_clearance_date');
 
       $date_submition=$date_entry=date('Y-m-d');
       $time_submition=$time_entry=date('H:i:s');
@@ -552,16 +555,18 @@ $id++;
               $table_mr_create_clone="master_mr_job_details_m_clone";
               $query_id_clone=$this->user->common_insert_id($table_mr_create_clone,$data_inserted_clone);
               $last_id_clone=$query_id_clone;
+              ################################## Here Item Is stored into to System #############################
 // `category_name`, `material_item_name`, `material_item_id`, `technical_details`, `uom`, `status`, `entry_date`, `update_date`, `entry_id`
               foreach ($codes as $key_value => $ids) {
                   $query_item_details=$this->design_user->get_design_master_items_material_single_m($ids);
                   $quantity_single=$quantitys[$key_value];
                   $data_material = array('mr_no_item'=>$pr_no, 'slno_mr_id'=>$last_id, 'material_item_id'=>$query_item_details['materials_list'][0]->slno_master_item, 'material_name'=>$query_item_details['materials_list'][0]->material_item_name, 'material_quantity'=>$quantity_single, 'material_unit'=>$query_item_details['materials_list'][0]->uom, 'material_id'=>$query_item_details['materials_list'][0]->material_item_id, 'edit_id'=>$edit_type_id,'parameter_tech'=>$query_item_details['materials_list'][0]->technical_details,'Category_material'=>$query_item_details['materials_list'][0]->category_name);
                         // print_r($data_material);
-                  $last_id=$this->design_user->design_common_insert_id_m($data_material);
+                  $this->design_user->design_common_insert_id_m($data_material);
 
               }
-              $data_infromation = array('id_master' =>$last_id, 'id_clone'=>$last_id_clone,'date_entry'=>$date_entry);
+              ####################################################ends of foreach loop ###########################
+              $data_infromation = array('id_master' =>$last_id, 'id_clone'=>$last_id_clone,'date_entry'=>$date_entry,'Revised_required_date'=>$Revised_required_date);
             if($submission=='Send'){
               
               $id= array('slno_mr' =>$last_id );
@@ -580,7 +585,7 @@ $id++;
                     $design_slno=$design_id_details['user_approver'][0]->slno;
                   $design_email=$design_id_details['user_approver'][0]->email_id;   
                 // 'slno'=>$data_id
-                $date_process = array('pr_no' => $pr_no,'project_slno'=> $job_code_id_slno , 'pr_no_slno'=>$slno_pr ,'design_user_id'=>$design_email ,'design_user_id_slno'=> $design_slno,'design_user_status'=>3 ,'design_date'=>$date_entry , 'approver_user_id'=> $approver_email,'approver_user_slno'=>$approver_slno ,'approver_user_status'=>2 ,'type_bidding_technical'=>$tech_evalution ,'project_name'=>$Project_Name,'design_user_remark'=>$Remark);
+                $date_process = array('pr_no' => $pr_no,'project_slno'=> $job_code_id_slno , 'pr_no_slno'=>$slno_pr ,'design_user_id'=>$design_email ,'design_user_id_slno'=> $design_slno,'design_user_status'=>3 ,'design_date'=>$date_entry , 'approver_user_id'=> $approver_email,'approver_user_slno'=>$approver_slno ,'approver_user_status'=>2 ,'type_bidding_technical'=>$tech_evalution ,'project_name'=>$Project_Name,'design_user_remark'=>$Remark,'planned_technical_clearance_date'=>$planned_technical_clearance_date);
                 $this->db->insert('master_pr_process_detail',$date_process);
                 $data_insert = array('pr_no' => $pr_no, 'slno_pr'=>$slno_pr,'job_code'=>$job_code,'Comment_remark'=>$Remark,'email_id'=>$email_id,'level_user'=>2 ,'type_remark'=>'R','to_level_user'=>3);
                 $query=$this->db->insert('master_bu_remark_pr',$data_insert);
@@ -598,12 +603,49 @@ $id++;
                     $array_update_revised_data=serialize($data_infromation);
                 }
 
-                $date_update_pr = array('mr_status' =>1 ,'revised_schedule'=> $date_entry ,'update_revised_schedule_date'=>$array_update_revised_data);
+                $date_update_pr = array('mr_status' =>1 ,'revised_schedule'=> $Revised_required_date ,'update_revised_schedule_date'=>$array_update_revised_data);
                 $pr_get_information=$this->db->update('master_pr_schedule',$date_update_pr,$data_pr_update_id);
-                echo  $this->db->last_query();
+                  // $this->db->last_query();
+                #####################################################################################################
+                #
+                #                     Email integration section will start 
+                #
+                #####################################################################################################
+
+                $this->load->library('email');
+                $config['charset'] = 'utf-8';
+                $config['wordwrap'] = TRUE;
+                $config['mailtype'] = 'html';
+                $this->email->initialize($config);
+
+                // $this->email->from('your@example.com', 'Your Name');
+                // $this->email->to('someone@example.com');
+                // $this->email->cc('another@another-example.com');
+                // $this->email->bcc('them@their-example.com');
+
+                // $this->email->subject('Email Test');
+                // $this->email->message('Testing the email class.');
+
+                $this->email->from('contact@innovadorslab.co.in,'.$email_id , 'Lnt Bid Management System');
+                $this->email->to($approver_email_id);
+                $this->email->cc('siprah@gmail.com');
+                // $this->email->cc($commerical_email_ids);
+                $this->email->bcc('ppriyabrata8888@gmail.com');
+
+                $this->email->subject('You have Received a new notification for PR No  '.$pr_no.' From Design User To Approver User');
+                $url_passing_email='<a href="'.base_url().'approver-mr-view-pr/'.$pr_no.'/'.$slno_pr.'/'.$job_code.'/3" > Click to View </a>';
+                $msg=' Remark :- ' .$Remark.'. <br /> Please click link here '.$url_passing_email;
+                $this->email->message($msg);
+
+
+                $this->email->send();
+
+
+                #######################################################################################################
+
 
                 
-                $this->session->set_flashdata('success_message', ' successfully PR Is Created And submited to approver ');
+                $this->session->set_flashdata('success_message', ' Successfully PR is created and submitted to approver ');
                 redirect('user-design-home');
                 exit;
                 // `pr_no`, `project_slno`, `pr_no_slno`, `design_user_id`, `design_user_id_slno`, `design_user_status`, `design_date`, `approver_user_id`, `approver_user_slno`, `approver_user_status`,technical_user_status
@@ -630,9 +672,9 @@ $id++;
                     $array_update_revised_data=serialize($data_infromation);
                 }
 
-                $date_update_pr = array('mr_status' =>1 ,'revised_schedule'=> $date_entry ,'update_revised_schedule_date'=>$array_update_revised_data);
+                $date_update_pr = array('mr_status' =>1 ,'revised_schedule'=> $Revised_required_date ,'update_revised_schedule_date'=>$array_update_revised_data);
                 $pr_get_information=$this->db->update('master_pr_schedule',$date_update_pr,$data_pr_update_id);
-                $this->session->set_flashdata('success_message', ' Ssuccessfully PR Is Created  Saved ');
+                $this->session->set_flashdata('success_message', ' Successfully PR is created and saved ');
                 redirect('user-design-home');
                 exit;
 
@@ -697,7 +739,7 @@ $id++;
                   $design_email=$design_id_details['user_approver'][0]->email_id;   
                 // 'slno'=>$data_id
                 $date_process_id = array('pr_no' => $pr_no);
-                $date_process = array('project_slno'=> $job_code_id_slno , 'pr_no_slno'=>$slno_pr ,'design_user_id'=>$design_email ,'design_user_id_slno'=> $design_slno,'design_user_status'=>3 ,'design_date'=>$date_entry , 'approver_user_id'=> $approver_email,'approver_user_slno'=>$approver_slno ,'approver_user_status'=>2 ,'technical_user_status'=>$tech_evalution ,'project_name'=>$Project_Name,'design_user_remark'=>$Remark);
+                $date_process = array('project_slno'=> $job_code_id_slno , 'pr_no_slno'=>$slno_pr ,'design_user_id'=>$design_email ,'design_user_id_slno'=> $design_slno,'design_user_status'=>3 ,'design_date'=>$date_entry , 'approver_user_id'=> $approver_email,'approver_user_slno'=>$approver_slno ,'approver_user_status'=>2 ,'technical_user_status'=>$tech_evalution ,'project_name'=>$Project_Name,'design_user_remark'=>$Remark ,'planned_technical_clearance_date'=>$planned_technical_clearance_date);
                 $this->db->update('master_pr_process_detail',$date_process,$date_process_id);
                 $data_insert = array('pr_no' => $pr_no, 'slno_pr'=>$slno_pr,'job_code'=>$job_code,'Comment_remark'=>$Remark,'email_id'=>$email_id,'level_user'=>2 ,'type_remark'=>'R','to_level_user'=>3);
                 $query=$this->db->insert('master_bu_remark_pr',$data_insert);
@@ -715,16 +757,45 @@ $id++;
                     $array_update_revised_data=serialize($data_infromation);
                 }
 
-                $date_update_pr = array('mr_status' =>1 ,'revised_schedule'=> $date_entry ,'update_revised_schedule_date'=>$array_update_revised_data);
+                $date_update_pr = array('mr_status' =>1 ,'revised_schedule'=> $Revised_required_date ,'update_revised_schedule_date'=>$array_update_revised_data);
                 $pr_get_information=$this->db->update('master_pr_schedule',$date_update_pr,$data_pr_update_id);
-                echo  $this->db->last_query();
+                // echo  $this->db->last_query();
+
+                 #####################################################################################################
+                #
+                #                     Email integration section will start 
+                #
+                #####################################################################################################
+
+                $this->load->library('email');
+                $config['charset'] = 'utf-8';
+                $config['wordwrap'] = TRUE;
+                $config['mailtype'] = 'html';
+                $this->email->initialize($config);
+                
+                $this->email->from('contact@innovadorslab.co.in,'.$email_id , 'Lnt Bid Management System');
+                $this->email->to($approver_email_id);
+                $this->email->cc('siprah@gmail.com');
+                // $this->email->cc($commerical_email_ids);
+                $this->email->bcc('ppriyabrata8888@gmail.com');
+
+                $this->email->subject('You have Received a new notification for Resubmission PR No  '.$pr_no.' From Design User To Approver User');
+                $url_passing_email='<a href="'.base_url().'approver-mr-view-pr/'.$pr_no.'/'.$slno_pr.'/'.$job_code.'/3" > Click to View </a>';
+                $msg=' Remark :- ' .$Remark.'. <br /> Please click link here '.$url_passing_email;
+                $this->email->message($msg);
+
+
+                $this->email->send();
+
+
+                #######################################################################################################
 
                 if($pr_no_type="resubmission_pr_type"){
-                  $this->session->set_flashdata('success_message', ' successfully PR Is Resumitted And submited to approver ');
+                  $this->session->set_flashdata('success_message', ' Successfully PR is resubmitted ');
                   redirect('user-design-home');
                   exit;
                 }else{
-                   $this->session->set_flashdata('success_message', ' successfully PR Is Created And submited to approver ');
+                   $this->session->set_flashdata('success_message', ' Successfully PR is created and submitted to approver ');
                   redirect('user-design-home');
                   exit;
                 }
@@ -737,7 +808,7 @@ $id++;
                 $query_details=$this->design_user->master_mr_job_details_value($data_send,$id);
 
                  $date_process_id = array('pr_no' => $pr_no);
-                $date_process = array('project_slno'=> $job_code_id_slno , 'pr_no_slno'=>$slno_pr ,'design_user_id'=>$design_email ,'design_user_id_slno'=> $design_slno,'design_user_status'=>2 ,'design_date'=>$date_entry , 'approver_user_id'=> $approver_email,'approver_user_slno'=>$approver_slno ,'approver_user_status'=>0 ,'technical_user_status'=>$tech_evalution ,'project_name'=>$Project_Name,'design_user_remark'=>$Remark);
+                $date_process = array('project_slno'=> $job_code_id_slno , 'pr_no_slno'=>$slno_pr ,'design_user_id'=>$design_email ,'design_user_id_slno'=> $design_slno,'design_user_status'=>2 ,'design_date'=>$date_entry , 'approver_user_id'=> $approver_email,'approver_user_slno'=>$approver_slno ,'approver_user_status'=>0 ,'technical_user_status'=>$tech_evalution ,'project_name'=>$Project_Name,'design_user_remark'=>$Remark,'planned_technical_clearance_date'=>$planned_technical_clearance_date);
                 $this->db->update('master_pr_process_detail',$date_process,$date_process_id);
 
                 $data_insert = array('pr_no' => $pr_no, 'slno_pr'=>$slno_pr,'job_code'=>$job_code,'Comment_remark'=>$Remark,'email_id'=>$email_id,'level_user'=>2 ,'type_remark'=>'R','to_level_user'=>3);
@@ -755,9 +826,9 @@ $id++;
                     $array_update_revised_data=serialize($data_infromation);
                 }
 
-                $date_update_pr = array('mr_status' =>1 ,'revised_schedule'=> $date_entry ,'update_revised_schedule_date'=>$array_update_revised_data);
+                $date_update_pr = array('mr_status' =>1 ,'revised_schedule'=> $Revised_required_date ,'update_revised_schedule_date'=>$array_update_revised_data);
                 $pr_get_information=$this->db->update('master_pr_schedule',$date_update_pr,$data_pr_update_id);
-                $this->session->set_flashdata('success_message', ' Ssuccessfully PR Is Created  Saved ');
+                $this->session->set_flashdata('success_message', ' Successfully PR is created and saved ');
                 redirect('user-design-home');
                 exit;
 
@@ -775,7 +846,7 @@ $id++;
    public function design_project_pr_schedule_comment($value=''){
      // $_SESSION["cart_item"]="";
     $scripts='<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script><script src=" https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script> <script src="'.base_url().'file_css_admin/own_js.js"></script>';
-            $data=array('title' =>'PR Received List Designer User','script_js'=>$scripts ,'menu_status'=>'','sub_menu'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'');
+            $data=array('title' =>'PR Received List Designer User','script_js'=>$scripts ,'menu_status'=>'1','sub_menu'=>'55','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'');
 
       $this->load->view('template/template_header',$data);
       $this->load->view('design_user/template/template_top_head');
@@ -816,7 +887,7 @@ $id++;
                   <thead>
                       <tr>
                           <th><strong>Name</strong></th>
-                          <th><strong>Technical Paramete</strong></th>
+                          <th><strong>Technical Parameter</strong></th>
                           <th><strong>UOM</strong></th>
                           <th><strong>Quantity</strong></th>           
                           <th><strong>Action</strong></th>
@@ -853,26 +924,26 @@ $id++;
         }
           $scripts='<script src="'.base_url().'file_css_admin/own_js_date_picker.js"></script>';
 
-        $data=array('title' =>"View Resubmission Of MR List",'script_js'=>$scripts ,'menu_status'=>'1','sub_menu'=>'3','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','Pr_no'=>$value,'Pr_no_slno'=>$value1,'Project_slno'=>$value2,'redirect'=>$value3); 
+       
         switch ($value3) {
             case '1':
+            $titles="View Detail Approval Of PR no ".$value;
             $url_id='design_user/design_pr_detail_m/complete_pr_detail';
                 # code...
                 break;
             case '2':
+            $titles="Waiting For Drafted Of PR no ".$value;
             $url_id='design_user/design_pr_detail_m/drafted_pr_detail';
                 # code...
                 break;
             case '4':
-            // if(!empty($_SESSION["cart_item"])){
-            //   $_SESSION["cart_item"]="";
-            // }else{
-            //   $_SESSION["cart_item"]=""; 
-            // }
+            
+            $titles="View Resubmission Of PR no ".$value;
             $url_id='design_user/design_pr_detail_m/resubmission_pr_detail';
                 # code...
                 break;
             case '3':
+            $titles="Waiting For Approval Of PR no ".$value;
             $url_id='design_user/design_pr_detail_m/waiting_pr_detail';
                 # code...
                 break;
@@ -881,6 +952,7 @@ $id++;
                 # code...
                 break;
         }
+         $data=array('title' =>$titles,'script_js'=>$scripts ,'menu_status'=>'1','sub_menu'=>'3','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','Pr_no'=>$value,'Pr_no_slno'=>$value1,'Project_slno'=>$value2,'redirect'=>$value3); 
 
             $this->load->view('template/template_header',$data);
             $this->load->view('design_user/template/template_top_head');
@@ -939,7 +1011,98 @@ $id++;
       // 'adminuser/admin_view_new_material_list';
       # code...
     }
+    public function design_new_material_catergory_new($value=''){
 
+       $scripts='';
+
+            $data=array('title' =>"View Material List",'script_js'=>$scripts ,'menu_status'=>'12','sub_menu'=>'121','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'');  
+            $this->load->view('template/template_header',$data);
+            $this->load->view('design_user/template/template_top_head');
+            $this->load->view('design_user/template/template_side_bar',$data);
+            $this->load->view('design_user/new_material_with_category/new_material_category_new');
+            $this->load->view('template/template_footer',$data);
+      // 'adminuser/admin_view_new_material_list';
+      # code...
+    }
+    
+     
+    public function design_new_material_catergory_new_save($value=''){
+       $email_id=$this->session->userdata('design_email_id');
+        if(empty($email_id)){
+            
+            redirect('design-logout-by-pass');
+        }
+      $material_category=strtolower($this->input->post('material_category')); 
+      $data=array('category_name'=>$material_category);
+      $query=$this->db->get_where('master_category',$data);
+      if($query->num_rows()==0){
+          $data_insert = array('entry_id'=>$email_id,'status'=>'1','category_name' =>$material_category);
+          $query=$this->db->insert('master_category',$data_insert);
+          $this->session->set_flashdata('success_message', 'Material category added successfully');
+                redirect('user-design-home');
+                exit;
+        
+      }else{
+        
+         $this->session->set_flashdata('error_message', 'This material category already exists');
+                redirect('user-design-home');
+                exit;                  
+        
+      }
+
+    }
+      
+    public function design_view_new_material_uom($value=''){
+      $scripts='<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script><script src=" https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script> <script src="'.base_url().'file_css_admin/own_js.js"></script>';
+
+            $data=array('title' =>"View Material List",'script_js'=>$scripts ,'menu_status'=>'12','sub_menu'=>'123','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'');  
+            $this->load->view('template/template_header',$data);
+            $this->load->view('design_user/template/template_top_head');
+            $this->load->view('design_user/template/template_side_bar',$data);
+            $this->load->view('design_user/new_material_uom/material_uom');
+            $this->load->view('template/template_footer',$data);
+      // 'adminuser/admin_view_new_material_list';
+      # code...
+    }
+    public function design_view_new_material_uom_save($value=''){
+      $email_id=$this->session->userdata('design_email_id');
+      if(empty($email_id)){
+            
+            redirect('design-logout-by-pass');
+        }
+      $uom=strtolower($this->input->post('uom')); 
+      $data=array('uom'=>$uom);
+      $query=$this->db->get_where('master_category_uom',$data);
+      if($query->num_rows()==0){
+          $data_insert = array('entry_id'=>$email_id,'status'=>'1','uom' =>$uom);
+          $query=$this->db->insert('master_category_uom',$data_insert);
+          $this->session->set_flashdata('success_message', 'UOM added successfully');
+                redirect('user-design-home');
+                exit;
+        
+      }else{
+        
+         $this->session->set_flashdata('error_message', 'This UOM already exists');
+                redirect('user-design-home');
+                exit;                  
+        
+      }
+      
+    } 
+     
+     public function design_view_new_uom_list($value=''){
+
+       $scripts='<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script><script src=" https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script> <script src="'.base_url().'file_css_admin/own_js.js"></script>';
+
+            $data=array('title' =>"View Material List",'script_js'=>$scripts ,'menu_status'=>'12','sub_menu'=>'123','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'');  
+            $this->load->view('template/template_header',$data);
+            $this->load->view('design_user/template/template_top_head');
+            $this->load->view('design_user/template/template_side_bar',$data);
+            $this->load->view('design_user/new_material_uom/view_new_uom_list');
+            $this->load->view('template/template_footer',$data);
+      // 'adminuser/admin_view_new_material_list';
+      # code...
+    } 
     public function design_add_new_category_material($value=''){
       // admin_add_new_category_material
 
@@ -1007,29 +1170,41 @@ $id++;
                                 for($row=2; $row<=$highestRow; $row++){                    
                                     $category_name = $worksheet->getCellByColumnAndRow(1, $row)->getValue();
                                     $material_item_name = $worksheet->getCellByColumnAndRow(2, $row)->getValue();
-                                    $material_item_id = $worksheet->getCellByColumnAndRow(3, $row)->getValue();
-                                    $uom = $worksheet->getCellByColumnAndRow(4, $row)->getValue();
-                                    $technical_details = $worksheet->getCellByColumnAndRow(5, $row)->getValue();
-                                    $qty = $worksheet->getCellByColumnAndRow(6, $row)->getValue();
-                                    $orginal_schedule = $worksheet->getCellByColumnAndRow(7, $row)->getValue();
+                                    // $material_item_id = $worksheet->getCellByColumnAndRow(3, $row)->getValue();
+                                    $uom = $worksheet->getCellByColumnAndRow(3, $row)->getValue();
+                                    $technical_details = $worksheet->getCellByColumnAndRow(4, $row)->getValue();
+                                    // $qty = $worksheet->getCellByColumnAndRow(6, $row)->getValue();
+                                    // $orginal_schedule = $worksheet->getCellByColumnAndRow(7, $row)->getValue();
                                     // Checking of data duplicate 
-                                    if(!empty($category_name)){
-                                        $data_check = array('material_item_id' => $material_item_id);
-                                        $query=$this->db->get_where($table,$data_check);
-                                        $num=$query->num_rows();
-                                        if($num==0){
-                                            // `category_name`, `material_item_name`, `technical_details`, `uom`, `status`, `entry_id`, `date`,material_item_id
-                                            $data = array('category_name'=>$category_name,'material_item_name'=>$material_item_name,'material_item_id'=>  $material_item_id,'uom'=>$uom,'technical_details'=> $technical_details,'entry_id'=>$email_id,'date'=>$date,'status'=>1);
-                            
-                                            $query_ENTRY=$this->db->insert($table, $data);
+                                    if(!empty($category_name) && !empty($material_item_name)  && !empty($uom) ){
+                                      $query_master_category = $this->db->get_where('master_category',array('category_name'=>strtolower(trim($category_name))));
+                                      if($query_master_category->num_rows()==1){
+                                        $query_uom = $this->db->get_where('master_category_uom',array('uom'=>strtolower(trim($uom))));
+                                        if($query_uom->num_rows()==1){
+                                          $this->load->helper('string');
+                                          $randno=random_string('numeric',6);
+                                          $value_id1=substr($category_name,0,4);
+                                          $value_id2=substr($material_item_name,0,5);
+                                          $material_item_id= $material_id=$value_id1.'-'.$value_id2.'-'.$randno;
+                                          $data_check = array('material_item_id' => $material_id);
+                                          $query=$this->db->get_where($table,$data_check);
+                                          $num=$query->num_rows();
+                                          if($num==0){
+
+                                              // `category_name`, `material_item_name`, `technical_details`, `uom`, `status`, `entry_id`, `date`,material_item_id
+                                              $data = array('category_name'=>$category_name,'material_item_name'=>$material_item_name,'material_item_id'=>  $material_item_id,'uom'=>$uom,'technical_details'=> $technical_details,'entry_id'=>$email_id,'date'=>$date,'status'=>1);
+                              
+                                              $query_ENTRY=$this->db->insert($table, $data);
+                                          }
                                         }
+                                      }
                                     }
                                 }
                             } 
                             echo "1"; 
                             exit();            
                         }else{
-                           echo "1"; 
+                           echo "2"; 
                           exit(); 
                         }
                        
@@ -1048,7 +1223,7 @@ $id++;
                       <th>Material Name</th>
                       <th>Material Id</th>
                       <th>UOM</th>
-                      <th>Technical Parameters</th>                     
+                      <th>Technical Parameter</th>                     
                     </tr>
                 ';
                 foreach($query->result() as $row){
@@ -1077,6 +1252,96 @@ $id++;
 
       # code...
     }
+    public function design_change_password(){
+           
+                $scripts='<script src="https://cdnjs.cloudflare.com/ajax/libs/hideshowpassword/2.0.8/hideShowPassword.min.js"></script>';
+            
+                $data=array('title' =>"Admin Change Password for Users",'script_js'=>$scripts,'menu_status'=>'','sub_menu'=>'','sub_menu'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'');
+                $this->load->view('template/template_header',$data);
+                $this->load->view('design_user/template/template_top_head');
+                $this->load->view('design_user/template/template_side_bar',$data);
+                $this->load->view('design_user/change_password',$data);
+                $this->load->view('template/template_footer',$data);
+            
+        }
+        public function design_change_password_save1(){
+            $data_brower['browser'] = $this->agent->browser();
+            $data_brower['browserVersion'] = $this->agent->version();
+            $data_brower['platform'] = $this->agent->platform();
+            $data_brower['full_user_agent_string'] = $_SERVER['HTTP_USER_AGENT'];
+            $ip = $this->input->ip_address();       
+            $date_nrowser_json=json_encode($data_brower);
+            $date_entry=date('Y-m-d');
+            $time_entry=date('H:i:s');
+            $user_id_slno=$this->input->post('user_id_slno');
+            $token_id=$this->input->post('token_id');
+            $password=$this->input->post('password');
+            $keys_id="preetishweb";
+            $value1_convered = strtr($user_id_slno,array('.' => '+', '-' => '=', '~' => '/'));
+            
+            $value1_convered_id=$this->encrypt->decode($value1_convered,$keys_id);
+            if($value1_convered_id==$token_id){
+                $table='master_admin';
+                $data_insert = array('Password'=>$password, 'password_hash'=>md5($password));
+                $id=array('slno'=>$value1_convered_id);      
+                $result_insert = $this->user->common_update($table,$data_insert,$id);
+
+                $data_json=json_encode($data_insert);
+                $data_id_json=json_encode($id);
+                $date_insert_array = array('data_insert' => $data_json,'update_id'=>$data_id_json );
+                $date_insert_json=json_encode($date_insert_array);
+
+                $table_log='pms_log_entries';
+
+                $log_entry= array('Form_name'=>"update users password", 'Data_entry'=>$date_insert_json, 'status'=>1, 'Date'=>$date_entry, 'Time'=>$time_entry, 'Location_Id'=>$ip, 'browser_information'=>$date_nrowser_json);
+
+                $result_log_entry = $this->user->common_insert($table_log,$log_entry);
+                $this->session->set_flashdata('success_message', 'Password successfully change');
+                // After that you need to used r
+                redirect('user-design-home');
+
+            }else{
+                $this->session->set_flashdata('error_message', 'Something went wrong');
+                // After that you need to used redirect function instead of load view such as                 
+                redirect('user-design-home');    
+            }
+            // Array ( [user_id_slno] => EBq6D9dEDSNHWJwsfBpyxu~Tv.jXe0EAizvq1LuUHVwc58gP.wknHjWDLrJllQ8ndtLCoeV6HFl.dn9hqLQ8xg-- [token_id] => 6 [password] => abcd!2345aA ) 
+            # code...
+        }
+
+        public function design_change_password_save($value=''){
+           $email_id=$this->session->userdata('design_email_id');
+            if(empty($email_id)){
+                
+                redirect('design-logout-by-pass');
+            }
+            $c_password=$this->input->post('c_password');
+            $new_password=$this->input->post('new_password');
+            $data_check=array('email_id'=>$email_id,'password_hash'=>md5($c_password),'Status'=>1);
+            $query_check=$this->db->get_where('master_admin',$data_check);
+            if($query_check->num_rows()==1){
+                $data_id_update=array('email_id'=>$email_id);
+                $data_update_information=array('password_hash'=>md5($new_password),'Password'=>$new_password);
+                $query_check=$this->db->update('master_admin',$data_update_information,$data_id_update);
+
+                $this->session->set_flashdata('success_message',' password changed successfull');
+                // After that you need to used redirect home
+                redirect('user-design-home');
+            }else{
+                $this->session->set_flashdata('error_message',' Something went wrong');
+                // After that you need to used redirect home
+                redirect('user-design-home');
+
+            }
+            # code...
+        }
+
+
+
+
+
+
+
     public function design_new_category_material($value=''){
 
       $scripts='';
@@ -1091,6 +1356,7 @@ $id++;
       // admin_new_category_material
       # code...
     }
+
 
     public function adesign_view_material_details_list($value=''){
       if(!empty($value)){
@@ -1130,3 +1396,5 @@ $id++;
      }
     
 }
+
+

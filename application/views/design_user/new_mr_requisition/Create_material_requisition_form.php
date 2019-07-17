@@ -17,8 +17,9 @@ $job_code=$job_code; //Project_Slno
 	$this->db->distinct();
 	$this->db->select('category_name');
 	$this->db->where('status', '1'); 
-	$query_category = $this->db->get('master_category_item');
-	$url_remark='<a target="_blank" class="btn btn-sm btn-success" href="'.base_url().'design-pr-remark-history/'.$pr_no.'/'.$slno_pr.'/'.$job_code.'/1"> Click View Remark</a>';
+	$query_category = $this->db->get('master_category');
+	$url_remark='<a target="_blank" class="btn btn-sm btn-success" href="'.base_url().'design-pr-remark-history/'.$pr_no.'/'.$slno_pr.'/'.$job_code.'/1"> Click To View Remarks</a>';
+	$query_master_category = $this->db->get('master_category');
 ?>
 <link href="../assets/plugins/bootstrap-datepicker/css/bootstrap-datepicker.css" rel="stylesheet" />
     <link href="../assets/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.css" rel="stylesheet" />
@@ -30,12 +31,12 @@ $job_code=$job_code; //Project_Slno
 			<!-- begin breadcrumb -->
 			<ol class="breadcrumb pull-right">
 				<li class="breadcrumb-item active"><a href="<?=base_url()?>user-design-home" class="fa fa-home ">Home</a></li>
-				<li class="breadcrumb-item"><a href="javascript:;">Material Requisition</a></li>
-				<li class="breadcrumb-item active">Create New Material Requisition</li>
+				<li class="breadcrumb-item"><a href="javascript:;">PR Requisition</a></li>
+				<li class="breadcrumb-item active">Create New PR</li>
 			</ol>
 			<!-- end breadcrumb -->
 			<!-- begin page-header -->
-			<h1 class="page-header">Create New Material Requisition  </h1>
+			<h1 class="page-header">Create New PR Requisition Form </h1>
 			<!-- end page-header -->
 			<?php if(!empty($this->session->flashdata('success_message'))){?>
 			<div class="alert alert-success fade show">
@@ -69,7 +70,7 @@ $job_code=$job_code; //Project_Slno
 						<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
 						<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
 					</div>
-					<h4 class="panel-title">Add New Material Requisition Information</h4>
+					<h4 class="panel-title">New PR Requisition Information</h4>
 				</div>
 				<div class="panel-body">				
 					<div class="row pull-right">
@@ -128,19 +129,15 @@ $job_code=$job_code; //Project_Slno
 										<small class="f-s-12 text-grey-darker">Select Technical Evaluation</small>
 									</div>
 								</div>
-
+								<input class="form-control m-b-5 datepickers" placeholder="Enter Date Required " name="required_date" id="required_date" type="hidden" >
+							
+								<input class="form-control m-b-5 datepickers" placeholder="Enter Revised Date  " name="Revised_required_date" id="Revised_required_date" type="hidden" >
+								
 								<div class="form-group row m-b-15">
-									<label class="col-form-label col-md-3" for="required_date">Date Required <span style="color: red">*</span></label>
-									<div class="col-md-9">
-										<input class="form-control m-b-5 datepickers" placeholder="Enter Date Required " name="required_date" id="required_date" type="text" required="">
-										<small class="f-s-12 text-grey-darker">Please enter Date Required</small>
-									</div>
-								</div>
-								<div class="form-group row m-b-15">
-									<label class="col-form-label col-md-3">Remark<span style="color: red">*</span></label>
+									<label class="col-form-label col-md-3">Remarks<span style="color: red">*</span></label>
 									<div class="col-md-9">
 										<textarea class="form-control" rows="3" name="Remark" required=""></textarea>
-										<small class="f-s-12 text-grey-darker"> Please enter Remark To Approver </small>
+										<small class="f-s-12 text-grey-darker"> Please enter Remarks To Approver </small>
 									</div>
 								</div>
                               
@@ -185,12 +182,12 @@ $job_code=$job_code; //Project_Slno
 										$data_array_materials=$this->design_user->get_design_material_category_list();	
 										
 										?>
-										
 										<select name="materials_id" onchange="set_ccategory()" class="form-control m-b-5" id="materials_id">
+										<!-- <select name="materials_id" onchange="set_ccategory()" class="form-control m-b-5" id="materials_id"> -->
 											
 												<option value="">--Select Material Category--</option>
 											<?php
-												foreach ($query_category->result() as $value_category) {
+												foreach ($query_master_category->result() as $value_category) {
 													?>
 													<option value="<?=$value_category->category_name?>"><?=ucfirst($value_category->category_name)?></option>
 													<?php
@@ -201,26 +198,33 @@ $job_code=$job_code; //Project_Slno
 											?>										
 											
 										</select>
-										<small class="f-s-12 text-grey-darker">Select Job Code</small>
+										<small class="f-s-12 text-grey-darker">Select Material Category</small>
 									</div>
 								</div>
 								<div class="form-group row m-b-15">
 									<label class="col-form-label col-md-3" for="mr_date_of_creation">Date Of Creating<span style="color: red">*</span></label>
 									<div class="col-md-9">
 										<input class="form-control m-b-5" name="mr_date_of_creation" value="<?=date('Y-m-d')?>" id="mr_date_of_creation" type="text" required="" readonly>
-										<small class="f-s-12 text-grey-darker">Date Of Creating MR</small>
+										<small class="f-s-12 text-grey-darker">Date Of Creating PR</small>
 									</div>
 								</div>
+								<div class="form-group row m-b-15">
+													<label class="col-form-label col-md-3" for="date_clearfication_bid">Planned Technical Date <span style="color: red">*</span></label>
+													<div class="col-md-9">
+														<input class="form-control m-b-5 datepickers" placeholder="Enter Planned Technical Date" name="planned_technical_clearance_date" id="planned_technical_clearance_date" type="text" required="" >
+														<small class="f-s-12 text-grey-darker">Please Select Planned Technical Date</small>
+													</div>
+												</div>
+
 								<div class="form-group row m-b-15">
 									<label class="col-form-label col-md-3" for="job_code">Attach Files <span style="color: red">*</span></label>
 									<div class="col-md-9">
 										<input class="form-control m-b-5" placeholder="Enter  File Title Name" name="job_files_name" id="job_files_name" type="text"  >
 										<input class=" m-b-5" placeholder="Enter Activity name" name="job_files" id="job_files" type="file"  >	<button type="button" class="btn btn-sm btn-info" id="sub">Upload</button>	<br>								
-										<small class="f-s-12 text-grey-darker">Job Attachment</small>
+										<!-- <small class="f-s-12 text-grey-darker">Job Attachment</small> -->
 									</div>
 								</div>
-
-
+                                
 
 
 
@@ -278,7 +282,8 @@ $job_code=$job_code; //Project_Slno
                              
                                <input type="submit" name="submission" value="Send" class="btn btn-info btn-sm">
                               
-                               <a  href="<?=base_url()?>user-design-home" class="btn btn-sm btn-danger">Cancel</a> 
+                                <a  href="<?=base_url()?>design-project-pr-schedule" class="btn btn-sm btn-success">Back</a> 
+                               <a  href="<?=base_url()?>user-design-home" class="btn btn-sm btn-danger">Home</a>  
                             </div>
                         </div>
 						
@@ -313,21 +318,22 @@ $job_code=$job_code; //Project_Slno
 	}
 
 function set_ccategory(){
-	var materials_id = $('#materials_id').val().trim();
-	$.ajax({
-		url: '<?=base_url()?>design-material-search-reset',
-        method: 'post',
-        data: {
+	check_load_cart();
+	// var materials_id = $('#materials_id').val().trim();
+	// $.ajax({
+	// 	url: '<?=base_url()?>design-material-search-reset',
+ //        method: 'post',
+ //        data: {
             
-            type: materials_id
-        },
-        success: function(returnData){
-        	if(returnData==1){
-        	check_load_cart();
-        		$("#cart-item").html('');
-        	}
-        }
-	});
+ //            type: materials_id
+ //        },
+ //        success: function(returnData){
+ //        	if(returnData==1){
+ //        	check_load_cart();
+ //        		$("#cart-item").html('');
+ //        	}
+ //        }
+	// });
 }
  $('#search_button').click(function(){
         //If the search button is clicked,

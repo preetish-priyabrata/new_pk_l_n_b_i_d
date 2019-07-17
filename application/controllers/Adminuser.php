@@ -1,6 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 require 'vendor/autoload.php';
+
+date_default_timezone_set('Asia/Kolkata');
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 class Adminuser extends CI_Controller {
@@ -14,7 +16,9 @@ class Adminuser extends CI_Controller {
                 //Load session library 
                 $this->load->library('session');
                 $this->load->library('user_agent');
+                
                 $this->load->library('encryption');
+                $this->load->library('encrypt');
                 $this->load->library('form_validation');
                 $this->load->library('cronfile');
                 $this->cronfile->index_event();

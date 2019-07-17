@@ -1,6 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
+require 'vendor/autoload.php';
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 class Buyerusernew extends CI_Controller {
     public function __construct(){
         parent::__construct();
@@ -18,6 +20,8 @@ class Buyerusernew extends CI_Controller {
         $this->load->library('session');
         $this->load->library('user_agent');
         $this->load->library('encryption');
+        $this->load->library('encrypt');
+
         $this->load->library('form_validation');
         
         $this->load->library('email');
@@ -158,11 +162,12 @@ class Buyerusernew extends CI_Controller {
         $Technical_ev=$this->input->post('Technical_ev');
         $Commerical=$this->input->post('Commerical');
 
-        $date_create=$this->input->post('date_create');
-        $bid_ref_no=$this->input->post('bid_ref_no');
+        $date_publish=$date_create=$this->input->post('date_create');
+        $bid_Id=$bid_ref_no=$this->input->post('bid_ref_no');
         $bid_method=$this->input->post('bid_method');  // bid method  close simple rank
-        $date_publish=$this->input->post('date_publish');
-        $bid_Id=$this->input->post('bid_Id');
+        $currency=$this->input->post('currency');
+        // $date_publish=$this->input->post('date_publish');
+        // $bid_Id=$this->input->post('bid_Id');
         $date_closing=$this->input->post('date_closing');
         $bid_title=$this->input->post('bid_title');
         $bid_period_work=$this->input->post('bid_period_work');
@@ -206,7 +211,7 @@ class Buyerusernew extends CI_Controller {
 
             $insert_id = $this->db->insert_id();
         // commerical bid information
-            $data_bid_master_comm = array('pr_slno'=>$slno_pr, 'bid_date_entry'=>$date_create, 'bid_ref'=>$bid_ref_no, 'bid_id'=>$bid_Id,'mode_bid'=>$bid_method, 'technical_bid_type'=>$tech_evalution, 'status_bid'=>'4', 'pr_no'=>$pr_no, 'job_code'=>$job_code, 'edit_id'=>$edit_type_bid,'bid_title'=>$bid_title,'bid_description'=>$bid_work_description,'bid_creator_id'=>$email_id,'date_publish'=>$date_publish,'date_closing'=>$date_closing,'commercial_resubmit_count'=>$commercial_resubmit_count,'Ace_value_detail'=>$Ace_value_detail);
+            $data_bid_master_comm = array('pr_slno'=>$slno_pr, 'bid_date_entry'=>$date_create, 'bid_ref'=>$bid_ref_no, 'bid_id'=>$bid_Id,'mode_bid'=>$bid_method, 'technical_bid_type'=>$tech_evalution, 'status_bid'=>'4', 'pr_no'=>$pr_no, 'job_code'=>$job_code, 'edit_id'=>$edit_type_bid,'bid_title'=>$bid_title,'bid_description'=>$bid_work_description,'bid_creator_id'=>$email_id,'date_publish'=>$date_publish,'date_closing'=>$date_closing,'commercial_resubmit_count'=>$commercial_resubmit_count,'Ace_value_detail'=>$Ace_value_detail,'currency_code'=>$currency);
             $query_bid_master_comm=$this->db->insert('master_bid_Com_m',$data_bid_master_comm);
 
             $insert_id_comm = $this->db->insert_id();
@@ -412,6 +417,11 @@ EOT;
         // echo $array_comm_slno=serialize($Commerical);
         // print_r(unserialize($array_comm_email));
         // exit;
+        //$planned_technical_clearance_date=$this->input->post('planned_technical_clearance_date');
+        //$actual_technical_date=$this->input->post('actual_technical_date');
+        $commercial_closure_date=$this->input->post('commercial_closure_date');
+        //$delivery_date_as_per_po=$this->input->post('delivery_date_as_per_po');
+        //$drg_submission_date=$this->input->post('drg_submission_date');
         $pr_no=$this->input->post('pr_no');
         $slno_pr=$this->input->post('slno_pr');
         $job_code=$this->input->post('job_code');
@@ -427,11 +437,12 @@ EOT;
         $mr_date_of_creation=$this->input->post('mr_date_of_creation');
         $Technical_ev=$this->input->post('Technical_ev');
         
-        $date_create=$this->input->post('date_create');
-        $bid_ref_no=$this->input->post('bid_ref_no');
+        $date_publish=$date_create=$this->input->post('date_create');
+        $bid_Id=$bid_ref_no=$this->input->post('bid_ref_no');
         $bid_method=$this->input->post('bid_method');  // bid method  close simple rank
-        $date_publish=$this->input->post('date_publish');
-        $bid_Id=$this->input->post('bid_Id');
+        $currency=$this->input->post('currency');
+        // $date_publish=$this->input->post('date_publish');
+        // $bid_Id=$this->input->post('bid_Id');
         $date_closing=$this->input->post('date_closing');
         $bid_title=$this->input->post('bid_title');
         $bid_period_work=$this->input->post('bid_period_work');
@@ -469,17 +480,31 @@ EOT;
           }
 
 
+
+        //report new added dates technocomm
+
+          $data_master_dates = array('commercial_closure_date' =>$commercial_closure_date);
+
+          
+         
+
+          
+      
+
+
+
         // technical bid information
             $data_bid_master = array('pr_slno'=>$slno_pr, 'bid_date_entry'=>$date_create, 'bid_ref'=>$bid_ref_no, 'bid_id'=>$bid_Id,'mode_bid'=>$bid_method, 'technical_bid_type'=>$tech_evalution, 'status_bid'=>'4', 'pr_no'=>$pr_no, 'job_code'=>$job_code, 'edit_id'=>$edit_type_bid,'bid_title'=>$bid_title,'bid_description'=>$bid_work_description,'bid_creator_id'=>$email_id,'date_publish'=>$date_publish,'date_closing'=>$date_closing);
             $query_bid_master=$this->db->insert('master_bid_m',$data_bid_master);
 
             $insert_id = $this->db->insert_id();
         // commerical bid information
-            $data_bid_master_comm = array('pr_slno'=>$slno_pr, 'bid_date_entry'=>$date_create, 'bid_ref'=>$bid_ref_no, 'bid_id'=>$bid_Id,'mode_bid'=>$bid_method, 'technical_bid_type'=>$tech_evalution, 'status_bid'=>'4', 'pr_no'=>$pr_no, 'job_code'=>$job_code, 'edit_id'=>$edit_type_bid,'bid_title'=>$bid_title,'bid_description'=>$bid_work_description,'bid_creator_id'=>$email_id,'date_publish'=>$date_publish,'date_closing'=>$date_closing,'commercial_resubmit_count'=>$commercial_resubmit_count,'Ace_value_detail'=>$Ace_value_detail);
+            $data_bid_master_comm = array('pr_slno'=>$slno_pr, 'bid_date_entry'=>$date_create, 'bid_ref'=>$bid_ref_no, 'bid_id'=>$bid_Id,'mode_bid'=>$bid_method, 'technical_bid_type'=>$tech_evalution, 'status_bid'=>'4', 'pr_no'=>$pr_no, 'job_code'=>$job_code, 'edit_id'=>$edit_type_bid,'bid_title'=>$bid_title,'bid_description'=>$bid_work_description,'bid_creator_id'=>$email_id,'date_publish'=>$date_publish,'date_closing'=>$date_closing,'commercial_resubmit_count'=>$commercial_resubmit_count,'Ace_value_detail'=>$Ace_value_detail,'currency_code'=>$currency);
             $query_bid_master_comm=$this->db->insert('master_bid_Com_m',$data_bid_master_comm);
 
             $insert_id_comm = $this->db->insert_id();
          if($query_bid_master){ 
+            $query_master_dates=$this->db->update('master_pr_process_detail',$data_master_dates,array('pr_no' =>$pr_no));
             // technical bid 
             // 
             $item_mateial_slno=$this->input->post('item_mateial_slno');
@@ -684,12 +709,12 @@ EOT;
                 redirect('user-buyer-home');
                 exit();
             }else{
-                $this->session->set_flashdata('error_message',  'Some thing went wrong please Try Again');
+                $this->session->set_flashdata('error_message',  'Something went wrong please Try Again');
                 redirect('buyer-user-create-new-pr/'.$pr_no.'/'.$slno_pr.'/'.$job_code.'/'.$tech_evalution);
             }
 
         }else{
-             $this->session->set_flashdata('error_message',  'Some thing went wrong please Try Again');
+             $this->session->set_flashdata('error_message',  'Something went wrong please Try Again');
                 redirect('buyer-user-create-new-pr/'.$pr_no.'/'.$slno_pr.'/'.$job_code.'/'.$tech_evalution);
         }
     }
@@ -729,7 +754,7 @@ EOT;
                     <thead>
                         <tr>
                             <th><strong>Organisation Name </strong></th>
-                            <th><strong>Vendor Information</strong></th>
+                            <th><strong>Vendor Informations</strong></th>
                             <th><strong>Action</strong></th>
                         </tr>
                     </thead>
@@ -740,7 +765,7 @@ EOT;
                            ?>
                                 <tr>
                                     <td><?=$value_id_vender->Organisation_name?></td>
-                                    <td><p>Vendor Name :    <?=$value_id_vender->Vendor_name?></p>
+                                    <td>
                                         <p>Organisation Name : <?=$value_id_vender->Organisation_name?></p>
                                         <p>Vendor Mobile : <?=$value_id_vender->Mobile_no?></p>
                                         <p>Vendor Address : <?=$value_id_vender->Organisation_address?></p>
@@ -786,7 +811,7 @@ EOT;
                                        ?>
                                             <tr>
                                                 <td><?=$value_id_vender->Organisation_name?></td>
-                                                <td><p>Vendor Name :    <?=$value_id_vender->Vendor_name?></p>
+                                                <td>
                                                     <p>Organisation Name : <?=$value_id_vender->Organisation_name?></p>
                                                     <p>Vendor Mobile : <?=$value_id_vender->Mobile_no?></p>
                                                     <p>Vendor Address : <?=$value_id_vender->Organisation_address?></p>
@@ -810,7 +835,8 @@ EOT;
         # code...
     }
     public function buyer_vendor_cart($value=''){
-        $this->cart->product_name_rules = "\&\.\:\-_\"\' a-z0-9";
+        $this->cart->product_name_rules = '\d\D';
+        // $this->cart->product_name_rules = "\&\.\:\-_/\"\' a-z0-9";
         // print_r($this->input->post());
         // Array ( [product_id] => 2 [Organisation_names] => vendor pvt ltd ) 
         $product_id=$this->input->post('product_id');
@@ -888,11 +914,12 @@ EOT;
         $buyer_id=$this->input->post('buyer_id');
         $mr_date_of_creation=$this->input->post('mr_date_of_creation');
         $Technical_ev=$this->input->post('Technical_ev');
-        $date_create=$this->input->post('date_create');
-        $bid_ref_no=$this->input->post('bid_ref_no');
+        $date_publish=$date_create=$this->input->post('date_create');
+        $bid_Id=$bid_ref_no=$this->input->post('bid_ref_no');
         $bid_method=$this->input->post('bid_method');  // bid method  close simple rank
-        $date_publish=$this->input->post('date_publish');
-        $bid_Id=$this->input->post('bid_Id');
+        $currency=$this->input->post('currency');
+        // $date_publish=$this->input->post('date_publish');
+        // $bid_Id=$this->input->post('bid_Id');
         $date_closing=$this->input->post('date_closing');
         $bid_title=$this->input->post('bid_title');
         $bid_period_work=$this->input->post('bid_period_work');
@@ -1018,6 +1045,15 @@ EOT;
         }   
     }
     public function buyer_add_new_pr_comm_save_arr(){
+        // print_r($this->input->post());
+        // exit;
+
+        //$planned_technical_clearance_date=$this->input->post('planned_technical_clearance_date');
+        //$actual_technical_date=$this->input->post('actual_technical_date');
+        $commercial_closure_date=$this->input->post('commercial_closure_date');
+        //$delivery_date_as_per_po=$this->input->post('delivery_date_as_per_po');
+        //$drg_submission_date=$this->input->post('drg_submission_date');
+
         $Commerical=$this->input->post('Commerical');
         $pr_no=$this->input->post('pr_no');
         $slno_pr=$this->input->post('slno_pr');
@@ -1033,11 +1069,12 @@ EOT;
         $buyer_id=$this->input->post('buyer_id');
         $mr_date_of_creation=$this->input->post('mr_date_of_creation');
         // $Technical_ev=$this->input->post('Technical_ev');
-        $date_create=$this->input->post('date_create');
-        $bid_ref_no=$this->input->post('bid_ref_no');
+       $date_publish= $date_create=$this->input->post('date_create');
+       $bid_Id=$bid_ref_no=$this->input->post('bid_ref_no');
         $bid_method=$this->input->post('bid_method');  // bid method  close simple rank
-        $date_publish=$this->input->post('date_publish');
-        $bid_Id=$this->input->post('bid_Id');
+        $currency=$this->input->post('currency');
+        // $date_publish=$this->input->post('date_publish');
+        // $bid_Id=$this->input->post('bid_Id');
         $date_closing=$this->input->post('date_closing');
         $bid_title=$this->input->post('bid_title');
         $bid_period_work=$this->input->post('bid_period_work');
@@ -1053,20 +1090,20 @@ EOT;
 
         $commercial_resubmit_status=$this->input->post('commercial_resubmit_status');
         // $commercial_resubmit_count=$this->input->post('commercial_resubmit_count');
-        if($commercial_resubmit_status==1){
+        if($commercial_resubmit_status==1):
             $commercial_resubmit_count=$this->input->post('commercial_resubmit_count')+1;
-        }else{
+        else:
             $commercial_resubmit_count=$this->input->post('commercial_resubmit_count');
-        }
+        endif;
 
         $edit_type_bid=$this->input->post('commercial_edit_id')+1; // here edit of save file is send 
 
        
 
         $email_id=$this->session->userdata('buy_email_id');
-        if(empty($email_id)){                
+        if(empty($email_id)):       
             redirect('buy-logout-by-pass');
-        }
+        endif;
 
         // here is item information which neeto load to commerical table
          
@@ -1076,19 +1113,24 @@ EOT;
 
 
 
-          if(empty($this->cart->contents())){
+          if(empty($this->cart->contents())):
              $this->session->set_flashdata('error_message',  'Please choose atleast Vendor complete process of saving');
             redirect('buyer-user-create-new-pr/'.$pr_no.'/'.$slno_pr.'/'.$job_code.'/'.$tech_evalution);
-          }
+          endif;
+          //report new added dates comm
 
-           $data_bid_master = array('pr_slno'=>$slno_pr, 'bid_date_entry'=>$date_create, 'bid_ref'=>$bid_ref_no, 'bid_id'=>$bid_Id,'mode_bid'=>$bid_method, 'technical_bid_type'=>$tech_evalution, 'status_bid'=>'4', 'pr_no'=>$pr_no, 'job_code'=>$job_code, 'edit_id'=>$edit_type_bid,'bid_title'=>$bid_title,'bid_description'=>$bid_work_description,'bid_creator_id'=>$email_id,'date_publish'=>$date_publish,'date_closing'=>$date_closing,'commercial_resubmit_count'=>$commercial_resubmit_count,'Ace_value_detail'=>$Ace_value_detail);
+           $data_master_dates_comm = array('commercial_closure_date' =>$commercial_closure_date);
+
+          
+
+           $data_bid_master = array('pr_slno'=>$slno_pr, 'bid_date_entry'=>$date_create, 'bid_ref'=>$bid_ref_no, 'bid_id'=>$bid_Id,'mode_bid'=>$bid_method, 'technical_bid_type'=>$tech_evalution, 'status_bid'=>'4', 'pr_no'=>$pr_no, 'job_code'=>$job_code, 'edit_id'=>$edit_type_bid,'bid_title'=>$bid_title,'bid_description'=>$bid_work_description,'bid_creator_id'=>$email_id,'date_publish'=>$date_publish,'date_closing'=>$date_closing,'commercial_resubmit_count'=>$commercial_resubmit_count,'Ace_value_detail'=>$Ace_value_detail,'currency_code'=>$currency);
             $query_bid_master=$this->db->insert('master_bid_Com_m',$data_bid_master);
 
             $insert_id_comm=$insert_id = $this->db->insert_id();
-         if($query_bid_master){   
-
-                foreach ($item_mateial_slno as $key_id_msterial => $value_id_msterial) {
-
+         if($query_bid_master):               
+            $query_master_dates_comm=$this->db->update('master_pr_process_detail',$data_master_dates_comm,array('pr_no' =>$pr_no));
+                
+            foreach ($item_mateial_slno as $key_id_msterial => $value_id_msterial):
                     $ids_material=$value_id_msterial;
                     $value_array = array('slno_item_mr' =>$ids_material);
                     $query_material=$this->db->get_where('master_mr_material_item_m',$value_array );
@@ -1100,8 +1142,8 @@ EOT;
 
                     $date_store = array( 'mr_no_item'=>$value_olny->mr_no_item, 'slno_mr_id'=>$value_olny->slno_mr_id, 'material_item_id'=>$value_olny->material_item_id, 'material_name'=>$value_olny->material_name, 'material_quantity'=>$value_olny->material_quantity, 'material_unit'=>$value_olny->material_unit, 'material_id'=>$value_olny->material_id, 'edit_id'=>$value_olny->edit_id, 'parameter_tech'=>$value_olny->parameter_tech, 'Category_material'=>$value_olny->Category_material, 'unit_price'=>$price, 'total_price'=>$total_price, 'Resubmission_count_id'=>$commercial_resubmit_count, 'buyer_id'=>$email_id,'commercial_edit_id'=>$edit_type_bid, 'master_itme_slno_id'=>$value_olny->slno_item_mr,'master_bid_id_comm'=>$insert_id);
                      $query_bid_master_item=$this->db->insert('master_mr_material_item_comm_m',$date_store);
-                   
-                }
+            endforeach;
+               
 
                 $data_title = array('pr_slno'=>$slno_pr, 'Title_bid'=>$bid_title, 'work_detail_bid'=>$bid_work_description, 'period_work_detail'=>$bid_period_work, 'location_detail'=>$bid_location_work, 'master_bid_id'=>$insert_id,'pr_no'=>$pr_no,'edit_id_bid'=>$edit_type_bid,'commercial_resubmit_count'=>$commercial_resubmit_count);
                 $query_title_master=$this->db->insert('master_bid_Com_details_m',$data_title);
@@ -1116,15 +1158,15 @@ EOT;
                 $query_technical_master=$this->db->insert('master_bid_Com_evaluation_m',$bid_technical);
                 endforeach;
                  $file_stored_name=date('Y-m-d')."-".$_FILES["terms_condition_file"]["name"];
-                if(move_uploaded_file($_FILES["terms_condition_file"]["tmp_name"], 'upload_files/term_condition/' . $file_stored_name)){
+                if(move_uploaded_file($_FILES["terms_condition_file"]["tmp_name"], 'upload_files/term_condition/' . $file_stored_name)):
                     $date_file = array('file_name' =>$file_stored_name , 'pr_no'=>$pr_no,'commercial_bid_id'=>$insert_id,'bid_reference'=>$bid_ref_no,'bid_reference_id'=>$bid_Id,'re_count_bid_com'=>$commercial_resubmit_count,'bid_type'=>$bid_method);
                     $query_files=$this->db->insert('master_technical_commercial_terms_conditions',$date_file);
 
-                }
+                 endif;
 
            
             $data_email_ids = array();
-        foreach ($this->cart->contents() as $items) {
+        foreach ($this->cart->contents() as $items):
             $ID_VENDORS=$items['id'];
              $query=$this->db->get_where('master_vendor_detail', array('Slno_vendor' => $ID_VENDORS));
              $results_id=$query->result();
@@ -1136,7 +1178,7 @@ EOT;
                
 
 
-        }
+        endforeach;
           $infom_tc = array('pr_no'=>$pr_no,'pr_slno'=>$slno_pr,'edit_id_bid'=>$edit_type_bid,'t_c_detail'=>$terms_condition,'commercial_resubmit_count'=>$commercial_resubmit_count );
         // `pr_no`, `pr_slno`, `edit_id_bid`, `t_c_detail`
 
@@ -1148,7 +1190,7 @@ EOT;
                     $tech_email_id=$proc_details->email_id;
                     $Procurement_name=$proc_details->Username;
                     
-            if($submission=='Save'){
+            if($submission=='Save'):
 
                 $date_processing = array('buyer_user_status' => 7,'buyer_date_comm'=>date('Y-m-d'),'commercial_user_id'=>$tech_email_id, 'commercial_user_slno'=>$commercial_user_id,'commercial_bid_id'=>$bid_Id,'technical_bid_ref'=>$bid_ref_no,'commercial_edit_id'=>$edit_type_bid,'commercial_type_bid'=>$bid_method,'commercial_bid_id'=>$bid_Id,'commercial_bid_ref'=>$bid_ref_no,'commercial_complete_status'=>3,'techno_commercial_status'=>6,'comm_bid'=>$insert_id);
                 $process_id = array('pr_no' => $pr_no );
@@ -1157,7 +1199,7 @@ EOT;
                 redirect('user-buyer-home');
                 exit();
 
-            }else if($submission=='Send'){
+            elseif($submission=='Send'):
                 $data_master_bid = array('pr_slno'=>$slno_pr, 'pr_no'=>$pr_no, 'edit_id'=>$edit_type_bid);
                 $update_status_master = array('status_bid'=>'1');
                 $this->db->update('master_bid_Com_m',$update_status_master,$data_master_bid);
@@ -1171,14 +1213,14 @@ EOT;
                 $this->db->update('master_bid_Com_vendor_m',$date_date_status_vendor,$data_update_idss);
                 // print_r($data_email_ids);
                 // master_vendor_notifications
-               foreach ($data_email_ids as $key_id_vendor => $value_vendors) {
+               foreach ($data_email_ids as $key_id_vendor => $value_vendors):
 
                 // print($key_id_vendor);
                 // print_r($value_vendors);
                 $vendor_id_bid=$value_vendors['Slno_vendor'];
                 $vendor_id=$value_vendors['vendor_email'];
                 $dates=date('d-m-Y');
-$message= <<<EOT
+            $message= <<<EOT
 New Bid Is been Publish on {$dates} Please Check Information Under Commerical New Bid Information Bid Reference Id is {$bid_ref_no} And Bid Type Is {$bid_method} Bid will Be Closed On Date {$date_closed_bid}
 
 EOT;
@@ -1186,7 +1228,7 @@ EOT;
                     $data_notification = array('vendor_id_bid' =>$vendor_id_bid ,'vendor_id'=>$vendor_id ,'message'=>$message);
                     $bid_notification=$this->db->insert('master_vendor_notifications',$data_notification);
                    # code...
-               }
+               endforeach;
                 $result_procuremnet_comm=$this->buyer_user->get_technical_commerial_user_list($commercial_user_id,10);
                 $proc_details_comm=$result_procuremnet_comm['user_tech_comm'][0];
                 $tech_email_id_comm=$proc_details_comm->email_id;
@@ -1206,20 +1248,20 @@ EOT;
 
                 // $date_processing = array('buyer_user_status' => 6,'buyer_date_comm'=>date('Y-m-d'),'commercial_user_id'=>$tech_email_id, 'commercial_user_slno'=>$Technical_ev,'commercial_bid_id'=>$bid_Id,'commercial_bid_ref'=>$bid_ref_no,'commercial_edit_id'=>$edit_type_bid,'commercial_type_bid'=>$bid_method,'commercial_complete_status'=>2,'techno_commercial_status'=>2,'comm_bid'=>$insert_id,'commercial_user_status'=>2);
                 $process_id = array('pr_no' => $pr_no );
-                $query_process=$this->db->update('master_pr_process_detail',$date_processing,$process_id);
+                $query_process=$this->db->update('master_pr_process_detail',$date_processing_comm,$process_id);
 
                 $this->session->set_flashdata('success_message', ' Successfully Commerical Bid Is Published ');
                 redirect('user-buyer-home');
                 exit();
-            }else{
-                $this->session->set_flashdata('error_message',  'Some thing went wrong please Try Again');
+            else:
+                $this->session->set_flashdata('error_message',  'Something went wrong please Try Again');
                 redirect('buyer-user-create-new-pr/'.$pr_no.'/'.$slno_pr.'/'.$job_code.'/'.$tech_evalution);
-            }
+             endif;
 
-        }else{
-             $this->session->set_flashdata('error_message',  'Some thing went wrong please Try Again');
+        else:
+             $this->session->set_flashdata('error_message',  'Something went wrong please Try Again');
                 redirect('buyer-user-create-new-pr/'.$pr_no.'/'.$slno_pr.'/'.$job_code.'/'.$tech_evalution);
-        } 
+         endif; 
         # code...
     }
     public function buyer_add_new_pr_comm_save($value=''){
@@ -1241,11 +1283,12 @@ EOT;
         $buyer_id=$this->input->post('buyer_id');
         $mr_date_of_creation=$this->input->post('mr_date_of_creation');
         $Technical_ev=$this->input->post('Technical_ev');
-        $date_create=$this->input->post('date_create');
-        $bid_ref_no=$this->input->post('bid_ref_no');
+        $date_publish=$date_create=$this->input->post('date_create');
+       $bid_Id=$bid_ref_no=$this->input->post('bid_ref_no');
         $bid_method=$this->input->post('bid_method');  // bid method  close simple rank
-        $date_publish=$this->input->post('date_publish');
-        $bid_Id=$this->input->post('bid_Id');
+        $currency=$this->input->post('currency');
+        // $date_publish=$this->input->post('date_publish');
+        // $bid_Id=$this->input->post('bid_Id');
         $date_closing=$this->input->post('date_closing');
         $bid_title=$this->input->post('bid_title');
         $bid_period_work=$this->input->post('bid_period_work');
@@ -1289,7 +1332,7 @@ EOT;
             redirect('buyer-user-create-new-pr/'.$pr_no.'/'.$slno_pr.'/'.$job_code.'/'.$tech_evalution);
           }
 
-           $data_bid_master = array('pr_slno'=>$slno_pr, 'bid_date_entry'=>$date_create, 'bid_ref'=>$bid_ref_no, 'bid_id'=>$bid_Id,'mode_bid'=>$bid_method, 'technical_bid_type'=>$tech_evalution, 'status_bid'=>'4', 'pr_no'=>$pr_no, 'job_code'=>$job_code, 'edit_id'=>$edit_type_bid,'bid_title'=>$bid_title,'bid_description'=>$bid_work_description,'bid_creator_id'=>$email_id,'date_publish'=>$date_publish,'date_closing'=>$date_closing,'commercial_resubmit_count'=>$commercial_resubmit_count,'Ace_value_detail'=>$Ace_value_detail);
+           $data_bid_master = array('pr_slno'=>$slno_pr, 'bid_date_entry'=>$date_create, 'bid_ref'=>$bid_ref_no, 'bid_id'=>$bid_Id,'mode_bid'=>$bid_method, 'technical_bid_type'=>$tech_evalution, 'status_bid'=>'4', 'pr_no'=>$pr_no, 'job_code'=>$job_code, 'edit_id'=>$edit_type_bid,'bid_title'=>$bid_title,'bid_description'=>$bid_work_description,'bid_creator_id'=>$email_id,'date_publish'=>$date_publish,'date_closing'=>$date_closing,'commercial_resubmit_count'=>$commercial_resubmit_count,'Ace_value_detail'=>$Ace_value_detail,'currency_code'=>$currency);
             $query_bid_master=$this->db->insert('master_bid_Com_m',$data_bid_master);
 
             $insert_id = $this->db->insert_id();
@@ -1458,9 +1501,9 @@ EOT;
         }
         
 
-        $Vendor_name=trim($this->input->post('Vendor_name'));
+        // $Vendor_name=trim($this->input->post('Vendor_name'));
         $Vendor_email_id_multiple=trim($this->input->post('Vendor_email_id'));
-        $Organisation_address=trim($this->input->post('Organisation_address'));
+        $Vendor_name=$Organisation_address=trim($this->input->post('Organisation_address'));
         $Mobile_no=trim($this->input->post('Mobile_no'));
         $Password=trim($this->input->post('Password'));
         $Vendor_desc=trim($this->input->post('Vendor_desc'));
@@ -1658,9 +1701,9 @@ EOT;
         if($value1_convered_id==$value2){
             
 
-            $Vendor_name=$this->input->post('Vendor_name');
+            // $Vendor_name=$this->input->post('Vendor_name');
             $Vendor_email_id_multiple=$this->input->post('Vendor_email_id');
-            $Organisation_name=$this->input->post('Organisation_name');
+           $Vendor_name=$Organisation_name=$this->input->post('Organisation_name');
             $Organisation_address=$this->input->post('Organisation_address');
             $Mobile_no=$this->input->post('Mobile_no');
             $Vendor_desc=$this->input->post('Vendor_desc');
@@ -1912,7 +1955,7 @@ EOT;
     }
     public function buyer_s_c_Commerical_ongoing_bid_pr_info_details($pr_no='',$pr_slno='',$project_job_code='',$id='',$comm_bid=''){
         $scripts='';
-            $data=array('title' =>"Bid Detail Information",'script_js'=>$scripts,'menu_status'=>'1','sub_menu'=>'1','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','Pr_no'=>$pr_no,'pr_slno'=>$pr_slno,'project_job_code'=>$project_job_code,'id'=>$id,'comm_bid_id'=>$comm_bid);
+            $data=array('title' =>"Bid Detail Information",'script_js'=>$scripts,'menu_status'=>'3','sub_menu'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','Pr_no'=>$pr_no,'pr_slno'=>$pr_slno,'project_job_code'=>$project_job_code,'id'=>$id,'comm_bid_id'=>$comm_bid);
             $this->load->view('template/template_header',$data);
             $this->load->view('buyer_user/template/template_top_head');
             $this->load->view('buyer_user/template/template_side_bar',$data);
@@ -1962,7 +2005,7 @@ EOT;
                 $this->db->insert('master_vendor_notifications',$date_entry);
             // `vendor_id_bid`, `vendor_id`, `message`
         }
-        $this->session->set_flashdata('success_message', 'Notification For Commercial is been sendTo Vendor');
+        $this->session->set_flashdata('success_message', 'Notification For Commercial is been send To Vendor');
             // After that you need to used redirect home
         redirect('user-buyer-home');
      
@@ -1988,8 +2031,93 @@ EOT;
           $this->load->view('buyer_user/template/template_side_bar',$data);
           $this->load->view('buyer_user/send_invitation/invitation_commerical',$data);
           $this->load->view('template/template_footer',$data);
-
     }
+    
+     public function buyer_change_password(){
+           
+                $scripts='<script src="https://cdnjs.cloudflare.com/ajax/libs/hideshowpassword/2.0.8/hideShowPassword.min.js"></script>';
+            
+                $data=array('title' =>"Admin Change Password for Users",'script_js'=>$scripts,'menu_status'=>'','sub_menu'=>'','sub_menu'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'');
+                $this->load->view('template/template_header',$data);
+                $this->load->view('buyer_user/template/template_top_head');
+                $this->load->view('buyer_user/template/template_side_bar',$data);
+                $this->load->view('buyer_user/change_password',$data);
+                $this->load->view('template/template_footer',$data);
+            
+        }
+        public function buyer_change_password_save1(){
+            $data_brower['browser'] = $this->agent->browser();
+            $data_brower['browserVersion'] = $this->agent->version();
+            $data_brower['platform'] = $this->agent->platform();
+            $data_brower['full_user_agent_string'] = $_SERVER['HTTP_USER_AGENT'];
+            $ip = $this->input->ip_address();       
+            $date_nrowser_json=json_encode($data_brower);
+            $date_entry=date('Y-m-d');
+            $time_entry=date('H:i:s');
+            $user_id_slno=$this->input->post('user_id_slno');
+            $token_id=$this->input->post('token_id');
+            $password=$this->input->post('password');
+            $keys_id="preetishweb";
+            $value1_convered = strtr($user_id_slno,array('.' => '+', '-' => '=', '~' => '/'));
+            
+            $value1_convered_id=$this->encrypt->decode($value1_convered,$keys_id);
+            if($value1_convered_id==$token_id){
+                $table='master_admin';
+                $data_insert = array('Password'=>$password, 'password_hash'=>md5($password));
+                $id=array('slno'=>$value1_convered_id);      
+                $result_insert = $this->user->common_update($table,$data_insert,$id);
+
+                $data_json=json_encode($data_insert);
+                $data_id_json=json_encode($id);
+                $date_insert_array = array('data_insert' => $data_json,'update_id'=>$data_id_json );
+                $date_insert_json=json_encode($date_insert_array);
+
+                $table_log='pms_log_entries';
+
+                $log_entry= array('Form_name'=>"update users password", 'Data_entry'=>$date_insert_json, 'status'=>1, 'Date'=>$date_entry, 'Time'=>$time_entry, 'Location_Id'=>$ip, 'browser_information'=>$date_nrowser_json);
+
+                $result_log_entry = $this->user->common_insert($table_log,$log_entry);
+                $this->session->set_flashdata('success_message', 'Password successfully Change');
+                // After that you need to used r
+                redirect('user-buyer-home');
+
+            }else{
+                $this->session->set_flashdata('error_message', 'Something went wrong');
+                // After that you need to used redirect function instead of load view such as                 
+                redirect('user-buyer-home');    
+            }
+            // Array ( [user_id_slno] => EBq6D9dEDSNHWJwsfBpyxu~Tv.jXe0EAizvq1LuUHVwc58gP.wknHjWDLrJllQ8ndtLCoeV6HFl.dn9hqLQ8xg-- [token_id] => 6 [password] => abcd!2345aA ) 
+            # code...
+        }
+        public function buyer_change_password_save($value=''){
+           $email_id=$this->session->userdata('buy_email_id');
+            if(empty($email_id)){
+                
+                redirect('buy-logout-by-pass');
+            }
+            $c_password=$this->input->post('c_password');
+            $new_password=$this->input->post('new_password');
+            $data_check=array('email_id'=>$email_id,'password_hash'=>md5($c_password),'Status'=>1);
+            $query_check=$this->db->get_where('master_admin',$data_check);
+            if($query_check->num_rows()==1){
+                $data_id_update=array('email_id'=>$email_id);
+                $data_update_information=array('password_hash'=>md5($new_password),'Password'=>$new_password);
+                $query_check=$this->db->update('master_admin',$data_update_information,$data_id_update);
+
+                $this->session->set_flashdata('success_message',' password changed successfull');
+                // After that you need to used redirect home
+                redirect('user-buyer-home');
+            }else{
+                $this->session->set_flashdata('error_message',' Something went wrong');
+                // After that you need to used redirect home
+                redirect('user-buyer-home');
+
+            }
+            # code...
+        }
+
+
+
 
      public function buyer_bid_rank_invitation_to_vendor_com_pr(){
 
@@ -2005,6 +2133,7 @@ EOT;
         $data_process = array('pr_no' =>$pr_no);
         $query_process=$this->db->get_where('master_pr_process_detail',$data_process);
         $result_process=$query_process->result(); 
+        $result_process_short=$result_process[0];
         $Technical_ev=$commercial_user_slno=$result_process[0]->commercial_user_slno;
 
 
@@ -2064,7 +2193,7 @@ EOT;
 
                  redirect('user-buyer-home');
             }else{
-                $this->session->set_flashdata('error_message', 'Something went worng!');
+                $this->session->set_flashdata('error_message', 'Something went wrong!');
                 redirect($url_auction);
             }
 
@@ -2133,6 +2262,7 @@ EOT;
         $data_process = array('pr_no' =>$pr_no);
         $query_process=$this->db->get_where('master_pr_process_detail',$data_process);
         $result_process=$query_process->result();
+        $result_process_short=$result_process[0];
         $Slno_bid=$comm_bid_db=$comm_bid_db;
         // print_r($result_process);
         
@@ -2165,7 +2295,9 @@ EOT;
             $data=array('master_bid_id_com'=>$comm_bid_db);
                 
             // $this->db->select_min('sub_total');
-            $this->db->order_by('sub_total', 'asc');
+            
+            $this->db->order_by('total_price', 'asc');
+            // $this->db->order_by('sub_total', 'asc');
             $this->db->order_by('date', 'asc');	
             $this->db->where('master_bid_id_com', $comm_bid_db);	
             $query_bid_sub=$this->db->get('master_pr_bid_qoute_item_total');
@@ -2179,7 +2311,7 @@ EOT;
         if(!empty($array_vedeor_id)){
             $final_id_vendor=array_unique($array_vedeor_id); // will remove duplicate values
         }else{
-              $this->session->set_flashdata('error_message',  'Sorry No vendor has Submitted Commerical information. Please Ask Buyer For looking to it . Here is bid id and bid reference no "' .$bid_info_buyer[0]->bid_id.'/'.$bid_info_buyer[0]->bid_ref.'"');
+            //   $this->session->set_flashdata('error_message',  'Sorry No vendor has Submitted Commerical information. Please Ask Buyer For looking to it . Here is bid id and bid reference no "' .$bid_info_buyer[0]->bid_id.'/'.$bid_info_buyer[0]->bid_ref.'"');
             // redirect('user-commerical-evalutor-home');
         }
         $data_table12= array('mr_no_item' =>$pr_no,'master_bid_id_comm'=>$comm_bid_db);
@@ -2313,7 +2445,7 @@ EOT;
             $date_price_basis= array('Vendor_id' => $userid_ven,'master_bid_id_com'=> $Slno_bid,'field_name'=>'price_basis');
             $data_price_basis=$this->db->get_where('master_pr_bid_qoute_item_misc',$date_price_basis);
             $value_price_basis=$data_price_basis->result();
-            if($data_price_basis->num_rows!=0){
+            if($data_price_basis->num_rows()!=0){
                 for($i_total=0; $i_total<$id_count ;$i_total++){
                     $material_data_price[$y][$userid_ven][]=array('',' ',$value_price_basis[$i_total]->field_value);
                 }
@@ -2331,7 +2463,21 @@ EOT;
             $date_place_delivery= array('Vendor_id' => $userid_ven,'master_bid_id_com'=> $Slno_bid,'field_name'=>'place_delivery');
             $data_place_delivery=$this->db->get_where('master_pr_bid_qoute_item_misc',$date_place_delivery);
             $value_place_delivery=$data_place_delivery->result();
-            if($data_place_delivery->num_rows!=0){
+            if($data_place_delivery->num_rows()!=0){
+                for($i_total=0; $i_total<$id_count ;$i_total++){
+                    $material_data_price[$y][$userid_ven][]=array('',' ',$value_place_delivery[$i_total]->field_value);
+                }
+            }else{
+                $material_data_price[$y][$userid_ven][]=array('',' ','--');
+            }
+        }
+        $y++;
+        foreach ($final_id_vendor as $key_ven_id =>$userid_ven) {
+            $id_count=$times_repeat[$userid_ven];
+            $date_place_delivery= array('Vendor_id' => $userid_ven,'master_bid_id_com'=> $Slno_bid,'field_name'=>'delivery basis');
+            $data_place_delivery=$this->db->get_where('master_pr_bid_qoute_item_misc',$date_place_delivery);
+            $value_place_delivery=$data_place_delivery->result();
+            if($data_place_delivery->num_rows()!=0){
                 for($i_total=0; $i_total<$id_count ;$i_total++){
                     $material_data_price[$y][$userid_ven][]=array('',' ',$value_place_delivery[$i_total]->field_value);
                 }
@@ -2462,8 +2608,8 @@ EOT;
         $this->excel->getActiveSheet()->setCellValue('B12', $result_table2[0]->location_detail);
         $this->excel->getActiveSheet()->setCellValue('A13', 'Bid No');
         $this->excel->getActiveSheet()->setCellValue('B13', $commercial_bid_id_DB);
-        $this->excel->getActiveSheet()->setCellValue('A14', 'Bid Ref');
-        $this->excel->getActiveSheet()->setCellValue('B14', $commercial_bid_ref_DB);
+        $this->excel->getActiveSheet()->setCellValue('A14', '');
+        $this->excel->getActiveSheet()->setCellValue('B14', "");
         $this->excel->getActiveSheet()->setCellValue('A15', 'Bid Start Date / Bid Closed Date');
         $this->excel->getActiveSheet()->setCellValue('B15', $result_table1[0]->bid_start_date.'/'.$result_table1[0]->bid_closed_date);
         $this->excel->getActiveSheet()->setCellValue('A16', 'Bid Type');
@@ -2481,11 +2627,11 @@ EOT;
         $this->excel->getActiveSheet()->getStyle('A20')->getFont()->setSize(16);
         $this->excel->getActiveSheet()->getStyle('A20')->getFill()->getStartColor()->setARGB('#333');
 
-        $this->excel->getActiveSheet()->setCellValue('A22', 'SRL');
+        $this->excel->getActiveSheet()->setCellValue('A22', '');
         $this->excel->getActiveSheet()->setCellValue('A23', 'Currency');
         $this->excel->getActiveSheet()->setCellValue('A24', 'Rate');
-        $this->excel->getActiveSheet()->setCellValue('B22', "1");
-        $this->excel->getActiveSheet()->setCellValue('B23', 'INR');
+        $this->excel->getActiveSheet()->setCellValue('B22', "");
+        $this->excel->getActiveSheet()->setCellValue('B23', $result_table3[0]->currency_code);
         $this->excel->getActiveSheet()->setCellValue('B24', "1.00");
 
         $this->excel->getActiveSheet()->getStyle('A10:A24')->getAlignment()->setWrapText(true);
@@ -2519,8 +2665,16 @@ EOT;
 
         $x=0;
 		foreach ($query_approved->result() as $key_summary => $value_summary):
-		    $x++;
-            $summary_data[]=array($x,$value_summary->Item_name,$value_summary->Quantity,$value_summary->Unit_price,$value_summary->Total_unitprice,$value_summary->Vendor_id);
+            $x++;
+           
+            $Vendor_id=$value_summary->Vendor_id;
+            $this->db->where('Vendor_email_id',$Vendor_id);
+            $query_vendor=$this->db->get('master_vendor_detail');
+            $query_vendor_result=$query_vendor->result();
+            $value_id_vender=$query_vendor_result[0];
+            $Organisation_name=$value_id_vender->Organisation_name;
+     
+            $summary_data[]=array($x,$value_summary->Item_name,$value_summary->Quantity,$value_summary->Unit_price,$value_summary->Total_unitprice,$Organisation_name);
         endforeach;
         $this->excel->getActiveSheet()->fromArray($summary_data, null, 'A31');
                  
@@ -2574,7 +2728,7 @@ EOT;
         $x=0;
         foreach ($query_table12->result() as $key_value):
             $x++;
-            $material_data[]=array($x,$key_value->material_name,$key_value->material_unit,$key_value->material_quantity,'INR');
+            $material_data[]=array($x,$key_value->material_name,$key_value->material_unit,$key_value->material_quantity,$result_table3[0]->currency_code);
         endforeach;
         $material_data[]=array('','Sub total (A)','','','');
         $material_data[]=array('','Packing and Forwarding (P&F) Charges (B)','','','');
@@ -2584,7 +2738,10 @@ EOT;
         $material_data[]=array('','Total Item Value with GST','','','');
         $material_data[]=array('','User Assumption Charges','','','');
         $material_data[]=array('','Price Basis','','','');
+
         $material_data[]=array('','Place of Delivery','','','');
+        $material_data[]=array('','Place of Dispatch','','','');
+       
         $material_data[]=array('','Delivery Schedule','','','');
         $material_data[]=array('','Security BG','','','');
         $material_data[]=array('','Payment Terms','','','');
@@ -2619,9 +2776,15 @@ EOT;
         $column =5;
         $column1 =5;
         foreach ($final_id_vendor as $key_ven_id =>$userid_ven):
+           
+            $this->db->where('Vendor_email_id',$userid_ven);
+            $query_vendor=$this->db->get('master_vendor_detail');
+            $query_vendor_result=$query_vendor->result();
+            $value_id_vender=$query_vendor_result[0];
+            $Organisation_name=$value_id_vender->Organisation_name;
             $id_count=$times_repeat[$userid_ven];
             $new_column_vendor=($id_count*3)+$column;
-            $this->excel->getActiveSheet()->setCellValueByColumnAndRow($column, $new_id_bid, $userid_ven);
+            $this->excel->getActiveSheet()->setCellValueByColumnAndRow($column, $new_id_bid, $Organisation_name);
             $this->excel->getActiveSheet()->mergeCells(cellsToMergeByColsRow($column,($new_column_vendor-1),$new_id_bid));
 
             // $this->excel->getActiveSheet()->setCellValueByColumnAndRow(($column), ($new_id_bid+1), 'Quoted Price(INR)');
@@ -2665,6 +2828,97 @@ EOT;
             endforeach;
             $new_id_bid_row++;
         }
+
+        $highestRow_new_bid_user_List = $this->excel->getActiveSheet()->getHighestRow();
+
+        $new_id_bid_row=$highestRow_new_bid+3;
+
+        $highestRow_new_bid_user_List = $this->excel->getActiveSheet()->getHighestRow();
+        $id_user=$highestRow_new_bid_user_List+10;
+        $new_id_user=$id_user+5;
+        $value1_row_user='A'.$id_user;
+        $value2_row_user='G'.$new_id_user;
+
+        $this->excel->getActiveSheet()->setCellValue($value1_row_user, "User Information");
+        
+        $this->excel->getActiveSheet()->mergeCells($value1_row_user.':'.$value2_row_user);
+    
+        //set aligment to center for that merged cell (A1 to C1)
+        $this->excel->getActiveSheet()->getStyle($value1_row_user)->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
+        //make the font become bold
+        $this->excel->getActiveSheet()->getStyle($value1_row_user)->getFont()->setBold(true);
+        $this->excel->getActiveSheet()->getStyle($value1_row_user)->getFont()->setSize(20);
+        $this->excel->getActiveSheet()->getStyle($value1_row_user)->getFill()->getStartColor()->setARGB('#333');
+        $user_buyer = $this->excel->getActiveSheet()->getHighestRow();
+        $user_design_opening_id=$user_buyer+2;
+        $this->excel->getActiveSheet()->setCellValue('A'.$user_design_opening_id, 'User Type');
+        $this->excel->getActiveSheet()->setCellValue('B'.$user_design_opening_id, ':-');
+        $this->excel->getActiveSheet()->setCellValue('C'.$user_design_opening_id, 'User Name');
+        $user_design_id=$user_design_opening_id+1;
+        $design_user_id=$result_process_short->design_user_id;
+        $design_query=$this->db->get_where('master_admin',array('email_id'=>$design_user_id))->result();
+        $this->excel->getActiveSheet()->setCellValue('A'.$user_design_id, 'Design User');
+        $this->excel->getActiveSheet()->setCellValue('B'.$user_design_id, ':-');
+        $this->excel->getActiveSheet()->setCellValue('C'.$user_design_id, $design_query[0]->Username.' ['.$design_user_id.'] ');
+        $user_design_approver_id=$user_design_id+1;
+        $approver_user_id=$result_process_short->approver_user_id;
+        $approver_query=$this->db->get_where('master_admin',array('email_id'=>$approver_user_id))->result();
+        $this->excel->getActiveSheet()->setCellValue('A'.$user_design_approver_id, 'Approver User');
+        $this->excel->getActiveSheet()->setCellValue('B'.$user_design_approver_id, ':-');
+        $this->excel->getActiveSheet()->setCellValue('C'.$user_design_approver_id, $approver_query[0]->Username.' ['.$approver_user_id.'] ');
+        $user_procurement_user_id=$user_design_approver_id+1;
+        $procurement_user_id=$result_process_short->procurement_user_id;
+        $pro_query=$this->db->get_where('master_admin',array('email_id'=>$procurement_user_id))->result();
+        $this->excel->getActiveSheet()->setCellValue('A'.$user_procurement_user_id, 'Procurement User');
+        $this->excel->getActiveSheet()->setCellValue('B'.$user_procurement_user_id, ':-');
+        $this->excel->getActiveSheet()->setCellValue('C'.$user_procurement_user_id, $pro_query[0]->Username.' ['.$procurement_user_id.'] ');
+        $user_buyer_user_id=$user_procurement_user_id+1;
+        $buyer_user_id=$result_process_short->buyer_user_id;
+        $buyer_query=$this->db->get_where('master_admin',array('email_id'=>$buyer_user_id))->result();
+        $this->excel->getActiveSheet()->setCellValue('A'.$user_buyer_user_id, 'Buyer User');
+        $this->excel->getActiveSheet()->setCellValue('B'.$user_buyer_user_id, ':-');
+        $this->excel->getActiveSheet()->setCellValue('C'.$user_buyer_user_id, $buyer_query[0]->Username.' ['.$buyer_user_id.'] ');
+        $techinal_evalution=$result_process_short->type_bidding_technical;
+        if($techinal_evalution==1){
+            $user_tech_user_id_array=$user_buyer_user_id+1;
+            $user_tech=0;
+            $tech_user_id_array=unserialize($result_process_short->tech_user_id_array);
+            $tech_query=$this->db->get('master_admin')->result();
+            $this->excel->getActiveSheet()->setCellValue('A'.$user_tech_user_id_array, 'Techinical committee User');
+            $this->excel->getActiveSheet()->setCellValue('B'.$user_tech_user_id_array, ':-');
+            foreach ($tech_query as $key_approver){
+                if(in_array($key_approver->email_id, $tech_user_id_array)){
+                    $user_tech_user_id_array=$user_tech_user_id_array+$user_tech;
+
+                $user_technical=$key_approver->Username."[".$key_approver->email_id." ]";
+                $user_tech++;
+                $this->excel->getActiveSheet()->setCellValue('C'.$user_tech_user_id_array,$user_technical);
+                }
+            }
+        }else{
+            $user_tech_user_id_array=$user_buyer_user_id+1;
+        }
+        $user_comm=0;
+        $user_commercial_user_id_array=$user_tech_user_id_array+1;
+        $commercial_user_id_array=unserialize($result_process_short->commercial_user_id_array);
+            $comm_query=$this->db->get('master_admin')->result();
+            $this->excel->getActiveSheet()->setCellValue('A'.$user_commercial_user_id_array, 'Commercial committee User');
+            $this->excel->getActiveSheet()->setCellValue('B'.$user_commercial_user_id_array, ':-');
+            foreach ($comm_query as $key_approver){
+                if(in_array($key_approver->email_id, $commercial_user_id_array)){
+                    $user_commercial_user_id_array=$user_commercial_user_id_array+$user_comm;
+
+                $user_technical=$key_approver->Username."[".$key_approver->email_id." ]";
+                $user_comm++;
+                $this->excel->getActiveSheet()->setCellValue('C'.$user_commercial_user_id_array,$user_technical);
+                }
+            }
+
+
+
+        
+        
+        
        
         $filename='Pr No '.$pr_no.'__'.$highestRow.'__'.$highestRow_new.'__'.$highestRow_new_bid.'___.xls'; //save our workbook as this file name
         header('Content-Type: application/vnd.ms-excel'); //mime type
@@ -2676,12 +2930,1560 @@ EOT;
         $objWriter = PHPExcel_IOFactory::createWriter($this->excel, 'Excel5');  
         //force user to download the Excel file without writing it to server's HD
         $objWriter->save('php://output');
-       
-
-
-
-
-
 
     }
+    public function buyer_user_pr_orginal_project_pr($value=''){
+        $scripts='<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script><script src=" https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script> <script src="'.base_url().'file_css_admin/own_js.js"></script>';
+            $data=array('title' =>'Project Detail Information','script_js'=>$scripts ,'menu_status'=>'1','sub_menu'=>'1','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'');
+
+            $this->load->view('template/template_header',$data);
+            $this->load->view('buyer_user/template/template_top_head');
+            $this->load->view('buyer_user/template/template_side_bar',$data);
+            $this->load->view('buyer_user/pr_schedule_m/Pr_schudele_index',$data);
+            $this->load->view('template/template_footer',$data);
+        # code...
+    }
+    public function buyer_comment_term_condition($slno="",$pr_no=""){
+        $scripts='<script type="text/javascript" src="'.base_url().'file_css_admin/DataTables/datatables.min.js"></script><script src="'.base_url().'file_css_admin/own_js.js"></script>';
+       
+        $data=array('title' =>"Pr Schedule Remark History",'script_js'=>$scripts,'menu_status'=>'','sub_menu'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','pr_no'=>$pr_no,'slno'=>$slno);
+        $this->load->view('template/template_header',$data);
+        $this->load->view('buyer_user/template/template_top_head');
+        $this->load->view('buyer_user/template/template_side_bar',$data);
+        $this->load->view('buyer_user/term_condition/view_term_condition',$data);
+        $this->load->view('template/template_footer',$data);
+  
+      }
+    public function buyer_comment_term_condition_save(){
+        // print_r($this->input->post());
+        // print_r($_FILES);
+        $email_id=$this->session->userdata('buy_email_id');
+        if(empty($email_id)){
+            
+            redirect('buy-logout-by-pass');
+        }
+        $type_approved_comment=$this->input->post('type_approved_comment');
+        $vendor_slno=$this->input->post('vendor_slno');
+        $vendor_id=$this->input->post('vendor_id');
+        if($type_approved_comment==2){
+            if(!empty($_FILES['attachment_file'])){
+                $path = "upload_files/comment_t_c_vendor/";
+                $file_name=date('ymdhis').( $_FILES['attachment_file']['name']);
+                $path = $path .$file_name;
+                if(move_uploaded_file($_FILES['attachment_file']['tmp_name'], $path)) {
+                    $data_upload=array('status_file_appr'=>$type_approved_comment,'attach_file_link'=>$path,'buyer_id'=>$email_id);
+                    $this->db->update('master_bid_Com_vendor_term_m',$data_upload,array('slno'=>$vendor_slno));
+                    // $vendor_id=$value_vendor->vendor_id;
+                    $this->db->where('Vendor_email_id',$vendor_id);
+                    $query_vendor=$this->db->get('master_vendor_detail');
+                    $query_vendor_result=$query_vendor->result();
+                    $value_id_vender=$query_vendor_result[0];
+                    $Slno_vendor=$value_id_vender->Slno_vendor;
+                  
+                    $message= <<<EOT
+
+You have received a comment on your submitted terms and conditions.
+EOT;
+
+                    
+                    $data_notification = array('vendor_id_bid' =>$Slno_vendor ,'vendor_id'=>$vendor_id ,'message'=>$message);
+                    $bid_notification=$this->db->insert('master_vendor_notifications',$data_notification);
+                    $this->session->set_flashdata('success_message', 'successfull Send To vendor ');
+                    redirect('buyer-new-index-alert');
+
+                }else{
+                    $this->session->set_flashdata('error_message', 'File Is unable proccess due to corruptions please try again !!');
+                    redirect('buyer-new-index-alert');
+                }
+
+            }else{
+                $this->session->set_flashdata('error_message', 'Please Attach to File While sending');
+                redirect('buyer-new-index-alert'); 
+            }
+        }else{
+            $data_upload=array('status_file_appr'=>$type_approved_comment,'buyer_id'=>$email_id);
+            $query=$this->db->update('master_bid_Com_vendor_term_m',$data_upload,array('slno'=>$vendor_slno));
+                  if($query){
+            // $vendor_id=$value_vendor->vendor_id;
+                    $this->db->where('Vendor_email_id',$vendor_id);
+                    $query_vendor=$this->db->get('master_vendor_detail');
+                    $query_vendor_result=$query_vendor->result();
+                    $value_id_vender=$query_vendor_result[0];
+                    $Slno_vendor=$value_id_vender->Slno_vendor;
+                  
+                    $message= <<<EOT
+Your terms and conditions has been approved.
+EOT;
+
+                    
+                    $data_notification = array('vendor_id_bid' =>$Slno_vendor ,'vendor_id'=>$vendor_id ,'message'=>$message);
+                    $bid_notification=$this->db->insert('master_vendor_notifications',$data_notification);
+                    $this->session->set_flashdata('success_message', 'successfull Send To vendor wait; ');
+                    redirect('buyer-new-index-alert');
+                  }else{
+                      echo "some";
+                  }
+
+        }
+       
+//         if(!empty($_FILES['attachment_file'])){
+//             $path = "upload_files/comment_t_c_vendor/";
+//             $file_name=date('ymdhis').( $_FILES['attachment_file']['name']);
+//             $path = $path .$file_name;
+//             if(move_uploaded_file($_FILES['attachment_file']['tmp_name'], $path)) {
+//                 $data_upload=array('status_file_appr'=>$type_approved_comment,'attach_file_link'=>$path,'buyer_id'=>$email_id);
+//                 $this->db->update('master_bid_Com_vendor_term_m',$data_upload,array('slno'=>$vendor_slno));
+//                 // $vendor_id=$value_vendor->vendor_id;
+//                 $this->db->where('Vendor_email_id',$vendor_id);
+//                 $query_vendor=$this->db->get('master_vendor_detail');
+//                 $query_vendor_result=$query_vendor->result();
+//                 $value_id_vender=$query_vendor_result[0];
+//                 $Slno_vendor=$value_id_vender->Slno_vendor;
+//                 if($type_approved_comment==1){                
+//                     $message= <<<EOT
+
+// Your terms and conditions has been approved.
+// EOT;
+//                 }else{
+//                     $message= <<<EOT
+
+// You have received a comment on your submitted terms and conditions.
+// EOT;
+
+//                 }
+//                     $data_notification = array('vendor_id_bid' =>$Slno_vendor ,'vendor_id'=>$vendor_id ,'message'=>$message);
+//                     $bid_notification=$this->db->insert('master_vendor_notifications',$data_notification);
+              
+//                 echo '<script>alert("Information Is success Stored");</script>';
+//                 sleep(3000);
+//                 echo "<script>window.close();</script>"; 
+//             }else{
+//                 echo '<script>alert( "Something went worng");</script>'; 
+              
+//                 sleep(3000);
+//                 echo "<script>window.close();</script>";  
+//             }
+
+//         }else{
+//             if($type_approved_comment==1){
+//                 $data_upload=array('status_file_appr'=>$type_approved_comment,'attach_file_link'=>$path,'buyer_id'=>$email_id);
+//                 $this->db->update('master_bid_Com_vendor_term_m',$data_upload,array('slno'=>$vendor_slno));
+//                 // $vendor_id=$value_vendor->vendor_id;
+//                 $this->db->where('Vendor_email_id',$vendor_id);
+//                 $query_vendor=$this->db->get('master_vendor_detail');
+//                 $query_vendor_result=$query_vendor->result();
+//                 $value_id_vender=$query_vendor_result[0];
+//                 $Slno_vendor=$value_id_vender->Slno_vendor;
+//                 if($type_approved_comment==1){                
+//                     $message= <<<EOT
+
+// Your terms and conditions has been approved.
+// EOT;
+//                 }else{
+//                     $message= <<<EOT
+
+// You have received a comment on your submitted terms and conditions.
+// EOT;
+
+//                 }
+//                     $data_notification = array('vendor_id_bid' =>$Slno_vendor ,'vendor_id'=>$vendor_id ,'message'=>$message);
+//                     $bid_notification=$this->db->insert('master_vendor_notifications',$data_notification);
+//                     echo '<script>alert("Information Is success Stored");</script>';
+//                 sleep(3000);
+//                 echo "<script>window.close();</script>"; 
+//             }else{
+//             echo '<script>alert("File Is Not Found Please Attach");</script>';            
+//             sleep(3000);
+//             echo "<script>window.close();</script>";  
+//             }
+//         }
+//         // echo "<script>window.close();</script>";
+        
+    }
+    
+    
+    public function buyer_new_index_alert(){
+        $scripts='';
+       
+        $data=array('title' =>"",'script_js'=>$scripts,'menu_status'=>'','sub_menu'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'');
+        $this->load->view('template/template_header',$data);
+        $this->load->view('buyer_user/template/template_top_head');
+        $this->load->view('buyer_user/template/template_side_bar',$data);
+        $this->load->view('buyer_user/new_index',$data);
+        $this->load->view('template/template_footer',$data);
+  
+      }
+
+################################################################################################################
+#
+#
+#
+################################################################################################################
+    public function buyer_view_new_category_list($value=''){
+
+        $scripts='<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script><script src=" https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script> <script src="'.base_url().'file_css_admin/own_js.js"></script>';
+
+        $data=array('title' =>"View Category List",'script_js'=>$scripts ,'menu_status'=>'12','sub_menu'=>'121','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'');  
+        $this->load->view('template/template_header',$data);
+        $this->load->view('buyer_user/template/template_top_head');
+        $this->load->view('buyer_user/template/template_side_bar',$data);
+        $this->load->view('buyer_user/new_material_with_category/view_list_category');
+        $this->load->view('template/template_footer',$data);
+    
+    }
+
+    public function buyer_view_new_material_list($value=''){
+
+        $scripts='<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script><script src=" https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script> <script src="'.base_url().'file_css_admin/own_js.js"></script>';
+
+        $data=array('title' =>"View Material List",'script_js'=>$scripts ,'menu_status'=>'12','sub_menu'=>'122','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'');  
+        $this->load->view('template/template_header',$data);
+        $this->load->view('buyer_user/template/template_top_head');
+        $this->load->view('buyer_user/template/template_side_bar',$data);
+        $this->load->view('buyer_user/new_material_with_category/view_material_catergory_list');
+        $this->load->view('template/template_footer',$data);
+        
+    }
+    public function buyer_new_material_catergory_new($value=''){
+
+        $scripts='';
+
+        $data=array('title' =>"View Material List",'script_js'=>$scripts ,'menu_status'=>'12','sub_menu'=>'121','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'');  
+        $this->load->view('template/template_header',$data);
+        $this->load->view('buyer_user/template/template_top_head');
+        $this->load->view('buyer_user/template/template_side_bar',$data);
+        $this->load->view('buyer_user/new_material_with_category/new_material_category_new');
+        $this->load->view('template/template_footer',$data);
+  
+    }
+  
+   
+    public function buyer_new_material_catergory_new_save($value=''){
+        $email_id=$this->session->userdata('buy_email_id');
+        if(empty($email_id)){
+
+        redirect('buyer-logout-by-pass');
+        }
+        $material_category=strtolower($this->input->post('material_category')); 
+        $data=array('category_name'=>$material_category);
+        $query=$this->db->get_where('master_category',$data);
+        if($query->num_rows()==0){
+            $data_insert = array('entry_id'=>$email_id,'status'=>'1','category_name' =>$material_category);
+            $query=$this->db->insert('master_category',$data_insert);
+            $this->session->set_flashdata('success_message', 'Material category added successfully');
+            redirect('user-buyer-home');
+            exit;
+
+        }else{
+            $this->session->set_flashdata('error_message', 'This material category already exists');
+            redirect('user-buyer-home');
+            exit;                  
+        }
+
+    }
+    
+    public function buyer_view_new_material_uom($value=''){
+        $scripts='<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script><script src=" https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script> <script src="'.base_url().'file_css_admin/own_js.js"></script>';
+
+        $data=array('title' =>"View Material List",'script_js'=>$scripts ,'menu_status'=>'12','sub_menu'=>'123','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'');  
+        $this->load->view('template/template_header',$data);
+        $this->load->view('buyer_user/template/template_top_head');
+        $this->load->view('buyer_user/template/template_side_bar',$data);
+        $this->load->view('buyer_user/new_material_uom/material_uom');
+        $this->load->view('template/template_footer',$data);
+    }
+    public function buyer_view_new_material_uom_save($value=''){
+        $email_id=$this->session->userdata('buy_email_id');
+        if(empty($email_id)){            
+            redirect('buyer-logout-by-pass');
+        }
+        $uom=strtolower($this->input->post('uom')); 
+        $data=array('uom'=>$uom);
+        $query=$this->db->get_where('master_category_uom',$data);
+        if($query->num_rows()==0){
+            $data_insert = array('entry_id'=>$email_id,'status'=>'1','uom' =>$uom);
+            $query=$this->db->insert('master_category_uom',$data_insert);
+            $this->session->set_flashdata('success_message', 'UOM added successfully');
+                redirect('user-buyer-home');
+                exit;
+
+        }else{
+
+        $this->session->set_flashdata('error_message', 'This UOM already exists');
+                redirect('user-buyer-home');
+                exit;                  
+
+        }
+
+    } 
+   
+    public function buyer_view_new_uom_list($value=''){
+
+        $scripts='<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script><script src=" https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script> <script src="'.base_url().'file_css_admin/own_js.js"></script>';
+
+        $data=array('title' =>"View Material List",'script_js'=>$scripts ,'menu_status'=>'12','sub_menu'=>'123','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'');  
+        $this->load->view('template/template_header',$data);
+        $this->load->view('buyer_user/template/template_top_head');
+        $this->load->view('buyer_user/template/template_side_bar',$data);
+        $this->load->view('buyer_user/new_material_uom/view_new_uom_list');
+        $this->load->view('template/template_footer',$data);
+      
+    } 
+    public function buyer_add_new_category_material($value=''){
+
+
+        $email_id=$this->session->userdata('buy_email_id');
+        if(empty($email_id)){
+            redirect('bu-logout-by-pass');
+        }
+        $date =date('Y-m-d');
+        $table="master_category_item";    
+        $actions_file=$this->input->post('actions_file');        
+        switch ($actions_file) {
+            case 'buyer_files_uploaded_details':
+                if(isset($_FILES["file"]["name"])){
+                    $file_name=$_FILES["file"]["name"];
+                    $file_stored_name=date('Y-m-d')."-".date('His')."-".$_FILES["file"]["name"];
+                    $path = $_FILES["file"]["tmp_name"];
+// 
+                    if ($_FILES["file"]["error"] > 0) {
+                        echo "3";
+                        exit();
+                    } else {
+                        if(move_uploaded_file($_FILES["file"]["tmp_name"], 'upload_files/material_admin/' . $file_stored_name)){
+                            $data_array = array('file_name'=>$file_stored_name, 'upload_by'=>$email_id);
+                            $query_files=$this->db->insert('master_material_category_file',$data_array);
+                            $path_excel="upload_files/material_admin/".$file_stored_name;
+                            $arr_file = explode('.', $_FILES['file']['name']);
+                            $extension =strtolower(end($arr_file));
+                            switch ($extension) {
+                                case 'xls':
+                                    $inputFileType = 'Xls';
+                                break;
+                                case 'xlsx':
+                                    $inputFileType = 'Xlsx';
+                                break;                  
+                                case 'xml':
+                                    $inputFileType = 'Xml';
+                                break;
+                                case 'ods':
+                                    $inputFileType = 'Ods';
+                                break;
+                                case 'slk':
+                                    $inputFileType = 'Slk';
+                                break;                  
+                                case 'gnumeric':
+                                    $inputFileType = 'Gnumeric';
+                                break;
+                                case 'csv':
+                                    $inputFileType = 'Csv';
+                                break;
+                                default:
+                                # code...
+                                break;
+                            }
+                            $objReader = \PhpOffice\PhpSpreadsheet\IOFactory::createReader($inputFileType);
+                            $objReader->setReadDataOnly(true);
+                            //FileName and Sheet Name
+                            $objPHPExcel = $objReader->load($path_excel);
+
+                            foreach($objPHPExcel->getWorksheetIterator() as $worksheet){
+                                $highestRow = $worksheet->getHighestRow();
+                                $highestColumn = $worksheet->getHighestColumn();
+                                for($row=2; $row<=$highestRow; $row++){                    
+                                    $category_name = $worksheet->getCellByColumnAndRow(1, $row)->getValue();
+                                    $material_item_name = $worksheet->getCellByColumnAndRow(2, $row)->getValue();
+                                    // $material_item_id = $worksheet->getCellByColumnAndRow(3, $row)->getValue();
+                                    $uom = $worksheet->getCellByColumnAndRow(3, $row)->getValue();
+                                    $technical_details = $worksheet->getCellByColumnAndRow(4, $row)->getValue();
+                                    if(!empty($category_name) && !empty($material_item_name)  && !empty($uom) ){
+                                        $query_master_category = $this->db->get_where('master_category',array('category_name'=>strtolower(trim($category_name))));
+                                        if($query_master_category->num_rows()==1){
+                                            $query_uom = $this->db->get_where('master_category_uom',array('uom'=>strtolower(trim($uom))));
+                                            if($query_uom->num_rows()==1){
+                                                $this->load->helper('string');
+                                                $randno=random_string('numeric',6);
+                                                $value_id1=substr($category_name,0,4);
+                                                $value_id2=substr($material_item_name,0,5);
+                                                $material_item_id= $material_id=$value_id1.'-'.$value_id2.'-'.$randno;
+                                                $data_check = array('material_item_id' => $material_id);
+                                                // $data_check = array('material_item_id' => $material_item_id);
+                                                $query=$this->db->get_where($table,$data_check);
+                                                $num=$query->num_rows();
+                                                if($num==0){    
+                                                    $data = array('category_name'=>$category_name,'material_item_name'=>$material_item_name,'material_item_id'=>  $material_item_id,'uom'=>$uom,'technical_details'=> $technical_details,'entry_id'=>$email_id,'date'=>$date,'status'=>1);
+
+                                                    $query_ENTRY=$this->db->insert($table, $data);
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            echo "1";
+                            exit();
+                        }else{
+                            echo "2"; 
+                            exit(); 
+                        }
+                    }
+                }
+            break;
+            case 'buyer_Views':
+                $data_check = array('date' => $date);
+                $query=$this->db->get_where($table,$data_check);
+
+                $output = '
+                    <h3 align="center">Total Data - '.$query->num_rows().'</h3>
+                    <table class="table table-striped table-bordered">
+                    <tr>
+                    <th>Category</th>
+                    <th>Material Name</th>
+                    <th>Material Id</th>
+                    <th>UOM</th>
+                    <th>Technical Parameters</th>                     
+                    </tr>
+                ';
+                foreach($query->result() as $row){
+                    $output .= '
+                    <tr>
+                    <td>'.$row->category_name.'</td>
+                    <td>'.$row->material_item_name.'</td>
+                    <td>'.$row->material_item_id.'</td>
+                    <td>'.$row->uom.'</td>
+                    <td>'.$row->technical_details.'</td>
+
+                    </tr>
+                    ';
+                }
+                $output .= '</table>';
+                echo $output;
+                exit();         
+            break;  
+
+            default:
+
+            break;
+        }
+    }
+    
+   
+
+
+
+
+
+
+  public function buyer_new_category_material($value=''){
+
+    $scripts='';
+          $data=array('title' =>"Create Material",'script_js'=>$scripts,'menu_status'=>'12','sub_menu'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','value'=>$value);
+          $this->load->view('template/template_header',$data);
+          $this->load->view('buyer_user/template/template_top_head');
+           $this->load->view('buyer_user/template/template_side_bar',$data);
+          $this->load->view('buyer_user/new_material_with_category/create_new_material_category',$data);
+          // $this->load->view('admin/entry_pr_schedule/pr_schedule',$data);
+
+          $this->load->view('template/template_footer',$data);
+    // admin_new_category_material
+    # code...
+  }
+
+
+  public function abuyer_view_material_details_list($value=''){
+    if(!empty($value)){
+               $scripts='<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script><script src=" https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script> <script src="'.base_url().'file_css_admin/own_js.js"></script>';
+                $data=array('title' =>"View Material List",'script_js'=>$scripts ,'menu_status'=>'12','sub_menu'=>'122','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','value'=>$value);  
+              $this->load->view('template/template_header',$data);
+              $this->load->view('buyer_user/template/template_top_head');
+              $this->load->view('buyer_user/template/template_side_bar',$data);
+              $this->load->view('buyer_user/new_material_with_category/view_material_catergory_list_details',$data);
+              $this->load->view('template/template_footer',$data);
+          }else{
+              redirect('buyer-user-view-new-material-list');
+          }
+    // admin_view_material_details_list
+    # code...
+  }
+  public function buyer_user_add_new_material(){
+    $email_id=$this->session->userdata('buy_email_id');
+    if(empty($email_id)){
+        
+        redirect('buyer-logout-by-pass_new');exit;
+    }
+    $scripts='<script src="'.base_url().'file_css_admin/own_js_date_picker.js"></script>';
+
+    $data=array('title' =>"Create New Material Requisition",'script_js'=>$scripts ,'menu_status'=>'1','sub_menu'=>'1','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'');  
+
+       
+        $this->load->view('buyer_user/new_mr_requisition/buyer_user_add_new_material');
+       
+
+    
+}
+ 
+public function buyer_user_add_new_material_save(){
+    $email_id=$this->session->userdata('buy_email_id');
+    if(empty($email_id)){
+        
+        redirect('buyer-logout-by-pass_new');exit;
+    }
+    // print_r($this->input->post());
+    //Array ( [material_category] => Electrical equipment [uom] => No [technical_parameters] => MOC=CRCA,Terminals=40,thickness=2mm,Application=outdoor [material_name] => Junction Box [material_id] => ee02 )
+    $this->load->helper('string');
+    
+
+
+   $material_category=$this->input->post('material_category');
+   $uom=$this->input->post('uom');
+   $technical_parameters=$this->input->post('technical_parameters');
+   $material_name=$this->input->post('material_name');
+  
+   $value_id1=substr($material_category,0,4);
+   $value_id2=substr($material_name,0,5);
+    while(1){
+        $randno=random_string('numeric',6);
+        $material_id=$value_id1.'-'.$value_id2.'-'.$randno;
+        $data_check = array('material_item_id' => $material_id);
+        // $data_check = array('material_item_id' => $material_item_id);
+        $query_id=$this->db->get_where('master_category_item',$data_check);
+        $num=$query_id->num_rows();
+        if($num==0){ 
+            break;
+        }
+    }
+
+
+   // $material_id=$this->input->post('material_id');
+
+    $data_entry=array('category_name'=>$material_category,'uom'=>$uom,'technical_details'=>$technical_parameters,'material_item_name'=>$material_name,'material_item_id'=>$material_id,'entry_id'=>$email_id,'status'=>1);
+    $query=$this->db->insert('master_category_item',$data_entry);
+  
+   if($query){
+        $this->session->set_flashdata('success_message', ' successfully material is added to our library');
+            // After that you need to used redirect function instead of load view such as                 
+        redirect('buyer-user-add-new-material');
+   }else{
+      $this->session->set_flashdata('error_message', ' Something went wrong please try again');
+            // After that you need to used redirect function instead of load view such as                 
+            redirect('buyer-user-add-new-material');
+   }
+
+
+
+    
+}
+public function buyer_add_new_pr_comm_arr_edit_item($value=''){
+    $_SESSION["cart_item"]="";
+    // print_r($this->input->post());
+
+    // Array ( [back_url_path] => https://innovadorslab.co.in/m_lnt_bid/buyer-user-create-new-pr/O18191-950-E-K-30112-001/12/1/2 [back_url_path_id] => buyer-user-create-new-pr/O18191-950-E-K-30112-001/12/1/2 [pr_no] => O18191-950-E-K-30112-001 [slno_pr] => 12 [job_code] => 1 [pr_no_type] => new_pr_creater [edit_type] => 1 [commercial_edit_id] => 0 [commercial_resubmit_count] => 0 [commercial_resubmit_status] => 0 [tech_evalution] => 2 [tcomm_evalution_commer] => Coomerical_start [edit_Item] => Edit PR )
+
+
+    $back_url_path=$this->input->post('back_url_path');// back path to go saving url
+	$back_url_path_id=$this->input->post('back_url_path_id');// back path to go saving url
+	$pr_no=$this->input->post('pr_no');
+	$slno_pr=$this->input->post('slno_pr');
+	$job_code=$this->input->post('job_code');
+	$pr_no_type=$this->input->post('pr_no_type');
+	$edit_type=$this->input->post('edit_type');
+	$commercial_edit_id=$this->input->post('commercial_edit_id');
+	$commercial_resubmit_count=$this->input->post('commercial_resubmit_count');
+	$commercial_resubmit_status=$this->input->post('commercial_resubmit_status');
+	$tech_evalution=$this->input->post('tech_evalution');
+	$tcomm_evalution_commer=$this->input->post('tcomm_evalution_commer');
+	$edit_Item=$this->input->post('edit_Item');
+
+	$data_to_transfer = array('back_url_path'=>$back_url_path,'back_url_path_id'=>$back_url_path_id,'pr_no'=>$pr_no,'slno_pr'=>$slno_pr,'job_code'=>$job_code,'pr_no_type'=>$pr_no_type,'edit_type'=>$edit_type,'commercial_edit_id'=>$commercial_edit_id,'commercial_resubmit_count'=>$commercial_resubmit_count,'commercial_resubmit_status'=>$commercial_resubmit_status,'tech_evalution'=>$tech_evalution,'tcomm_evalution_commer'=>$tcomm_evalution_commer,'edit_Item'=>$edit_Item);
+	
+	$scripts='';
+            $data=array('title' =>" Boq Entry For Pr No ".$pr_no,'script_js'=>$scripts,'menu_status'=>'','sub_menu'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','information_transfer'=>$data_to_transfer);
+            $this->load->view('template/template_header',$data);
+            $this->load->view('buyer_user/template/template_top_head');
+            $this->load->view('buyer_user/template/template_side_bar',$data);
+            $this->load->view('buyer_user/boq_creation/creation_boq_page',$data_to_transfer,$data);
+            $this->load->view('template/template_footer',$data);
+
+
+    # code...
+}
+######################################################################################################################################
+#
+#               Cart System where Information Item Will be added to cart of materi
+#
+######################################################################################################################################
+    public function buyer_new_material_search_get($value=''){
+      // print_r($this->input->post());
+      // Array ( [name] => test [type] => electrical ) 
+      $type=$this->input->post('type');
+      $name=$this->input->post('name');
+      $data = array('category_name' => $type ,'status'=>1);
+      # code...
+        if(!empty($name)){
+          $this->db->like('material_item_name', $name);
+        }
+        $query=$this->db->get_where('master_category_item',$data);
+
+        $output = '
+                  <h3 align="center">Total Data - '.$query->num_rows().'</h3>
+                  <table class="table table-striped table-bordered">
+                    <tr>
+                        <th>Name</th>                        
+                        <th>Technical Parameter </th>
+                        <th>UOM</th>
+                         <th>Quantity</th>
+                        <th>Action</th> 
+                    </tr>
+                ';
+                 if(!empty($_SESSION["cart_item"])) {
+                   $session_code_arrays = ($_SESSION["cart_item"]);
+                  foreach ($session_code_arrays as $key) {
+                    $session_code_arrays_id[]=$key['code'];
+                 }
+               }
+                foreach($query->result() as $row){
+                    $in_session = "0";
+                      if(!empty($_SESSION["cart_item"])) {
+                        $session_code_array = array_keys($_SESSION["cart_item"]);
+                        // print_r($session_code_array);
+                        // print_r($_SESSION["cart_item"]);
+                       
+                        foreach ($session_code_arrays as $key) {
+                          // print_r($key);
+                          if(in_array($row->slno_master_item,$session_code_arrays_id)) {
+                          // $in_session = "1";
+$str= <<<EOT
+<input type="button" id="added_{$row->slno_master_item}" value="Added" class="btnAdded" />
+EOT;
+                          }else{
+$str = <<<EOT
+<input type="button" id="add_{$row->slno_master_item}" value="Add to cart" class="btnAddAction cart-action" onClick = "cartAction('add','{$row->slno_master_item}')"/>
+                          
+EOT;
+                          }
+                        }
+                          
+                      }else{
+$str = <<<EOT
+<input type="button" id="add_{$row->slno_master_item}" value="Add to cart" class="btnAddAction cart-action" onClick = "cartAction('add','{$row->slno_master_item}')"/>
+                          
+EOT;
+                      }
+
+                    $output .= ' 
+
+                    <tr>
+                      <td>'.$row->material_item_name.'</td>
+                      <td>'.$row->technical_details.'</td>
+                      <td>'.$row->uom .'</td>
+                      <td><input type="text" id="qty_'.$row->slno_master_item .'" name="quantity" value="1" size="2" /></td>
+                      
+                      <td>
+                        '.$str.'
+                      </td>
+                    </tr>
+                    ';
+                }
+                $output .= '</table>';
+                echo $output;
+                exit;
+        
+    }
+      // public function design_new_item_required_session($value=''){
+    //   print_r($this->input->post());
+    // }
+   public function buyer_new_cart_services($value=''){
+     // print_r($this->input->post());
+      $email_id=$this->session->userdata('buy_email_id');
+        if(empty($email_id)){
+            
+            redirect('buy-logout-by-pass');
+        }   
+
+        // $Mr_no=$this->input->post('Mr_no');
+        // $slno_Mr_no=$this->input->post('slno_Mr_no');
+
+        if(!empty($this->input->post('action'))) {
+          switch ($this->input->post('action')) {
+            case 'add':
+              $data = array('slno_master_item' => $this->input->post('code'));              
+              $query=$this->db->get_where('master_category_item',$data);   
+               $material_quantity=$this->input->post('quantity');
+               $code=$this->input->post('code');
+               foreach ($query->result() as $row) {
+                   $itemArray = array($code=>array('name'=>$row->material_item_name, 'technical_details'=>$row->technical_details , 'quantity'=>$material_quantity, 'item_uom'=>$row->uom ,'code'=>$code));
+                      if(!empty($this->session->userdata('cart_item'))) {
+                          $_SESSION["cart_item"] = array_merge($this->session->userdata('cart_item'),$itemArray);
+                          // print_r($_SESSION["cart_item"]);
+                      } else {
+                          $_SESSION["cart_item"] = $itemArray;
+                           // print_r($_SESSION["cart_item"]);
+                      }
+                 # code...
+               }
+      
+              if(!empty($_SESSION["cart_item"])){
+                $sess_cart_item=$_SESSION["cart_item"];
+                // $cart_item_tech_sess=$_SESSION["cart_item_tech"];
+                // print_r($sess_cart_item);
+                $item_total = 0;
+                $id=0;
+               
+              
+                ?>
+                <table class="table table-bordered" cellpadding="10" cellspacing="1" width="100%">
+                  <thead>
+                      <tr>
+                          <th><strong>Name</strong></th>
+                          <th><strong>Technical Parameter </strong></th>
+                          <th><strong>UOM</strong></th>
+                          <th><strong>Quantity</strong></th>           
+                          <th><strong>Action</strong></th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                    <?php
+                   foreach($sess_cart_item as $item){
+echo <<<EOD
+<tr>
+<td><strong><input type="hidden" name="material_name[{$id}]" value="{$item['name']}">
+<input type="hidden" name="codes[{$id}]" value="{$item['code']}">{$item['name']}</strong></td>
+<td><strong><input type="hidden" name="technical_details[{$id}]" value="{$item['technical_details']}">{$item['technical_details']}</strong></td>
+<td><strong><input type="hidden" name="item_uom[{$id}]" value="{$item['item_uom']}">{$item['item_uom']}</strong></td>
+<td><strong><input type="hidden" name="quantitys[{$id}]" value="{$item['quantity']}">{$item['quantity']}</strong></td>
+<td><strong><a onClick="cartAction('remove',{$item['code']},'{$id}')" class=" btn btnRemoveAction cart-action">Remove Item</a></strong></td>
+</tr>
+EOD;
+$id++;
+           }   
+                 ?>
+               </tbody>
+             </table>
+               <?php 
+
+              }
+              break;
+            case 'remove':
+            // print_r($this->input->post());
+               $code=$this->input->post('code');
+                     $codes_value=$this->input->post('codes_value');               
+                        if(!empty($_SESSION["cart_item"])) {
+                            // foreach($_SESSION["cart_item"] as $k =>$value) {
+                             $session_code_array = array_keys($_SESSION["cart_item"]);
+                                if(in_array($codes_value,$session_code_array)) {
+                                    unset($_SESSION["cart_item"][$codes_value]);
+                                }   
+                            $_SESSION["cart_item"] = array_values($_SESSION["cart_item"]);
+                             // $_SESSION["cart_item"] = array_map('array_values', $arr);
+                            // }
+                            
+                        } 
+                      if(!empty($_SESSION["cart_item"])){
+                $sess_cart_item=$_SESSION["cart_item"];
+                // $cart_item_tech_sess=$_SESSION["cart_item_tech"];
+                // print_r($sess_cart_item);
+                $item_total = 0;
+                $id=0;
+               
+              
+                ?>
+                <table class="table table-bordered" cellpadding="10" cellspacing="1" width="100%">
+                  <thead>
+                      <tr>
+                          <th><strong>Name</strong></th>
+                          <th><strong>Technical Parameter </strong></th>
+                          <th><strong>UOM</strong></th>
+                          <th><strong>Quantity</strong></th>           
+                          <th><strong>Action</strong></th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                    <?php
+                   foreach($sess_cart_item as $item){
+echo <<<EOD
+<tr>
+<td><strong><input type="hidden" name="material_name[{$id}]" value="{$item['name']}">
+<input type="hidden" name="codes[{$id}]" value="{$item['code']}">{$item['name']}</strong></td>
+<td><strong><input type="hidden" name="technical_details[{$id}]" value="{$item['technical_details']}">{$item['technical_details']}</strong></td>
+<td><strong><input type="hidden" name="item_uom[{$id}]" value="{$item['item_uom']}">{$item['item_uom']}</strong></td>
+<td><strong><input type="hidden" name="quantitys[{$id}]" value="{$item['quantity']}">{$item['quantity']}</strong></td>
+<td><strong><a onClick="cartAction('remove',{$item['code']},'{$id}')" class=" btn btnRemoveAction cart-action">Remove Item</a></strong></td>
+</tr>
+EOD;
+$id++;
+           }   
+                 ?>
+               </tbody>
+             </table>
+               <?php 
+
+              }
+
+                    break;
+
+          }
+        }
+   }
+
+
+public function buyer_add_new_pr_save_item($value=''){
+    // echo "<pre>";
+    // // Array ( [pr_no] => O18191-950-E-K-30101-0001 [slno_pr] => 14 [job_code] => 2 [pr_no_type] => new_pr_creater [edit_type] => 1 [back_url_path] => http://192.168.0.14/m_lnt_bid/buyer-user-create-new-pr-tech-comm/O18191-950-E-K-30101-0001/14/2/1 [back_url_path_id] => buyer-user-create-new-pr-tech-comm/O18191-950-E-K-30101-0001/14/2/1 [pr_no_id] => O18191-950-E-K-30101-0001 [slno_pr_id] => 14 [job_code_id] => 2 [commercial_edit_id] => 1 [commercial_resubmit_count] => 0 [commercial_resubmit_status] => 0 [tech_evalution] => 1 [tcomm_evalution_commer] => Coomerical_start [edit_Item] => Edit PR [materials_id] => electrical equipment [quantity] => 1 [material_name] => Array ( [0] => bulb [1] => Junction Box 215 [2] => Junction Box78 ) [codes] => Array ( [0] => 4 [1] => 1 [2] => 18 ) [technical_details] => Array ( [0] => 440watt [1] => TPD for 512V PDB [2] => try-780,60m ) [item_uom] => Array ( [0] => set [1] => 1 set [2] => no. ) [quantitys] => Array ( [0] => 150 [1] => 100 [2] => 100 ) [submission] => save ) 
+    // print_r($this->input->post());
+
+    $pr_no=$this->input->post('pr_no');
+    $slno_pr=$this->input->post('slno_pr');
+    $job_code=$this->input->post('job_code');
+    $pr_no_type=$this->input->post('pr_no_type');
+    $edit_type=$this->input->post('edit_type');
+    $back_url_path=$this->input->post('back_url_path');
+    $back_url_path_id=$this->input->post('back_url_path_id');
+    $pr_no_id=$this->input->post('pr_no_id');
+    $slno_pr_id=$this->input->post('slno_pr_id');
+    $job_code_id=$this->input->post('job_code_id');
+    $edit_type_id=$this->input->post('edit_type_id');
+    $commercial_edit_id=$this->input->post('commercial_edit_id');
+    $commercial_resubmit_count=$this->input->post('commercial_resubmit_count');
+    $tech_evalution=$this->input->post('tech_evalution');
+    $tcomm_evalution_commer=$this->input->post('tcomm_evalution_commer');
+    $edit_Item=$this->input->post('edit_Item');
+    $materials_id=$this->input->post('materials_id');
+    $quantity=$this->input->post('quantity');
+    $material_name=$this->input->post('material_name');
+
+    $codes=$this->input->post('codes');
+    $technical_details=$this->input->post('technical_details');
+    $item_uom=$this->input->post('item_uom');
+    $quantitys=$this->input->post('quantitys');
+
+
+    $temp_pr_release_store = array('mr_no_item' => $pr_no, 'edit_id'=>$edit_type_id);
+    $table_material="master_mr_material_item_m";
+    $query_table_material=$this->db->get_where($table_material,$temp_pr_release_store)->result();
+    // echo $this->db->last_query();
+    if(is_array($codes)){ 
+       foreach ($query_table_material as $key => $value) {
+        // print_r($key);
+        // print_r($value);
+        $item_detail_old[]=$value;
+           # code...
+       }
+       // `pr_no`, `material_item_stored`, `master_mr_material_item_comm_m_id`, `master_pr_bid_qoute_id`, `master_pr_bid_qoute_item_id`, `master_pr_qoute_item_misc_id`, `master_pr_qoute_item_total_id`, `master_vendor_info_id`, `date_entry`, `update_date`
+       // print_r($item_detail_old);
+       $item_detail_old_id=json_encode ($item_detail_old);
+
+
+       $data_old_stored=array('pr_no'=>$pr_no,'material_item_stored'=>$item_detail_old_id);
+       $query_old_store=$this->db->insert('temp_pr_release_store',$data_old_stored);
+        if($query_old_store){
+            $delete_old_material=$this->db->delete($table_material,$temp_pr_release_store); 
+            if($delete_old_material){
+                $query_item=$this->db->get_where('master_mr_job_details_m',array('pr_no' => $pr_no ))->result();
+                $last_id_ind=$query_item[0]->slno_mr;
+
+                foreach ($codes as $key_value => $ids) {
+                    $query_item_details=$this->design_user->get_design_master_items_material_single_m($ids);
+                    $quantity_single=$quantitys[$key_value];
+                    $data_material = array('mr_no_item'=>$pr_no, 'slno_mr_id'=>$last_id_ind, 'material_item_id'=>$query_item_details['materials_list'][0]->slno_master_item, 'material_name'=>$query_item_details['materials_list'][0]->material_item_name, 'material_quantity'=>$quantity_single, 'material_unit'=>$query_item_details['materials_list'][0]->uom, 'material_id'=>$query_item_details['materials_list'][0]->material_item_id, 'edit_id'=>$edit_type_id,'parameter_tech'=>$query_item_details['materials_list'][0]->technical_details,'Category_material'=>$query_item_details['materials_list'][0]->category_name);
+                        // print_r($data_material);
+                    $this->design_user->design_common_insert_id_m($data_material);
+
+                }
+                 $this->session->set_flashdata('success_message', 'material Is successfully Add');
+
+                // After that you need to used redirect function instead of load view such as    
+                if(!empty($back_url_path_id)){
+                     unset($_SESSION['cart_item']);
+                    redirect($back_url_path_id);
+                }else{
+                    redirect('user-buyer-home');
+                }
+
+
+
+            }else{
+                $this->session->set_flashdata('error_message', 'Some thing went please try again to edit material ');
+
+                // After that you need to used redirect function instead of load view such as    
+                if(!empty($back_url_path_id)){
+                     unset($_SESSION['cart_item']);
+                    redirect($back_url_path_id);
+                }else{
+                    redirect('user-buyer-home');
+                }   
+            }  
+
+
+
+        }else{
+            $this->session->set_flashdata('error_message', 'Some thing went please try again to edit material ');
+
+            // After that you need to used redirect function instead of load view such as    
+            if(!empty($back_url_path_id)){
+                 unset($_SESSION['cart_item']);
+                redirect($back_url_path_id);
+            }else{
+                redirect('user-buyer-home');
+            }          
+            
+        }
+    }else{
+        $this->session->set_flashdata('error_message', 'Some thing went please try again to edit material ');
+
+        // After that you need to used redirect function instead of load view such as    
+        if(!empty($back_url_path_id)){
+             unset($_SESSION['cart_item']);
+            redirect($back_url_path_id);
+        }else{
+            redirect('user-buyer-home');
+        }   
+    }
+   // $revet=json_decode($endo);
+   // print_r($revet);
+}
+
+public function buyer_add_new_pr_comm_arr_edit_item_onging($value=''){
+    $_SESSION["cart_item"]="";
+    // print_r($this->input->post());
+
+    // Array ( [back_url_path] => https://innovadorslab.co.in/m_lnt_bid/buyer-user-create-new-pr/O18191-950-E-K-30112-001/12/1/2 [back_url_path_id] => buyer-user-create-new-pr/O18191-950-E-K-30112-001/12/1/2 [pr_no] => O18191-950-E-K-30112-001 [slno_pr] => 12 [job_code] => 1 [pr_no_type] => new_pr_creater [edit_type] => 1 [commercial_edit_id] => 0 [commercial_resubmit_count] => 0 [commercial_resubmit_status] => 0 [tech_evalution] => 2 [tcomm_evalution_commer] => Coomerical_start [edit_Item] => Edit PR )
+
+
+    $back_url_path=$this->input->post('back_url_path');// back path to go saving url
+    $back_url_path_id=$this->input->post('back_url_path_id');// back path to go saving url
+    $pr_no=$this->input->post('pr_no');
+    $slno_pr=$this->input->post('slno_pr');
+    $job_code=$this->input->post('job_code');
+    $pr_no_type=$this->input->post('pr_no_type');
+    $edit_type=$this->input->post('edit_type');
+    $commercial_edit_id=$this->input->post('commercial_edit_id');
+    $commercial_resubmit_count=$this->input->post('commercial_resubmit_count');
+    $commercial_resubmit_status=$this->input->post('commercial_resubmit_status');
+    $tech_evalution=$this->input->post('tech_evalution');
+    $tcomm_evalution_commer=$this->input->post('tcomm_evalution_commer');
+    $edit_Item=$this->input->post('edit_Item');
+    $user_stop_auction=$this->input->post('user_stop_auction');
+
+    $this->db->update('master_bid_Com_vendor_m',array('status_active' => 4),array('pr_no' => $pr_no));
+      $this->db->update('master_pr_process_detail',array('buyer_user_status' => 4),array('pr_no' => $pr_no));
+
+    $data_to_transfer = array('back_url_path'=>$back_url_path,'back_url_path_id'=>$back_url_path_id,'pr_no'=>$pr_no,'slno_pr'=>$slno_pr,'job_code'=>$job_code,'pr_no_type'=>$pr_no_type,'edit_type'=>$edit_type,'commercial_edit_id'=>$commercial_edit_id,'commercial_resubmit_count'=>$commercial_resubmit_count,'commercial_resubmit_status'=>$commercial_resubmit_status,'tech_evalution'=>$tech_evalution,'tcomm_evalution_commer'=>$tcomm_evalution_commer,'edit_Item'=>$edit_Item);
+    
+    $scripts='';
+            $data=array('title' =>" Boq Entry For Pr No ".$pr_no,'script_js'=>$scripts,'menu_status'=>'','sub_menu'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','information_transfer'=>$data_to_transfer);
+            $this->load->view('template/template_header',$data);
+            $this->load->view('buyer_user/template/template_top_head');
+            $this->load->view('buyer_user/template/template_side_bar',$data);
+            if($user_stop_auction=='please_stop_bid'){
+                   $this->session->set_flashdata('success_message', 'Successfully PRd Has been stop for continue PR Boq Entry');
+                redirect('buyer-pr-commercial-edit-boq-list');
+                  // $this->load->view('buyer_user/boq_creation/list_pr_boq/creation_boq_page_ongoing_list',$data_to_transfer,$data); 
+            }else if($user_stop_auction=='start_boq_edit_ongoing'){
+                $this->load->view('buyer_user/boq_creation/creation_boq_page_ongoing',$data_to_transfer,$data); 
+            }else{
+                redirect('user-buyer-home');
+            }
+           
+
+            $this->load->view('template/template_footer',$data);
+
+
+    # code...
+}
+
+######################################################################################################################################
+#
+#               Cart System where Information Item Will be added to cart of materi onging
+#
+######################################################################################################################################
+    public function buyer_new_material_search_get_ongoing($value=''){
+      // print_r($this->input->post());
+      // Array ( [name] => test [type] => electrical ) 
+      $type=$this->input->post('type');
+      $name=$this->input->post('name');
+      $data = array('category_name' => $type ,'status'=>1);
+      # code...
+        if(!empty($name)){
+          $this->db->like('material_item_name', $name);
+        }
+        $query=$this->db->get_where('master_category_item',$data);
+
+        $output = '
+                  <h3 align="center">Total Data - '.$query->num_rows().'</h3>
+                  <table class="table table-striped table-bordered">
+                    <tr>
+                        <th>Name</th>                        
+                        <th>Technical Parameter </th>
+                        <th>UOM</th>
+                         <th>Quantity</th>
+                         <th>Unit Price</th>
+                        <th>Action</th> 
+                    </tr>
+                ';
+                 if(!empty($_SESSION["cart_item"])) {
+                   $session_code_arrays = ($_SESSION["cart_item"]);
+                  foreach ($session_code_arrays as $key) {
+                    $session_code_arrays_id[]=$key['code'];
+                 }
+               }
+                foreach($query->result() as $row){
+                    $in_session = "0";
+                      if(!empty($_SESSION["cart_item"])) {
+                        $session_code_array = array_keys($_SESSION["cart_item"]);
+                        // print_r($session_code_array);
+                        // print_r($_SESSION["cart_item"]);
+                       
+                        foreach ($session_code_arrays as $key) {
+                          // print_r($key);
+                          if(in_array($row->slno_master_item,$session_code_arrays_id)) {
+                          // $in_session = "1";
+$str= <<<EOT
+<input type="button" id="added_{$row->slno_master_item}" value="Added" class="btnAdded" />
+EOT;
+                          }else{
+$str = <<<EOT
+<input type="button" id="add_{$row->slno_master_item}" value="Add to cart" class="btnAddAction cart-action" onClick = "cartAction('add','{$row->slno_master_item}')"/>
+                          
+EOT;
+                          }
+                        }
+                          
+                      }else{
+$str = <<<EOT
+<input type="button" id="add_{$row->slno_master_item}" value="Add to cart" class="btnAddAction cart-action" onClick = "cartAction('add','{$row->slno_master_item}')"/>
+                          
+EOT;
+                      }
+
+                    $output .= ' 
+
+                    <tr>
+                        <td>'.$row->material_item_name.'</td>
+                        <td>'.$row->technical_details.'</td>
+                        <td>'.$row->uom .'</td>
+                        <td><input type="text" id="qty_'.$row->slno_master_item .'" name="quantity" value="1" size="2" /></td>
+                        <td><input type="text" id="ptice_'.$row->slno_master_item .'" name="price" value="1" size="2" /></td>
+                      
+                      <td>
+                        '.$str.'
+                      </td>
+                    </tr>
+                    ';
+                }
+                $output .= '</table>';
+                echo $output;
+                exit;
+        
+    }
+      // public function design_new_item_required_session($value=''){
+    //   print_r($this->input->post());
+    // }
+   public function buyer_new_cart_services_ongoing($value=''){
+     // print_r($this->input->post());
+      $email_id=$this->session->userdata('buy_email_id');
+        if(empty($email_id)){
+            
+            redirect('buy-logout-by-pass');
+        }   
+
+        // $Mr_no=$this->input->post('Mr_no');
+        // $slno_Mr_no=$this->input->post('slno_Mr_no');
+
+        if(!empty($this->input->post('action'))) {
+          switch ($this->input->post('action')) {
+            case 'add':
+              $data = array('slno_master_item' => $this->input->post('code'));              
+              $query=$this->db->get_where('master_category_item',$data);   
+               $material_quantity=$this->input->post('quantity');
+               $price_item=$this->input->post('price');
+               $code=$this->input->post('code');
+               foreach ($query->result() as $row) {
+                   $itemArray = array($code=>array('name'=>$row->material_item_name, 'technical_details'=>$row->technical_details , 'quantity'=>$material_quantity,'price_item'=>$price_item, 'item_uom'=>$row->uom ,'code'=>$code));
+                      if(!empty($this->session->userdata('cart_item'))) {
+                          $_SESSION["cart_item"] = array_merge($this->session->userdata('cart_item'),$itemArray);
+                          // print_r($_SESSION["cart_item"]);
+                      } else {
+                          $_SESSION["cart_item"] = $itemArray;
+                           // print_r($_SESSION["cart_item"]);
+                      }
+                 # code...
+               }
+      
+              if(!empty($_SESSION["cart_item"])){
+                $sess_cart_item=$_SESSION["cart_item"];
+                // $cart_item_tech_sess=$_SESSION["cart_item_tech"];
+                // print_r($sess_cart_item);
+                $item_total = 0;
+                $id=0;
+               
+              
+                ?>
+                <table class="table table-bordered" cellpadding="10" cellspacing="1" width="100%">
+                  <thead>
+                      <tr>
+                          <th><strong>Name</strong></th>
+                          <th><strong>Technical Parameter </strong></th>
+                          <th><strong>UOM</strong></th>
+                          <th><strong>Quantity</strong></th>
+                          <th><strong>Unit Price</strong></th>            
+                          <th><strong>Action</strong></th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                    <?php
+                   foreach($sess_cart_item as $item){
+echo <<<EOD
+<tr>
+<td><strong><input type="hidden" name="material_name[{$id}]" value="{$item['name']}">
+<input type="hidden" name="codes[{$id}]" value="{$item['code']}">{$item['name']}</strong></td>
+<td><strong><input type="hidden" name="technical_details[{$id}]" value="{$item['technical_details']}">{$item['technical_details']}</strong></td>
+<td><strong><input type="hidden" name="item_uom[{$id}]" value="{$item['item_uom']}">{$item['item_uom']}</strong></td>
+<td><strong><input type="hidden" name="quantitys[{$id}]" value="{$item['quantity']}">{$item['quantity']}</strong></td>
+<td><strong><input type="hidden" name="price_item[{$id}]" value="{$item['price_item']}">{$item['price_item']}</strong></td>
+<td><strong><a onClick="cartAction('remove',{$item['code']},'{$id}')" class=" btn btnRemoveAction cart-action">Remove Item</a></strong></td>
+</tr>
+EOD;
+$id++;
+           }   
+                 ?>
+               </tbody>
+             </table>
+               <?php 
+
+              }
+              break;
+            case 'remove':
+            // print_r($this->input->post());
+               $code=$this->input->post('code');
+                     $codes_value=$this->input->post('codes_value');               
+                        if(!empty($_SESSION["cart_item"])) {
+                            // foreach($_SESSION["cart_item"] as $k =>$value) {
+                             $session_code_array = array_keys($_SESSION["cart_item"]);
+                                if(in_array($codes_value,$session_code_array)) {
+                                    unset($_SESSION["cart_item"][$codes_value]);
+                                }   
+                            $_SESSION["cart_item"] = array_values($_SESSION["cart_item"]);
+                             // $_SESSION["cart_item"] = array_map('array_values', $arr);
+                            // }
+                            
+                        } 
+                      if(!empty($_SESSION["cart_item"])){
+                $sess_cart_item=$_SESSION["cart_item"];
+                // $cart_item_tech_sess=$_SESSION["cart_item_tech"];
+                // print_r($sess_cart_item);
+                $item_total = 0;
+                $id=0;
+               
+              
+                ?>
+                <table class="table table-bordered" cellpadding="10" cellspacing="1" width="100%">
+                  <thead>
+                      <tr>
+                          <th><strong>Name</strong></th>
+                          <th><strong>Technical Parameter </strong></th>
+                          <th><strong>UOM</strong></th>
+                          <th><strong>Quantity</strong></th>   
+                           <th><strong>Unit Price</strong></th>         
+                          <th><strong>Action</strong></th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                    <?php
+                   foreach($sess_cart_item as $item){
+echo <<<EOD
+<tr>
+<td><strong><input type="hidden" name="material_name[{$id}]" value="{$item['name']}">
+<input type="hidden" name="codes[{$id}]" value="{$item['code']}">{$item['name']}</strong></td>
+<td><strong><input type="hidden" name="technical_details[{$id}]" value="{$item['technical_details']}">{$item['technical_details']}</strong></td>
+<td><strong><input type="hidden" name="item_uom[{$id}]" value="{$item['item_uom']}">{$item['item_uom']}</strong></td>
+<td><strong><input type="hidden" name="quantitys[{$id}]" value="{$item['quantity']}">{$item['quantity']}</strong></td>
+<td><strong><input type="hidden" name="price_item[{$id}]" value="{$item['price_item']}">{$item['price_item']}</strong></td>
+<td><strong><a onClick="cartAction('remove',{$item['code']},'{$id}')" class=" btn btnRemoveAction cart-action">Remove Item</a></strong></td>
+</tr>
+EOD;
+$id++;
+           }   
+                 ?>
+               </tbody>
+             </table>
+               <?php 
+
+              }
+
+                    break;
+
+          }
+        }
+   }
+    public function buyer_pr_commercial_edit_boq_list($value=''){
+          $scripts='<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script><script src=" https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script> <script src="'.base_url().'file_css_admin/own_js.js"></script>';
+          $data=array('title' =>"Onging PR Boq List Entry ",'script_js'=>$scripts,'menu_status'=>'3','sub_menu'=>'345','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'');
+           $this->load->view('template/template_header',$data);
+                $this->load->view('buyer_user/template/template_top_head');
+                $this->load->view('buyer_user/template/template_side_bar',$data);          
+                $this->load->view('buyer_user/boq_creation/list_pr_boq/creation_boq_page_ongoing_list');
+                $this->load->view('template/template_footer',$data);
+        # code...
+    }
+    public function buyer_ongoing_boq_endit_oning_bid_details($pr_no='',$pr_slno='',$project_job_code='',$id='',$comm_bid=''){
+        $scripts='';
+            $data=array('title' =>"Edit Boq Edit Process",'script_js'=>$scripts,'menu_status'=>'3','sub_menu'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','Pr_no'=>$pr_no,'pr_slno'=>$pr_slno,'project_job_code'=>$project_job_code,'id'=>$id,'comm_bid_id'=>$comm_bid);
+            $this->load->view('template/template_header',$data);
+            $this->load->view('buyer_user/template/template_top_head');
+            $this->load->view('buyer_user/template/template_side_bar',$data);
+            $this->load->view('buyer_user/boq_creation/pr_information_boq_edit/index',$data);
+            // $this->load->view('buyer_user/buyer_pr_ongoing/view_ongoing_c_s_bidcommercial_information',$data);
+            $this->load->view('template/template_footer',$data);
+    }
+    public function buyer_add_new_pr_save_item_ongoing($value=''){
+          
+          $email_id=$this->session->userdata('buy_email_id');
+            if(empty($email_id)){
+                
+                redirect('buy-logout-by-pass');
+            }
+    // Array ( [pr_no] => O18191-950-E-K-30101-0001 [slno_pr] => 14 [job_code] => 2 [pr_no_type] => new_pr_creater [edit_type] => 1 [back_url_path] => http://192.168.0.14/m_lnt_bid/buyer-user-create-new-pr-tech-comm/O18191-950-E-K-30101-0001/14/2/1 [back_url_path_id] => buyer-user-create-new-pr-tech-comm/O18191-950-E-K-30101-0001/14/2/1 [pr_no_id] => O18191-950-E-K-30101-0001 [slno_pr_id] => 14 [job_code_id] => 2 [commercial_edit_id] => 1 [commercial_resubmit_count] => 0 [commercial_resubmit_status] => 0 [tech_evalution] => 1 [tcomm_evalution_commer] => Coomerical_start [edit_Item] => Edit PR [materials_id] => electrical equipment [quantity] => 1 [material_name] => Array ( [0] => bulb [1] => Junction Box 215 [2] => Junction Box78 ) [codes] => Array ( [0] => 4 [1] => 1 [2] => 18 ) [technical_details] => Array ( [0] => 440watt [1] => TPD for 512V PDB [2] => try-780,60m ) [item_uom] => Array ( [0] => set [1] => 1 set [2] => no. ) [quantitys] => Array ( [0] => 150 [1] => 100 [2] => 100 ) [submission] => save ) 
+        // print_r($this->input->post());
+        $pr_no=$this->input->post('pr_no');
+        $slno_pr=$this->input->post('slno_pr');
+        $job_code=$this->input->post('job_code');
+        $pr_no_type=$this->input->post('pr_no_type');
+        $edit_type=$this->input->post('edit_type');
+        $back_url_path=$this->input->post('back_url_path');
+        $back_url_path_id=$this->input->post('back_url_path_id');
+        $pr_no_id=$this->input->post('pr_no_id');
+        $slno_pr_id=$this->input->post('slno_pr_id');
+        $job_code_id=$this->input->post('job_code_id');
+        $edit_type_id=$this->input->post('edit_type_id');
+        $commercial_edit_id=$this->input->post('commercial_edit_id');
+        $commercial_resubmit_count=$this->input->post('commercial_resubmit_count');
+        $tech_evalution=$this->input->post('tech_evalution');
+        $tcomm_evalution_commer=$this->input->post('tcomm_evalution_commer');
+        $edit_Item=$this->input->post('edit_Item');
+        $materials_id=$this->input->post('materials_id');
+        $quantity=$this->input->post('quantity');
+        $material_name=$this->input->post('material_name');
+
+        $codes=$this->input->post('codes');
+        $technical_details=$this->input->post('technical_details');
+        $item_uom=$this->input->post('item_uom');
+        $quantitys=$this->input->post('quantitys');
+        $price_item=$this->input->post('price_item');
+
+
+
+        $temp_pr_release_store = array('mr_no_item' => $pr_no);
+        $table_material_comm="master_mr_material_item_comm_m";
+        $query_table_material_comm=$this->db->get_where($table_material_comm,$temp_pr_release_store)->result();
+
+         
+        $table_material="master_mr_material_item_m";
+        $query_table_material=$this->db->get_where($table_material,$temp_pr_release_store)->result();
+
+        $query_qoute_master_pr_bid_qoute=$this->db->get_where('master_pr_bid_qoute',array('pr_no' => $pr_no));
+
+        $query_master_pr_bid_qoute_item=$this->db->get_where('master_pr_bid_qoute_item',array('pr_no' => $pr_no));
+
+        $query_master_pr_bid_qoute_item_misc=$this->db->get_where('master_pr_bid_qoute_item_misc',array('pr_no' => $pr_no));
+
+        $query_master_pr_bid_qoute_item_total=$this->db->get_where('master_pr_bid_qoute_item_total',array('pr_no' => $pr_no));
+
+        $query_master_bid_Com_vendor_m=$this->db->get_where('master_bid_Com_vendor_m',array('pr_no' => $pr_no))->result();
+
+        if(is_array($codes)){ 
+            // before table master_mr_material_item_m 
+            foreach ($query_table_material as $key => $value) {
+           
+                $item_detail_old[]=$value;
+              
+            }
+            $material_item_stored=json_encode($item_detail_old);
+            // master_mr_material_item_comm_m
+            foreach ($query_table_material_comm as $key => $value) {
+           
+                $item_detail_old_comm[]=$value;
+              
+            }
+             if(is_array($item_detail_old_comm)){ 
+                $master_mr_material_item_comm_m_id=json_encode($item_detail_old_comm);
+             }else{
+                $item_detail_old_comm="";
+                $master_mr_material_item_comm_m_id=json_encode($item_detail_old_comm);
+             }
+
+            foreach ($query_master_bid_Com_vendor_m as $key => $value) {
+           
+                $master_bid_Com_vendor_m_array[]=$value;
+              
+            }
+            $master_vendor_info_id=json_encode($master_bid_Com_vendor_m_array);
+            // master_pr_bid_qoute
+            if($query_qoute_master_pr_bid_qoute->num_rows()==0){
+                $old_master_pr_bid_qoute="";
+                 $master_pr_bid_qoute_id=json_encode($old_master_pr_bid_qoute);
+
+            }else{
+                foreach ($query_qoute_master_pr_bid_qoute->result() as $key => $value) {
+           
+                    $old_master_pr_bid_qoute[]=$value;
+              
+                }
+                $master_pr_bid_qoute_id=json_encode($old_master_pr_bid_qoute);
+
+            }
+
+            if($query_master_pr_bid_qoute_item->num_rows()==0){
+                $old_master_pr_bid_qoute_item="";
+                 $master_pr_bid_qoute_item_id=json_encode($old_master_pr_bid_qoute_item);
+
+            }else{
+                foreach ($query_master_pr_bid_qoute_item->result() as $key => $value) {
+           
+                    $old_master_pr_bid_qoute_item[]=$value;
+              
+                }
+                $master_pr_bid_qoute_item_id=json_encode($old_master_pr_bid_qoute_item);
+
+            }
+
+            if($query_master_pr_bid_qoute_item_misc->num_rows()==0){
+                $old_master_pr_bid_qoute_item_misc="";
+                 $master_pr_qoute_item_misc_id=json_encode($old_master_pr_bid_qoute_item_misc);
+
+            }else{
+                foreach ($query_master_pr_bid_qoute_item_misc->result() as $key => $value) {
+           
+                    $old_master_pr_bid_qoute_item_misc[]=$value;
+              
+                }
+                $master_pr_qoute_item_misc_id=json_encode($old_master_pr_bid_qoute_item_misc);
+
+            }
+
+            if($query_master_pr_bid_qoute_item_total->num_rows()==0){
+                $old_mmaster_pr_bid_qoute_item_total="";
+                 $master_pr_qoute_item_total_id=json_encode($old_mmaster_pr_bid_qoute_item_total);
+
+            }else{
+                foreach ($query_master_pr_bid_qoute_item_total->result() as $key => $value) {
+           
+                    $old_mmaster_pr_bid_qoute_item_total[]=$value;
+              
+                }
+                $master_pr_qoute_item_total_id=json_encode($old_mmaster_pr_bid_qoute_item_total);
+
+            }
+
+ // `pr_no`, `material_item_stored`, `master_mr_material_item_comm_m_id`, `master_pr_bid_qoute_id`, `master_pr_bid_qoute_item_id`, `master_pr_qoute_item_misc_id`, `master_pr_qoute_item_total_id`, `master_vendor_info_id`, `date_entry`, `update_date`
+        $data_old_stored=array('pr_no'=>$pr_no,'material_item_stored'=>$material_item_stored,'master_mr_material_item_comm_m_id'=>$master_mr_material_item_comm_m_id,'master_vendor_info_id'=>$master_vendor_info_id,'master_pr_bid_qoute_id'=>$master_pr_bid_qoute_id,'master_pr_bid_qoute_item_id'=>$master_pr_bid_qoute_item_id,'master_pr_qoute_item_misc_id'=>$master_pr_qoute_item_misc_id,'master_pr_qoute_item_total_id'=>$master_pr_qoute_item_total_id);
+        $query_old_store=$this->db->insert('temp_pr_release_store',$data_old_stored);
+        if($query_old_store){
+            $query_item=$this->db->get_where('master_mr_job_details_m',array('pr_no' => $pr_no ))->result();
+            $last_id_ind=$query_item[0]->slno_mr;
+
+            $query_item_edit=$this->db->get_where('master_pr_process_detail',array('pr_no' => $pr_no ))->result();
+            $edit_type_bid=$query_item_edit[0]->commercial_edit_id;
+
+            $query_item_insert=$this->db->get_where('master_bid_Com_m',array('pr_no' => $pr_no ))->result();
+            $insert_id=$query_item_insert[0]->Slno_bid;
+
+            ##################################################################################################################
+            #
+            #               Delete section
+            #
+            ##################################################################################################################
+
+                $table_material_comm="master_mr_material_item_comm_m";
+                $this->db->delete($table_material_comm,$temp_pr_release_store);
+
+                 
+                $table_material="master_mr_material_item_m";
+                $this->db->delete($table_material,$temp_pr_release_store);
+
+                $this->db->delete('master_pr_bid_qoute',array('pr_no' => $pr_no));
+
+                $this->db->delete('master_pr_bid_qoute_item',array('pr_no' => $pr_no));
+
+                $this->db->delete('master_pr_bid_qoute_item_misc',array('pr_no' => $pr_no));
+
+                $this->db->delete('master_pr_bid_qoute_item_total',array('pr_no' => $pr_no));
+
+            ######################################################################################################################
+
+                foreach ($codes as $key_value => $ids) {
+                    $query_item_details=$this->design_user->get_design_master_items_material_single_m($ids);
+                    $quantity_single=$quantitys[$key_value];
+                    $price_item_single=$price_item[$key_value];
+                    $data_material = array('mr_no_item'=>$pr_no, 'slno_mr_id'=>$last_id_ind, 'material_item_id'=>$query_item_details['materials_list'][0]->slno_master_item, 'material_name'=>$query_item_details['materials_list'][0]->material_item_name, 'material_quantity'=>$quantity_single, 'material_unit'=>$query_item_details['materials_list'][0]->uom, 'material_id'=>$query_item_details['materials_list'][0]->material_item_id, 'edit_id'=>$edit_type_id,'parameter_tech'=>$query_item_details['materials_list'][0]->technical_details,'Category_material'=>$query_item_details['materials_list'][0]->category_name);
+                        // print_r($data_material);
+                    $last_ids= $this->design_user->design_common_insert_id_m($data_material);
+
+                    $ids_material=$last_ids;
+                    $value_array = array('slno_item_mr' =>$ids_material);
+                    $query_material=$this->db->get_where('master_mr_material_item_m',$value_array );
+
+                    $reult_query_material=$query_material->result();
+                    $value_olny=$reult_query_material[0];
+                    // $price=$unit_price[$ids_material];
+                    $total_price=$price_item_single*$value_olny->material_quantity;
+
+                    $date_store = array( 'mr_no_item'=>$value_olny->mr_no_item, 'slno_mr_id'=>$value_olny->slno_mr_id, 'material_item_id'=>$value_olny->material_item_id, 'material_name'=>$value_olny->material_name, 'material_quantity'=>$value_olny->material_quantity, 'material_unit'=>$value_olny->material_unit, 'material_id'=>$value_olny->material_id, 'edit_id'=>$value_olny->edit_id, 'parameter_tech'=>$value_olny->parameter_tech, 'Category_material'=>$value_olny->Category_material, 'unit_price'=>$price_item_single, 'total_price'=>$total_price, 'Resubmission_count_id'=>$commercial_resubmit_count, 'buyer_id'=>$email_id,'commercial_edit_id'=>$edit_type_bid, 'master_itme_slno_id'=>$value_olny->slno_item_mr,'master_bid_id_comm'=>$insert_id);
+                     $query_bid_master_item=$this->db->insert('master_mr_material_item_comm_m',$date_store);
+
+                }
+                 $this->session->set_flashdata('success_message', 'material Is successfully Add');
+
+                // After that you need to used redirect function instead of load view such as    
+                if(!empty($back_url_path_id)){
+                     unset($_SESSION['cart_item']);
+                    redirect($back_url_path_id);
+                }else{
+                    redirect('user-buyer-home');
+                }
+          
+        }else{
+            $this->session->set_flashdata('error_message', 'Some thing went please try again to edit material ');
+
+            // After that you need to used redirect function instead of load view such as    
+            if(!empty($back_url_path_id)){
+                 unset($_SESSION['cart_item']);
+                redirect($back_url_path_id);
+            }else{
+                redirect('user-buyer-home');
+            }  
+        }
+
+
+
+        }else{
+            $this->session->set_flashdata('error_message', 'Some thing went please try again to edit material ');
+
+            // After that you need to used redirect function instead of load view such as    
+            if(!empty($back_url_path_id)){
+                 unset($_SESSION['cart_item']);
+                redirect($back_url_path_id);
+            }else{
+                redirect('user-buyer-home');
+            }   
+        }
+        # code...
+    }
+    
+
+    public function buyer_ongoing_pr_float_back($pr_NO=''){
+          $email_id=$this->session->userdata('buy_email_id');
+            if(empty($email_id)){
+                
+                redirect('buy-logout-by-pass');
+            }
+        $this->db->update('master_bid_Com_vendor_m',array('status_active' => 1,'status_view'=>5,'submission_status'=>0,'submission_count'=>0),array('pr_no' => $pr_NO));
+        $this->db->update('master_pr_process_detail',array('buyer_user_status' => 6),array('pr_no' => $pr_NO));
+
+   
+    
+    
+                $this->session->set_flashdata('success_message', 'successfully PR Is been Published to vendor');
+
+
+                $query_notification=$this->db->get_where('master_bid_Com_vendor_m',array('pr_no' => $pr_NO))->result();
+                foreach ($query_notification as $key => $value) {
+                 
+                   $vendor_id=$value->vendor_id;
+                   $bid_ref_no=$value->bid_ref;
+
+                   $query=$this->db->get_where('master_vendor_detail', array('Vendor_email_id' => $vendor_id));
+                    $results_id=$query->result();
+                   
+                    $Slno_vendor=$results_id[0]->Slno_vendor;
+                    $vendor_email=$results_id[0]->Vendor_email;
+                    $status_view=$value->status_view;
+                    $slno_vendors=$value->slno_vendor;
+                    // $data_email_ids[] = array('Slno_vendor'=>$ID_VENDORS,'vendor_email'=>$key_vendor);
+                    // $data_email_ids_comm[] = array('Slno_vendor'=>$ID_VENDORS,'vendor_email'=>$key_vendor);
+
+                    // $vendor_id_bid=$value_vendors['Slno_vendor'];
+                    // $vendor_id=$value_vendors['vendor_email'];
+                    $dates=date('d-m-Y');
+$message= <<<EOT
+Dear Vendor
+
+We have done an amendment in Bid ref no {$bid_ref_no}. Please resubmit your proposal in line with latest amendment.
+EOT;
+              
+              $this->load->library('email');
+                $config['charset'] = 'utf-8';
+                $config['wordwrap'] = TRUE;
+                $config['mailtype'] = 'html';
+                $this->email->initialize($config);
+
+                // $this->email->from('your@example.com', 'Your Name');
+                // $this->email->to('someone@example.com');
+                // $this->email->cc('another@another-example.com');
+                // $this->email->bcc('them@their-example.com');
+
+                // $this->email->subject('Email Test');
+                // $this->email->message('Testing the email class.');
+
+                $this->email->from('contact@innovadorslab.co.in,'.$email_id , 'Lnt Bid Management System');
+                $this->email->to($vendor_email);
+                $this->email->cc('siprah@gmail.com');
+                // $this->email->cc($commerical_email_ids);
+                $this->email->bcc('ppriyabrata8888@gmail.com');
+
+                $this->email->subject('You have Received a new notification for PR No  '.$pr_NO.' From Buyer User To Vendor User');
+                $url_passing_email='<a href="'.base_url().'seller/user-vendor-bid-view-commerical-details-pr/'.$slno_vendors.'/'.$status_view.'">Click to View</a>';
+
+                $msg=' Message :- ' .$message.'. <br /> Please click link here '.$url_passing_email;
+                $this->email->message($msg);
+
+
+                $this->email->send();
+                    $data_notification = array('vendor_id_bid' =>$Slno_vendor ,'vendor_id'=>$vendor_id ,'message'=>$message);
+                    $bid_notification=$this->db->insert('master_vendor_notifications',$data_notification);
+                }
+
+
+                redirect('buyer-pr-commercial-edit-boq-list');
+          
+        # code...
+    }
+    
+    public function buyer_bulk_pr_entry_new_information(){
+        print_r($this->input->post());
+        $pr_no=$this->input->post('pr_no');
+        $slno_pr=$this->input->post('slno_pr');
+        $job_code=$this->input->post('job_code');
+        $pr_no_type=$this->input->post('pr_no_type');
+        $edit_type=$this->input->post('edit_type');
+        $back_url_path=$this->input->post('back_url_path');
+        $back_url_path_id=$this->input->post('back_url_path_id');
+
+        $pr_no_id=$this->input->post('pr_no_id');
+        $slno_pr_id=$this->input->post('slno_pr_id');
+        $job_code_id=$this->input->post('job_code_id');
+        $edit_type_id=$this->input->post('edit_type_id');
+
+        $commercial_edit_id=$this->input->post('commercial_edit_id');
+        $commercial_resubmit_count=$this->input->post('commercial_resubmit_count');
+        $commercial_resubmit_status=$this->input->post('commercial_resubmit_status');
+        $tech_evalution=$this->input->post('tech_evalution');
+        $tcomm_evalution_commer=$this->input->post('tcomm_evalution_commer');
+        $edit_Item=$this->input->post('edit_Item');
+
+
+
+       
+
+        $data_to_transfer = array('back_url_path'=>$back_url_path,'back_url_path_id'=>$back_url_path_id,'pr_no'=>$pr_no,'slno_pr'=>$slno_pr,'job_code'=>$job_code,'pr_no_type'=>$pr_no_type,'edit_type'=>$edit_type,'commercial_edit_id'=>$commercial_edit_id,'commercial_resubmit_count'=>$commercial_resubmit_count,'commercial_resubmit_status'=>$commercial_resubmit_status,'tech_evalution'=>$tech_evalution,'tcomm_evalution_commer'=>$tcomm_evalution_commer,'edit_Item'=>$edit_Item,'pr_no_id'=>$pr_no_id,'slno_pr_id'=>$slno_pr_id,'job_code_id'=>$job_code_id,'edit_type_id'=>$edit_type_id);
+
+        $scripts='';
+            $data=array('title' =>" Boq Entry For Pr No ".$pr_no,'script_js'=>$scripts,'menu_status'=>'','sub_menu'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','information_transfer'=>$data_to_transfer);
+            $this->load->view('template/template_header',$data);
+            $this->load->view('buyer_user/template/template_top_head');
+            $this->load->view('buyer_user/template/template_side_bar',$data);
+            $this->load->view('buyer_user/boq_creation/creation_boq_page_bulk',$data_to_transfer,$data);
+            $this->load->view('template/template_footer',$data);
+    
+    }
+
 }

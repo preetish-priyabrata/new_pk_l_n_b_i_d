@@ -16,7 +16,7 @@ if(empty($created_session_id)){
 		<div id="header" class="header navbar-default">
 			<!-- begin navbar-header -->
 			<div class="navbar-header">
-				<a href="user-admin-home" class="navbar-brand"><span class="navbar-logo rounded-circle" style="background: url(<?=base_url()?>file_css_admin/assets/img/logo/logo-admin.png) no-repeat;width: 48px; background-size: cover; height: 40px; margin-top: -6px ;"></span> <b>Ilab</b> Admin</a>
+				<a href="<?=base_url()?>user-buyer-home" class="navbar-brand"><span class="navbar-logo rounded-circle" style="background: url(<?=base_url()?>file_css_admin/assets/img/logo/logo-admin.png) no-repeat;width: 48px; background-size: cover; height: 40px; margin-top: -6px ;"></span> <b>Ilab</b> Admin</a>
 				<button type="button" class="navbar-toggle" data-click="sidebar-toggled">
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>

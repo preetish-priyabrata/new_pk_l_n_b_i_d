@@ -153,6 +153,6 @@ if($result_title['no_new_tech']!=1){
 
 						</div>
 					</div>
-					<a  href="<?=base_url()?>user-design-home" class="btn btn-sm btn-link">Back</a>
+					<a  href="<?=base_url()?>user-vendor-home" class="btn btn-sm btn-link">Back</a>
 
 				</div>

@@ -4,6 +4,8 @@ if(empty($email_id)){
 	
 	redirect('procurement-logout-by-pass');
 }
+$data_check=array('procurement_user_id'=>$email_id,'approver_user_status'=>1,'design_user_status'=>1,'procurement_user_status'=>2);
+$query_check=$this->db->get_where('master_pr_process_detail',$data_check);
 ?>
 
 <div class="sidebar-bg"></div>
@@ -19,7 +21,7 @@ if(empty($email_id)){
 			</ol>
 			<!-- end breadcrumb -->
 			<!-- begin page-header -->
-			<!-- <h1 class="page-header">Page with Transparent Sidebar <small>header small text goes here...</small></h1> -->
+			<h1 class="page-header">DashBoard</h1>
 			<!-- end page-header -->
 			<?php if(!empty($this->session->flashdata('success_message'))){?>
 			<div class="alert alert-success fade show">
@@ -40,6 +42,16 @@ if(empty($email_id)){
 			}
 			 // print_r($this->session->userdata());
 			 ?>
+			 <div class="col-lg-4">
+				<div class="widget widget-stats bg-gradient-purple m-b-10">
+					<div class="stats-icon stats-icon-lg"><i class="fa fa-archive fa-fw"></i></div>
+					<div class="stats-content">
+						<div class="stats-title">Pending Prs To Be Approved</div>
+						<div class="stats-number"><?=$query_check->num_rows()?></div>
+						
+					</div>
+				</div>
+			</div>
 
 			<!-- begin panel -->
 			<!-- <div class="panel panel-inverse">

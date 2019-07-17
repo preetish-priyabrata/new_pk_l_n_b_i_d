@@ -7,6 +7,24 @@ if(empty($email_id)){
 $pr_no=$pr_no;
 $slno_pr=$slno_pr;
 $job_code=$job_code; 
+
+$data_process = array('pr_no' => $pr_no,'procurement_user_id'=>$email_id);
+
+$result_table_process_id=$this->db->get_where('master_pr_process_detail',$data_process);
+if($result_table_process_id->num_rows()!=1){
+	$this->session->set_flashdata('error_message', ' Invalid Link ');
+	redirect('user-procurement-home');
+
+}
+$result_pr_approver=$result_table_process_id->result();
+if($result_pr_approver[0]->procurement_user_status==0){
+	$this->session->set_flashdata('error_message', ' Pr No '.$pr_no.' Is submitted to design user for resubmitting again');
+	redirect('user-procurement-home');
+}
+if($result_pr_approver[0]->procurement_user_status==1){
+	$this->session->set_flashdata('success_message', ' Pr No '.$pr_no.' Is approved please check inside Project PRs Approved');
+	redirect('user-procurement-home');
+}
 //Project_Slno
 $data_table=array('pr_no'=>$pr_no,'mr_forword_status'=>1);
 $query_data=$this->db->get_where('master_mr_job_details_m',$data_table);
@@ -100,6 +118,7 @@ $result_table=$query_data->result();
 										<input type="hidden" readonly="" name="job_code" id="job_code" value="<?=$job_code?>">
 										<input class="form-control m-b-5"  name="pr_no_type" id="pr_no_type" type="hidden" value="new_pr_creater" required="" readonly>
 										<input class="form-control m-b-5"  name="edit_type" id="edit_type" type="hidden" value="<?=$edit_id=$result_table[0]->edit_id?>"required="" readonly>
+										<input class="form-control m-b-5"  name="tech_evalution" id="tech_evalution" type="hidden" value="<?=$result_table[0]->techinal_evalution?>"required="" readonly>
 										<small class="f-s-12 text-grey-darker">PR No.</small>
 									</div>
 								</div>
@@ -121,10 +140,10 @@ $result_table=$query_data->result();
 									</div>
 								</div>
 								<div class="form-group row m-b-15">
-									<label class="col-form-label col-md-3" for="tech_evalution">Technical Evaluation <span style="color: red">*</span></label>
+									<label class="col-form-label col-md-3" for="tech_evalution_id">Technical Evaluation <span style="color: red">*</span></label>
 									<div class="col-md-9">
 										<!-- <input class="form-control m-b-5" placeholder="Enter Activity name" name="activity_name" id="activity_name" type="text" required=""> -->
-										<select name="tech_evalution" class="form-control m-b-5" id="tech_evalution">
+										<select name="tech_evalution_id" class="form-control m-b-5" id="tech_evalution_id">
 											<option value="2"<?php if($result_table[0]->techinal_evalution==2){echo "selected";} ?>>No</option>
 											<option value="1"<?php if($result_table[0]->techinal_evalution==1){echo "selected";} ?>>Yes</option>
 										</select>
@@ -132,13 +151,13 @@ $result_table=$query_data->result();
 									</div>
 								</div>
 
-								<div class="form-group row m-b-15">
+								<!--<div class="form-group row m-b-15">
 									<label class="col-form-label col-md-3" for="required_date">Date Required <span style="color: red">*</span></label>
 									<div class="col-md-9">
 										<input class="form-control m-b-5 datepickers" placeholder="Enter Date Required " name="required_date" id="required_date" type="text" required=""value="<?=$result_table[0]->date_required?>">
 										<small class="f-s-12 text-grey-darker">Please enter Date Required</small>
 									</div>
-								</div>
+								</div>-->
 								<div class="form-group row m-b-15">
 									<label class="col-form-label col-md-3" for="remark_buyer">Remark For Buyer <span style="color: red">*</span></label>
 									<div class="col-md-9">
@@ -240,32 +259,7 @@ $result_table=$query_data->result();
 										<small class="f-s-12 text-grey-darker">Select Buyer </small>
 									</div>
 								</div>
-								<div class="form-group row m-b-15">
-									<label class="col-form-label col-md-3" for="materials_id">Material Category<span style="color: red">*</span></label>
-									<div class="col-md-9">
-										<?php
-										$data_array_materials=$this->design_user->get_design_material_category_list();	
-										
-										?>
-										
-										<select name="materials_id" onchange="set_ccategory()" class="form-control m-b-5" id="materials_id">
-											
-												<option value="">--Select Material Category--</option>
-											<?php
-												foreach ($query_category->result() as $value_category) {
-													?>
-				<option value="<?=$value_category->category_name?>" <?php if($result_table[0]->material_category_name==$value_category->category_name){echo "selected";} ?>><?=ucfirst($value_category->category_name)?></option>
-													<?php
-												}
-											
-												
-											
-											?>										
-											
-										</select>
-										<small class="f-s-12 text-grey-darker">Select Material Category</small>
-									</div>
-								</div>
+								
 								<div class="form-group row m-b-15">
 									<label class="col-form-label col-md-3" for="mr_date_of_creation">Date Of Creating<span style="color: red">*</span></label>
 									<div class="col-md-9">

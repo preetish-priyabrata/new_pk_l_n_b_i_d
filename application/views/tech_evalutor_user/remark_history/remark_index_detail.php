@@ -21,7 +21,7 @@ $query_remark=$this->db->get_where('master_bu_remark_pr',$data_info);
 		<div id="content" class="content">
 			<!-- begin breadcrumb -->
 			<ol class="breadcrumb pull-right">
-				<li class="breadcrumb-item active"><a href="#" class="fa fa-home ">Home</a></li>
+				<li class="breadcrumb-item active"><a href="<?=base_url()?>user-technical-evalutor-home" class="fa fa-home ">Home</a></li>
 				<!-- li class="breadcrumb-item"><a href="javascript:;">Page Options</a></li>
 				<li class="breadcrumb-item active">Page with Transparent Sidebar</li> -->
 			</ol>
@@ -66,8 +66,8 @@ $query_remark=$this->db->get_where('master_bu_remark_pr',$data_info);
                     <thead>
                         <tr>
                             <th>Date On </th>
-                            <th>Remark / Comment</th>
-                            <th>Information</th>
+                            <th>Remarks / Comment</th>
+                            <th>Informations</th>
                             <th>User Type</th>
                             <th>User Enter Email</th>
                             <!-- <th></th> -->
@@ -79,7 +79,7 @@ $query_remark=$this->db->get_where('master_bu_remark_pr',$data_info);
 
                         ?>
                         <tr>
-                            <td><?=$value_information->date_entry?></td>
+                            <td><?=date('d-m-Y',strtotime($value_information->date_entry))?></td>
                             <td>
                                 <?php 
                                     if($value_information->type_remark=='R'){

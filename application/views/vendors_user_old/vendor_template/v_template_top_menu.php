@@ -23,7 +23,7 @@ if(empty($Vendor_email_id)){
 						<div class="icon-img">
 							<img src="<?=base_url()?>file_css_admin/assets/img/logo/logo-bs4.png" alt="" />
 						</div>
-						<span>Commerical Bid<span class="label label-theme m-l-5">NEW</span></span>
+						<span>Commercial Bid<span class="label label-theme m-l-5">NEW</span></span>
 					</a>
 				</li>
 				<li>

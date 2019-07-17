@@ -859,7 +859,7 @@ function file_uploaded(){
                     	}else if(response==2){
                     		alert('Same File name is found ');
                     	}else{
-                    		alert('Some thing went worng Please check internet connection ');
+                    		alert('Something went wrong Please check internet connection ');
                     	}
                         // $('#msg').html(response); // display success response from the server
                     }

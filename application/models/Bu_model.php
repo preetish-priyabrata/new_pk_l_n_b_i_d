@@ -17,8 +17,9 @@ class Bu_model extends CI_Model {
              }elseif($query->num_rows() == 1){
              	foreach($query->result() as $row){
 					$item=$row->item;
+          $scheduled_order=$row->scheduled_order;
 				}
-				$data_send = array('status' =>1, 'item_name'=>$item );
+				$data_send = array('status' =>1, 'item_name'=>$item,'scheduled_order'=>$scheduled_order );
 	       		return $data_send;
              }else{
              	$data_send = array('status' =>3 );
@@ -69,5 +70,10 @@ class Bu_model extends CI_Model {
         exit;
       }  
     }
-
+    public function get_user_information_admin($user_email){
+      $query_user=$this->db->get_where('master_admin',array('email_id'=>$user_email));
+      $result_email=$query_user->result();
+      return $result_email[0];
+      exit;
+    }
 }

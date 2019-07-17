@@ -37,7 +37,7 @@ $result_table=$query_data->result();
     
     $data_array_procurement=$this->approver_user->get_approver_procurement_list();
 	   $result_file=$this->design_user->get_design_mr_file_list_m($pr_no,$slno_pr,$job_code);
-	   $url_remark='<a target="_blank" class="btn btn-sm btn-success" href="'.base_url().'proc-pr-remark-history/'.$pr_no.'/'.$slno_pr.'/'.$job_code.'/1"> Click View Remark</a>';
+	   $url_remark='<a target="_blank" class="btn btn-sm btn-success" href="'.base_url().'proc-pr-remark-history/'.$pr_no.'/'.$slno_pr.'/'.$job_code.'/1"> Click to View Remarks</a>';
 ?>
 
 <link href="../assets/plugins/bootstrap-datepicker/css/bootstrap-datepicker.css" rel="stylesheet" />
@@ -55,7 +55,7 @@ $result_table=$query_data->result();
 			</ol>
 			<!-- end breadcrumb -->
 			<!-- begin page-header -->
-			<h1 class="page-header"> Forward PR to Buyer Complete Detail Information </h1>
+			<h1 class="page-header"> Forward PR to Buyer Complete Detail Informations </h1>
 			<!-- end page-header -->
 			<?php if(!empty($this->session->flashdata('success_message'))){?>
 			<div class="alert alert-success fade show">
@@ -135,13 +135,13 @@ $result_table=$query_data->result();
 									</div>
 								</div>
 
-								<div class="form-group row m-b-15">
+								<!--<div class="form-group row m-b-15">
 									<label class="col-form-label col-md-3" for="required_date">Date Required <span style="color: red">*</span></label>
 									<div class="col-md-9">
 										<input class="form-control m-b-5 datepickers" placeholder="Enter Date Required " name="required_date" id="required_date" type="text" required=""value="<?=$result_table[0]->date_required?>">
 										<small class="f-s-12 text-grey-darker">Please enter Date Required</small>
 									</div>
-								</div>
+								</div>-->
 								<!-- <div class="form-group row m-b-15">
 									<label class="col-form-label col-md-3">Remark<span style="color: red">*</span></label>
 									<div class="col-md-9">
@@ -245,8 +245,8 @@ $result_table=$query_data->result();
 									</div>
 								</div>
 								<div class="form-group row m-b-15">
-									<label class="col-form-label col-md-3" for="materials_id">Material Category<span style="color: red">*</span></label>
-									<div class="col-md-9">
+									<!--<label class="col-form-label col-md-3" for="materials_id">Material Category<span style="color: red">*</span></label>-->
+									<!--<div class="col-md-9">
 										<?php
 										$data_array_materials=$this->design_user->get_design_material_category_list();	
 										
@@ -268,13 +268,13 @@ $result_table=$query_data->result();
 											
 										</select>
 										<small class="f-s-12 text-grey-darker">Select Material Category</small>
-									</div>
+									</div>-->
 								</div>
 								<div class="form-group row m-b-15">
 									<label class="col-form-label col-md-3" for="mr_date_of_creation">Date Of Creating<span style="color: red">*</span></label>
 									<div class="col-md-9">
 										<input class="form-control m-b-5" name="mr_date_of_creation" value="<?=$result_table[0]->date_creation?>"  id="mr_date_of_creation" type="text" required="" readonly>
-										<small class="f-s-12 text-grey-darker">Date Of Creating MR</small>
+										<small class="f-s-12 text-grey-darker">Date Of Creating PR</small>
 									</div>
 								</div>
 								
@@ -297,7 +297,7 @@ $result_table=$query_data->result();
 									<thead>									
 			                            <tr>
 			                                <th><strong>File Title Name</strong></th>
-			                                <th><strong>Click View</strong></th>                                
+			                                <th><strong>Click to View</strong></th>                                
 			                              
 			                            </tr>
 			                        </thead>
@@ -305,7 +305,7 @@ $result_table=$query_data->result();
 			                            <?php foreach($result_file['files_list'] as $key_files){ ?>
 			                                <tr>
 			                                    <td><strong><?=$key_files->file_title?></strong></td>
-			                                    <td><strong><a target="_blank" href="<?=base_url()?>upload_files/design_upload/<?=$key_files->attach_name?>">Click View</a> </strong></td>                                
+			                                    <td><strong><a target="_blank" href="<?=base_url()?>upload_files/design_upload/<?=$key_files->attach_name?>">Click to View</a> </strong></td>                                
 			                                  
 			                                </tr> 
 
@@ -331,7 +331,7 @@ $result_table=$query_data->result();
 										<tr>
 											<th>Material Name</th>
 											<th>UOM</th>
-											<th>Technical Parameter</th>
+											<th>Technical Parameters</th>
 											<th>Qnty</th>
 										</tr>
 									</thead>
@@ -356,10 +356,8 @@ $result_table=$query_data->result();
 						
 						<div class="form-group row pull-right">
                             <div class="col-md-12">
-                               <!--  <button type="submit" class="btn btn-sm btn-primary m-r-5" >Next</button> -->
-                               <!-- <input type="submit" name="submission" value="Save" class="btn btn-success btn-sm"> -->
-                               <!--<input type="submit" name="submission" value="Sent" class="btn btn-info btn-sm">-->
-                               <a  href="<?=base_url()?>procurement-new-pr-complete-requisition" class="btn btn-sm btn-danger">Back</a> 
+                             
+                               <a  href="<?=base_url()?>user-procurement-home" class="btn btn-sm btn-danger">Back</a> 
                             </div>
                         </div>
 						

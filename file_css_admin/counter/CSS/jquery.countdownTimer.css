@@ -28,7 +28,8 @@
 }
 
 .size_lg {
-   font-size:40px;
+   /* font-size:40px; */
+   font-size:56px;
    border-width: 7px;
    border-radius: 5px;
 }

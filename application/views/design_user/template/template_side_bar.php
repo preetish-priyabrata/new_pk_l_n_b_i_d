@@ -19,7 +19,7 @@
 					</li>
 					<li>
 						<ul class="nav nav-profile">
-                            <li><a href="javascript:;"><i class="fa fa-key"></i> Change Password</a></li>
+                            <li><a href="<?=base_url()?>design-change-password-module"><i class="fa fa-key"></i> Change Password</a></li>
                             <li><a href="<?=base_url()?>design-logout"><i class="fa fa-sign-out-alt"></i> Logout</a></li>
                             <!-- <li><a href="javascript:;"><i class="fa fa-question-circle"></i> Helps</a></li> -->
                         </ul>
@@ -38,7 +38,7 @@
 						<ul class="sub-menu">
 							<li class="<?php if($sub_menu==121){ echo 'active'; }?>"><a href="<?=base_url()?>design-view-new-category-list" >View Category List</a></li>
 						    <li class="<?php if($sub_menu==122){ echo 'active'; }?>"><a href="<?=base_url()?>design-view-new-material-list" >Create & View Material List</a></li>
-						    
+						    <li class="<?php if($sub_menu==123){ echo 'active'; }?>"><a href="<?=base_url()?>design-view-new-uom-list" >Create & View UOM</a></li>
 						</ul>
 					</li>
 					<li class="has-sub <?php if($menu_status==1){echo 'active';}?>">
@@ -48,19 +48,19 @@
 						    <span>PR Schedule</span>
 					    </a>                          
 					   <ul class="sub-menu">
-					   		  <li class="<?php if($sub_menu==5){ echo 'active'; }?>"><a href="<?=base_url()?>design-project-pr-schedule" >View Project PR Schedule</a></li>
-					   		    <li class="<?php if($sub_menu==55){ echo 'active'; }?>"><a href="<?=base_url()?>design-project-pr-schedule-comment" >View Project PR Schedule Comment </a></li>						
-						        <li class="<?php if($sub_menu==6){ echo 'active'; }?>"><a href="<?=base_url()?>design-pr-schedule-complete" >View PR Schedule Complete</a></li>
+					   		  <li class="<?php if($sub_menu==5){ echo 'active'; }?>"><a href="<?=base_url()?>design-project-pr-schedule" >Create New PR</a></li>
+					   		    <li class="<?php if($sub_menu==55){ echo 'active'; }?>"><a href="<?=base_url()?>design-project-pr-schedule-comment" >View Project PR Schedule Comments </a></li>						
+						        <li class="<?php if($sub_menu==6){ echo 'active'; }?>"><a href="<?=base_url()?>design-pr-schedule-complete" >View PR Schedule Approved</a></li>
 						</ul> 
 					</li>
 					<li class="has-sub <?php if($menu_status==2){echo 'active';}?>">
 						<a href="javascript:;">
 					        <b class="caret"></b>
 						    <i class="fas fa-atlas"></i>
-						    <span>PR Status</span>
+						    <span>Project wise PR release status</span>
 					    </a> 
 					    <ul class="sub-menu">
-					   		<li class="<?php if($sub_menu==5){ echo 'active'; }?>"><a href="<?=base_url()?>design-project-pr-schedule-status" >View Project PR Schedule</a></li>
+					   		<li class="<?php if($sub_menu==5){ echo 'active'; }?>"><a href="<?=base_url()?>design-project-pr-schedule-status" >Project wise PR release status</a></li>
 
 					  	</ul>
 					</li>

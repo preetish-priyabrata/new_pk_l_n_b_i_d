@@ -17,7 +17,7 @@ if(empty($email_id)){
 		<div id="content" class="content">
 			<!-- begin breadcrumb -->
 			<ol class="breadcrumb pull-right">
-				<li class="breadcrumb-item active"><a href="#" class="fa fa-home ">Home</a></li>
+				<li class="breadcrumb-item active"><a href="<?=base_url()?>user-commerical-evalutor-home" class="fa fa-home ">Home</a></li>
 				<!-- <li class="breadcrumb-item"><a href="javascript:;">Page Options</a></li> -->
 				<li class="breadcrumb-item active">View New Bids</li>
 			</ol>
@@ -69,11 +69,14 @@ if(empty($email_id)){
 					<table id="example" class="display" style="width:100%">
 						<thead>
                     <tr>
-                      <th>PR No</th>
+											<th>PR No</th>
+											<th>Comment from Bu User</th>
+											<th>PR Details</th>
                       <th>Project Name</th>
-                      <th>Bid Ref</th>
-                      <th>Bid Id</th>
-                      <!-- <th>Bid Publish Date</th> -->
+                      <th>Bid Ref</th>                      
+											<th>Date Of PRs Release</th>
+											<th>Planned commercial closure date</th>
+											<th>Technical clearance Status</th>
                       <th>View</th>
                       
                     </tr>
@@ -81,7 +84,8 @@ if(empty($email_id)){
                 <tbody>
 					<?php					
 					 	$data_check=array('approver_user_status'=>1,'design_user_status'=>1,'commercial_complete_status'=>2);
-						$query_check=$this->db->get_where('master_pr_process_detail',$data_check);
+						$this->db->order_by('commercial_closure_date',"ASC");
+						 $query_check=$this->db->get_where('master_pr_process_detail',$data_check);
 						foreach($query_check->result() as $key_comm_id =>$value_comm_id):
 							$comm_list=unserialize($value_comm_id->commercial_user_id_array);						
 							if (in_array($email_id, $comm_list)){
@@ -91,16 +95,45 @@ if(empty($email_id)){
 									$job_code=$value_comm_id->project_slno;
 									$query_project=$this->db->get_where('master_project',array('Project_Slno'=>$job_code));
 									$result_project=$query_project->result();
+
+									$query_project=$this->db->get_where('master_project',array('Project_Slno'=>$job_code));
+									$result_project=$query_project->result();
 									$project_name=ucwords($result_project[0]->Project_Name);
 									$commercial_bid_ref=$value_comm_id->commercial_bid_ref;
-									$commercial_bid_id=$value_comm_id->commercial_bid_id;
+									$design_date=date('d-m-Y',strtotime($value_comm_id->design_date));
+									
+									$type_bidding_technical=$value_comm_id->type_bidding_technical;
+									if($type_bidding_technical==1){
+										$technical_user_status=$value_comm_id->technical_user_status;
+										if($technical_user_status==1){
+											$tech_evalution="Completed";
+										}else{
+											$tech_evalution="Pending";
+										}
+									}else{
+										$tech_evalution="No Technical evalution";
+									}
+									$planned_date=date('d-m-Y',strtotime($value_comm_id->commercial_closure_date));
+									$pr_no=$value_comm_id->pr_no;
+									$pr_details_query=$this->db->get_where('master_pr_schedule',array('pr_no'=>$pr_no));
+									$result_pr_details=$pr_details_query->result();
+
+									$query_pr_item_SLNO=$this->db->get_where('master_pr_schedule',array('pr_no'=>$pr_no));
+									$result_pr_item=$query_pr_item_SLNO->result();
+									$comment=ucwords($result_pr_item[0]->comment);
+
 									$url='<a href="'.base_url().'commerical-user-received-pr-info/'.$value_comm_id->pr_no.'/'.$value_comm_id->pr_no_slno.'/'.$value_comm_id->project_slno.'/2/'.$comm_bid.'" > Click to View</a>';
 									echo '
 									<tr>
 										<td>'.$value_comm_id->pr_no.'</td>
+										<td>'.$comment.'</td>
+										<td>'.$result_pr_details[0]->item.'</td>
 										<td>'.$project_name.'</td>
 										<td>'.$commercial_bid_ref.'</td>
-										<td>'.$commercial_bid_id.'</td>
+										<td>'.$design_date.'</td>
+										<td>'.$planned_date.'</td>
+										<td>'.$tech_evalution.'</td>
+										
 										
 									
 										<td>'.$url.'</td>

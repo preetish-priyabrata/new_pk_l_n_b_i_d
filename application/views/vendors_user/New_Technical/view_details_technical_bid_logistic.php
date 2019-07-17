@@ -176,7 +176,7 @@ $result_vechile=$this->design_user->get_design_master_mr_vechile_single($edit_id
 						<thead>
 								<tr>
 										<th><strong>File Name</strong></th>
-										<th><strong>Click View</strong></th>
+										<th><strong>Click to View</strong></th>
 
 								</tr>
 						</thead>
@@ -184,7 +184,7 @@ $result_vechile=$this->design_user->get_design_master_mr_vechile_single($edit_id
 								<?php foreach($result_file['files_list'] as $key_files){ ?>
 										<tr>
 												<td><strong><?=$key_files->file_name_actucal?></strong></td>
-												<td><strong><a target="_blank" href="<?=base_url()?>upload_files/design_upload/<?=$key_files->attach_name?>">Click View</a> </strong></td>
+												<td><strong><a target="_blank" href="<?=base_url()?>upload_files/design_upload/<?=$key_files->attach_name?>">Click to View</a> </strong></td>
 
 										</tr>
 
@@ -206,7 +206,7 @@ $result_vechile=$this->design_user->get_design_master_mr_vechile_single($edit_id
 										<th><strong>Date  Creation</strong></th>
 										<th><strong>Status</strong></th>
 										<th><strong>Comment</strong></th>										
-										<th><strong>Click View</strong></th>
+										<th><strong>Click to View</strong></th>
 
 								</tr>
 						</thead>
@@ -241,7 +241,7 @@ $result_vechile=$this->design_user->get_design_master_mr_vechile_single($edit_id
 															}
 														
 														}else{
-															if($submitted_status==1){  echo "---"; }else{?> <a target="_blank" href="<?=base_url().'user-vendor-tech-bid-submission-tokens/'.$value.'/'.$submission->token_no .'/'.$submission->master_bid_id ?>">Click View</a><?php }
+															if($submitted_status==1){  echo "---"; }else{?> <a target="_blank" href="<?=base_url().'user-vendor-tech-bid-submission-tokens/'.$value.'/'.$submission->token_no .'/'.$submission->master_bid_id ?>">Click to View</a><?php }
 														}
 														?>
 												 	</strong>

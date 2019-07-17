@@ -8,7 +8,7 @@ if(empty($email_id)){
 	$this->db->from('master_project');
 	// $this->db->join('assign_project_user', ' (assign_project_user.project_slno = master_project.Project_Slno  AND master_project.status=1 ) ', 'right outer' );					
 	// $this->db->where('assign_project_user.email_id', $email_id); 	
-	$query_design = $this->db->get();
+	$query_design = $this->db->get('');
 
 ?>
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
@@ -22,11 +22,11 @@ if(empty($email_id)){
 			<ol class="breadcrumb pull-right">
 				<li class="breadcrumb-item active"><a href="#" class="fa fa-home ">Home</a></li>
 				<!-- <li class="breadcrumb-item"><a href="javascript:;">Page Options</a></li> -->
-				<li class="breadcrumb-item active">PR Schedule Status</li>
+				<li class="breadcrumb-item active">Project wise PR release status</li>
 			</ol>
 			<!-- end breadcrumb -->
 			<!-- begin page-header -->
-			<h1 class="page-header">Project PR Schedule Status
+			<h1 class="page-header">Project wise PR release status
 			 <!-- <small>header small text goes here...</small> -->
 			</h1>
 			<!-- end page-header -->
@@ -57,7 +57,7 @@ if(empty($email_id)){
 						<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
 						<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
 					</div>
-					<h4 class="panel-title"> PR Schedule Status</h4>
+					<h4 class="panel-title"> Project wise PR release status </h4>
 				</div>	
 				<div class="panel-body">
 					<form action="" method="POST" enctype="multipart/form-data"	>
@@ -79,7 +79,7 @@ if(empty($email_id)){
 													}
 												?>
 											</select>
-											<small class="f-s-12 text-grey-darker">Please Select Project For View PR Schedule Status</small>
+											<small class="f-s-12 text-grey-darker">Please Select Project </small>
 										</div>
 									</div>
 								</div>
@@ -103,17 +103,29 @@ if(empty($email_id)){
 			if($send_button=="find"){
 				$table="master_pr_schedule"; 
 				$job_code=$this->input->post('job_code');
-				$data_check = array('job_code' => $job_code,'status'=>1, 'mr_status'=>1);
+
+				foreach ($query_design->result() as $key_job_code) {
+					if($key_job_code->Project_Slno==$job_code){
+						$project_details_info=$key_job_code->job_Code." [ ".$key_job_code->Project_Name." ]";
+					}
+					
+					
+				}
+				 //$project_details_info=$key_job_code->job_Code." [ ".$key_job_code->Project_Name." ]";
+				$data_check = array('job_code' => $job_code);
+				  
                 $query=$this->db->get_where($table,$data_check);
                     // echo  $this->db->last_query();
                
                
+
+
                 // $output .= '</table>';
                
 				?>
 			<div class="panel panel-inverse">
 				<div class="panel-heading">					
-					<h4 class="panel-title"> PR Schedule Status List</h4>
+					<h4 class="panel-title">  Project Name :- <?=$project_details_info?> </h4>
 				</div>
 				<div class="panel-body">
 
@@ -122,11 +134,13 @@ if(empty($email_id)){
                     <tr>
                       <th>Discipline</th>
                       <th>PR No</th>
+                      <th>Comment from Bu User</th>
+                      
                       
                       <th>Original Schedule</th>
                       <th>Revised Schedule</th>
                       <th>Status</th>
-                      <th>Remark To Approver</th>
+                      <th>Remarks To Approver</th>
                       <th>Action</th>
                       
                     </tr>
@@ -162,8 +176,8 @@ if(empty($email_id)){
 					 					$url='<a href="'.base_url().'design-mr-view-pr/'.$row->pr_no.'/'.$row->slno.'/'.$row->job_code.'/3" target="_blank"> Click to View </a>';
 					 				break;
 					 			case '4': // resubmission
-					 				$status_detai="Resubmission";
-					 					$url='<a href="'.base_url().'design-mr-view-pr/'.$row->pr_no.'/'.$row->slno.'/'.$row->job_code.'/4" target="_blank"> Click to Resubmission </a>';
+					 				$status_detai="Resubmitted";
+					 					$url='<a href="'.base_url().'design-mr-view-pr/'.$row->pr_no.'/'.$row->slno.'/'.$row->job_code.'/4" target="_blank"> Click to Resubmit </a>';
 					 				break;
 					 			
 					 			default:
@@ -174,6 +188,7 @@ if(empty($email_id)){
 		                    <tr>
 		                      <td>'.$row->discipline.'</td>
 		                      <td>'.$row->pr_no.'</td>
+		                      <td>'.$row->comment.'</td>
 		                      
 		                      <td>'.date('d-m-Y',strtotime($row->original_schedule)).'</td> 
 		                      <td>'.date('d-m-Y',strtotime($row->revised_schedule)).'</td> 
@@ -182,7 +197,26 @@ if(empty($email_id)){
 		                      <td>'.$url.'</td>
 		                    </tr>
 		                    ';
-		                }
+		                }else{
+
+							echo '
+		                    <tr>
+		                      <td>'.$row->discipline.'</td>
+		                      <td>'.$row->pr_no.'</td>
+		                      <td>'.$row->comment.'</td>
+		                      
+		                      
+		                      <td>'.date('d-m-Y',strtotime($row->original_schedule)).'</td> 
+		                      <td>'.date('d-m-Y',strtotime($row->revised_schedule)).'</td> 
+		                      <td>--</td>
+		                       <td>--</td>
+		                      <td>--</td>
+		                    </tr>
+		                    ';
+						
+
+
+						}
 		            }
 					?>
 				</tbody>
@@ -191,7 +225,7 @@ if(empty($email_id)){
 
 				</div>
 			</div>
-		<?php }?>
+<?php }?>
 						
 					        		        
 					    

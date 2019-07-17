@@ -98,7 +98,7 @@ $query_vendor = $this->db->get('master_vendor_detail');
 								</div>
 								
 							</div>
-							<div class="col-md-6 col-lg-6">
+							<!-- <div class="col-md-6 col-lg-6">
 							 	<div class="form-group row m-b-15">
 									<label class="col-form-label col-md-3">Message  <span style="color: red">*</span></label>
 									<div class="col-md-9">
@@ -106,14 +106,15 @@ $query_vendor = $this->db->get('master_vendor_detail');
 										<small class="f-s-12 text-grey-darker"> Please enter Message To vendor  </small>
 									</div>
 								</div>
-							</div>
+							</div> -->
 						</div>
 						<div class="row">
 							<table class="table table-bordered" cellpadding="10" cellspacing="1" width="100%">
 	                        	<thead>
 		                            <tr>
 		                                <th><strong>Vendor Name </strong></th>
-		                                <th><strong>Vendor View</strong></th>
+																		 <th><strong>Vendor View</strong></th>
+																		 <th>Message</th>
 		                            </tr>
 		                        </thead>
 		                        <tbody>
@@ -140,6 +141,7 @@ $query_vendor = $this->db->get('master_vendor_detail');
 											<p>Vendor Mobile : <?=$key_vendors->Mobile_no?></p>
 											<p>Vendor Address : <?=$key_vendors->Organisation_address?></p>
 										</td>
+										<td><textarea class="form-control" rows="3" name="Message[]" required=""></textarea></td>
 								<?php
 									}
 								?>

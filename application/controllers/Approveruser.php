@@ -1344,6 +1344,37 @@ class Approveruser extends CI_Controller {
                 $data_mr = array('mr_forword_status' =>1 , 'mr_forword_date'=>$date); // mr data to be update
                 $this->db->update('master_mr_job_details_m',$data_mr,$id_array_mr);
                  $this->db->update('master_mr_job_details_m_clone',$data_mr,$id_array_mr);
+                    // <a href="'.base_url().'procurement-user-create-new-material/'.$row->pr_no.'/'.$row->slno.'/'.$row->job_code.'/3" > Click to View </a>
+
+                #####################################################################################################
+                #
+                #                     Email integration section will start 
+                #
+                #####################################################################################################
+
+                $this->load->library('email');
+                $config['charset'] = 'utf-8';
+                $config['wordwrap'] = TRUE;
+                $config['mailtype'] = 'html';
+                $this->email->initialize($config);
+                
+                $this->email->from('contact@innovadorslab.co.in,'.$email_id , 'Lnt Bid Management System');
+                $this->email->to($Procurement_id);
+                $this->email->cc('siprah@gmail.com');              
+                $this->email->bcc('ppriyabrata8888@gmail.com');
+
+                $this->email->subject('You have Received a new notification for PR No  '.$pr_no.' From Approver User To Procurement User');
+                $url_passing_email='<a href="'.base_url().'procurement-user-create-new-material/'.$pr_no.'/'.$slno_pr.'/'.$job_code.'/4" > Click to View </a>';
+                $msg=' Remark :- ' .$Remark.'. <br /> Please click link here '.$url_passing_email;
+                $this->email->message($msg);
+
+
+                $this->email->send();
+
+
+                #######################################################################################################
+
+
                 $this->session->set_flashdata('success_message', ' Successfully Send To Procuremnet User ');
                 redirect('user-approver-home');
                 exit();
@@ -1372,8 +1403,42 @@ class Approveruser extends CI_Controller {
                 $data_insert = array('pr_no' => $pr_no, 'slno_pr'=>$slno_pr,'job_code'=>$job_code,'Comment_remark'=>$comment,'email_id'=>$email_id,'level_user'=>3 ,'type_remark'=>'C','to_level_user'=>2);
                 $query=$this->db->insert('master_bu_remark_pr',$data_insert);
 
+                $data_process = array('pr_no' => $pr_no,'approver_user_id'=>$email_id);
+                $result_table_process_id=$this->db->get_where('master_pr_process_detail',$data_process);
+                $result_pr_approver=$result_table_process_id->result();
+
+                $design_user_id=$result_pr_approver[0]->design_user_id;
+
                 $data_mr = array('resubmit_count' =>$total_id , 'status_resubmit'=>1); // mr data to be update
                 $this->db->update('master_mr_job_details_m',$data_mr,$id_array_mr);
+
+                #####################################################################################################
+                #
+                #                     Email integration section will start 
+                #
+                #####################################################################################################
+
+                $this->load->library('email');
+                $config['charset'] = 'utf-8';
+                $config['wordwrap'] = TRUE;
+                $config['mailtype'] = 'html';
+                $this->email->initialize($config);
+                
+                $this->email->from('contact@innovadorslab.co.in,'.$email_id , 'Lnt Bid Management System');
+                $this->email->to($design_user_id);
+                $this->email->cc('siprah@gmail.com');              
+                $this->email->bcc('ppriyabrata8888@gmail.com');
+
+                $this->email->subject('You have Received a new notification for Resubmission PR No  '.$pr_no.' From Approver User To Design User');
+                $url_passing_email='<a href="'.base_url().'design-mr-view-pr/'.$pr_no.'/'.$slno_pr.'/'.$job_code.'/4" > Click to View </a>';
+                $msg=' Comment :- ' .$comment.'. <br /> Please click link here '.$url_passing_email;
+                $this->email->message($msg);
+
+
+                $this->email->send();
+
+
+                #######################################################################################################
 
                 $this->session->set_flashdata('success_message', ' Successfully Comment ');
                 redirect('user-approver-home');
@@ -1456,9 +1521,105 @@ class Approveruser extends CI_Controller {
         $this->load->view('template/template_footer',$data);
     
        }
+       public function approver_change_password(){
+           
+                $scripts='<script src="https://cdnjs.cloudflare.com/ajax/libs/hideshowpassword/2.0.8/hideShowPassword.min.js"></script>';
+            
+                $data=array('title' =>"Admin Change Password for Users",'script_js'=>$scripts,'menu_status'=>'','sub_menu'=>'','sub_menu'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'');
+                $this->load->view('template/template_header',$data);
+                $this->load->view('approver_user/template/template_top_head');
+                $this->load->view('approver_user/template/template_side_bar',$data);
+                $this->load->view('approver_user/change_password',$data);
+                $this->load->view('template/template_footer',$data);
+            
+        }
+        public function approver_change_password_save1(){
+            $data_brower['browser'] = $this->agent->browser();
+            $data_brower['browserVersion'] = $this->agent->version();
+            $data_brower['platform'] = $this->agent->platform();
+            $data_brower['full_user_agent_string'] = $_SERVER['HTTP_USER_AGENT'];
+            $ip = $this->input->ip_address();       
+            $date_nrowser_json=json_encode($data_brower);
+            $date_entry=date('Y-m-d');
+            $time_entry=date('H:i:s');
+            $user_id_slno=$this->input->post('user_id_slno');
+            $token_id=$this->input->post('token_id');
+            $password=$this->input->post('password');
+            $keys_id="preetishweb";
+            $value1_convered = strtr($user_id_slno,array('.' => '+', '-' => '=', '~' => '/'));
+            
+            $value1_convered_id=$this->encrypt->decode($value1_convered,$keys_id);
+            if($value1_convered_id==$token_id){
+                $table='master_admin';
+                $data_insert = array('Password'=>$password, 'password_hash'=>md5($password));
+                $id=array('slno'=>$value1_convered_id);      
+                $result_insert = $this->user->common_update($table,$data_insert,$id);
+
+                $data_json=json_encode($data_insert);
+                $data_id_json=json_encode($id);
+                $date_insert_array = array('data_insert' => $data_json,'update_id'=>$data_id_json );
+                $date_insert_json=json_encode($date_insert_array);
+
+                $table_log='pms_log_entries';
+
+                $log_entry= array('Form_name'=>"update users password", 'Data_entry'=>$date_insert_json, 'status'=>1, 'Date'=>$date_entry, 'Time'=>$time_entry, 'Location_Id'=>$ip, 'browser_information'=>$date_nrowser_json);
+
+                $result_log_entry = $this->user->common_insert($table_log,$log_entry);
+                $this->session->set_flashdata('success_message', 'Password successfully Change');
+                // After that you need to used r
+                redirect('user-approver-home');
+
+            }else{
+                $this->session->set_flashdata('error_message', 'Something went wrong');
+                // After that you need to used redirect function instead of load view such as                 
+                redirect('user-approver-home');    
+            }
+            // Array ( [user_id_slno] => EBq6D9dEDSNHWJwsfBpyxu~Tv.jXe0EAizvq1LuUHVwc58gP.wknHjWDLrJllQ8ndtLCoeV6HFl.dn9hqLQ8xg-- [token_id] => 6 [password] => abcd!2345aA ) 
+            # code...
+        }
+        public function approver_change_password_save($value=''){
+           $email_id=$this->session->userdata('approver_email_id');
+            if(empty($email_id)){
+                
+                redirect('approver-logout-by-pass');
+            }
+            $c_password=$this->input->post('c_password');
+            $new_password=$this->input->post('new_password');
+            $data_check=array('email_id'=>$email_id,'password_hash'=>md5($c_password),'Status'=>1);
+            $query_check=$this->db->get_where('master_admin',$data_check);
+            if($query_check->num_rows()==1){
+                $data_id_update=array('email_id'=>$email_id);
+                $data_update_information=array('password_hash'=>md5($new_password),'Password'=>$new_password);
+                $query_check=$this->db->update('master_admin',$data_update_information,$data_id_update);
+
+                $this->session->set_flashdata('success_message',' password changed successfull');
+                // After that you need to used redirect home
+                redirect('user-approver-home');
+            }else{
+                $this->session->set_flashdata('error_message',' Something went wrong');
+                // After that you need to used redirect home
+                redirect('user-approver-home');
+
+            }
+            # code...
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     public function approver_orginal_project_pr($value=''){
         $scripts='<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script><script src=" https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script> <script src="'.base_url().'file_css_admin/own_js.js"></script>';
-            $data=array('title' =>'PR Received List Designer User','script_js'=>$scripts ,'menu_status'=>'','sub_menu'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'');
+            $data=array('title' =>'Project Detail Information','script_js'=>$scripts ,'menu_status'=>'','sub_menu'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'');
 
             $this->load->view('template/template_header',$data);
             $this->load->view('approver_user/template/template_top_head');

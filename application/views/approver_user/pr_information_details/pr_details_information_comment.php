@@ -49,12 +49,12 @@ $result_table=$query_data->result();
 			<!-- begin breadcrumb -->
 			<ol class="breadcrumb pull-right">
 				<li class="breadcrumb-item active"><a href="<?=base_url()?>user-design-home" class="fa fa-home ">Home</a></li>
-				<li class="breadcrumb-item"><a href="javascript:;">Material Requisition</a></li>
-				<li class="breadcrumb-item active"> View  Comment PR Schedule</li>
+				<li class="breadcrumb-item"><a href="javascript:;">PR</a></li>
+				<li class="breadcrumb-item active"> View  Comments of PR Schedule</li>
 			</ol>
 			<!-- end breadcrumb -->
 			<!-- begin page-header -->
-			<h1 class="page-header">Pr Information Comment  </h1>
+			<h1 class="page-header">PR Information Comments  </h1>
 			<!-- end page-header -->
 			<?php if(!empty($this->session->flashdata('success_message'))){?>
 			<div class="alert alert-success fade show">
@@ -78,7 +78,7 @@ $result_table=$query_data->result();
 						<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
 						<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
 					</div>
-					<h4 class="panel-title">Comment PR details Information</h4>
+					<h4 class="panel-title">Comment PR detail Informations</h4>
 				</div>
 				<div class="panel-body">
 					
@@ -129,13 +129,13 @@ $result_table=$query_data->result();
 									</div>
 								</div>
 
-								<div class="form-group row m-b-15">
+								<!--<div class="form-group row m-b-15">
 									<label class="col-form-label col-md-3" for="required_date">Date Required <span style="color: red">*</span></label>
 									<div class="col-md-9">
 										<input class="form-control m-b-5 datepickers" placeholder="Enter Date Required " name="required_date" id="required_date" type="text" required="" value="<?=$result_table[0]->date_required?>">
 										<small class="f-s-12 text-grey-darker">Please enter Date Required</small>
 									</div>
-								</div>
+								</div>-->
 								<div class="form-group row m-b-15">
 									<label class="col-form-label col-md-3" for="job_code">Action 
 										<span style="color: red">*</span></label>
@@ -186,8 +186,8 @@ $result_table=$query_data->result();
 									</div>
 								</div>
 								<div class="form-group row m-b-15">
-									<label class="col-form-label col-md-3" for="materials_id">Material Category <span style="color: red">*</span></label>
-									<div class="col-md-9">
+									<!-- <label class="col-form-label col-md-3" for="materials_id">Material Category <span style="color: red">*</span></label> -->
+									<!--<div class="col-md-9">
 										<?php
 										$data_array_materials=$this->design_user->get_design_material_category_list();	
 										
@@ -209,18 +209,18 @@ $result_table=$query_data->result();
 											
 										</select>
 										<small class="f-s-12 text-grey-darker">Select Job Code</small>
-									</div>
+									</div>-->
 								</div>
 								<div class="form-group row m-b-15">
 									<label class="col-form-label col-md-3" for="mr_date_of_creation">Date Of Creating<span style="color: red">*</span></label>
 									<div class="col-md-9">
 										<input class="form-control m-b-5" name="mr_date_of_creation" value="<?=$result_table[0]->date_creation?>" id="mr_date_of_creation" type="text" required="" readonly>
-										<small class="f-s-12 text-grey-darker">Date Of Creating MR</small>
+										<small class="f-s-12 text-grey-darker">Date Of Creating PR</small>
 									</div>
 								</div>
 								
 								<div class="form-group row m-b-15">
-									<label class="col-form-label col-md-3" for="comment">comment 
+									<label class="col-form-label col-md-3" for="comment">Comments 
 										<span style="color: red">*</span>
 									</label>
 									<div class="col-md-9">															
@@ -242,7 +242,7 @@ $result_table=$query_data->result();
 									<thead>									
 			                            <tr>
 			                                <th><strong>File Title Name</strong></th>
-			                                <th><strong>Click View</strong></th>                                
+			                                <th><strong>Click to View</strong></th>                                
 			                              
 			                            </tr>
 			                        </thead>
@@ -250,7 +250,7 @@ $result_table=$query_data->result();
 			                            <?php foreach($result_file['files_list'] as $key_files){ ?>
 			                                <tr>
 			                                    <td><strong><?=$key_files->file_title?></strong></td>
-			                                    <td><strong><a target="_blank" href="<?=base_url()?>upload_files/design_upload/<?=$key_files->attach_name?>">Click View</a> </strong></td>                                
+			                                    <td><strong><a target="_blank" href="<?=base_url()?>upload_files/design_upload/<?=$key_files->attach_name?>">Click to View</a> </strong></td>                                
 			                                  
 			                                </tr> 
 
@@ -276,7 +276,7 @@ $result_table=$query_data->result();
 										<tr>
 											<th>Material Name</th>
 											<th>UOM</th>
-											<th>Technical Parameter</th>
+											<th>Technical Parameters</th>
 											<th>Qnty</th>
 										</tr>
 									</thead>

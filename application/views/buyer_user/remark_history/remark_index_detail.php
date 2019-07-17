@@ -66,8 +66,8 @@ $query_remark=$this->db->get_where('master_bu_remark_pr',$data_info);
                     <thead>
                         <tr>
                             <th>Date On </th>
-                            <th>Remark / Comment</th>
-                            <th>Information</th>
+                            <th>Remarks / Comment</th>
+                            <th>Informations</th>
                             <th>User Type</th>
                             <th>User Enter Email</th>
                             <!-- <th></th> -->

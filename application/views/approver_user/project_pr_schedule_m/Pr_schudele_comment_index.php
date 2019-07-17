@@ -22,11 +22,11 @@ if(empty($email_id)){
 			<ol class="breadcrumb pull-right">
 				<li class="breadcrumb-item active"><a href="#" class="fa fa-home ">Home</a></li>
 				<!-- <li class="breadcrumb-item"><a href="javascript:;">Page Options</a></li> -->
-				<li class="breadcrumb-item active">PR Schedule Comment</li>
+				<li class="breadcrumb-item active">PR Schedule Comments</li>
 			</ol>
 			<!-- end breadcrumb -->
 			<!-- begin page-header -->
-			<h1 class="page-header">Project PR Schedule Comment
+			<h1 class="page-header">Project PR Schedule Comments
 			 <!-- <small>header small text goes here...</small> -->
 			</h1>
 			<!-- end page-header -->
@@ -57,7 +57,7 @@ if(empty($email_id)){
 						<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
 						<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
 					</div>
-					<h4 class="panel-title"> PR Schedule Comment</h4>
+					<h4 class="panel-title"> PR Schedule Comments</h4>
 				</div>	
 				<div class="panel-body">
 					<form action="" method="POST" enctype="multipart/form-data"	>
@@ -79,7 +79,7 @@ if(empty($email_id)){
 													}
 												?>
 											</select>
-											<small class="f-s-12 text-grey-darker">Please Select Project For Upload PR Schedule Complete</small>
+											<small class="f-s-12 text-grey-darker">Please Select Project </small>
 										</div>
 									</div>
 								</div>
@@ -104,16 +104,17 @@ if(empty($email_id)){
 				$table="master_pr_schedule"; 
 				$job_code=$this->input->post('job_code');
 				$data_check = array('job_code' => $job_code,'status'=>1, 'mr_status'=>1);
-                $query=$this->db->get_where($table,$data_check);
-                    // echo  $this->db->last_query();
-               
-               
-                // $output .= '</table>';
-               
+        $query=$this->db->get_where($table,$data_check);
+				foreach ($query_design->result() as $key_job_code) {
+					if($key_job_code->Project_Slno==$job_code){
+						$project_details_info=$key_job_code->job_Code." [ ".$key_job_code->Project_Name." ]";
+
+					}
+				}
 				?>
 			<div class="panel panel-inverse">
 				<div class="panel-heading">					
-					<h4 class="panel-title"> PR Schedule Complete List</h4>
+					<h4 class="panel-title"> PR Schedule Project Name :- <?=$project_details_info?></h4>
 				</div>
 				<div class="panel-body">
 
@@ -122,13 +123,14 @@ if(empty($email_id)){
                     <tr>
                       <th>Discipline</th>
                       <th>PR No</th>
+                      <th>Comment from Bu User</th>
                       
                       <th>Item</th>
                       <th>UOM</th>
-                      <th>Quantity</th>
+                      <th>Schedule PR Quantity</th>
                       <th>Original Schedule</th>                      
                       <th>Status</th>
-                      <th>Comment</th>
+                      <th>Comment from Design User</th>
                       <th>Action</th>
                       
                     </tr>
@@ -167,7 +169,7 @@ if(empty($email_id)){
 					 					// $url='<a href="'.base_url().'approver-mr-view-pr/'.$row->pr_no.'/'.$row->slno.'/'.$row->job_code.'/3" target="_blank"> Click to View </a>';
 					 				break;
 					 			case '4': // resubmission
-					 				$status_detai="Resubmission";
+					 				$status_detai="Resubmitted";
 					 					$url='<a href="'.base_url().'approved-mr-view-comment-pr/'.$row->pr_no.'/'.$row->slno.'/'.$row->job_code.'/4" target="_blank"> Click to Resubmission </a>';
 					 				break;
 					 			
@@ -179,6 +181,7 @@ if(empty($email_id)){
 		                    <tr>
 		                      <td>'.$row->discipline.'</td>
 		                      <td>'.$row->pr_no.'</td>
+		                      <td>'.$row->comment.'</td>
 		                      
 		                      <td>'.$row->item.'</td>
 		                      <td>'.$row->UOM.'</td>

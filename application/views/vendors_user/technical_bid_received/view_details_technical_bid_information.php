@@ -66,7 +66,7 @@ $result_table4=$query_table4->result();
 		<ol class="breadcrumb pull-right">
 			<li class="breadcrumb-item"><a href="<?=base_url()?>seller/user-vendor-home">Home</a></li>
 			<li class="breadcrumb-item"><a href="<?=base_url()?>seller/user-vendor-bid-new-technical">New Technical Bid</a></li>
-			<li class="breadcrumb-item active">Technical Bid Information</li>
+			<li class="breadcrumb-item active">Technical Bid Informations</li>
 		</ol>
 		<!-- end breadcrumb -->
 		<!-- begin page-header -->
@@ -99,7 +99,7 @@ $result_table4=$query_table4->result();
 					<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
 					<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
 				</div>
-				<h4 class="panel-title">Panel Title here</h4>
+				<h4 class="panel-title">View details of Technical bid</h4>
 			</div>
 			<div class="panel-body">
 				<div class="row">
@@ -113,7 +113,7 @@ $result_table4=$query_table4->result();
 						<div class="form-group row m-b-15">
 							<label class="col-form-label col-md-3" for="Po_no">Start Date <span style="color: red"></span></label>
 							<div class="col-md-9">
-								<?=$result_title['new_tech_list'][0]->date_start?>
+								<?=date('d-m-y',strtotime($result_title['new_tech_list'][0]->date_start))?>
 							</div>
 						</div>
 						<div class="form-group row m-b-15">
@@ -130,22 +130,24 @@ $result_table4=$query_table4->result();
 						</div>
 					</div>
 					<div class="col-md-6 col-lg-6">
-						<div class="form-group row m-b-15">
+						<!-- <div class="form-group row m-b-15">
 							<label class="col-form-label col-md-3" for="Job_code"> Bid Id<span style="color: red"></span></label>
 							<div class="col-md-9">
-								<?=$result_title['new_tech_list'][0]->bid_id?>
+								<?php 
+								// $result_title['new_tech_list'][0]->bid_id
+								?>
 							</div>
-						</div>
+						</div> -->
 						<div class="form-group row m-b-15">
 							<label class="col-form-label col-md-3" for="Po_date"> End Date <span style="color: red"></span></label>
 							<div class="col-md-9">
-								<?=$date_end=$result_title['new_tech_list'][0]->date_end?>
+								<?=date('d-m-Y',strtotime($date_end=$result_title['new_tech_list'][0]->date_end))?>
 							</div>
 						</div>
 						<div class="form-group row m-b-15">
 							<label class="col-form-label col-md-3" for="Advance_payment_date">Date of Query End </label>
 							<div class="col-md-9">
-								<?=$result_title['new_tech_list'][0]->query_end_date?>
+								<?=date('d-m-Y',strtotime($result_title['new_tech_list'][0]->query_end_date))?>
 							</div>
 						</div>
 						<div class="form-group row m-b-15">
@@ -166,7 +168,7 @@ $result_table4=$query_table4->result();
 								<tr>
 									<th>Material Name</th>
 									<th>UOM</th>
-									<th>Technical Parameter</th>
+									<th>Technical Parameters</th>
 									<th>Qnty</th>
 									
 								</tr>
@@ -198,7 +200,7 @@ $result_table4=$query_table4->result();
 						<thead>									
 	                        <tr>
 	                            <th><strong>File Title Name</strong></th>
-	                            <th><strong>Click View</strong></th>                                
+	                            <th><strong>Click to View</strong></th>                                
 	                          
 	                        </tr>
 	                    </thead>
@@ -206,7 +208,7 @@ $result_table4=$query_table4->result();
 	                        <?php foreach($result_file['files_list'] as $key_files){ ?>
 	                            <tr>
 	                                <td><strong><?=$key_files->file_title?></strong></td>
-	                                <td><strong><a target="_blank" href="<?=base_url()?>upload_files/design_upload/<?=$key_files->attach_name?>">Click View</a> </strong></td>                                
+	                                <td><strong><a target="_blank" href="<?=base_url()?>upload_files/design_upload/<?=$key_files->attach_name?>">Click to View</a> </strong></td>                                
 	                              
 	                            </tr> 
 
@@ -232,7 +234,7 @@ $result_table4=$query_table4->result();
 			
 			<div class="row">				
 				<div class="col-md-12 col-lg-12">
-					<h5 class="text-center">Submission Created</h5>
+					<h5 class="text-center">Tech offer submission status</h5>
 					<hr style="height: 3px;background: #0257ab;margin-top: 1.5rem; margin-bottom: 1.5rem"/>
 					<table class="table table-bordered" cellpadding="10" cellspacing="1" width="100%">
 						<thead>
@@ -240,7 +242,8 @@ $result_table4=$query_table4->result();
 										<th><strong>Date  Creation</strong></th>
 										<th><strong>Status</strong></th>
 										<th><strong>Comment</strong></th>										
-										<th><strong>Click View</strong></th>
+										<th><strong>Click to View</strong></th>
+										<th><strong>Download</strong></th>
 
 								</tr>
 						</thead>
@@ -256,6 +259,9 @@ $result_table4=$query_table4->result();
 													}
 													if($submitted_status==5){
 														echo  "<p style='color: blue'>Archived</p>"; 
+													}
+													if($submitted_status==6){
+														echo  "<p style='color: Red'>Commented</p>"; 
 													}
 												?></strong></td>
 												<td><?php 
@@ -281,7 +287,18 @@ $result_table4=$query_table4->result();
 																
                 											?> <a href="<?=base_url().'seller/vendor-tech-file-new-bid-submission-info/'.$value.'/'.$submission->token_no .'/'.$submission->master_bid_id ?>">View Send </a><?php
 															}else{
-																if($submitted_status==1){ ?> <a href="<?=base_url().'seller/vendor-tech-file-new-bid-submission-info/'.$value.'/'.$submission->token_no .'/'.$submission->master_bid_id ?>">View Send </a><?php  }else{?> <a href="<?=base_url().'seller/user-vendor-tech-bid-submission-tokens-info/'.$value.'/'.$submission->token_no .'/'.$submission->master_bid_id ?>">Click View</a><?php }
+																if($submitted_status==1){ 
+														?> 			<a href="<?=base_url().'seller/vendor-tech-file-new-bid-submission-info/'.$value.'/'.$submission->token_no .'/'.$submission->master_bid_id ?>">View Send </a>
+														<?php  	}else{
+																	if($submitted_status==6){
+														?>
+																		<a href="<?=base_url().'seller/vendor-tech-file-new-bid-submission-info/'.$value.'/'.$submission->token_no .'/'.$submission->master_bid_id ?>">View Send </a>
+														<?php 		}else{
+														?>
+																		<a href="<?=base_url().'seller/user-vendor-tech-bid-submission-tokens-info/'.$value.'/'.$submission->token_no .'/'.$submission->master_bid_id ?>">Click View</a>
+														<?php 		}
+																	
+														 		}
 																
 
 															}
@@ -289,6 +306,16 @@ $result_table4=$query_table4->result();
 														?>
 												 	</strong>
 												</td>
+												<td>
+													<?php 
+														if(!empty($submission->update_files)){
+															echo '<a target="_blank" href="'.base_url().$submission->update_files.'">Click To Download </a>';
+														}else{
+															echo "--";
+														}
+													?>
+												</td>
+
 
 										</tr>
 								<?php }?>

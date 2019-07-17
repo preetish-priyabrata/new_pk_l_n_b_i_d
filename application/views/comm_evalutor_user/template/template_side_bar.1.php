@@ -19,7 +19,7 @@
 					</li>
 					<li>
 						<ul class="nav nav-profile">
-                            <li><a href="javascript:;"><i class="fa fa-key"></i> Change Password</a></li>
+                            <li><a href=" <?=base_url()?>comm-change-password-module"><i class="fa fa-key"></i> Change Password</a></li>
                             <li><a href="<?=base_url()?>comm-evalutor-logout"><i class="fa fa-sign-out-alt"></i> Logout</a></li>
                             <!-- <li><a href="javascript:;"><i class="fa fa-question-circle"></i> Helps</a></li> -->
                         </ul>
@@ -47,7 +47,7 @@
 						<a href="javascript:;">
 					        <b class="caret"></b>
 						    <i class="fas fa-atlas"></i>
-						    <span>Bid Completed Information </span>
+						    <span>Bid Completed Informations </span>
 					    </a>
 						<ul class="sub-menu">
 						   

@@ -83,7 +83,8 @@ $result_table6=$query_table6->result();
 	$result_file=$this->design_user->get_design_mr_file_list_m($pr_no,$slno_pr,$job_code);
 
 	$get_bid_submit = array('Bid_vendor_id' =>$vendor_slno_id);
-	$submit_bid=$this->db->get_where('master_pr_bid_qoute',$get_bid_submit)
+	$submit_bid=$this->db->get_where('master_pr_bid_qoute',$get_bid_submit);
+	// echo $this->db->last_query();
 
 ?>
 <!-- begin #content -->
@@ -91,12 +92,12 @@ $result_table6=$query_table6->result();
 		<!-- begin breadcrumb -->
 		<ol class="breadcrumb pull-right">
 			<li class="breadcrumb-item"><a href="<?=base_url()?>seller/user-vendor-home">Home</a></li>
-			<li class="breadcrumb-item"><a href="<?=base_url()?>seller/user-vendor-bid-new-commerical">New Commerical Bid</a></li>
-			<li class="breadcrumb-item active">Commerical Bid Information</li>
+			<li class="breadcrumb-item"><a href="<?=base_url()?>seller/user-vendor-bid-new-commerical">New Commercial Bid</a></li>
+			<li class="breadcrumb-item active">Commercial Bid Informations</li>
 		</ol>
 		<!-- end breadcrumb -->
 		<!-- begin page-header -->
-		<h1 class="page-header">Commerical Bid View Details<small></small></h1>
+		<h1 class="page-header">Commercial Bid View Details<small></small></h1>
 		<!-- end page-header -->
 		<?php if(!empty($this->session->flashdata('success_message'))){?>
 			<div class="alert alert-success fade show">
@@ -139,7 +140,7 @@ $result_table6=$query_table6->result();
 						<div class="form-group row m-b-15">
 							<label class="col-form-label col-md-3" for="Po_no">Start Date <span style="color: red"></span></label>
 							<div class="col-md-9">
-								<?=$result_title['new_tech_list'][0]->date_start?>
+								<?=date('d-m-Y',strtotime($result_title['new_tech_list'][0]->date_start))?>
 							</div>
 						</div>
 						<div class="form-group row m-b-15">
@@ -156,22 +157,24 @@ $result_table6=$query_table6->result();
 						</div>
 					</div>
 					<div class="col-md-6 col-lg-6">
-						<div class="form-group row m-b-15">
+						<!-- <div class="form-group row m-b-15">
 							<label class="col-form-label col-md-3" for="Job_code"> Bid Id<span style="color: red"></span></label>
 							<div class="col-md-9">
-								<?=$result_title['new_tech_list'][0]->bid_id?>
+								<?php 
+								// $result_title['new_tech_list'][0]->bid_id
+								?>
 							</div>
-						</div>
+						</div> -->
 						<div class="form-group row m-b-15">
 							<label class="col-form-label col-md-3" for="Po_date"> End Date <span style="color: red"></span></label>
 							<div class="col-md-9">
-								<?=$date_end=$result_title['new_tech_list'][0]->date_end?>
+								<?=date('d-m-Y',strtotime($date_end=$result_title['new_tech_list'][0]->date_end))?>
 							</div>
 						</div>
 						<div class="form-group row m-b-15">
 							<label class="col-form-label col-md-3" for="Advance_payment_date">Date of Query End </label>
 							<div class="col-md-9">
-								<?=$result_title['new_tech_list'][0]->query_end_date?>
+								<?=date('d-m-Y',strtotime($result_title['new_tech_list'][0]->query_end_date))?>
 							</div>
 						</div>
 						<div class="form-group row m-b-15">
@@ -259,41 +262,90 @@ $result_table6=$query_table6->result();
 			</div>
 			<br>
 			<br>
-			<!-- <div class="row">
+			<div class="row">
 				<div class="col-md-12 col-lg-12">
-					<h5 class="text-center">Term And Conditions</h5>
-					<hr style="height: 3px;background: #0257ab;margin-top: 1.5rem; margin-bottom: 1.5rem"/>
-					
-				</div>
-			</div> -->
-			<br>
-			<br>
-			<div class="row">				
-				<div class="col-md-12 col-lg-12">
-					<h5 class="text-center">Submission Created</h5>
+					<h5 class="text-center">Commercial T&Cs document</h5>
 					<hr style="height: 3px;background: #0257ab;margin-top: 1.5rem; margin-bottom: 1.5rem"/>
 					<table class="table table-bordered" cellpadding="10" cellspacing="1" width="100%">
 						<thead>
 								<tr>
-									<th><strong>Date  Creation</strong></th>										
-									<th><strong>Comment</strong></th>										
+									<th><strong>Upload Files</strong></th>										
+									<th><strong>Status </strong></th>										
+									<th><strong>Action </strong></th>
+								</tr>
+						</thead>
+						<?php 
+							$ven_upload=$this->db->get_where('master_bid_Com_vendor_term_m',array('vendor_id'=>$Vendor_email_id,'pr_no'=>$pr_no));
+							foreach($ven_upload->result() as $key_id =>$value_files):?>
+							<tr>
+								
+							<?php 
+							echo '<td><a target="_blank" href="'.base_url().'upload_files/vendor_term_file/'.$value_files->file_name_stored.'">'.(($value_files->file_name)).'</a></td>';
+
+							?>
+							<td>
+								<?php 
+								$status_file_appr=$value_files->status_file_appr;
+								if($status_file_appr==1){
+									echo "Approved";
+								}else if($status_file_appr==0){
+									echo "Pending";
+								}else{
+									echo "Commented";
+								}
+								?>
+							</td>
+							<td>
+								<?php 
+									if(!empty($value_files->attach_file_link)){
+										echo '<a target="_blank" href="'.base_url().$value_files->attach_file_link.'">Click To Download </a>';
+									}else{
+										echo "--";
+									}
+								?>
+							</td>
+							</tr>
+							<?php 
+							endforeach;
+						?>
+					</table>
+				</div>
+			</div>
+			<br>
+			<br>
+			<div class="row">				
+				<div class="col-md-12 col-lg-12">
+					<h5 class="text-center">Price bid submissions</h5>
+					<hr style="height: 3px;background: #0257ab;margin-top: 1.5rem; margin-bottom: 1.5rem"/>
+					<table class="table table-bordered" cellpadding="10" cellspacing="1" width="100%">
+						<thead>
+								<tr>
+									<th><strong>Offer Date</strong></th>										
+									<th><strong>Bid Information</strong></th>										
 									<th><strong>Click View</strong></th>
 								</tr>
 						</thead>
 						<tbody>
-							<?php 
+							<?php
+							$x=0; 
 								foreach ($submit_bid->result() as $key_bid_information => $value_detail_bid):
+									$x++;
 								// print_r($value_detail_bid);
 							?>
 							<tr>
-								<td><?=$value_detail_bid->date_entry?></td>
+								<td><?=date('d-m-Y',strtotime($value_detail_bid->date_entry))?></td>
 								<td>
-									<?php $comment=$value_detail_bid->comment;?>
-									<?php if(!empty($comment)){
-										echo $comment;
-									}else{
-										echo "Not Comment";
-									}
+									<?php 
+									// $comment=$value_detail_bid->comment;
+									echo "Offer - ".$x;
+									?>
+									<?php 
+									
+									// if(!empty($comment)){
+									// 	echo $comment;
+									// }else{
+									// 	echo "Not Comment";
+									// }
 									?>
 								</td>
 								<td> 
@@ -316,14 +368,23 @@ $result_table6=$query_table6->result();
           	 	if($date_end < $today) {
 
           	 	}else{
-	   		
+					
           			if($status_view!=7){ 
+						$ven_upload=$this->db->get_where('master_bid_Com_vendor_term_m',array('vendor_id'=>$Vendor_email_id,'pr_no'=>$pr_no));
+						// echo $this->db->last_query();
+						if($ven_upload->num_rows()==0){
+							echo "<a href='#' style='color:green'><strong> Kindly Upload T & C Docs    </strong></a>  ";
+						}else{
+
+						
+
                 // if(strtotime($today) >= strtotime($date_end)){
 				?>
-						 <a href="<?=base_url()?>seller/user-vendor-bid-commerical-submission-bid/<?=$value?>/<?=$bid_type_id?>" class="btn btn-sm btn-success m-r-5"><i class="fas fa-envelope-open-text"></i>   Click To Submit Bid </a>
+							<a href="<?=base_url()?>seller/user-vendor-bid-commerical-submission-bid/<?=$value?>/<?=$bid_type_id?>" class="btn btn-sm btn-success m-r-5"><i class="fas fa-envelope-open-text"></i>   Click To Submit Bid </a>
 			<?php 
+						}
 					}else{
-						echo "<a href='#' style='color:green'><strong> BId Is been Submitted By You   </strong></a>  ";
+						echo "<a href='#' style='color:red'><strong> BId Is been Submitted By You   </strong></a>  ";
 					}
 				}
 			}

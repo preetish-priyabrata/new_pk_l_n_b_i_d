@@ -36,7 +36,7 @@ class Procurementuser extends CI_Controller {
     public function procurement_new_pr_receive($value=''){
     	$scripts='<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script><script src=" https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script> <script src="'.base_url().'file_css_admin/own_js.js"></script>';
 
-        $data=array('title' =>"Material Requisition Receive list",'script_js'=>$scripts ,'menu_status'=>'1','sub_menu'=>'1','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'');
+        $data=array('title' =>"PR Requisition Receive list",'script_js'=>$scripts ,'menu_status'=>'1','sub_menu'=>'1','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'');
 
             $this->load->view('template/template_header',$data);
             $this->load->view('procurement_user/template/template_top_head');
@@ -57,7 +57,7 @@ class Procurementuser extends CI_Controller {
     }
     public function procurement_new_pr_schedule_complete($value=''){ // CREATING mR
           $scripts='<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script><script src=" https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script> <script src="'.base_url().'file_css_admin/own_js.js"></script>';
-            $data=array('title' =>"BU Pr Schedule",'script_js'=>$scripts,'menu_status'=>'2','sub_menu'=>'4','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'');
+            $data=array('title' =>"Project Detail Information",'script_js'=>$scripts,'menu_status'=>'2','sub_menu'=>'4','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'');
             $this->load->view('template/template_header',$data);
             $this->load->view('procurement_user/template/template_top_head');
             $this->load->view('procurement_user/template/template_side_bar',$data);
@@ -68,7 +68,7 @@ class Procurementuser extends CI_Controller {
    }
    public function procurement_new_pr_complete_requisition($value='', $value1="" ,$value2="",$value3=""){ // CREATING mR
           $scripts='<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script><script src=" https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script> <script src="'.base_url().'file_css_admin/own_js.js"></script>';
-            $data=array('title' =>"BU Pr Schedule",'script_js'=>$scripts,'menu_status'=>'2','sub_menu'=>'4','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','pr_no'=>$value,'slno_pr'=>$value1,'job_code'=>$value2);
+            $data=array('title' =>"Project Detail Information",'script_js'=>$scripts,'menu_status'=>'2','sub_menu'=>'4','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','pr_no'=>$value,'slno_pr'=>$value1,'job_code'=>$value2);
             $this->load->view('template/template_header',$data);
             $this->load->view('procurement_user/template/template_top_head');
             $this->load->view('procurement_user/template/template_side_bar',$data);
@@ -342,22 +342,58 @@ class Procurementuser extends CI_Controller {
             $buyer_id_email_id =$data_array_buyer['user_buyer_list'][0]->email_id;
             $buyer_name=$data_array_buyer['user_buyer_list'][0]->Username;
 
-             $data_forword=array('procurement_user_status'=>1,'procurement_date'=>$date_system,'buyer_user_id'=>$buyer_id_email_id,'buyer_user_slno'=>$buyer_id,'buyer_user_status'=>2,'procurement_user_remark'=>$remark_buyer);
+            $data_forword=array('procurement_user_status'=>1,'procurement_date'=>$date_system,'buyer_user_id'=>$buyer_id_email_id,'buyer_user_slno'=>$buyer_id,'buyer_user_status'=>2,'procurement_user_remark'=>$remark_buyer);
             $data_id = array('pr_no' =>$pr_no ,'pr_no_slno'=>$slno_pr );
             $update=$this->db->update('master_pr_process_detail',$data_forword,$data_id);
             $data_insert = array('pr_no' => $pr_no, 'slno_pr'=>$slno_pr,'job_code'=>$job_code,'Comment_remark'=>$remark_buyer,'email_id'=>$email_id,'level_user'=>4 ,'type_remark'=>'R','to_level_user'=>5);
             $query=$this->db->insert('master_bu_remark_pr',$data_insert);
             if($update){
+
+                #####################################################################################################
+                #
+                #                     Email integration section will start 
+                #
+                #####################################################################################################
+
+                $this->load->library('email');
+                $config['charset'] = 'utf-8';
+                $config['wordwrap'] = TRUE;
+                $config['mailtype'] = 'html';
+                $this->email->initialize($config);
+                
+                $this->email->from('contact@innovadorslab.co.in,'.$email_id , 'Lnt Bid Management System');
+                $this->email->to($buyer_id_email_id);
+                $this->email->cc('siprah@gmail.com');              
+                $this->email->bcc('ppriyabrata8888@gmail.com');
+
+                $this->email->subject('You have Received a new notification for PR No  '.$pr_no.' From Procurement User To Buyer User');
+                if($tech_evalution==1){
+                    $url_passing_email='<a href="'.base_url().'buyer-user-create-new-pr-tech-comm/'.$pr_no.'/'.$slno_pr.'/'.$job_code.'/'.$tech_evalution.'" > Click to View  </a>';
+                }else{
+                    $url_passing_email='<a href="'.base_url().'buyer-user-create-new-pr/'.$pr_no.'/'.$slno_pr.'/'.$job_code.'/'.$tech_evalution.'" > Click to View </a>';	
+                }
+                // $url_passing_email='<a href="'.base_url().'procurement-user-create-new-material/'.$pr_no.'/'.$slno_pr.'/'.$job_code.'/4" > Click to View </a>';
+                $msg=' Remark :- ' .$remark_buyer.'. <br /> Please click link here '.$url_passing_email;
+                $this->email->message($msg);
+
+
+                $this->email->send();
+
+
+                #######################################################################################################
+
+
+
               $this->session->set_flashdata('success_message', 'Information Has been successfully Send To Buyer :- '.$buyer_name);
                              // After that you need to used r
                redirect('user-procurement-home');
             }else{
-                 $this->session->set_flashdata('error_message', 'Some thing went wrong Try Again! A');
+                 $this->session->set_flashdata('error_message', 'Something went wrong Try Again! A');
                     // After that you need to used r
             redirect('user-procurement-home');
             }
         }else{
-              $this->session->set_flashdata('error_message', 'Some thing went wrong Try Again! And Please Check Buyeruser selected');
+              $this->session->set_flashdata('error_message', 'Something went wrong Try Again! And Please Check Buyeruser selected');
                     // After that you need to used r
             redirect('user-procurement-home');
         }
@@ -373,6 +409,92 @@ class Procurementuser extends CI_Controller {
         $this->load->view('procurement_user/remark_history/remark_index',$data);
         $this->load->view('template/template_footer',$data);
        }
+        public function procurement_change_password(){
+           
+                $scripts='<script src="https://cdnjs.cloudflare.com/ajax/libs/hideshowpassword/2.0.8/hideShowPassword.min.js"></script>';
+            
+                $data=array('title' =>"Admin Change Password for Users",'script_js'=>$scripts,'menu_status'=>'','sub_menu'=>'','sub_menu'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'');
+                $this->load->view('template/template_header',$data);
+                $this->load->view('procurement_user/template/template_top_head');
+                $this->load->view('procurement_user/template/template_side_bar',$data);
+                $this->load->view('procurement_user/change_password',$data);
+                $this->load->view('template/template_footer',$data);
+            
+        }
+        public function procurement_change_password_save1(){
+            $data_brower['browser'] = $this->agent->browser();
+            $data_brower['browserVersion'] = $this->agent->version();
+            $data_brower['platform'] = $this->agent->platform();
+            $data_brower['full_user_agent_string'] = $_SERVER['HTTP_USER_AGENT'];
+            $ip = $this->input->ip_address();       
+            $date_nrowser_json=json_encode($data_brower);
+            $date_entry=date('Y-m-d');
+            $time_entry=date('H:i:s');
+            $user_id_slno=$this->input->post('user_id_slno');
+            $token_id=$this->input->post('token_id');
+            $password=$this->input->post('password');
+            $keys_id="preetishweb";
+            $value1_convered = strtr($user_id_slno,array('.' => '+', '-' => '=', '~' => '/'));
+            
+            $value1_convered_id=$this->encrypt->decode($value1_convered,$keys_id);
+            if($value1_convered_id==$token_id){
+                $table='master_admin';
+                $data_insert = array('Password'=>$password, 'password_hash'=>md5($password));
+                $id=array('slno'=>$value1_convered_id);      
+                $result_insert = $this->user->common_update($table,$data_insert,$id);
+
+                $data_json=json_encode($data_insert);
+                $data_id_json=json_encode($id);
+                $date_insert_array = array('data_insert' => $data_json,'update_id'=>$data_id_json );
+                $date_insert_json=json_encode($date_insert_array);
+
+                $table_log='pms_log_entries';
+
+                $log_entry= array('Form_name'=>"update users password", 'Data_entry'=>$date_insert_json, 'status'=>1, 'Date'=>$date_entry, 'Time'=>$time_entry, 'Location_Id'=>$ip, 'browser_information'=>$date_nrowser_json);
+
+                $result_log_entry = $this->user->common_insert($table_log,$log_entry);
+                $this->session->set_flashdata('success_message', 'Password successfully Change');
+                // After that you need to used r
+                redirect('user-procurement-home');
+
+            }else{
+                $this->session->set_flashdata('error_message', 'Something went wrong');
+                // After that you need to used redirect function instead of load view such as                 
+                redirect('user-procurement-home');    
+            }
+            // Array ( [user_id_slno] => EBq6D9dEDSNHWJwsfBpyxu~Tv.jXe0EAizvq1LuUHVwc58gP.wknHjWDLrJllQ8ndtLCoeV6HFl.dn9hqLQ8xg-- [token_id] => 6 [password] => abcd!2345aA ) 
+            # code...
+        }
+        public function procurement_change_password_save($value=''){
+           $email_id=$this->session->userdata('procurement_email_id');
+            if(empty($email_id)){
+                
+                redirect('procurement-logout-by-pass');
+            }
+            $c_password=$this->input->post('c_password');
+            $new_password=$this->input->post('new_password');
+            $data_check=array('email_id'=>$email_id,'password_hash'=>md5($c_password),'Status'=>1);
+            $query_check=$this->db->get_where('master_admin',$data_check);
+            if($query_check->num_rows()==1){
+                $data_id_update=array('email_id'=>$email_id);
+                $data_update_information=array('password_hash'=>md5($new_password),'Password'=>$new_password);
+                $query_check=$this->db->update('master_admin',$data_update_information,$data_id_update);
+
+                $this->session->set_flashdata('success_message',' password changed successfull');
+                // After that you need to used redirect home
+                redirect('user-procurement-home');
+            }else{
+                $this->session->set_flashdata('error_message',' Something went wrong');
+                // After that you need to used redirect home
+                redirect('user-procurement-home');
+
+            }
+            # code...
+        }
+
+
+
+
        public function proc_pr_remark_history($pr_no='',$slno='',$job_code='',$id=''){
         $scripts='<script type="text/javascript" src="'.base_url().'file_css_admin/DataTables/datatables.min.js"></script><script src="'.base_url().'file_css_admin/own_js.js"></script>';
        
@@ -384,6 +506,18 @@ class Procurementuser extends CI_Controller {
         $this->load->view('template/template_footer',$data);
     
        }
+
+       public function proc_pr_orginal_project_pr($value=''){
+        $scripts='<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script><script src=" https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script> <script src="'.base_url().'file_css_admin/own_js.js"></script>';
+            $data=array('title' =>'Project Detail Information','script_js'=>$scripts ,'menu_status'=>'','sub_menu'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'');
+
+            $this->load->view('template/template_header',$data);
+            $this->load->view('procurement_user/template/template_top_head');
+            $this->load->view('procurement_user/template/template_side_bar',$data);
+            $this->load->view('procurement_user/pr_schedule_m/Pr_schudele_index',$data);
+            $this->load->view('template/template_footer',$data);
+        # code...
+    }
 
 
 

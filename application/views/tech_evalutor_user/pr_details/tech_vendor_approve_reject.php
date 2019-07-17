@@ -47,7 +47,7 @@ if($result_file['no_bid_vendors']==2){
 		<div id="content" class="content">
 			<!-- begin breadcrumb -->
 			<ol class="breadcrumb pull-right">
-				<li class="breadcrumb-item active"><a href="#" class="fa fa-home ">Home</a></li>
+				<li class="breadcrumb-item active"><a href="<?=base_url()?>user-technical-evalutor-home" class="fa fa-home ">Home</a></li>
 				<!-- li class="breadcrumb-item"><a href="javascript:;">Page Options</a></li>
 				<li class="breadcrumb-item active">Page with Transparent Sidebar</li> -->
 			</ol>
@@ -87,7 +87,7 @@ if($result_file['no_bid_vendors']==2){
 						<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
 						<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
 					</div>
-					<h4 class="panel-title">Submiited Information Of bid Ref no :- <?=$technical_bid_ref?></h4>
+					<h4 class="panel-title">Submitted Information of Bid Ref no :- <?=$technical_bid_ref?></h4>
 				</div>
 				<div class="panel-body">
 					<div class="row">
@@ -113,7 +113,7 @@ if($result_file['no_bid_vendors']==2){
 	                        </tbody>
 	                    </table>						
 					</div>
-					<form method="POST" action="<?=base_url()?>technical-evalutor-get-appr-rej-save-pr">
+					<form method="POST" action="<?=base_url()?>technical-evalutor-get-appr-rej-save-pr" enctype="multipart/form-data">
 						<div class="row">
 							<div class="col-lg-12">
 
@@ -130,6 +130,8 @@ if($result_file['no_bid_vendors']==2){
 								<input type="hidden" name="tech_master_bid_idurl" value="<?=$tech_master_bid_id?>">
 								<input type="hidden" name="token_no_url" value="<?=$token_no?>">
 								<input type="hidden" name="bid_id" value="<?=$bid_id?>">
+
+								<!-- <input type="text" name="token_id" value=""> -->
 								
 
 
@@ -144,12 +146,21 @@ if($result_file['no_bid_vendors']==2){
 								</div>							
 									<label class="col-form-label col-md-3 pull-right" for="date_closed_bid">Approve</label>
 								</div>
+								<div id="comms">
 									<div class=" form-group row m-b-15">
-										<label class="col-form-label col-md-3"> Comment</label>
+										<label class="col-form-label col-md-3"> Comment </label>
 										<div class="col-md-9">
 											<textarea class="form-control" name="comment" id="comment" rows="4"></textarea>
 										</div>
 									</div>
+									<div class="form-group row m-b-15" >
+										<label class="col-form-label col-md-3" for="attachment_file">Attach Comment File <span style="color: red">*</span></label>
+										<div class="col-md-9">
+											<input type="file" name="attachment_file" id="attachment_file">
+											
+										</div>
+									</div>
+								</div>
 							</div>
 
 						</div>
@@ -169,11 +180,16 @@ if($result_file['no_bid_vendors']==2){
 
 		<script type="text/javascript">
     	$(document).ready(function(){
+			$('#comms').hide();
     		$("input[type=checkbox]").on("change", function(){
-			    if($(this).is(":not(:checked)")){
-			    	$('#comment').prop('required',true);
+				if($(this).is(":not(:checked)")){
+					$('#comms').show();
+					$('#comment').prop('required',true);
+					 $('#attachment_file').prop('required',true);
 			    }else{
-			    	$('#comment').prop('required',false);
+					$('#comms').hide();
+					$('#comment').prop('required',false);
+					$('#attachment_file').prop('required',false);
 			    }
 			});
 	        // $("input[type='checkbox']").click(function(){

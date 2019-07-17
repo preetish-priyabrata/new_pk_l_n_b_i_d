@@ -144,7 +144,7 @@ class Login extends CI_Controller {
 
 						 				// common_insert
 						 				if($result_history==1){
-						 					$this->session->set_flashdata('success_message', 'Welcome To Approver User Panel');
+						 					$this->session->set_flashdata('success_message', 'Welcome To Procurement  User Panel');
 							 				$this->session->set_userdata($newdata);
 							 				redirect('user-procurement-home');
 							 				exit();

@@ -12,8 +12,8 @@ $job_code=$Project_slno;
 $edit_type=$edit_type;
 $comm_bid=$comm_bid;
 // `commercial_user_id`, `commercial_user_slno`, `commercial_bid_id`, `commercial_bid_ref`, `commercial_edit_id`, `commercial_type_bid`, `commercial_complete_status`, `commercial_user_status`, `commercial_bid_master_slno`, `commercial_resubmit_status`, `commercial_resubmit_count`, `commercial_amendment_status`, `commercial_date`
-$url_remark='<a class="btn btn-sm btn-success" target="_blank" href="'.base_url().'comm-pr-remark-history/'.$pr_no.'/'.$slno_pr.'/'.$job_code.'/1"> Click View Remark</a>';
-$data_process = array('pr_no' =>$pr_no,'commercial_user_id'=>$email_id);
+$url_remark='<a class="btn btn-sm btn-success" target="_blank" href="'.base_url().'comm-pr-remark-history/'.$pr_no.'/'.$slno_pr.'/'.$job_code.'/1"> Click to View Remarks</a>';
+$data_process = array('pr_no' =>$pr_no);
 $query_process=$this->db->get_where('master_pr_process_detail',$data_process);
 $result_process=$query_process->result();
 
@@ -25,6 +25,20 @@ $commercial_edit_id=$result_process[0]->commercial_edit_id; // no of time bid is
 $commercial_resubmit_count=$result_process[0]->commercial_resubmit_count;
 
 $technical_user_slno=$result_process[0]->technical_user_slno;
+
+$tech_bid=$result_process[0]->tech_bid;  // bid id information
+$technical_bid_id=$result_process[0]->technical_bid_id;  // technical bid ind information 
+$technical_bid_ref=$result_process[0]->technical_bid_ref; // technical bid referenced infromtion
+$technical_edit_id=$result_process[0]->technical_edit_id; // no of time bid is been edit infromation
+// $technical_user_slno=$result_process[0]->technical_user_slno;
+// `technical_user_slno`, `technical_user_id`
+$technical_user_id=$result_process[0]->technical_user_id;
+
+
+
+$data_array = array('edit_id_bid' =>$technical_edit_id,'bid_id'=>$technical_bid_id,'bid_ref'=> $technical_bid_ref,'pr_no'=>$pr_no,'master_bid_id'=>$tech_bid);
+
+$vendor_selected_id=$this->db->get_where('master_bid_vendor_m',$data_array);
 // `technical_user_slno`, `technical_user_id`
 $technical_user_id=$result_process[0]->technical_user_id;
 $commercial_type_bid=$result_process[0]->commercial_type_bid;
@@ -184,6 +198,7 @@ $result_table=$query_data->result();
 										
 									
 										<?php 
+											$technical_respond_status=$result_table[0]->techinal_evalution;
 											if($result_table[0]->techinal_evalution==2){
 												$tech= "NO";
 											}elseif($result_table[0]->techinal_evalution==1){
@@ -192,13 +207,7 @@ $result_table=$query_data->result();
 									</div>
 								</div>
 
-								<div class="form-group row m-b-15">
-									<label class="col-form-label col-md-3" for="required_date">Date Required <span style="color: red">*</span></label>
-									<div class="col-md-9">
-										<input class="form-control m-b-5 datepickers" placeholder="Enter Date Required " name="required_date" id="required_date" type="text" required=""value="<?=$result_table[0]->date_required?>" readonly>
-										<small class="f-s-12 text-grey-darker">Please enter Date Required</small>
-									</div>
-								</div>
+								
 								<div class="form-group row m-b-15">
 									<label class="col-form-label col-md-3" for="required_date">Terms & Conditions <span style="color: red">*</span></label>
 									<div class="col-md-9">
@@ -207,6 +216,13 @@ $result_table=$query_data->result();
 								</div>
 
 								
+								<div class="form-group row m-b-15">
+									<label class="col-form-label col-md-3" for="mr_date_of_creation">Date Of Creation<span style="color: red">*</span></label>
+									<div class="col-md-9">
+										<input class="form-control m-b-5" name="mr_date_of_creation" value="<?=date('d-m-Y',strtotime($result_table[0]->date_creation))?>"  id="mr_date_of_creation" type="text" required="" readonly>
+										<small class="f-s-12 text-grey-darker">Date Of Creating PR</small>
+									</div>
+								</div>
 								
 							</div>
 							
@@ -308,32 +324,17 @@ $result_table=$query_data->result();
 								<div class="form-group row m-b-15">
 													<label class="col-form-label col-md-3" for="Technical_ev" >Technical  Evaluator Name </label>
 													<div class="col-md-9">
-														<?php
-														$data_array_approver_tech=$this->buyer_user->get_user_generic_list('1','0','0','9','','');	
-															
+													<?php
+														$data_array_approver_comm=$this->buyer_user->get_user_generic_list('1','0','0','9','','');	
+														$comm_list=unserialize($result_process[0]->tech_user_id_array);
+														// $result_process[0]->commercial_user_id
+														foreach ($data_array_approver_comm['user_approver'] as $key_approver){
+															if(in_array($key_approver->email_id, $comm_list)){
+																echo "<b>".$key_approver->Username."[".$key_approver->email_id." ]</b><br>";
+															}
+														}
 														?>
 														
-														<select name="Technical_ev"  class="form-control m-b-5" id="Technical_ev" required="" >
-															<?php 
-															if($data_array_approver_tech['no_user']==2){?>
-																<option value="">--No Technical Evaluator Is found--</option>
-																<?php
-															}else if($data_array_approver_tech['no_user']==1){
-																?>
-																
-															<?php
-																foreach ($data_array_approver_tech['user_approver'] as $key_approver) {
-																	if($technical_user_id==$key_approver->email_id){
-																		echo "<option value='".$key_approver->slno."'>".$key_approver->Username." [ ".$key_approver->email_id." ]</option>";
-																	}
-																}
-															
-																
-															}	
-															?>										
-															
-														</select>
-														<small class="f-s-12 text-grey-darker">Select Commerical Evaluator </small>
 													</div>
 												</div>
 											<?php }?>
@@ -356,13 +357,7 @@ $result_table=$query_data->result();
 													</div>
 												</div>
 								
-								<div class="form-group row m-b-15">
-									<label class="col-form-label col-md-3" for="mr_date_of_creation">Date Of Creating<span style="color: red">*</span></label>
-									<div class="col-md-9">
-										<input class="form-control m-b-5" name="mr_date_of_creation" value="<?=$result_table[0]->date_creation?>"  id="mr_date_of_creation" type="text" required="" readonly>
-										<small class="f-s-12 text-grey-darker">Date Of Creating MR</small>
-									</div>
-								</div>
+							
 								
 
 							</div>
@@ -401,7 +396,7 @@ $result_table=$query_data->result();
 												<div class="form-group row m-b-15">
 													<label class="col-form-label col-md-3" for="date_create">Date </label>
 													<div class="col-md-9">
-														<input class="form-control m-b-5" placeholder="" name="date_create" id="date_create" type="text" value="<?=date('Y-m-d')?>" required="" readonly style='opacity: 1'>
+														<input class="form-control m-b-5" placeholder="" name="date_create" id="date_create" type="text" value="<?=date('d-m-Y')?>" required="" readonly style='opacity: 1'>
 															<small class="f-s-12 text-grey-darker">---</small>
 													</div>
 												</div>
@@ -448,7 +443,7 @@ $result_table=$query_data->result();
 												<div class="form-group row m-b-15">
 													<label class="col-form-label col-md-3" for="date_publish">Bid Publish Date </label>
 													<div class="col-md-9">
-														<?=$result_table3[0]->date_publish?>
+														<?=date('d-m-Y',strtotime($result_table3[0]->date_publish))?>
 														
 													</div>
 												</div>
@@ -465,7 +460,7 @@ $result_table=$query_data->result();
 												<div class="form-group row m-b-15">
 													<label class="col-form-label col-md-3" for="date_closing">Date Of Closing </label>
 													<div class="col-md-9">
-														<?=$result_table3[0]->date_closing?>
+														<?=date('d-m-Y',strtotime($result_table3[0]->date_closing))?>
 														
 													</div>
 												</div>
@@ -583,7 +578,7 @@ $result_table=$query_data->result();
 							<div class="card">
 								<div class="card-header text-center">
 									<a class="collapsed card-link" data-toggle="collapse" href="#collapseThree">
-										Critical Date
+										Critical Dates
 									</a>
 								</div>
 								<div id="collapseThree" class="collapse" data-parent="#accordion">
@@ -600,7 +595,7 @@ $result_table=$query_data->result();
 													<label class="col-form-label col-md-3" for="date_start_bid">Bid Start Date </label>
 													<div class="col-md-9">
 
-														<?=$result_table1[0]->bid_start_date?>
+														<?=date('d-m-Y',strtotime($result_table1[0]->bid_start_date))?>
 														
 													</div>
 												</div>
@@ -608,10 +603,11 @@ $result_table=$query_data->result();
 												<div class="form-group row m-b-15">
 													<label class="col-form-label col-md-3" for="date_clearfication_bid">Bid Clarification Date </label>
 													<div class="col-md-9">
-														<?=$result_table1[0]->bid_query_closed_date?>
+														<?=date('d-m-Y',strtotime($result_table1[0]->bid_query_closed_date))?>
 														
 													</div>
 												</div>
+												
 												<!-- part e end -->
 											</div>
 											<!-- part e end Here -->
@@ -621,7 +617,7 @@ $result_table=$query_data->result();
 												<div class="form-group row m-b-15">
 													<label class="col-form-label col-md-3" for="date_closed_bid">Bid Closed Date </label>
 													<div class="col-md-9">
-														<?=$result_table1[0]->bid_closed_date?>
+														<?=date('d-m-Y',strtotime($result_table1[0]->bid_closed_date))?>
 														
 													</div>
 												</div>
@@ -666,7 +662,7 @@ $result_table=$query_data->result();
 														<thead>									
 								                            <tr>
 								                                <th><strong>File Title Name</strong></th>
-								                                <th><strong>Click View</strong></th>                                
+								                                <th><strong>Click to View</strong></th>                                
 								                              
 								                            </tr>
 								                        </thead>
@@ -674,7 +670,7 @@ $result_table=$query_data->result();
 								                            <?php foreach($result_file['files_list'] as $key_files){ ?>
 								                                <tr>
 								                                    <td><strong><?=$key_files->file_title?></strong></td>
-								                                    <td><strong><a target="_blank" href="<?=base_url()?>upload_files/design_upload/<?=$key_files->attach_name?>">Click View</a> </strong></td>                                
+								                                    <td><strong><a target="_blank" href="<?=base_url()?>upload_files/design_upload/<?=$key_files->attach_name?>">Click to View</a> </strong></td>                                
 								                                  
 								                                </tr> 
 
@@ -744,9 +740,10 @@ $result_table=$query_data->result();
 													<thead>
 														<tr>
 															<th width="10%">Organisation Name</th>
-															<th width="40%">Detail</th>															
-															<th>Submission</th>
-															<th>Upload Doc Files</th>
+															<th width="40%">Details</th>	
+															<th>Technical Clearance Status</th>														
+															<th>Financial Submission Status</th>
+															<th>Commercial Approval Status</th>
 
 														</tr>
 													</thead>
@@ -768,7 +765,25 @@ $result_table=$query_data->result();
 						                                        <p>Organisation Name : <?=$value_id_vender->Organisation_name?></p>
 						                                        <p>Vendor Mobile : <?=$value_id_vender->Mobile_no?></p>
 						                                        <p>Vendor Address : <?=$value_id_vender->Organisation_address?></p>
-						                                    </td>
+															</td>
+															<td>
+																<?php 
+																if($technical_respond_status==1){
+																	$data_array_tech = array('edit_id_bid' =>$technical_edit_id,'bid_id'=>$technical_bid_id,'bid_ref'=> $technical_bid_ref,'pr_no'=>$pr_no,'master_bid_id'=>$tech_bid,'vendor_id'=>$vendor_id,'approval_status'=>1);
+
+																	$vendor_selected_id_tech=$this->db->get_where('master_bid_vendor_m',$data_array_tech);
+																	if($vendor_selected_id_tech->num_rows()==1){
+																		echo "Technical Approved";
+																	}else{
+																		echo "No";
+																	}
+
+																}else{
+																	echo "Technical Clearance Not Required";
+																}
+																?>
+
+															</td>
 															
 															<td><?php 
 																if ($value_vendor->submission_status==1) {
@@ -779,24 +794,53 @@ $result_table=$query_data->result();
 																}
 
 															?></td>
-															<td><?php 
-															
-																	$ven_upload=$this->db->get_where('master_bid_Com_vendor_term_m',array('vendor_id'=>$vendor_id,'pr_no'=>$pr_no));
-																	// echo $this->db->last_query();
-																	if($ven_upload->num_rows()==0){
-																		echo "Not Uploaded";
-																	}else{
-																		foreach($ven_upload->result() as $key_id =>$value_files):
-																			echo '<a target="_blank" href="'.base_url().'upload_files/vendor_term_file/'.$value_files->file_name_stored.'">Click To View</a> Uploaded on '.$value_files->date_upload.'<br>';
-																		endforeach;
-																	}
+															<td>
+															<table class="table table-bordered" cellpadding="10" cellspacing="1" width="100%">
+																	<thead>
+																			<tr>
+																				<th><strong>Upload Date</strong></th>										
+																				<th><strong>Status </strong></th>										
+																				
+																			</tr>
+																	</thead>
+																	<?php 
+																		$this->db->order_by('slno','Desc');
+																		$ven_upload=$this->db->get_where('master_bid_Com_vendor_term_m',array('vendor_id'=>$vendor_id,'pr_no'=>$pr_no));
+																		foreach($ven_upload->result() as $key_id =>$value_files):?>
+																		<tr>
+																			
+																		<?php 
+																		echo '<td><a target="_blank" href="'.base_url().'upload_files/vendor_term_file/'.$value_files->file_name_stored.'">'.$value_files->file_name.'</a></td>';
 
-															?></td>
+																		?>
+																		<td>
+																			<?php 
+																			$status_file_appr=$value_files->status_file_appr;
+																			if($status_file_appr==1){
+																				echo "Approved";
+																			}else if($status_file_appr==0){
+																				echo "Pending";
+																			}else{
+																				echo "Commented";
+																			}
+																			?>
+																		</td>
+																		
+																		</tr>
+																		<?php 
+																		endforeach;
+																	?>
+																</table>
+															</td>
+															
+															
 														</tr>
 													<?php }?>
 													</tbody>
 
 												</table>
+															
+														
 												
 										</div>
 											

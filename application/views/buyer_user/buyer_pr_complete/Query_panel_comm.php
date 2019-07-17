@@ -5,11 +5,7 @@ if(empty($email_id)){
 	redirect('vendor-logout-pass');
 }
 $values=$pr;
-//$result_title=$this->vendor_db_usersnew->vendor_new_query_tech_title_pr($value,$Vendor_email_id);
-//if($result_title['no_new_tech']!=1){
-	// $this->session->set_flashdata('error_message', 'Unable find Bid');
-	// redirect('user-vendor-home');
-//}
+
 
 
 
@@ -184,11 +180,14 @@ $values=$pr;
 								 </tbody>
 
 							</table>
-
+                           
 						</div>
 					</div>
 						 		
-						
+						<div class="col-lg-1">
+									
+									 <a  href="<?=base_url()?>user-buyer-home" class="btn btn-sm btn-link">Back</a>
+								</div>
 					</div>
 				</div>
 				<!-- Query Block End  -->

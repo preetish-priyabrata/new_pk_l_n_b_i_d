@@ -60,14 +60,15 @@ $result_new_bid=$this->vendor_db_usersnew->vendor_new_commerical_bid_list_pr($Ve
 					            <tr>
 					                <th>Slno .</th>
 					                <th>Project Name [Bid Ref]</th>
-					                <th>View Status</th>
+													<th>View Status</th>
+													<th>Query Raised Status</th>
 													
 					                <th>Type of Bid</th>
 					                <th>Bid Start date</th>
 					              	<th>Bid End date</th>
 					              	<th>Action</th>
 													<th>Query</th>
-													<th>Term <br> & Condition </th>
+													<th>Terms <br> & Conditions </th>
 
 					            </tr>
 					        </thead>
@@ -82,6 +83,7 @@ $result_new_bid=$this->vendor_db_usersnew->vendor_new_commerical_bid_list_pr($Ve
 														$query_project=$this->db->get_where('master_project',array('Project_Slno'=>$job_code));
 														$result_project=$query_project->result();
 														$x++;
+														$slno_vendor=$key_technical->slno_vendor;
   									?>
 													  <tr>
 													    	<td><?php echo $x;?></td>
@@ -108,12 +110,22 @@ $result_new_bid=$this->vendor_db_usersnew->vendor_new_commerical_bid_list_pr($Ve
 																					break;
 																			}
 																	?>
-															  </td>
+																</td>
+																<td>
+																	<?php
+																			$result_query=$this->db->get_where('master_bid_query_comm_m',array('bid_slno'=>$slno_vendor,'Vendor_id'=>$Vendor_email_id));
+																			if($result_query->num_rows()==0){
+																				echo "Not Raised";
+																			}else{
+																				echo "Raised";
+																			}
+																	?>
+																</td>
 																
 													     	<td><?php echo $key_technical->mode_bid;?></td>
 													     	<td><?php echo date('d-m-Y',strtotime($key_technical->date_start));?></td>
 													     	<td><?php echo date('d-m-Y',strtotime($key_technical->date_end));?></td>
-																<td><a href="<?=base_url()?>seller/user-vendor-bid-view-commerical-details-pr/<?=$key_technical->slno_vendor?>/<?=$status_view?>" class="btn btn-sm btn-success">View</a></td>
+																<td><a href="<?=base_url()?>seller/user-vendor-bid-view-commercial-details-pr/<?=$key_technical->slno_vendor?>/<?=$status_view?>" class="btn btn-sm btn-success">View</a></td>
 																<td><a href="<?=base_url()?>seller/user-vendor-commerical-query-panel/<?=$key_technical->slno_vendor?>" class="btn btn-sm btn-warning">Query</a></td>
 																<td><a href="<?=base_url()?>seller/user-vendor-commerical-attachment-panel/<?=$key_technical->slno_vendor?>" class="btn btn-sm btn-info">upload </a></td>
 													  </tr>

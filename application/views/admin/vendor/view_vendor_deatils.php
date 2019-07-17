@@ -16,7 +16,7 @@ if($value1_convered_id==$value2){
 	$data_db=$query->result(); // here fetch information 
 	$row = $data_db[0]; 
 }else{
-	$this->session->set_flashdata('error_message', 'Some thing went Wrong');
+	$this->session->set_flashdata('error_message', 'Something went Wrong');
     // After that you need to used redirect function instead of load view such as                 
     redirect('user-admin-home');
 }

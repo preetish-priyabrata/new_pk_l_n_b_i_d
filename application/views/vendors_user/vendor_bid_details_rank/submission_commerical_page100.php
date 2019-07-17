@@ -250,7 +250,7 @@ p {
 						<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
 						<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
 					</div>
-					<h4 class="panel-title">Rank Order Biding</h4>
+					<h4 class="panel-title">Rank Order Bidding</h4>
 				</div>
 				<div class="panel-body">
 					<?php if($query_rode->num_rows()< $no_of_times ){
@@ -449,7 +449,7 @@ p {
 			<div>
 			  <label for="myCheckbox"><input id="myCheckbox" name="i_accept" type="checkbox"/>I Agree
 			  <!--  class="btn btn-primary"-->
-			  <a href="#" data-toggle="modal" data-target="#exampleModal<?=$slno?>">Click To View</a>
+			  <!-- <a href="#" data-toggle="modal" data-target="#exampleModal<?=$slno?>">Click To View</a> -->
 			</label>
 
 			 </div>
@@ -481,7 +481,7 @@ p {
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Term And Condition</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Terms And Conditions</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>

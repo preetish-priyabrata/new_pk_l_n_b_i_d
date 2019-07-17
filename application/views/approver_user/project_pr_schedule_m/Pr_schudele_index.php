@@ -79,7 +79,7 @@ if(empty($email_id)){
 													}
 												?>
 											</select>
-											<small class="f-s-12 text-grey-darker">Please Select Project For Upload PR Schedule Complete</small>
+											<small class="f-s-12 text-grey-darker">Please Select Project </small>
 										</div>
 									</div>
 								</div>
@@ -105,15 +105,17 @@ if(empty($email_id)){
 				$job_code=$this->input->post('job_code');
 				$data_check = array('job_code' => $job_code,'status'=>1, 'mr_status'=>1);
                 $query=$this->db->get_where($table,$data_check);
-                    // echo  $this->db->last_query();
-               
-               
-                // $output .= '</table>';
+				foreach ($query_design->result() as $key_job_code) {
+					if($key_job_code->Project_Slno==$job_code){
+						$project_details_info=$key_job_code->job_Code." [ ".$key_job_code->Project_Name." ]";
+
+					}
+				}
                
 				?>
 			<div class="panel panel-inverse">
 				<div class="panel-heading">					
-					<h4 class="panel-title"> PR Schedule Complete List</h4>
+					<h4 class="panel-title">Project Name :- <?=$project_details_info?></h4>
 				</div>
 				<div class="panel-body">
 
@@ -122,13 +124,15 @@ if(empty($email_id)){
                     <tr>
                       <th>Discipline</th>
                       <th>PR No</th>
+                      <th>Comment from Bu User</th>
                       <th>Area</th>
                       <th>Item</th>
                       <th>UOM</th>
-                      <th>Quantity</th>
+					  <th>Schedule PR Quantity</th>
+					  <th>Actual Quantity</th>
                       <th>Original Schedule</th>                      
                       <th>Status</th>
-                      <th>Remark</th>
+                      <th>Remarks</th>
                       <th>Action</th>
                       
                     </tr>
@@ -136,7 +140,8 @@ if(empty($email_id)){
                 <tbody>
 					<?php
 					 foreach($query->result() as $row){
-					 	$pr_no=$row->pr_no;
+						 $pr_no=$row->pr_no;
+						 $pr_quantity=$this->approver_user->get_pr_item_quantity_details($pr_no);
 					 	$data_check=array('pr_no'=>$pr_no,'approver_user_id'=>$email_id,'approver_user_status'=>2,'design_user_status'=>3);
 					 	$query_check=$this->db->get_where('master_pr_process_detail',$data_check);
 					 	$num_rows_check=$query_check->num_rows();
@@ -165,7 +170,7 @@ if(empty($email_id)){
 					 					$url='<a href="'.base_url().'approver-mr-view-pr/'.$row->pr_no.'/'.$row->slno.'/'.$row->job_code.'/3" > Click to View </a>';
 					 				break;
 					 			case '4': // resubmission
-					 				$status_detai="Resubmission";
+					 				$status_detai="Resubmitted";
 					 					// $url='<a href="'.base_url().'design-mr-view-pr/'.$row->pr_no.'/'.$row->slno.'/'.$row->job_code.'/4" target="_blank"> Click to Resubmission </a>';
 					 				break;
 					 			
@@ -177,10 +182,12 @@ if(empty($email_id)){
 		                    <tr>
 		                      <td>'.$row->discipline.'</td>
 		                      <td>'.$row->pr_no.'</td>
+		                      <td>'.$row->comment.'</td>
 		                      <td>'.$row->area.'</td>
 		                      <td>'.$row->item.'</td>
 		                      <td>'.$row->UOM.'</td>
-		                      <td>'.$row->quantity.'</td>
+							  <td>'.$row->quantity.'</td>
+							  <td>'.$pr_quantity["pr_inside_quantity"].'</td>
 		                      <td>'.date('d-m-Y',strtotime($row->original_schedule)).'</td> 
 		                      
 		                      <td>'.$status_detai.'</td>

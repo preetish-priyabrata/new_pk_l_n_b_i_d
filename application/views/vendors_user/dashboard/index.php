@@ -66,7 +66,7 @@ $query_auction=$this->db->get_where('master_bid_invi_rank_approvals_pr',$data_au
 							<p><?=$quety_on_goin->num_rows()?></p>	
 						</div>
 						<div class="stats-link">
-							<a href="<?=base_url()?>seller/user-vendor-bid-new-technical">View Detail 
+							<a href="<?=base_url()?>seller/user-vendor-bid-new-technical">View Details 
 						
 
 								<i class="fa fa-arrow-alt-circle-right"></i>
@@ -75,25 +75,7 @@ $query_auction=$this->db->get_where('master_bid_invi_rank_approvals_pr',$data_au
 					</div>
 				</div>
 
-				<div class="col-lg-3 col-md-6">
-					<div class="widget widget-stats bg-blue">
-						<div class="stats-icon">
-							<i class="fas fa-file"></i>
-							<!-- <i class="fa fa-desktop"></i> -->
-						</div>
-						<div class="stats-info">
-							<h4>New Technical Bid </h4>
-							<p><?=$quety_on_goin_new->num_rows()?></p>	
-						</div>
-						<div class="stats-link">
-							<a href="<?=base_url()?>seller/user-vendor-bid-new-technical">View Detail 
-							
-
-								<i class="fa fa-arrow-alt-circle-right"></i>
-							</a>
-						</div>
-					</div>
-				</div>
+				
 				<!-- begin col-3 -->
 				<div class="col-lg-3 col-md-6">
 					<div class="widget widget-stats bg-green">
@@ -102,11 +84,11 @@ $query_auction=$this->db->get_where('master_bid_invi_rank_approvals_pr',$data_au
 							<!-- <i class="fa fa-desktop"></i> -->
 						</div>
 						<div class="stats-info">
-							<h4>Commerical Bid ongoing </h4>
+							<h4>Commercial Bid ongoing </h4>
 							<p><?=$quety_on_going_comm->num_rows()?></p>	
 						</div>
 						<div class="stats-link">
-							<a href="<?=base_url()?>seller/user-vendor-bid-new-commerical">View Detail 
+							<a href="<?=base_url()?>seller/user-vendor-bid-new-commerical">View Details 
 
 								<i class="fa fa-arrow-alt-circle-right"></i>
 							</a>
@@ -125,7 +107,7 @@ $query_auction=$this->db->get_where('master_bid_invi_rank_approvals_pr',$data_au
 							<p><?=$query_notification->num_rows()?></p>	
 						</div>
 						<div class="stats-link">
-							<a href="<?=base_url()?>seller/user-vendor-new-notification-list">View Detail 
+							<a href="<?=base_url()?>seller/user-vendor-new-notification-list">View Details 
 
 								<i class="fa fa-arrow-alt-circle-right"></i>
 							</a>
@@ -143,7 +125,7 @@ $query_auction=$this->db->get_where('master_bid_invi_rank_approvals_pr',$data_au
 							<p><?=$query_auction->num_rows()?></p>	
 						</div>
 						<div class="stats-link">
-							<a href="<?=base_url()?>seller/user-vendor-new-auction-list-pr">View Detail 
+							<a href="<?=base_url()?>seller/user-vendor-new-auction-list-pr">View Details 
 
 								<i class="fa fa-arrow-alt-circle-right"></i>
 							</a>

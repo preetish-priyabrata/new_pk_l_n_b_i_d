@@ -148,7 +148,7 @@ if(empty($email_id)){
 											<option value="7">Buyer User</option>
 											<option value="8">Approver User</option>
 											<option value="9">Technical Evaluator User</option>
-											<option value="10">Coomercial Evaluator User</option>
+											<option value="10">Commercial Evaluator User</option>
 										</select>
 										<small class="f-s-12 text-grey-darker">Please select a role for the user  </small>
 									</div>

@@ -36,7 +36,7 @@ $result_table=$query_data->result();
     
     $data_array_procurement=$this->approver_user->get_approver_procurement_list();
 	   $result_file=$this->design_user->get_design_mr_file_list_m($pr_no,$slno_pr,$job_code);
-	   $url_remark='<a target="_blank" class="btn btn-sm btn-success" href="'.base_url().'buyer-pr-remark-history/'.$pr_no.'/'.$slno_pr.'/'.$job_code.'/1"> Click View Remark</a>';
+	   $url_remark='<a target="_blank" class="btn btn-sm btn-success" href="'.base_url().'buyer-pr-remark-history/'.$pr_no.'/'.$slno_pr.'/'.$job_code.'/1"> Click to View Remarks</a>';
 ?>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/css/bootstrap-multiselect.css">
 <link href="<?=base_url()?>file_css_admin/assets/plugins/bootstrap-datepicker/css/bootstrap-datepicker.css" rel="stylesheet" />
@@ -92,8 +92,35 @@ $result_table=$query_data->result();
 				</div>
 				<div class="panel-body">
 					<div class="row pull-right">
-						<div class="col-md-12">        
+						<div class="col-md-12">  
+						<form action="<?=base_url()?>buyer-add-new-pr-comm-arr-edit-item" method="POST" enctype='multipart/form-data'>
+										<input type="hidden"name='back_url_path' value="<?=base_url(uri_string());?>">
+										<input type="hidden"name='back_url_path_id' value="<?=(uri_string());?>">
+										<input class="form-control m-b-5"  name="pr_no" id="pr_no" type="hidden" value="<?=$pr_no?>" required="" readonly>
+										<input type="hidden" readonly="" name="slno_pr" id="slno_pr"  value="<?=$slno_pr?>">
+										<input type="hidden" readonly="" name="job_code" id="job_code" value="<?=$job_code?>">
+										<input class="form-control m-b-5"  name="pr_no_type" id="pr_no_type" type="hidden" value="new_pr_creater" required="" readonly>
+
+										<input class="form-control m-b-5"  name="edit_type" id="edit_type" type="hidden" value="<?=$edit_id=$result_table[0]->edit_id?>"required="" readonly>
+
+										<input class="form-control m-b-5"  name="commercial_edit_id" id="commercial_edit_id" type="hidden" value="<?=$commercial_edit_id=$result_process[0]->commercial_edit_id?>"required="" readonly>
+
+										<input class="form-control m-b-5"  name="commercial_resubmit_count" id="commercial_resubmit_count" type="hidden" value="<?=$commercial_resubmit_count=$result_process[0]->commercial_resubmit_count?>"required="" readonly>
+
+										<input class="form-control m-b-5"  name="commercial_resubmit_status" id="commercial_resubmit_status" type="hidden" value="<?=$commercial_resubmit_status=$result_process[0]->commercial_resubmit_status?>"required="" readonly>
+
+										<input type="hidden"  name="tech_evalution"  value="<?=$result_table[0]->techinal_evalution?>">
+										
+										<input type="hidden"  name="tcomm_evalution_commer"  value="Coomerical_start">
+										
+													<input type="submit" name="edit_Item" value="Edit BOQ" class="btn btn-success btn-sm">
+					                           		
+						                               
+						                             
+						                        
+							
 							<?=$url_remark?>
+							</form>      
 						</div>
 					</div>
 					<br>
@@ -163,13 +190,13 @@ $result_table=$query_data->result();
 									</div>
 								</div>
 
-								<div class="form-group row m-b-15">
+								<!--<div class="form-group row m-b-15">
 									<label class="col-form-label col-md-3" for="required_date">Date Required <span style="color: red">*</span></label>
 									<div class="col-md-9">
 										<input class="form-control m-b-5 datepickers" placeholder="Enter Date Required " name="required_date" id="required_date" type="text" required=""value="<?=$result_table[0]->date_required?>" readonly>
 										<small class="f-s-12 text-grey-darker">Please enter Date Required</small>
 									</div>
-								</div>
+								</div>-->
 								<div class="form-group row m-b-15">
 									<label class="col-form-label col-md-3" for="Ace_value_detail">ACE Value<span style="color: red">*</span></label>
 									<div class="col-md-9">
@@ -289,7 +316,7 @@ $result_table=$query_data->result();
 															
 														?>
 														
-														<select name="Commerical"  class="form-control m-b-5" id="Commerical" required="" multiple>
+														<select name="Commerical[]"  class="form-control m-b-5" id="Commerical" required="" multiple>
 															<?php 
 															if($data_array_approver['no_user']==2){?>
 																<option value="">--No Commercial Evaluator Is found--</option>
@@ -382,7 +409,7 @@ $result_table=$query_data->result();
 												    		<option value="">--Please Select Mode Of Selection--</option>
 												    		<option value="Closed Bid">Closed Bid </option>
 												    		<option value="Rank Order Bid">Rank Order Bid </option>
-												    		<option value="Simple Bid">Simple Bid </option>
+												    		<!-- <option value="Simple Bid">Simple Bid </option> -->
 												  		</select>
 												  		<small class="f-s-12 text-grey-darker">Please Select Mode Of Selection</small>
 												  	</div>
@@ -396,21 +423,36 @@ $result_table=$query_data->result();
 												<!-- part B Start -->
 
 												<div class="form-group row m-b-15">
-													<label class="col-form-label col-md-3" for="date_publish">Bid Publish Date <span style="color: red">*</span></label>
+													<label class="col-form-label col-md-3" for="currency">Currency<span style="color: red">*</span></label>
 													<div class="col-md-9">
-														<input class="form-control m-b-5 datepickers" placeholder="Enter Activity name" name="date_publish" id="date_publish" type="text" required="" >
-														<small class="f-s-12 text-grey-darker">Please Select Bid Publish Date</small>
+														<select class="form-control" id="currency"  name="currency" required="">
+															<option value="">--Please Select Currency--</option>
+															<?php 
+																$query_currency=$this->db->get('master_currency');
+																foreach($query_currency->result() as $key_currency => $value_currency):
+																	if($value_currency->code=="INR"){
+																		echo '<option value="'.$value_currency->code.'" selected>'.$value_currency->code.' </option>';
+																	}else{
+																		echo '<option value="'.$value_currency->code.'" >'.$value_currency->code.' </option>';
+																	}
+
+																endforeach;
+															?>
+														</select>
+
+														
+														<small class="f-s-12 text-grey-darker">Please Select Currency</small>
 													</div>
 												</div>
 
-												<div class="form-group row m-b-15">
+												<!-- <div class="form-group row m-b-15">
 													<label class="col-form-label col-md-3" for="bid_Id">Bid Id <span style="color: red">*</span></label>
 													<div class="col-md-9">
 														<input class="form-control m-b-5" placeholder="Enter Bid Id " onkeyup="get_bid_ref(2)" name="bid_Id" id="bid_Id" type="text" required="" >
 														<span id="job_code_error2"></span><br>	
 														<small class="f-s-12 text-grey-darker">Here enter Bid Id Should Be Unique</small>
 													</div>
-												</div>
+												</div> -->
 
 												<div class="form-group row m-b-15">
 													<label class="col-form-label col-md-3" for="date_closing">Date Of Closing <span style="color: red">*</span></label>
@@ -491,6 +533,17 @@ $result_table=$query_data->result();
 											<!-- part d end here -->
 										</div>
 										<hr>
+											<div class="form-group row pull-right">
+					                            <div class="col-md-12">
+					                           		<!-- <span id="spl"> 
+						                               
+						                             
+						                               <input type="submit" name="submission" value="Send" class="btn btn-info btn-sm">
+					                           		</span>
+					                               <a  href="<?=base_url()?>buyer-pr-receive" class="btn btn-sm btn-primary">Back</a>  -->
+					                            </div>
+					                        </div>
+										<hr>
 										<div class="row">
 											<div class="col-lg-12">
 												<table class="table table-bordered">
@@ -500,7 +553,7 @@ $result_table=$query_data->result();
 															<th>UOM</th>
 															<th>Technical Parameter</th>
 															<th>Qnty</th>
-															<th>suggested Price</th>
+															<th>Suggested Unit Price</th>
 														</tr>
 													</thead>
 													<tbody>
@@ -533,7 +586,7 @@ $result_table=$query_data->result();
 							<div class="card">
 								<div class="card-header text-center">
 									<a class="collapsed card-link" data-toggle="collapse" href="#collapseThree">
-										Critical Date
+										Critical Dates
 									</a>
 								</div>
 								<div id="collapseThree" class="collapse" data-parent="#accordion">
@@ -549,7 +602,7 @@ $result_table=$query_data->result();
 												<div class="form-group row m-b-15">
 													<label class="col-form-label col-md-3" for="date_start_bid">Bid Start Date <span style="color: red">*</span></label>
 													<div class="col-md-9">
-														<input class="form-control m-b-5 datepickers" placeholder="EnterBid Start Date" name="date_start_bid" id="date_start_bid" type="text" required="" >
+														<input class="form-control m-b-5 datepickers" placeholder="Enter Bid Start Date" name="date_start_bid" id="date_start_bid" type="text" required="" >
 														<small class="f-s-12 text-grey-darker">Please Select Bid Start Date</small>
 													</div>
 												</div>
@@ -557,8 +610,29 @@ $result_table=$query_data->result();
 												<div class="form-group row m-b-15">
 													<label class="col-form-label col-md-3" for="date_clearfication_bid">Bid Clarification Date <span style="color: red">*</span></label>
 													<div class="col-md-9">
-														<input class="form-control m-b-5 datepickers" placeholder="EnterBid Clearfication Date" name="date_clearfication_bid" id="date_clearfication_bid" type="text" required="" >
+														<input class="form-control m-b-5 datepickers" placeholder="Enter Bid Clarfication Date" name="date_clearfication_bid" id="date_clearfication_bid" type="text" required="" >
 														<small class="f-s-12 text-grey-darker">Please Select Bid Clarification Date</small>
+													</div>
+												</div>
+												<!--<div class="form-group row m-b-15">
+													<label class="col-form-label col-md-3" for="date_clearfication_bid">Planned Technical Clearance Date <span style="color: red">*</span></label>
+													<div class="col-md-9">
+														<input class="form-control m-b-5 datepickers" placeholder="Enter Planned Technical Clearance Date" name="planned_technical_clearance_date" id="planned_technical_clearance_date" type="text" required="" >
+														<small class="f-s-12 text-grey-darker">Please Select Planned Technical Clearance Date</small>
+													</div>
+												</div>-->
+												<!--<div class="form-group row m-b-15">
+													<label class="col-form-label col-md-3" for="date_clearfication_bid">Actual Technical Date <span style="color: red">*</span></label>
+													<div class="col-md-9">
+														<input class="form-control m-b-5 datepickers" placeholder="Enter Actual Technical Date" name="actual_technical_date" id="actual_technical_date" type="text" required="" >
+														<small class="f-s-12 text-grey-darker">Please Select Actual Technical Date</small>
+													</div>
+												</div>-->
+												<div class="form-group row m-b-15">
+													<label class="col-form-label col-md-3" for="date_clearfication_bid">Commercial Closure Date <span style="color: red">*</span></label>
+													<div class="col-md-9">
+														<input class="form-control m-b-5 datepickers" placeholder="Enter Commercial Closure Date" name="commercial_closure_date" id="commercial_closure_date" type="text" required="" >
+														<small class="f-s-12 text-grey-darker">Please Select Commercial Closure Date</small>
 													</div>
 												</div>
 												<!-- part e end -->
@@ -570,7 +644,7 @@ $result_table=$query_data->result();
 												<div class="form-group row m-b-15">
 													<label class="col-form-label col-md-3" for="date_closed_bid">Bid Closed Date <span style="color: red">*</span></label>
 													<div class="col-md-9">
-														<input class="form-control m-b-5 datepickers" placeholder="EnterBid Closed Date" name="date_closed_bid" id="date_closed_bid" type="text" required="" >
+														<input class="form-control m-b-5 datepickers" placeholder="Enter Bid Closed Date" name="date_closed_bid" id="date_closed_bid" type="text" required="" >
 														<small class="f-s-12 text-grey-darker">Please Select Bid Closed Date</small>
 													</div>
 												</div>
@@ -582,6 +656,29 @@ $result_table=$query_data->result();
 														<small class="f-s-12 text-grey-darker"> Please enter Detail Description  </small>
 													</div>
 												</div>
+
+                                               <!--<div class="form-group row m-b-15">
+													<label class="col-form-label col-md-3" for="date_closed_bid">Delivery Date as per PO <span style="color: red">*</span></label>
+													<div class="col-md-9">
+														<input class="form-control m-b-5 datepickers" placeholder="Enter Delivery Date as per PO" name="delivery_date_as_per_po" id="delivery_date_as_per_po" type="text" required="" >
+														<small class="f-s-12 text-grey-darker">Please Select Delivery Date as per PO</small>
+													</div>
+												</div>-->
+												<!--<div class="form-group row m-b-15">
+													<label class="col-form-label col-md-3" for="date_closed_bid">Delivery Date as per PO <span style="color: red">*</span></label>
+													<div class="col-md-9">
+														<input class="form-control m-b-5 datepickers" placeholder="Enter Delivery Date as per PO" name="delivery_date_as_per_po" id="delivery_date_as_per_po" type="text" required="" >
+														<small class="f-s-12 text-grey-darker">Please Select Delivery Date as per PO</small>
+													</div>
+												</div>
+
+
+
+
+
+
+
+
 												<!-- part f end -->
 											</div>
 											<!-- part f end Here -->
@@ -614,7 +711,7 @@ $result_table=$query_data->result();
 														<thead>									
 								                            <tr>
 								                                <th><strong>File Title Name</strong></th>
-								                                <th><strong>Click View</strong></th>                                
+								                                <th><strong>Click  to View</strong></th>                                
 								                              
 								                            </tr>
 								                        </thead>
@@ -647,12 +744,12 @@ $result_table=$query_data->result();
 							<div class="card">
 								<div class="card-header text-center">
 									<a class="collapsed card-link" data-toggle="collapse" href="#collapsesix">
-										Remark To Vendors
+										Remarks To Vendors
 									</a>
 								</div>
 								<div id="collapsesix" class="collapse" data-parent="#accordion">
 									<div class="card-body">
-										<h5 class="text-left">Remark To Vendor</h5>
+										<h5 class="text-left">Remarks To Vendor</h5>
 										<hr style="background: lightblue">
 										<!-- row Start -->
 										<div class="row">
@@ -666,7 +763,7 @@ $result_table=$query_data->result();
 													<div class="col-lg-12">
 												    
 												<div class="form-group row m-b-15">
-													<label class="col-form-label col-md-3">Remark To Vendor <span style="color: red">*</span></label>
+													<label class="col-form-label col-md-3">Remarks To Vendor <span style="color: red">*</span></label>
 													<div class="col-md-9">
 														<textarea class="form-control" rows="3" name="terms_condition" required=""></textarea>
 														<!-- <?php echo $this->ckeditor->editor("terms_condition","default textarea value"); ?> -->

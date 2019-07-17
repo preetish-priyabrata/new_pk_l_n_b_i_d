@@ -51,7 +51,7 @@ $bid_id=$bid_id;
 						<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
 						<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
 					</div>
-					<h4 class="panel-title">Technical Notification To Vendor For technical bid </h4>
+					<h4 class="panel-title">Technical Notification To Vendor For Technical Bid </h4>
 				</div>
 				<div class="panel-body">
 					<div class="alert alert-secondary">
@@ -68,10 +68,10 @@ $bid_id=$bid_id;
 						<div class="row">
 							<div class="col-md-12 col-lg-12">
 							 	<div class="form-group row m-b-15">
-									<label class="col-form-label col-md-3" for="Technical_notification ">Technical notification <span style="color: red">*</span></label>
+									<label class="col-form-label col-md-3" for="Technical_notification ">Technical Notification <span style="color: red">*</span></label>
 									<div class="col-md-9">
 										<textarea class="form-control" rows="3" name="Technical_notification " required=""></textarea>
-										<small class="f-s-12 text-grey-darker">Here enter Technical notification</small>
+										<small class="f-s-12 text-grey-darker">Here enter Technical Notification</small>
 									</div>
 								</div>
 								

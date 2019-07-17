@@ -17,7 +17,7 @@ if(empty($email_id)){
 			<ol class="breadcrumb pull-right">
 				<li class="breadcrumb-item"><a href="user-buyer-home">Home</a></li>
 				<li class="breadcrumb-item"><a href="javascript:;">Vendors</a></li>
-				<li class="breadcrumb-item active">View vendors List</li>
+				<li class="breadcrumb-item active">View Vendors List</li>
 			</ol>
 			<!-- end breadcrumb -->
 			<!-- begin page-header -->
@@ -48,7 +48,7 @@ if(empty($email_id)){
 				<div class="panel-body">
 					
 					<div class="pull-right">
-						<a href="buyer-add-vendors" class="btn btn-info fa fa-puzzle-piece " role="button" title="here new vendors is been created">  New vendors</a>
+						<a href="buyer-add-vendors" class="btn btn-info fa fa-puzzle-piece " role="button" title="here new vendors is been created">  New Vendors</a>
 					</div>
 					<br>
 					<br>
@@ -57,9 +57,9 @@ if(empty($email_id)){
 					        <thead>
 					            <tr>
 					                <th>Slno .</th>
-					                <th>Vendor Name</th>	
+					               
 					                <th>Organisation</th>	
-					                <th>Email id/User id</th>					                
+					                <th>Email Id/User Id</th>					                
 					                <th>Status</th>					                
 					                <th>Action</th>
 					            </tr>
@@ -83,7 +83,7 @@ if(empty($email_id)){
 					        			?>
 					        			<tr>
 							        		<td><?=$x?></td>
-							                <td><?=$value->Vendor_name?></td>
+							                
 							                <td><?=$value->Organisation_name?></td>
 							                <td><?=$value->Vendor_email?>/ user id :- <?=$value->Vendor_email_id?></td>
 							               
@@ -107,7 +107,7 @@ if(empty($email_id)){
 												  <a href="#" class="btn btn-purple dropdown-toggle"
 												    data-toggle="dropdown"></a>
 												  <ul class="dropdown-menu pull-right">											  	
-														<li><a   <?php echo "href='buyer-view-vendor-info/".$user_id."/".$slno_id."'";?> >view & Edit </a></li>
+														<li><a   <?php echo "href='buyer-view-vendor-info/".$user_id."/".$slno_id."'";?> >View & Edit </a></li>
 														<li class="divider"></li>
 														<li><a   <?php echo "href='buyer-view-vendor-info-change-reset/".$user_id."/".$slno_id."'";?> >Reset Password </a></li>
 														<li class="divider"></li>

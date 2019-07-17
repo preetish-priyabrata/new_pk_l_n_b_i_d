@@ -19,11 +19,11 @@ if(empty($email_id)){
 			<ol class="breadcrumb pull-right">
 				<li class="breadcrumb-item active"><a href="#" class="fa fa-home ">Home</a></li>
 				<!-- <li class="breadcrumb-item"><a href="javascript:;">Page Options</a></li> -->
-				<li class="breadcrumb-item active">PR Schedule Received</li>
+				<li class="breadcrumb-item active">  Received PR</li>
 			</ol>
 			<!-- end breadcrumb -->
 			<!-- begin page-header -->
-			<h1 class="page-header">Project PR Schedule Received
+			<h1 class="page-header">Received PR
 			 <!-- <small>header small text goes here...</small> -->
 			</h1>
 			<!-- end page-header -->
@@ -54,7 +54,7 @@ if(empty($email_id)){
 						<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
 						<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
 					</div>
-					<h4 class="panel-title"> PR Schedule Received </h4>
+					<h4 class="panel-title"> Received PR </h4>
 				</div>	
 				<div class="panel-body">
 					<form action="" method="POST" enctype="multipart/form-data"	>
@@ -76,7 +76,7 @@ if(empty($email_id)){
 													}
 												?>
 											</select>
-											<small class="f-s-12 text-grey-darker">Please Select Project For Upload PR Schedule Complete</small>
+											<small class="f-s-12 text-grey-darker">Please Select Project </small>
 										</div>
 									</div>
 								</div>
@@ -102,15 +102,19 @@ if(empty($email_id)){
 				$job_code=$this->input->post('job_code');
 				$data_check = array('job_code' => $job_code,'status'=>1, 'mr_status'=>1);
                 $query=$this->db->get_where($table,$data_check);
-                    // echo  $this->db->last_query();
-               
-               
-                // $output .= '</table>';
+								foreach ($query_design->result() as $key_job_code) {
+									if($key_job_code->Project_Slno==$job_code){
+										$project_details_info=$key_job_code->job_Code." [ ".$key_job_code->Project_Name." ]";
+				
+									}
+								}
+				
                
 				?>
 			<div class="panel panel-inverse">
 				<div class="panel-heading">					
-					<h4 class="panel-title"> PR Schedule Complete List</h4>
+					<h4 class="panel-title"> PR Schedule Project Name :- <?=$project_details_info?> </h4>
+
 				</div>
 				<div class="panel-body">
 
@@ -119,12 +123,13 @@ if(empty($email_id)){
                     <tr>
                       <th>Discipline</th>
                       <th>PR No</th>
+                      <th>Comment from Bu User</th>
                       <th>Area</th>
                       <th>Item</th>
                       <th>UOM</th>
                       <th>Quantity</th>
                       <th>Original Schedule</th>  
-                      <th>procurement Remark</th>                    
+                      <th>Procurement Remarks</th>                    
                       <th>Status</th>
                       <th>Action</th>
                       
@@ -134,7 +139,7 @@ if(empty($email_id)){
 					<?php
 					 foreach($query->result() as $row){
 					 	$pr_no=$row->pr_no;
-					 	$data_check=array('pr_no'=>$pr_no,'buyer_user_id'=>$email_id,'approver_user_status'=>1,'design_user_status'=>1,'procurement_user_status'=>1,'buyer_user_status'=>2);
+					 	$data_check=array('pr_no'=>$pr_no,'buyer_user_id'=>$email_id,'approver_user_status'=>1,'design_user_status'=>1,'procurement_user_status'=>1,'buyer_user_status'=>2,'commercial_complete_status'=>0);
 					 	$query_check=$this->db->get_where('master_pr_process_detail',$data_check);
 					 	$num_rows_check=$query_check->num_rows();
 					 	if($num_rows_check!=0){
@@ -189,6 +194,7 @@ if(empty($email_id)){
 		                    <tr>
 		                      <td>'.$row->discipline.'</td>
 		                      <td>'.$row->pr_no.'</td>
+		                      <td>'.$row->comment.'</td>
 		                      <td>'.$row->area.'</td>
 		                      <td>'.$row->item.'</td>
 		                      <td>'.$row->UOM.'</td>

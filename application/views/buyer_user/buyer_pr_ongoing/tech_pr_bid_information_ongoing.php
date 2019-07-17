@@ -51,6 +51,10 @@ $data_table3 = array('pr_no' =>$pr_no);
 $query_table3=$this->db->get_where('master_bid_m',$data_table3);
 $result_table3=$query_table3->result();
 
+$data_table3_com = array('pr_no' =>$pr_no);
+$query_table3_comm=$this->db->get_where('master_bid_Com_m',$data_table3_com);
+$result_table3_comm=$query_table3_comm->result();
+
 $data_table4 = array('pr_no' =>$pr_no);
 $query_table4=$this->db->get_where('master_bid_t_c_tech_m',$data_table4);
 $result_table4=$query_table4->result();
@@ -193,13 +197,13 @@ $result_table=$query_data->result();
 									</div>
 								</div>
 
-								<div class="form-group row m-b-15">
+								<!--<div class="form-group row m-b-15">
 									<label class="col-form-label col-md-3" for="required_date">Date Required </label>
 									<div class="col-md-9">
 										<input class="form-control m-b-5 datepickers" placeholder="Enter Date Required " name="required_date" id="required_date" type="text" required=""value="<?=date('d-m-Y',strtotime($result_table[0]->date_required))?>" readonly>
 										<small class="f-s-12 text-grey-darker">Please enter Date Required</small>
 									</div>
-								</div>
+								</div>-->
 								<div class="form-group row m-b-15">
 									<label class="col-form-label col-md-3" for="required_date"> Terms & Conditions </label>
 									<div class="col-md-9">
@@ -345,7 +349,7 @@ $result_table=$query_data->result();
 									<label class="col-form-label col-md-3" for="mr_date_of_creation">Date Of Creating</label>
 									<div class="col-md-9">
 										<input class="form-control m-b-5" name="mr_date_of_creation" value="<?=date('d-m-Y',strtotime($result_table[0]->date_creation))?>"  id="mr_date_of_creation" type="text" required="" readonly>
-										<small class="f-s-12 text-grey-darker">Date Of Creating MR</small>
+										<small class="f-s-12 text-grey-darker">Date Of Creating PR</small>
 									</div>
 								</div>
 								
@@ -391,8 +395,7 @@ $result_table=$query_data->result();
 												<div class="form-group row m-b-15">
 													<label class="col-form-label col-md-3" for="date_create">Date </label>
 													<div class="col-md-9">
-														<input class="form-control m-b-5" placeholder="" name="date_create" id="date_create" type="text" value="<?=date('d-m-Y')?>" required="" readonly style='opacity: 1'>
-															<small class="f-s-12 text-grey-darker">---</small>
+													<?=date('d-m-Y',strtotime($result_table3[0]->date_publish))?>
 													</div>
 												</div>
 
@@ -436,21 +439,15 @@ $result_table=$query_data->result();
 												<!-- part B Start -->
 
 												<div class="form-group row m-b-15">
-													<label class="col-form-label col-md-3" for="date_publish">Bid Publish Date </label>
+													<label class="col-form-label col-md-3" for="date_publish">Currency </label>
 													<div class="col-md-9">
-														<?=date('d-m-Y',strtotime($result_table3[0]->date_publish))?>
+														
+													<?=$result_table3_comm[0]->currency_code?>
 														
 													</div>
 												</div>
 
-												<div class="form-group row m-b-15">
-													<label class="col-form-label col-md-3" for="bid_Id">Bid Id </label>
-													<div class="col-md-9">
-														<?=$result_table3[0]->bid_id?>
-														<span id="job_code_error2"></span><br>	
-														
-													</div>
-												</div>
+												
 
 												<div class="form-group row m-b-15">
 													<label class="col-form-label col-md-3" for="date_closing">Date Of Closing </label>
@@ -656,7 +653,7 @@ $result_table=$query_data->result();
 														<thead>									
 								                            <tr>
 								                                <th><strong>File Title Name</strong></th>
-								                                <th><strong>Click View</strong></th>                                
+								                                <th><strong>Click to View</strong></th>                                
 								                              
 								                            </tr>
 								                        </thead>
@@ -688,7 +685,7 @@ $result_table=$query_data->result();
                             <div class="card">
 								<div class="card-header text-center">
 									<a class="collapsed card-link" data-toggle="collapse" href="#collapsesix">
-										Remarks to vendor
+										Remarks to Vendor
 									</a>
 								</div>
                                    <div id="collapsesix" class="collapse" data-parent="#accordion">
@@ -734,7 +731,7 @@ $result_table=$query_data->result();
 													<thead>
 														<tr>
 															<th width="10%">Organisation Name</th>
-															<th width="40%">Detail</th>
+															<th width="40%">Details</th>
 															<th>Approver</th>
 															<th>Submission</th>
 
@@ -753,8 +750,8 @@ $result_table=$query_data->result();
 														?>
 														<tr>
 															 <td width="10%"><?=$value_id_vender->Organisation_name?></td>
-						                                    <td width="40%"><p>Vendor Name :    <?=$value_id_vender->Vendor_name?></p>
-						                                        <p>Organisation Name : <?=$value_id_vender->Organisation_name?></p>
+						                                    <td width="40%">
+																<p>Organisation Name : <?=$value_id_vender->Organisation_name?></p>
 						                                        <p>Vendor Mobile : <?=$value_id_vender->Mobile_no?></p>
 						                                        <p>Vendor Address : <?=$value_id_vender->Organisation_address?></p>
 						                                    </td>

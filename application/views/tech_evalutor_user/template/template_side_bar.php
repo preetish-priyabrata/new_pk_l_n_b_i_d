@@ -19,7 +19,7 @@
 					</li>
 					<li>
 						<ul class="nav nav-profile">
-                            <li><a href="javascript:;"><i class="fa fa-key"></i> Change Password</a></li>
+                            <li><a href="<?=base_url()?>tech-change-password-module"><i class="fa fa-key"></i> Change Password</a></li>
                             <li><a href="<?=base_url()?>tech-evalutor-logout"><i class="fa fa-sign-out-alt"></i> Logout</a></li>
                           
                         </ul>
@@ -33,7 +33,7 @@
 						<a href="javascript:;">
 					        <b class="caret"></b>
 						    <i class="fas fa-atlas"></i>
-						    <span>Bid Information </span>
+						    <span>Bid Informations </span>
 					    </a>
 						<ul class="sub-menu">
 						    <li class="<?php if($sub_menu==1){ echo 'active'; }?>"><a href="<?=base_url()?>user-technical-evalutor-pr-receive" >View New Bids  Receive List</a></li>

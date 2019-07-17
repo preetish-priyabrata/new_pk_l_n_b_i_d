@@ -15,7 +15,7 @@ if(empty($email_id)){
 			<ol class="breadcrumb pull-right">
 				<li class="breadcrumb-item active"><a href="user-buyer-home" class="fa fa-home ">Home</a></li>
 				<li class="breadcrumb-item"><a href="javascript:;">Vendor List</a></li>
-				<li class="breadcrumb-item active">Create New vendor</li>
+				<li class="breadcrumb-item active">Create New Vendor</li>
 			</ol>
 			<!-- end breadcrumb -->
 			<!-- begin page-header -->
@@ -52,13 +52,7 @@ if(empty($email_id)){
 						<div class="row">
 							<div class="col-md-6 col-lg-6">
 
-							 	<div class="form-group row m-b-15">
-									<label class="col-form-label col-md-3" for="Vendor_name">Vendor Name <span style="color: red">*</span></label>
-									<div class="col-md-9">
-										<input class="form-control m-b-5" placeholder="Enter Vendor name" name="Vendor_name" id="Vendor_name" type="text" required="">
-										<small class="f-s-12 text-grey-darker">Here enter Vendor name</small>
-									</div>
-								</div>
+							 	
 
 								<div class="form-group row m-b-15">
 									<label class="col-form-label col-md-3" for="Vendor_email_id">Vendor email <span style="color: red">*</span></label>

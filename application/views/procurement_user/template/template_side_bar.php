@@ -19,7 +19,7 @@
 					</li>
 					<li>
 						<ul class="nav nav-profile">
-                            <li><a href="javascript:;"><i class="fa fa-key"></i> Change Password</a></li>
+                            <li><a href="<?=base_url()?>procurement-change-password-module"><i class="fa fa-key"></i> Change Password</a></li>
                             <li><a href="<?=base_url()?>procurement-logout"><i class="fa fa-sign-out-alt"></i> Logout</a></li>
                             <!-- <li><a href="javascript:;"><i class="fa fa-question-circle"></i> Helps</a></li> -->
                         </ul>
@@ -39,7 +39,7 @@
 						<ul class="sub-menu">
 						    <li class="<?php if($sub_menu==1){ echo 'active'; }?>"><a href="<?=base_url()?>procurement-new-pr-receive" >Received PRs </a></li>
 						    <li class="<?php if($sub_menu==2){ echo 'active'; }?>"><a href="<?=base_url()?>procurement-new-pr-schedule-complete" >Buyer allocated PRs</a></li>
-						   
+							<li class="<?php if($sub_menu==6){ echo 'active'; }?>"><a href="<?=base_url()?>procurement-orginal-project-pr"> Project wise PR schedule release status </a></li>
 						</ul>
 					</li>
 					

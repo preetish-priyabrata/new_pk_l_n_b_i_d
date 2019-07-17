@@ -117,11 +117,9 @@ class Designuser extends CI_Controller {
 
         $data=array('title' =>"Create New Material Requisition",'script_js'=>$scripts ,'menu_status'=>'1','sub_menu'=>'1','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'');  
 
-            // $this->load->view('template/template_header',$data);
-            // $this->load->view('design_user/template/template_top_head');
-             //$this->load->view('design_user/template/template_side_bar',$data);
+           
             $this->load->view('design_user/new_mr_requisition/design_user_add_new_material');
-            // $this->load->view('template/template_footer',$data);
+           
 
         
     }
@@ -134,11 +132,34 @@ class Designuser extends CI_Controller {
         }
         // print_r($this->input->post());
         //Array ( [material_category] => Electrical equipment [uom] => No [technical_parameters] => MOC=CRCA,Terminals=40,thickness=2mm,Application=outdoor [material_name] => Junction Box [material_id] => ee02 )
+       $this->load->helper('string');
        $material_category=$this->input->post('material_category');
        $uom=$this->input->post('uom');
        $technical_parameters=$this->input->post('technical_parameters');
        $material_name=$this->input->post('material_name');
-       $material_id=$this->input->post('material_id');
+       $randno=random_string('numeric',6);
+       $value_id1=substr($material_category,0,4);
+       $value_id2=substr($material_name,0,5);
+    //    $material_id=$value_id1.'-'.$value_id2.'-'.$randno;
+       while(1){
+            $randno=random_string('numeric',6);
+            $material_id=$value_id1.'-'.$value_id2.'-'.$randno;
+            $data_check = array('material_item_id' => $material_id);
+            // $data_check = array('material_item_id' => $material_item_id);
+            $query_id=$this->db->get_where('master_category_item',$data_check);
+            $num=$query_id->num_rows();
+            if($num==0){ 
+                break;
+            }
+        }
+
+
+
+
+
+
+
+       // $material_id=$this->input->post('material_id');
        $data_entry=array('category_name'=>$material_category,'uom'=>$uom,'technical_details'=>$technical_parameters,'material_item_name'=>$material_name,'material_item_id'=>$material_id,'entry_id'=>$email_id,'status'=>1);
        $query=$this->db->insert('master_category_item',$data_entry);
       

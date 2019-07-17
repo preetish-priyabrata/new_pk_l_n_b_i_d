@@ -17,7 +17,7 @@ $job_code=$job_code; //Project_Slno
 	$this->db->distinct();
 	$this->db->select('category_name');
 	$this->db->where('status', '1'); 
-	$query_category = $this->db->get('master_category_item');
+	$query_master_category = $this->db->get('master_category');
 ?>
 <link href="../assets/plugins/bootstrap-datepicker/css/bootstrap-datepicker.css" rel="stylesheet" />
     <link href="../assets/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.css" rel="stylesheet" />
@@ -29,12 +29,12 @@ $job_code=$job_code; //Project_Slno
 			<!-- begin breadcrumb -->
 			<ol class="breadcrumb pull-right">
 				<li class="breadcrumb-item active"><a href="<?=base_url()?>user-design-home" class="fa fa-home ">Home</a></li>
-				<li class="breadcrumb-item"><a href="javascript:;">Material Requisition</a></li>
-				<li class="breadcrumb-item active">Create New Material Requisition</li>
+				<li class="breadcrumb-item"><a href="javascript:;">PR</a></li>
+				<li class="breadcrumb-item active">Create New PR</li>
 			</ol>
 			<!-- end breadcrumb -->
 			<!-- begin page-header -->
-			<h1 class="page-header">Create New Material Requisition  </h1>
+			<h1 class="page-header">Create New PR </h1>
 			<!-- end page-header -->
 			<?php if(!empty($this->session->flashdata('success_message'))){?>
 			<div class="alert alert-success fade show">
@@ -106,13 +106,13 @@ $job_code=$job_code; //Project_Slno
 									</div>
 								</div>
 
-								<div class="form-group row m-b-15">
+								<!--<div class="form-group row m-b-15">
 									<label class="col-form-label col-md-3" for="required_date">Date Required <span style="color: red">*</span></label>
 									<div class="col-md-9">
 										<input class="form-control m-b-5 datepickers" placeholder="Enter Date Required " name="required_date" id="required_date" type="text" required="">
 										<small class="f-s-12 text-grey-darker">Please enter Date Required</small>
 									</div>
-								</div>
+								 </div>--> 
 								
                               
 
@@ -159,7 +159,7 @@ $job_code=$job_code; //Project_Slno
 										
 										<select name="materials_id" class="form-control m-b-5" id="materials_id">
 											
-												<option value="">--Select Material Category--</option>
+												<!--<option value="">--Select Material Category--</option>
 											<?php
 												foreach ($query_category->result() as $value_category) {
 													?>
@@ -169,6 +169,19 @@ $job_code=$job_code; //Project_Slno
 											
 												
 											
+											?>
+											<?php
+												foreach ($query_master_category->result() as $value) {
+													?>
+														<option value='<?=$value->category_name?>'><?=ucfirst($value->category_name)?></option>
+													<?php
+
+
+												}
+												?>
+
+												<?php
+
 											?>										
 											
 										</select>

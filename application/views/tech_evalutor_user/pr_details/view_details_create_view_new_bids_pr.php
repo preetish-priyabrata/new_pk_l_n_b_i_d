@@ -15,7 +15,7 @@ $result_process=$query_process->result();
 
 $slno_pr=$result_process[0]->pr_no_slno;
 $job_code=$result_process[0]->project_slno;
-$url_remark='<a class="btn btn-sm btn-success" target="_blank" href="'.base_url().'tech-pr-remark-history/'.$pr_no.'/'.$slno_pr.'/'.$job_code.'/1"> Click View Remark</a>';
+$url_remark='<a class="btn btn-sm btn-success" target="_blank" href="'.base_url().'tech-pr-remark-history/'.$pr_no.'/'.$slno_pr.'/'.$job_code.'/1"> Click to View Remarks</a>';
 
 $tech_bid=$result_process[0]->tech_bid;  // bid id information
 if($bid_id!=$tech_bid){
@@ -88,7 +88,7 @@ $result_table=$query_data->result();
 	   $result_file=$this->design_user->get_design_mr_file_list_m($pr_no,$slno_pr,$job_code);
 
 
-	   $url='<a href="'.base_url().'technical-user-bid-pr-new-material/'.$pr_no.'/'.$slno_pr.'/'.$job_code.'/3/'. $tech_bid.'" class="btn btn-success btn-sm" title="Click Here to Approve vendor Verifying"> Click Approve Vendor </a>';
+	   $url='<a href="'.base_url().'technical-user-bid-pr-new-material/'.$pr_no.'/'.$slno_pr.'/'.$job_code.'/3/'. $tech_bid.'" class="btn btn-success btn-sm" title="Click Here to Approve vendor Verifying"> Click to approve Vendor </a>';
 ?>
 
 <link href="../assets/plugins/bootstrap-datepicker/css/bootstrap-datepicker.css" rel="stylesheet" />
@@ -100,7 +100,7 @@ $result_table=$query_data->result();
 		<div id="content" class="content">
 			<!-- begin breadcrumb -->
 			<ol class="breadcrumb pull-right">
-				<li class="breadcrumb-item active"><a href="<?=base_url()?>user-procurement-home" class="fa fa-home ">Home</a></li>
+				<li class="breadcrumb-item active"><a href="<?=base_url()?>user-technical-evalutor-home" class="fa fa-home ">Home</a></li>
 				<li class="breadcrumb-item"><a href="javascript:;">PR</a></li>
 				<li class="breadcrumb-item active">New Bid details </li>
 			</ol>
@@ -188,14 +188,21 @@ $result_table=$query_data->result();
 										<input class="form-control m-b-5" placeholder="Enter" name="tech_name_ids" id="tech_name_ids" type="text" required=""value="<?=$tech?>" readonly>
 									</div>
 								</div>
-
 								<div class="form-group row m-b-15">
+									<label class="col-form-label col-md-3" for="mr_date_of_creation">Date Of Creating</label>
+									<div class="col-md-9">
+										<input class="form-control m-b-5" name="mr_date_of_creation" value="<?=date('d-m-y',strtotime($result_table[0]->date_creation))?>"  id="mr_date_of_creation" type="text" required="" readonly>
+										<small class="f-s-12 text-grey-darker">Date Of Creating PR</small>
+									</div>
+								</div>
+
+								<!--<div class="form-group row m-b-15">
 									<label class="col-form-label col-md-3" for="required_date">Date Required </label>
 									<div class="col-md-9">
 										<input class="form-control m-b-5 datepickers" placeholder="Enter Date Required " name="required_date" id="required_date" type="text" required=""value="<?=date('d-m-Y',strtotime($result_table[0]->date_required))?>" readonly>
 										<small class="f-s-12 text-grey-darker">Please enter Date Required</small>
 									</div>
-								</div>
+								</div>-->
 								
 								
 								
@@ -295,43 +302,50 @@ $result_table=$query_data->result();
 										<small class="f-s-12 text-grey-darker">Select Buyer </small>
 									</div>
 								</div>
+								
 								<div class="form-group row m-b-15">
-													<label class="col-form-label col-md-3" for="Technical_ev" >Commercial Evaluator Name </label>
+													<label class="col-form-label col-md-3" for="Technical_ev" >Technical  Evaluator Name </label>
 													<div class="col-md-9">
-														<?php
-														$data_array_approver=$this->buyer_user->get_user_generic_list('1','0','0','10','','');	
-															
+													<?php
+														$data_array_approver_comm=$this->buyer_user->get_user_generic_list('1','0','0','9','','');	
+														$comm_list=unserialize($result_process[0]->tech_user_id_array);
+														// $result_process[0]->commercial_user_id
+														foreach ($data_array_approver_comm['user_approver'] as $key_approver){
+															if(in_array($key_approver->email_id, $comm_list)){
+																echo "<b>".$key_approver->Username."[".$key_approver->email_id." ]</b><br>";
+															}
+														}
 														?>
 														
-														<select name="Technical_ev"  class="form-control m-b-5" id="Technical_ev" required="" >
-															<?php 
-															if($data_array_approver['no_user']==2){?>
-																<option value="">--No Commercial Evaluator Is found--</option>
-																<?php
-															}else if($data_array_approver['no_user']==1){
-																?>
-																
-															<?php
-																foreach ($data_array_approver['user_approver'] as $key_approver) {
-																	echo "<option value='".$key_approver->slno."'>".$key_approver->Username." [ ".$key_approver->email_id." ]</option>";
-																}
-															
-																
-															}	
-															?>										
-															
-														</select>
-														<small class="f-s-12 text-grey-darker">Select Commerical Evaluator </small>
+													</div>
+												</div>
+											
+								<div class="form-group row m-b-15">
+													<label class="col-form-label col-md-3" for="Technical_ev" >Commercial Evaluator Name <span style="color: red">*</span></label>
+													<div class="col-md-9">
+														<?php
+														$data_array_approver_comm=$this->buyer_user->get_user_generic_list('1','0','0','10','','');	
+														$comm_list=unserialize($result_process[0]->commercial_user_id_array);
+														// $result_process[0]->commercial_user_id
+														foreach ($data_array_approver_comm['user_approver'] as $key_approver){
+															if(in_array($key_approver->email_id, $comm_list)){
+																echo "<b>".$key_approver->Username."[".$key_approver->email_id." ]</b><br>";
+															}
+														}
+														?>
+														
+														
+														<!-- <small class="f-s-12 text-grey-darker">Select Commerical Evaluator </small> -->
 													</div>
 												</div>
 								
-								<div class="form-group row m-b-15">
+								<!--<div class="form-group row m-b-15">
 									<label class="col-form-label col-md-3" for="mr_date_of_creation">Date Of Creating</label>
 									<div class="col-md-9">
-										<input class="form-control m-b-5" name="mr_date_of_creation" value="<?=$result_table[0]->date_creation?>"  id="mr_date_of_creation" type="text" required="" readonly>
-										<small class="f-s-12 text-grey-darker">Date Of Creating MR</small>
+										<input class="form-control m-b-5" name="mr_date_of_creation" value="<?=date('d-m-y',strtotime($result_table[0]->date_creation))?>"  id="mr_date_of_creation" type="text" required="" readonly>
+										<small class="f-s-12 text-grey-darker">Date Of Creating PR</small>
 									</div>
-								</div>
+								</div>-->
 								
 
 							</div>
@@ -375,8 +389,8 @@ $result_table=$query_data->result();
 												<div class="form-group row m-b-15">
 													<label class="col-form-label col-md-3" for="date_create">Date </label>
 													<div class="col-md-9">
-														<input class="form-control m-b-5" placeholder="" name="date_create" id="date_create" type="text" value="<?=date('Y-m-d')?>" required="" readonly style='opacity: 1'>
-															<small class="f-s-12 text-grey-darker">---</small>
+														<input class="form-control m-b-5" placeholder="" name="date_create" id="date_create" type="text" value="<?=date('d-m-Y',strtotime($result_table3[0]->date_publish))?>" required="" readonly style='opacity: 1'>
+														<small class="f-s-12 text-grey-darker">---</small>
 													</div>
 												</div>
 
@@ -389,6 +403,14 @@ $result_table=$query_data->result();
 													</div>
 												</div>
 
+												
+
+												<!-- part A end -->
+											</div>
+
+											<!-- Part B -->
+											<div class="col-md-6 col-lg-6">
+												<!-- part B Start -->
 												<div class="form-group row m-b-15">
 													<label class="col-form-label col-md-3" for="bid_method">Mode Of Selection </label>
 													<div class="col-md-9">
@@ -411,35 +433,14 @@ $result_table=$query_data->result();
 												  		
 												  	</div>
 												</div> 
+											
 
-												<!-- part A end -->
-											</div>
-
-											<!-- Part B -->
-											<div class="col-md-6 col-lg-6">
-												<!-- part B Start -->
-
-												<div class="form-group row m-b-15">
-													<label class="col-form-label col-md-3" for="date_publish">Bid Publish Date </label>
-													<div class="col-md-9">
-														<?=$result_table3[0]->date_publish?>
-														
-													</div>
-												</div>
-
-												<div class="form-group row m-b-15">
-													<label class="col-form-label col-md-3" for="bid_Id">Bid Id </label>
-													<div class="col-md-9">
-														<?=$result_table3[0]->bid_id?>
-														<span id="job_code_error2"></span><br>	
-														
-													</div>
-												</div>
+												
 
 												<div class="form-group row m-b-15">
 													<label class="col-form-label col-md-3" for="date_closing">Date Of Closing </label>
 													<div class="col-md-9">
-														<?=$result_table3[0]->date_closing?>
+														<?=date('d-m-Y',strtotime($result_table3[0]->date_closing))?>
 														
 													</div>
 												</div>
@@ -557,7 +558,7 @@ $result_table=$query_data->result();
 							<div class="card">
 								<div class="card-header text-center">
 									<a class="collapsed card-link" data-toggle="collapse" href="#collapseThree">
-										Critical Date
+										Critical Dates
 									</a>
 								</div>
 								<div id="collapseThree" class="collapse" data-parent="#accordion">
@@ -595,7 +596,7 @@ $result_table=$query_data->result();
 												<div class="form-group row m-b-15">
 													<label class="col-form-label col-md-3" for="date_closed_bid">Bid Closed Date </label>
 													<div class="col-md-9">
-														<?=$result_table1[0]->bid_closed_date?>
+														<?=date('d-m-Y',strtotime($result_table1[0]->bid_closed_date))?>
 														
 													</div>
 												</div>
@@ -640,7 +641,7 @@ $result_table=$query_data->result();
 														<thead>									
 								                            <tr>
 								                                <th><strong>File Title Name</strong></th>
-								                                <th><strong>Click View</strong></th>                                
+								                                <th><strong>Click to View</strong></th>                                
 								                              
 								                            </tr>
 								                        </thead>
@@ -718,7 +719,7 @@ $result_table=$query_data->result();
 													<thead>
 														<tr>
 															<th width="10%">Organisation Name</th>
-															<th width="40%">Detail</th>
+															<th width="40%">Details</th>
 															<th>Approver</th>
 															<th>Submission</th>
 
@@ -737,7 +738,8 @@ $result_table=$query_data->result();
 														?>
 														<tr>
 															 <td width="10%"><?=$value_id_vender->Organisation_name?></td>
-						                                    <td width="40%"><p>Vendor Name :    <?=$value_id_vender->Vendor_name?></p>
+						                                    <td width="40%">
+																
 						                                        <p>Organisation Name : <?=$value_id_vender->Organisation_name?></p>
 						                                        <p>Vendor Mobile : <?=$value_id_vender->Mobile_no?></p>
 						                                        <p>Vendor Address : <?=$value_id_vender->Organisation_address?></p>

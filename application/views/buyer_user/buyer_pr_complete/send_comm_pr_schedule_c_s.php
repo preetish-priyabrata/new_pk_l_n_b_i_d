@@ -23,11 +23,11 @@ if(empty($email_id)){
 			<ol class="breadcrumb pull-right">
 				<li class="breadcrumb-item active"><a href="#" class="fa fa-home ">Home</a></li>
 				<!-- <li class="breadcrumb-item"><a href="javascript:;">Page Options</a></li> -->
-				<li class="breadcrumb-item active">PR Schedule Ongoing Bid  For(Simple / Closed /Rank ) Bid</li>
+				<li class="breadcrumb-item active">View Completed Commercial (Closed / Rank ) Bid</li>
 			</ol>
 			<!-- end breadcrumb -->
 			<!-- begin page-header -->
-			<h1 class="page-header">Project PR Schedule Ongoing Bid <br> For(Simple / Closed /Rank) Bid
+			<h1 class="page-header">View Completed Commercial (Closed / Rank ) Bid
 			 <!-- <small>header small text goes here...</small> -->
 			</h1>
 			<!-- end page-header -->
@@ -58,7 +58,7 @@ if(empty($email_id)){
 						<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
 						<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
 					</div>
-					<h4 class="panel-title"> PR Schedule Ongoing Bid For(Simple / Closed /Rank) Bid </h4>
+					<h4 class="panel-title"> Project </h4>
 				</div>	
 				<div class="panel-body">
 					<form action="" method="POST" enctype="multipart/form-data"	>
@@ -80,7 +80,7 @@ if(empty($email_id)){
 													}
 												?>
 											</select>
-											<small class="f-s-12 text-grey-darker">Please Select Project For Upload PR Schedule Complete</small>
+											<small class="f-s-12 text-grey-darker">Please Select Project </small>
 										</div>
 									</div>
 								</div>
@@ -101,20 +101,22 @@ if(empty($email_id)){
 			</div>
 			<?php 
 			$send_button=$this->input->post('send_button');
-			if($send_button=="find"){
+			if($send_button=="find"){ 
 				$table="master_pr_schedule"; 
 				$job_code=$this->input->post('job_code');
 				$data_check = array('job_code' => $job_code,'status'=>1, 'mr_status'=>1);
                 $query=$this->db->get_where($table,$data_check);
-                    // echo  $this->db->last_query();
-               
-               
-                // $output .= '</table>';
+				foreach ($query_design->result() as $key_job_code) {
+					if($key_job_code->Project_Slno==$job_code){
+						$project_details_info=$key_job_code->job_Code." [ ".$key_job_code->Project_Name." ]";
+
+					}
+				}
                
 				?>
 			<div class="panel panel-inverse">
 				<div class="panel-heading">					
-					<h4 class="panel-title"> PR Schedule Complete List</h4>
+					<h4 class="panel-title"> PR Schedule Project Name :- <?=$project_details_info?> </h4>
 				</div>
 				<div class="panel-body">
 					<div class="table-responsive-sm">
@@ -123,12 +125,13 @@ if(empty($email_id)){
 			                    <tr>
 			                      <th>Discipline</th>
 			                      <th>PR No</th>
+			                      <th>Comment from Bu User</th>
 			                      <th>Item</th>
 			                      <th>UOM</th>
 			                      <th>Quantity</th>
 			                      <th>Original Schedule</th>
-			                      <th>procurement Remark</th>
-						          <th>Tecnical community Remark Send</th>                       
+			                      <th>Procurement Remarks</th>
+						          <th>Technical Community Remarks Send</th>                       
 			                      <th>Status</th>
 			                      <th>Action</th>
 			                      
@@ -150,7 +153,7 @@ if(empty($email_id)){
 								 		if(!empty($result_id[0]->buyer_user_remark)){
 								 			$buyer_user_remark=$result_id[0]->buyer_user_remark;
 								 		}else{
-								 			$buyer_user_remark="No Remark Received From procurement User";
+								 			$buyer_user_remark="No Remarks Received From procurement User";
 								 		}
 								 		if(!empty($result_id[0]->commercial_user_remark)){
 								 			$commercial_user_remark=$result_id[0]->commercial_user_remark;
@@ -160,7 +163,7 @@ if(empty($email_id)){
 								 		$query_bid='<a href="'.base_url().'buyer-commercial-query-completed/'.$row->pr_no.'" class="btn btn-sm btn-lime" title="" >View Query</a>';
 								 		$comm_bid=$result_id[0]->comm_bid;
 								 		$status_detai="Completed";
-								 		$url='<a href="'.base_url().'buyer-s-c-Commerical-completed-bid-pr-info-details/'.$row->pr_no.'/'.$row->slno.'/'.$row->job_code.'/2/'.$comm_bid.'" > Click to view bid Information </a>';
+								 		$url='<a href="'.base_url().'buyer-s-c-Commerical-completed-bid-pr-info-details/'.$row->pr_no.'/'.$row->slno.'/'.$row->job_code.'/2/'.$comm_bid.'" > Click to View Bid Informations </a>';
 								 		$commercial_bid_ref=$result_id[0]->commercial_bid_ref;
 								 		$commercial_bid_id=$result_id[0]->commercial_bid_id;
 								 		
@@ -191,6 +194,7 @@ if(empty($email_id)){
 						                    <tr>
 						                      <td>'.$row->discipline.'</td>
 						                      <td>'.$row->pr_no.'</td>
+						                      <td>'.$row->comment.'</td>
 						                      <td>'.$row->item.'</td>
 						                      <td>'.$row->UOM.'</td>
 						                      <td>'.$row->quantity.'</td>

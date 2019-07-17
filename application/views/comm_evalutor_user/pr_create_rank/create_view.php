@@ -69,11 +69,16 @@ if(empty($email_id)){
 					<table id="example" class="display" style="width:100%">
 						<thead>
                     <tr>
-                      <th>PR No</th>
+											<th>PR No</th>
+											<th>Comment from Bu User</th>
+											<th>PR Details</th>
                       <th>Project Name</th>
-                      <th>Bid Ref</th>
-                      <th>Bid Id</th>
-                      <!-- <th>Bid Publish Date</th> -->
+											<th>Bid Ref</th>
+											<th>Date Of PRs Release</th>
+											<th>Planned commercial closure date</th>
+											<th>Technical clearance Status</th>
+                     
+                     
                       <th>View</th>
                       
                     </tr>
@@ -93,14 +98,39 @@ if(empty($email_id)){
 									$result_project=$query_project->result();
 									$project_name=ucwords($result_project[0]->Project_Name);
 									$commercial_bid_ref=$value_comm_id->commercial_bid_ref;
-									$commercial_bid_id=$value_comm_id->commercial_bid_id;
+
+									$type_bidding_technical=$value_comm_id->type_bidding_technical;
+									if($type_bidding_technical==1){
+										$technical_user_status=$value_comm_id->technical_user_status;
+										if($technical_user_status==1){
+											$tech_evalution="Completed";
+										}else{
+											$tech_evalution="Pending";
+										}
+									}else{
+										$tech_evalution="No Technical evalution";
+									}
+									$planned_date=date('d-m-Y',strtotime($value_comm_id->commercial_closure_date));
+									$design_date=date('d-m-Y',strtotime($value_comm_id->design_date));
+									$pr_no=$value_comm_id->pr_no;
+									$pr_details_query=$this->db->get_where('master_pr_schedule',array('pr_no'=>$pr_no));
+									$result_pr_details=$pr_details_query->result();
+									$query_pr_item_SLNO=$this->db->get_where('master_pr_schedule',array('pr_no'=>$pr_no));
+									$result_pr_item=$query_pr_item_SLNO->result();
+									$comment=ucwords($result_pr_item[0]->comment);
+ 
 									$url='<a href="'.base_url().'commerical-user-received-pr-info/'.$value_comm_id->pr_no.'/'.$value_comm_id->pr_no_slno.'/'.$value_comm_id->project_slno.'/2/'.$comm_bid.'" > Click to View</a>';
 									echo '
 									<tr>
 										<td>'.$value_comm_id->pr_no.'</td>
+										<td>'.$comment.'</td>
+										<td>'.$result_pr_details[0]->item.'</td>
 										<td>'.$project_name.'</td>
 										<td>'.$commercial_bid_ref.'</td>
-										<td>'.$commercial_bid_id.'</td>
+										<td>'.$design_date.'</td>
+										<td>'.$planned_date.'</td>
+										<td>'.$tech_evalution.'</td>
+										
 										
 									
 										<td>'.$url.'</td>

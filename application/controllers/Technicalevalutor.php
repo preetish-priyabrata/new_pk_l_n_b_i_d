@@ -74,7 +74,7 @@ class Technicalevalutor extends CI_Controller {
                 $this->load->view('tech_evalutor_user/technical_bid_new/view_details_technical_bid_new',$data);
                  
             }else{
-                $this->session->set_flashdata('error_message',  'Some thing went worng Try Again!!!!');
+                $this->session->set_flashdata('error_message',  'Something went wrong Try Again!!!!');
                 redirect('user-technical-evalutor-home');
             }
            
@@ -99,7 +99,7 @@ class Technicalevalutor extends CI_Controller {
             }else if(($value1==2) || ($value1==1)){
                 $this->load->view('tech_evalutor_user/conform_closed_process/view_details_technical_bid_new',$data);
             }else{
-                $this->session->set_flashdata('error_message',  'Some thing went worng Try Again!!!!');
+                $this->session->set_flashdata('error_message',  'Something went wrong Try Again!!!!');
                 redirect('user-technical-evalutor-home');
             }
             $this->load->view('template/template_footer',$data);
@@ -124,7 +124,7 @@ class Technicalevalutor extends CI_Controller {
             }else if(($value1==2) || ($value1==1)){
                 $this->load->view('tech_evalutor_user/conform_closed_process/view_details_technical_bid_new',$data);
             }else{
-                $this->session->set_flashdata('error_message',  'Some thing went worng Try Again!!!!');
+                $this->session->set_flashdata('error_message',  'Something went wrong Try Again!!!!');
                 redirect('user-technical-evalutor-home');
             }
             $this->load->view('template/template_footer',$data);
@@ -151,7 +151,7 @@ class Technicalevalutor extends CI_Controller {
     }
      public function user_technical_evalutor_pr_receive($value=''){ // will show mr in mr received
         $scripts='<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script><script src=" https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script> <script src="'.base_url().'file_css_admin/own_js.js"></script>';
-            $data=array('title' =>"Buyer List Of Mr Received",'script_js'=>$scripts,'menu_status'=>'1','sub_menu'=>'1','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'');
+            $data=array('title' =>"View New Bids  Receive List",'script_js'=>$scripts,'menu_status'=>'1','sub_menu'=>'1','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'');
             $this->load->view('template/template_header',$data);
             $this->load->view('tech_evalutor_user/template/template_top_head');
             $this->load->view('tech_evalutor_user/template/template_side_bar',$data);
@@ -204,15 +204,15 @@ public function technical_user_bid_pr_new_material($value='',$value1='',$value2=
                          $this->session->set_flashdata('success_message',  'Sucessfully Approval Of Technical bid ');
                         redirect('user-technical-evaluator-view-details-technical-bid-new/'.$value1.'/'.$value2);
                     }else{
-                         $this->session->set_flashdata('error_message',  'Some thing went wrong Try Again!!!!!!');
+                         $this->session->set_flashdata('error_message',  'Something went wrong Try Again!!!!!!');
                         redirect('user-technical-evaluator-view-details-technical-bid-new/'.$value1.'/'.$value2);
                     }
                 }else{
-                    $this->session->set_flashdata('error_message',  'Some thing went wrong Try Again!!!!!');
+                    $this->session->set_flashdata('error_message',  'Something went wrong Try Again!!!!!');
                     redirect('user-technical-evaluator-view-details-technical-bid-new/'.$value1.'/'.$value2); 
                 }
             }else{
-                $this->session->set_flashdata('error_message',  'Some thing went wrong Try Again!!!!');
+                $this->session->set_flashdata('error_message',  'Something went wrong Try Again!!!!');
                 redirect('user-technical-evaluator-view-details-technical-bid-new/'.$value1.'/'.$value1); 
             }
         }else{ // if resubmission
@@ -231,15 +231,15 @@ public function technical_user_bid_pr_new_material($value='',$value1='',$value2=
                          $this->session->set_flashdata('success_message',  'Sucessfully Resubmission Request for bid to vendor is been send ');
                         redirect('user-technical-evaluator-view-details-technical-bid-new/'.$value1.'/'.$value2);
                     }else{
-                         $this->session->set_flashdata('error_message',  'Some thing went wrong Try Again!!!');
+                         $this->session->set_flashdata('error_message',  'Something went wrong Try Again!!!');
                         redirect('user-technical-evaluator-view-details-technical-bid-new/'.$value1.'/'.$value2);
                     }
                 }else{
-                   $this->session->set_flashdata('error_message',  'Some thing went wrong Try Again!!');
+                   $this->session->set_flashdata('error_message',  'Something went wrong Try Again!!');
                     redirect('user-technical-evaluator-view-details-technical-bid-new/'.$value1.'/'.$value2);  
                 }
             }else{
-                $this->session->set_flashdata('error_message',  'Some thing went wrong Try Again!');
+                $this->session->set_flashdata('error_message',  'Something went wrong Try Again!');
                 redirect('user-technical-evaluator-view-details-technical-bid-new/'.$value1.'/'.$value2); 
             }
         }
@@ -248,7 +248,7 @@ public function technical_user_bid_pr_new_material($value='',$value1='',$value2=
     }
 
     public function technical_view_vendor_sumission_info_pr($slno_vendor='',$master_bid_id='',$bid_id='',$pr_no=''){
-        $date_file_sub = array('bid_id_vendor' => $slno_vendor ); 
+        $date_file_sub = array('bid_id_vendor' => $slno_vendor ,'submitted_status'=>1); 
         $get_no_file=$this->db->get_where('master_vendor_tech_token_bid_c',$date_file_sub);
    
         $row_vendor=$get_no_file->result() ;
@@ -264,6 +264,11 @@ public function technical_user_bid_pr_new_material($value='',$value1='',$value2=
             $this->load->view('template/template_footer',$data);
     }
     public function technical_appro_reject_save_pr($value=''){
+        $technical_email_id=$this->session->userdata('technical_email_id');
+        if(empty($technical_email_id)){
+            
+            redirect('tech-evalutor-logout-by-pass');
+        }
         $slno_vendor=$this->input->post("slno_vendor");
         $master_bid_id=$this->input->post("master_bid_id");
         $Slno_token=$this->input->post("Slno_token");
@@ -298,7 +303,7 @@ public function technical_user_bid_pr_new_material($value='',$value1='',$value2=
             if($check_id->num_rows()==1){
                 $query_upade=$this->db->update('master_bid_vendor_m',$array_resubission,$data_id);
                 if($query_upade){
-                     $data_token_comment = array('comment' => $comment);
+                     $data_token_comment = array('approved_status'=>1,'technical_user'=>$technical_email_id);
                     $update_id = array('token_no' => $token_no);
                     $updae_token_tab=$this->db->update('master_vendor_tech_token_bid_c',$data_token_comment,$update_id);
                     if($updae_token_tab){
@@ -307,47 +312,64 @@ public function technical_user_bid_pr_new_material($value='',$value1='',$value2=
                             $this->session->set_flashdata('success_message',  'Sucessfully Approval Of Technical bid ');
                             redirect($url); 
                     }else{
-                        $this->session->set_flashdata('error_message',  'Some thing went wrong Try Again!!!!!');
+                        $this->session->set_flashdata('error_message',  'Something went wrong Try Again!!!!!');
                         redirect($url); 
                     }
                 
                 }else{                
-                $this->session->set_flashdata('error_message',  'Some thing went wrong Try Again!!!!');
+                $this->session->set_flashdata('error_message',  'Something went wrong Try Again!!!!');
                 redirect($url); 
                 }
             }else{ // if user is not found 
-                  $this->session->set_flashdata('error_message',  'Some thing went wrong Try Again!!!!');
+                  $this->session->set_flashdata('error_message',  'Something went wrong Try Again!!!!');
                 redirect($url); 
             }
-          }else{
-            $array_resubission = array('submission_status'=>'0','comment'=>$comment,'status_view'=>'8');
-            $query_upade=$this->db->update('master_bid_vendor_m',$array_resubission,$data_id);
-            // echo $this->db->last_query();
+          }else{ // comment 
+            // $update_id = array('token_no' => $token_no);
+            // print_r($update_id);
             // exit;
-            if($query_upade){
-                $data_token_comment = array('comment' => $comment);
-                $update_id = array('Slno_token' => $Slno_token);
-                $updae_token_tab=$this->db->update('master_vendor_tech_token_bid_c',$data_token_comment,$update_id);
-                if($updae_token_tab){
-                    $data_inserted = array('master_bid'=>$tech_bid, 'vendor_bid_id'=>$slno_vendor, 'comment'=>$comment, 'status'=>'N', 'active_status'=>3, 'token_no'=>$token_no, 'token_id'=>$Slno_token);
-                    $data_inserted=$this->db->insert('master_tech_bid_comment',$data_inserted);
-                    if($data_inserted){
-                         $this->session->set_flashdata('success_message',  'Sucessfully Resubmission Request for bid to vendor is been send ');
-                        redirect($url); 
+            
+            if(!empty($_FILES['attachment_file'])){
+                $path = "upload_files/comment_t_c_vendor/";
+                $file_name=date('ymdhis').( $_FILES['attachment_file']['name']);
+                $path = $path .$file_name;
+                if(move_uploaded_file($_FILES['attachment_file']['tmp_name'], $path)) {
+                    $array_resubission = array('submission_status'=>'0','comment'=>$comment,'status_view'=>'8');
+                    $query_upade=$this->db->update('master_bid_vendor_m',$array_resubission,$data_id);
+                    // echo $this->db->last_query();
+                    // exit;
+                    if($query_upade){
+                        $data_token_comment = array('comment' => $comment,'approved_status'=>2,'submitted_status'=>6,'technical_user'=>$technical_email_id,'update_files'=>$path);
+                        $update_id = array('token_no' => $token_no);
+                        $updae_token_tab=$this->db->update('master_vendor_tech_token_bid_c',$data_token_comment,$update_id);
+                        if($updae_token_tab){
+                            $data_inserted = array('master_bid'=>$tech_bid, 'vendor_bid_id'=>$slno_vendor, 'comment'=>$comment, 'status'=>'N', 'active_status'=>3, 'token_no'=>$token_no, 'token_id'=>$Slno_token);
+                            $data_inserted=$this->db->insert('master_tech_bid_comment',$data_inserted);
+                            if($data_inserted){
+                                $this->session->set_flashdata('success_message',  'Sucessfully Resubmission Request for bid to vendor is been send ');
+                                redirect($url); 
+                            }else{
+                                $this->session->set_flashdata('error_message',  'Something went wrong Try Again!!!');
+                            redirect($url); 
+                            }
+                        }else{
+                        $this->session->set_flashdata('error_message',  'Something went wrong Try Again!!');
+                            redirect($url); 
+                        }
                     }else{
-                         $this->session->set_flashdata('error_message',  'Some thing went wrong Try Again!!!');
-                       redirect($url); 
+                        $this->session->set_flashdata('error_message',  'Something went wrong Try Again!');
+                    redirect($url); 
                     }
+
                 }else{
-                   $this->session->set_flashdata('error_message',  'Some thing went wrong Try Again!!');
+                    $this->session->set_flashdata('error_message', 'Unable To Upload File it might be Corrupted ');
                     redirect($url); 
                 }
             }else{
-                $this->session->set_flashdata('error_message',  'Some thing went wrong Try Again!');
-               redirect($url); 
+                $this->session->set_flashdata('error_message', 'Upload File Is not Found please Attach Again');
+                redirect($url); 
             }
-
-          }
+        }
 
         // Array ( [slno_vendor] => 3 [master_bid_id] => 1 [Slno_token] => 1 [token_no] => eEPklcrI [vendor_id] => ven121@gmail.com [slno_vendor_url] => 3 [pr_no] => O18191-950-E-K-30108-001 [master_bid_id_url] => 1 [tech_master_bid_idurl] => 1 [token_no_url] => eEPklcrI [bid_id] => 1 [switcher_checkbox_1] => 1 [comment] => ) 
         // Array ( [slno_vendor] => 3 [master_bid_id] => 1 [Slno_token] => 1 [token_no] => eEPklcrI [vendor_id] => ven121@gmail.com [switcher_checkbox_1] => 1 [comment] => ) 
@@ -384,25 +406,36 @@ public function technical_user_bid_pr_new_material($value='',$value1='',$value2=
             $slno_pr=$result_process[0]->pr_no_slno;
             $job_code=$result_process[0]->project_slno;
             $tech_bid_db=$result_process[0]->tech_bid;  // bid id information
-
+            $technical_complete_status=$result_process[0]->technical_complete_status;
             $technical_bid_ref_url=urldecode($technical_bid_ref);
             $technical_bid_id_url=urldecode($technical_bid_id);
-            $tech_bid_url=$tech_bid;
-            if($tech_bid_url==$tech_bid_db){
+            if($technical_complete_status!=1){
+               
+                $tech_bid_url=$tech_bid;
+                if($tech_bid_url==$tech_bid_db){
 
-                $update_id = array('technical_complete_status' =>1 , 'buyer_user_status'=>2,'technical_user_status'=>1,'technical_date'=>date('Y-m-d'),'techno_commercial_status'=>4);
-                $data_id = array('technical_user_id' =>$email_id , 'pr_no' =>$pr_no);
+                    $update_id = array('technical_user_id' =>$email_id,'technical_complete_status' =>1 , 'buyer_user_status'=>2,'technical_user_status'=>1,'technical_date'=>date('Y-m-d'),'techno_commercial_status'=>4);
+                    $data_id = array('pr_no' =>$pr_no);
 
-                $query_upadte_id_process=$this->db->update('master_pr_process_detail',$update_id,$data_id);
-                $vendor_update_status = array('status_active' =>2 );
-                $id_vendor = array('master_bid_id' => $tech_bid_url );
+                    $query_upadte_id_process=$this->db->update('master_pr_process_detail',$update_id,$data_id);
+                    $vendor_update_status = array('status_active' =>2 );
+                    if($query_upadte_id_process){
+                        $id_vendor = array('master_bid_id' => $tech_bid_url );
 
-                $master_bid_vendor=$this->db->update('master_bid_vendor_m',$vendor_update_status,$id_vendor);
-                $this->session->set_flashdata('success_message',  'successfull Bid Complted  bid ref np is '.$technical_bid_ref_url);
-                redirect('user-technical-evalutor-home');
+                        $master_bid_vendor=$this->db->update('master_bid_vendor_m',$vendor_update_status,$id_vendor);
+                        $this->session->set_flashdata('success_message',  'successfull Bid Complted  bid ref np is '.$technical_bid_ref_url);
+                        redirect('user-technical-evalutor-home');
+                    }else{
+                        $this->session->set_flashdata('error_message',  'Something went wrong Try Again!!');
+                        redirect('user-technical-evalutor-home');
+                    }
 
+                }else{
+                    $this->session->set_flashdata('error_message',  'Something went wrong Try Again!!');
+                    redirect('user-technical-evalutor-home');
+                }
             }else{
-                $this->session->set_flashdata('error_message',  'Some thing went wrong Try Again!!');
+                $this->session->set_flashdata('success_message',  'Technical Bid Already Successfull Send '.$technical_bid_ref_url);
                 redirect('user-technical-evalutor-home');
             }
             
@@ -415,14 +448,14 @@ public function technical_user_bid_pr_new_material($value='',$value1='',$value2=
             $this->load->view('tech_evalutor_user/pr_details/view_details_create_view_new_bids_pr',$data);
             $this->load->view('template/template_footer',$data);
         }else{
-             $this->session->set_flashdata('error_message',  'Some thing went wrong Try Again!!');
+             $this->session->set_flashdata('error_message',  'Something went wrong Try Again!!');
                 redirect('user-technical-evalutor-home');
         }
         # code...
     }
    public function technical_evaluator_bid_old_list_pr_info($value=''){
          $scripts='<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script><script src=" https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script> <script src="'.base_url().'file_css_admin/own_js.js"></script>';
-            $data=array('title' =>"Buyer List Of Mr Received",'script_js'=>$scripts,'menu_status'=>'1','sub_menu'=>'2','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'');
+            $data=array('title' =>"History Of Technical Bid",'script_js'=>$scripts,'menu_status'=>'1','sub_menu'=>'2','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'');
             $this->load->view('template/template_header',$data);
             $this->load->view('tech_evalutor_user/template/template_top_head');
             $this->load->view('tech_evalutor_user/template/template_side_bar',$data);
@@ -452,23 +485,134 @@ public function technical_user_bid_pr_new_material($value='',$value1='',$value2=
 
    }
     
+    public function tech_change_password(){
+           
+                $scripts='<script src="https://cdnjs.cloudflare.com/ajax/libs/hideshowpassword/2.0.8/hideShowPassword.min.js"></script>';
+            
+                $data=array('title' =>"Admin Change Password for Users",'script_js'=>$scripts,'menu_status'=>'','sub_menu'=>'','sub_menu'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'');
+                $this->load->view('template/template_header',$data);
+                $this->load->view('tech_evalutor_user/template/template_top_head');
+                $this->load->view('tech_evalutor_user/template/template_side_bar',$data);
+                $this->load->view('tech_evalutor_user/change_password',$data);
+                $this->load->view('template/template_footer',$data);
+            
+        }
+        public function tech_change_password_save1(){
+            $data_brower['browser'] = $this->agent->browser();
+            $data_brower['browserVersion'] = $this->agent->version();
+            $data_brower['platform'] = $this->agent->platform();
+            $data_brower['full_user_agent_string'] = $_SERVER['HTTP_USER_AGENT'];
+            $ip = $this->input->ip_address();       
+            $date_nrowser_json=json_encode($data_brower);
+            $date_entry=date('Y-m-d');
+            $time_entry=date('H:i:s');
+            $user_id_slno=$this->input->post('user_id_slno');
+            $token_id=$this->input->post('token_id');
+            $password=$this->input->post('password');
+            $keys_id="preetishweb";
+            $value1_convered = strtr($user_id_slno,array('.' => '+', '-' => '=', '~' => '/'));
+            
+            $value1_convered_id=$this->encrypt->decode($value1_convered,$keys_id);
+            if($value1_convered_id==$token_id){
+                $table='master_admin';
+                $data_insert = array('Password'=>$password, 'password_hash'=>md5($password));
+                $id=array('slno'=>$value1_convered_id);      
+                $result_insert = $this->user->common_update($table,$data_insert,$id);
+
+                $data_json=json_encode($data_insert);
+                $data_id_json=json_encode($id);
+                $date_insert_array = array('data_insert' => $data_json,'update_id'=>$data_id_json );
+                $date_insert_json=json_encode($date_insert_array);
+
+                $table_log='pms_log_entries';
+
+                $log_entry= array('Form_name'=>"update users password", 'Data_entry'=>$date_insert_json, 'status'=>1, 'Date'=>$date_entry, 'Time'=>$time_entry, 'Location_Id'=>$ip, 'browser_information'=>$date_nrowser_json);
+
+                $result_log_entry = $this->user->common_insert($table_log,$log_entry);
+                $this->session->set_flashdata('success_message', 'Password successfully Change');
+                // After that you need to used r
+                redirect('user-technical-evalutor-home');
+
+            }else{
+                $this->session->set_flashdata('error_message', 'Something went wrong');
+                // After that you need to used redirect function instead of load view such as                 
+                redirect('user-technical-evalutor-home');    
+            }
+            // Array ( [user_id_slno] => EBq6D9dEDSNHWJwsfBpyxu~Tv.jXe0EAizvq1LuUHVwc58gP.wknHjWDLrJllQ8ndtLCoeV6HFl.dn9hqLQ8xg-- [token_id] => 6 [password] => abcd!2345aA ) 
+            # code...
+        }
+        
+        public function tech_change_password_save($value=''){
+           $email_id=$this->session->userdata('technical_email_id');
+            if(empty($email_id)){
+                
+                redirect('tech-evalutor-logout-by-pass');
+            }
+            $c_password=$this->input->post('c_password');
+            $new_password=$this->input->post('new_password');
+            $data_check=array('email_id'=>$email_id,'password_hash'=>md5($c_password),'Status'=>1);
+            $query_check=$this->db->get_where('master_admin',$data_check);
+            if($query_check->num_rows()==1){
+                $data_id_update=array('email_id'=>$email_id);
+                $data_update_information=array('password_hash'=>md5($new_password),'Password'=>$new_password);
+                $query_check=$this->db->update('master_admin',$data_update_information,$data_id_update);
+
+                $this->session->set_flashdata('success_message',' password changed successfull');
+                // After that you need to used redirect home
+                redirect('user-technical-evalutor-home');
+            }else{
+                $this->session->set_flashdata('error_message',' Something went wrong');
+                // After that you need to used redirect home
+                redirect('user-technical-evalutor-home');
+
+            }
+            # code...
+        }
+// techinal query reply and view
+public function tech_technical_query($value=''){
+    $scripts='<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script><script src=" https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script> <script src="'.base_url().'file_css_admin/own_js.js"></script>';
+
+        $data=array('title' =>"List Ongoing PR Bids",'script_js'=>$scripts ,'menu_status'=>'3','sub_menu'=>'3','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','pr'=>$value);  
+
+         $this->load->view('template/template_header',$data);
+         $this->load->view('tech_evalutor_user/template/template_top_head');
+         $this->load->view('tech_evalutor_user/template/template_side_bar',$data);
+         $this->load->view('tech_evalutor_user/tech_query/Query_panel_tech',$data);
+         $this->load->view('template/template_footer',$data);
+ }
+ 
+public function tech_technical_query_view($value='',$values=''){
+    $scripts='<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script><script src=" https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script><script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script> <script src="'.base_url().'file_css_admin/own_js.js"></script>';
+
+        $data=array('title' =>"List Ongoing PR Bids",'script_js'=>$scripts ,'menu_status'=>'3','sub_menu'=>'3','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','Slno_query'=>$value,'pr_no'=>$values);  
+
+         $this->load->view('template/template_header',$data);
+         $this->load->view('tech_evalutor_user/template/template_top_head');
+         $this->load->view('tech_evalutor_user/template/template_side_bar',$data);
+         $this->load->view('tech_evalutor_user/tech_query/query_panel_view',$data);
+         $this->load->view('template/template_footer',$data);
+ }
+  public function tech_technical_query_view_save($value=''){
+     $email_id=$this->session->userdata('technical_email_id');
+     if(empty($email_id)){
+         
+         redirect('tech-evalutor-logout-by-pass');
+     }
+            // print_r($this->input->post());
+    // Array ( [pr_no] => O18191-950-E-K-30113-001 [Slno_query] => 3 [query_details] => date is 24 april 2019 will be the final submission date )
+    $pr_no=$this->input->post('pr_no');
+    $Slno_query=$this->input->post('Slno_query');
+    $query_details=$this->input->post('query_details');
+    
+     $data_updated_info=array('response_detail'=>$query_details,'responser_id'=>$email_id,'status_responds'=>1);
+     $data_updated_id=array('Slno_query'=>$Slno_query);
+     $query_update=$this->db->update('master_bid_query_tech_m',$data_updated_info,$data_updated_id);
+      $this->session->set_flashdata('success_message', 'Successfully notification is been replied ');
+         // After that you need to used redirect home
+         redirect('tech-technical-query/'.$pr_no);
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+ }
 
 
 

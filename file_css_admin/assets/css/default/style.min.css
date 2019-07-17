@@ -504,11 +504,11 @@ table.dataTable thead .sorting_asc_disabled:after,table.dataTable thead .sorting
     border-color: #f2f3f4;
     box-shadow: none;
     -webkit-animation: expand .2s;
-    animation: expand .2s
+    animation: expand .2s;
 }
 
 .fade .navbar-form .form-control {
-    -webkit-animation: none
+    -webkit-animation: none;
 }
 
 .header .navbar-user img {
@@ -516,7 +516,7 @@ table.dataTable thead .sorting_asc_disabled:after,table.dataTable thead .sorting
     width: 30px;
     height: 30px;
     margin: -5px 10px 0 0;
-    border-radius: 30px
+    border-radius: 30px;
 }
 
 .navbar-header.navbar-header-without-bg .navbar-brand {
@@ -526,7 +526,7 @@ table.dataTable thead .sorting_asc_disabled:after,table.dataTable thead .sorting
 .navbar-language .flag-icon {
     font-size: 15px;
     margin: 2px 7px 0;
-    float: left
+    float: left;
 }
 
 .header.navbar-default {
@@ -2076,7 +2076,7 @@ table.dataTable thead .sorting_asc_disabled:after,table.dataTable thead .sorting
 .form-control.input-inline {
     display: inline;
     width: auto;
-    padding: 0 7px
+    padding: 0 7px;
 }
 
 .form-control.input-white {
@@ -8117,21 +8117,21 @@ body .bootstrap-datetimepicker-widget .timepicker-picker table td:first-child {
 }
 
 .nvd3-inverse-mode .nvd3 .nv-legend-symbol {
-    r: 3
+    r: 3;
 }
 
 .nvd3-inverse-mode .nvd3.nv-pie path {
-    stroke: rgba(0, 0, 0, .2)!important
+    stroke: rgba(0, 0, 0, .2)!important;
 }
 
 .introjs-hint {
     width: 10px!important;
-    height: 10px!important
+    height: 10px!important;
 }
 
 .introjs-hint-dot {
     left: -20px!important;
-    top: -20px!important
+    top: -20px!important;
 }
 
 .introjs-helperNumberLayer {
@@ -8141,33 +8141,33 @@ body .bootstrap-datetimepicker-widget .timepicker-picker table td:first-child {
     border: none!important;
     text-shadow: none!important;
     padding: 0!important;
-    text-align: center!important
+    text-align: center!important;
 }
 
 .note-editor.note-frame {
     border: none!important;
     margin: 0!important;
-    background: 0 0
+    background: 0 0;
 }
 
 .note-popover.popover {
-    display: none
+    display: none;
 }
 
 .note-popover .popover-content,
 .panel-heading.note-toolbar {
     padding: 10px 15px!important;
     border-radius: 0;
-    background: #242a31
+    background: #242a31;
 }
 
 .note-editor.note-frame .note-editing-area .note-editable,
 .note-editor.note-frame .note-placeholder {
-    padding: 15px!important
+    padding: 15px!important;
 }
 
 .note-toolbar.panel-heading .btn-group .btn {
-    margin-top: 0!important
+    margin-top: 0!important;
 }
 
 .note-toolbar .dropdown-toggle:after {

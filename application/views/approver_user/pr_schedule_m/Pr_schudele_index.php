@@ -22,11 +22,11 @@ if(empty($email_id)){
 			<ol class="breadcrumb pull-right">
 				<li class="breadcrumb-item active"><a href="#" class="fa fa-home ">Home</a></li>
 				<!-- <li class="breadcrumb-item"><a href="javascript:;">Page Options</a></li> -->
-				<li class="breadcrumb-item active">Orginal PR Schedule</li>
+				<li class="breadcrumb-item active">Project wise PR release status </li>
 			</ol>
 			<!-- end breadcrumb -->
 			<!-- begin page-header -->
-			<h1 class="page-header">Project Orginal PR  Schedule
+			<h1 class="page-header">Project wise PR release status
 			 <!-- <small>header small text goes here...</small> -->
 			</h1>
 			<!-- end page-header -->
@@ -57,7 +57,7 @@ if(empty($email_id)){
 						<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
 						<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
 					</div>
-					<h4 class="panel-title"> PR Schedule Received</h4>
+					<h4 class="panel-title"> Project wise PR release status </h4>
 				</div>	
 				<div class="panel-body">
 					<form action="" method="POST" enctype="multipart/form-data"	>
@@ -79,7 +79,7 @@ if(empty($email_id)){
 													}
 												?>
 											</select>
-											<small class="f-s-12 text-grey-darker">Please Select Project For Upload PR Schedule Complete</small>
+											<small class="f-s-12 text-grey-darker">Please Select Project </small>
 										</div>
 									</div>
 								</div>
@@ -99,48 +99,57 @@ if(empty($email_id)){
 				</div>
 			</div>
 			<?php 
+				
 			$send_button=$this->input->post('send_button');
 			if($send_button=="find"){
+			
 				$table="master_pr_schedule"; 
 				$job_code=$this->input->post('job_code');
-				$data_check = array('job_code' => $job_code,'status'=>1, 'mr_status'=>1);
+				$data_check = array('job_code' => $job_code);
                 $query=$this->db->get_where($table,$data_check);
-                    // echo  $this->db->last_query();
-               
-               
-                // $output .= '</table>';
+								foreach ($query_design->result() as $key_job_code) {
+									if($key_job_code->Project_Slno==$job_code){
+										$project_details_info=$key_job_code->job_Code." [ ".$key_job_code->Project_Name." ]";
+				
+									}
+								}
                
 				?>
 			<div class="panel panel-inverse">
 				<div class="panel-heading">					
-					<h4 class="panel-title"> PR Schedule Complete List</h4>
+					<h4 class="panel-title"> Project Name :- <?=$project_details_info?></h4>
 				</div>
 				<div class="panel-body">
-
-					<table id="example" class="display" style="width:100%">
+				<div class="row">
+				<div class="col-md-8">
+				<div class="table-responsive">
+					<table id="table1" class="display " style="width:100%">
 						<thead>
                     <tr>
                       <th>Discipline</th>
                       <th>PR No</th>
+                      <th>Comment from Bu User</th>
                       <th>Area</th>
                       <th>Item</th>
                       <th>UOM</th>
-                      <th>Quantity</th>
+                      <th>Schedule PR Quantity</th>
                       <th>Original Schedule</th>                      
                       <th>Status</th>
-                      <th>Remark</th>
+                      <th>Remarks</th>
                      
                       
                     </tr>
                 </thead>
                 <tbody>
 					<?php
+					$incom=$comp=0;
 					 foreach($query->result() as $row){
 					 	$pr_no=$row->pr_no;
 					 	$data_check=array('pr_no'=>$pr_no);
 					 	$query_check=$this->db->get_where('master_pr_process_detail',$data_check);
 					 	$num_rows_check=$query_check->num_rows();
 					 	if($num_rows_check!=0){
+							 $comp++;
 					 		$result_id=$query_check->result();
 					 		
 					 		if(!empty($result_id[0]->design_user_remark)){
@@ -156,22 +165,26 @@ if(empty($email_id)){
 		                    <tr>
 		                      <td>'.$row->discipline.'</td>
 		                      <td>'.$row->pr_no.'</td>
+		                      <td>'.$row->comment.'</td>
+		                      
 		                      <td>'.$row->area.'</td>
 		                      <td>'.$row->item.'</td>
 		                      <td>'.$row->UOM.'</td>
 		                      <td>'.$row->quantity.'</td>
 		                      <td>'.date('d-m-Y',strtotime($row->original_schedule)).'</td>          
-		                      <td>Completed</td>
+		                      <td>Released</td>
 		                      <td>'.$remark.'</td>
 		                      
 		                    </tr>
 		                    ';
 		                }else{
+											$incom++;
 
 		                	 echo '
 		                    <tr>
 		                      <td>'.$row->discipline.'</td>
 		                      <td>'.$row->pr_no.'</td>
+		                      <td>'.$row->comment.'</td>
 		                      <td>'.$row->area.'</td>
 		                      <td>'.$row->item.'</td>
 		                      <td>'.$row->UOM.'</td>
@@ -189,7 +202,38 @@ if(empty($email_id)){
 				</tbody>
 				</table>
 					<!-- table -->
+				</div>
+				</div>
+				<div class="col-md-4">
+					<div class="row">
+						<div class="col-lg-12">
+							<div class="widget widget-stats bg-gradient-purple m-b-10">
+								<div class="stats-icon stats-icon-lg"><i class="fa fa-archive fa-fw"></i></div>
+								<div class="stats-content">
+									<div class="stats-title">Released</div>
+									<div class="stats-number"><?=$comp?></div>
+									
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-12">
+							<div class="widget widget-stats bg-gradient-orange m-b-10">
+								<div class="stats-icon stats-icon-lg"><i class="fa fa-archive fa-fw"></i></div>
+								<div class="stats-content">
+									<div class="stats-title">Not Released</div>
+									<div class="stats-number"><?=$incom?></div>
+									
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				</div>
+				<div class="row">
 
+				</div>
 				</div>
 			</div>
 		<?php }?>

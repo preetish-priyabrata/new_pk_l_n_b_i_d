@@ -7,6 +7,26 @@ if(empty($email_id)){
 $pr_no=$Pr_no;
 $slno_pr=$Pr_no_slno;
 $job_code=$Project_slno; 
+$data_process = array('pr_no' => $pr_no,'approver_user_id'=>$email_id);
+$result_table_process=$this->db->get_where('master_pr_process_detail',$data_process)->result();
+$result_table_process_id=$this->db->get_where('master_pr_process_detail',$data_process);
+if($result_table_process_id->num_rows()!=1){
+	$this->session->set_flashdata('error_message', ' Invalid Link ');
+	redirect('user-approver-home');
+
+}
+$result_pr_approver=$result_table_process_id->result();
+if($result_pr_approver[0]->approver_user_status==0){
+	$this->session->set_flashdata('error_message', ' Pr No '.$pr_no.' Is submitted to design user for resubmitting again');
+	redirect('user-approver-home');
+}
+if($result_pr_approver[0]->approver_user_status==1){
+	$this->session->set_flashdata('success_message', ' Pr No '.$pr_no.' Is approved please check inside Project PRs Approved');
+	redirect('user-approver-home');
+}
+// ,'approver_user_status'=>2
+
+
 // 
 $data_table=array('pr_no'=>$pr_no,'mr_forword_status'=>0);
 $query_data=$this->db->get_where('master_mr_job_details_m',$data_table);
@@ -33,7 +53,7 @@ $result_table=$query_data->result();
 
 	$data_array_procurement=$this->approver_user->get_approver_procurement_list();
 		$result_file=$this->design_user->get_design_mr_file_list_m($pr_no,$slno_pr,$job_code);
-		$url_remark='<a target="_blank" class="btn btn-sm btn-success" href="'.base_url().'approver-pr-remark-history/'.$pr_no.'/'.$slno_pr.'/'.$job_code.'/1"> Click View Remark</a>';
+		$url_remark='<a target="_blank" class="btn btn-sm btn-success" href="'.base_url().'approver-pr-remark-history/'.$pr_no.'/'.$slno_pr.'/'.$job_code.'/1"> Click to View Remarks</a>';
 ?>
 
 <div class="sidebar-bg"></div>
@@ -44,12 +64,12 @@ $result_table=$query_data->result();
 			<!-- begin breadcrumb -->
 			<ol class="breadcrumb pull-right">
 				<li class="breadcrumb-item active"><a href="<?=base_url()?>user-design-home" class="fa fa-home ">Home</a></li>
-				<li class="breadcrumb-item"><a href="javascript:;">Material Requisition</a></li>
+				<li class="breadcrumb-item"><a href="javascript:;">PR</a></li>
 				<li class="breadcrumb-item active"> View  Approve And Comment PR Schedule</li>
 			</ol>
 			<!-- end breadcrumb -->
 			<!-- begin page-header -->
-			<h1 class="page-header">Pr Information  </h1>
+			<h1 class="page-header">PR Information  </h1>
 			<!-- end page-header -->
 			<?php if(!empty($this->session->flashdata('success_message'))){?>
 			<div class="alert alert-success fade show">
@@ -132,13 +152,23 @@ $result_table=$query_data->result();
 									</div>
 								</div>
 
-								<div class="form-group row m-b-15">
+								<input class="form-control m-b-5 datepickers" placeholder="Enter Date Required " name="required_date" id="required_date" type="hidden" required="" value="<?=$result_table[0]->date_required?>">
+								<!-- <div class="form-group row m-b-15">
 									<label class="col-form-label col-md-3" for="required_date">Date Required <span style="color: red">*</span></label>
 									<div class="col-md-9">
-										<input class="form-control m-b-5 datepickers" placeholder="Enter Date Required " name="required_date" id="required_date" type="text" required="" value="<?=$result_table[0]->date_required?>">
+										
+										
 										<small class="f-s-12 text-grey-darker">Please enter Date Required</small>
 									</div>
+								</div> -->
+								<div class="form-group row m-b-15">
+									<label class="col-form-label col-md-3" for="date_clearfication_bid">Planned Technical Date <span style="color: red">*</span></label>
+									<div class="col-md-9">
+										<input class="form-control m-b-5 datepickers" placeholder="Enter Planned Technical Date" name="planned_technical_clearance_date" id="planned_technical_clearance_date" type="text" required="" value="<?=$result_table_process[0]->planned_technical_clearance_date?>">
+										<small class="f-s-12 text-grey-darker">Please Select Planned Technical Date</small>
+									</div>
 								</div>
+								
 								<div class="form-group row m-b-15" id="remark_ids">
 									<label class="col-form-label col-md-3">Remark<span style="color: red">*</span></label>
 									<div class="col-md-9">
@@ -198,8 +228,8 @@ $result_table=$query_data->result();
 									</div>
 								</div>
 								<div class="form-group row m-b-15">
-									<label class="col-form-label col-md-3" for="materials_id">Material Category <span style="color: red">*</span></label>
-									<div class="col-md-9">
+									<!--<label class="col-form-label col-md-3" for="materials_id">Material Category <span style="color: red">*</span></label>-->
+									<!--<div class="col-md-9">
 										<?php
 										$data_array_materials=$this->design_user->get_design_material_category_list();	
 										
@@ -223,13 +253,13 @@ $result_table=$query_data->result();
 											
 										</select>
 										<small class="f-s-12 text-grey-darker">Select Job Code</small>
-									</div>
+									</div>-->
 								</div>
 								<div class="form-group row m-b-15">
 									<label class="col-form-label col-md-3" for="mr_date_of_creation">Date Of Creating<span style="color: red">*</span></label>
 									<div class="col-md-9">
 										<input class="form-control m-b-5" name="mr_date_of_creation" value="<?=$result_table[0]->date_creation?>" id="mr_date_of_creation" type="text" required="" readonly>
-										<small class="f-s-12 text-grey-darker">Date Of Creating MR</small>
+										<small class="f-s-12 text-grey-darker">Date Of Creating PR</small>
 									</div>
 								</div>
 								<div class="form-group row m-b-15">
@@ -276,7 +306,7 @@ $result_table=$query_data->result();
 									<thead>									
 			                            <tr>
 			                                <th><strong>File Title Name</strong></th>
-			                                <th><strong>Click View</strong></th>                                
+			                                <th><strong>Click to View</strong></th>                                
 			                              
 			                            </tr>
 			                        </thead>
@@ -284,7 +314,7 @@ $result_table=$query_data->result();
 			                            <?php foreach($result_file['files_list'] as $key_files){ ?>
 			                                <tr>
 			                                    <td><strong><?=$key_files->file_title?></strong></td>
-			                                    <td><strong><a target="_blank" href="<?=base_url()?>upload_files/design_upload/<?=$key_files->attach_name?>">Click View</a> </strong></td>                                
+			                                    <td><strong><a target="_blank" href="<?=base_url()?>upload_files/design_upload/<?=$key_files->attach_name?>">Click to View</a> </strong></td>                                
 			                                  
 			                                </tr> 
 
@@ -310,7 +340,7 @@ $result_table=$query_data->result();
 										<tr>
 											<th>Material Name</th>
 											<th>UOM</th>
-											<th>Technical Parameter</th>
+											<th>Technical Parameters</th>
 											<th>Qnty</th>
 										</tr>
 									</thead>
@@ -373,7 +403,7 @@ $result_table=$query_data->result();
 		$('#comment_view').hide();
 		$('#remark_ids').hide();
 		$("input:radio[name='type_action']:checked").change(function () {
-			alert();
+			// alert();
 			var radioValue = $("input[name='type_action']:checked").val();
 			if(radioValue==2){
 				$('#comment_view').show();

@@ -21,9 +21,11 @@ $result_new_bid=$this->vendor_db_usersnew->vendor_new_commerical_rank_bid_id_pr(
 if($result_new_bid['no_new_tech']==2){
 	redirect('user-vendor-home');
 }
+
 // print_r($result_new_bid);
 $bid_rank_ids=$result_new_bid['new_tech_list'][0];
-echo $no_of_times=$bid_rank_ids->no_of_times+1;
+$no_of_times=$bid_rank_ids->no_of_times+1;
+
 
 $slno_approve_got=$bid_rank_ids->slno_approve;
 // $category_got=$bid_rank_ids->category;
@@ -33,24 +35,24 @@ $start=strtotime($bid_rank_ids->start_date);
 $end_date=strtotime($bid_rank_ids->end_date);
 $today=strtotime(date('Y-m-d H:i:s'));
 
-if ($today > $start && $today < $end_date){
-	if ($today < $end_date){
+// if ($today > $start && $today < $end_date){
+// 	if ($today < $end_date){
   		
 	
-  	}else{
-  		echo "<p style='color:red'>Exipred1</p>";
-  		// redirect('user-vendor-home');
-  	}
-}else{
-	if($today > $end_date){
-		echo "<p style='color:red'>Exipred</p>";
-		// redirect('user-vendor-home');
+//   	}else{
+//   		echo "<p style='color:red'>Exipred1</p>";
+//   		// redirect('user-vendor-home');
+//   	}
+// }else{
+// 	if($today > $end_date){
+// 		echo "<p style='color:red'>Exipred</p>";
+// 		// redirect('user-vendor-home');
 		
-	}else{
-		echo "<p style='color:green'>Not Started</p>";
-		// redirect('user-vendor-home');
-	}  
-}
+// 	}else{
+// 		echo "<p style='color:green'>Not Started</p>";
+// 		// redirect('user-vendor-home');
+// 	}  
+// }
 
 
 // $rank=$this->vendor_db_usersnew->vendor_new_commerical_rank_calculation_pr($master_bid_id,$Vendor_email_id);
@@ -109,6 +111,13 @@ $comm_bid=$result_process[0]->comm_bid;  // bid id information
 $slno_pr=$result_process[0]->pr_no_slno;
 $job_code=$result_process[0]->project_slno;
 $date_end=$result_title['new_tech_list'][0]->date_end;
+
+
+$commercial_resubmit_count=$result_process[0]->commercial_resubmit_count;
+$master_bid_id=$result_process[0]->comm_bid;
+
+$query_currency=$this->db->get_where('master_bid_Com_m',array('pr_no'=>$pr_no,'commercial_resubmit_count'=>$commercial_resubmit_count,'Slno_bid'=>$master_bid_id));
+$result_currency=$query_currency->result();
 
 $data_table6 = array('pr_no' =>$pr_no,'commercial_bid_id'=>$comm_bid);
 $query_table6=$this->db->get_where('master_technical_commercial_terms_conditions',$data_table6);
@@ -201,12 +210,12 @@ p {
 #clock .time {
   letter-spacing: 0.05em;
   /*font-size: 80px;*/
-  font-size: 60px;
+  font-size: 25px;
   padding: 5px 0;
 }
 #clock .date {
   letter-spacing: 0.1em;
-  font-size: 24px;
+  font-size: 14px;
 }
 #clock .text {
   letter-spacing: 0.1em;
@@ -217,7 +226,8 @@ p {
   background: #0f3854;
   background: radial-gradient(ellipse at center, #0a2e38 0%, #000000 70%);
   background-size: 100%;
-  height: 17em;
+  /* height: 17em; */
+  height: 15em;
 }
 </style>
 <!-- begin #content -->
@@ -285,7 +295,7 @@ p {
 				<input type="hidden" name="bid_ref" value="<?=$result_title['new_tech_list'][0]->bid_ref?>">
 				<input type="hidden" name="url" value="<?=$url?>">
 					<div class="row">
-						<div class="col-lg-8 col-md-8">
+						<div class="col-lg-4 col-md-4">
 								<?php 
 									// print_r($rank);
 								?>
@@ -324,23 +334,11 @@ p {
 
 
 						</div>
-						<div class="col-lg-4 col-md-4">	
+
+						<div class="col-lg-8 col-md-8">	
 							<div class="row">
-								<div class="col-lg-12">
-									<div class="pk_clock">
-										<div id="clock">
-										    <p class="date">{{ date }}</p>
-										    <p class="time">{{ time }}</p>
-										    <!-- <p class="text">DIGITAL CLOCK with Vue.js</p> -->
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-lg-12">
-									<hr>
-									<h1 class="text-center">Count Down</h1>
-									<hr>
+							<div class="col-lg-6">
+									
 									<div class="text-center">
 									 <table style="border:0px;">
 		                                <tr>
@@ -353,8 +351,23 @@ p {
 		                                    <td colspan="4"><span id="color_timer"></span></td>
 		                                </tr>
 		                            </table>
+														</div>
+														<hr>
+									<h1 class="text-center">Count Down</h1>
+									<hr>
 		                        </div>
-		                        </div>
+								<div class="col-lg-6">
+									<div class="pk_clock">
+										<div id="clock">
+										    <p class="date">{{ date }}</p>
+										    <p class="time">{{ time }}</p>
+										    <!-- <p class="text">DIGITAL CLOCK with Vue.js</p> -->
+										</div>
+									</div>
+								</div>
+							
+							
+								
 		                    </div>
 
 						 </div>
@@ -362,6 +375,16 @@ p {
 					<br>
 					<br>
 				
+					<div class="row">
+					<div class="col-md-6 col-lg-6">
+						<div class="form-group row m-b-15">
+							<label class="col-form-label col-md-3" for="Job_code"> Currency <span style="color: red"></span></label>
+							<div class="col-md-9">
+							<?=$result_currency[0]->currency_code?>	
+							</div>
+						</div>
+					</div>
+					</div>
 					<div class="row">
 				<div class="col-md-12 col-lg-12">
 					<h5 class="text-center">Material Information</h5>
@@ -423,6 +446,10 @@ this.parentNode.parentNode.style.backgroundColor=/^\d+(?:\.\d{1,2})?$/.test(this
 								<td>		<input min="0" type="number" autocomplete="off"  class="form-control" id="Trans" onkeyup="fix_cala('tax1')" name="Trans"  value="0.00"  min="1"step="0.01" title="Currency INR" pattern="^\d+(?:\.\d{1,2})?$" onblur="
 this.parentNode.parentNode.style.backgroundColor=/^\d+(?:\.\d{1,2})?$/.test(this.value)?'inherit':'red'
 "></td>
+							</tr>
+							<tr>
+								<td colspan="5">Total Item Value (A+B+C) </td>
+								<td ><input type="text" autocomplete="off" readonly="readonly" class="form-control" id="total_landed" name="total_landed"  value="0.00" /></td>
 							</tr>
 							<tr>
 								<td colspan="5">GST Value (IGST / CGST + SGST) <span style="color: red">*</span>  -><div class="text-right"><input type="number" onkeyup="totalIt()" name="GST_percent" id='GST_percent' min="0" step="0.01" title="GST Percentage" pattern="^\d+(?:\.\d{1,2})?$" onblur="
@@ -496,7 +523,7 @@ this.parentNode.parentNode.style.backgroundColor=/^\d+(?:\.\d{1,2})?$/.test(this
 			<div>
 			  <label for="myCheckbox"><input id="myCheckbox" name="i_accept" type="checkbox"/>I Agree
 			  <!--  class="btn btn-primary"-->
-			  <a href="#" data-toggle="modal" data-target="#exampleModal<?=$slno?>">Click To View</a>
+			  <!-- <a href="#" data-toggle="modal" data-target="#exampleModal<?=$slno?>">Click To View</a> -->
 			</label>
 
 			 </div>
@@ -511,7 +538,7 @@ this.parentNode.parentNode.style.backgroundColor=/^\d+(?:\.\d{1,2})?$/.test(this
                 	 if($query_rode->num_rows()< $no_of_times){
 						?>
               
-                	<input type="button" value="Total" id="to_cal" onclick="totalIt()" />
+                	<button type="button"  id="to_cal" onclick="totalIt()" >Total</button>
                     <button type="submit" id="to_sub" class="btn btn-sm btn-primary m-r-5" disabled>Send</button>
               <?php  } else{
               	echo "<p style='color :red'> You Have Exceed No of biding</p> <br>";
@@ -528,7 +555,7 @@ this.parentNode.parentNode.style.backgroundColor=/^\d+(?:\.\d{1,2})?$/.test(this
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Term And Condition</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Terms And Conditions</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -660,9 +687,9 @@ this.parentNode.parentNode.style.backgroundColor=/^\d+(?:\.\d{1,2})?$/.test(this
 	}
 
 	function totalIt() {
-	  
+	  var ids_item="<?=$x;?>";
 	  var total=0;
-	  for (var i=1;i<=<?=$x?>;i++) {
+	  for (var i=1;i<=ids_item;i++) {
 	    calc(i);  
 	    var price = parseFloat(document.getElementById("price"+i).value);
 	    total += isNaN(price)?0:price;
@@ -691,29 +718,17 @@ this.parentNode.parentNode.style.backgroundColor=/^\d+(?:\.\d{1,2})?$/.test(this
 		$('#to_sub').hide();
 		$('#to_cal').show();
 	}
-	function getval(sel){
-    // alert(sel.value);
-		var gst=sel.value;
-		if(gst==1){
-			$(".data_SGST_CGST").show();
-			$(".data_IGST").hide();
-			$('#to_sub').hide();
-			$('#to_cal').show();
-			totalIt();
-		}else{
-			$(".data_IGST").show();
-			$(".data_SGST_CGST").hide();
-			$('#to_sub').hide();
-			$('#to_cal').show();
-			totalIt();
-		// `	totalIt();`
-		}
-	}
+	
 	$(document).ready(function(){
 
 		$('#to_sub').hide();
-		$(".data_IGST").hide();
+		// $(".data_IGST").hide();
 		
+	});
+	$(document).ready(function () {
+	  $('#myCheckbox').click(function () {
+	    $('#to_sub').prop("disabled", !$("#myCheckbox").prop("checked")); 
+	  })
 	});
 	$(document).ready( function($) {
  
@@ -737,10 +752,10 @@ this.parentNode.parentNode.style.backgroundColor=/^\d+(?:\.\d{1,2})?$/.test(this
 	 
 });
 	$(document).ready(function () {
-	  $('#myCheckbox').click(function () {
-	    $('#to_sub').prop("disabled", !$("#myCheckbox").prop("checked")); 
-	  })
-	  var validateSession = setInterval(get_paids, 1000);
+	 
+	  // var validateSession = setInterval(get_paids, 1000);
+		var validateSession1 = setInterval(get_paids_new, 1000);
+		// var validateSession1 = setInterval(get_paids, 1000);
 	});
 	function get_paids() {
 		<?php 
@@ -759,24 +774,53 @@ this.parentNode.parentNode.style.backgroundColor=/^\d+(?:\.\d{1,2})?$/.test(this
 		// window.location.reload();
 		// body...
 	}
+	function get_paids_new() {
+		var username ="<?=$master_bid_id?>";
+		var proaject ="<?=$Vendor_email_id?>";
+		$.ajax({
+     url:'<?=base_url()?>seller/get-user-ranks',
+     method: 'post',
+     data: {bid_id: username,project: proaject},
+     dataType: 'json',
+     success: function(response){
+      var len = response.length;
+			console.log(response);
+			console.log(response.rank);
+			
+				// response[0].rank;
+
+				console.log(response.rank);
+				console.log(response.sub_total);
+				var ranks_no= response.rank;
+				var ranks_no_price= response.sub_total;
+				
+				document.getElementById("ranks").innerHTML =ranks_no ; 
+			
+				document.getElementById("price").innerHTML=ranks_no_price;
+			
+
+		 }})
+		// window.location.reload();
+		// body...
+	}
 </script>
 
  <script>
-                                $(function(){
-                                    $('#color_timer').countdowntimer({
-                                        // currentTime : true,
-                                        // size : "lg",
-                                        dateAndTime : '<?=$bid_rank_ids->end_date?>',
-                                        size : "lg",
-                                        borderColor : "#5D09FA",
-                                        backgroundColor : "#FAF209",
-                                        fontColor : "#FA0909",
-                                        timeUp : timeisUp
-                                    });
-                                    function timeisUp() {
-								        	setTimeout(function() {
-											  window.location.href = "<?=base_url()?>user-vendor-home";
-											}, 3000);
-								    }
-                                });
+	$(function(){
+		$('#color_timer').countdowntimer({
+			// currentTime : true,
+			// size : "lg",
+			dateAndTime : '<?=$bid_rank_ids->end_date?>',
+			size : "lg",
+			borderColor : "#5D09FA",
+			backgroundColor : "#FAF209",
+			fontColor : "#FA0909",
+			timeUp : timeisUp
+		});
+		function timeisUp() {
+			setTimeout(function() {
+			window.location.href = "<?=base_url()?>user-vendor-home";
+			}, 3000);
+		}
+	});
                             </script>

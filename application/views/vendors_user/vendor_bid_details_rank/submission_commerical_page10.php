@@ -105,7 +105,7 @@ $data_get_list_commerical = array('master_bid_id_comm' =>$master_bid_id_com ,'mr
 				<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
 				<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
 			</div>
-			<h4 class="panel-title">Panel Title here</h4>
+			<h4 class="panel-title">Commercial bid submission informations</h4>
 		</div>
 		<div class="panel-body">
 			<form action="<?=base_url()?>seller/user-vendor-bid-submission-commerical-save-pr" method="POST"  onsubmit="if(document.getElementById('agree').checked) { return true; } else { alert('Please indicate that you have read and agree to the Terms and Conditions and Privacy Policy'); return false; }">
@@ -272,7 +272,7 @@ $data_get_list_commerical = array('master_bid_id_comm' =>$master_bid_id_com ,'mr
 			<div>
 			  <label for="myCheckbox"><input id="myCheckbox" name="i_accept" type="checkbox"/>I Agree
 			  <!--  class="btn btn-primary"-->
-			  <a href="#" data-toggle="modal" data-target="#exampleModal<?=$slno?>">Click To View</a>
+			  <!-- <a href="#" data-toggle="modal" data-target="#exampleModal<?=$slno?>">Click To View</a> -->
 			</label>
 
 			 </div>

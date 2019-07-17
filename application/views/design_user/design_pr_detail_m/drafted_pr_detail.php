@@ -116,14 +116,14 @@ $result_table=$query_data->result();
 									</div>
 								</div>
 
-								<div class="form-group row m-b-15">
+								<!--<div class="form-group row m-b-15">
 									<label class="col-form-label col-md-3" for="required_date">Date Required <span style="color: red">*</span></label>
 									<div class="col-md-9">
 										
 										<input class="form-control m-b-5 datepickers" placeholder="Enter Date Required " name="required_date" id="required_date" type="text" required="" value="<?=$result_table[0]->date_required?>">
 										<small class="f-s-12 text-grey-darker">Please enter Date Required</small>
 									</div>
-								</div>
+								</div>-->
 							</div>
 							<div class="col-md-6 col-lg-6">
 								<div class="form-group row m-b-15">
@@ -190,7 +190,7 @@ $result_table=$query_data->result();
 										<input class="form-control m-b-5" name="mr_date_of_creation"  id="mr_date_of_creation" type="text" required=""  value="<?=$result_table[0]->date_creation?>">
 
 
-										<small class="f-s-12 text-grey-darker">Date Of Creating MR</small>
+										<small class="f-s-12 text-grey-darker">Date Of Creating PR</small>
 									</div>
 								</div>
 							</div>
@@ -204,7 +204,7 @@ $result_table=$query_data->result();
 									<thead>									
 			                            <tr>
 			                                <th><strong>File Title Name</strong></th>
-			                                <th><strong>Click View</strong></th>                                
+			                                <th><strong>Click to View</strong></th>                                
 			                              
 			                            </tr>
 			                        </thead>
@@ -212,7 +212,7 @@ $result_table=$query_data->result();
 			                            <?php foreach($result_file['files_list'] as $key_files){ ?>
 			                                <tr>
 			                                    <td><strong><?=$key_files->file_title?></strong></td>
-			                                    <td><strong><a target="_blank" href="<?=base_url()?>upload_files/design_upload/<?=$key_files->attach_name?>">Click View</a> </strong></td>                                
+			                                    <td><strong><a target="_blank" href="<?=base_url()?>upload_files/design_upload/<?=$key_files->attach_name?>">Click to View</a> </strong></td>                                
 			                                  
 			                                </tr> 
 
@@ -409,7 +409,7 @@ var queryString = "";
                     	}else if(response==2){
                     		alert('Same File name is found ');
                     	}else{
-                    		alert('Some thing went worng Please check internet connection ');
+                    		alert('Something went wrong Please check internet connection ');
                     	}
                         // $('#msg').html(response); // display success response from the server
                     }

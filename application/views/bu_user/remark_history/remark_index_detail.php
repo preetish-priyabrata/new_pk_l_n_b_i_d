@@ -4,7 +4,7 @@ if(empty($email_id)){
 	
 	redirect('bu-logout-by-pass');
 }
-$pr_no=$pr_no;
+$values=$pr_no=$pr_no;
 $slno=$slno;
 $job_code=$job_code;
 $id=$id;
@@ -27,7 +27,7 @@ $query_remark=$this->db->get_where('master_bu_remark_pr',$data_info);
 			</ol>
 			<!-- end breadcrumb -->
 			<!-- begin page-header -->
-			<!-- <h1 class="page-header">Page with Transparent Sidebar <small>header small text goes here...</small></h1> -->
+			<h1 class="page-header">View Entire Remarks Chain For Pr No <small><?=$pr_no?></small></h1>
 			<!-- end page-header -->
 			<?php if(!empty($this->session->flashdata('success_message'))){?>
 			<div class="alert alert-success fade show">
@@ -58,16 +58,24 @@ $query_remark=$this->db->get_where('master_bu_remark_pr',$data_info);
 						<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
 						<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
 					</div>
-					<h4 class="panel-title">PR Remark History Pr No Is <?=$pr_no?></h4>
+					<h4 class="panel-title">PR Remarks History Pr No Is <?=$pr_no?></h4>
 				</div>
 				<div class="panel-body">
-               
+                <br>
+                	<!-- table -->
+					<div class="form-group row pull-right">
+                            <div class="col-md-12">
+                             
+                                <a  href="<?=base_url()?>user-bu-home" class="btn btn-sm btn-default btn-success">Back</a> 
+                            </div>
+                        </div>
+                        <br>
                 <table id="remarks" class="table" style="width:100%">
                     <thead>
                         <tr>
                             <th>Date On </th>
-                            <th>Remark / Comment</th>
-                            <th>Information</th>
+                            <th>Remarks / Comment</th>
+                            <th>Informations</th>
                             <th>User Type</th>
                             <th>User Enter Email</th>
                             <!-- <th></th> -->
@@ -130,18 +138,295 @@ $query_remark=$this->db->get_where('master_bu_remark_pr',$data_info);
                     </tbody>
 
                 </table>
-                <br>
-                	<!-- table -->
-					<div class="form-group row pull-right">
-                            <div class="col-md-12">
-                             
-                                <a  href="<?=base_url()?>user-bu-home" class="btn btn-sm btn-default btn-success">Back</a> 
-                            </div>
-                        </div>
+                
 				</div>
 			</div> 
 			<!-- end panel -->
-		</div>
+      
+        <?php
+				 	$result_query=$this->db->get_where('master_bid_query_tech_m',array('pr_no'=>$values));
+					 //print_r($result_query);
+				?>
+					
+
+			<!-- begin panel -->
+			<div class="panel panel-inverse">
+				<div class="panel-heading">
+					<div class="panel-heading-btn">
+
+						<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-redo"></i></a>
+						<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
+						<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
+					</div>
+					<h4 class="panel-title">Technical Pending Query List</h4>
+				</div>
+				<div class="panel-body">
+						
+	            <div class="row">
+								
+							
+								
+				      </div>
+				      <div class="panel-body">
+						<div class="table-responsive-sm">
+								<table class="display table vendor_example"  style="width:100%">
+									<thead>
+										 <tr>
+											 <th>Slno .</th>
+											 <th>Query</th>
+											 <th>Query Date</th>
+											 
+										 </tr>
+								 </thead>
+								 <tbody>
+									<?php
+									 $x=0;
+									 		
+												foreach ($result_query->result() as $key_query) {
+													$x++;
+                                                   if($key_query->status_responds==0){
+								 			
+													?>
+													<tr>
+														<td><?=$x?></td>
+														<td><?=$key_query->query_details?></td>
+														<td><?=$key_query->date_query?></td>
+														
+														
+													
+													</tr>
+													<?php
+												}
+
+												}
+
+											
+									  ?>
+
+								 </tbody>
+
+							</table>
+
+						</div>
+					</div>
+						 		
+						
+					</div>
+				</div>
+				<!-- Query Block End  -->
+				   
+				 	
+				 	<!-- begin panel -->
+			<div class="panel panel-inverse">
+				<div class="panel-heading">
+					<div class="panel-heading-btn">
+
+						<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-redo"></i></a>
+						<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
+						<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
+					</div>
+					<h4 class="panel-title">Technical Reply List</h4>
+				</div>
+				<div class="panel-body">
+						
+	            <div class="row">
+								
+							
+								
+				      </div>
+				      <div class="panel-body">
+						<div class="table-responsive-sm">
+								<table class="display table vendor_example"  style="width:100%">
+									<thead>
+										 <tr>
+											 <th>Slno .</th>
+											 <th>Query</th>
+											 <th>Query Date</th>
+											  <th>Reply</th>
+											 <th>Reply Date</th>
+											
+										 </tr>
+								 </thead>
+								 <tbody>
+									<?php
+									 $x=0;
+									 		
+												foreach ($result_query->result() as $key_query) {
+													$x++;
+                                                   if($key_query->status_responds==1){
+								 			
+													?>
+													<tr>
+														<td><?=$x?></td>
+														<td><?=$key_query->query_details?></td>
+														<td><?=$key_query->date_query?></td>
+													<td><?=$key_query->response_detail?></td>
+														<td><?=$key_query->date_respond?></td>
+														
+													
+													</tr>
+													<?php
+												}
+
+												}
+
+											
+									  ?>
+
+								 </tbody>
+
+							</table>
+
+						</div>
+					</div>
+						 		
+						
+					</div>
+                </div>
+                <?php
+				 	$result_query_comm=$this->db->get_where('master_bid_query_comm_m',array('pr_no'=>$values));
+					 //print_r($result_query);
+				?>
+                <div class="panel panel-inverse">
+				<div class="panel-heading">
+					<div class="panel-heading-btn">
+
+						<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-redo"></i></a>
+						<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
+						<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
+					</div>
+					<h4 class="panel-title">Commercial Pending Query List</h4>
+				</div>
+				<div class="panel-body">
+						
+	            <div class="row">
+								
+							
+								
+				      </div>
+				      <div class="panel-body">
+						<div class="table-responsive-sm">
+								<table class="display table vendor_example"  style="width:100%">
+									<thead>
+										 <tr>
+											 <th>Slno .</th>
+											 <th>Query</th>
+											 <th>Query Date</th>
+											
+										 </tr>
+								 </thead>
+								 <tbody>
+									<?php
+									 $x=0;
+									 		
+												foreach ($result_query_comm->result() as $key_query) {
+													$x++;
+                                                   if($key_query->status_responds==0){
+								 			
+													?>
+													<tr>
+														<td><?=$x?></td>
+														<td><?=$key_query->query_details?></td>
+														<td><?=$key_query->date_query?></td>
+														
+														
+													
+													</tr>
+													<?php
+												}
+
+												}
+
+											
+									  ?>
+
+								 </tbody>
+
+							</table>
+
+						</div>
+					</div>
+						 		
+						
+					</div>
+				</div>
+				<!-- Query Block End  -->
+				   
+				 	
+				 	<!-- begin panel -->
+			<div class="panel panel-inverse">
+				<div class="panel-heading">
+					<div class="panel-heading-btn">
+
+						<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-redo"></i></a>
+						<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
+						<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
+					</div>
+					<h4 class="panel-title">Commercial Reply List</h4>
+				</div>
+				<div class="panel-body">
+						
+	            <div class="row">
+								
+							
+								
+				      </div>
+				      <div class="panel-body">
+						<div class="table-responsive-sm">
+								<table class="display table vendor_example"  style="width:100%">
+									<thead>
+										 <tr>
+											 <th>Slno .</th>
+											 <th>Query</th>
+											 <th>Query Date</th>
+											  <th>Reply</th>
+											 <th>Reply Date</th>
+											
+										 </tr>
+								 </thead>
+								 <tbody>
+									<?php
+									 $x=0;
+									 		
+												foreach ($result_query_comm->result() as $key_query) {
+													$x++;
+                                                   if($key_query->status_responds==1){
+								 			
+													?>
+													<tr>
+														<td><?=$x?></td>
+														<td><?=$key_query->query_details?></td>
+														<td><?=$key_query->date_query?></td>
+													<td><?=$key_query->response_detail?></td>
+														<td><?=$key_query->date_respond?></td>
+														
+													
+													</tr>
+													<?php
+												}
+
+												}
+
+											
+									  ?>
+
+								 </tbody>
+
+							</table>
+                           
+						</div>
+					</div>
+						 		
+						
+					</div>
+				</div>
+				<!-- Query Block End  -->
+				   
+				 	
+				
+				
+                </div>
+				<!-- Query Block End  -->
         <!-- end #content -->
         <script>
             $(document).ready(function() {

@@ -17,7 +17,7 @@ $result_drafted=$this->buyer_user->buyer_mr_receive_list($email_id,$type,'');
 		<div id="content" class="content">
 			<!-- begin breadcrumb -->
 			<ol class="breadcrumb pull-right">
-				<li class="breadcrumb-item"><a href="<?=base_url()?>user-buyer-home">Home</a></li>
+				<li class="breadcrumb-item"><a href="<?=base_url()?>user-technical-evalutor-home">Home</a></li>
 				<li class="breadcrumb-item"><a href="javascript:;">Technical Bid New</a></li>
 				<li class="breadcrumb-item active">View Technical Bid List</li>
 			</ol>

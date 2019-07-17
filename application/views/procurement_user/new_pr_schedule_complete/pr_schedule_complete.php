@@ -9,6 +9,7 @@ if(empty($email_id)){
 	// $this->db->join('assign_project_user', ' (assign_project_user.project_slno = master_project.Project_Slno  AND master_project.status=1 ) ', 'right outer' );					
 	// $this->db->where('assign_project_user.email_id', $email_id); 	
 	$query_design = $this->db->get();
+	$data_array_buyer=$this->procurement_user->get_procurement_buyer_list();
 
 ?>
 <link rel="stylesheet" type="text/css" href="<?=base_url()?>file_css_admin/DataTables/datatables.min.css"/>
@@ -21,11 +22,11 @@ if(empty($email_id)){
 			<ol class="breadcrumb pull-right">
 				<li class="breadcrumb-item active"><a href="#" class="fa fa-home ">Home</a></li>
 				<!-- <li class="breadcrumb-item"><a href="javascript:;">Page Options</a></li> -->
-				<li class="breadcrumb-item active">PR Schedule Complete</li>
+				<li class="breadcrumb-item active">Buyer allocated PRs</li>
 			</ol>
 			<!-- end breadcrumb -->
 			<!-- begin page-header -->
-			<h1 class="page-header">Project PR Schedule Complete
+			<h1 class="page-header"> Buyer allocated PRs
 			 <!-- <small>header small text goes here...</small> -->
 			</h1>
 			<!-- end page-header -->
@@ -56,7 +57,7 @@ if(empty($email_id)){
 						<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
 						<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
 					</div>
-					<h4 class="panel-title"> PR Schedule Complete </h4>
+					<h4 class="panel-title"> Buyer allocated PRs </h4>
 				</div>	
 				<div class="panel-body">
 					<form action="" method="POST" enctype="multipart/form-data"	>
@@ -78,7 +79,7 @@ if(empty($email_id)){
 													}
 												?>
 											</select>
-											<small class="f-s-12 text-grey-darker">Please Select Project For Upload PR Schedule Complete</small>
+											<small class="f-s-12 text-grey-darker">Please Select Project</small>
 										</div>
 									</div>
 								</div>
@@ -103,16 +104,20 @@ if(empty($email_id)){
 				$table="master_pr_schedule"; 
 				$job_code=$this->input->post('job_code');
 				$data_check = array('job_code' => $job_code,'status'=>1, 'mr_status'=>1);
-                $query=$this->db->get_where($table,$data_check);
-                    // echo  $this->db->last_query();
-               
-               
-                // $output .= '</table>';
-               
+				$query=$this->db->get_where($table,$data_check);
+				foreach ($query_design->result() as $key_job_code) {
+					if($key_job_code->Project_Slno==$job_code){
+						$project_details_info=$key_job_code->job_Code." [ ".$key_job_code->Project_Name." ]";
+
+					}
+				}
+
+                               
 				?>
 			<div class="panel panel-inverse">
 				<div class="panel-heading">					
-					<h4 class="panel-title"> PR Schedule Complete List</h4>
+				<h4 class="panel-title"> Project Name :- <?=$project_details_info?> </h4>
+				
 				</div>
 				<div class="panel-body">
 
@@ -121,12 +126,14 @@ if(empty($email_id)){
                     <tr>
                       <th>Discipline</th>
                       <th>PR No</th>
+                      <th>Comment from Bu User</th>
                       <th>Area</th>
                       <th>Item</th>
                       <th>UOM</th>
-                      <th>Quantity</th>
-                      <th>Original Schedule</th> 
-                      <th>Remark To Buyer</th>                     
+                      <th>Schedule PR Quantity</th>
+					  <th>Original Schedule</th> 
+					  <th>Buyer Name</th> 
+                      <th>Remarks To Buyer</th>                     
                       <th>Status</th>
                       <th>Action</th>
                       
@@ -166,16 +173,24 @@ if(empty($email_id)){
 					 			default:
 					 				# code...
 					 				break;
-					 		}
+							 }
+							 $buyer_user_id=$result_id[0]->buyer_user_id;
+							 foreach ($data_array_buyer['user_buyer_list'] as $key_buyer) {	
+								 if($buyer_user_id==$key_buyer->email_id){
+									 $buyer_name=$key_buyer->Username;
+								 }
+							 }
 		                    echo '
 		                    <tr>
 		                      <td>'.$row->discipline.'</td>
 		                      <td>'.$row->pr_no.'</td>
+		                      <td>'.$row->comment.'</td>
 		                      <td>'.$row->area.'</td>
 		                      <td>'.$row->item.'</td>
 		                      <td>'.$row->UOM.'</td>
 		                      <td>'.$row->quantity.'</td>
-		                      <td>'.date('d-m-Y',strtotime($row->original_schedule)).'</td> 
+							  <td>'.date('d-m-Y',strtotime($row->original_schedule)).'</td> 
+							  <td>'.$buyer_name.'</td>
 		                      <td>'.$remark.'</td>
 		                      <td>'.$status_detai.'</td>
 		                      <td>'.$url.'</td>
@@ -194,7 +209,7 @@ if(empty($email_id)){
 
 		<script>
 		$(document).ready(function() {
-    $('#table1').DataTable( {
+    $('#table').DataTable( {
         dom: 'Bfrtip',
         buttons: [
             'copy', 'csv', 'excel', 'pdf'

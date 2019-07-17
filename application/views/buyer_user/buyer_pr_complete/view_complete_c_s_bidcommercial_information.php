@@ -16,6 +16,11 @@ $data_process = array('pr_no' =>$pr_no);
 $query_process=$this->db->get_where('master_pr_process_detail',$data_process);
 $result_process=$query_process->result();
 
+$tech_bid=$result_process[0]->tech_bid;  // bid id information
+$technical_bid_id=$result_process[0]->technical_bid_id;  // technical bid ind information 
+$technical_bid_ref=$result_process[0]->technical_bid_ref; // technical bid referenced infromtion
+$technical_edit_id=$result_process[0]->technical_edit_id; // no of time bid is been edit infromation
+
 
 $comm_bid_db=$result_process[0]->comm_bid;  // bid id information
 $commercial_bid_id=$result_process[0]->commercial_bid_id;  // technical bid ind information 
@@ -86,6 +91,12 @@ $result_table=$query_data->result();
     $data_array_procurement=$this->approver_user->get_approver_procurement_list();
 	   $result_file=$this->design_user->get_design_mr_file_list_m($pr_no,$slno_pr,$job_code);
 ?>
+<?php 
+											$technical_respond_status=$result_table[0]->techinal_evalution;
+											if($result_table[0]->techinal_evalution==2){
+												$tech= "NO";
+											}elseif($result_table[0]->techinal_evalution==1){
+												$tech= "YES";} ?>
 
 <link href="../assets/plugins/bootstrap-datepicker/css/bootstrap-datepicker.css" rel="stylesheet" />
     <link href="../assets/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.css" rel="stylesheet" />
@@ -402,8 +413,8 @@ $result_table=$query_data->result();
 												<div class="form-group row m-b-15">
 													<label class="col-form-label col-md-3" for="date_create">Date </label>
 													<div class="col-md-9">
-														<input class="form-control m-b-5" placeholder="" name="date_create" id="date_create" type="text" value="<?=date('d-m-Y')?>" required="" readonly style='opacity: 1'>
-															<small class="f-s-12 text-grey-darker">---</small>
+													<?=date('d-m-Y',strtotime($result_table3[0]->date_publish))?>
+													
 													</div>
 												</div>
 
@@ -447,9 +458,9 @@ $result_table=$query_data->result();
 												<!-- part B Start -->
 
 												<div class="form-group row m-b-15">
-													<label class="col-form-label col-md-3" for="date_publish">Bid Publish Date </label>
+													<label class="col-form-label col-md-3" for="date_publish">Currency </label>
 													<div class="col-md-9">
-														<?=date('d-m-Y',strtotime($result_table3[0]->date_publish))?>
+													<?=$result_table3[0]->currency_code?>
 														
 													</div>
 												</div>
@@ -746,8 +757,9 @@ $result_table=$query_data->result();
 														<tr>
 															<th width="10%">Organisation Name</th>
 															<th width="40%">Detail</th>
-														
-															<th>Submission</th>
+															<th>Technical Clearance Status</th>														
+															<th>financial Submission status</th>
+															<th>Commercial Approval Status</th>
 
 														</tr>
 													</thead>
@@ -769,7 +781,73 @@ $result_table=$query_data->result();
 						                                        <p>Vendor Mobile : <?=$value_id_vender->Mobile_no?></p>
 						                                        <p>Vendor Address : <?=$value_id_vender->Organisation_address?></p>
 						                                    </td>
-															<td></td>
+															<td>
+																<?php 
+																if($technical_respond_status==1){
+																	$data_array_tech = array('edit_id_bid' =>$technical_edit_id,'bid_id'=>$technical_bid_id,'bid_ref'=> $technical_bid_ref,'pr_no'=>$pr_no,'master_bid_id'=>$tech_bid,'vendor_id'=>$vendor_id,'approval_status'=>1);
+
+																	$vendor_selected_id_tech=$this->db->get_where('master_bid_vendor_m',$data_array_tech);
+																	if($vendor_selected_id_tech->num_rows()==1){
+																		echo "Technical Approved";
+																	}else{
+																		echo "No";
+																	}
+
+																}else{
+																	echo "Technical Clearance Not Required";
+																}
+																?>
+
+															</td>
+															
+															<td><?php 
+																if ($value_vendor->submission_status==1) {
+																	$check_approve=$check_approve+1;
+																	echo "<p style='color:green'>Submitted</p>";
+																}else{
+																	echo "Not Submitted";
+																}
+
+															?></td>
+															<td>
+															<table class="table table-bordered" cellpadding="10" cellspacing="1" width="100%">
+																	<thead>
+																			<tr>
+																				<th><strong>Upload Date</strong></th>										
+																				<th><strong>Status </strong></th>										
+																				
+																			</tr>
+																	</thead>
+																	<?php 
+																		$this->db->order_by('slno','Desc');
+																		$ven_upload=$this->db->get_where('master_bid_Com_vendor_term_m',array('vendor_id'=>$vendor_id,'pr_no'=>$pr_no));
+																		foreach($ven_upload->result() as $key_id =>$value_files):?>
+																		<tr>
+																			
+																		<?php 
+																		echo '<td><a target="_blank" href="'.base_url().'upload_files/vendor_term_file/'.$value_files->file_name_stored.'">'.$value_files->file_name.'</a></td>';
+
+																		?>
+																		<td>
+																			<?php 
+																			$status_file_appr=$value_files->status_file_appr;
+																			if($status_file_appr==1){
+																				echo "Approved";
+																			}else if($status_file_appr==0){
+																				echo "Pending";
+																			}else{
+																				echo "Commented";
+																			}
+																			?>
+																		</td>
+																		
+																		</tr>
+																		<?php 
+																		endforeach;
+																	?>
+																</table>
+															</td>
+															
 															
 															
 														</tr>

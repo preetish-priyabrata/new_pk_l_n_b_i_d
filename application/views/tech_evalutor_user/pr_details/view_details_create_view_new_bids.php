@@ -1,4 +1,4 @@
-<?php 
+ <?php 
 $email_id=$this->session->userdata('technical_email_id');
 if(empty($email_id)){
 	
@@ -7,7 +7,7 @@ if(empty($email_id)){
 $pr_no=$Pr_no;
 $slno_pr=$Pr_no_slno;
 $job_code=$Project_slno;
-$url_remark='<a class="btn btn-sm btn-success" target="_blank" href="'.base_url().'tech-pr-remark-history/'.$pr_no.'/'.$slno_pr.'/'.$job_code.'/1"> Click View Remark</a>';
+$url_remark='<a class="btn btn-sm btn-success" target="_blank" href="'.base_url().'tech-pr-remark-history/'.$pr_no.'/'.$slno_pr.'/'.$job_code.'/1"> Click to View Remarks</a>';
 $data_process = array('pr_no' =>$pr_no);
 $query_process=$this->db->get_where('master_pr_process_detail',$data_process);
 $result_process=$query_process->result();
@@ -97,7 +97,7 @@ $result_table=$query_data->result();
 		<div id="content" class="content">
 			<!-- begin breadcrumb -->
 			<ol class="breadcrumb pull-right">
-				<li class="breadcrumb-item active"><a href="<?=base_url()?>user-procurement-home" class="fa fa-home ">Home</a></li>
+				<li class="breadcrumb-item active"><a href="<?=base_url()?>user-technical-evalutor-home" class="fa fa-home ">Home</a></li>
 				<li class="breadcrumb-item"><a href="javascript:;">PR</a></li>
 				<li class="breadcrumb-item active">New Bid details </li>
 			</ol>
@@ -187,13 +187,13 @@ $result_table=$query_data->result();
 									</div>
 								</div>
 
-								<div class="form-group row m-b-15">
+								<!--<div class="form-group row m-b-15">
 									<label class="col-form-label col-md-3" for="required_date">Date Required </label>
 									<div class="col-md-9">
 										<input class="form-control m-b-5 datepickers" placeholder="Enter Date Required " name="required_date" id="required_date" type="text" required=""value="<?=date('d-m-Y',strtotime($result_table[0]->date_required))?>" readonly>
 										<small class="f-s-12 text-grey-darker">Please enter Date Required</small>
 									</div>
-								</div>
+								</div>-->
 								<div class="form-group row m-b-15">
 									<label class="col-form-label col-md-3" for="required_date"> Terms & Conditions </label>
 									<div class="col-md-9">
@@ -334,7 +334,7 @@ $result_table=$query_data->result();
 									<label class="col-form-label col-md-3" for="mr_date_of_creation">Date Of Creating</label>
 									<div class="col-md-9">
 										<input class="form-control m-b-5" name="mr_date_of_creation" value="<?=date('d-m-Y',strtotime($result_table[0]->date_creation))?>"  id="mr_date_of_creation" type="text" required="" readonly>
-										<small class="f-s-12 text-grey-darker">Date Of Creating MR</small>
+										<small class="f-s-12 text-grey-darker">Date of creating PR</small>
 									</div>
 								</div>
 								
@@ -562,7 +562,7 @@ $result_table=$query_data->result();
 							<div class="card">
 								<div class="card-header text-center">
 									<a class="collapsed card-link" data-toggle="collapse" href="#collapseThree">
-										Critical Date
+										Critical Dates
 									</a>
 								</div>
 								<div id="collapseThree" class="collapse" data-parent="#accordion">
@@ -645,7 +645,7 @@ $result_table=$query_data->result();
 														<thead>									
 								                            <tr>
 								                                <th><strong>File Title Name</strong></th>
-								                                <th><strong>Click View</strong></th>                                
+								                                <th><strong>Click to View</strong></th>                                
 								                              
 								                            </tr>
 								                        </thead>
@@ -723,7 +723,7 @@ $result_table=$query_data->result();
 													<thead>
 														<tr>
 															<th width="10%">Organisation Name</th>
-															<th width="40%">Detail</th>
+															<th width="40%">Details</th>
 															<th>Approver</th>
 															<th>Submission</th>
 															<th>Action</th>
@@ -741,7 +741,8 @@ $result_table=$query_data->result();
 														?>
 														<tr>
 															 <td width="10%"><?=$value_id_vender->Organisation_name?></td>
-						                                    <td width="40%"><p>Vendor Name :    <?=$value_id_vender->Vendor_name?></p>
+						                                    <td width="40%">
+																
 						                                        <p>Organisation Name : <?=$value_id_vender->Organisation_name?></p>
 						                                        <p>Vendor Mobile : <?=$value_id_vender->Mobile_no?></p>
 						                                        <p>Vendor Address : <?=$value_id_vender->Organisation_address?></p>

@@ -114,7 +114,7 @@ $result_table2=$query_table2->result();
 					<div class="form-group row m-b-15">
 						<label class="col-form-label col-md-3" for="Po_no">Start Date <span style="color: red"></span></label>
 						<div class="col-md-9">
-						<?=$result_title['new_tech_list'][0]->date_start?>	
+						<?=date('d-m-Y',strtotime($result_title['new_tech_list'][0]->date_start))?>	
 						</div>
 					</div>
 					<div class="form-group row m-b-15">
@@ -140,13 +140,13 @@ $result_table2=$query_table2->result();
 					<div class="form-group row m-b-15">
 						<label class="col-form-label col-md-3" for="Po_date"> End Date <span style="color: red"></span></label>
 						<div class="col-md-9">
-						<?=$result_title['new_tech_list'][0]->date_end?>	
+						<?=date('d-m-Y',strtotime($result_title['new_tech_list'][0]->date_end))?>	
 						</div>
 					</div>
 					<div class="form-group row m-b-15">
 						<label class="col-form-label col-md-3" for="Advance_payment_date">Date of Query </label>
 						<div class="col-md-9">
-						<?=$result_title['new_tech_list'][0]->date_end?>	
+						<?=date('d-m-Y',strtotime($result_title['new_tech_list'][0]->date_end))?>	
 						</div>
 					</div>
 					<div class="form-group row m-b-15">

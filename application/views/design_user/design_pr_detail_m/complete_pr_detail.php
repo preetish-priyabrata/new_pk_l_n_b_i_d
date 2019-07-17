@@ -7,6 +7,8 @@ if(empty($email_id)){
 $pr_no=$Pr_no;
 $slno_pr=$Pr_no_slno;
 $job_code=$Project_slno; 
+$data_process = array('pr_no' => $pr_no);
+$result_table_process=$this->db->get_where('master_pr_process_detail',$data_process)->result();
 $data_table=array('pr_no'=>$pr_no);
 $query_data=$this->db->get_where('master_mr_job_details_m',$data_table);
 if($query_data->num_rows()!=1){
@@ -28,7 +30,7 @@ $result_table=$query_data->result();
 	$query_category = $this->db->get('master_category_item');
 
 	$result_file=$this->design_user->get_design_mr_file_list_m($pr_no,$slno_pr,$job_code);
-	$url_remark='<a target="_blank" class="btn btn-sm btn-success" href="'.base_url().'design-pr-remark-history/'.$pr_no.'/'.$slno_pr.'/'.$job_code.'/1"> Click View Remark</a>';
+	$url_remark='<a target="_blank" class="btn btn-sm btn-success" href="'.base_url().'design-pr-remark-history/'.$pr_no.'/'.$slno_pr.'/'.$job_code.'/1"> Click to View Remarks</a>';
 ?>
 
 <div class="sidebar-bg"></div>
@@ -125,12 +127,20 @@ $result_table=$query_data->result();
 									</div>
 								</div>
 
-								<div class="form-group row m-b-15">
+								<input class="form-control m-b-5 datepickers" placeholder="Enter Date Required " name="required_date" id="required_date" type="hidden" required="" value="<?=$result_table[0]->date_required?>">
+								<!-- <div class="form-group row m-b-15">
 									<label class="col-form-label col-md-3" for="required_date">Date Required <span style="color: red">*</span></label>
 									<div class="col-md-9">
 										
-										<input class="form-control m-b-5 datepickers" placeholder="Enter Date Required " name="required_date" id="required_date" type="text" required="" value="<?=$result_table[0]->date_required?>">
+										
 										<small class="f-s-12 text-grey-darker">Please enter Date Required</small>
+									</div>
+								</div> -->
+								<div class="form-group row m-b-15">
+									<label class="col-form-label col-md-3" for="date_clearfication_bid">Planned Technical Date <span style="color: red">*</span></label>
+									<div class="col-md-9">
+										<input class="form-control m-b-5 datepickers" placeholder="Enter Planned Technical Date" name="planned_technical_clearance_date" id="planned_technical_clearance_date" type="text" required="" value="<?=$result_table_process[0]->planned_technical_clearance_date?>">
+										<small class="f-s-12 text-grey-darker">Please Select Planned Technical Date</small>
 									</div>
 								</div>
 							</div>
@@ -199,7 +209,7 @@ $result_table=$query_data->result();
 										<input class="form-control m-b-5" name="mr_date_of_creation"  id="mr_date_of_creation" type="text" required=""  value="<?=$result_table[0]->date_creation?>">
 
 
-										<small class="f-s-12 text-grey-darker">Date Of Creating MR</small>
+										<small class="f-s-12 text-grey-darker">Date Of Creating PR</small>
 									</div>
 								</div>
 							</div>
@@ -213,7 +223,7 @@ $result_table=$query_data->result();
 									<thead>									
 			                            <tr>
 			                                <th><strong>File Title Name</strong></th>
-			                                <th><strong>Click View</strong></th>                                
+			                                <th><strong>Click to View</strong></th>                                
 			                              
 			                            </tr>
 			                        </thead>
@@ -221,7 +231,7 @@ $result_table=$query_data->result();
 			                            <?php foreach($result_file['files_list'] as $key_files){ ?>
 			                                <tr>
 			                                    <td><strong><?=$key_files->file_title?></strong></td>
-			                                    <td><strong><a target="_blank" href="<?=base_url()?>upload_files/design_upload/<?=$key_files->attach_name?>">Click View</a> </strong></td>                                
+			                                    <td><strong><a target="_blank" href="<?=base_url()?>upload_files/design_upload/<?=$key_files->attach_name?>">Click to View</a> </strong></td>                                
 			                                  
 			                                </tr> 
 
@@ -245,7 +255,7 @@ $result_table=$query_data->result();
 										<tr>
 											<th>Material Name</th>
 											<th>UOM</th>
-											<th>Technical Parameter</th>
+											<th>Technical Parameters</th>
 											<th>Qnty</th>
 										</tr>
 									</thead>
@@ -455,7 +465,7 @@ var queryString = "";
                     	}else if(response==2){
                     		alert('Same File name is found ');
                     	}else{
-                    		alert('Some thing went worng Please check internet connection ');
+                    		alert('Something went wrong Please check internet connection ');
                     	}
                         // $('#msg').html(response); // display success response from the server
                     }

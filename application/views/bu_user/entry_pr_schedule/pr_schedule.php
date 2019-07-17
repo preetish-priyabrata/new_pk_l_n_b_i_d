@@ -6,8 +6,8 @@ if(empty($email_id)){
 }
 	$this->db->select('*');
 	$this->db->from('master_project');
-	$this->db->join('assign_project_user', ' (assign_project_user.project_slno = master_project.Project_Slno  AND master_project.status=1 ) ', 'right outer' );					
-	$this->db->where('assign_project_user.email_id', $email_id); 	
+	// $this->db->join('assign_project_user', ' (assign_project_user.project_slno = master_project.Project_Slno  AND master_project.status=1 ) ', 'right outer' );					
+	// $this->db->where('assign_project_user.email_id', $email_id); 	
 	$query_bu = $this->db->get();
 
 ?>
@@ -82,7 +82,7 @@ if(empty($email_id)){
 												?>
 											</select>
 											<!-- <input class="form-control m-b-5 datepickers" placeholder="Enter Project PR schedule" name="Date_creation" id="Date_creation" type="text" value="" required=""> -->
-											<small class="f-s-12 text-grey-darker">Please Select Project For Upload PR Schedule</small>
+											<small class="f-s-12 text-grey-darker">Please Select Project </small>
 										</div>							
 									</div>
 								</div>
@@ -93,7 +93,7 @@ if(empty($email_id)){
 											<input class=" m-b-5" name="job_files" id="job_files" type="file" required="" required accept=".xls, .xlsx" >	
 											<!-- <span class="btn btn-sm btn-info" > -->
 											<small class="f-s-12 text-grey-darker">
-												<a href="<?=base_url()?>sample/Sample_PR_Sched.xlsx">Click To View Samples</a>
+												<a href="<?=base_url()?>sample/new_final_pr_schedule_2019.xlsx">Click To View Samples</a>
 											</small>
 											<!-- </span> -->
 												<br>
@@ -108,7 +108,7 @@ if(empty($email_id)){
 			                            <button type="button" class="btn btn-sm btn-primary m-r-5" name="send_button" id="sub" value="save">Save</button>
 			                            <button type="button" class="btn btn-info btn-sm m-r-5" id="upload" style="display: none">Uploading ...</button>
 			                           	 
-			                            <a  href="<?=base_url()?>user-buuser-home" class="btn btn-sm btn-danger">Cancel</a> 
+			                            <a  href="<?=base_url()?>user-bu-home" class="btn btn-sm btn-danger">Cancel</a> 
 			                        </div>
 			                    </div>			
 							</div>
@@ -166,7 +166,7 @@ $(document).ready(function(){
 	                    	}else if(response==2){
 	                    		alert('Same File name is found ');
 	                    	}else{
-	                    		alert('Some thing went worng Please check internet connection ');
+	                    		alert('Something went wrong Please check internet connection ');
 	                    	}
 	                        // $('#msg').html(response); // display success response from the server
 	                    }
@@ -230,4 +230,92 @@ function load_data(){
 			alert('Please Select Project');	
 		}
 	}
+	function ConfirmDialog(message){
+		// alert(message);
+		var actions_file='delete';
+		var strArray = message.split("/");
+		queryString_id = 'actions_file='+actions_file+'&pr_slno='+ strArray[0];
+    	$('<div></div>').appendTo('body')
+                    .html('<div><h6>Do You Want Delete this Pr no :- '+strArray[1]+' ?</h6></div>')
+                    .dialog({
+                        modal: true, title: 'Delete message', zIndex: 10000, autoOpen: true,
+                        width: 'auto', resizable: false,
+                        buttons: {
+                            Yes: function () {
+					            $.ajax({
+									url:"<?php echo base_url(); ?>pr-not-release-changes",
+									data:queryString_id,
+									method:"POST",
+									success:function(data){
+										if(data==1){
+											alert('success delete of Pr no :- '+strArray[1]+' ?')
+											load_data();
+										}else{
+											alert('Fail to delete Pr no :- '+strArray[1]+' ?')
+										}
+										// $('#customer_data').html(data);
+									}
+								});
+                                // $(obj).removeAttr('onclick');                                
+                                // $(obj).parents('.Parent').remove();
+																
+                                // $('body').append('<h1>Confirm Dialog Result: <i>Yes</i></h1>');
+                                
+                                $(this).dialog("close");
+                            },
+                            No: function () {   
+								// $('body').append('<h1>Confirm Dialog Result: <i>No</i></h1>');
+                                                        $(this).dialog("close");
+                            }
+                        },
+                        close: function (event, ui) {
+                            $(this).remove();
+                        }
+                    });
+    };
+    function in_active_hold(message){
+		// alert(message);
+		var actions_file='hold_prs';
+		var strArray = message.split("/");
+		queryString_id = 'actions_file='+actions_file+'&pr_slno='+ strArray[0];
+
+            $.ajax({
+				url:"<?php echo base_url(); ?>pr-not-release-changes",
+				data:queryString_id,
+				method:"POST",
+				success:function(data){
+					if(data==1){
+						alert('Hold of Pr no :- '+strArray[1]+' .')
+						load_data();
+					}else{
+						alert('Fail to Hold on Pr no :- '+strArray[1]+'. ')
+					}
+					// $('#customer_data').html(data);
+				}
+			});
+                         
+    };
+    function in_active(message){
+		// alert(message);
+		var actions_file='active_prs';
+		var strArray = message.split("/");
+		queryString_id = 'actions_file='+actions_file+'&pr_slno='+ strArray[0];
+    	
+                    
+					            $.ajax({
+									url:"<?php echo base_url(); ?>pr-not-release-changes",
+									data:queryString_id,
+									method:"POST",
+									success:function(data){
+										if(data==1){
+											alert('Active of Pr no :- '+strArray[1]+' .')
+											load_data();
+										}else{
+											alert('Fail to Active Pr no :- '+strArray[1]+' .')
+										}
+										// $('#customer_data').html(data);
+									}
+								});
+                                
+    };
 </script>

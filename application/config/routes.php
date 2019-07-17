@@ -367,16 +367,22 @@ $route['design-pr-remark-history/(:any)/(:any)/(:any)/(:any)']='designusernew/de
 ###############################################################################################################################
 #
 #
-#Ne Category Lis t in design user
+#New Category List in design user
 #
 #
 #############################################################################################################################
 $route['design-view-new-category-list']='designusernew/design_view_new_category_list'; 
 $route['design-view-new-material-list']='designusernew/design_view_new_material_list';
 
+$route['design-view-new-uom-list']='designusernew/design_view_new_uom_list';
+$route['design-view-new-material-uom']='designusernew/design_view_new_material_uom';
+$route['design-view-new-material-uom-save']='designusernew/design_view_new_material_uom_save';
+
 $route['design-excel-upload/entry']='designusernew/design_add_new_category_material'; // here upload new material category list
 
 $route['design-new-material-catergory/(:any)']='designusernew/design_new_category_material/$1'; // here it create new category and material list
+$route['design-new-material-catergory-new/(:any)']='designusernew/design_new_material_catergory_new/$1';
+$route['design-new-material-catergory-new-save']='designusernew/design_new_material_catergory_new_save';
 
 $route['design-view-material-more/(:any)']='designusernew/adesign_view_material_details_list/$1'; // single category material list
 
@@ -450,6 +456,8 @@ $route['proc-view-project-old-remark']='procurementuser/proc_view_project_old_re
 $route['proc-pr-remark-history/(:any)/(:any)/(:any)/(:any)']='procurementuser/proc_pr_remark_history/$1/$2/$3/$4';
 // proc-view-project-old-remark
 
+$route['procurement-orginal-project-pr']='procurementuser/proc_pr_orginal_project_pr';
+
 #############################################################################################################################################
 #
 #												New BU Section
@@ -492,6 +500,35 @@ $route['bu-mr-new-remark-create-save']='buuser/bu_mr_new_remark_create_save';
 $route['bu-search-pr-no']='buuser/bu_search_pr_no';
 $route['bu-view-project-old-remark']='buuser/bu_view_project_old_remark';
 $route['bu-pr-remark-history/(:any)/(:any)/(:any)/(:any)']='buuser/bu_pr_remark_history/$1/$2/$3/$4';
+$route['bu-view-report-a']='buuser/bu_view_report_a';
+$route['bu-view-report-b']='buuser/bu_view_report_b';
+$route['bu-view-report-c']='buuser/bu_view_report_c';
+$route['bu-view-report-d']='buuser/bu_view_report_d';
+$route['bu-view-report-e']='buuser/bu_view_report_e';
+$route['bu-view-report-f']='buuser/bu_view_report_f';
+$route['bu-view-report-g']='buuser/bu_view_report_g';
+$route['bu-view-report-i']='buuser/bu_view_report_i';
+$route['bu-view-report-n']='buuser/bu_view_report_n';
+$route['bu-view-report-o']='buuser/bu_view_report_o';
+$route['bu-view-report-p']='buuser/bu_view_report_p';
+$route['bu-view-report-q']='buuser/bu_view_report_q';
+$route['bu-view-report-q-1']='buuser/bu_view_report_q_1';
+$route['bu-view-report-q-2']='buuser/bu_view_report_q_2';
+$route['bu-view-report-l']='buuser/bu_view_report_l';
+$route['search-material-query']='buuser/search_material_query';
+
+//new order book//
+$route['bu-create-new-order-book']='buuser/bu_create_new_order_book';
+$route['bu-create-new-order-book-save']='buuser/bu_create_new_order_book_save';
+$route['bu-view-new-order-book']='buuser/bu_view_new_order_book';
+
+$route['bu-pr-schedule-edit/(:any)']='buuser/bu_pr_schedule_edit/$1';
+$route['bu-pr-schedule-edit-save']='buuser/bu_pr_schedule_edit_save';
+
+$route['pr-not-release-changes']='buuser/pr_not_release_changes';
+//
+
+
 ###########################################################################################################################################
 #
 #                                          Buyer Section
@@ -620,7 +657,64 @@ $route['buyer-otp-verification-success-view-pr/(:any)/(:any)/(:any)/(:any)/(:any
 $route['buyer-view-project-old-remark']='buyerusernew/buyer_view_project_old_remark';
 
 $route['buyer-pr-remark-history/(:any)/(:any)/(:any)/(:any)']='buyerusernew/buyer_pr_remark_history/$1/$2/$3/$4';
-// buyer-s-c-Commerical-completed-bid-pr-info-details
+// buyer-s-c-Commerical-completed-bid-pr-info-detailsbuyer--comment-term-condition-save
+
+$route['buyer-orginal-project-pr']='buyerusernew/buyer_user_pr_orginal_project_pr';
+$route['buyer-comment-term-condition/(:any)/(:any)']='buyerusernew/buyer_comment_term_condition/$1/$2';
+$route['buyer--comment-term-condition-save']='buyerusernew/buyer_comment_term_condition_save';
+$route['buyer-new-index-alert']='buyerusernew/buyer_new_index_alert';
+#####################################################################################################################
+#
+#           Buyer New Material List 
+#
+######################################################################################################################
+$route['buyer-view-new-category-list']='buyerusernew/buyer_view_new_category_list'; 
+$route['buyer-view-new-material-list']='buyerusernew/buyer_view_new_material_list';
+
+$route['buyer-view-new-uom-list']='buyerusernew/buyer_view_new_uom_list';
+$route['buyer-view-new-material-uom']='buyerusernew/buyer_view_new_material_uom';
+$route['buyer-view-new-material-uom-save']='buyerusernew/buyer_view_new_material_uom_save';
+
+$route['buyer-excel-upload/entry']='buyerusernew/buyer_add_new_category_material'; // here upload new material category list
+
+$route['buyer-new-material-catergory/(:any)']='buyerusernew/buyer_new_category_material/$1'; // here it create new category and material list
+$route['buyer-new-material-catergory-new/(:any)']='buyerusernew/buyer_new_material_catergory_new/$1';
+$route['buyer-new-material-catergory-new-save']='buyerusernew/buyer_new_material_catergory_new_save';
+
+$route['buyer-view-material-more/(:any)']='buyerusernew/abuyer_view_material_details_list/$1'; // single category material list
+
+
+$route['buyer-user-add-new-material']='buyerusernew/buyer_user_add_new_material';
+$route['buyer-user-add-new-material-save']='buyerusernew/buyer_user_add_new_material_save';
+############################################################################################################################
+
+############################################################################################################################
+#
+#					Edit Information on item or BoQ
+#
+#############################################################################################################################
+
+$route['buyer-add-new-pr-comm-arr-edit-item']='buyerusernew/buyer_add_new_pr_comm_arr_edit_item'; //new pr before release
+
+$route['buyer-add-new-pr-comm-arr-edit-item-ongoing']='buyerusernew/buyer_add_new_pr_comm_arr_edit_item_onging'; // ongoing bid part boq
+$route['buyer-material-search-get']='buyerusernew/buyer_new_material_search_get';
+$route['buyer-ajax-cart-new-services']='buyerusernew/buyer_new_cart_services';
+$route['buyer-add-new-pr-save']='buyerusernew/buyer_add_new_pr_save_item';
+
+// boq add to cart 
+$route['buyer-material-search-get-ongoing']='buyerusernew/buyer_new_material_search_get_ongoing';
+$route['buyer-ajax-cart-new-services-ongoing']='buyerusernew/buyer_new_cart_services_ongoing';
+
+$route['buyer-add-new-pr-save-ongoing']='buyerusernew/buyer_add_new_pr_save_item_ongoing';
+
+
+$route['buyer-pr-commercial-edit-boq-list']='buyerusernew/buyer_pr_commercial_edit_boq_list';
+$route['buyer-onging-pr-boq-edit-view-details/(:any)/(:any)/(:any)/(:any)/(:any)']='buyerusernew/buyer_ongoing_boq_endit_oning_bid_details/$1/$2/$3/$4/$5';
+
+$route['buyer-ongoing-pr-float-back/(:any)']='buyerusernew/buyer_ongoing_pr_float_back/$1';
+
+// buyer bulk new entry 
+$route['buyer-bulk-pr-entry-new-information']='buyerusernew/buyer_bulk_pr_entry_new_information';
 
 // buyer-technical-query-completed
 #################################################################################################################################
@@ -651,6 +745,9 @@ $route['technical-evalutor-get-appr-rej-save-pr']='technicalevalutor/technical_a
 $route['user-technical-evaluator-bid-old-list-pr']='technicalevalutor/technical_evaluator_bid_old_list_pr_info';
 $route['tech-view-project-old-remark']='technicalevalutor/tech_view_project_old_remark';
 $route['tech-pr-remark-history/(:any)/(:any)/(:any)/(:any)']='technicalevalutor/tech_pr_remark_history/$1/$2/$3/$4';
+$route['tech-technical-query/(:any)']='technicalevalutor/tech_technical_query/$1';
+$route['tech-technical-query-view/(:any)/(:any)']='technicalevalutor/tech_technical_query_view/$1/$2';
+$route['tech-technical-query-view-save']='technicalevalutor/tech_technical_query_view_save';
 #################################################################################################################################
 #
 #Commercial Evaluator section
@@ -774,7 +871,7 @@ $route['seller/user-vendor-query-panel/(:any)']='vendorusernew/vendor_query_pane
 // commerical vendor
 // 
 $route['seller/user-vendor-bid-new-commerical']='vendorusernew/vendor_bid_new_commerical_list';
-$route['seller/user-vendor-bid-view-commerical-details-pr/(:any)/(:any)']='vendorusernew/vendor_bid_view_commerical_details_pr_details/$1/$2';// here infotmation of bid
+$route['seller/user-vendor-bid-view-commercial-details-pr/(:any)/(:any)']='vendorusernew/vendor_bid_view_commerical_details_pr_details/$1/$2';// here infotmation of bid
 
 $route['seller/user-vendor-bid-commerical-submission-bid/(:any)/(:any)']='vendorusernew/vendor_bid_view_commerical_details_pr_details_com/$1/$2';
 
@@ -794,6 +891,7 @@ $route['seller/user-vendor-bid-submission-commerical-save-pr-rank']='vendorusern
 //$route['seller/user-vendor-bid-query-view-comm/(:any)']='vendoruser/user_vendor_bid_query_view_comm/$1';
 $route['seller/user-vendor-commerical-attachment-panel/(:any)']='vendorusernew/vendor_commerical_attachment_panel/$1';
 $route['seller/vendor-bid-term-attach-files']='vendorusernew/vendor_bid_term_attach_files';
+$route['seller/get-user-ranks']='vendorusernew/get_user_ranks';
 ######################################################################################################################################
 #
 #	Logout Of all section here
@@ -818,7 +916,7 @@ $route['procurement-logout']='procurementuser/procurement_logout';
 $route['procurement-logout-by-pass']='procurementuser/procurement_logout_bypass';
 
 $route['buy-logout']='buyeruser/buy_logout';
-$route['buy-logout-by-pass']='buyeruser/buy_logout_bypass';
+$route['buyer-logout-by-pass']=$route['buy-logout-by-pass']='buyeruser/buy_logout_bypass';
 $route['tech-logout']='technicalevalutor/tech_evalutor_logout';
 ######################################################################################################################################
 #
@@ -827,3 +925,24 @@ $route['tech-logout']='technicalevalutor/tech_evalutor_logout';
 ######################################################################################################################################
 $route['admin-change-password-module']='adminuser/admin_change_password';
 $route['admin-change-password-module-save']='adminuser/admin_change_password_save';
+$route['bu-change-password-module']='buuser/bu_change_password';
+$route['bu-change-password-module-save']='buuser/bu_change_password_save';
+$route['design-change-password-module']='designusernew/design_change_password';
+$route['design-change-password-module-save']='designusernew/design_change_password_save';
+$route['approver-change-password-module']='approveruser/approver_change_password';
+$route['approver-change-password-module-save']='approveruser/approver_change_password_save';
+$route['procurement-change-password-module']='procurementuser/procurement_change_password';
+$route['procurement-change-password-module-save']='procurementuser/procurement_change_password_save';
+$route['buyer-change-password-module']='buyerusernew/buyer_change_password';
+$route['buyer-change-password-module-save']='buyerusernew/buyer_change_password_save';
+$route['tech-change-password-module']='technicalevalutor/tech_change_password';
+$route['tech-change-password-module-save']='technicalevalutor/tech_change_password_save';
+$route['comm-change-password-module']='commericalevalutornew/comm_change_password';
+$route['comm-change-password-module-save']='commericalevalutornew/comm_change_password_save';
+
+
+
+
+
+
+$route['buyer-otp-verification-success-view-pr-excel/(:any)/(:any)/(:any)/(:any)/(:any)/(:any)/(:any)/(:any)/(:any)']='buyerusernew/buyer_otp_verification_success_view_pr_excel/$1/$2/$3/$4/$5/$6/$7/$8/$9';

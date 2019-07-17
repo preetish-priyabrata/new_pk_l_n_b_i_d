@@ -19,7 +19,7 @@
 					</li>
 					<li>
 						<ul class="nav nav-profile">
-                            <li><a href="javascript:;"><i class="fa fa-key"></i> Change Password</a></li>
+                            <li><a href="<?=base_url()?>approver-change-password-module "><i class="fa fa-key"></i> Change Password</a></li>
                             <li><a href="<?=base_url()?>approve-logout"><i class="fa fa-sign-out-alt"></i> Logout</a></li>
                         
                         </ul>
@@ -38,8 +38,8 @@
 						<ul class="sub-menu">
 							<li class="<?php if($sub_menu==5){ echo 'active'; }?>"><a href="<?=base_url()?>approver-project-pr"> Project PR Received</a></li>
 							<li class="<?php if($sub_menu==5){ echo 'active'; }?>"><a href="<?=base_url()?>approved-project-pr"> Project PR Approved </a></li>
-							<li class="<?php if($sub_menu==5){ echo 'active'; }?>"><a href="<?=base_url()?>approver-comment-project-pr"> Project PR Comment </a></li>
-							<li class="<?php if($sub_menu==6){ echo 'active'; }?>"><a href="<?=base_url()?>approver-orginal-project-pr"> Project Orginal PR Schedule </a></li>
+							<li class="<?php if($sub_menu==5){ echo 'active'; }?>"><a href="<?=base_url()?>approver-comment-project-pr"> Project PR Comments</a></li>
+							<li class="<?php if($sub_menu==6){ echo 'active'; }?>"><a href="<?=base_url()?>approver-orginal-project-pr"> Project wise PR release status </a></li>
 						  
 						</ul>
 					</li>

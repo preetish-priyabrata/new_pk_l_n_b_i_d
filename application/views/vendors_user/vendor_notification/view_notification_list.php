@@ -5,17 +5,19 @@ if(empty($Vendor_email_id)){
 	redirect('vendor-logout-pass');
 }
 ?>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.5.2/css/buttons.dataTables.min.css">
 <!-- begin #content -->
 		<div id="content" class="content">
 			<!-- begin breadcrumb -->
 			<ol class="breadcrumb pull-right">
-				<li class="breadcrumb-item"><a href="javascript:;">Home</a></li>
-				<!-- <li class="breadcrumb-item"><a href="javascript:;">Page Options</a></li>
-				<li class="breadcrumb-item active">Page with Top Menu</li> -->
+				<li class="breadcrumb-item"><a href="<?=base_url()?>user-vendor-home">Home</a></li>
+			
+				<li class="breadcrumb-item active">Notifications</li> 
 			</ol>
 			<!-- end breadcrumb -->
 			<!-- begin page-header -->
-			<h1 class="page-header">Vendor DashBoard<small>All Starts From Here</small></h1>
+			<h1 class="page-header">Notifications</h1>
 			<!-- end page-header -->
 			<?php if(!empty($this->session->flashdata('success_message'))){?>
 			<div class="alert alert-success fade show">
@@ -34,8 +36,9 @@ if(empty($Vendor_email_id)){
 			</div>
 			<?php 
 			}
-			 // print_r($this->session->userdata());
+
 			 ?>
+			 <!-- <link rel="stylesheet" type="text/css" href="<?=base_url()?>file_css_admin/DataTables/datatables.min.css"/> -->
 			<!-- begin panel -->
 			<div class="panel panel-inverse">
 				<div class="panel-heading">
@@ -45,15 +48,15 @@ if(empty($Vendor_email_id)){
 						<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
 						<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
 					</div>
-					<h4 class="panel-title">Notification</h4>
+					<h4 class="panel-title">Notifications</h4>
 				</div>
 				<div class="panel-body">
 					<div class="table-responsive">
-						<table class="display table vendor_example" style="width:100%">
+						<table id="vendor_example_new" class="display table" style="width:100%">
 					        <thead>
 					            <tr>
 					                <th>Slno .</th>
-					                <th>Date Of Notfication</th>
+					                <th>Date Of Notfications</th>
 					                <th>View Status</th>									
 					              	<th>Action</th>
 					            </tr>
@@ -62,7 +65,8 @@ if(empty($Vendor_email_id)){
 					        	<?php
 					        	$x=0; 
 					        		$data_get_id = array('vendor_id' => $Vendor_email_id );
-					        		$this->db->order_by('date_entry', "desc");
+											$this->db->order_by('date_entry', "desc");
+											$this->db->order_by('view_status', "Asc");
 					        		$query=$this->db->get_where('master_vendor_notifications',$data_get_id);
 					        		foreach ($query->result() as $key => $value) {
 					        		$x++;
@@ -70,7 +74,7 @@ if(empty($Vendor_email_id)){
 					        	?>
 					        	<tr>
 					        		<td><?=$x?></td>
-					        		<td><a href="<?=base_url()?>vendor-view-detail-noticfaction/<?=$value->slno_approve?>/<?=$view_status?>"><?=$value->date_entry?></a></td>
+					        		<td><a href="<?=base_url()?>vendor-view-detail-noticfaction/<?=$value->slno_approve?>/<?=$view_status?>"><?=date('d-m-Y',strtotime($value->date_entry))?></a></td>
 					        		<td><?php 
 					        		if($view_status==0){
 					        			echo "<p style='color:red'>Not viewed</p>";
@@ -91,3 +95,25 @@ if(empty($Vendor_email_id)){
 			<!-- end panel -->
 		</div>
 		<!-- end #content -->
+		<script type="text/javascript">
+	$(document).ready( function () { 
+    // Setup - add a text input to each header cell
+    $('#vendor_example_new thead tr:eq(1) th').each( function () {
+        var title = $('#vendor_example_new thead tr:eq(0) th').eq( $(this).index() ).text();
+        $(this).html( '<input type="text" placeholder="Search '+title+'" />' );
+    } ); 
+  
+    var table = $('#vendor_example_new').DataTable({
+        orderCellsTop: true
+    });
+  
+    // Apply the search
+    table.columns().every(function (index) {
+        $('#vendor_example_new thead tr:eq(1) th:eq(' + index + ') input').on('keyup change', function () {
+            table.column($(this).parent().index() + ':visible')
+                .search(this.value)
+                .draw();
+        });
+    });
+});
+</script>

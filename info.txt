@@ -27,3 +27,9 @@ TRUNCATE `Ilab_master_bid_Com_evaluation_m`;
 TRUNCATE `Ilab_master_bid_t_c_comm_m`;
 TRUNCATE `Ilab_master_bid_Com_vendor_m`;
 TRUNCATE `Ilab_master_mr_material_item_comm_m`;
+
+
+
+ALTER TABLE `Ilab_master_tracking_tools_m_clone` ADD `planned_bg_submission` VARCHAR(255) NULL DEFAULT NULL AFTER `drg_submission_date_po` ;
+
+ALTER TABLE `Ilab_master_tracking_tools_m` ADD `planned_bg_submission` VARCHAR(255) NULL DEFAULT NULL AFTER `drg_submission_date_po`;

@@ -233,4 +233,28 @@ class Approver_model extends CI_Model {
       # code...
     }
 
+    public function get_pr_item_quantity_details($pr_no){
+      $quantity=0;
+      $data_table=array('pr_no'=>$pr_no);
+      $query_data=$this->db->get_where('master_mr_job_details_m',$data_table);
+      // here pr is fround getting infromation of edit id of pr
+      $result_table=$query_data->result();  // here is result id 
+      $edit_id=$result_table[0]->edit_id;
+
+      $data_material = array('mr_no_item' => $pr_no, 'edit_id'=>$edit_id);
+      $table_material="master_mr_material_item_m";
+      $query_table_material=$this->db->get_where($table_material,$data_material);
+     
+      $result_material=$query_table_material->result(); 
+
+      foreach ($result_material as $key_material => $value_material):
+        $quantity=$quantity+$value_material->material_quantity;
+      endforeach;
+      $data_pr_quantity=array('pr_inside_quantity'=>$quantity);
+      return $data_pr_quantity;
+      exit;
+
+      
+    }
+
 }

@@ -115,16 +115,37 @@ class Commericalevalutornew extends CI_Controller {
    if($query_check->num_rows()!=1){
     redirect('comm-evalutor-logout-by-pass');
    }
+   $this->db->update('master_bid_invi_rank_approvals_pr',array('status'=>2),array('pr_slno'=>$pr_no));
+              
+   $this->db->update('master_bid_invitation_rank_pr',array('status_process'=>2),array('pr_slno'=>$pr_no));
    $comm_id=$query_check->result();
    $comm_list=unserialize($comm_id[0]->commercial_user_id_array);  
-   foreach($comm_list as $key_comm_list =>$value_comm_list):
-    $otp=date('Y-m-d')."-".random_string('alnum', 5);
-    $commerical_email_ids=$value_comm_list;
+    foreach($comm_list as $key_comm_list =>$value_comm_list):
+        $otp=date('Y-m-d')."-".random_string('alnum', 5);
+        $commerical_email_ids=$value_comm_list;
+
+        $this->load->library('email');
+        $config['charset'] = 'utf-8';
+        $config['wordwrap'] = TRUE;
+        $config['mailtype'] = 'html';
+        $this->email->initialize($config);
+
+        $this->email->from('contact@innovadorslab.co.in', 'Lnt Bid Management System');
+        $this->email->to('siprah@gmail.com');
+        $this->email->cc('suryakumar.b@lntecc.com,'.$commerical_email_ids);
+        // $this->email->cc($commerical_email_ids);
+        $this->email->bcc('ppriyabrata8888@gmail.com');
+
+        $this->email->subject('Otp For Pr No Is '.$pr_no);
+        $this->email->message('Your Verification OTP Is " <b>'.$otp.' </b>" . Please enter this OTP in the space provided in the application Thanks .');
+
+        $this->email->send();
+
         // `master_bid_id`, `bid_ref`, `bid_id`, `re_bid_count_id`, `pr_no`, `type_bid`, `otp`, `bid_name`, `user_id_process`, `status`, `match_status`, `date_entry`, `date_update`, `match_bid_id_user`
-    $bid_serial_insert = array('master_bid_id'=>$comm_bid_db, 'bid_ref'=>$commercial_bid_ref, 'bid_id'=>$commercial_bid_id, 'pr_no'=>$pr_no,  're_bid_count_id'=>$commercial_resubmit_count,'type_bid'=>$value, 'otp'=>$otp, 'bid_name'=>$value3, 'user_id_process'=>$commerical_email_ids, 'status'=>1, 'match_status'=>2);
-    $query_otp_insert=$this->db->insert('master_bid_otp_commerical_m',$bid_serial_insert);
-    $last_insert_id_array[]=$this->db->insert_id();
-   endforeach;
+        $bid_serial_insert = array('master_bid_id'=>$comm_bid_db, 'bid_ref'=>$commercial_bid_ref, 'bid_id'=>$commercial_bid_id, 'pr_no'=>$pr_no,  're_bid_count_id'=>$commercial_resubmit_count,'type_bid'=>$value, 'otp'=>$otp, 'bid_name'=>$value3, 'user_id_process'=>$commerical_email_ids, 'status'=>1, 'match_status'=>2);
+        $query_otp_insert=$this->db->insert('master_bid_otp_commerical_m',$bid_serial_insert);
+        $last_insert_id_array[]=$this->db->insert_id();
+    endforeach;
    $last_insert_id=implode("-",$last_insert_id_array); 
     if($query_otp_insert){
         redirect('Commercial-get-otp-arra-commerical/'.$value.'/'.$last_insert_id.'/'.$pr_no.'/'.$commercial_bid_ref.'/'.$commercial_bid_id.'/'.$comm_bid_db.'/'.$commercial_edit_id.'/'.$commercial_resubmit_count.'/'.$commercial_type_bid);
@@ -245,7 +266,7 @@ class Commericalevalutornew extends CI_Controller {
                 $data_update_id= array('slno_comm' =>$last_otp_ids_up);
                 $query_update_otp=$this->db->update('master_bid_otp_commerical_m',$update_status,$data_update_id);
             endforeach;
-            $this->session->set_flashdata('success_message',  'Otp Is been match and view commerical Information');
+            $this->session->set_flashdata('success_message',  'Otp has been matched and view commerical Information');
             redirect('commerical-otp-verification-success-pr/'.$type_bid.'/'.$last_otp_id.'/'.$pr_no.'/'.$commercial_bid_ref.'/'.$commercial_bid_id.'/'.$comm_bid_db.'/'.$commercial_edit_id.'/'.$commercial_resubmit_count.'/'.$commercial_type_bid);
 
         }else{
@@ -316,7 +337,7 @@ $vendor_apporved=$this->input->post('vendor_apporved');
                     // redirect('commerrical-user-send-nofication-vendor');
                     $this->commerrical_user_send_approve_nofication_vendor_pr($data_not);
                 }else{
-                       $this->session->set_flashdata('error_message',  'No Vendor Is been Assign to notifiy please Select vendor and Send again');
+                       $this->session->set_flashdata('error_message',  'No Vendor has been Assign to notifiy please Select vendor and Send again');
                     redirect('commerical-otp-verification-success-pr/'.$type_bid.'/'.$last_otp_id.'/'.$pr_no.'/'.$commercial_bid_ref.'/'.$commercial_bid_id.'/'.$comm_bid_db.'/'.$commercial_edit_id.'/'.$commercial_resubmit_count.'/'.$commercial_type_bid);
                 }
                 break;
@@ -326,7 +347,7 @@ $vendor_apporved=$this->input->post('vendor_apporved');
                     // redirect('commerrical-user-send-nofication-vendor');
                     $this->commerrical_user_send_approve_vendor_pr($data_not);
                 }else{
-                    $this->session->set_flashdata('error_message',  'No Vendor Is been Assign to notifiy please Select vendor and Send again');
+                    $this->session->set_flashdata('error_message',  'No Vendor has been Assign to notifiy please Select vendor and Send again');
                     redirect('commerical-otp-verification-success-pr/'.$type_bid.'/'.$last_otp_id.'/'.$pr_no.'/'.$commercial_bid_ref.'/'.$commercial_bid_id.'/'.$comm_bid_db.'/'.$commercial_edit_id.'/'.$commercial_resubmit_count.'/'.$commercial_type_bid);
                 }
                 # code...
@@ -353,6 +374,9 @@ $vendor_apporved=$this->input->post('vendor_apporved');
         $vendor_notification=$this->input->post('vendor_notification');
         $vendor_apporved=$this->input->post('vendor_apporved');
         $value3 = urldecode($commercial_type_bid);
+        $this->db->update('master_bid_invi_rank_approvals_pr',array('status'=>2),array('pr_slno'=>$pr_no));
+              
+        $this->db->update('master_bid_invitation_rank_pr',array('status_process'=>2),array('pr_slno'=>$pr_no));
 
         // $type_bid=$this->input->post('type_bid');
         // $master_bid_id=$this->input->post('master_bid_id');
@@ -402,6 +426,16 @@ $vendor_apporved=$this->input->post('vendor_apporved');
         $vendor_notification=$this->input->post('vendor_notification');
         $vendor_apporved=$this->input->post('vendor_apporved');
         $value3 = urldecode($commercial_type_bid);
+        $query_check=$this->db->get_where('master_pr_process_detail', array('pr_no' => $pr_no));
+        if($query_check->num_rows()==1){
+            $result_process_query=$query_check->result();
+            $commercial_user_status=$result_process_query[0]->commercial_user_status;
+            if($commercial_user_status==1){
+                $this->session->set_flashdata('success_message',  'This bid is already statement has generated');
+                redirect('user-commerical-evalutor-home');
+                exit;
+            }else{
+
 
         // $type_bid=$this->input->post('type_bid');
         // $master_bid_id=$this->input->post('master_bid_id');
@@ -444,20 +478,28 @@ $vendor_apporved=$this->input->post('vendor_apporved');
                  $this->db->update('master_bid_Com_vendor_m',$data_vendor_id,$data_vendor_bid_ids);
 
                  $date_process_pr = array('pr_no' => $pr_no);
-              $date_update_process = array('techno_commercial_status' =>1 ,'commercial_date'=>date('y-m-d') ,'commercial_user_status'=>1,'commercial_complete_status'=>1);
+              $date_update_process = array('techno_commercial_status' =>1 ,'commercial_date'=>date('y-m-d') ,'commercial_user_status'=>1,'commercial_complete_status'=>1,'buyer_user_status'=>1);
                 $this->db->update('master_pr_process_detail',$date_update_process,$date_process_pr);
               // 
+              $this->db->update('master_bid_invi_rank_approvals_pr',array('status'=>2),array('pr_slno'=>$pr_no));
+              
+              $this->db->update('master_bid_invitation_rank_pr',array('status_process'=>2),array('pr_slno'=>$pr_no));
 
                 $this->session->set_flashdata('success_message',  'Bid Approved vendor successfully Has been Completed');
                  redirect('commerical-otp-verification-success-view-pr/'.$type_bid.'/'.$last_otp_id.'/'.$pr_no.'/'.$commercial_bid_ref.'/'.$commercial_bid_id.'/'.$comm_bid_db.'/'.$commercial_edit_id.'/'.$commercial_resubmit_count.'/'.$commercial_type_bid);
                  // redirect('commerical-otp-verification-success-view/'.$type_bid.'/'.$master_bid_id.'/'.$category_id.'/'.$bid_name_url.'/'.$buyer_bid.'/'.$last_otp_id);
-      
+            }
+        }else{
+            $this->session->set_flashdata('error_message',  'Bid Is Unable find');
+            redirect('user-commerical-evalutor-home');
+            exit;
+        }
        # code...
    }
 
    public function commerical_user_send_approve_nofication_pr($value=''){
-      // print_r($this->input->post());
-      // exit;
+    //   print_r($this->input->post());
+    //   exit;
       // Array ( [type_bid] => 1 [pr_no] => O900-102-A-C-40101-003 [commercial_bid_ref] => 66400 [commercial_bid_id] => 7701 [last_otp_id] => 3 [commercial_type_bid] => Simple Bid [comm_bid_db] => 4 [commercial_resubmit_count] => 0 [commercial_edit_id] => 1 [end_dete_submitio] => 04/18/2018 [Message] => Query grouping allows you to create groups of WHERE clauses by enclosing them in parentheses. This will allow you to create queries with complex WHERE clauses. Nested groups are supported. Example: [Vendor_email_id] => Array ( [0] => vender@ilab.com [1] => ven121@gmail.com ) [slno_vendor] => Array ( [0] => 15 [1] => 16 ) ) 
       // 
         $type_bid=$this->input->post('type_bid');
@@ -474,6 +516,9 @@ $vendor_apporved=$this->input->post('vendor_apporved');
         $slno_vendor=$this->input->post('slno_vendor');
         $Vendor_email_id=$this->input->post('Vendor_email_id');
         $Slno_vendor_id=$this->input->post('Slno_vendor_id');
+        $this->db->update('master_bid_invi_rank_approvals_pr',array('status'=>2),array('pr_slno'=>$pr_no));
+              
+        $this->db->update('master_bid_invitation_rank_pr',array('status_process'=>2),array('pr_slno'=>$pr_no));
 
        // $type_bid=$this->input->post('type_bid');
        //  $master_bid_id=$this->input->post('master_bid_id');
@@ -490,17 +535,20 @@ $vendor_apporved=$this->input->post('vendor_apporved');
       //  $query= $this->db->get_where('master_bid_invi_rank_approvals',$data_get);
 
             foreach ($Vendor_email_id as $key_id => $value_id) {
+
                 $slno_vendor_id=$slno_vendor[$key_id];
                 $vender_slno_id=$Slno_vendor_id[$key_id];
-                $approve_vendor = array('vendor_id_bid'=>$slno_vendor_id, 'vendor_id'=>$vender_slno_id, 'message'=>$Message);
+                $Message_single=$Message[$key_id];
+                $approve_vendor = array('vendor_id_bid'=>$slno_vendor_id, 'vendor_id'=>$value_id, 'message'=>$Message_single);
                 $this->db->insert('master_vendor_notifications',$approve_vendor);
+                echo $this->db->last_query();
                 $update_status = array('status_view' =>8 , 'negotiable_date'=>$end_dete_submitio);
                 $update_id = array('slno_vendor' => $slno_vendor_id,'vendor_id'=> $value_id);
                 $this->db->update('master_bid_Com_vendor_m',$update_status,$update_id);
 
            }
            // `master_bid_id`, `messsage`, `vendor_send_id`, `end_submission_date`
-           $data_insert = array('master_bid_id' => $comm_bid_db,'messsage'=>$Message,'vendor_send_id'=>json_encode($Vendor_email_id) ,'end_submission_date'=>$end_dete_submitio);
+           $data_insert = array('master_bid_id' => $comm_bid_db,'messsage'=>json_encode($Message),'vendor_send_id'=>json_encode($Vendor_email_id) ,'end_submission_date'=>$end_dete_submitio);
              $this->db->insert('master_commercial_notifications',$data_insert);
              $this->session->set_flashdata('success_message', 'Successfull notification is send bid '.$commercial_bid_ref); // here is message is been toasted
 
@@ -526,6 +574,92 @@ $vendor_apporved=$this->input->post('vendor_apporved');
             $this->load->view('template/template_footer',$data);
        # code...
    }
+   public function comm_change_password(){
+           
+                $scripts='<script src="https://cdnjs.cloudflare.com/ajax/libs/hideshowpassword/2.0.8/hideShowPassword.min.js"></script>';
+            
+                $data=array('title' =>"Admin Change Password for Users",'script_js'=>$scripts,'menu_status'=>'','sub_menu'=>'','sub_menu'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'','sub_menu_1'=>'','sub_menu_2'=>'','sub_menu_3'=>'');
+                $this->load->view('template/template_header',$data);
+                $this->load->view('comm_evalutor_user/template/template_top_head');
+                $this->load->view('comm_evalutor_user/template/template_side_bar',$data);
+                $this->load->view('comm_evalutor_user/change_password',$data);
+                $this->load->view('template/template_footer',$data);
+            
+        }
+        public function comm_change_password_save1(){
+            $data_brower['browser'] = $this->agent->browser();
+            $data_brower['browserVersion'] = $this->agent->version();
+            $data_brower['platform'] = $this->agent->platform();
+            $data_brower['full_user_agent_string'] = $_SERVER['HTTP_USER_AGENT'];
+            $ip = $this->input->ip_address();       
+            $date_nrowser_json=json_encode($data_brower);
+            $date_entry=date('Y-m-d');
+            $time_entry=date('H:i:s');
+            $user_id_slno=$this->input->post('user_id_slno');
+            $token_id=$this->input->post('token_id');
+            $password=$this->input->post('password');
+            $keys_id="preetishweb";
+            $value1_convered = strtr($user_id_slno,array('.' => '+', '-' => '=', '~' => '/'));
+            
+            $value1_convered_id=$this->encrypt->decode($value1_convered,$keys_id);
+            if($value1_convered_id==$token_id){
+                $table='master_admin';
+                $data_insert = array('Password'=>$password, 'password_hash'=>md5($password));
+                $id=array('slno'=>$value1_convered_id);      
+                $result_insert = $this->user->common_update($table,$data_insert,$id);
+
+                $data_json=json_encode($data_insert);
+                $data_id_json=json_encode($id);
+                $date_insert_array = array('data_insert' => $data_json,'update_id'=>$data_id_json );
+                $date_insert_json=json_encode($date_insert_array);
+
+                $table_log='pms_log_entries';
+
+                $log_entry= array('Form_name'=>"update users password", 'Data_entry'=>$date_insert_json, 'status'=>1, 'Date'=>$date_entry, 'Time'=>$time_entry, 'Location_Id'=>$ip, 'browser_information'=>$date_nrowser_json);
+
+                $result_log_entry = $this->user->common_insert($table_log,$log_entry);
+                $this->session->set_flashdata('success_message', 'Password successfully Change');
+                // After that you need to used r
+                redirect('user-commerical-evalutor-home');
+
+            }else{
+                $this->session->set_flashdata('error_message', 'Something went wrong');
+                // After that you need to used redirect function instead of load view such as                 
+                redirect('user-commerical-evalutor-home');    
+            }
+            // Array ( [user_id_slno] => EBq6D9dEDSNHWJwsfBpyxu~Tv.jXe0EAizvq1LuUHVwc58gP.wknHjWDLrJllQ8ndtLCoeV6HFl.dn9hqLQ8xg-- [token_id] => 6 [password] => abcd!2345aA ) 
+            # code...
+        }
+        public function comm_change_password_save($value=''){
+           $email_id=$this->session->userdata('commerical_email_id');
+            if(empty($email_id)){
+                
+                redirect('comm-evalutor-logout-by-pass');
+            }
+            $c_password=$this->input->post('c_password');
+            $new_password=$this->input->post('new_password');
+            $data_check=array('email_id'=>$email_id,'password_hash'=>md5($c_password),'Status'=>1);
+            $query_check=$this->db->get_where('master_admin',$data_check);
+            if($query_check->num_rows()==1){
+                $data_id_update=array('email_id'=>$email_id);
+                $data_update_information=array('password_hash'=>md5($new_password),'Password'=>$new_password);
+                $query_check=$this->db->update('master_admin',$data_update_information,$data_id_update);
+
+                $this->session->set_flashdata('success_message',' password changed successfull');
+                // After that you need to used redirect home
+                redirect('user-commerical-evalutor-home');
+            }else{
+                $this->session->set_flashdata('error_message',' Something went wrong');
+                // After that you need to used redirect home
+                redirect('user-commerical-evalutor-home');
+
+            }
+            # code...
+        }
+
+
+
+
 
    public function comm_view_project_old_remark(){
     $scripts='<script type="text/javascript" src="'.base_url().'file_css_admin/DataTables/datatables.min.js"></script><script src="'.base_url().'file_css_admin/own_js.js"></script>';

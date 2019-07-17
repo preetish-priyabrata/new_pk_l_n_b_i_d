@@ -4,9 +4,7 @@ if(empty($email_id)){
 	
 	redirect('buy-logout-by-pass');
 }
-// }
-// // Pr_no'=>$pr_no,'technical_bid_ref'=>$technical_bid_ref,'technical_bid_id'=>$technical_bid_id,'technical_edit_id'=>$technical_edit_id,'bid_id'=>$tech_bid);
-// }
+
 
 $Pr_no=$Pr_no;
 $technical_bid_ref=$technical_bid_ref;
